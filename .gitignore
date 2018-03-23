@@ -1,0 +1,13 @@
+# os garbage
+.DS_Store
+logs
+data
+
+# vim
+*.swp
+
+# python stuff
+__pycache__/
+
+# audobe audition
+*.xmp
