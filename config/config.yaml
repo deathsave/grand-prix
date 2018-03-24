@@ -1,1 +1,49 @@
 #config_version=5
+hardware:
+  platform: opp
+  driverboards: gen2
+
+opp:
+  debug: true
+  ports: /dev/tty.usbmodem1421
+
+switches:
+  # Each OPP board can have up to 4 wings
+  # positioned counter-clockwise from top-right
+  #    -- 000000 || 00 [(1) 0-15 <= 0-8  ][(0) 0-7  <= 0-0  ][IO]
+  # USB          ||
+  #    -- 000000 || 0 [(2) 0-16 => 0-23 ][(3) 0-24 => 0-31 ]00000
+  s_wing_3_1:
+    # first OPP board (index 0), third wing (index 2), first switch
+    number: 0-16
+  s_wing_3_2:
+    # first OPP board, third wing, second switch
+    number: 0-17
+  s_wing_3_3:
+    number: 0-18
+  s_wing_3_4:
+    number: 0-19
+  s_wing_3_5:
+    number: 0-20
+  s_wing_3_6:
+    number: 0-21
+  s_wing_3_7:
+    number: 0-22
+  s_wing_3_8:
+    number: 0-23
+  s_wing_4_1:
+    number: 0-24
+  s_wing_4_2:
+    number: 0-25
+  s_wing_4_3:
+    number: 0-26
+  s_wing_4_4:
+    number: 0-27
+  s_wing_4_5:
+    number: 0-28
+  s_wing_4_6:
+    number: 0-29
+  s_wing_4_7:
+    number: 0-30
+  s_wing_4_8:
+    number: 0-31
