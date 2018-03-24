@@ -13,24 +13,24 @@ OPP boards can each have up to 4 wings attached as shown:
 
 ### Board Configs for Playfield
 
-* **North Playfield (a):** 1 Switch, 3 Incandescent
+* **North Playfield (a):** [0, 1, 2] Incandescent, [3] Switch 
   * 24 lamps: 20 spinner state, 2 spinner lit, 2 lane select
   * 4 switches: l/r lane selects, l/r spinners
-* **North Playfield (b):** 1 Switch, 2 Solenoid, 1 Incandescent
+* **North Playfield (b):** [0, 1] Solenoid, [2] Incandescent, [3] Switch
   * 7 coils: Pop (direct fire), 2 Drops, (Top Hole on 1)
   * 7 swtiches: 1:1 with coils
   * 0 lamps: none (room to wire pop lamps or else???)
-* **Central Playfield:** 2 Incandescent, 1 Solenoid, 1 Switch
+* **Central Playfield:** [0] Solenoid, [1] Switch, [2, 3] Incandescent
   * 2 coils: Left Kicker, Left Slingshot (direct fire)
   * 14 lamps: 10 Left Bonus, 4 Stars
   * 5 swtiches: left kicker, advance, lanes (2), and sling
-* **South Playfield (a):** 2 Switch, 1 Solenoid, 1 Incandescent
+* **South Playfield (a):** [0] Solenoid, [1] Incandescent, [2, 3] Switch
   * 2 coils: Left Flipper (direct fire?), trough
   * 5 switches: start button, tilt, left flips (eos+hold), trough
   * 8 lamps:
     * lane arrow lights (4), same player shoots again,
     * left special, left extra ball, credit in (apron)?
-* **South Playfield (b):** 1 Switch, 1 Solenoid, 2 Incandescent
+* **South Playfield (b):** [0] Solenoid, [1] Switch, [2, 3] Incandescent
   * 3 coils: Right Kicker, Right Slingshot (direct fire), Right Flipper
   * 7 swtiches: right kicker, advance, lanes (2), sling, and flips (eos+hold)
   * 12 lamps: 10 Right Bonus, right extra ball, right special
@@ -40,7 +40,7 @@ OPP boards can each have up to 4 wings attached as shown:
 We might be able to do communicate some/all of the gamestate stuff with the
 7-segments, but it seems correct we'd only have lamps/coils in the backbox.
 
-* **Backbox:** 3 Incandescents, 1 Solenoid
+* **Backbox:** [0, 1, 2] Incandescent, [3] Solenoid
   * `n` lamps:
     * player up (4), game over (1/2), current ball (3/5),
     * match lights (10), extra ball lights (1/2)
