@@ -75,7 +75,7 @@ switches:
     number:
   s_central_advance_left_bonus:
     number:
-  s_central_north_advance_right_bonus:
+  s_central_advance_right_bonus:
     number:
   s_outlane_left:
     number:
