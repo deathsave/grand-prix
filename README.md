@@ -3,6 +3,8 @@ William’s Grand Prix
 
 Code for solid-state conversion / re-theme of the 1976 [EM Pinball Machine](http://www.ipdb.org/machine.cgi?id=1072) by William’s.
 
+![Sanded Playfield](https://github.com/pinballplaid/grand-prix/raw/master/monitor/playfield.jpg)
+
 
 Proposed OPP Build
 ------------------
