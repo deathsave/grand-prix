@@ -1,0 +1,25 @@
+#show_version=5
+- duration: 0.25
+  lights:
+    l_test_light24:
+      color: 00
+- duration: '+1.0'
+  lights:
+    l_test_light24:
+      color: ff
+- duration: '+0.5'
+  lights:
+    l_test_light24:
+      color: 00
+- duration: '+0.5'
+  lights:
+    l_test_light24:
+      color: ff
+- duration: '+0.25'
+  lights:
+    l_test_light24:
+      color: 00
+- duration: '+0.25'
+  lights:
+    l_test_light24:
+      color: ff

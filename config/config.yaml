@@ -2,12 +2,27 @@
 hardware:
   platform: opp
   driverboards: gen2
+  lights: opp
 
 opp:
   debug: true
-  ports: /dev/tty.usbmodem1421
+  baud: 115200
+  ports: /dev/cu.usbmodem1421
 
-switches:
+lights:
+  l_test_light24:
+    # this is misleading, but required
+    subtype: matrix
+    number: 1-23
+
+show_player:
+  mode_attract_started:
+    first_show:
+      action: play
+      loops: -1
+      speed: 2
+
+#switches:
   # Each OPP board can have up to 4 wings
   # positioned counter-clockwise from top-right
   #    -- 000000 || 00 [(1) 0-15 <= 0-8  ][(0) 0-7  <= 0-0  ][IO]
@@ -47,55 +62,55 @@ switches:
   #  number: 0-30
   #s_wing_4_8:
   #  number: 0-31
-  s_north_advance_left_bonus:
-    number:
-  s_north_hole:
-    number:
-  s_north_advance_right_bonus:
-    number:
-  s_drop_a:
-    number:
-  s_drop_b:
-    number:
-  s_left_pop:
-    number:
-  s_right_pop:
-    number:
-  s_left_spinner:
-    number:
-  s_right_spinner:
-    number:
-  s_left_hole:
-    number:
-  s_right_hole:
-    number:
-  s_drop_c:
-    number:
-  s_drop_d:
-    number:
-  s_central_advance_left_bonus:
-    number:
-  s_central_advance_right_bonus:
-    number:
-  s_outlane_left:
-    number:
-  s_outlane_right:
-    number:
-  s_inlane_left:
-    number:
-  s_inlane_right:
-    number:
-  s_slingshot_left:
-    number:
-  s_slingshot_right:
-    number:
-  s_flipper_left:
-    number:
-  s_flipper_right:
-    number:
-  s_start:
-    number:
-  s_tilt:
-    number:
-  s_trough:
-    number:
+  #s_north_advance_left_bonus:
+  #  number:
+  #s_north_hole:
+  #  number:
+  #s_north_advance_right_bonus:
+  #  number:
+  #s_drop_a:
+  #  number:
+  #s_drop_b:
+  #  number:
+  #s_left_pop:
+  #  number:
+  #s_right_pop:
+  #  number:
+  #s_left_spinner:
+  #  number:
+  #s_right_spinner:
+  #  number:
+  #s_left_hole:
+  #  number:
+  #s_right_hole:
+  #  number:
+  #s_drop_c:
+  #  number:
+  #s_drop_d:
+  #  number:
+  #s_central_advance_left_bonus:
+  #  number:
+  #s_central_advance_right_bonus:
+  #  number:
+  #s_outlane_left:
+  #  number:
+  #s_outlane_right:
+  #  number:
+  #s_inlane_left:
+  #  number:
+  #s_inlane_right:
+  #  number:
+  #s_slingshot_left:
+  #  number:
+  #s_slingshot_right:
+  #  number:
+  #s_flipper_left:
+  #  number:
+  #s_flipper_right:
+  #  number:
+  #s_start:
+  #  number:
+  #s_tilt:
+  #  number:
+  #s_trough:
+  #  number:
