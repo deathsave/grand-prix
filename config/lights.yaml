@@ -72,3 +72,76 @@ lights:
   l_backbox_ball3:
     subtype: matrix
     number: 0-23
+  # Board index 2 - Central Left
+  l_spinner_lit1:
+    subtype: matrix
+    number: 2-0
+  l_spinner_lane1_01:
+    subtype: matrix
+    number: 2-1
+  l_spinner_lane1_02:
+    subtype: matrix
+    number: 2-2
+  l_spinner_lane1_03:
+    subtype: matrix
+    number: 2-3
+  l_spinner_lane1_04:
+    subtype: matrix
+    number: 2-4
+  l_spinner_lane1_05:
+    subtype: matrix
+    number: 2-5
+  l_spinner_lane1_06:
+    subtype: matrix
+    number: 2-6
+  l_spinner_lane1_07:
+    subtype: matrix
+    number: 2-7
+  l_spinner_lane1_08:
+    subtype: matrix
+    number: 2-8
+  l_spinner_lane1_09:
+    subtype: matrix
+    number: 2-9
+  l_spinner_lane1_10:
+    subtype: matrix
+    number: 2-10
+  l_north_advance1:
+    subtype: matrix
+    number: 2-11
+  l_north_advance2:
+    subtype: matrix
+    number: 2-12
+  l_spinner_lane2_10:
+    subtype: matrix
+    number: 2-13
+  l_spinner_lane2_09:
+    subtype: matrix
+    number: 2-14
+  l_spinner_lane2_08:
+    subtype: matrix
+    number: 2-15
+  l_spinner_lane2_07:
+    subtype: matrix
+    number: 2-16
+  l_spinner_lane2_06:
+    subtype: matrix
+    number: 2-17
+  l_spinner_lane2_05:
+    subtype: matrix
+    number: 2-18
+  l_spinner_lane2_04:
+    subtype: matrix
+    number: 2-19
+  l_spinner_lane2_03:
+    subtype: matrix
+    number: 2-20
+  l_spinner_lane2_02:
+    subtype: matrix
+    number: 2-21
+  l_spinner_lane2_01:
+    subtype: matrix
+    number: 2-22
+  l_spinner_lit2:
+    subtype: matrix
+    number: 2-23
