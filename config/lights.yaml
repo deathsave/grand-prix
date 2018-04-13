@@ -1,0 +1,74 @@
+#config_version=5
+lights:
+  l_backbox_match_00:
+    subtype: matrix
+    number: 0-0
+  l_backbox_match_10:
+    subtype: matrix
+    number: 0-1
+  l_backbox_match_20:
+    subtype: matrix
+    number: 0-2
+  l_backbox_match_30:
+    subtype: matrix
+    number: 0-3
+  l_backbox_match_40:
+    subtype: matrix
+    number: 0-4
+  l_backbox_match_50:
+    subtype: matrix
+    number: 0-5
+  l_backbox_match_60:
+    subtype: matrix
+    number: 0-6
+  l_backbox_match_70:
+    subtype: matrix
+    number: 0-7
+  l_backbox_match_80:
+    subtype: matrix
+    number: 0-8
+  l_backbox_match_90:
+    subtype: matrix
+    number: 0-9
+  l_backbox_player_up1:
+    subtype: matrix
+    number: 0-10
+  l_backbox_player_up2:
+    subtype: matrix
+    number: 0-11
+  l_backbox_player_up3:
+    subtype: matrix
+    number: 0-12
+  l_backbox_player_up4:
+    subtype: matrix
+    number: 0-13
+  l_backbox_players_in1:
+    subtype: matrix
+    number: 0-14
+  l_backbox_players_in2:
+    subtype: matrix
+    number: 0-15
+  l_backbox_players_in3:
+    subtype: matrix
+    number: 0-16
+  l_backbox_players_in4:
+    subtype: matrix
+    number: 0-17
+  l_backbox_game_over:
+    subtype: matrix
+    number: 0-18
+  l_backbox_tilt:
+    subtype: matrix
+    number: 0-19
+  l_backbox_shoot_again:
+    subtype: matrix
+    number: 0-20
+  l_backbox_ball1:
+    subtype: matrix
+    number: 0-21
+  l_backbox_ball2:
+    subtype: matrix
+    number: 0-22
+  l_backbox_ball3:
+    subtype: matrix
+    number: 0-23

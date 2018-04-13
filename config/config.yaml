@@ -9,18 +9,15 @@ opp:
   baud: 115200
   ports: /dev/cu.usbmodem1421
 
-lights:
-  l_test_light24:
-    # this is misleading, but required
-    subtype: matrix
-    number: 1-23
+config:
+  - lights.yaml
 
-show_player:
-  mode_attract_started:
-    first_show:
-      action: play
-      loops: -1
-      speed: 2
+#show_player:
+#  mode_attract_started:
+#    first_show:
+#      action: play
+#      loops: -1
+#      speed: 2
 
 #switches:
   # Each OPP board can have up to 4 wings
