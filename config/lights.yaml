@@ -1,5 +1,6 @@
 #config_version=5
 lights:
+  # Board index 0 - Backbox
   l_backbox_match_00:
     subtype: matrix
     number: 0-0
@@ -72,7 +73,7 @@ lights:
   l_backbox_ball3:
     subtype: matrix
     number: 0-23
-  # Board index 2 - Central Left
+  # Board index 2 - Central Left Playfield
   l_spinner_lit1:
     subtype: matrix
     number: 2-0
@@ -145,3 +146,108 @@ lights:
   l_spinner_lit2:
     subtype: matrix
     number: 2-23
+  # Board index 3 - Central Playfield
+  l_star4:
+    subtype: matrix
+    number: 3-0
+  l_star3:
+    subtype: matrix
+    number: 3-1
+  l_star2:
+    subtype: matrix
+    number: 3-2
+  l_star1:
+    subtype: matrix
+    number: 3-3
+  l_bonus_lane1_01:
+    subtype: matrix
+    number: 3-4
+  l_bonus_lane1_02:
+    subtype: matrix
+    number: 3-5
+  l_bonus_lane1_03:
+    subtype: matrix
+    number: 3-6
+  l_bonus_lane1_04:
+    subtype: matrix
+    number: 3-7
+  l_bonus_lane1_05:
+    subtype: matrix
+    number: 3-8
+  l_bonus_lane1_06:
+    subtype: matrix
+    number: 3-9
+  l_bonus_lane1_07:
+    subtype: matrix
+    number: 3-10
+  l_bonus_lane1_08:
+    subtype: matrix
+    number: 3-11
+  l_bonus_lane1_09:
+    subtype: matrix
+    number: 3-12
+  l_bonus_lane1_10:
+    subtype: matrix
+    number: 3-13
+  # Board index 4 - South Left Playfield
+  l_apron:
+    subtype: matrix
+    number: 4-8
+  l_bottom_outlane1:
+    subtype: matrix
+    number: 4-9
+  l_shoot_again:
+    subtype: matrix
+    number: 4-10
+  l_arrow1a:
+    subtype: matrix
+    number: 4-11
+  l_arrow1b:
+    subtype: matrix
+    number: 4-12
+  l_top_outlane1:
+    subtype: matrix
+    number: 4-13
+  # Board index 5 - South Right Playfield
+  l_bottom_outlane2:
+    subtype: matrix
+    number: 5-0
+  l_arrow2a:
+    subtype: matrix
+    number: 5-1
+  l_arrow2b:
+    subtype: matrix
+    number: 5-2
+  l_top_outlane2:
+    subtype: matrix
+    number: 5-3
+  l_bonus_lane2_01:
+    subtype: matrix
+    number: 5-4
+  l_bonus_lane2_02:
+    subtype: matrix
+    number: 5-5
+  l_bonus_lane2_03:
+    subtype: matrix
+    number: 5-6
+  l_bonus_lane2_04:
+    subtype: matrix
+    number: 5-7
+  l_bonus_lane2_05:
+    subtype: matrix
+    number: 5-8
+  l_bonus_lane2_06:
+    subtype: matrix
+    number: 5-9
+  l_bonus_lane2_07:
+    subtype: matrix
+    number: 5-10
+  l_bonus_lane2_08:
+    subtype: matrix
+    number: 5-11
+  l_bonus_lane2_09:
+    subtype: matrix
+    number: 5-12
+  l_bonus_lane2_10:
+    subtype: matrix
+    number: 5-13
