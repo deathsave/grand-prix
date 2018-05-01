@@ -1,5 +1,5 @@
-RULES
-=====
+Grand Prix ’86 RULES
+====================
 
 Modes
 -----
@@ -14,10 +14,10 @@ TODO: Define base-scoring...
 ### Green-flag
 
 The race is underway. This is the primary left-flipper shot. The left gate is
-held open allowing a counter-clockwise orbit.
+held open allowing a counter-clockwise orbit. Bottom-most 3 inserts on
+South-East chain keep track of successful orbits.
 
 * Mode activated when one of the 2 pairs of drop targets go down.
-* Bottom-most 3 inserts on South-West chain keep track of successful orbits.
 * 3 orbits activates Pit Row.
 
 TODO: Define scoring bonuses during...
@@ -32,7 +32,7 @@ TODO: Define scoring bonuses during...
 
 ### Flat-tire
 
-Top-most 4 inserts in South-West chain... spells out F-L-A-T. Entering left
+Top-most 4 inserts in South-East chain... spells out F-L-A-T. Entering left
 "pot hole" 4 times causes a flat tire. No modes are advanced and scoring is
 back to "base scoring" until player successfully makes it to Pit Row.
 
@@ -94,6 +94,6 @@ The Wizard Mode (if we get to it). Player must complete *4 major obectives*
 indicated by the 4 lights in the center of the playfield:
 
 * Knock down both pairs of drop-targets
-* Collect *3 Commplete* BOOST Bonuses (end of ball OR during play)
+* Collect *3 Complete* BOOST Bonuses (end of ball OR during play)
 * Begin Winner's Circle Multiball
 * Begin Split-time Multiball
