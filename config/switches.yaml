@@ -1,0 +1,123 @@
+#config_version=5
+switches:
+  # Each OPP board can have up to 4 wings
+  # positioned counter-clockwise from top-right
+  #    -- 000000 || 00 [(1) 0-15 <= 0-8  ][(0) 0-7  <= 0-0  ][IO]
+  # USB          ||
+  #    -- 000000 || 0 [(2) 0-16 => 0-23 ][(3) 0-24 => 0-31 ]00000
+
+  ##############
+  ## Board 00 ##
+  ##############
+
+  # No switches
+
+  ##############
+  ## Board 01 ##
+  ##############
+  s_tilt:
+    number: 1-24
+  s_coindoor:
+    number: 1-25
+  s_service_menu:
+    number: 1-26
+  s_service_down:
+    number: 1-27
+  s_service_up:
+    number: 1-28
+  s_service_mode:
+    number: 1-29
+  # may not need the pop switches?
+  s_pop1:
+    number: 1-30
+  s_pop2:
+    number: 1-31
+
+  ###############
+  ### Board 02 ##
+  ###############
+  s_spinner1:
+    number: 2-24
+  s_north_drop1:
+    number: 2-25
+  s_north_rollover:
+    number: 2-26
+  s_north_advance1:
+    number: 2-27
+  s_north_hole:
+    number: 2-28
+  s_north_advance2:
+    number: 2-29
+  s_north_drop2:
+    number: 2-30
+  # UNUSED 2-31
+
+  ###############
+  ### Board 05 ##
+  ###############
+  s_flipper2_eos:
+    number: 5-24
+
+  # for testing
+  # s_0_00:
+  #   number: 4-00
+  # s_0_01:
+  #   number: 4-01
+  # s_0_02:
+  #   number: 4-02
+  # s_0_03:
+  #   number: 4-04
+  # s_0_05:
+  #   number: 4-05
+  # s_0_06:
+  #   number: 4-06
+  # s_0_07:
+  #   number: 4-07
+  # s_0_08:
+  #   number: 4-08
+  # s_0_09:
+  #   number: 4-09
+  # s_0_10:
+  #   number: 4-10
+  # s_0_11:
+  #   number: 4-11
+  # s_0_12:
+  #   number: 4-12
+  # s_0_13:
+  #   number: 4-13
+  # s_0_14:
+  #   number: 4-14
+  # s_0_15:
+  #   number: 4-15
+  # s_0_16:
+  #   number: 4-16
+  # s_0_17:
+  #   number: 4-17
+  # s_0_18:
+  #   number: 4-18
+  # s_0_19:
+  #   number: 4-19
+  # s_0_20:
+  #   number: 4-20
+  # s_0_21:
+  #   number: 4-21
+  # s_0_22:
+  #   number: 4-22
+  # s_0_23:
+  #   number: 4-23
+  # s_0_24:
+  #   number: 4-24
+  # s_0_25:
+  #   number: 4-25
+  # s_0_26:
+  #   number: 4-26
+  # s_0_27:
+  #   number: 4-27
+  # s_0_28:
+  #   number: 4-28
+  # s_0_29:
+  #   number: 4-29
+  # s_0_30:
+  #   number: 4-30
+  # s_0_31:
+  #   number: 4-31
