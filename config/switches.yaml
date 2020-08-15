@@ -12,112 +12,108 @@ switches:
 
   # No switches
 
-  ##############
-  ## Board 01 ##
-  ##############
-  s_tilt:
-    number: 1-24
-  s_coindoor:
-    number: 1-25
-  s_service_menu:
-    number: 1-26
-  s_service_down:
-    number: 1-27
-  s_service_up:
-    number: 1-28
-  s_service_mode:
-    number: 1-29
-  # may not need the pop switches?
-  s_pop1:
-    number: 1-30
-  s_pop2:
-    number: 1-31
-
   ###############
-  ### Board 02 ##
+  ### Board 01 ##
   ###############
   s_spinner1:
-    number: 2-24
+    number: 1-24
   s_north_drop1:
-    number: 2-25
+    number: 1-25
   s_north_rollover:
-    number: 2-26
+    number: 1-26
   s_north_advance1:
-    number: 2-27
+    number: 1-27
   s_north_hole:
-    number: 2-28
+    number: 1-28
   s_north_advance2:
-    number: 2-29
+    number: 1-29
   s_north_drop2:
-    number: 2-30
+    number: 1-30
   # UNUSED 2-31
+
+  ##############
+  ## Board 02 ##
+  ##############
+  s_tilt:
+    number: 2-24
+  s_coindoor:
+    number: 2-25
+  s_service_menu:
+    number: 2-26
+  s_service_down:
+    number: 2-27
+  s_service_up:
+    number: 2-28
+  s_service_mode:
+    number: 2-29
+  # do we need the pop switches?
+  s_pop1:
+    number: 2-30
+  s_pop2:
+    number: 2-31
+
+  ##############
+  ## Board 03 ##
+  ##############
+  s_central_advance1:
+    number: 3-24
+  s_central_hole1:
+    number: 3-25
+  s_central_drop1:
+    number: 3-26
+  s_central_drop2:
+    number: 3-27
+  s_spinner2:
+    number: 3-28
+  s_central_hole2:
+    number: 3-29
+  s_central_advance2:
+    number: 3-30
+  # UNUSED 3-31
+
+  ##############
+  ## Board 04 ##
+  ##############
+  s_flipper_eos1:
+    number: 4-16
+  s_slingshot1:
+    number: 4-17
+  s_inlane1:
+    number: 4-18
+  s_outlane1:
+    number: 4-19
+  s_flipper1:
+    number: 4-20
+  # UNUSED 4-21
+  # UNUSED 4-22
+  # UNUSED 4-23
+  s_trough1:
+    number: 4-24
+  s_trough2:
+    number: 4-25
+  s_trough3:
+    number: 4-26
+  s_trough_jam:
+    number: 4-27
+  # UNUSED 4-28
+  # UNUSED 4-29
+  # UNUSED 4-30
+  # UNUSED 4-31
 
   ###############
   ### Board 05 ##
   ###############
-  s_flipper2_eos:
+  s_flipper_eos2:
     number: 5-24
-
-  # for testing
-  # s_0_00:
-  #   number: 4-00
-  # s_0_01:
-  #   number: 4-01
-  # s_0_02:
-  #   number: 4-02
-  # s_0_03:
-  #   number: 4-04
-  # s_0_05:
-  #   number: 4-05
-  # s_0_06:
-  #   number: 4-06
-  # s_0_07:
-  #   number: 4-07
-  # s_0_08:
-  #   number: 4-08
-  # s_0_09:
-  #   number: 4-09
-  # s_0_10:
-  #   number: 4-10
-  # s_0_11:
-  #   number: 4-11
-  # s_0_12:
-  #   number: 4-12
-  # s_0_13:
-  #   number: 4-13
-  # s_0_14:
-  #   number: 4-14
-  # s_0_15:
-  #   number: 4-15
-  # s_0_16:
-  #   number: 4-16
-  # s_0_17:
-  #   number: 4-17
-  # s_0_18:
-  #   number: 4-18
-  # s_0_19:
-  #   number: 4-19
-  # s_0_20:
-  #   number: 4-20
-  # s_0_21:
-  #   number: 4-21
-  # s_0_22:
-  #   number: 4-22
-  # s_0_23:
-  #   number: 4-23
-  # s_0_24:
-  #   number: 4-24
-  # s_0_25:
-  #   number: 4-25
-  # s_0_26:
-  #   number: 4-26
-  # s_0_27:
-  #   number: 4-27
-  # s_0_28:
-  #   number: 4-28
-  # s_0_29:
-  #   number: 4-29
-  # s_0_30:
-  #   number: 4-30
-  # s_0_31:
-  #   number: 4-31
+  s_slingshot2:
+    number: 5-25
+  s_inlane2:
+    number: 5-26
+  s_outlane2:
+    number: 5-27
+  s_shooter_lane:
+    number: 5-28
+  s_flipper2:
+    number: 5-29
+  # UNUSED 5-30
+  # UNUSED 5-31
