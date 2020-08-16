@@ -11,3 +11,4 @@ opp:
 
 config:
 - switches.yaml
+- lights.yaml
