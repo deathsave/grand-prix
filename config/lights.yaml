@@ -31,13 +31,13 @@ info_lights:
   # supposed to use score reel settings
   # ... might be better to do something custom
   player_1:
-    light: l_backbox_player_in1
+    light: l_backbox_players_in1
   player_2:
-    light: l_backbox_player_in2
+    light: l_backbox_players_in2
   player_3:
-    light: l_backbox_player_in3
+    light: l_backbox_players_in3
   player_4:
-    light: l_backbox_player_in4
+    light: l_backbox_players_in4
   tilt:
     light: l_backbox_tilt
   game_over:
