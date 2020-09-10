@@ -12,3 +12,10 @@ opp:
 config:
 - switches.yaml
 - lights.yaml
+
+show_player:
+  mode_attract_started:
+    first_show:
+      action: play
+      loops: -1
+      speed: 2
