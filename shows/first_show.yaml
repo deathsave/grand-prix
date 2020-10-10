@@ -1,5 +1,5 @@
 #show_version=5
-- duration: 0.25
+- duration: 0.75
   lights:
     l_backbox_match_00:
       color: 00
@@ -15,11 +15,11 @@
   lights:
     l_backbox_match_00:
       color: ff
-- duration: '+0.25'
+- duration: '+0.75'
   lights:
     l_backbox_match_00:
       color: 00
-- duration: '+0.25'
+- duration: '+0.75'
   lights:
     l_backbox_match_00:
       color: ff

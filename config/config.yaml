@@ -7,7 +7,7 @@ hardware:
 opp:
   debug: true
   baud: 115200
-  ports: /dev/cu.usbmodem14101
+  ports: /dev/ttyACM0
 
 config:
 - switches.yaml
