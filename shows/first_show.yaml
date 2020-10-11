@@ -3,23 +3,15 @@
   lights:
     l_backbox_match_00:
       color: 00
+    l_backbox_match_01:
+      color: ff
+    rgb_448:
+      color: ff0000
 - duration: '+1.0'
   lights:
     l_backbox_match_00:
       color: ff
-- duration: '+0.5'
-  lights:
-    l_backbox_match_00:
+    l_backbox_match_01:
       color: 00
-- duration: '+0.5'
-  lights:
-    l_backbox_match_00:
-      color: ff
-- duration: '+0.75'
-  lights:
-    l_backbox_match_00:
-      color: 00
-- duration: '+0.75'
-  lights:
-    l_backbox_match_00:
-      color: ff
+    rgb_448:
+      color: 00ff00
