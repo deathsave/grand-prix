@@ -1,0 +1,6 @@
+#config_version=5
+
+# complains about doing this outside of "GAME" modes
+#variable_player:
+#  s_flipper_eos_2:
+#    score: 123

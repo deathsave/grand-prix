@@ -26,13 +26,13 @@ segment_display_player:
   # empty all displays
   mode_attract_started:
     display1:
-      text: "0"
+      text: "1111111"
     display2:
-      text: "0"
+      text: "2222222"
     display3:
-      text: "0"
+      text: "3333333"
     display4:
-      text: "0"
+      text: "4444444"
 
 #fadecandy:
 
