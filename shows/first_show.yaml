@@ -5,13 +5,13 @@
       color: 00
     l_backbox_match_10:
       color: ff
-    rgb_448:
-      color: ff0000
+    #rgb_448:
+    #  color: ff0000
 - duration: '+1.0'
   lights:
     l_backbox_match_00:
       color: ff
     l_backbox_match_10:
       color: 00
-    rgb_448:
-      color: 00ff00
+    #rgb_448:
+    #  color: 00ff00

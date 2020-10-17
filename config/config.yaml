@@ -5,29 +5,44 @@ hardware:
   # single value, so we need to overide
   # platform to opp for all opp lights
   #lights: fadecandy
-  # segment_displays: mypinballs
+  segment_displays: mypinballs
 
-  #mypinballs:
-  #  port: /dev/ttyAMA0
-  #
-  #segment_displays:
-  #  display1:
-  #    number: 1
-  #  display2:
-  #    number: 2
-  #  display3:
-  #    number: 3
-  #  display4:
-  #    number: 4
-  #
-  #fadecandy:
+mypinballs:
+  debug: true
+  #port: /dev/ttyAMA0
+  port: /dev/ttyACM1
+
+segment_displays:
+  display1:
+    number: 1
+  display2:
+    number: 2
+  display3:
+    number: 3
+  display4:
+    number: 4
+
+segment_display_player:
+  # empty all displays
+  mode_attract_started:
+    display1:
+      text: "0"
+    display2:
+      text: "0"
+    display3:
+      text: "0"
+    display4:
+      text: "0"
+
+#fadecandy:
 
 opp:
   debug: true
   baud: 115200
-  ports: /dev/ttyACM1
+  ports: /dev/ttyACM0
 
 sound_system:
+  debug: true
   buffer: 1024
   channels: 1
   enabled: True

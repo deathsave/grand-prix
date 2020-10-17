@@ -331,5 +331,5 @@ lights:
 #    number: 5-21
 #  # OPEN 5-22
 #  # OPEN 5-23
-  rgb_448:
-    number: 7-0
+#  rgb_448:
+#    number: 7-0
