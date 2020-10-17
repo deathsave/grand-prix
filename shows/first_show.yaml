@@ -3,7 +3,7 @@
   lights:
     l_backbox_match_00:
       color: 00
-    l_backbox_match_01:
+    l_backbox_match_10:
       color: ff
     rgb_448:
       color: ff0000
@@ -11,7 +11,7 @@
   lights:
     l_backbox_match_00:
       color: ff
-    l_backbox_match_01:
+    l_backbox_match_10:
       color: 00
     rgb_448:
       color: 00ff00
