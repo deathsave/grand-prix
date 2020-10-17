@@ -13,6 +13,27 @@ opp:
   baud: 115200
   ports: /dev/ttyACM0
 
+sound_system:
+  buffer: 1024
+  channels: 1
+  enabled: True
+  frequency: 44100
+  master_volume: 0.75
+  tracks:
+    music:
+      type: standard
+      simultaneous_sounds: 1
+      volume: 0.6
+
+sound_player:
+  mode_attract_started:
+    rad_racer:
+      action: play
+      loops: -1
+  mode_attract_stopped:
+    rad_racer:
+      action: stop
+
 config:
 - switches.yaml
 - lights.yaml
