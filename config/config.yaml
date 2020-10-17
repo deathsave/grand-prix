@@ -5,6 +5,20 @@ hardware:
   # single value, so we need to overide
   # platform to opp for all opp lights
   lights: fadecandy
+  segment_displays: mypinballs
+
+mypinballs:
+  port: /dev/ttyAMA0
+
+segment_displays:
+  display1:
+    number: 1
+  display2:
+    number: 2
+  display3:
+    number: 3
+  display4:
+    number: 4
 
 fadecandy:
 
