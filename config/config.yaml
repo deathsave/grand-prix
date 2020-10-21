@@ -63,6 +63,30 @@ sound_player:
     rad_racer:
       action: stop
 
+displays:
+  apron:
+    width: 720
+    height: 480
+    default: true
+
+window:
+  title: Pinball Plaid Grand Prix ’86
+  width: 720
+  height: 480
+  source_display: apron
+  maxfps: 30
+  show_cursor: false
+  #fullscreen: true
+
+slides:
+  splash_slide:
+    widgets:
+      - type: image
+        image: splash
+
+slide_player:
+  init_done: splash_slide
+
 config:
 - switches.yaml
 - lights.yaml
