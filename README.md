@@ -17,3 +17,15 @@ OPP boards can each have up to 4 wings attached as shown:
 
 For latest, see [Google Sheet](https://docs.google.com/spreadsheets/d/1fP1gkxzNxdvTTTq80cS0wRv1wayha4IzK5jE9S3geUE/edit?usp=sharing).
 
+
+How to Run
+----------
+
+### Development
+
+- `mpf both -VXt` - smart virtual, traditional logging, no console GUI
+- `mpf both -X` - just smart virtual
+
+### Production
+
+- `DISPLAY=:0 mpf both -Pt` - ENV is necessary for running via `ssh` session
