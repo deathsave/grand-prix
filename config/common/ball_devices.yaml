@@ -1,0 +1,14 @@
+#config_version=6
+
+ball_devices:
+  bd_trough:
+    tags: trough, home, drain
+    jam_switch: s_trough_jam
+    # no trough yet, just a placeholder
+    mechanical_eject: True
+    ball_capacity: 1
+
+  bd_shooter_lane:
+    ball_switches: s_shooter_lane
+    mechanical_eject: True
+    # eject_coil: c_plunger_lane

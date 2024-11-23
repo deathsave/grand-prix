@@ -1,0 +1,13 @@
+#config_version=6
+
+config:
+- common/modes.yaml
+- common/sound_system.yaml
+- common/slides.yaml
+- common/players.yaml
+- common/hardware.yaml
+- common/displays.yaml
+- common/switches.yaml
+- common/lights.yaml
+- common/ball_devices.yaml
+- common/playfields.yaml

@@ -1,4 +1,5 @@
-#config_version=5
+#config_version=6
+
 switches:
   # Each OPP board can have up to 4 wings
   # positioned counter-clockwise from top-right

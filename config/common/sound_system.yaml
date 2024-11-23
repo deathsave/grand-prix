@@ -1,0 +1,13 @@
+#config_version=6
+
+sound_system:
+  debug: true
+  buffer: 1024
+  channels: 1
+  enabled: True
+  frequency: 44100
+  tracks:
+    music:
+      type: standard
+      simultaneous_sounds: 1
+      volume: 0.8

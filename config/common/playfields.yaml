@@ -1,0 +1,5 @@
+#config_version=6
+
+playfields:
+  playfield:
+    default_source_device: bd_shooter_lane

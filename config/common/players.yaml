@@ -1,0 +1,25 @@
+#config_version=6
+
+segment_display_player:
+  # empty all displays
+  mode_attract_started:
+    display1:
+      text: "1111111"
+    display2:
+      text: "2222222"
+    display3:
+      text: "3333333"
+    display4:
+      text: "4444444"
+
+sound_player:
+  mode_attract_started:
+    rad_racer:
+      action: play
+      loops: -1
+  mode_attract_stopped:
+    rad_racer:
+      action: stop
+
+slide_player:
+  init_done: splash_slide

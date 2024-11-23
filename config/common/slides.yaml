@@ -1,0 +1,7 @@
+#config_version=6
+
+slides:
+  splash_slide:
+    widgets:
+      - type: image
+        image: splash

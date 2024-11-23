@@ -1,0 +1,17 @@
+#config_version=6
+
+displays:
+  apron:
+    width: 800
+    height: 480
+    default: true
+
+window:
+  title: Pinball Plaid Grand Prix ’86
+  # Per https://www.amazon.com/gp/product/B0CP3DH3LN
+  width: 800
+  height: 480
+  source_display: apron
+  maxfps: 30
+  show_cursor: false
+  #fullscreen: true

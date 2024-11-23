@@ -1,9 +1,8 @@
 """Tests the Base Mode"""
 
-from mpf.tests.MpfMachineTestCase import MpfMachineTestCase
+from mpfmc.tests.FullMpfMachineTestCase import FullMachineTestCase
 
-
-class TestBase(MpfMachineTestCase):
+class TestBase(FullMachineTestCase):
 
     """Tests start-up sequence"""
 

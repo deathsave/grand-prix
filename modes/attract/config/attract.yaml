@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 
 # complains about doing this outside of "GAME" modes
 #variable_player:
