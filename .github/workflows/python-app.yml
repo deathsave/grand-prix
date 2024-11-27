@@ -43,7 +43,6 @@ jobs:
         # Install MPF
         pip install mpf==0.57.0
         pip install mpf-mc==0.57.0
-        pip install mpf-monitor
     - name: Test
       run: |
         bin/test

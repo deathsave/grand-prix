@@ -1,6 +1,8 @@
 Grand Prix '86
 ==============
 
+[![Grand Prix '86 Pinball](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml/badge.svg)](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml)
+
 Grand Prix '86 is an attempt at a solid-state conversion / re-theme
 of the 1976 [EM Pinball
 Machine](http://www.ipdb.org/machine.cgi?id=1072) by Williams.
