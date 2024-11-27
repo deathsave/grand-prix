@@ -23,15 +23,11 @@ For latest, see
 ### Setup for MacOS
 
 1. Install Python 3.11+ with `pyenv`
-2. Clone `mpf`
-   `git clone https://github.com/missionpinball/mpf.git`
-2. Checkout the `0.57.x` branch
-   `git checkout 0.57.x`
-3. `cd` into the repo folder and install `mpf`.
-   `pip install -e .`
-4. Install `mpf-mc` deps with:
+2. Install mpf with `pip install mpf==0.57`
+3. Install `mpf-mc` deps with:
    `brew install SDL2 SDL2_mixer SDL2_image gstreamer`
-5. Install mpf-mc with `pip install mpf-mc`
+4. Install mpf-mc with `pip install mpf-mc==0.57`
+5. Install mpf-monitor with `pip install mpf-monitor==0.57`
 6. Install foreman with `gem install foreman` - this makes it
    possible to run all 3 processes in a single terminal window
    for local development.
@@ -42,5 +38,5 @@ For latest, see
   without the console GUI. It will also run `mpf monitor` so you can
   interact with it.
 - **Production** - `bin/run` will run for production using the real
-  hardward devices and the console GUI.
+  hardware devices and the console GUI.
 - **Test** - `bin/test` will run all tests from the `./tests` folder.

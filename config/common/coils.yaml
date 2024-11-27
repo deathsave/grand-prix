@@ -1,0 +1,7 @@
+#config_version=6
+
+coils:
+  c_trough_eject:
+    number: 0-2
+    default_pulse_ms: 40
+    default_hold_power: 0.1

@@ -5,8 +5,11 @@ ball_devices:
     tags: trough, home, drain
     jam_switch: s_trough_jam
     # no trough yet, just a placeholder
-    mechanical_eject: True
-    ball_capacity: 1
+    ball_switches:
+    - s_trough1
+    - s_trough2
+    eject_coil: c_trough_eject
+    eject_targets: bd_shooter_lane
 
   bd_shooter_lane:
     ball_switches: s_shooter_lane

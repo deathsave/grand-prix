@@ -85,7 +85,9 @@ switches:
     number: 4-19
   s_flipper1:
     number: 4-20
-  # UNUSED 4-21
+  s_start:
+    number: 4-21
+    tags: start
   # UNUSED 4-22
   # UNUSED 4-23
   s_trough1:

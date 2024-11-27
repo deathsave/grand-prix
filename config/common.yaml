@@ -1,13 +1,18 @@
 #config_version=6
 
 config:
-- common/modes.yaml
-- common/sound_system.yaml
-- common/slides.yaml
-- common/players.yaml
-- common/hardware.yaml
-- common/displays.yaml
-- common/switches.yaml
-- common/lights.yaml
 - common/ball_devices.yaml
+- common/coils.yaml
+- common/hardware.yaml
+- common/lights.yaml
+- common/modes.yaml
+- common/players.yaml
 - common/playfields.yaml
+- common/slides.yaml
+- common/switches.yaml
+
+bcp:
+  debug: true
+  servers:
+    url_style:
+      port: 8765
