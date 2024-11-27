@@ -33,7 +33,7 @@ jobs:
           libavformat-dev libavcodec-dev libjpeg-dev libtiff5-dev \
           libx11-dev libmtdev-dev build-essential libgl1-mesa-dev \
           libgles2-mesa-dev pulseaudio lsb-release \
-          libgl1-mesa-dri libavfilter-dev libavdevice-dev -y
+          libgl1-mesa-dri libavfilter-dev libavdevice-dev libunwind-dev -y
     - name: Install app dependencies
       run: |
         pip install --upgrade \
