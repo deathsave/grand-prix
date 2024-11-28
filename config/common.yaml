@@ -6,13 +6,8 @@ config:
 - common/hardware.yaml
 - common/lights.yaml
 - common/modes.yaml
+- common/sound_system.yaml
 - common/players.yaml
 - common/playfields.yaml
 - common/slides.yaml
 - common/switches.yaml
-
-bcp:
-  debug: true
-  servers:
-    url_style:
-      port: 8765
