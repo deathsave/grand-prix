@@ -7,75 +7,79 @@ switches:
   # USB          ||
   #    -- 000000 || 0 [(2) 0-16 => 0-23 ][(3) 0-24 => 0-31 ]00000
 
-  ##############
-  ## Board 00 ##
-  ##############
+  #################
+  # Board BACKBOX #
+  #################
 
-  # No switches
+  # NOTE: Only inserts and CPU-controlled coils here
 
-  ###############
-  ### Board 01 ##
-  ###############
-  s_spinner1:
+  ####################
+  # Board PLAYFIELD1 #
+  ####################
+  # NOTE: dropping left spinner entirely
+
+  s_pop1:
     number: 1-24
-  s_north_drop1:
+  s_pop2:
     number: 1-25
-  s_north_rollover:
+  # north_drop left
+  s_qualifier3:
     number: 1-26
-  s_north_advance1:
+  s_qualifier2:
     number: 1-27
-  s_north_hole:
+  s_podium_hole:
     number: 1-28
-  s_north_advance2:
+  s_disqualifier:
     number: 1-29
-  s_north_drop2:
+  s_prix_hole:
     number: 1-30
-  # UNUSED 2-31
+  # UNUSED 1-31
 
-  ##############
-  ## Board 02 ##
-  ##############
+  #############
+  # Board CAB #
+  #############
   s_tilt:
     number: 2-24
   s_coindoor:
     number: 2-25
-  s_service_menu:
+  s_service_forward:
     number: 2-26
   s_service_down:
     number: 2-27
   s_service_up:
     number: 2-28
-  s_service_mode:
+  s_service_back:
     number: 2-29
-  # do we need the pop switches?
-  s_pop1:
+  s_start:
     number: 2-30
-  s_pop2:
-    number: 2-31
+  # UNUSED 2-31
 
-  ##############
-  ## Board 03 ##
-  ##############
-  s_central_advance1:
+  ####################
+  # Board PLAYFIELD2 #
+  ####################
+  # north west rollover
+  s_grooveline:
     number: 3-24
-  s_central_hole1:
+  s_grand_advance:
     number: 3-25
-  s_central_drop1:
+  s_grand_hole:
     number: 3-26
-  s_central_drop2:
+  # central drop left
+  s_qualifier1:
     number: 3-27
-  s_spinner2:
+  s_spinner:
     number: 3-28
-  s_central_hole2:
+  s_podium_advance2:
     number: 3-29
-  s_central_advance2:
+  s_prix_advance:
     number: 3-30
-  # UNUSED 3-31
+  s_podium_advance1:
+    number: 3-31
 
-  ##############
-  ## Board 04 ##
-  ##############
-  s_flipper_eos1:
+  ################
+  # Board APRON1 #
+  ################
+  s_flipper1_eos:
     number: 4-16
   s_slingshot1:
     number: 4-17
@@ -85,9 +89,7 @@ switches:
     number: 4-19
   s_flipper1:
     number: 4-20
-  s_start:
-    number: 4-21
-    tags: start
+  # UNUSED 4-21
   # UNUSED 4-22
   # UNUSED 4-23
   s_trough1:
@@ -103,10 +105,10 @@ switches:
   # UNUSED 4-30
   # UNUSED 4-31
 
-  ###############
-  ### Board 05 ##
-  ###############
-  s_flipper_eos2:
+  ################
+  # Board APRON2 #
+  ################
+  s_flipper2_eos:
     number: 5-24
   s_slingshot2:
     number: 5-25
