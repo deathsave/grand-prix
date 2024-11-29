@@ -1,0 +1,20 @@
+#config_version=6
+
+keyboard:
+  1:
+    switch: s_trough1
+    toggle: true
+  2:
+    switch: s_trough2
+    toggle: true
+  3:
+    switch: s_trough3
+    toggle: true
+  s:
+    switch: s_start
+
+# So a dev/test game starts with balls in the trough
+virtual_platform_start_active_switches:
+-  s_trough1
+-  s_trough2
+-  s_trough3

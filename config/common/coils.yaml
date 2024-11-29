@@ -5,3 +5,7 @@ coils:
     number: 0-2
     default_pulse_ms: 40
     default_hold_power: 0.1
+  c_plunger_lane:
+    number: 0-3
+    default_pulse_ms: 40
+    default_hold_power: 0.1

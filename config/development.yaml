@@ -2,3 +2,4 @@
 
 config:
 - common.yaml
+- development/virtual_platform.yaml

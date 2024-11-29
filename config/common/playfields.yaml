@@ -2,4 +2,5 @@
 
 playfields:
   playfield:
+    tags: default
     default_source_device: bd_shooter_lane

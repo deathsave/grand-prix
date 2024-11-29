@@ -1,12 +1,6 @@
 """Tests General/Base Functionality"""
-
 import os
-from mpf.tests.MpfTestCase import MagicMock
-from mpf.tests.MpfFakeGameTestCase import MpfFakeGameTestCase
-from mpf.tests.MpfGameTestCase import MpfGameTestCase
 from mpf.tests.MpfMachineTestCase import MpfMachineTestCase
-from mpfmc.tests.FullMpfMachineTestCase import FullMachineTestCase
-
 
 class TestGeneral(MpfMachineTestCase):
 
@@ -21,5 +15,22 @@ class TestGeneral(MpfMachineTestCase):
             os.pardir,os.pardir
         ))
 
-    def test_start(self):
+    def test_game_start(self):
+        self.__machine_boots
+        self.__game_begins
+
+    def __machine_boots(self):
+        self.assertEqual(3,
+            self.machine.ball_devices.bd_trough.balls)
         self.assertModeRunning('attract')
+        self.assertModeNotRunning('base')
+
+    def __game_begins(self):
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        self.assertEqual(2,
+            self.machine.ball_devices.bd_trough.balls)
+        self.assertEqual(1,
+            self.machine.ball_devices.bd_shooter_lane.balls)
+        self.assertModeNotRunning('attract')
+        self.assertModeRunning('base')
