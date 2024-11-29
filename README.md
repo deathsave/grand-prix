@@ -9,6 +9,16 @@ Machine](http://www.ipdb.org/machine.cgi?id=1072) by Williams.
 
 ![Playfield](https://github.com/deathsave/grand-prix/raw/main/monitor/playfield.jpg)
 
+### Docs
+
+A simple web server is included to serve up the markdown docs and
+Mermaid diagrams. To setup, run `pip install -r requirements.txt`
+in the `./web/` root. Then to run it, use `bin/docs`.
+
+```mermaid
+graph TD
+    TODO --> DIAGRAM["Diagram Modes"]
+```
 
 Proposed OPP Build
 ------------------
