@@ -9,6 +9,10 @@ Machine](http://www.ipdb.org/machine.cgi?id=1072) by Williams.
 
 ![Playfield](https://github.com/deathsave/grand-prix/raw/main/monitor/playfield.jpg)
 
+### Rules
+
+**Proposed rules [can be found from here](https://github.com/deathsave/grand-prix/blob/main/docs/RULES.md).**
+
 ### Docs
 
 A simple web server is included to serve up the markdown docs and

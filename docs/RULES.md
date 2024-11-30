@@ -4,96 +4,111 @@ Grand Prix ’86 RULES
 Modes
 -----
 
-### Pace Lap
+### Base (Pace Lap)
 
-This is effectively the "base mode".
+Racers, on your mark...
 
-TODO: Define base-scoring...
+- Music: "The Distance"
+- Top left gate is closed.
+- Standard scoring described here
 
+### Green-flag 1/4
 
-### Green-flag
+The race begins!
 
-The race is underway. This is the primary left-flipper shot. The left gate is
-held open allowing a counter-clockwise orbit. Bottom-most 3 inserts on
-South-East chain keep track of successful orbits.
+- Music: "Flirting with Disaster"
+- Activated when the required number of qualifiers are hit
+- Top left gate is open allowing a counter-clockwise orbit
+- Bottom-most 3 inserts on South-East chain track orbits
+- 3 successful orbits:
+  - Awards a bonus (TBD)
+  - Resets the inserts
+  - Lights one of the 4 traffic signal inserts
 
-* Mode activated when one of the 2 pairs of drop targets go down.
-* 3 orbits activates Pit Row.
+### Grooveline 2/4
 
-TODO: Define scoring bonuses during...
+The fastest way around the track.
 
+- North-West chain of clear inserts.
+- Spells out G-R-O-O-V-E-L-I-N-E.
+- Rolling over the North-West rollover advances a letter
+- With all letters lit, Spinner activates "Shake your Groove Thing"
+- Completing lights one of the 4 traffic signal inserts
+- **Resets after each ball**
 
-### Find your Groove
+### Grand Prix 3/4
 
-Top-most 10 inserts in North-West chain... spells out G-R-O-O-V-E-L-I-N-E.
+It's the name of the game!
 
-TODO: Define scoring bonuses during...
+- Top-most 5 inserts in South-West chain spells out G-R-A-N-D
+- Top-most 4 inserts in South-East chain spells out P-R-I-X
+- Left standing target lights a GRAND insert
+- Right standing target un-lights a GRAND insert
+- Lighting all 5 and entering the hole lights one letter of PRIX
+- Hitting either the PRIX hole or standing target:
+    - Resets GRAND inserts
+    - Lights left side of podium insert
+- Lighting all 4 of PRIX and entering hole:
+  - Lights right side of podium insert
+- With both sides lit, entering podium hole:
+  - Activates Grand Prix Multiball
+  - Lights one of the 4 traffic signal inserts
 
+### Pit Row Hurry-up 4/4
 
-### Flat-tire
+Every driver's gotta pit Cole...
 
-Top-most 4 inserts in South-East chain... spells out F-L-A-T. Entering left
-"pot hole" 4 times causes a flat tire. No modes are advanced and scoring is
-back to "base scoring" until player successfully makes it to Pit Row.
+- Completing ANY of the 4 other main modes activates Pit Row
+- 30 second hurry-up with 2x scoring awarded for all switches
+- If `n` (TBD) switches are hit:
+  - Static bonus is held until end of ball
+  - Lights one of the 4 traffic signal inserts
+- When time expires, game mode returns to "Base" mode (pace lap)
 
+### End of Ball Bonus
 
-### Pit Row
+- Music "The Beautiful People" in time with Chimebox
+- Pulses chimebox in time with music equal to lit
+  letters, turning them off with each group (throwback)
+  and is followed by "There's no time to discriminate
+  Hate every motherfucker That's in your way"
+- Bonus inserts lit by spinner
+  - Every `n` spins lights 1/10 of the bonus inserts in sequence
+    - (experiment with how many spins a typical ball gets)
+  - Lighting the last insert locks in the first, second and so on
+- Bonus calculated by:
+  - Lit Bonus insert * (Number of lit traffic signals)
 
-Primary right flipper shot. Player needs to pit... either to lock a ball or
-fix a flat.
+### Tilt
 
-* Active after 3 "Laps" or when "FLAT".
-* Left-arrow indicator flashes.
-* **DOES NOT LOCK A BALL DURING FLAT MODE**!
+- Sound clip: "Hey, you, are you trying to be mean?"
 
-After a successful "pit stop", ball is auto-kicked after a couple seconds
-of "pit sounds". If this is the 3rd locked ball, Split-time Multiball is
-activated. Otherwise, gameplay returns to Pace Lap mode.
+### Disqualifier
 
+- Hitting the central-right drop target will remove one unit
+  of "progress" from each mode (or some modes - TBD)
 
-### Lapped - "She's going the distance".
+### Multi-ball Modes
 
-Player knocks down all 4 drop targets during a single ball.
+#### Shake your Groove Thing Multiball (2-ball)
 
+- Music "Shake your Groove Thing"
+- Spinner and Grooveline rollover awards 2x scoring
 
-### BOOST Bonus - "She's going for speed".
+#### Grand Prix Multiball (3-ball)
 
-When fully lit, lamps blink and the incrementing switches award 10x for some
-TBD number of seconds (30?).
+- Music: "Mach 5"
+- Primary Multiball
+- Top-hole keeps ball locked. Autokicker will launch the others.
+- Add a ball up to 3 times by getting into any hole, exclusive
 
-* Awarded at end of ball (flat value * multiplier)
-* Pulses chimebox 5 times in 0.5s intervals equal to lit letters (turning
-them off with each group (similar to original spec)
-* Entering left-hole during play:
-  * Collects a TBD scoring value.
-  * Additionally increments the multiplier IF "BOOST" inserts fully lit.
+#### Red-flag Multiball (3-ball)
 
+The Wizard Mode (if we get to it). Hit everything.
 
-### Winner's Circle Multi-ball (2-ball) - "She's all alone, all alone,
-all alone".
-
-Left and right lights by the top-hole indicate state towards achieving.
-Player must:
-
-* Complete spelling of GROOVELINE to light left
-* Knock down *ALL* 4** Drop Targets to light right
-* Enter the top-hole while both indicators are lit
-
-Top-hole will lock ball and autokicker will launch 2 more.
-
-
-### Split-time Multiball (3-ball) - "In a time of need".
-
-20 second or so, time-limited multi-ball. Activated when 3rd ball is
-soft-locked. Entering pit row extends time by 5s or so.
-
-
-### Red-flag Multiball (4-ball)
-
-The Wizard Mode (if we get to it). Player must complete *4 major obectives*
-indicated by the 4 lights in the center of the playfield:
-
-* Knock down both pairs of drop-targets
-* Collect *3 Complete* BOOST Bonuses (end of ball OR during play)
-* Begin Winner's Circle Multiball
-* Begin Split-time Multiball
+- "Music" is just a heart beat and heavy breathing
+- Player must light all 4 traffic signals to activate
+- 60 seconds to put all the lights out
+- Each shot should have a different "wrecking/crash" sound
+- Use the chimebox here, too
+- TODO
