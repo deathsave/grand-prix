@@ -11,3 +11,58 @@ ball_saves:
     timer_start_events: s_shooter_lane_inactive
     auto_launch: true
     balls_to_save: 1
+
+variable_player:
+  # consider removing points
+  # s_disqualifier_active:
+  s_pop1_active:
+    score: 10
+  s_pop2_active:
+    score: 10
+  s_grooveline_active:
+    score: 25
+  s_qualifier1_active:
+    score: 100
+    bonus: 10
+  s_qualifier3_active:
+    score: 100
+    bonus: 10
+  s_qualifier2_active:
+    score: 100
+    bonus: 10
+  s_podium_hole_active:
+    score: 500
+    bonus: 50
+  s_prix_hole_active:
+    score: 100
+    bonus: 10
+  s_grand_hole_active:
+    score: 100
+    bonus: 10
+  s_spinner_active:
+    score: 10
+    bonus: 1
+  s_grand_advance_active:
+    score: 10
+    bonus: 10
+  s_prix_advance_active:
+    score: 10
+    bonus: 10
+  s_podium_advance1_active:
+    score: 10
+    bonus: 10
+  s_podium_advance2_active:
+    score: 10
+    bonus: 10
+  s_slingshot1_active:
+    score: 10
+  s_slingshot2_active:
+    score: 10
+  s_inlane1_active:
+    score: 25
+  s_inlane2_active:
+    score: 25
+  s_outlane1_active:
+    score: 50
+  s_outlane2_active:
+    score: 50
