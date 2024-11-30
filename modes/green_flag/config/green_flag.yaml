@@ -1,0 +1,15 @@
+#config_version=6
+
+mode:
+  start_events:
+  - green_flag
+  stop_events:
+  - s_disqualifier_active
+  restart_on_next_ball: true
+  priority: 100
+
+variable_player:
+  mode_green_flag_started:
+    level_green_flag:
+      action: add
+      int: 1
