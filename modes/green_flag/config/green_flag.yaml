@@ -8,8 +8,28 @@ mode:
   restart_on_next_ball: true
   priority: 100
 
+light_player:
+  mode_green_flag_started:
+    x_loop_gate:
+      color: white
+
 variable_player:
   mode_green_flag_started:
     level_green_flag:
       action: add
       int: 1
+
+  ###########
+  # Scoring #
+  ###########
+
+  s_spinner_active:
+    score:
+      int: 20 * (current_player.level_green_flag + 1)
+      block: true
+  s_grooveline_active:
+    score:
+      int: 500 * (current_player.level_green_flag + 1)
+      block: true
+    bonus:
+      int: 50 * (current_player.level_green_flag + 1)

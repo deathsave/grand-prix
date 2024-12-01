@@ -55,4 +55,5 @@ For latest, see
   interact with it.
 - **Production** - `bin/run` will run for production using the real
   hardware devices and the console GUI.
-- **Test** - `bin/test` will run all tests from the `./tests` folder.
+- **Test** - Run a test with `bin/test tests/test_something.py` or
+  simply `bin/test` to run all tests from the `./tests` folder.

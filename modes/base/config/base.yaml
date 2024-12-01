@@ -2,7 +2,7 @@
 
 mode:
   start_events: ball_starting
-  priority: 100
+  priority: 50
 
 ball_saves:
   ball_start_ball_save:
