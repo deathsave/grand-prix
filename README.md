@@ -24,6 +24,18 @@ graph TD
     TODO --> DIAGRAM["Diagram Modes"]
 ```
 
+### Production Machine Setup
+
+Hardware is as such:
+
+- [Mini 5" HDMI Display](https://www.amazon.com/dp/B0CP3DH3LN)
+- [MLLSE M2 Mini PC](https://www.newegg.com/mllse-m2/p/2SW-00A4-00007)
+- [OPP "Cypress" Pinball Interface](https://pinballmakers.com/wiki/index.php?title=OPP-Cypress)
+- [My Pinballs Segment Display](https://missionpinball.org/latest/hardware/mypinballs/wiring/)
+- [FadeCandy LED Controller](https://www.adafruit.com/product/1689)
+
+**A guide to setup the [production machine on Xubuntu is here](https://github.com/deathsave/grand-prix/blob/main/docs/XUBUNTU.md).**
+
 Proposed OPP Build
 ------------------
 
