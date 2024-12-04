@@ -10,7 +10,8 @@ class TestBase(DeathSaveGameTesting):
         self.assertEqual(0, self.machine.game.player.score)
         self.assertIncrement(score, "s_pop1", 10)
         self.assertIncrement(score, "s_pop2", 10)
-        self.assertIncrement(score, "s_grooveline", 25)
+        self.assertIncrement(score, "s_grooveline", 50)
+
         self.assertIncrement(score, "s_qualifier2", 100)
         self.assertIncrement(score, "s_qualifier3", 100)
         self.assertIncrement(score, "s_podium_hole", 500)

@@ -4,7 +4,12 @@ mode:
   start_events:
   - green_flag
   stop_events:
-  - s_disqualifier_active
+  - pit_required_oil
+  - pit_required_fuel
+  - pit_required_tires
+  - green_flag_wreck
+  - green_flag_head_gasket
+  - green_flag_timing_belt
   restart_on_next_ball: true
   priority: 100
 
@@ -13,23 +18,86 @@ light_player:
     x_loop_gate:
       color: white
 
+sequences:
+  seq_lap:
+    events:
+    - s_spinner_active
+    - s_grooveline_active
+    disable_on_complete: false
+
+counters:
+  lap_counter:
+    count_events: logicblock_seq_lap_complete
+    starting_count: 0
+    count_interval: 1
+    # TODO: maybe consider having a ceiling
+    #       where the "race is completed"
+    #count_complete_value: 100
+
+# Every 3 laps, a random event will occur
+random_event_player:
+  player_lap_counter_count{(current_player.lap_counter_count % 3 == 0) and (current_player.lap_counter_count > 0)}:
+    events:
+      # TODO: 20% chance good things happen
+      green_flag_smooth_sailing: 20
+      # 74% chance of normal wear and tear
+      degrade_fuel: 20
+      degrade_oil: 20
+      degrade_tires: 20
+      degrade_all: 14
+      # TODO: 5% chance of a multi-car wreck
+      green_flag_under_red: 5
+      # TODO: Tiny chance ball ends immediately
+      green_flag_bad_luck: 1
+  green_flag_bad_luck:
+    events:
+    - green_flag_wreck
+    - green_flag_head_gasket
+    - green_flag_timing_belt
+  s_disqualifier_active:
+    events:
+    - degrade_fuel
+    - degrade_oil
+    - degrade_tires
+
 variable_player:
   mode_green_flag_started:
     level_green_flag:
       action: add
       int: 1
+  # Per docs, "Counters no longer save their
+  # state in player variables"
+  logicblock_lap_counter_updated:
+    lap_counter_count:
+      int: value
+      action: set
+  degrade_fuel:
+    level_fuel:
+      action: add
+      int: -1
+  degrade_oil:
+    level_oil:
+      action: add
+      int: -1
+  degrade_tires:
+    level_tires:
+      action: add
+      int: -1
+  s_qualifier1_active:
+    level_fuel: 0|block
+  s_qualifier2_active:
+    level_oil: 0|block
+  s_qualifier3_active:
+    level_tires: 0|block
 
-  ###########
-  # Scoring #
-  ###########
-
-  s_spinner_active:
-    score:
-      int: 20 * (current_player.level_green_flag + 1)
-      block: true
-  s_grooveline_active:
-    score:
-      int: 500 * (current_player.level_green_flag + 1)
-      block: true
-    bonus:
-      int: 50 * (current_player.level_green_flag + 1)
+event_player:
+  degrade_fuel{current_player.level_fuel == 1}:
+  - pit_required_fuel
+  degrade_oil{current_player.level_oil == 1}:
+  - pit_required_oil
+  degrade_tires{current_player.level_tires == 1}:
+  - pit_required_tires
+  degrade_all:
+  - pit_required_fuel
+  - pit_required_oil
+  - pit_required_tires

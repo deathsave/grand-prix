@@ -1,14 +1,22 @@
 Grand Prix ’86 RULES
 ====================
 
+Music Possibilities:
+
+- "The Distance" by Cake (attract mode)
+- "Highway to the Danger Zone" by Kenny Loggins
+- "Mach 5" by The Presidents of the United States of America
+- "Shake your Groove Thing" by Peaches & Herb
+- "302 Cubic Inch V8 Powered Blues" by Zeke
+- "The Beautiful People" by Marilyn Manson (Chimebox)
+
 Modes
 -----
 
-### Base (Pace Lap)
+### Base (Pit Row)
 
 Racers, on your mark...
 
-- Music: "The Distance"
 - Top left gate is closed.
 - Standard scoring described here
 
@@ -16,10 +24,9 @@ Racers, on your mark...
 
 The race begins!
 
-- Music: "Flirting with Disaster"
-- Activated when the required number of qualifiers are hit
+- Activated when fuel, oil, and tires reach max level
 - Top left gate is open allowing a counter-clockwise orbit
-- Bottom-most 3 inserts on South-East chain track orbits
+- Bottom-most 3 inserts on South-East chain tracks current orbit
 - 3 successful orbits:
   - Awards a bonus (TBD)
   - Resets the inserts
@@ -67,7 +74,6 @@ Every driver's gotta pit Cole...
 
 ### End of Ball Bonus
 
-- Music "The Beautiful People" in time with Chimebox
 - Pulses chimebox in time with music equal to lit
   letters, turning them off with each group (throwback)
   and is followed by "There's no time to discriminate
@@ -92,12 +98,10 @@ Every driver's gotta pit Cole...
 
 #### Shake your Groove Thing Multiball (2-ball)
 
-- Music "Shake your Groove Thing"
 - Spinner and Grooveline rollover awards 2x scoring
 
 #### Grand Prix Multiball (3-ball)
 
-- Music: "Mach 5"
 - Primary Multiball
 - Top-hole keeps ball locked. Autokicker will launch the others.
 - Add a ball up to 3 times by getting into any hole, exclusive

@@ -20,55 +20,82 @@ class TestBase(DeathSaveGameTesting):
         # Green Flag Mode is about the loop
         # TODO: Count the number of loops:
         #       both continuous and in total
-        self.assertIncrement(score, "s_spinner", 20 * 2)
-        self.assertIncrement(score, "s_grooveline", 500 * 2)
-        # Only the grooveline adds to the bonus
-        self.assertIncrement("bonus", "s_grooveline", 50 * 2)
+        self.assertIncrement(score, "s_spinner", 10 * 2)
+        self.assertIncrement(score, "s_grooveline", 50 * 2)
 
         # Other switches score normally per Base Mode
         self.assertIncrement(score, "s_pop1", 10)
         self.assertIncrement(score, "s_podium_advance1", 10)
         self.assertIncrement(score, "s_slingshot2", 10)
 
+    def test_laps(self):
+        random_events = [
+            "green_flag_smooth_sailing",
+            "degrade_fuel",
+            "degrade_oil",
+            "degrade_tires",
+            "degrade_all",
+            "green_flag_under_red",
+            "green_flag_bad_luck",
+        ]
+        # No random event should have occurred, yet
+        for event in random_events:
+            self.mock_event(event)
+            self.assertEqual(0, self._events.get(event, 0))
+        self.__start_green_flag()
+
+        for i in range(3):
+            self.__complete_lap()
+        self.assertEqual(
+            3, self.machine.game.player.lap_counter_count)
+
+        # Recording 3 laps triggers a single random event
+        random_events_fired = []
+        for e in random_events:
+            random_events_fired.append(self._events.get(e, 0))
+        self.assertEqual(1, sum(random_events_fired))
+
+        # NOTE: we're testing the event here, not the mode
+        #       since the mode could end up stopped
 
     def test_qualification(self):
-        self.__start_green_flag()
-        self.assertEqual(
-            1, self.machine.game.player.level_green_flag
-        )
-        self.hit_and_release_switch("s_disqualifier")
+        self.start_game()
         self.assertModeNotRunning("green_flag")
 
-        # Second time around, it requires hitting two
-        # qualifiers to start the mode
-        self.__qualify_level_two()
+        self.hit_and_release_switch("s_qualifier1")
+        self.assertEqual(
+            2, self.machine.game.player.level_fuel)
+        self.assertModeRunning("green_flag")
 
-        # Third time around, it requires hitting
-        # all three qualifiers
-        self.__qualify_final_level()
+        # player hits the disqualifier which triggers
+        # the random event "degrade_oil" reducing the
+        # player's oil level from 2 to 1
+        self.machine.events.post("degrade_oil")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            1, self.machine.game.player.level_oil)
+        self.assertModeRunning("green_flag")
 
-        # Further attempts function the same way,
-        # requiring all 3 qualifiers to be hit
-        self.__qualify_final_level()
+        # player's poor luck continues as they hit the
+        # disqualifier again, triggering the same event,
+        # reducing their oil level from 1 to 0
+        self.machine.events.post("degrade_oil")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            0, self.machine.game.player.level_oil)
+        self.assertModeNotRunning("green_flag")
 
     def __start_green_flag(self):
         self.start_game()
+        # Player must "fill up" to start racing
+        self.assertEqual(
+            0, self.machine.game.player.level_fuel)
+        # Hitting the first qualifier fills up the tank
         self.hit_and_release_switch("s_qualifier1")
         self.advance_time_and_run(1)
         self.assertModeRunning("green_flag")
 
-    def __qualify_level_two(self):
-        self.hit_and_release_switch("s_qualifier1")
-        self.assertModeNotRunning("green_flag")
-        self.hit_and_release_switch("s_qualifier2")
-        self.assertModeRunning("green_flag")
-        self.hit_and_release_switch("s_disqualifier")
-
-    def __qualify_final_level(self):
-        self.hit_and_release_switch("s_qualifier1")
-        self.assertModeNotRunning("green_flag")
-        self.hit_and_release_switch("s_qualifier2")
-        self.assertModeNotRunning("green_flag")
-        self.hit_and_release_switch("s_qualifier3")
-        self.assertModeRunning("green_flag")
-        self.hit_and_release_switch("s_disqualifier")
+    def __complete_lap(self):
+        self.hit_and_release_switch("s_spinner")
+        self.hit_and_release_switch("s_grooveline")
+        self.advance_time_and_run(1)

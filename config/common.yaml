@@ -12,3 +12,4 @@ config:
 - common/slides.yaml
 - common/sound_system.yaml
 - common/switches.yaml
+- common/variables.yaml

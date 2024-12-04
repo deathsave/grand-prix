@@ -24,16 +24,19 @@ variable_player:
   s_pop2_active:
     score: 10
   s_grooveline_active:
-    score: 25
+    score: 50 * (current_player.level_green_flag + 1)
   s_qualifier1_active:
     score: 100
     bonus: 10
-  s_qualifier3_active:
-    score: 100
-    bonus: 10
+    level_fuel: 2
   s_qualifier2_active:
     score: 100
     bonus: 10
+    level_oil: 2
+  s_qualifier3_active:
+    score: 100
+    bonus: 10
+    level_tires: 2
   s_podium_hole_active:
     score: 500
     bonus: 50
@@ -44,7 +47,7 @@ variable_player:
     score: 100
     bonus: 10
   s_spinner_active:
-    score: 10
+    score: 10 * (current_player.level_green_flag + 1)
     bonus: 1
   s_grand_advance_active:
     score: 10
@@ -71,24 +74,23 @@ variable_player:
   s_outlane2_active:
     score: 50
 
-  ######################
-  # Custom Player Vars #
-  ######################
-  level_green_flag:
-    initial_value: 0
-
 # To activate "green_flag" mode, the user's vehicle
 # must be ready to race:
 event_player:
-  # Top up her gas every time (Qualifier1)
+  # Top up her fuel every time (Qualifier1)
   s_qualifier1_active:
-    - green_flag{current_player.level_green_flag==0}
+  - green_flag{current_player.level_green_flag==0}
+  # - green_flag_fuel_reset
   # Change oil after putting some miles on her (Qualifier2)
   logicblock_seq_green_flag2_complete:
-    - green_flag{current_player.level_green_flag==1}
+  - green_flag{current_player.level_green_flag==1}
   # She's going to need some tires, now (Qualifier3)
   logicblock_seq_green_flag3_complete:
-    - green_flag
+  - green_flag
+  # s_qualifier2_active:
+  # # - green_flag_oil_reset
+  # s_qualifier3_active:
+  # # - green_flag_tires_reset
 
 sequences:
   seq_green_flag2:
