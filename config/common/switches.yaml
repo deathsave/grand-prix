@@ -25,14 +25,19 @@ switches:
   # north_drop left
   s_qualifier3:
     number: 1-26
+    tags: playfield_active
   s_qualifier2:
     number: 1-27
+    tags: playfield_active
   s_podium_hole:
     number: 1-28
+    tags: playfield_active
   s_disqualifier:
     number: 1-29
+    tags: playfield_active
   s_prix_hole:
     number: 1-30
+    tags: playfield_active
   # UNUSED 1-31
 
   #############
@@ -40,6 +45,7 @@ switches:
   #############
   s_tilt:
     number: 2-24
+    tags: tilt_warning
   s_coindoor:
     number: 2-25
   s_service_forward:
@@ -52,6 +58,7 @@ switches:
     number: 2-29
   s_start:
     number: 2-30
+    tags: start
   # UNUSED 2-31
 
   ####################
@@ -60,21 +67,29 @@ switches:
   # north west rollover
   s_grooveline:
     number: 3-24
+    tags: playfield_active
   s_grand_advance:
     number: 3-25
+    tags: playfield_active
   s_grand_hole:
     number: 3-26
+    tags: playfield_active
   # central drop left
   s_qualifier1:
     number: 3-27
+    tags: playfield_active
   s_spinner:
     number: 3-28
+    tags: playfield_active
   s_podium_advance2:
     number: 3-29
+    tags: playfield_active
   s_prix_advance:
     number: 3-30
+    tags: playfield_active
   s_podium_advance1:
     number: 3-31
+    tags: playfield_active
 
   ################
   # Board APRON1 #
@@ -83,23 +98,31 @@ switches:
     number: 4-16
   s_slingshot1:
     number: 4-17
+    tags: playfield_active
   s_inlane1:
     number: 4-18
+    tags: playfield_active
   s_outlane1:
     number: 4-19
+    tags: playfield_active
   s_flipper1:
     number: 4-20
+    tags: left_flipper
   # UNUSED 4-21
   # UNUSED 4-22
   # UNUSED 4-23
   s_trough1:
     number: 4-24
+    type: NC
   s_trough2:
     number: 4-25
+    type: NC
   s_trough3:
     number: 4-26
+    type: NC
   s_trough_jam:
     number: 4-27
+    type: NC
   # UNUSED 4-28
   # UNUSED 4-29
   # UNUSED 4-30
@@ -112,13 +135,17 @@ switches:
     number: 5-24
   s_slingshot2:
     number: 5-25
+    tags: playfield_active
   s_inlane2:
     number: 5-26
+    tags: playfield_active
   s_outlane2:
     number: 5-27
+    tags: playfield_active
   s_shooter_lane:
     number: 5-28
   s_flipper2:
     number: 5-29
+    tags: right_flipper
   # UNUSED 5-30
   # UNUSED 5-31

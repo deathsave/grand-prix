@@ -1,0 +1,10 @@
+#config_version=6
+
+assets:
+  sounds:
+    default:
+      load: preload
+    preload:
+      load: preload
+    on_demand:
+      load: on_demand

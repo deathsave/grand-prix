@@ -14,9 +14,6 @@ displays:
     width: 800
     height: 480
     default: true
-  segment_area:
-    width: 600
-    height: 150
 
 segment_displays:
   segment1:

@@ -1,11 +1,11 @@
 #config_version=6
 
 segment_display_player:
-  update_segment_display_score:
+  player_score:
     segment1:
       flashing: off
       color: 00acf0
-      text: (player1|score)
+      text: "{players[0].score:d}"
 
 sound_player:
   mode_attract_started:

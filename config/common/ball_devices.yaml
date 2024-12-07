@@ -2,19 +2,21 @@
 
 ball_devices:
   bd_trough:
-    tags: trough, home, drain
-    jam_switch: s_trough_jam
-    # no trough yet, just a placeholder
+    tags:
+    - trough
+    - home
+    - drain
     ball_switches:
     - s_trough1
     - s_trough2
     - s_trough3
+    jam_switch: s_trough_jam
     eject_coil: c_trough_eject
     eject_targets: bd_shooter_lane
-    eject_timeouts: 3s
+    eject_timeouts: 1s
     eject_coil_jam_pulse: 15ms
-
+    debug: true
   bd_shooter_lane:
     ball_switches: s_shooter_lane
-    mechanical_eject: True
-    eject_coil: c_plunger_lane
+    mechanical_eject: true
+    eject_timeouts: 3s

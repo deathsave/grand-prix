@@ -2,4 +2,4 @@
 # text only UI and force loading / no cache
 mpf: mpf both -Xtav -c development
 monitor: mpf monitor
-docs: cd web && flask run
+#docs: cd web && flask run

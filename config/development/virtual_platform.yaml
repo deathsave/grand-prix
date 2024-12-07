@@ -35,6 +35,4 @@ slides:
         y: 100
 
 slide_player:
-  init_done:
-    virtual_segment1:
-      target: segment_area
+  init_done: virtual_segment1

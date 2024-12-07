@@ -10,7 +10,12 @@ keyboard:
   3:
     switch: s_trough3
     toggle: true
+  4:
+    switch: s_trough_jam
+    toggle: true
   s:
     switch: s_start
   l:
     switch: s_shooter_lane
+  a:
+    switch: s_grand_hole

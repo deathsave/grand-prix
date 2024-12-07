@@ -1,13 +1,14 @@
 #config_version=6
 
 config:
+- common/assets.yaml
 - common/ball_devices.yaml
 - common/coils.yaml
+- common/displays.yaml
+- common/flippers.yaml
 - common/game.yaml
-- common/hardware.yaml
 - common/keyboard.yaml
 - common/lights.yaml
-- common/flippers.yaml
 - common/modes.yaml
 - common/players.yaml
 - common/playfields.yaml
@@ -15,4 +16,3 @@ config:
 - common/sound_system.yaml
 - common/switches.yaml
 - common/variables.yaml
-- common/displays.yaml

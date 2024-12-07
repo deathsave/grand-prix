@@ -8,8 +8,9 @@ ball_saves:
   ball_start_ball_save:
     active_time: "+10s"
     hurry_up_time: 6s
-    timer_start_events: s_shooter_lane_inactive
-    auto_launch: true
+    timer_start_events: playfield_active
+    # until/if we add the shooter auto-kicker
+    auto_launch: false
     balls_to_save: 1
 
 variable_player:
