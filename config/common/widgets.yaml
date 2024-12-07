@@ -1,0 +1,12 @@
+#config_version=6
+
+widgets:
+  fuel_2:
+  - type: image
+    image: fuel-2
+  fuel_1:
+  - type: image
+    image: fuel-1
+  fuel_0:
+  - type: image
+    image: fuel-1

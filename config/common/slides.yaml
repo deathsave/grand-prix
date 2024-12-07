@@ -5,3 +5,5 @@ slides:
     widgets:
       - type: image
         image: rear-view
+  fuel_slide:
+  - widget: fuel_(current_player.level_fuel)

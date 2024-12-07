@@ -19,3 +19,9 @@ keyboard:
     switch: s_shooter_lane
   a:
     switch: s_grand_hole
+  f:
+    switch: s_qualifier1
+  o:
+    switch: s_qualifier2
+  t:
+    switch: s_qualifier3

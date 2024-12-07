@@ -13,6 +13,12 @@ ball_saves:
     auto_launch: false
     balls_to_save: 1
 
+slide_player:
+  mode_base_started:
+    fuel_slide:
+      action: play
+  player_level_fuel: fuel_slide
+
 variable_player:
   ###########
   # Scoring #
