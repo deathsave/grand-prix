@@ -1,0 +1,19 @@
+#config_version=6
+
+flippers:
+  left_flipper:
+    main_coil: c_flipper1
+    hold_coil: c_flipper1_hold
+    activation_switch: s_flipper1
+    eos_switch: s_flipper1_eos
+    enable_events: ball_starting
+    use_eos: true
+    label: Left Flipper
+  right_flipper:
+    main_coil: c_flipper2
+    hold_coil: c_flipper2_hold
+    activation_switch: s_flipper2
+    eos_switch: s_flipper2_eos
+    enable_events: ball_starting
+    use_eos: true
+    label: Right Flipper

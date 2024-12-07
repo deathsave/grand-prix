@@ -5,7 +5,9 @@ config:
 - common/coils.yaml
 - common/game.yaml
 - common/hardware.yaml
+- common/keyboard.yaml
 - common/lights.yaml
+- common/flippers.yaml
 - common/modes.yaml
 - common/players.yaml
 - common/playfields.yaml

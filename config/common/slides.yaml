@@ -5,3 +5,7 @@ slides:
     widgets:
       - type: image
         image: splash
+  green_flag_slide:
+    widgets:
+      - type: image
+        image: rear-view
