@@ -1,9 +1,11 @@
 #config_version=6
 
 segment_display_player:
-  mode_base_started:
-    display1:
-      text: "{players[0].score:d}"
+  update_segment_display_score:
+    segment1:
+      flashing: off
+      color: 00acf0
+      text: (player1|score)
 
 sound_player:
   mode_attract_started:
@@ -17,5 +19,4 @@ sound_player:
       action: stop
 
 slide_player:
-  init_done: splash_slide
   mode_green_flag_started: green_flag_slide

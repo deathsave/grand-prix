@@ -1,5 +1,5 @@
 #config_version=6
 
 config:
-- common.yaml
 - development/virtual_platform.yaml
+- common.yaml
