@@ -15,9 +15,9 @@ ball_saves:
 
 slide_player:
   mode_base_started:
-    fuel_slide:
+    rear_view_hud_slide:
       action: play
-  player_level_fuel: fuel_slide
+  player_level_fuel: rear_view_hud_slide
 
 variable_player:
   ###########

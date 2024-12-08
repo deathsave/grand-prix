@@ -33,6 +33,7 @@ slides:
         width: 300
         height: 75
         y: 100
+        z: 100
 
 slide_player:
   init_done: virtual_segment1

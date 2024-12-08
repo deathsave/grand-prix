@@ -17,6 +17,3 @@ sound_player:
     rad_racer:
       track: music
       action: stop
-
-slide_player:
-  mode_green_flag_started: green_flag_slide
