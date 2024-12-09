@@ -1,6 +1,6 @@
 from tests.death_save_game_testing import DeathSaveGameTesting
 
-class TestBase(DeathSaveGameTesting):
+class TestGreenFlagMode(DeathSaveGameTesting):
 
     def test_scoring(self):
         score = "score"

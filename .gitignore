@@ -8,6 +8,7 @@ data
 
 # python stuff
 __pycache__/
+.coverage
 
 # audobe audition
 *.xmp
