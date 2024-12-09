@@ -5,61 +5,65 @@ widgets:
     - type: image
       image: pit-background
       z: 0
+  pit_mirror:
+    - type: image
+      image: pit-mirror
+      z: 1
   rear_view:
     - type: image
       image: rear-view
-      z: 1
-  fuel_2:
-  - type: image
-    image: fuel-2
-    z: 4
-    x: 10%
-    y: 15%
-  fuel_1:
-  - type: image
-    image: fuel-1
-    z: 4
-    x: 10%
-    y: 15%
-  fuel_0:
-  - type: image
-    image: fuel-0
-    z: 4
-    x: 10%
-    y: 15%
+      z: 2
   oil_2:
   - type: image
     image: oil-2
-    z: 2
+    z: 3
     x: 9%
-    y: 83%
+    y: 85%
   oil_1:
   - type: image
     image: oil-1
-    z: 2
+    z: 3
     x: 9%
-    y: 83%
+    y: 85%
   oil_0:
   - type: image
     image: oil-0
-    z: 2
+    z: 3
     x: 9%
-    y: 83%
+    y: 85%
   tires_2:
   - type: image
     image: tires-2
-    z: 3
-    x: 32%
-    y: 50%
+    z: 4
+    x: 30%
+    y: 52%
   tires_1:
   - type: image
     image: tires-1
-    z: 3
-    x: 32%
-    y: 50%
+    z: 4
+    x: 30%
+    y: 52%
   tires_0:
   - type: image
     image: tires-0
-    z: 3
-    x: 32%
-    y: 50%
+    z: 4
+    x: 30%
+    y: 52%
+  fuel_2:
+  - type: image
+    image: fuel-2
+    z: 5
+    x: 12%
+    y: 14%
+  fuel_1:
+  - type: image
+    image: fuel-1
+    z: 5
+    x: 12%
+    y: 14%
+  fuel_0:
+  - type: image
+    image: fuel-0
+    z: 5
+    x: 12%
+    y: 14%

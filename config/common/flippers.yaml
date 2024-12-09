@@ -7,6 +7,8 @@ flippers:
     activation_switch: s_flipper1
     eos_switch: s_flipper1_eos
     enable_events: ball_starting
+    disable_events:
+    - green_flag_bad_luck
     use_eos: true
     label: Left Flipper
   right_flipper:
@@ -15,5 +17,7 @@ flippers:
     activation_switch: s_flipper2
     eos_switch: s_flipper2_eos
     enable_events: ball_starting
+    disable_events:
+    - green_flag_bad_luck
     use_eos: true
     label: Right Flipper

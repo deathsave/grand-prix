@@ -15,9 +15,11 @@ ball_saves:
 
 slide_player:
   mode_base_started:
-    rear_view_hud_slide:
+    base_slide:
       action: play
-  player_level_fuel: rear_view_hud_slide
+  player_level_fuel: base_slide
+  player_level_tires: base_slide
+  player_level_oil: base_slide
 
 variable_player:
   ###########
@@ -35,15 +37,21 @@ variable_player:
   s_qualifier1_active:
     score: 100
     bonus: 10
-    level_fuel: 2
+    level_fuel:
+      int: 2
+      action: set
   s_qualifier2_active:
     score: 100
     bonus: 10
-    level_oil: 2
+    level_oil:
+      int: 2
+      action: set
   s_qualifier3_active:
     score: 100
     bonus: 10
-    level_tires: 2
+    level_tires:
+      int: 2
+      action: set
   s_podium_hole_active:
     score: 500
     bonus: 50

@@ -1,10 +1,6 @@
-"""Tests General/Base Functionality"""
-import os
-from mpf.tests.MpfMachineTestCase import MpfMachineTestCase
+from tests.death_save_game_testing import DeathSaveGameTesting
 
-class TestGeneral(MpfMachineTestCase):
-
-    """Tests start-up sequence"""
+class TestGeneral(DeathSaveGameTesting):
 
     def test_game_start(self):
         self._machine_boots

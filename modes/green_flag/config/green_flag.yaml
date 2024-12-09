@@ -7,9 +7,7 @@ mode:
   - pit_required_oil
   - pit_required_fuel
   - pit_required_tires
-  - green_flag_wreck
-  - green_flag_head_gasket
-  - green_flag_timing_belt
+  - green_flag_bad_luck
   restart_on_next_ball: true
   priority: 100
 
@@ -98,6 +96,6 @@ event_player:
   degrade_tires{current_player.level_tires == 1}:
   - pit_required_tires
   degrade_all:
-  - pit_required_fuel
-  - pit_required_oil
-  - pit_required_tires
+  - degrade_fuel
+  - degrade_oil
+  - degrade_tires

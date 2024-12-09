@@ -1,6 +1,4 @@
-"""Tests Green Flag Mode"""
 from tests.death_save_game_testing import DeathSaveGameTesting
-import pprint
 
 class TestBase(DeathSaveGameTesting):
 
@@ -11,7 +9,7 @@ class TestBase(DeathSaveGameTesting):
         # driver for the mini coils
         self.assertLightColor('x_loop_gate', 'black')
 
-        self.__start_green_flag()
+        self._start_green_flag()
 
         # Mini coils is activated making it
         # possible to complete the loop
@@ -20,13 +18,13 @@ class TestBase(DeathSaveGameTesting):
         # Green Flag Mode is about the loop
         # TODO: Count the number of loops:
         #       both continuous and in total
-        self.assertIncrement(score, "s_spinner", 10 * 2)
-        self.assertIncrement(score, "s_grooveline", 50 * 2)
+        self._assertIncrement(score, "s_spinner", 10 * 2)
+        self._assertIncrement(score, "s_grooveline", 50 * 2)
 
         # Other switches score normally per Base Mode
-        self.assertIncrement(score, "s_pop1", 10)
-        self.assertIncrement(score, "s_podium_advance1", 10)
-        self.assertIncrement(score, "s_slingshot2", 10)
+        self._assertIncrement(score, "s_pop1", 10)
+        self._assertIncrement(score, "s_podium_advance1", 10)
+        self._assertIncrement(score, "s_slingshot2", 10)
 
     def test_laps(self):
         random_events = [
@@ -42,10 +40,10 @@ class TestBase(DeathSaveGameTesting):
         for event in random_events:
             self.mock_event(event)
             self.assertEqual(0, self._events.get(event, 0))
-        self.__start_green_flag()
+        self._start_green_flag()
 
         for i in range(3):
-            self.__complete_lap()
+            self._complete_lap()
         self.assertEqual(
             3, self.machine.game.player.lap_counter_count)
 
@@ -54,12 +52,11 @@ class TestBase(DeathSaveGameTesting):
         for e in random_events:
             random_events_fired.append(self._events.get(e, 0))
         self.assertEqual(1, sum(random_events_fired))
-
         # NOTE: we're testing the event here, not the mode
         #       since the mode could end up stopped
 
     def test_qualification(self):
-        self.start_game()
+        self._start()
         self.assertModeNotRunning("green_flag")
 
         self.hit_and_release_switch("s_qualifier1")
@@ -85,17 +82,113 @@ class TestBase(DeathSaveGameTesting):
             0, self.machine.game.player.level_oil)
         self.assertModeNotRunning("green_flag")
 
-    def __start_green_flag(self):
-        self.start_game()
+    def test_random_degrade_fuel_event(self):
+        self._start_green_flag()
+        self.machine.events.post("degrade_fuel")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            1, self.machine.game.player.level_fuel)
+        self.assertModeRunning("green_flag")
+        self.machine.events.post("degrade_fuel")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            0, self.machine.game.player.level_fuel)
+        self.assertEqual(
+            2, self.machine.game.player.level_oil)
+        self.assertEqual(
+            2, self.machine.game.player.level_tires)
+        self.assertModeNotRunning("green_flag")
+
+    def test_random_degrade_oil_event(self):
+        self._start_green_flag()
+        self.machine.events.post("degrade_oil")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            1, self.machine.game.player.level_oil)
+        self.assertModeRunning("green_flag")
+        self.machine.events.post("degrade_oil")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            0, self.machine.game.player.level_oil)
+        self.assertEqual(
+            2, self.machine.game.player.level_tires)
+        self.assertEqual(
+            2, self.machine.game.player.level_fuel)
+        self.assertModeNotRunning("green_flag")
+        # self.machine.events.post("green_flag_bad_luck")
+        # self.machine.events.post("green_flag_smooth_sailing")
+
+    def test_random_degrade_tires_event(self):
+        self._start_green_flag()
+        self.machine.events.post("degrade_tires")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            1, self.machine.game.player.level_tires)
+        self.assertModeRunning("green_flag")
+        self.machine.events.post("degrade_tires")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            0, self.machine.game.player.level_tires)
+        self.assertEqual(
+            2, self.machine.game.player.level_oil)
+        self.assertEqual(
+            2, self.machine.game.player.level_fuel)
+        self.assertModeNotRunning("green_flag")
+
+    def test_random_degrade_all_event(self):
+        self._start_green_flag()
+        self.machine.events.post("degrade_all")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            1, self.machine.game.player.level_tires)
+        self.assertEqual(
+            1, self.machine.game.player.level_oil)
+        self.assertEqual(
+            1, self.machine.game.player.level_fuel)
+        self.assertModeRunning("green_flag")
+        self.machine.events.post("degrade_all")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            0, self.machine.game.player.level_tires)
+        self.assertEqual(
+            0, self.machine.game.player.level_oil)
+        self.assertEqual(
+            0, self.machine.game.player.level_fuel)
+        self.assertModeNotRunning("green_flag")
+
+    # All bad luck events disable the flippers
+    def test_random_bad_luck_event(self):
+        self._start_green_flag()
+        self.assertTrue(
+            self.machine.flippers["left_flipper"]._enabled
+        )
+        self.assertTrue(
+            self.machine.flippers["right_flipper"]._enabled
+        )
+
+        self.machine.events.post("green_flag_bad_luck")
+        self.advance_time_and_run(1)
+        self.assertModeNotRunning("green_flag")
+        self.assertFalse(
+            self.machine.flippers["left_flipper"]._enabled
+        )
+        self.assertFalse(
+            self.machine.flippers["right_flipper"]._enabled
+        )
+
+    def _start_green_flag(self):
+        self._start()
         # Player must "fill up" to start racing
         self.assertEqual(
             0, self.machine.game.player.level_fuel)
+        self.assertEqual(1, self.machine.playfield.balls)
+
         # Hitting the first qualifier fills up the tank
         self.hit_and_release_switch("s_qualifier1")
         self.advance_time_and_run(1)
         self.assertModeRunning("green_flag")
 
-    def __complete_lap(self):
+    def _complete_lap(self):
         self.hit_and_release_switch("s_spinner")
         self.hit_and_release_switch("s_grooveline")
         self.advance_time_and_run(1)

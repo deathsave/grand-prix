@@ -5,4 +5,4 @@ if [ -z "$1" ]; then
 else
   FILES="$1"
 fi
-python -m unittest -v $FILES
+python -m unittest $FILES

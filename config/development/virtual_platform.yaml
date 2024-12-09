@@ -2,38 +2,9 @@
 
 hardware:
   platform: smart_virtual
-  segment_displays: virtual
-
-virtual_segment_display_connector:
-  segment_displays:
-   - segment1
 
 # So a dev/test game starts with balls in the trough
 virtual_platform_start_active_switches:
 - s_trough1
 - s_trough2
 - s_trough3
-
-slides:
-  virtual_segment1:
-    widgets:
-      - type: segment_display_emulator
-        name: segment1
-        character_count: 7
-        character_slant_angle: 0
-        character_spacing: 14
-        segment_width: 0.05
-        segment_interval: 0.02
-        segment_off_color: 4b4c4a30
-        segment_on_color: 45a8ff
-        side_bevel_enabled: true
-        dot_enabled: false
-        comma_enabled: true
-        text: "1234567"
-        width: 300
-        height: 75
-        y: 100
-        z: 100
-
-slide_player:
-  init_done: virtual_segment1
