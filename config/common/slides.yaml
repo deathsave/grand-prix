@@ -1,9 +1,18 @@
 #config_version=6
 
 slides:
+  attract_slide:
+  - widget: attract
   base_slide:
   - widget: pit_background
   - widget: pit_mirror
+  - widget: rear_view
+  - widget: fuel_(current_player.level_fuel)
+  - widget: oil_(current_player.level_oil)
+  - widget: tires_(current_player.level_tires)
+  green_flag_slide:
+  - widget: green_flag_background
+  - widget: green_flag_mirror
   - widget: rear_view
   - widget: fuel_(current_player.level_fuel)
   - widget: oil_(current_player.level_oil)

@@ -1,6 +1,10 @@
 #config_version=6
 
 widgets:
+  attract:
+    - type: image
+      image: attract
+      z: 0
   pit_background:
     - type: image
       image: pit-background
@@ -8,6 +12,14 @@ widgets:
   pit_mirror:
     - type: image
       image: pit-mirror
+      z: 1
+  green_flag_background:
+    - type: image
+      image: green-flag-background
+      z: 0
+  green_flag_mirror:
+    - type: image
+      image: green-flag-mirror
       z: 1
   rear_view:
     - type: image
@@ -18,37 +30,37 @@ widgets:
     image: oil-2
     z: 3
     x: 9%
-    y: 85%
+    y: 86%
   oil_1:
   - type: image
     image: oil-1
     z: 3
     x: 9%
-    y: 85%
+    y: 86%
   oil_0:
   - type: image
     image: oil-0
     z: 3
     x: 9%
-    y: 85%
+    y: 86%
   tires_2:
   - type: image
     image: tires-2
     z: 4
     x: 30%
-    y: 52%
+    y: 57%
   tires_1:
   - type: image
     image: tires-1
     z: 4
     x: 30%
-    y: 52%
+    y: 57%
   tires_0:
   - type: image
     image: tires-0
     z: 4
     x: 30%
-    y: 52%
+    y: 57%
   fuel_2:
   - type: image
     image: fuel-2

@@ -4,3 +4,9 @@
 #variable_player:
 #  s_flipper_eos_2:
 #    score: 123
+
+slide_player:
+  mode_attract_started:
+    attract_slide:
+      action: play
+
