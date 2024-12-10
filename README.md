@@ -4,14 +4,17 @@ Grand Prix '86
 [![Grand Prix '86 Pinball](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml/badge.svg)](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml)
 
 Grand Prix '86 is an attempt at a solid-state conversion / re-theme
-of the 1976 [EM Pinball
-Machine](http://www.ipdb.org/machine.cgi?id=1072) by Williams.
+of the 1976
+[EM Pinball Machine](http://www.ipdb.org/machine.cgi?id=1072)
+by Williams.
 
-![Playfield](https://github.com/deathsave/grand-prix/raw/main/monitor/playfield.jpg)
+![Attract Slide](https://raw.githubusercontent.com/deathsave/grand-prix/refs/heads/main/images/preload/attract.jpg)
 
 ### Rules
 
 **Proposed rules [can be found from here](https://github.com/deathsave/grand-prix/blob/main/docs/RULES.md).**
+
+![Playfield](https://github.com/deathsave/grand-prix/raw/main/monitor/playfield.jpg)
 
 ### Docs
 
@@ -50,15 +53,8 @@ For latest, see
 
 ### Setup for MacOS
 
-1. Install Python 3.11+ with `pyenv`
-2. Install mpf with `pip install mpf==0.57`
-3. Install `mpf-mc` deps with:
-   `brew install SDL2 SDL2_mixer SDL2_image gstreamer`
-4. Install mpf-mc with `pip install mpf-mc==0.57`
-5. Install mpf-monitor with `pip install mpf-monitor==0.57`
-6. Install foreman with `gem install foreman` - this makes it
-   possible to run all 3 processes in a single terminal window
-   for local development.
+See the [MacOS Setup Guide](https://github.com/deathsave/combat/blob/main/README.md#installing-mpf)
+from our other project Combat.
 
 ### Running
 
