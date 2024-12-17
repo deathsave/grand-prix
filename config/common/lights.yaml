@@ -127,37 +127,37 @@ lights:
   # Board CAB #
   #############
 
-  l_spinner_lit1:
+  l_grooveline_lit:
     subtype: matrix
     number: 2-0
-  l_spinner_lane1_01:
+  l_grooveline_01:
     subtype: matrix
     number: 2-1
-  l_spinner_lane1_02:
+  l_grooveline_02:
     subtype: matrix
     number: 2-2
-  l_spinner_lane1_03:
+  l_grooveline_03:
     subtype: matrix
     number: 2-3
-  l_spinner_lane1_04:
+  l_grooveline_04:
     subtype: matrix
     number: 2-4
-  l_spinner_lane1_05:
+  l_grooveline_05:
     subtype: matrix
     number: 2-5
-  l_spinner_lane1_06:
+  l_grooveline_06:
     subtype: matrix
     number: 2-6
-  l_spinner_lane1_07:
+  l_grooveline_07:
     subtype: matrix
     number: 2-7
-  l_spinner_lane1_08:
+  l_grooveline_08:
     subtype: matrix
     number: 2-8
-  l_spinner_lane1_09:
+  l_grooveline_09:
     subtype: matrix
     number: 2-9
-  l_spinner_lane1_10:
+  l_grooveline_10:
     subtype: matrix
     number: 2-10
   l_north_advance1:
@@ -166,37 +166,37 @@ lights:
   l_north_advance2:
     subtype: matrix
     number: 2-12
-  l_spinner_lane2_10:
+  l_spinner_10:
     subtype: matrix
     number: 2-13
-  l_spinner_lane2_09:
+  l_spinner_09:
     subtype: matrix
     number: 2-14
-  l_spinner_lane2_08:
+  l_spinner_08:
     subtype: matrix
     number: 2-15
-  l_spinner_lane2_07:
+  l_spinner_07:
     subtype: matrix
     number: 2-16
-  l_spinner_lane2_06:
+  l_spinner_06:
     subtype: matrix
     number: 2-17
-  l_spinner_lane2_05:
+  l_spinner_05:
     subtype: matrix
     number: 2-18
-  l_spinner_lane2_04:
+  l_spinner_04:
     subtype: matrix
     number: 2-19
-  l_spinner_lane2_03:
+  l_spinner_03:
     subtype: matrix
     number: 2-20
-  l_spinner_lane2_02:
+  l_spinner_02:
     subtype: matrix
     number: 2-21
-  l_spinner_lane2_01:
+  l_spinner_01:
     subtype: matrix
     number: 2-22
-  l_spinner_lit2:
+  l_spinner_lit:
     subtype: matrix
     number: 2-23
 
@@ -216,36 +216,32 @@ lights:
   l_star1:
     subtype: matrix
     number: 3-11
-  l_bonus_lane1_01:
+  l_grand_01:
     subtype: matrix
     number: 3-12
-  l_bonus_lane1_02:
+  l_grand_02:
     subtype: matrix
     number: 3-13
-  l_bonus_lane1_03:
+  l_grand_03:
     subtype: matrix
     number: 3-14
-  l_bonus_lane1_04:
+  l_grand_04:
     subtype: matrix
     number: 3-15
-  l_bonus_lane1_05:
+  l_grand_05:
     subtype: matrix
     number: 3-16
-  l_bonus_lane1_06:
+  l_pit_01:
     subtype: matrix
     number: 3-17
-  l_bonus_lane1_07:
+  l_pit_02:
     subtype: matrix
     number: 3-18
-  l_bonus_lane1_08:
+  l_pit_03:
     subtype: matrix
     number: 3-19
-  l_bonus_lane1_09:
-    subtype: matrix
-    number: 3-20
-  l_bonus_lane1_10:
-    subtype: matrix
-    number: 3-21
+  # UNUSED 3-20
+  # UNUSED 3-21
   # UNUSED 3-22
   # UNUSED 3-23
 
@@ -290,36 +286,30 @@ lights:
   l_top_outlane2:
     subtype: matrix
     number: 5-11
-  l_bonus_lane2_01:
+  l_prix_04:
     subtype: matrix
     number: 5-12
-  l_bonus_lane2_02:
+  l_prix_03:
     subtype: matrix
     number: 5-13
-  l_bonus_lane2_03:
+  l_prix_02:
     subtype: matrix
     number: 5-14
-  l_bonus_lane2_04:
+  l_prix_01:
     subtype: matrix
     number: 5-15
-  l_bonus_lane2_05:
+  l_lap_03:
     subtype: matrix
     number: 5-16
-  l_bonus_lane2_06:
+  l_lap_02:
     subtype: matrix
     number: 5-17
-  l_bonus_lane2_07:
+  l_lap_01:
     subtype: matrix
     number: 5-18
-  l_bonus_lane2_08:
-    subtype: matrix
-    number: 5-19
-  l_bonus_lane2_09:
-    subtype: matrix
-    number: 5-20
-  l_bonus_lane2_10:
-    subtype: matrix
-    number: 5-21
+  # UNUSED 5-19
+  # UNUSED 5-20
+  # UNUSED 5-21
   # UNUSED 5-22
   # UNUSED 5-23
 
