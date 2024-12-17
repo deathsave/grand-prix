@@ -12,3 +12,6 @@ __pycache__/
 
 # audobe audition
 *.xmp
+
+# pixelmator
+*.pxm
