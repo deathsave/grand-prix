@@ -1,6 +1,6 @@
 from tests.death_save_mc_testing import DeathSaveMcTesting
 
-class TestDisplays(DeathSaveMcTesting):
+class TestSegmentDisplays(DeathSaveMcTesting):
 
     def test_segment1(self):
         self.assertModeRunning("attract")
