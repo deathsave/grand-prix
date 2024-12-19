@@ -1,0 +1,84 @@
+#show_version=6
+
+# Chasing lights left to right and back across the
+# bottom of the backbox.
+
+- time: 0
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_game_over: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_ball1: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_ball2: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_ball3: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_shoot_again: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in1: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in2: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in3: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in4: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_tilt: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in4: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in3: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in2: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_players_in1: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_shoot_again: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_ball3: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_ball2: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_ball1: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off
+    l_backbox_game_over: on
+- time: "+0.2s"
+  lights:
+    tag_lights_info_lights: off

@@ -1,0 +1,17 @@
+#show_version=6
+
+# Seqeunce of shows to play when the game is in attract mode.
+
+- time: 0
+  shows:
+    match:
+      loops: 0
+      sync_ms: 2000
+    player_up:
+      loops: 0
+      sync_ms: 2000
+- time: "4s"
+  shows:
+    info_lights:
+      loops: 0
+      sync_ms: 2000
