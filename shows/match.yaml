@@ -1,0 +1,84 @@
+#show_version=6
+
+# Chasing lights left to right and back across the "match"
+# section of the backbox.
+#
+- time: 0
+  lights:
+    tag_lights_match: off
+    l_backbox_match_00: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_10: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_20: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_30: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_40: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_50: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_60: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_70: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_80: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_90: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_80: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_70: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_60: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_50: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_40: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_30: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_20: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_10: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_00: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off

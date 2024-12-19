@@ -1,9 +1,5 @@
 #config_version=6
 
-# complains about doing this outside of "GAME" modes
-#variable_player:
-#  s_flipper_eos_2:
-#    score: 123
 # mode:
 #   code: attract.Attract
 
@@ -12,3 +8,5 @@ slide_player:
     attract_slide:
       action: play
 
+show_player:
+  mode_attract_started: attract

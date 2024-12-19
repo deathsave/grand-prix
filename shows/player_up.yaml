@@ -1,0 +1,26 @@
+#show_version=6
+
+- time: "1s"
+  lights:
+    l_backbox_player_up1: on
+    l_backbox_player_up2: off
+    l_backbox_player_up3: off
+    l_backbox_player_up4: off
+- time: "+1s"
+  lights:
+    l_backbox_player_up1: off
+    l_backbox_player_up2: on
+    l_backbox_player_up3: off
+    l_backbox_player_up4: off
+- time: "+1s"
+  lights:
+    l_backbox_player_up1: off
+    l_backbox_player_up2: off
+    l_backbox_player_up3: on
+    l_backbox_player_up4: off
+- time: "+1s"
+  lights:
+    l_backbox_player_up1: off
+    l_backbox_player_up2: off
+    l_backbox_player_up3: off
+    l_backbox_player_up4: on
