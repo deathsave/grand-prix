@@ -23,6 +23,66 @@ light_player:
   mode_green_flag_started:
     x_loop_gate:
       color: white
+  ######################
+  ## Grooveline State ##
+  ######################
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 1}:
+    l_grooveline_01: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 2}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 3}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+    l_grooveline_03: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 4}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+    l_grooveline_03: on
+    l_grooveline_04: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 5}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+    l_grooveline_03: on
+    l_grooveline_04: on
+    l_grooveline_05: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 6}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+    l_grooveline_03: on
+    l_grooveline_04: on
+    l_grooveline_05: on
+    l_grooveline_06: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 7}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+    l_grooveline_03: on
+    l_grooveline_04: on
+    l_grooveline_05: on
+    l_grooveline_06: on
+    l_grooveline_07: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 8}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+    l_grooveline_03: on
+    l_grooveline_04: on
+    l_grooveline_05: on
+    l_grooveline_06: on
+    l_grooveline_07: on
+    l_grooveline_08: on
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 9}:
+    l_grooveline_01: on
+    l_grooveline_02: on
+    l_grooveline_03: on
+    l_grooveline_04: on
+    l_grooveline_05: on
+    l_grooveline_06: on
+    l_grooveline_07: on
+    l_grooveline_08: on
+    l_grooveline_09: on
+
+show_player:
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 9}: grooveline_soon
 
 sequences:
   seq_lap:
