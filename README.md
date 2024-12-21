@@ -24,7 +24,18 @@ in the `./web/` root. Then to run it, use `bin/docs`.
 
 ```mermaid
 graph TD
-    TODO --> DIAGRAM["Diagram Modes"]
+  ATTRACT[/"Attract Mode"/] -- press start --> BASE[/"Base Mode"/]
+  BASE -- fuel up --> GREEN_FLAG[/"Green Flag Mode"/]
+  GREEN_FLAG -- make 3 laps --> RANDOM1{"Random<br>Event"}
+  GREEN_FLAG -- make 10 laps --> GROOVELINE[/"Grooveline Mode"/]
+  RANDOM1 -- fuel -->
+    PIT_CHECK{"Fuel, Oil or Tires need attention?"}
+  RANDOM1 -- tires --> PIT_CHECK
+  RANDOM1 -- oil --> PIT_CHECK
+  RANDOM1 -- bad luck --> BALL_DRAINS((("Ball Drains")))
+  PIT_CHECK -- yes --> BASE
+  PIT_CHECK -- no --> GREEN_FLAG
+
 ```
 
 ### Production Machine Setup
