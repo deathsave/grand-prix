@@ -18,3 +18,7 @@ sudo usermod -a -G dialout $USER
 # connected to the internet (unconfirmed)
 sudo sed -i -e 's/NM_ONLINE_TIMEOUT=60/NM_ONLINE_TIMEOUT=5/g' \
   /etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
+
+# Remap Caps Lock to Backspace for VIM
+sudo sed -i -e 's/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:backspace\"/g' /etc/default/keyboard
+sudo dpkg-reconfigure keyboard-configuration
