@@ -2,7 +2,7 @@
 
 mode:
   start_events: ball_starting
-  priority: 50
+  priority: 10
   code: base.Base
 
 ball_saves:

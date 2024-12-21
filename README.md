@@ -27,7 +27,7 @@ graph TD
   ATTRACT[/"Attract Mode"/] -- press start --> BASE[/"Base Mode"/]
   BASE -- fuel up --> GREEN_FLAG[/"Green Flag Mode"/]
   GREEN_FLAG -- make 3 laps --> RANDOM1{"Random<br>Event"}
-  GREEN_FLAG -- make 10 laps --> GROOVELINE[/"Grooveline Mode"/]
+  GREEN_FLAG -- make 10 laps --> GL_MODE[/"Grooveline Mode"/]
   RANDOM1 -- fuel -->
     PIT_CHECK{"Fuel, Oil or Tires need attention?"}
   RANDOM1 -- tires --> PIT_CHECK
@@ -35,6 +35,8 @@ graph TD
   RANDOM1 -- bad luck --> BALL_DRAINS((("Ball Drains")))
   PIT_CHECK -- yes --> BASE
   PIT_CHECK -- no --> GREEN_FLAG
+  GL_MODE --> GL_MULTI("Grooveline Multiball")
+  GL_MULTI -- make 3 laps --> GL_MULTI_ADD_BALL("Add a Ball")
 
 ```
 

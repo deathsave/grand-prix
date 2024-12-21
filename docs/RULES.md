@@ -20,30 +20,28 @@ Racers, on your mark...
 - Top left gate is closed.
 - Standard scoring described here
 
-### Green-flag 1/4
+### Green-flag
 
 The race begins!
 
 - Activated when fuel, oil, and tires reach max level
 - Top left gate is open allowing a counter-clockwise orbit
-- Bottom-most 3 inserts on South-East chain tracks current orbit
 - 3 successful orbits:
-  - Awards a bonus (TBD)
-  - Resets the inserts
-  - Lights one of the 4 traffic signal inserts
+  - Awards a bonus (TODO)
 
-### Grooveline 2/4
+### Grooveline 1/4
 
 The fastest way around the track.
 
 - North-West chain of clear inserts.
 - Spells out G-R-O-O-V-E-L-I-N-E.
-- Rolling over the North-West rollover advances a letter
-- With all letters lit, Spinner activates "Shake your Groove Thing"
-- Completing lights one of the 4 traffic signal inserts
+- Making a lap during Green Flag lights one letter
+- Lighting all 10 letters:
+  - Activates Shake your Groove Thing Multiball
+  - Lights one of the 4 traffic signal inserts
 - **Resets after each ball**
 
-### Grand Prix 3/4
+### Grand Prix 2/4
 
 It's the name of the game!
 
@@ -61,7 +59,7 @@ It's the name of the game!
   - Activates Grand Prix Multiball
   - Lights one of the 4 traffic signal inserts
 
-### Pit Row Hurry-up 4/4
+### Pit Row Hurry-up
 
 Every driver's gotta pit Cole...
 
@@ -99,6 +97,7 @@ Every driver's gotta pit Cole...
 #### Shake your Groove Thing Multiball (2-ball)
 
 - Spinner and Grooveline rollover awards 2x scoring
+- Add single ball by completing 3 laps within 15 seconds
 
 #### Grand Prix Multiball (3-ball)
 

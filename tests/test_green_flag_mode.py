@@ -9,6 +9,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         # driver for the mini coils
         self.assertLightColor('x_loop_gate', 'black')
 
+        self._start()
         self._start_green_flag()
 
         # Mini coils is activated making it
@@ -40,6 +41,8 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         for event in random_events:
             self.mock_event(event)
             self.assertEqual(0, self._events.get(event, 0))
+
+        self._start()
         self._start_green_flag()
 
         for i in range(3):
@@ -83,6 +86,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertModeNotRunning("green_flag")
 
     def test_random_degrade_fuel_event(self):
+        self._start()
         self._start_green_flag()
         self.machine.events.post("degrade_fuel")
         self.advance_time_and_run(1)
@@ -100,6 +104,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertModeNotRunning("green_flag")
 
     def test_random_degrade_oil_event(self):
+        self._start()
         self._start_green_flag()
         self.machine.events.post("degrade_oil")
         self.advance_time_and_run(1)
@@ -119,6 +124,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         # self.machine.events.post("green_flag_smooth_sailing")
 
     def test_random_degrade_tires_event(self):
+        self._start()
         self._start_green_flag()
         self.machine.events.post("degrade_tires")
         self.advance_time_and_run(1)
@@ -136,6 +142,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertModeNotRunning("green_flag")
 
     def test_random_degrade_all_event(self):
+        self._start()
         self._start_green_flag()
         self.machine.events.post("degrade_all")
         self.advance_time_and_run(1)
@@ -158,6 +165,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
 
     # All bad luck events disable the flippers
     def test_random_bad_luck_event(self):
+        self._start()
         self._start_green_flag()
         self.assertTrue(
             self.machine.flippers["left_flipper"]._enabled
