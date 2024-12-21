@@ -39,3 +39,20 @@ def _start(self):
     self.hit_and_release_switch("s_shooter_lane")
     self.advance_time_and_run(4)
     self.assertEqual(1, self.machine.playfield.balls)
+
+def _start_green_flag(self):
+    self._start()
+    # Player must "fill up" to start racing
+    self.assertEqual(
+        1, self.machine.game.player.level_fuel)
+    self.assertEqual(1, self.machine.playfield.balls)
+
+    # Hitting the first qualifier fills up the tank
+    self.hit_and_release_switch("s_qualifier1")
+    self.advance_time_and_run(1)
+    self.assertModeRunning("green_flag")
+
+def _complete_lap(self):
+    self.hit_and_release_switch("s_spinner")
+    self.hit_and_release_switch("s_grooveline")
+    self.advance_time_and_run(1)

@@ -9,3 +9,9 @@ class DeathSaveGameTesting(MpfMachineTestCase):
 
     def _start(self):
         death_save._start(self)
+
+    def _start_green_flag(self):
+        death_save._start_green_flag(self)
+
+    def _complete_lap(self):
+        death_save._complete_lap(self)

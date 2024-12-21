@@ -1,16 +1,14 @@
 #config_version=6
-# NOTE: this is only for machine-wide variables. Put
-#       player-specific variables in modes
 
 player_vars:
   level_green_flag:
     initial_value: 0
-  # 2 is full,
-  # 1 is half
+  # 2 is full
+  # 1 is partial
   # 0 is empty
   level_fuel:
-    # player begins game with empty tank
-    initial_value: 0
+    # player begins game with partially empty tank
+    initial_value: 1
   level_oil:
     initial_value: 2
   level_tires:

@@ -39,6 +39,15 @@ counters:
     # TODO: maybe consider having a ceiling
     #       where the "race is completed"
     #count_complete_value: 100
+  grooveline_counter:
+    count_events: logicblock_seq_lap_complete
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 10
+    # keep state between mode changes but will
+    # reset on ball end per base mode
+    persist_state: true
+    debug: true
 
 # Every 3 laps, a random event will occur
 random_event_player:
@@ -75,6 +84,10 @@ variable_player:
   # state in player variables"
   logicblock_lap_counter_updated:
     lap_counter_count:
+      int: value
+      action: set
+  logicblock_grooveline_counter_updated:
+    grooveline_counter_count:
       int: value
       action: set
   degrade_fuel:

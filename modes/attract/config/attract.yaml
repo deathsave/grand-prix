@@ -1,8 +1,5 @@
 #config_version=6
 
-# mode:
-#   code: attract.Attract
-
 slide_player:
   mode_attract_started:
     attract_slide:
