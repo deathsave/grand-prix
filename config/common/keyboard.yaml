@@ -20,11 +20,11 @@ keyboard:
   a:
     switch: s_grand_hole
   f:
-    switch: s_qualifier1
+    switch: s_fuel
   o:
-    switch: s_qualifier2
+    switch: s_oil
   t:
-    switch: s_qualifier3
+    switch: s_tires
   # the next two switches (spinner, grooveline)
   # in sequence trigger a "lap"
   ",":

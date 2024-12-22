@@ -8,6 +8,7 @@ mode:
   - pit_required_fuel
   - pit_required_tires
   - green_flag_bad_luck
+  - green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_oil == 1 or current_player.level_fuel == 1}
   restart_on_next_ball: true
   priority: 100
 
@@ -121,10 +122,10 @@ random_event_player:
       # TODO: 20% chance good things happen
       green_flag_smooth_sailing: 20
       # 74% chance of normal wear and tear
-      degrade_fuel: 20
-      degrade_oil: 20
-      degrade_tires: 20
-      degrade_all: 14
+      green_flag_degrade_fuel: 20
+      green_flag_degrade_oil: 20
+      green_flag_degrade_tires: 20
+      green_flag_degrade_all: 14
       # TODO: 5% chance of a multi-car wreck
       green_flag_under_red: 5
       # TODO: Tiny chance ball ends immediately
@@ -136,9 +137,9 @@ random_event_player:
     - green_flag_timing_belt
   s_disqualifier_active:
     events:
-    - degrade_fuel
-    - degrade_oil
-    - degrade_tires
+    - green_flag_degrade_fuel
+    - green_flag_degrade_oil
+    - green_flag_degrade_tires
 
 variable_player:
   mode_green_flag_started:
@@ -155,33 +156,46 @@ variable_player:
     grooveline_counter_count:
       int: value
       action: set
-  degrade_fuel:
+  green_flag_degrade_fuel:
     level_fuel:
       action: add
       int: -1
-  degrade_oil:
+  green_flag_degrade_oil:
     level_oil:
       action: add
       int: -1
-  degrade_tires:
+  green_flag_degrade_tires:
     level_tires:
       action: add
       int: -1
-  s_qualifier1_active:
+  green_flag_degrade_all:
+    level_fuel:
+      action: add
+      int: -1
+    level_oil:
+      action: add
+      int: -1
+    level_tires:
+      action: add
+      int: -1
+  s_fuel_active:
     level_fuel: 0|block
-  s_qualifier2_active:
+  s_oil_active:
     level_oil: 0|block
-  s_qualifier3_active:
+  s_tires_active:
     level_tires: 0|block
+  #############
+  ## Scoring ##
+  #############
+  s_spinner_active:
+    score: 20|block
+  s_grooveline_active:
+    score: 100|block
 
 event_player:
-  degrade_fuel{current_player.level_fuel == 1}:
+  green_flag_degrade_fuel{current_player.level_fuel == 1}:
   - pit_required_fuel
-  degrade_oil{current_player.level_oil == 1}:
+  green_flag_degrade_oil{current_player.level_oil == 1}:
   - pit_required_oil
-  degrade_tires{current_player.level_tires == 1}:
+  green_flag_degrade_tires{current_player.level_tires == 1}:
   - pit_required_tires
-  degrade_all:
-  - degrade_fuel
-  - degrade_oil
-  - degrade_tires

@@ -48,7 +48,7 @@ def _start_green_flag(self):
     self.assertEqual(1, self.machine.playfield.balls)
 
     # Hitting the first qualifier fills up the tank
-    self.hit_and_release_switch("s_qualifier1")
+    self.hit_and_release_switch("s_fuel")
     self.advance_time_and_run(1)
     self.assertModeRunning("green_flag")
 

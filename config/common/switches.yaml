@@ -23,12 +23,16 @@ switches:
   s_pop2:
     number: 1-25
   # north_drop left
-  s_qualifier3:
+  s_tires:
     number: 1-26
-    tags: playfield_active
-  s_qualifier2:
+    tags:
+    - playfield_active
+    - qualifiers
+  s_oil:
     number: 1-27
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - qualifiers
   s_podium_hole:
     number: 1-28
     tags: playfield_active
@@ -75,9 +79,11 @@ switches:
     number: 3-26
     tags: playfield_active
   # central drop left
-  s_qualifier1:
+  s_fuel:
     number: 3-27
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - qualifiers
   s_spinner:
     number: 3-28
     tags: playfield_active

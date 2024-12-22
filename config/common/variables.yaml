@@ -1,8 +1,6 @@
 #config_version=6
 
 player_vars:
-  level_green_flag:
-    initial_value: 0
   # 2 is full
   # 1 is partial
   # 0 is empty
@@ -13,3 +11,7 @@ player_vars:
     initial_value: 2
   level_tires:
     initial_value: 2
+  is_grooveline:
+    initial_value: 0
+  is_grand_prix:
+    initial_value: 0

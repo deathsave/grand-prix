@@ -34,20 +34,20 @@ variable_player:
   s_pop2_active:
     score: 10
   s_grooveline_active:
-    score: 50 * (current_player.level_green_flag + 1)
-  s_qualifier1_active:
+    score: 50
+  s_fuel_active:
     score: 100
     bonus: 10
     level_fuel:
       int: 2
       action: set
-  s_qualifier2_active:
+  s_oil_active:
     score: 100
     bonus: 10
     level_oil:
       int: 2
       action: set
-  s_qualifier3_active:
+  s_tires_active:
     score: 100
     bonus: 10
     level_tires:
@@ -63,7 +63,7 @@ variable_player:
     score: 100
     bonus: 10
   s_spinner_active:
-    score: 10 * (current_player.level_green_flag + 1)
+    score: 10
     bonus: 1
   s_grand_advance_active:
     score: 10
@@ -102,22 +102,9 @@ variable_player:
 event_player:
   # To activate "green_flag" mode, the user's vehicle
   # must be ready to race:
-  s_qualifier1_active:
-  - green_flag{current_player.level_green_flag==0}
-  logicblock_seq_green_flag2_complete:
-  - green_flag{current_player.level_green_flag==1}
-  logicblock_seq_green_flag3_complete:
-  - green_flag
-
-sequences:
-  seq_green_flag2:
-    events:
-      - s_qualifier1_active
-      - s_qualifier2_active
-    disable_on_complete: true
-  seq_green_flag3:
-    events:
-      - s_qualifier1_active
-      - s_qualifier2_active
-      - s_qualifier3_active
-    disable_on_complete: false
+  s_fuel_active:
+  - green_flag{current_player.level_oil == 2 and current_player.level_tires == 2}
+  s_oil_active:
+  - green_flag{current_player.level_fuel == 2 and current_player.level_tires == 2}
+  s_tires_active:
+  - green_flag{current_player.level_fuel == 2 and current_player.level_oil == 2}

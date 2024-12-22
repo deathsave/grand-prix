@@ -11,8 +11,8 @@ class TestBaseMode(DeathSaveGameTesting):
         self._assertIncrement(score, "s_pop2", 10)
         self._assertIncrement(score, "s_grooveline", 50)
 
-        self._assertIncrement(score, "s_qualifier2", 100)
-        self._assertIncrement(score, "s_qualifier3", 100)
+        self._assertIncrement(score, "s_oil", 100)
+        self._assertIncrement(score, "s_tires", 100)
         self._assertIncrement(score, "s_podium_hole", 500)
         self._assertIncrement(score, "s_prix_hole", 100)
         self._assertIncrement(score, "s_grand_hole", 100)
@@ -29,4 +29,4 @@ class TestBaseMode(DeathSaveGameTesting):
         self._assertIncrement(score, "s_outlane2", 50)
         # Activates green_flag mode, so check last
         # to prevent scoring false positives
-        self._assertIncrement(score, "s_qualifier1", 100)
+        self._assertIncrement(score, "s_fuel", 100)
