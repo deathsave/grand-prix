@@ -11,6 +11,11 @@ mode:
   restart_on_next_ball: true
   priority: 100
 
+sound_player:
+  mode_green_flag_started:
+    particular:
+      action: play
+
 slide_player:
   mode_green_flag_started:
     green_flag_slide:

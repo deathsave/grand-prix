@@ -23,4 +23,6 @@ sounds:
   rad_racer:
     file: rad_racer.ogg
     track: music
-
+  particular:
+    file: no-particular-place-to-go.ogg
+    track: music
