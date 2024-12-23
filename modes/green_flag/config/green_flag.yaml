@@ -113,7 +113,35 @@ counters:
     # keep state between mode changes but will
     # reset on ball end per base mode
     persist_state: true
-    debug: true
+  grand_counter:
+    count_events: s_grand_advance_active
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 5
+    persist_state: true
+    reset_events:
+    - s_grand_hole_active
+    - logicblock_prix_counter_complete
+    enable_events:
+    - logicblock_prix_counter_complete
+    start_enabled: true
+    disable_on_complete: true
+    reset_on_complete: false
+  # NOTE: prix counter is dependent on grand_counter
+  prix_counter:
+    count_events: s_prix_advance_active
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 4
+    persist_state: true
+    enable_events:
+    - logicblock_grand_counter_complete
+    disable_on_complete: true
+  grand_prix_counter:
+    count_events: logicblock_prix_counter_complete
+    starting_count: 0
+    count_complete_value: 4
+    reset_on_complete: false
 
 # Every 3 laps, a random event will occur
 random_event_player:
@@ -146,16 +174,6 @@ variable_player:
     level_green_flag:
       action: add
       int: 1
-  # Per docs, "Counters no longer save their
-  # state in player variables"
-  logicblock_lap_counter_updated:
-    lap_counter_count:
-      int: value
-      action: set
-  logicblock_grooveline_counter_updated:
-    grooveline_counter_count:
-      int: value
-      action: set
   green_flag_degrade_fuel:
     level_fuel:
       action: add
@@ -191,6 +209,32 @@ variable_player:
     score: 20|block
   s_grooveline_active:
     score: 100|block
+  ########################
+  ## Counter Peristence ##
+  ########################
+  # Per docs, "Counters no longer save their
+  # state in player variables", so we need
+  # to map them manually here
+  logicblock_lap_counter_updated:
+    lap_counter_count:
+      int: value
+      action: set
+  logicblock_grooveline_counter_updated:
+    grooveline_counter_count:
+      int: value
+      action: set
+  logicblock_grand_counter_updated:
+    grand_counter_count:
+      int: value
+      action: set
+  logicblock_prix_counter_updated:
+    prix_counter_count:
+      int: value
+      action: set
+  logicblock_grand_prix_counter_updated:
+    grand_prix_counter_count:
+      int: value
+      action: set
 
 event_player:
   green_flag_degrade_fuel{current_player.level_fuel == 1}:

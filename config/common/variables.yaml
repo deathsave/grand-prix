@@ -11,7 +11,15 @@ player_vars:
     initial_value: 2
   level_tires:
     initial_value: 2
-  is_grooveline:
+  ##########################
+  ## Wizard Mode Progress ##
+  ##########################
+  # TODO: ...50 laps to complete
+  is_green_flag_completed:
     initial_value: 0
-  is_grand_prix:
+  # just activate
+  is_grooveline_completed:
+    initial_value: 0
+  # just activate
+  is_grand_prix_completed:
     initial_value: 0
