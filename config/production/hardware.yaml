@@ -9,11 +9,11 @@ hardware:
  segment_displays: mypinballs
 
 opp:
-  debug: true
+  #debug: true
   baud: 115200
   ports: /dev/ttyACM0
 
 mypinballs:
-  debug: true
+  #debug: true
   #port: /dev/ttyAMA0
   port: /dev/ttyACM1

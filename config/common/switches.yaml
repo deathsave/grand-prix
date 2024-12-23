@@ -63,6 +63,8 @@ switches:
   s_start:
     number: 2-30
     tags: start
+  s_launch:
+    number: 2-31
   # UNUSED 2-31
 
   ####################
@@ -154,4 +156,9 @@ switches:
     number: 5-29
     tags: right_flipper
   # UNUSED 5-30
-  # UNUSED 5-31
+
+  # NOTE: this is a dummy switch for use in testing
+  #       without side effects
+  s_activate_playfield:
+    number: 5-31
+    tags: playfield_active

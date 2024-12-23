@@ -9,7 +9,7 @@ class TestGeneral(DeathSaveGameTesting):
 
     def _machine_boots(self):
         self.assertEqual(3,
-            self.machine.ball_devices.bd_trough.balls)
+            self.machine.ball_devices["bd_trough"].balls)
         self.assertModeRunning('attract')
         self.assertModeNotRunning('base')
 

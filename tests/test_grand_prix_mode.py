@@ -50,6 +50,15 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
         self.assertModeRunning("grand_prix")
 
+    def test_multiball(self):
+        self._start_multiball()
+
+        # Player launches the ball
+        self.hit_and_release_switch("s_shooter_lane")
+        self.hit_switch_and_run("s_podium_advance2", 4)
+        self.assertEqual(2, self.machine.playfield.balls)
+
+
     def _light_grand(self):
         for i in range(5):
             self.hit_and_release_switch("s_grand_advance")
@@ -66,3 +75,14 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             self.machine.counters["grand_counter"].enabled)
         self.assertEqual(False,
             self.machine.counters["prix_counter"].enabled)
+
+    def _start_multiball(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self._start_grand_prix()
+        self.assertEqual(2, self.machine.playfield.balls)
+        # A ball is ejected to the shooter lane
+        self.assertEqual(1,
+            self.machine.ball_devices["bd_trough"].balls)
+        self.assertEqual(0,
+            self.machine.ball_devices["bd_shooter_lane"].balls)

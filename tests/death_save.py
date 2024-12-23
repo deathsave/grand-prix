@@ -26,7 +26,7 @@ def _assertIncrement(self, var, switch, value):
 
 def _start(self):
     self.assertEqual(3,
-        self.machine.ball_devices.bd_trough.balls)
+        self.machine.ball_devices["bd_trough"].balls)
     self.assertModeRunning('attract')
     self.assertModeNotRunning('base')
     self.hit_and_release_switch("s_start")
@@ -39,6 +39,11 @@ def _start(self):
     self.hit_and_release_switch("s_shooter_lane")
     self.advance_time_and_run(4)
     self.assertEqual(1, self.machine.playfield.balls)
+
+def _start_and_expire_ball_save(self):
+    self._start()
+    self.hit_and_release_switch("s_activate_playfield")
+    self.advance_time_and_run(15)
 
 # assumes base mode is running (game started)
 def _start_green_flag(self):
@@ -64,3 +69,17 @@ def _start_grooveline(self):
     self.advance_time_and_run(1)
     self.advance_time_and_run(4)
     self.assertModeRunning("grooveline")
+
+# assumes green_flag mode is running
+def _start_grand_prix(self):
+    self.machine.events. \
+        post("logicblock_grand_prix_counter_complete")
+    self.advance_time_and_run(1)
+    self.advance_time_and_run(4)
+    self.assertModeRunning("grand_prix")
+
+# From https://github.com/missionpinball/mpf/blob \
+#   /dev/mpf/tests/MpfGameTestCase.py#L141
+def _drain_one_ball(self):
+    drain = self.machine.ball_devices.items_tagged("drain")[0]
+    self.machine.default_platform.add_ball_to_device(drain)
