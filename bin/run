@@ -5,5 +5,7 @@
 
 # temporary solution to use dev config
 # and smart vitual platform
-CMD="mpf both -Xtav -c development"
+#CMD="mpf both -Xtav -c development"
+
+CMD="mpf both -v -c production"
 xterm -hold -e "source ~/.bash_profile && cd ~/grand-prix && bash -c '$CMD'"
