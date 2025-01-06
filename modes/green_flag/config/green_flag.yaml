@@ -88,7 +88,7 @@ light_player:
     l_grooveline_09: on
 
 show_player:
-  player_grooveline_counter_count{current_player.grooveline_counter_count == 9}: grooveline_soon
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 10}: grooveline_soon
 
 sequences:
   seq_lap:
@@ -142,6 +142,14 @@ counters:
     starting_count: 0
     count_complete_value: 4
     reset_on_complete: false
+
+sequence_shots:
+  grooveline_qualifier:
+    event_sequence:
+    - logicblock_grooveline_counter_complete
+    - s_disqualifier_active
+    sequence_timeout: 0
+    cancel_events: ball_ending
 
 # Every 3 laps, a random event will occur
 random_event_player:

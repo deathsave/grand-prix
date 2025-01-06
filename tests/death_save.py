@@ -65,7 +65,7 @@ def _complete_lap(self):
 # assumes green_flag mode is running
 def _start_grooveline(self):
     self.machine.events. \
-        post("logicblock_grooveline_counter_complete")
+        post("grooveline_qualifier_hit")
     self.advance_time_and_run(1)
     self.advance_time_and_run(4)
     self.assertModeRunning("grooveline")
