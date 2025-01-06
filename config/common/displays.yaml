@@ -15,7 +15,6 @@ displays:
     height: 480
     default: true
 
-segment_displays:
-  segment1:
-    update_method: replace
-    number: 1
+# segment_displays:
+#   segment1:
+#     number: 1

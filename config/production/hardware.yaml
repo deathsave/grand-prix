@@ -6,14 +6,14 @@ hardware:
  # single value, so we need to overide
  # platform to opp for all opp lights
  # lights: fadecandy
- segment_displays: mypinballs
+ #segment_displays: mypinballs
 
 opp:
-  #debug: true
+  debug: true
   baud: 115200
   ports: /dev/ttyACM0
 
-mypinballs:
-  #debug: true
-  #port: /dev/ttyAMA0
-  port: /dev/ttyACM1
+#mypinballs:
+#  debug: true
+#  port: /dev/ttyAMA0
+#  #port: /dev/ttyACM0
