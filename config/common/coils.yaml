@@ -4,8 +4,8 @@ coils:
   c_auto_kicker:
     number: 5-3
     default_pulse_ms: 20
-  c_trough_eject:
-    number: 0-2
+  c_trough:
+    number: 4-2
     default_pulse_ms: 20
   c_flipper1:
     number: 4-0

@@ -406,8 +406,8 @@ lights:
   ## Fade Candy #
   ###############
 
-  rgb_448:
-    number: 7-0
+  # rgb_448:
+  #   number: 7-0
 
 info_lights:
   match_00:
