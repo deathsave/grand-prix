@@ -1,45 +1,49 @@
 Grand Prix ’86 RULES
 ====================
 
-Music Possibilities:
+Main objective is to gas up, keep the car in good shape, and
+either run up the score completing laps or qualify the Grand Prix.
 
-- "The Distance" by Cake (attract mode)
-- "Highway to the Danger Zone" by Kenny Loggins
-- "Mach 5" by The Presidents of the United States of America
-- "Shake your Groove Thing" by Peaches & Herb
-- "302 Cubic Inch V8 Powered Blues" by Zeke
-- "The Beautiful People" by Marilyn Manson (Chimebox)
+Fundamental Modes
+-----------------
 
-Modes
------
-
-### Base (Pit Row)
+### Pit Row (Base Mode)
 
 Racers, on your mark...
 
 - Top left gate is closed.
 - Standard scoring described here
 
-### Green-flag
+### Green-flag (Main Mode)
 
 The race begins!
 
 - Activated when fuel, oil, and tires reach max level
-- Top left gate is open allowing a counter-clockwise orbit
+- Top left gate opens allowing a counter-clockwise orbit
+- Each orbit increases the lap counter and adds to the bonus
 - 3 successful orbits:
+  - Causes a random event
   - Awards a bonus (TODO)
+
+Special Modes
+-------------
+
+There are 3 special modes which build up to activation of the
+4th, pseudo-wizard mode.
 
 ### Grooveline 1/4
 
-The fastest way around the track.
+The fastest way around the track (the North-West chain of 10
+purple inserts).
 
-- North-West chain of clear inserts.
-- Spells out G-R-O-O-V-E-L-I-N-E.
-- Making a lap during Green Flag lights one letter
-- Lighting all 10 letters:
-  - Activates Shake your Groove Thing Multiball
-  - Lights one of the 4 traffic signal inserts
-- **Resets after each ball**
+- Making a lap during Green Flag lights an insert, in sequence
+  from top to bottom
+- Lighting all 10 inserts and then hitting the "disqualifer":
+  - **Activates "Grooveline" Multiball!**
+    - Spinner and Grooveline rollover awards 2x scoring
+    - Add single ball by completing 3 laps within 15 seconds
+  - Lights first of the 4 traffic signal inserts (Yellow)
+- **This mode resets progress after each ball**
 
 ### Grand Prix 2/4
 
@@ -56,19 +60,41 @@ It's the name of the game!
 - Lighting all 4 of PRIX and entering hole:
   - Lights right side of podium insert
 - With both sides lit, entering podium hole:
-  - Activates Grand Prix Multiball
-  - Lights one of the 4 traffic signal inserts
+  - **Activates Grand Prix Multiball!**
+    - Primary Multiball
+    - Top-hole keeps ball locked. Autokicker will launch the others.
+    - Add a ball up to 3 times by getting into any hole, exclusive
+  - Lights THIRD of the 4 traffic signal inserts (Green)
 
-### Pit Row Hurry-up
+### Rubbing is Racing "Hurry Up" 3/4
 
-Every driver's gotta pit Cole...
+When exiting Grooveline or Grand Prix, the driver is given a
+"hurry up" with a chance to reactivate the mode. This should
+function more or less like "bats/rats" from "Dracula". Hit as many
+switches as possible in a short amount of time...
 
-- Completing ANY of the 4 other main modes activates Pit Row
 - 30 second hurry-up with 2x scoring awarded for all switches
 - If `n` (TBD) switches are hit:
-  - Static bonus is held until end of ball
   - Lights one of the 4 traffic signal inserts
-- When time expires, game mode returns to "Base" mode (pace lap)
+  - Lights second of the 4 traffic signal inserts (Yellow)
+  - When time expires, random event fires and kicks the
+    player back to "Pit Row" (base mode)
+
+#### Red-flag 4/4
+
+Once 3/4 traffic signals are lit, the fourth will begin flashing
+in red color. The player then only needs to lock a ball in ANY of
+the 3 holes to activate Red-flag Multiball.
+
+- "Music" is just a heart beat and heavy breathing
+- Constant multi-ball for 30 seconds
+- Mode continues for another 30 seconds where the player needs
+  to hit every switch on the playfield to complete the mode
+- Each shot should play a random "wrecking/crash" sound from
+  the pool and sound the chimebox
+
+Other Modes / Functionalities
+-----------------------------
 
 ### End of Ball Bonus
 
@@ -92,26 +118,12 @@ Every driver's gotta pit Cole...
 - Hitting the central-right drop target will remove one unit
   of "progress" from each mode (or some modes - TBD)
 
-### Multi-ball Modes
+### Music Thoughts:
 
-#### Shake your Groove Thing Multiball (2-ball)
-
-- Spinner and Grooveline rollover awards 2x scoring
-- Add single ball by completing 3 laps within 15 seconds
-
-#### Grand Prix Multiball (3-ball)
-
-- Primary Multiball
-- Top-hole keeps ball locked. Autokicker will launch the others.
-- Add a ball up to 3 times by getting into any hole, exclusive
-
-#### Red-flag Multiball (3-ball)
-
-The Wizard Mode (if we get to it). Hit everything.
-
-- "Music" is just a heart beat and heavy breathing
-- Player must light all 4 traffic signals to activate
-- 60 seconds to put all the lights out
-- Each shot should have a different "wrecking/crash" sound
-- Use the chimebox here, too
-- TODO
+- "No Particular Place to Go" by Chuck Berry (Green Flag)
+- "The Distance" by Cake
+- "Highway to the Danger Zone" by Kenny Loggins
+- "Mach 5" by The Presidents of the United States of America
+- "Shake your Groove Thing" by Peaches & Herb
+- "302 Cubic Inch V8 Powered Blues" by Zeke
+- "The Beautiful People" by Marilyn Manson (Chimebox)
