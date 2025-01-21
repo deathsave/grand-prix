@@ -1,0 +1,9 @@
+#config_version=6
+
+event_player:
+  green_flag_degrade_fuel{current_player.level_fuel == 1}:
+  - pit_required_fuel
+  green_flag_degrade_oil{current_player.level_oil == 1}:
+  - pit_required_oil
+  green_flag_degrade_tires{current_player.level_tires == 1}:
+  - pit_required_tires

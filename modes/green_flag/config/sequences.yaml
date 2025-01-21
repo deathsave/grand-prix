@@ -1,0 +1,9 @@
+#config_version=6
+
+sequences:
+  seq_lap:
+    events:
+    - s_spinner_active
+    - s_grooveline_active
+    disable_on_complete: false
+

@@ -1,0 +1,9 @@
+#config_version=6
+
+# All multi-ball modes should light these
+light_player:
+  mode_grand_prix_started:
+    l_north_advance1:
+      color: white
+    l_north_advance2:
+      color: white

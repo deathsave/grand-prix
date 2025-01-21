@@ -1,0 +1,10 @@
+#config_version=6
+
+sequence_shots:
+  grooveline_qualifier:
+    event_sequence:
+    - logicblock_grooveline_counter_complete
+    - s_disqualifier_active
+    sequence_timeout: 0
+    cancel_events: ball_ending
+

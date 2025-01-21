@@ -1,0 +1,7 @@
+#config_version=6
+
+sound_player:
+  mode_green_flag_started:
+    particular:
+      action: play
+

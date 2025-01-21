@@ -25,13 +25,24 @@ The race begins!
   - Causes a random event
   - Awards a bonus (TODO)
 
+### Rubbing is Racing "Hurry Up"
+
+When exiting a special mode, the driver is given a "hurry up" with
+a chance to reactivate the mode. This should function more or less
+like "bats/rats" from "Dracula". Hit as many switches as possible in a short amount of time...
+
+- 30 second hurry-up with 2x scoring awarded for all switches
+- If `n` (TBD) switches are hit:
+  - When time expires, random event fires and kicks the
+    player back to "Pit Row" (base mode)
+
 Special Modes
 -------------
 
 There are 3 special modes which build up to activation of the
 4th, pseudo-wizard mode.
 
-### Grooveline 1/4
+### Grooveline 1/3 (YELLOW 1)
 
 The fastest way around the track (the North-West chain of 10
 purple inserts).
@@ -45,7 +56,12 @@ purple inserts).
   - Lights first of the 4 traffic signal inserts (Yellow)
 - **This mode resets progress after each ball**
 
-### Grand Prix 2/4
+### Lap of Luxury 2/3 (YELLOW 2)
+
+Completing a (very high - TBD) number of laps during Green Flag
+across multiple balls will light the "Lap of Luxury" hole.
+
+### Grand Prix 3/3 (GREEN)
 
 It's the name of the game!
 
@@ -66,21 +82,8 @@ It's the name of the game!
     - Add a ball up to 3 times by getting into any hole, exclusive
   - Lights THIRD of the 4 traffic signal inserts (Green)
 
-### Rubbing is Racing "Hurry Up" 3/4
 
-When exiting Grooveline or Grand Prix, the driver is given a
-"hurry up" with a chance to reactivate the mode. This should
-function more or less like "bats/rats" from "Dracula". Hit as many
-switches as possible in a short amount of time...
-
-- 30 second hurry-up with 2x scoring awarded for all switches
-- If `n` (TBD) switches are hit:
-  - Lights one of the 4 traffic signal inserts
-  - Lights second of the 4 traffic signal inserts (Yellow)
-  - When time expires, random event fires and kicks the
-    player back to "Pit Row" (base mode)
-
-#### Red-flag 4/4
+#### Red-flag (Wizard Mode)
 
 Once 3/4 traffic signals are lit, the fourth will begin flashing
 in red color. The player then only needs to lock a ball in ANY of

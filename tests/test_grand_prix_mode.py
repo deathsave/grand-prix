@@ -41,6 +41,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(1,
             self.machine.game.player.grand_prix_counter_count)
 
+        # Mult-ball light indicators off
+        self.assertLightColor('l_north_advance1', 'black')
+        self.assertLightColor('l_north_advance2', 'black')
+
         # Repeat sequence 3 more times
         for i in range(3):
             self._light_grand()
@@ -49,6 +53,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             self.machine.game.player.grand_prix_counter_count)
 
         self.assertModeRunning("grand_prix")
+
+        # Mult-ball light indicators on
+        self.assertLightColor('l_north_advance1', 'white')
+        self.assertLightColor('l_north_advance2', 'white')
 
     def test_multiball(self):
         self._start_multiball()

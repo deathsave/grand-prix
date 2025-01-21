@@ -1,28 +1,6 @@
 #config_version=6
 
-mode:
-  start_events:
-  - grooveline_qualifier_hit
-  stop_events:
-  - multiball_grooveline_multiball_ended
-  restart_on_next_ball: false
-  priority: 200
-
-# TODO: May not need this
-coil_player:
-  s_shooter_lane_active: c_auto_kicker
-
-multiballs:
-  grooveline_multiball:
-    debug: true
-    ball_count: 1
-    ball_count_type: add
-    shoot_again: 10s
-    add_a_ball_shoot_again: 0
-    start_events:
-    - mode_grooveline_started
-    stop_events:
-    - multiball_grooveline_multiball_ended
-    # Making 3 laps adds 1 ball
-    add_a_ball_events:
-    - player_grooveline_counter_count{current_player.grooveline_counter_count == 3}
+config:
+- mode.yaml
+- light_player.yaml
+- multiballs.yaml

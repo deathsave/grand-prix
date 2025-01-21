@@ -1,9 +1,5 @@
 #config_version=6
 
-slide_player:
-  mode_attract_started:
-    attract_slide:
-      action: play
-
-show_player:
-  mode_attract_started: attract
+config:
+- slide_player.yaml
+- show_player.yaml

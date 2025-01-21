@@ -1,0 +1,10 @@
+#config_version=6
+
+mode:
+  start_events:
+  - logicblock_grand_prix_counter_complete
+  stop_events:
+  - multiball_grand_prix_ended
+  restart_on_next_ball: false
+  priority: 200
+

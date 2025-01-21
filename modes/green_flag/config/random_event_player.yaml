@@ -1,0 +1,28 @@
+#config_version=6
+
+# Every 3 laps, a random event will occur
+random_event_player:
+  player_lap_counter_count{(current_player.lap_counter_count % 3 == 0) and (current_player.lap_counter_count > 0)}:
+    events:
+      # TODO: 20% chance good things happen
+      green_flag_smooth_sailing: 20
+      # 74% chance of normal wear and tear
+      green_flag_degrade_fuel: 20
+      green_flag_degrade_oil: 20
+      green_flag_degrade_tires: 20
+      green_flag_degrade_all: 14
+      # TODO: 5% chance of a multi-car wreck
+      green_flag_under_red: 5
+      # TODO: Tiny chance ball ends immediately
+      green_flag_bad_luck: 1
+  green_flag_bad_luck:
+    events:
+    - green_flag_wreck
+    - green_flag_head_gasket
+    - green_flag_timing_belt
+  s_disqualifier_active:
+    events:
+    - green_flag_degrade_fuel
+    - green_flag_degrade_oil
+    - green_flag_degrade_tires
+

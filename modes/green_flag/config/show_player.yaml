@@ -1,0 +1,4 @@
+#config_version=6
+
+show_player:
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 10}: grooveline_soon

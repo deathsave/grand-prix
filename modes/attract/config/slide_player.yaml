@@ -1,0 +1,6 @@
+#config_version=6
+
+slide_player:
+  mode_attract_started:
+    attract_slide:
+      action: play

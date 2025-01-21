@@ -1,0 +1,48 @@
+#config_version=6
+
+counters:
+  lap_counter:
+    count_events: logicblock_seq_lap_complete
+    starting_count: 0
+    count_interval: 1
+    # TODO: maybe consider having a ceiling
+    #       where the "race is completed"
+    #count_complete_value: 100
+  grooveline_counter:
+    count_events: logicblock_seq_lap_complete
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 10
+    # keep state between mode changes but will
+    # reset on ball end per base mode
+    persist_state: true
+  grand_counter:
+    count_events: s_grand_advance_active
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 5
+    persist_state: true
+    reset_events:
+    - s_grand_hole_active
+    - logicblock_prix_counter_complete
+    enable_events:
+    - logicblock_prix_counter_complete
+    start_enabled: true
+    disable_on_complete: true
+    reset_on_complete: false
+  # NOTE: prix counter is dependent on grand_counter
+  prix_counter:
+    count_events: s_prix_advance_active
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 4
+    persist_state: true
+    enable_events:
+    - logicblock_grand_counter_complete
+    disable_on_complete: true
+  grand_prix_counter:
+    count_events: logicblock_prix_counter_complete
+    starting_count: 0
+    count_complete_value: 4
+    reset_on_complete: false
+

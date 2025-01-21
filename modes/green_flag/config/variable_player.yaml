@@ -1,0 +1,69 @@
+#config_version=6
+
+variable_player:
+  mode_green_flag_started:
+    level_green_flag:
+      action: add
+      int: 1
+  green_flag_degrade_fuel:
+    level_fuel:
+      action: add
+      int: -1
+  green_flag_degrade_oil:
+    level_oil:
+      action: add
+      int: -1
+  green_flag_degrade_tires:
+    level_tires:
+      action: add
+      int: -1
+  green_flag_degrade_all:
+    level_fuel:
+      action: add
+      int: -1
+    level_oil:
+      action: add
+      int: -1
+    level_tires:
+      action: add
+      int: -1
+  s_fuel_active:
+    level_fuel: 0|block
+  s_oil_active:
+    level_oil: 0|block
+  s_tires_active:
+    level_tires: 0|block
+  #############
+  ## Scoring ##
+  #############
+  s_spinner_active:
+    score: 20|block
+  s_grooveline_active:
+    score: 100|block
+  ########################
+  ## Counter Peristence ##
+  ########################
+  # Per docs, "Counters no longer save their
+  # state in player variables", so we need
+  # to map them manually here
+  logicblock_lap_counter_updated:
+    lap_counter_count:
+      int: value
+      action: set
+  logicblock_grooveline_counter_updated:
+    grooveline_counter_count:
+      int: value
+      action: set
+  logicblock_grand_counter_updated:
+    grand_counter_count:
+      int: value
+      action: set
+  logicblock_prix_counter_updated:
+    prix_counter_count:
+      int: value
+      action: set
+  logicblock_grand_prix_counter_updated:
+    grand_prix_counter_count:
+      int: value
+      action: set
+

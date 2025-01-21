@@ -1,0 +1,10 @@
+#config_version=6
+
+slide_player:
+  mode_green_flag_started:
+    green_flag_slide:
+      action: play
+  player_level_fuel: green_flag_slide
+  player_level_tires: green_flag_slide
+  player_level_oil: green_flag_slide
+
