@@ -1,0 +1,78 @@
+#config_version=6
+
+variable_player:
+  ###########
+  # Scoring #
+  ###########
+
+  # consider removing points
+  # s_disqualifier_active:
+  s_pop1_active:
+    score: 10
+  s_pop2_active:
+    score: 10
+  s_grooveline_active:
+    score: 50
+  s_fuel_active:
+    score: 100
+    bonus: 10
+    level_fuel:
+      int: 2
+      action: set
+  s_oil_active:
+    score: 100
+    bonus: 10
+    level_oil:
+      int: 2
+      action: set
+  s_tires_active:
+    score: 100
+    bonus: 10
+    level_tires:
+      int: 2
+      action: set
+  s_podium_hole_active:
+    score: 500
+    bonus: 50
+  s_prix_hole_active:
+    score: 100
+    bonus: 10
+  s_grand_hole_active:
+    score: 100
+    bonus: 10
+  s_spinner_active:
+    score: 10
+    bonus: 1
+  s_grand_advance_active:
+    score: 10
+    bonus: 10
+  s_prix_advance_active:
+    score: 10
+    bonus: 10
+  s_podium_advance1_active:
+    score: 10
+    bonus: 10
+  s_podium_advance2_active:
+    score: 10
+    bonus: 10
+  s_slingshot1_active:
+    score: 10
+  s_slingshot2_active:
+    score: 10
+  s_inlane1_active:
+    score: 25
+  s_inlane2_active:
+    score: 25
+  s_outlane1_active:
+    score: 50
+  s_outlane2_active:
+    score: 50
+
+  #####################
+  ## Per-ball resets ##
+  #####################
+  ball_will_end:
+    grooveline_counter_count:
+      action: set
+      int: 0
+

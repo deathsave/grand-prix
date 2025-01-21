@@ -1,6 +1,6 @@
 #config_version=6
 
 config:
-- mode.yaml
 - light_player.yaml
+- mode.yaml
 - multiballs.yaml

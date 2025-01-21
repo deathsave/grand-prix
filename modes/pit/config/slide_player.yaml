@@ -1,0 +1,9 @@
+#config_version=6
+
+slide_player:
+  mode_pit_started:
+    pit_slide:
+      action: play
+  player_level_fuel: pit_slide
+  player_level_tires: pit_slide
+  player_level_oil: pit_slide
