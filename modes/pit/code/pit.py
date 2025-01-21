@@ -1,6 +1,6 @@
 from mpf.core.mode import Mode
 
-class Base(Mode):
+class Pit(Mode):
 
     def mode_start(self, **kwargs):
         player = self.machine.game.player

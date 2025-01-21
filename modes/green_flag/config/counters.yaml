@@ -14,7 +14,7 @@ counters:
     count_interval: 1
     count_complete_value: 10
     # keep state between mode changes but will
-    # reset on ball end per base mode
+    # reset on ball end per pit mode
     persist_state: true
   grand_counter:
     count_events: s_grand_advance_active

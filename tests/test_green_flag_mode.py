@@ -22,7 +22,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self._assertIncrement(score, "s_spinner", 10 * 2)
         self._assertIncrement(score, "s_grooveline", 50 * 2)
 
-        # Other switches score normally per Base Mode
+        # Other switches score normally per Pit Mode
         self._assertIncrement(score, "s_pop1", 10)
         self._assertIncrement(score, "s_podium_advance1", 10)
         self._assertIncrement(score, "s_slingshot2", 10)

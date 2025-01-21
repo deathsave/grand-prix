@@ -11,12 +11,12 @@ class TestGeneral(DeathSaveGameTesting):
         self.assertEqual(3,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertModeRunning('attract')
-        self.assertModeNotRunning('base')
+        self.assertModeNotRunning('pit')
 
     def _game_begins(self):
         self.hit_and_release_switch("s_start")
         self.advance_time_and_run(1)
-        self.assertModeRunning("base")
+        self.assertModeRunning("pit")
         self.assertModeNotRunning("attract")
         self.assertEqual(2,
             self.machine.ball_devices["bd_trough"].balls)

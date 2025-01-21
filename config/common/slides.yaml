@@ -3,7 +3,7 @@
 slides:
   attract_slide:
   - widget: attract
-  base_slide:
+  pit_slide:
   - widget: pit_background
   - widget: pit_mirror
   - widget: rear_view

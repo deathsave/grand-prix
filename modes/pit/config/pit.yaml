@@ -3,7 +3,7 @@
 mode:
   start_events: ball_starting
   priority: 10
-  code: base.Base
+  code: pit.Pit
 
 ball_saves:
   ball_start_ball_save:
@@ -15,12 +15,12 @@ ball_saves:
     balls_to_save: 1
 
 slide_player:
-  mode_base_started:
-    base_slide:
+  mode_pit_started:
+    pit_slide:
       action: play
-  player_level_fuel: base_slide
-  player_level_tires: base_slide
-  player_level_oil: base_slide
+  player_level_fuel: pit_slide
+  player_level_tires: pit_slide
+  player_level_oil: pit_slide
 
 variable_player:
   ###########
@@ -97,7 +97,6 @@ variable_player:
     grooveline_counter_count:
       action: set
       int: 0
-
 
 event_player:
   # To activate "green_flag" mode, the user's vehicle

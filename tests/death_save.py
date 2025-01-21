@@ -28,7 +28,7 @@ def _start(self):
     self.assertEqual(3,
         self.machine.ball_devices["bd_trough"].balls)
     self.assertModeRunning('attract')
-    self.assertModeNotRunning('base')
+    self.assertModeNotRunning('pit')
     self.hit_and_release_switch("s_start")
     self.advance_time_and_run(1)
     self.assertEqual(2,
@@ -45,7 +45,7 @@ def _start_and_expire_ball_save(self):
     self.hit_and_release_switch("s_activate_playfield")
     self.advance_time_and_run(15)
 
-# assumes base mode is running (game started)
+# assumes pit mode is running (game started)
 def _start_green_flag(self):
     # Player must "fill up" to start racing
     self.assertEqual(

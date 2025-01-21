@@ -24,8 +24,8 @@ in the `./web/` root. Then to run it, use `bin/docs`.
 
 ```mermaid
 graph TD
-  ATTRACT[/"Attract Mode"/] -- press start --> BASE[/"Base Mode"/]
-  BASE -- fuel up --> GREEN_FLAG[/"Green Flag Mode"/]
+  ATTRACT[/"Attract Mode"/] -- press start --> PIT[/"PIT Mode"/]
+  PIT -- fuel up --> GREEN_FLAG[/"Green Flag Mode"/]
   GREEN_FLAG -- make 3 laps --> RANDOM1{"Random<br>Event"}
   GREEN_FLAG -- make 10 laps --> GL_MODE[/"Grooveline Mode"/]
   GREEN_FLAG -- grand prix sequence --> GP_MODE[/"Grand Prix Mode"/]
@@ -34,7 +34,7 @@ graph TD
   RANDOM1 -- tires --> PIT_CHECK
   RANDOM1 -- oil --> PIT_CHECK
   RANDOM1 -- bad luck --> BALL_DRAINS((("Ball Drains")))
-  PIT_CHECK -- yes --> BASE
+  PIT_CHECK -- yes --> PIT
   PIT_CHECK -- no --> GREEN_FLAG
   GL_MODE --> GL_MULTI("Grooveline Multiball")
   GP_MODE --> GP_MULTI("Grand Prix Multiball")
