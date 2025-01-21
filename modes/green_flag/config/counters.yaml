@@ -5,17 +5,30 @@ counters:
     count_events: logicblock_seq_lap_complete
     starting_count: 0
     count_interval: 1
-    # TODO: maybe consider having a ceiling
-    #       where the "race is completed"
-    #count_complete_value: 100
+
+  # This is the per-ball lap counter:
+  #   We keep state between mode changes
+  #   BUT WILL RESET ON BALL END
+  #   (see Pit Mode variable_player)
   grooveline_counter:
     count_events: logicblock_seq_lap_complete
     starting_count: 0
     count_interval: 1
     count_complete_value: 10
-    # keep state between mode changes but will
-    # reset on ball end per pit mode
     persist_state: true
+
+  # This is the truly persisted counter
+  # across all balls
+  luxury_counter:
+    count_events: logicblock_seq_lap_complete
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 50
+    persist_state: true
+
+  # The following three counters are dependent
+  # on one another. This first counter lights
+  # the "GRAND" inserts.
   grand_counter:
     count_events: s_grand_advance_active
     starting_count: 0
@@ -23,26 +36,47 @@ counters:
     count_complete_value: 5
     persist_state: true
     reset_events:
+    # Both holes should be avoided during
+    # the first counter's progression
     - s_grand_hole_active
+    - s_prix_hole_active
     - logicblock_prix_counter_complete
+    - player_prix_counter_count{current_player.prix_counter_count == 0}
+    - multiball_grand_prix_ended
     enable_events:
     - logicblock_prix_counter_complete
+    - player_prix_counter_count{current_player.prix_counter_count == 0}
     start_enabled: true
     disable_on_complete: true
     reset_on_complete: false
-  # NOTE: prix counter is dependent on grand_counter
+  # This second counter is disabled until GRAND is
+  # fully lit per the counter above. This counter
+  # lights the "PRIX" inserts in sequence temporarily.
   prix_counter:
     count_events: s_prix_advance_active
     starting_count: 0
     count_interval: 1
     count_complete_value: 4
     persist_state: true
+    disable_events:
+    # GRAND hole is safe during this counter,
+    # but PRIX hole is not. Also resets progress
+    # of this specific counter.
+    - s_prix_hole_active
+    reset_events:
+    - s_prix_hole_active
+    - multiball_grand_prix_ended
     enable_events:
     - logicblock_grand_counter_complete
     disable_on_complete: true
+  # The third and final counter is incremented
+  # once PRIX is fully lit per the counter above.
+  # This counter "locks in" a PRIX letter.
   grand_prix_counter:
     count_events: logicblock_prix_counter_complete
     starting_count: 0
     count_complete_value: 4
     reset_on_complete: false
-
+    persist_state: true
+    reset_events:
+    - multiball_grand_prix_ended

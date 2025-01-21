@@ -58,6 +58,54 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertLightColor('l_north_advance1', 'white')
         self.assertLightColor('l_north_advance2', 'white')
 
+    def test_grand_disqualification(self):
+        self._start()
+        self._start_green_flag()
+        self.hit_and_release_switch("s_grand_advance")
+        self.assertEqual(1,
+            self.machine.game.player.grand_counter_count)
+        self.hit_and_release_switch("s_grand_advance")
+        self.assertEqual(2,
+            self.machine.game.player.grand_counter_count)
+        self.hit_and_release_switch("s_grand_hole")
+        self.assertEqual(0,
+            self.machine.game.player.grand_counter_count)
+
+    def test_prix_disqualification(self):
+        self._start()
+        self._start_green_flag()
+        self._light_grand()
+
+        # Grand counter disabled as progress is now
+        # moved to the prix counter
+        self.assertEqual(False,
+            self.machine.counters["grand_counter"].enabled)
+
+        # Driver advances Prix counter a couple times
+        self.hit_and_release_switch("s_prix_advance")
+        self.assertEqual(1,
+            self.machine.game.player.prix_counter_count)
+        self.hit_and_release_switch("s_prix_advance")
+        self.assertEqual(2,
+            self.machine.game.player.prix_counter_count)
+
+        # Hitting Grand Hole is safe
+        self.hit_and_release_switch("s_grand_hole")
+        self.assertEqual(2,
+            self.machine.game.player.prix_counter_count)
+
+        # Hitting Prix Hole disqualifies
+        self.hit_and_release_switch("s_prix_hole")
+        self.assertEqual(0,
+            self.machine.game.player.prix_counter_count)
+        self.assertEqual(False,
+            self.machine.counters["prix_counter"].enabled)
+
+        # Driver must do it all over again
+        self.advance_time_and_run(1)
+        self.assertEqual(True,
+            self.machine.counters["grand_counter"].enabled)
+
     def test_multiball(self):
         self._start_multiball()
 
