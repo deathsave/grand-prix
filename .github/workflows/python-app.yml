@@ -46,8 +46,8 @@ jobs:
         echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
         echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
         source ~/.bash_profile
-        pyenv install 3.11.10
-        pyenv global 3.11.10
+        pyenv install 3.10.15
+        pyenv global 3.10.15
         pip install --upgrade \
           pip setuptools wheel build coveralls pillow
         pip install --upgrade Cython==0.29.36
