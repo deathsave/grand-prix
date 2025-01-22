@@ -66,15 +66,20 @@ def _complete_lap(self):
 def _start_grooveline(self):
     self.machine.events. \
         post("grooveline_qualifier_hit")
-    self.advance_time_and_run(1)
     self.advance_time_and_run(4)
     self.assertModeRunning("grooveline")
+
+# assumes green_flag mode is running
+def _start_luxury(self):
+    self.machine.events. \
+        post("logicblock_luxury_counter_complete")
+    self.advance_time_and_run(1)
+    self.assertModeRunning("luxury")
 
 # assumes green_flag mode is running
 def _start_grand_prix(self):
     self.machine.events. \
         post("logicblock_grand_prix_counter_complete")
-    self.advance_time_and_run(1)
     self.advance_time_and_run(4)
     self.assertModeRunning("grand_prix")
 

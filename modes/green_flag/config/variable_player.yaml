@@ -54,6 +54,10 @@ variable_player:
     grooveline_counter_count:
       int: value
       action: set
+  logicblock_luxury_counter_updated:
+    luxury_counter_count:
+      int: value
+      action: set
   logicblock_grand_counter_updated:
     grand_counter_count:
       int: value

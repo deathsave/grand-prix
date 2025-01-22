@@ -1,0 +1,13 @@
+#config_version=6
+
+multiballs:
+  luxury_multiball:
+    debug: true
+    ball_count: 2
+    ball_count_type: add
+    shoot_again: 10s
+    add_a_ball_shoot_again: 0
+    start_events:
+    - mode_luxury_started
+    stop_events:
+    - multiball_luxury_multiball_ended

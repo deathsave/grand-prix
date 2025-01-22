@@ -19,6 +19,9 @@ class DeathSaveGameTesting(MpfMachineTestCase):
     def _start_grooveline(self):
         death_save._start_grooveline(self)
 
+    def _start_luxury(self):
+        death_save._start_luxury(self)
+
     def _start_grand_prix(self):
         death_save._start_grand_prix(self)
 
