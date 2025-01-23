@@ -7,4 +7,3 @@ sequence_shots:
     - s_disqualifier_active
     sequence_timeout: 0
     cancel_events: ball_ending
-

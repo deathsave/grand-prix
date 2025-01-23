@@ -128,8 +128,11 @@ switches:
   s_trough3:
     number: 4-26
     type: NC
-  s_trough_jam:
+  s_trough4:
     number: 4-27
+    type: NC
+  s_trough_jam:
+    number: 4-28
     type: NC
   # UNUSED 4-28
   # UNUSED 4-29

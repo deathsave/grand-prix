@@ -43,7 +43,7 @@ def _start(self):
 def _start_and_expire_ball_save(self):
     self._start()
     self.hit_and_release_switch("s_activate_playfield")
-    self.advance_time_and_run(15)
+    self.advance_time_and_run(16)
 
 # assumes pit mode is running (game started)
 def _start_green_flag(self):

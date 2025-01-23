@@ -1,7 +1,7 @@
 #config_version=6
 
 multiballs:
-  luxury_multiball:
+  luxury:
     debug: true
     ball_count: 2
     ball_count_type: add
@@ -10,4 +10,4 @@ multiballs:
     start_events:
     - mode_luxury_started
     stop_events:
-    - multiball_luxury_multiball_ended
+    - multiball_luxury_ended

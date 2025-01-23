@@ -71,3 +71,9 @@ variable_player:
       int: value
       action: set
 
+  grooveline_mode_ended:
+    is_grooveline_completed: 1
+  luxury_mode_ended:
+    is_luxury_completed: 1
+  grand_prix_mode_ended:
+    is_grand_prix_completed: 1

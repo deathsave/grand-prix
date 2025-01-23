@@ -2,8 +2,8 @@ from tests.death_save_game_testing import DeathSaveGameTesting
 
 class TestLuxuryMode(DeathSaveGameTesting):
 
-    # Player qualifies by making 10 laps during
-    # green_flag mode on a single ball.
+    # Player qualifies by making 50 laps
+    # accumulating across all 3 balls
     def test_qualification(self):
         self._start()
         self._start_green_flag()
@@ -11,6 +11,22 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._complete_lap()
         self.assertEqual(
             1, self.machine.game.player.luxury_counter_count)
+        self.assertEqual(
+            1, self.machine.game.player.grooveline_counter_count)
+
+        # ball drains and ball 2 begins
+        for i in range(2):
+            self.hit_switch_and_run("s_trough1", 4)
+            self.hit_and_release_switch("s_shooter_lane")
+
+        # Green flag mode resumes
+        self.assertModeRunning("green_flag")
+        # Count doesn't reset between balls
+        # in contrast with grooveline mode
+        self.assertEqual(
+            1, self.machine.game.player.luxury_counter_count)
+        self.assertEqual(
+            0, self.machine.game.player.grooveline_counter_count)
 
         # Mult-ball light indicators off
         self.assertLightColor('l_north_advance1', 'black')

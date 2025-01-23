@@ -14,8 +14,7 @@ player_vars:
   ##########################
   ## Wizard Mode Progress ##
   ##########################
-  # TODO: ...50 laps to complete
-  is_green_flag_completed:
+  is_luxury_completed:
     initial_value: 0
   # just activate
   is_grooveline_completed:

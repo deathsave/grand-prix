@@ -2,5 +2,5 @@
 
 mode:
   start_events: ball_starting
-  priority: 10
+  priority: 100
   code: pit.Pit

@@ -54,9 +54,6 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
         self.assertModeRunning("grand_prix")
 
-        # Mult-ball light indicators on
-        self.assertLightColor('l_north_advance1', 'white')
-        self.assertLightColor('l_north_advance2', 'white')
 
     def test_grand_disqualification(self):
         self._start()
@@ -110,10 +107,37 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self._start_multiball()
 
         # Player launches the ball
-        self.hit_and_release_switch("s_shooter_lane")
-        self.hit_switch_and_run("s_podium_advance2", 4)
-        self.assertEqual(2, self.machine.playfield.balls)
+        self.assertEqual(0,
+            self.machine.ball_devices["bd_shooter_lane"].balls)
+        self.assertEqual(True,
+            self.machine.multiballs["grand_prix"].shoot_again)
 
+        # couple balls drain during shoot_again period
+        for i in range(2):
+            self._drain_one_ball()
+            self.advance_time_and_run(4)
+        self.assertModeRunning("grand_prix")
+        self.advance_time_and_run(4)
+        # and those balls are returned to the playfield
+        self.assertEqual(3, self.machine.playfield.balls)
+
+        # shoot_again period expires after 8 more seconds
+        self.advance_time_and_run(8)
+        self.assertEqual(False,
+            self.machine.multiballs["grand_prix"].shoot_again)
+
+        # # two balls drain
+        for i in range(2):
+            self._drain_one_ball()
+            self.advance_time_and_run(4)
+        self.assertEqual(1, self.machine.playfield.balls)
+        self.assertEqual(2,
+            self.machine.ball_devices["bd_trough"].balls)
+
+        # Mode ends
+        self.assertModeNotRunning("grand_prix")
+        self.assertEqual(None,
+            self.machine.multiballs["grand_prix"].enabled)
 
     def _light_grand(self):
         for i in range(5):
@@ -136,9 +160,19 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         self._start_grand_prix()
-        self.assertEqual(2, self.machine.playfield.balls)
-        # A ball is ejected to the shooter lane
-        self.assertEqual(1,
+        self.assertModeRunning("grand_prix")
+        self.assertEqual(True,
+            self.machine.multiballs["grand_prix"].enabled)
+
+        # 3 ball multiball
+        self.advance_time_and_run(4)
+        self.assertEqual(3, self.machine.playfield.balls)
+        self.assertEqual(0,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)
+
+        # Mult-ball light indicators on
+        self.assertLightColor('l_north_advance1', 'white')
+        self.assertLightColor('l_north_advance2', 'white')
+

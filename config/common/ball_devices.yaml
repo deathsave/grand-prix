@@ -2,11 +2,11 @@
 
 ball_devices:
   bd_trough:
-    #debug: true
     ball_switches:
     - s_trough1
     - s_trough2
     - s_trough3
+    #- s_trough4 TODO: will require updating all the tests
     tags:
     - trough
     - home

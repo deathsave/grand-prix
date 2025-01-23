@@ -4,6 +4,6 @@ mode:
   start_events:
   - grooveline_qualifier_hit
   stop_events:
-  - multiball_grooveline_multiball_ended
+  - multiball_grooveline_ended
   restart_on_next_ball: false
-  priority: 200
+  priority: 300

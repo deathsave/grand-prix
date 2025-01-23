@@ -6,4 +6,3 @@ sequences:
     - s_spinner_active
     - s_grooveline_active
     disable_on_complete: false
-

@@ -60,9 +60,8 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertEqual(
             0, self.machine.game.player.grooveline_counter_count)
         # And grooveline mode begins (multiball)
-        self.assertEqual(True, self.machine. \
-            multiballs["grooveline_multiball"].enabled)
-
+        self.assertEqual(True,
+            self.machine.multiballs["grooveline"].enabled)
 
     def test_multiball(self):
         self._start_multiball()
@@ -82,19 +81,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self._drain_one_ball()
         self.advance_time_and_run(4)
 
-        # Bug here? Shoot again should have expired, but ball
-        # still kicked out to shooter lane - tried numerous
-        # ways to fix - maybe bug in MPF
-        self.assertEqual(1, self.machine.playfield.balls)
-        self.assertEqual(1,
-            self.machine.ball_devices["bd_trough"].balls)
-        self.assertEqual(1,
-            self.machine.ball_devices["bd_shooter_lane"].balls)
-
-        # After the NEXT drain, the mode and multiball
-        # ends as expected
-        self._drain_one_ball()
-        self.advance_time_and_run(4)
+        # the mode and multiball ends
         self.assertModeNotRunning("grooveline")
 
     def test_add_a_ball(self):
@@ -131,4 +118,4 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)
         self.assertEqual(True, self.machine. \
-            multiballs["grooveline_multiball"].enabled)
+            multiballs["grooveline"].enabled)
