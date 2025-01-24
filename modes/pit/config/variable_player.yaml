@@ -68,6 +68,16 @@ variable_player:
   s_outlane2_active:
     score: 50
 
+  ##########################
+  ## Wizard-mode Progress ##
+  ##########################
+  multiball_grooveline_ended:
+    is_grooveline_completed: 1
+  multiball_luxury_ended:
+    is_luxury_completed: 1
+  multiball_grand_prix_ended:
+    is_grand_prix_completed: 1
+
   #####################
   ## Per-ball resets ##
   #####################

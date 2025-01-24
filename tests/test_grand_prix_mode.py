@@ -105,6 +105,9 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
     def test_multiball(self):
         self._start_multiball()
+        # started, but not completed, yet
+        self.assertEqual(
+            0, self.machine.game.player.is_grand_prix_completed)
 
         # Player launches the ball
         self.assertEqual(0,
@@ -138,6 +141,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertModeNotRunning("grand_prix")
         self.assertEqual(None,
             self.machine.multiballs["grand_prix"].enabled)
+
+        # And wizard progress is updated
+        self.assertEqual(
+            1, self.machine.game.player.is_grand_prix_completed)
 
     def _light_grand(self):
         for i in range(5):

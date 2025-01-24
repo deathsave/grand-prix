@@ -65,6 +65,9 @@ class TestGroovelineMode(DeathSaveGameTesting):
 
     def test_multiball(self):
         self._start_multiball()
+        # started, but not completed, yet
+        self.assertEqual(
+            0, self.machine.game.player.is_grooveline_completed)
 
         # Second ball already in play
         self.assertEqual(2, self.machine.playfield.balls)
@@ -75,7 +78,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
 
         # A lot of time passes - should have
         # exceeded the shoot again period
-        self.advance_time_and_run(30)
+        self.advance_time_and_run(20)
 
         # Ball drains
         self._drain_one_ball()
@@ -83,6 +86,12 @@ class TestGroovelineMode(DeathSaveGameTesting):
 
         # the mode and multiball ends
         self.assertModeNotRunning("grooveline")
+
+        self.advance_time_and_run(4)
+
+        # And wizard progress is updated
+        self.assertEqual(
+            1, self.machine.game.player.is_grooveline_completed)
 
     def test_add_a_ball(self):
         self._start_multiball()

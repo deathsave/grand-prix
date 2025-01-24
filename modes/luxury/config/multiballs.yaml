@@ -2,12 +2,12 @@
 
 multiballs:
   luxury:
-    debug: true
-    ball_count: 2
-    ball_count_type: add
+    ball_count: 3
+    ball_count_type: total
     shoot_again: 10s
-    add_a_ball_shoot_again: 0
+    enable_events:
+    - mode_luxury_starting
     start_events:
     - mode_luxury_started
     stop_events:
-    - multiball_luxury_ended
+    - mode_luxury_stopping

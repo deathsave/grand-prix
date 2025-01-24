@@ -41,7 +41,38 @@ class TestLuxuryMode(DeathSaveGameTesting):
 
 
     def test_multiball(self):
-        pass
+        self._start_multiball()
+        # started, but not completed, yet
+        self.assertEqual(
+            0, self.machine.game.player.is_luxury_completed)
 
-    def test_stacking_on_grooveline(self):
-        pass
+        # A lot of time passes - should have
+        # exceeded the shoot again period
+        self.advance_time_and_run(10)
+
+        # 2 balls drain
+        for i in range(2):
+            self._drain_one_ball()
+            self.advance_time_and_run(4)
+
+        # the mode and multiball ends
+        self.assertModeNotRunning("luxury")
+
+        self.advance_time_and_run(4)
+
+        # And wizard progress is updated
+        self.assertEqual(
+            1, self.machine.game.player.is_luxury_completed)
+
+    def _start_multiball(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self._start_luxury()
+        self.assertEqual(3, self.machine.playfield.balls)
+        # A ball is ejected to the shooter lane
+        self.assertEqual(1,
+            self.machine.ball_devices["bd_trough"].balls)
+        self.assertEqual(0,
+            self.machine.ball_devices["bd_shooter_lane"].balls)
+        self.assertEqual(True, self.machine. \
+            multiballs["luxury"].enabled)

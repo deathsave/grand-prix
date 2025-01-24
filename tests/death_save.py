@@ -73,7 +73,7 @@ def _start_grooveline(self):
 def _start_luxury(self):
     self.machine.events. \
         post("logicblock_luxury_counter_complete")
-    self.advance_time_and_run(1)
+    self.advance_time_and_run(8)
     self.assertModeRunning("luxury")
 
 # assumes green_flag mode is running

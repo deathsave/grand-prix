@@ -3,3 +3,4 @@
 config:
 - mode.yaml
 - light_player.yaml
+- multiballs.yaml
