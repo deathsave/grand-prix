@@ -1,0 +1,31 @@
+Connected CPUs:
+ - Port: /dev/ttyACM0 at 115200 baud. Chain Serial: /dev/ttyACM0
+ -> Board: 0x20 Firmware: 0x1000004
+ -> Board: 0x21 Firmware: 0x1000004
+ -> Board: 0x22 Firmware: 0x1000004
+ -> Board: 0x23 Firmware: 0x1000004
+ -> Board: 0x24 Firmware: 0x1000004
+ -> Board: 0x25 Firmware: 0x1000004
+
+Incand cards:
+ - Chain: /dev/ttyACM0 Board: 0x20 Card: 0 Numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+ - Chain: /dev/ttyACM0 Board: 0x21 Card: 1 Numbers: [16, 17, 18, 19, 20, 21, 22, 23]
+ - Chain: /dev/ttyACM0 Board: 0x22 Card: 2 Numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+ - Chain: /dev/ttyACM0 Board: 0x23 Card: 3 Numbers: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+ - Chain: /dev/ttyACM0 Board: 0x24 Card: 4 Numbers: [8, 9, 10, 11, 12, 13, 14, 15]
+ - Chain: /dev/ttyACM0 Board: 0x25 Card: 5 Numbers: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+Input cards:
+ - Chain: /dev/ttyACM0 Board: 0x20 Card: 0 Numbers: [24, 25, 26, 27]
+ - Chain: /dev/ttyACM0 Board: 0x21 Card: 1 Numbers: [0, 1, 2, 3, 8, 9, 10, 11, 24, 25, 26, 27, 28, 29, 30, 31]
+ - Chain: /dev/ttyACM0 Board: 0x22 Card: 2 Numbers: [24, 25, 26, 27, 28, 29, 30, 31]
+ - Chain: /dev/ttyACM0 Board: 0x23 Card: 3 Numbers: [0, 1, 2, 3, 24, 25, 26, 27, 28, 29, 30, 31]
+ - Chain: /dev/ttyACM0 Board: 0x24 Card: 4 Numbers: [0, 1, 2, 3, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+ - Chain: /dev/ttyACM0 Board: 0x25 Card: 5 Numbers: [0, 1, 2, 3, 24, 25, 26, 27, 28, 29, 30, 31]
+
+Solenoid cards:
+ - Chain: /dev/ttyACM0 Board: 0x20 Card: 0 Numbers: [12, 13, 14, 15]
+ - Chain: /dev/ttyACM0 Board: 0x21 Card: 1 Numbers: [0, 1, 2, 3, 4, 5, 6, 7]
+ - Chain: /dev/ttyACM0 Board: 0x23 Card: 3 Numbers: [0, 1, 2, 3]
+ - Chain: /dev/ttyACM0 Board: 0x24 Card: 4 Numbers: [0, 1, 2, 3]
+ - Chain: /dev/ttyACM0 Board: 0x25 Card: 5 Numbers: [0, 1, 2, 3]
