@@ -9,11 +9,11 @@ sound_system:
     music:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.5
+      volume: 0.3
     voice:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.7
+      volume: 0.6
     sfx:
       type: standard
       simultaneous_sounds: 8
