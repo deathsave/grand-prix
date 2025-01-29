@@ -2,4 +2,4 @@
 
 config:
 - common.yaml
-- production/hardware.yaml
+- production/xubuntu.yaml

@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-# TODO: production config once machine is ready for it
-#xterm -e "sleep 5 && cd /home/unrared/grand-prix && mpf both -c production"
-
 # temporary solution to use dev config
 # and smart vitual platform
 #CMD="mpf both -Xtav -c development"
 
-CMD="mpf both -v -c production"
-xterm -hold -e "source ~/.bash_profile && cd ~/grand-prix && bash -c '$CMD'"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Mac OSX
+  echo "Mac OSX detected. Using production_mac config."
+  mpf both -v -c production_macos
+else
+  # Linux
+  echo "Using production_linux config."
+  CMD="source ~/.bash_profile && mpf both -v -c production_linux"
+  xterm -hold -e "cd ~/grand-prix && bash -c '$CMD'"
+fi

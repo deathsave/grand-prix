@@ -1,0 +1,20 @@
+#config_version=6
+
+hardware:
+ platform: opp
+ driverboards: gen2
+ lights: opp
+ # single value, so we need to overide
+ # platform to opp for all opp lights
+ # lights: fadecandy
+ #segment_displays: mypinballs
+
+opp:
+  debug: true
+  baud: 115200
+  ports: /dev/cu.usbmodem101
+
+#mypinballs:
+#  debug: true
+#  port: /dev/ttyAMA0
+#  #port: /dev/ttyACM0
