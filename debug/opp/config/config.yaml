@@ -1,0 +1,21 @@
+#config_version=6
+
+hardware:
+ platform: opp
+ driverboards: gen2
+ lights: opp
+
+opp:
+  baud: 115200
+  ports: /dev/cu.usbmodem101
+  chains:
+    0: /dev/cu.usbmodem101
+
+lights:
+  l_backbox_match_00:
+    subtype: matrix
+    number: 0-0-0
+  l_grooveline_lit:
+    subtype: matrix
+    # number: 0-2-0 <-- fails light number duplication check
+    number: 0-2-1 # <-- boots

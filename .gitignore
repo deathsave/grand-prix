@@ -15,3 +15,5 @@ __pycache__/
 
 # pixelmator
 *.pxm
+
+debug/opp/data
