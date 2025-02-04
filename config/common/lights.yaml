@@ -146,6 +146,7 @@ lights:
   # NOTE: Only the 3rd wing is wired
   #       for incandescent / 6v drivers
   l_gi:
+    platform: opp
     subtype: matrix
     number: 1-16
   # UNUSED 1-17
@@ -158,6 +159,7 @@ lights:
   # NOTE: this is a workaround for the mini
   #       coils which only require 5v
   x_loop_gate:
+    platform: opp
     subtype: matrix
     number: 1-23
 
@@ -166,98 +168,122 @@ lights:
   #############
 
   l_grooveline_lit:
+    platform: opp
     subtype: matrix
     number: 2-0
     tags: tag_lights_grooveline
   l_grooveline_01:
+    platform: opp
     subtype: matrix
     number: 2-1
     tags: tag_lights_grooveline
   l_grooveline_02:
+    platform: opp
     subtype: matrix
     number: 2-2
     tags: tag_lights_grooveline
   l_grooveline_03:
+    platform: opp
     subtype: matrix
     number: 2-3
     tags: tag_lights_grooveline
   l_grooveline_04:
+    platform: opp
     subtype: matrix
     number: 2-4
     tags: tag_lights_grooveline
   l_grooveline_05:
+    platform: opp
     subtype: matrix
     number: 2-5
     tags: tag_lights_grooveline
   l_grooveline_06:
+    platform: opp
     subtype: matrix
     number: 2-6
     tags: tag_lights_grooveline
   l_grooveline_07:
+    platform: opp
     subtype: matrix
     number: 2-7
     tags: tag_lights_grooveline
   l_grooveline_08:
+    platform: opp
     subtype: matrix
     number: 2-8
     tags: tag_lights_grooveline
   l_grooveline_09:
+    platform: opp
     subtype: matrix
     number: 2-9
     tags: tag_lights_grooveline
   l_grooveline_10:
+    platform: opp
     subtype: matrix
     number: 2-10
     tags: tag_lights_grooveline
   l_north_advance1:
+    platform: opp
     subtype: matrix
     number: 2-11
     tags: tag_lights_north_advance
   l_north_advance2:
+    platform: opp
     subtype: matrix
     number: 2-12
     tags: tag_lights_north_advance
   l_spinner_10:
+    platform: opp
     subtype: matrix
     number: 2-13
     tags: tag_lights_spinner
   l_spinner_09:
+    platform: opp
     subtype: matrix
     number: 2-14
     tags: tag_lights_spinner
   l_spinner_08:
+    platform: opp
     subtype: matrix
     number: 2-15
     tags: tag_lights_spinner
   l_spinner_07:
+    platform: opp
     subtype: matrix
     number: 2-16
     tags: tag_lights_spinner
   l_spinner_06:
+    platform: opp
     subtype: matrix
     number: 2-17
     tags: tag_lights_spinner
   l_spinner_05:
+    platform: opp
     subtype: matrix
     number: 2-18
     tags: tag_lights_spinner
   l_spinner_04:
+    platform: opp
     subtype: matrix
     number: 2-19
     tags: tag_lights_spinner
   l_spinner_03:
+    platform: opp
     subtype: matrix
     number: 2-20
     tags: tag_lights_spinner
   l_spinner_02:
+    platform: opp
     subtype: matrix
     number: 2-21
     tags: tag_lights_spinner
   l_spinner_01:
+    platform: opp
     subtype: matrix
     number: 2-22
     tags: tag_lights_spinner
   l_spinner_lit:
+    platform: opp
     subtype: matrix
     number: 2-23
     tags: tag_lights_spinner
@@ -267,50 +293,62 @@ lights:
   ####################
 
   l_star4:
+    platform: opp
     subtype: matrix
     number: 3-8
     tags: tag_lights_star
   l_star3:
+    platform: opp
     subtype: matrix
     number: 3-9
     tags: tag_lights_star
   l_star2:
+    platform: opp
     subtype: matrix
     number: 3-10
     tags: tag_lights_star
   l_star1:
+    platform: opp
     subtype: matrix
     number: 3-11
     tags: tag_lights_star
   l_grand_01:
+    platform: opp
     subtype: matrix
     number: 3-12
     tags: tag_lights_grand
   l_grand_02:
+    platform: opp
     subtype: matrix
     number: 3-13
     tags: tag_lights_grand
   l_grand_03:
+    platform: opp
     subtype: matrix
     number: 3-14
     tags: tag_lights_grand
   l_grand_04:
+    platform: opp
     subtype: matrix
     number: 3-15
     tags: tag_lights_grand
   l_grand_05:
+    platform: opp
     subtype: matrix
     number: 3-16
     tags: tag_lights_grand
   l_pit_01:
+    platform: opp
     subtype: matrix
     number: 3-17
     tags: tag_lights_pit
   l_pit_02:
+    platform: opp
     subtype: matrix
     number: 3-18
     tags: tag_lights_pit
   l_pit_03:
+    platform: opp
     subtype: matrix
     number: 3-19
     tags: tag_lights_pit
@@ -324,24 +362,30 @@ lights:
   ################
 
   l_apron:
+    platform: opp
     subtype: matrix
     number: 4-8
   l_bottom_outlane1:
+    platform: opp
     subtype: matrix
     number: 4-9
     tags: tag_lights_outlane
   l_shoot_again:
+    platform: opp
     subtype: matrix
     number: 4-10
   l_arrow1a:
+    platform: opp
     subtype: matrix
     number: 4-11
     tags: tag_lights_arrow
   l_arrow1b:
+    platform: opp
     subtype: matrix
     number: 4-12
     tags: tag_lights_arrow
   l_top_outlane1:
+    platform: opp
     subtype: matrix
     number: 4-13
     tags: tag_lights_outlane
@@ -353,46 +397,57 @@ lights:
   ################
 
   l_bottom_outlane2:
+    platform: opp
     subtype: matrix
     number: 5-8
     tags: tag_lights_outlane
   l_arrow2a:
+    platform: opp
     subtype: matrix
     number: 5-9
     tags: tag_lights_arrow
   l_arrow2b:
+    platform: opp
     subtype: matrix
     number: 5-10
     tags: tag_lights_arrow
   l_top_outlane2:
+    platform: opp
     subtype: matrix
     number: 5-11
     tags: tag_lights_outlane
   l_prix_04:
+    platform: opp
     subtype: matrix
     number: 5-12
     tags: tag_lights_prix
   l_prix_03:
+    platform: opp
     subtype: matrix
     number: 5-13
     tags: tag_lights_prix
   l_prix_02:
+    platform: opp
     subtype: matrix
     number: 5-14
     tags: tag_lights_prix
   l_prix_01:
+    platform: opp
     subtype: matrix
     number: 5-15
     tags: tag_lights_prix
   l_lap_03:
+    platform: opp
     subtype: matrix
     number: 5-16
     tags: tag_lights_lap
   l_lap_02:
+    platform: opp
     subtype: matrix
     number: 5-17
     tags: tag_lights_lap
   l_lap_01:
+    platform: opp
     subtype: matrix
     number: 5-18
     tags: tag_lights_lap
