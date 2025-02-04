@@ -3,4 +3,4 @@
 # NOTE: this is needed for the unittests which expect
 #       the main config file to be named config.yaml.
 config:
-- development.yaml
+- production_macos.yaml

@@ -9,7 +9,6 @@ hardware:
  #segment_displays: mypinballs
 
 opp:
-  debug: true
   baud: 115200
   ports: /dev/ttyACM0
 

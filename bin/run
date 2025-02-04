@@ -7,7 +7,7 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
   echo "Mac OSX detected. Using production_mac config."
-  mpf both -v -c production_macos
+  mpf both -vVt -c production_macos
 else
   # Linux
   echo "Using production_linux config."

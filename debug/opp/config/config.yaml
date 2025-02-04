@@ -17,5 +17,7 @@ lights:
     number: 0-0-0
   l_grooveline_lit:
     subtype: matrix
-    # number: 0-2-0 <-- fails light number duplication check
-    number: 0-2-1 # <-- boots
+    # number: 0-2-0 <-- fails light number duplication check without
+    #   https://github.com/missionpinball/mpf/pull/1868 fix - could
+    #   be other issues with this fix though
+    number: 0-2-0 # <-- boots

@@ -10,7 +10,6 @@ hardware:
  #segment_displays: mypinballs
 
 opp:
-  debug: true
   baud: 115200
   ports: /dev/cu.usbmodem101
 
