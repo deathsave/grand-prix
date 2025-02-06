@@ -1,11 +1,18 @@
 #config_version=6
 
-# segment_display_player:
-#   player_score:
-#     segment1:
-#       flashing: off
-#       color: 00acf0
-#       text: "{players[0].score:d}"
+segment_display_player:
+  player_score{game.num_players > 0}:
+    segment1:
+      text: "{players[0].score:d}"
+  player_score{game.num_players > 1}:
+    segment2:
+      text: "{players[1].score:d}"
+  player_score{game.num_players > 2}:
+    segment3:
+      text: "{players[2].score:d}"
+  player_score{game.num_players > 3}:
+    segment4:
+      text: "{players[3].score:d}"
 
 sound_player:
   mode_attract_started:

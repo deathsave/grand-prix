@@ -15,6 +15,12 @@ displays:
     height: 480
     default: true
 
-# segment_displays:
-#   segment1:
-#     number: 1
+segment_displays:
+  segment1:
+    number: 1
+  segment2:
+    number: 2
+  segment3:
+    number: 3
+  segment4:
+    number: 4
