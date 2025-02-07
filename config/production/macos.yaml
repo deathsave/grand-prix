@@ -1,5 +1,8 @@
 #config_version=6
 
+# Find hardware ports with ls /dev/cu.* and ls /dev/tty.*
+# as it will change based on how they're plugged in
+
 hardware:
  platform: opp
  driverboards: gen2
@@ -7,13 +10,14 @@ hardware:
  # single value, so we need to overide
  # platform to opp for all opp lights
  # lights: fadecandy
- #segment_displays: mypinballs
+ segment_displays: mypinballs
 
 opp:
   baud: 115200
-  ports: /dev/cu.usbmodem101
+  ports: /dev/cu.usbmodem1401
 
-#mypinballs:
-#  debug: true
-#  port: /dev/ttyAMA0
-#  #port: /dev/ttyACM0
+mypinballs:
+  debug: true
+  port: /dev/cu.usbmodem13101
+  #port: /dev/ttyAMA0
+  #port: /dev/ttyACM0
