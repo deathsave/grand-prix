@@ -3,3 +3,4 @@
 config:
 - show_player.yaml
 - slide_player.yaml
+- segment_display_player.yaml
