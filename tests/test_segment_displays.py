@@ -4,6 +4,8 @@ class TestSegmentDisplays(DeathSaveMcTesting):
 
     def test_segment1(self):
          self.assertModeRunning("attract")
+         self.assertEqual(1986,
+             int(self.machine.segment_displays['segment1'].text))
 
          ## game begins and puts player1's score
          ## on the segment display
