@@ -17,9 +17,9 @@ random_event_player:
       green_flag_bad_luck: 1
   green_flag_bad_luck:
     events:
-    - green_flag_wreck
-    - green_flag_head_gasket
-    - green_flag_timing_belt
+    - bad_luck_blow_out
+    - bad_luck_ceased_up
+    - bad_luck_fuel_line
   s_disqualifier_active:
     events:
     - green_flag_degrade_fuel

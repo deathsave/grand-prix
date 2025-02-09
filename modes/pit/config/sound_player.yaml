@@ -1,0 +1,23 @@
+#config_version=6
+
+sound_player:
+  # initially, player needs to top up
+  # fuel to hit green flag
+  s_launch_inactive{current_player.score == 0}:
+    fuel:
+      action: play
+  s_launch_inactive{current_player.score > 0}:
+    start:
+      action: play
+  pit_required_fuel:
+    fuel:
+      action: play
+  pit_required_tires:
+    tires:
+      action: play
+  pit_required_oil:
+    pit:
+      action: play
+  green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_oil == 1 or current_player.level_fuel == 1}:
+    pit:
+      action: play

@@ -13,17 +13,3 @@ segment_display_player:
   player_score{game.num_players > 3}:
     segment4:
       text: "{players[3].score:d}"
-
-sound_player:
-  mode_attract_started:
-    rad_racer:
-      track: music
-      action: play
-      loops: -1
-  mode_green_flag_stopped:
-    particular:
-      action: stop
-  mode_attract_stopped:
-    rad_racer:
-      track: music
-      action: stop

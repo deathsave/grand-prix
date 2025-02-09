@@ -9,20 +9,16 @@ sound_system:
     music:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.3
+      volume: 0.5
     voice:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.6
+      volume: 0.9
     sfx:
       type: standard
       simultaneous_sounds: 8
+      volume: 0.8
+    ambient:
+      type: standard
+      simultaneous_sounds: 2
       volume: 0.4
-
-sounds:
-  rad_racer:
-    file: rad_racer.ogg
-    track: music
-  particular:
-    file: no-particular-place-to-go.ogg
-    track: music

@@ -1,0 +1,165 @@
+#config_version=6
+
+sound_pools:
+  bad_luck_blow_out:
+    type: random
+    track: voice
+    sounds:
+    - bad_luck_blow_out01
+    - bad_luck_blow_out02
+    - bad_luck_blow_out03
+  bad_luck_ceased_up:
+    type: random
+    track: voice
+    sounds:
+    - bad_luck_ceased_up01
+    - bad_luck_ceased_up02
+    - bad_luck_ceased_up03
+    - bad_luck_ceased_up04
+    - bad_luck_ceased_up05
+    - bad_luck_ceased_up06
+  bad_luck_fuel_line:
+    type: random
+    track: voice
+    sounds:
+    - bad_luck_fuel_line01
+    - bad_luck_fuel_line02
+    - bad_luck_fuel_line03
+    - bad_luck_fuel_line04
+  blackout:
+    type: random
+    track: voice
+    sounds:
+    - blackout01
+    - blackout02
+    - blackout03
+    - blackout04
+    - blackout05
+    - blackout06
+  diss:
+    type: random
+    track: voice
+    sounds:
+    - diss01
+    - diss02
+    - diss03
+  good:
+    type: random
+    track: voice
+    sounds:
+    - good01
+    - good02
+    - good03
+    - good04
+    - good05
+    - good06
+    - good07
+    - good08
+    - good09
+    - good10
+    - good11
+    - good12
+    - good13
+    - good14
+  fuel:
+    type: random
+    track: voice
+    sounds:
+    - fuel01
+  grand_prix_start:
+    type: random
+    track: voice
+    sounds:
+    - grand_prix_start01
+    - grand_prix_start02
+    - grand_prix_start03
+    - grand_prix_start04
+  grooveline_progress:
+    type: random
+    track: voice
+    sounds:
+    - grooveline_progress01
+    - grooveline_progress02
+    - grooveline_progress03
+  grooveline:
+    type: random
+    track: voice
+    sounds:
+    - grooveline01
+    - grooveline02
+    - grooveline03
+  luxury_progress:
+    type: random
+    track: voice
+    sounds:
+    - luxury_progress01
+    - luxury_progress02
+  luxury_start:
+    type: random
+    track: voice
+    sounds:
+    - luxury_start01
+    - luxury_start02
+  luxury:
+    type: random
+    track: voice
+    sounds:
+    - luxury01
+    - luxury02
+  mistake:
+    type: random
+    track: voice
+    sounds:
+    - mistake01
+    - mistake02
+    - mistake03
+    - mistake04
+    - mistake05
+    - mistake06
+    - mistake07
+    - mistake08
+    - mistake09
+    - mistake10
+    - mistake11
+    - mistake12
+    - mistake13
+  pit:
+    type: random
+    track: voice
+    sounds:
+    - pit01
+    - pit02
+    - pit03
+    - pit04
+  pit_done:
+    type: random
+    track: voice
+    sounds:
+    - pit_done01
+    - pit_done02
+    - pit_done03
+    - pit_done04
+    - pit_done05
+    - pit_done06
+    - pit_done07
+  quote:
+    type: random
+    track: voice
+    sounds:
+    - quote01
+    - quote02
+    - quote03
+    - quote04
+    - quote05
+  start:
+    type: random
+    track: voice
+    sounds:
+    - start01
+  tires:
+    type: random
+    track: voice
+    sounds:
+    - tires01
+    - tires02
+    - tires03

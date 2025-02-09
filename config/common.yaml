@@ -10,10 +10,13 @@ config:
 - common/keyboard.yaml
 - common/lights.yaml
 - common/modes.yaml
-- common/players.yaml
 - common/playfields.yaml
 - common/slides.yaml
+- common/segment_display_player.yaml
+- common/sounds.yaml
+- common/sound_player.yaml
 - common/sound_system.yaml
+- common/sound_pools.yaml
 - common/switches.yaml
 - common/variables.yaml
 - common/widgets.yaml

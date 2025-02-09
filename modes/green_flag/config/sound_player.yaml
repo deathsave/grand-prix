@@ -2,6 +2,5 @@
 
 sound_player:
   mode_green_flag_started:
-    particular:
+    pit_done:
       action: play
-

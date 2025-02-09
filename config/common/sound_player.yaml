@@ -1,0 +1,30 @@
+#config_version=6
+
+sound_player:
+  mode_attract_started:
+    the_distance:
+      track: music
+      action: play
+      loops: -1
+  mode_green_flag_stopped:
+    particular:
+      action: stop
+  mode_attract_stopped:
+    the_distance:
+      track: music
+      action: stop
+  s_launch_inactive:
+    comm_noise_on:
+      action: play
+    comm_noise_loop:
+      action: play
+      delay: 1.5s
+      loops: -1
+  ball_ending:
+    comm_noise_loop:
+      action: stop
+    comm_noise_off:
+      delay: 1.5s
+      action: play
+    mistake:
+      action: play

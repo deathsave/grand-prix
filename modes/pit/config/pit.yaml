@@ -6,3 +6,4 @@ config:
 - mode.yaml
 - slide_player.yaml
 - variable_player.yaml
+- sound_player.yaml

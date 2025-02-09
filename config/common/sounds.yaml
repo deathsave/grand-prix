@@ -1,0 +1,276 @@
+#config_version=6
+
+sounds:
+  the_distance:
+    file: the-distance.ogg
+    track: music
+  bad_luck_blow_out01:
+    file: bad-luck-blow-out-01.ogg
+    track: voice
+  bad_luck_blow_out02:
+    file: bad-luck-blow-out-02.ogg
+    track: voice
+  bad_luck_blow_out03:
+    file: bad-luck-blow-out-03.ogg
+    track: voice
+  bad_luck_ceased_up01:
+    file: bad-luck-ceased-up-01.ogg
+    track: voice
+  bad_luck_ceased_up02:
+    file: bad-luck-ceased-up-02.ogg
+    track: voice
+  bad_luck_ceased_up03:
+    file: bad-luck-ceased-up-03.ogg
+    track: voice
+  bad_luck_ceased_up04:
+    file: bad-luck-ceased-up-04.ogg
+    track: voice
+  bad_luck_ceased_up05:
+    file: bad-luck-ceased-up-05.ogg
+    track: voice
+  bad_luck_ceased_up06:
+    file: bad-luck-ceased-up-06.ogg
+    track: voice
+  bad_luck_fuel_line01:
+    file: bad-luck-fuel-line-01.ogg
+    track: voice
+  bad_luck_fuel_line02:
+    file: bad-luck-fuel-line-02.ogg
+    track: voice
+  bad_luck_fuel_line03:
+    file: bad-luck-fuel-line-03.ogg
+    track: voice
+  bad_luck_fuel_line04:
+    file: bad-luck-fuel-line-04.ogg
+    track: voice
+  blackout01:
+    file: blackout-01.ogg
+    track: voice
+  blackout02:
+    file: blackout-02.ogg
+    track: voice
+  blackout03:
+    file: blackout-03.ogg
+    track: voice
+  blackout04:
+    file: blackout-04.ogg
+    track: voice
+  blackout05:
+    file: blackout-05.ogg
+    track: voice
+  blackout06:
+    file: blackout-06.ogg
+    track: voice
+  diss01:
+    file: diss-01.ogg
+    track: voice
+  diss02:
+    file: diss-02.ogg
+    track: voice
+  diss03:
+    file: diss-03.ogg
+    track: voice
+  good01:
+    file: good-01.ogg
+    track: voice
+  good02:
+    file: good-02.ogg
+    track: voice
+  good03:
+    file: good-03.ogg
+    track: voice
+  good04:
+    file: good-04.ogg
+    track: voice
+  good05:
+    file: good-05.ogg
+    track: voice
+  good06:
+    file: good-06.ogg
+    track: voice
+  good07:
+    file: good-07.ogg
+    track: voice
+  good08:
+    file: good-08.ogg
+    track: voice
+  good09:
+    file: good-09.ogg
+    track: voice
+  good10:
+    file: good-10.ogg
+    track: voice
+  good11:
+    file: good-11.ogg
+    track: voice
+  good12:
+    file: good-12.ogg
+    track: voice
+  good13:
+    file: good-13.ogg
+    track: voice
+  good14:
+    file: good-14.ogg
+    track: voice
+  fuel01:
+    file: fuel-01.ogg
+    track: voice
+  grand_prix_start01:
+    file: grand-prix-start-01.ogg
+    track: voice
+  grand_prix_start02:
+    file: grand-prix-start-02.ogg
+    track: voice
+  grand_prix_start03:
+    file: grand-prix-start-03.ogg
+    track: voice
+  grand_prix_start04:
+    file: grand-prix-start-04.ogg
+    track: voice
+  grooveline01:
+    file: grooveline-01.ogg
+    track: music
+  grooveline02:
+    file: grooveline-02.ogg
+    track: music
+  grooveline03:
+    file: grooveline-03.ogg
+    track: music
+  grooveline_progress01:
+    file: grooveline-progress-01.ogg
+    track: voice
+  grooveline_progress02:
+    file: grooveline-progress-02.ogg
+    track: voice
+  grooveline_progress03:
+    file: grooveline-progress-03.ogg
+    track: voice
+  luxury01:
+    file: luxury-01.ogg
+    track: music
+  luxury02:
+    file: luxury-02.ogg
+    track: music
+  luxury_progress01:
+    file: luxury-progress-01.ogg
+    track: music
+  luxury_progress02:
+    file: luxury-progress-02.ogg
+    track: music
+  luxury_start01:
+    file: luxury-start-01.ogg
+    track: music
+  luxury_start02:
+    file: luxury-start-02.ogg
+    track: music
+  mistake01:
+    file: mistake-01.ogg
+    track: voice
+  mistake02:
+    file: mistake-02.ogg
+    track: voice
+  mistake03:
+    file: mistake-03.ogg
+    track: voice
+  mistake04:
+    file: mistake-04.ogg
+    track: voice
+  mistake05:
+    file: mistake-05.ogg
+    track: voice
+  mistake06:
+    file: mistake-06.ogg
+    track: voice
+  mistake07:
+    file: mistake-07.ogg
+    track: voice
+  mistake08:
+    file: mistake-08.ogg
+    track: voice
+  mistake09:
+    file: mistake-09.ogg
+    track: voice
+  mistake10:
+    file: mistake-10.ogg
+    track: voice
+  mistake11:
+    file: mistake-11.ogg
+    track: voice
+  mistake12:
+    file: mistake-12.ogg
+    track: voice
+  mistake13:
+    file: mistake-13.ogg
+    track: voice
+  pit01:
+    file: pit-01.ogg
+    track: voice
+  pit02:
+    file: pit-02.ogg
+    track: voice
+  pit03:
+    file: pit-03.ogg
+    track: voice
+  pit04:
+    file: pit-04.ogg
+    track: voice
+  pit_done01:
+    file: pit-done-01.ogg
+    track: voice
+  pit_done02:
+    file: pit-done-02.ogg
+    track: voice
+  pit_done03:
+    file: pit-done-03.ogg
+    track: voice
+  pit_done04:
+    file: pit-done-04.ogg
+    track: voice
+  pit_done05:
+    file: pit-done-05.ogg
+    track: voice
+  pit_done06:
+    file: pit-done-06.ogg
+    track: voice
+  pit_done07:
+    file: pit-done-07.ogg
+    track: voice
+  quote01:
+    file: quote-01.ogg
+    track: voice
+  quote02:
+    file: quote-02.ogg
+    track: voice
+  quote03:
+    file: quote-03.ogg
+    track: voice
+  quote04:
+    file: quote-04.ogg
+    track: voice
+  quote05:
+    file: quote-05.ogg
+    track: voice
+  start01:
+    file: start-01.ogg
+    track: voice
+  tires01:
+    file: tires-01.ogg
+    track: voice
+  tires02:
+    file: tires-02.ogg
+    track: voice
+  tires03:
+    file: tires-03.ogg
+    track: voice
+  comm_noise_loop:
+    file: comm-noise-loop.ogg
+    track: ambient
+    volume: 0.3
+  comm_noise_off:
+    file: comm-noise-off.ogg
+    track: ambient
+    volume: 0.6
+  comm_noise_on:
+    file: comm-noise-on.ogg
+    track: ambient
+    volume: 0.6
