@@ -1,11 +1,17 @@
-import os
-from mpf.tests.MpfMachineTestCase import MpfMachineTestCase
+from mpfmc.tests.FullMpfMachineTestCase import FullMachineTestCase
+
 import tests.death_save as death_save
 
-class DeathSaveGameTesting(MpfMachineTestCase):
+class DeathSaveGameTesting(FullMachineTestCase):
 
     def _assertIncrement(self, var, switch, value):
         death_save._assertIncrement(self, var, switch, value)
+
+    def _assertMusicIs(self, state, track):
+        death_save._assertMusicIs(self, state, track)
+
+    def _assertVoiceIs(self, state, track):
+        death_save._assertVoiceIs(self, state, track)
 
     def _start(self):
         death_save._start(self)

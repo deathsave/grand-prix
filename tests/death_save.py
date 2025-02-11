@@ -56,6 +56,7 @@ def _start_green_flag(self):
     self.hit_and_release_switch("s_fuel")
     self.advance_time_and_run(1)
     self.assertModeRunning("green_flag")
+    self._assertVoiceIs("playing", "pit_done")
 
 def _complete_lap(self):
     self.hit_and_release_switch("s_spinner")
@@ -82,6 +83,20 @@ def _start_grand_prix(self):
         post("logicblock_grand_prix_counter_complete")
     self.advance_time_and_run(4)
     self.assertModeRunning("grand_prix")
+
+def _assertMusicIs(self, state, sound_name):
+    music = self.mc.sound_system.audio_interface. \
+        get_track_by_name("music")
+    self.assertEqual(state, music.get_status()[0]['status'])
+    self.assertEqual(self.mc.sounds[sound_name].id,
+        music.get_status()[0]['sound_id'])
+
+def _assertVoiceIs(self, state, sound_name):
+    voice = self.mc.sound_system.audio_interface. \
+        get_track_by_name("voice")
+    self.assertEqual(state, voice.get_status()[0]['status'])
+    self.assertEqual(self.mc.sounds[sound_name].id,
+        voice.get_status()[0]['sound_id'])
 
 # From https://github.com/missionpinball/mpf/blob \
 #   /dev/mpf/tests/MpfGameTestCase.py#L141
