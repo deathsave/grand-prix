@@ -28,6 +28,7 @@ jobs:
     - name: Update system
       run: |
         sudo apt-get update
+        set -xeo pipefail
     - name: Install system dependencies
       run: |
         sudo apt-get install build-essential git curl \
@@ -40,8 +41,12 @@ jobs:
           libswscale-dev libavformat-dev libavcodec-dev \
           libjpeg-dev libtiff5-dev libx11-dev libmtdev-dev \
           build-essential libgl1-mesa-dev libgles2-mesa-dev \
-          pulseaudio lsb-release libgl1-mesa-dri libavfilter-dev \
+          pulseaudio libportaudio2 dbus-x11 libasound-dev \
+          lsb-release libgl1-mesa-dri libavfilter-dev \
           libunwind-dev libavdevice-dev -y
+        systemctl --user restart pulseaudio.service
+        systemctl --user restart pulseaudio.socket
+        pactl list
     - name: Install app dependencies
       run: |
         curl https://pyenv.run | bash
