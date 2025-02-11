@@ -1,8 +1,16 @@
 #!/bin/bash
 
+if ! [ -z "$CI" ]; then
+  # don't run verbose tests in CI
+  CMD="python -m unittest"
+else
+  CMD="python -m unittest -v"
+fi
+
 if [ -z "$1" ]; then
   FILES="tests/test_*.py"
 else
   FILES="$1"
 fi
-python -m unittest -v $FILES
+
+$CMD $FILES
