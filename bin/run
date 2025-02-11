@@ -5,12 +5,15 @@
 #CMD="mpf both -Xtav -c development"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Mac OSX
-  echo "Mac OSX detected. Using production_mac config."
+  echo "Booting MPF using production_macos config."
   mpf both -vVt -c production_macos
 else
-  # Linux
-  echo "Using production_linux config."
+  echo "Linux detected. Disabling screen blanking."
+  xset -dpms
+  xset s noblank
+  xset s off
+
+  echo "Booting MPF using production_linux config."
   CMD="source ~/.bash_profile && mpf both -v -c production_linux"
   xterm -hold -e "cd ~/grand-prix && bash -c '$CMD'"
 fi
