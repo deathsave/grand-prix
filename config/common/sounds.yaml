@@ -264,13 +264,13 @@ sounds:
     track: voice
   comm_noise_loop:
     file: comm-noise-loop.ogg
-    track: ambient
+    track: ambience
     volume: 0.3
   comm_noise_off:
     file: comm-noise-off.ogg
-    track: ambient
+    track: ambience
     volume: 0.6
   comm_noise_on:
     file: comm-noise-on.ogg
-    track: ambient
+    track: ambience
     volume: 0.6

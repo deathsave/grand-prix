@@ -10,6 +10,9 @@ class DeathSaveGameTesting(FullMachineTestCase):
     def _assertMusicIs(self, state, track):
         death_save._assertMusicIs(self, state, track)
 
+    def _assertAmbienceIs(self, state, track):
+        death_save._assertAmbienceIs(self, state, track)
+
     def _assertVoiceIs(self, state, track):
         death_save._assertVoiceIs(self, state, track)
 

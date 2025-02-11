@@ -2,10 +2,21 @@ from tests.death_save_game_testing import DeathSaveGameTesting
 
 class TestPitMode(DeathSaveGameTesting):
 
+    def test_sound(self):
+        self._start()
+        self.hit_and_release_switch("s_launch")
+        self.advance_time_and_run(1)
+        self._assertVoiceIs("playing", "fuel")
+        self._assertAmbienceIs("playing", "comm_noise_on")
+        self.advance_time_and_run(5)
+        self._assertAmbienceIs("playing", "comm_noise_loop")
+
     def test_scoring(self):
         score = "score"
 
         self._start()
+        self.hit_and_release_switch("s_launch")
+
         self.assertEqual(0, self.machine.game.player.score)
         self._assertIncrement(score, "s_pop1", 10)
         self._assertIncrement(score, "s_pop2", 10)

@@ -84,19 +84,25 @@ def _start_grand_prix(self):
     self.advance_time_and_run(4)
     self.assertModeRunning("grand_prix")
 
+def _assertSound(self, track, state, sound_name):
+    track = self.mc.sound_system.audio_interface. \
+        get_track_by_name(track)
+    for sound in track.get_status():
+        if self.mc.sounds[sound_name].id == sound['sound_id']:
+            found_sound = sound
+            break
+    if "found_sound" not in locals():
+        self.fail(sound_name + " not found in " + track + ".")
+    self.assertEqual(state, found_sound['status'])
+
 def _assertMusicIs(self, state, sound_name):
-    music = self.mc.sound_system.audio_interface. \
-        get_track_by_name("music")
-    self.assertEqual(state, music.get_status()[0]['status'])
-    self.assertEqual(self.mc.sounds[sound_name].id,
-        music.get_status()[0]['sound_id'])
+    _assertSound(self, "music", state, sound_name)
 
 def _assertVoiceIs(self, state, sound_name):
-    voice = self.mc.sound_system.audio_interface. \
-        get_track_by_name("voice")
-    self.assertEqual(state, voice.get_status()[0]['status'])
-    self.assertEqual(self.mc.sounds[sound_name].id,
-        voice.get_status()[0]['sound_id'])
+    _assertSound(self, "voice", state, sound_name)
+
+def _assertAmbienceIs(self, state, sound_name):
+    _assertSound(self, "ambience", state, sound_name)
 
 # From https://github.com/missionpinball/mpf/blob \
 #   /dev/mpf/tests/MpfGameTestCase.py#L141

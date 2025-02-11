@@ -18,7 +18,7 @@ sound_system:
       type: standard
       simultaneous_sounds: 8
       volume: 0.8
-    ambient:
+    ambience:
       type: standard
       simultaneous_sounds: 2
       volume: 0.4
