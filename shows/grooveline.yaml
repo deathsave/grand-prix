@@ -1,0 +1,38 @@
+#show_version=6
+
+# Just flashing the lights for now to prove the OPP Incand
+# works across boards.
+#
+- time: 0
+  lights:
+    tag_lights_grooveline: off
+- time: "+0.1s"
+  lights:
+    tag_lights_grooveline: on
+- time: "+0.2s"
+  lights:
+    tag_lights_grooveline: off
+- time: "+0.4s"
+  lights:
+    tag_lights_grooveline: on
+- time: "+0.8s"
+  lights:
+    tag_lights_grooveline: off
+- time: "+1s"
+  lights:
+    tag_lights_grooveline: on
+- time: "+0.2s"
+  lights:
+    tag_lights_grooveline: off
+- time: "+1s"
+  lights:
+    tag_lights_grooveline: on
+- time: "+0.2s"
+  lights:
+    tag_lights_grooveline: off
+- time: "+1s"
+  lights:
+    tag_lights_grooveline: on
+- time: "+0.2s"
+  lights:
+    tag_lights_grooveline: off

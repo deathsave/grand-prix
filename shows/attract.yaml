@@ -10,6 +10,9 @@
     player_up:
       loops: 0
       sync_ms: 2000
+    grooveline:
+      loops: 0
+      sync_ms: 2000
 - time: "4s"
   shows:
     info_lights:
