@@ -6,18 +6,17 @@ flippers:
     hold_coil: c_flipper1_hold
     activation_switch: s_flipper1
     eos_switch: s_flipper1_eos
-    enable_events: ball_starting
     disable_events:
     - green_flag_bad_luck
-    use_eos: true
+    # OPP doesn't support this apparently
+    use_eos: false
     label: Left Flipper
   right_flipper:
     main_coil: c_flipper2
     hold_coil: c_flipper2_hold
     activation_switch: s_flipper2
     eos_switch: s_flipper2_eos
-    enable_events: ball_starting
     disable_events:
     - green_flag_bad_luck
-    use_eos: true
+    use_eos: false
     label: Right Flipper
