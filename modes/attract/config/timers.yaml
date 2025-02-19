@@ -1,0 +1,7 @@
+#config_version=6
+
+timers:
+  segment_wiggle_timer:
+    start_value: 0
+    tick_interval: "0.2s"
+    start_running: true

@@ -7,3 +7,4 @@ config:
 - slide_player.yaml
 - variable_player.yaml
 - sound_player.yaml
+- segment_display_player.yaml

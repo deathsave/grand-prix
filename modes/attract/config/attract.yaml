@@ -1,6 +1,7 @@
 #config_version=6
 
 config:
+- mode.yaml
 - show_player.yaml
 - slide_player.yaml
-- segment_display_player.yaml
+- timers.yaml

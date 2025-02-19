@@ -12,7 +12,6 @@ config:
 - common/modes.yaml
 - common/playfields.yaml
 - common/slides.yaml
-- common/segment_display_player.yaml
 - common/sounds.yaml
 - common/sound_player.yaml
 - common/sound_system.yaml
