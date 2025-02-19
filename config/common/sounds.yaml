@@ -265,12 +265,12 @@ sounds:
   comm_noise_loop:
     file: comm-noise-loop.ogg
     track: ambience
-    volume: 0.3
+    volume: 0.2
   comm_noise_off:
     file: comm-noise-off.ogg
     track: ambience
-    volume: 0.6
+    volume: 0.4
   comm_noise_on:
     file: comm-noise-on.ogg
     track: ambience
-    volume: 0.6
+    volume: 0.4
