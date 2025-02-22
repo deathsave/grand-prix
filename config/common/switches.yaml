@@ -35,13 +35,17 @@ switches:
     - qualifiers
   s_podium_hole:
     number: 1-28
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - tag_hole
   s_disqualifier:
     number: 1-29
     tags: playfield_active
   s_prix_hole:
     number: 1-30
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - tag_hole
   # UNUSED 1-31
 
   #############
@@ -79,7 +83,9 @@ switches:
     tags: playfield_active
   s_grand_hole:
     number: 3-26
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - tag_hole
   # central drop left
   s_fuel:
     number: 3-27
