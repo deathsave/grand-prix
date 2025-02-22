@@ -10,6 +10,7 @@ SIMPLE_CSS = '<link rel="stylesheet" ' \
     '<style>' \
     'h1,h2,h3,h4,h5,h6 { margin: 0.5rem; }' \
     'p { margin: 0.5rem; }' \
+    '.mermaid { height: 60vw; }' \
     '</style>'
 
 app = Flask(__name__)

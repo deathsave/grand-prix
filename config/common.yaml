@@ -1,6 +1,7 @@
 #config_version=6
 
 config:
+- common/mpf.yaml
 - common/assets.yaml
 - common/ball_devices.yaml
 - common/coils.yaml

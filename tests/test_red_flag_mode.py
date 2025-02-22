@@ -1,3 +1,4 @@
+import random
 from tests.death_save_game_testing import DeathSaveGameTesting
 
 class TestRedFlagMode(DeathSaveGameTesting):
@@ -49,7 +50,6 @@ class TestRedFlagMode(DeathSaveGameTesting):
         for i in range(2):
             self._drain_one_ball()
             self.advance_time_and_run(1)
-        #self.assertEqual(1, self.machine.playfield.balls)
         self.assertModeNotRunning("grand_prix")
         self.assertEqual(
             1, self.machine.game.player.is_grand_prix_completed)
@@ -60,4 +60,16 @@ class TestRedFlagMode(DeathSaveGameTesting):
         self.assertEqual(True, self.machine. \
             counters["red_flag_counter"].check_complete())
 
-        # TODO: final sequence for mode start here
+        # With all 3 qualifying modes completed,
+        # the red flag mode is started by entering
+        # ANY ONE OF THE HOLES on the playfield, so
+        # we select a random one here
+        holes = ["s_grand_hole", "s_prix_hole", "s_podium_hole"]
+        self.assertModeNotRunning("red_flag")
+        self.hit_and_release_switch(random.choice(holes))
+
+        # The red flag mode is started
+        self.advance_time_and_run(1)
+        self.assertModeRunning("red_flag")
+        self.assertEqual(True,
+            self.machine.multiballs["red_flag"].enabled)

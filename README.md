@@ -31,16 +31,23 @@ graph TD
   GREEN_FLAG -- 50 laps all day --> LUX_MODE[/"Lap of Luxury Mode"/]
   GREEN_FLAG -- grand prix sequence --> GP_MODE[/"Grand Prix Mode"/]
   RANDOM1 -- fuel -->
-    PIT_CHECK{"Fuel, Oil or Tires need attention?"}
-  RANDOM1 -- tires --> PIT_CHECK
-  RANDOM1 -- oil --> PIT_CHECK
+    IS_NEED_PIT{"Fuel, Oil or Tires need attention?"}
+  RANDOM1 -- tires --> IS_NEED_PIT
+  RANDOM1 -- oil --> IS_NEED_PIT
   RANDOM1 -- bad luck --> BALL_DRAINS((("Ball Drains")))
-  PIT_CHECK -- yes --> PIT
-  PIT_CHECK -- no --> GREEN_FLAG
+  IS_NEED_PIT -- yes --> PIT
+  IS_NEED_PIT -- no --> GREEN_FLAG
   GL_MODE --> GL_MULTI("Grooveline Multiball")
   LUX_MODE --> LUX_MULTI("Lap of Luxury Multiball")
   GP_MODE --> GP_MULTI("Grand Prix Multiball")
   GL_MULTI -- make 3 laps --> GL_MULTI_ADD_BALL("Add a Ball")
+  GL_MULTI -->
+      IS_RF_MODE_READY{"Red Flag Mode Ready?"}
+  LUX_MULTI --> IS_RF_MODE_READY
+  GP_MULTI --> IS_RF_MODE_READY
+  IS_RF_MODE_READY -- yes --> RF_MODE[/"Red Flag<br>(Wizard) Mode"/]
+  IS_RF_MODE_READY -- no --> GREEN_FLAG
+  RF_MODE --> RF_MULTI("Red Flag Multiball")
 ```
 
 ### Production Machine Setup

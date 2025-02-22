@@ -1,7 +1,8 @@
 #config_version=6
 
 mode:
-  # start_events:
+  start_events:
+  - sw_tag_hole_active{current_player.is_grooveline_completed > 0 and current_player.is_grand_prix_completed > 0 and current_player.is_luxury_completed > 0}
   # TODO after logicblock_red_flag_counter_complete
   stop_events:
   - multiball_red_flag_ended
