@@ -16,9 +16,11 @@ player_vars:
   ##########################
   is_luxury_completed:
     initial_value: 0
-  # just activate
   is_grooveline_completed:
     initial_value: 0
-  # just activate
   is_grand_prix_completed:
+    initial_value: 0
+  # ^ the above three enable red_flag
+  #   per red_flag_counter
+  is_red_flag_completed:
     initial_value: 0

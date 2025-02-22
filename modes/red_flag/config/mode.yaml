@@ -1,0 +1,9 @@
+#config_version=6
+
+mode:
+  # start_events:
+  # TODO after logicblock_red_flag_counter_complete
+  stop_events:
+  - multiball_red_flag_ended
+  restart_on_next_ball: false
+  priority: 1000

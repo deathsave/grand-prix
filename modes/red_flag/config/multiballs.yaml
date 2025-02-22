@@ -1,0 +1,13 @@
+#config_version=6
+
+multiballs:
+  red_flag:
+    ball_count: 4
+    ball_count_type: total
+    shoot_again: 60s
+    enable_events:
+    - mode_red_flag_starting
+    start_events:
+    - mode_red_flag_started
+    stop_events:
+    - mode_red_flag_stopping

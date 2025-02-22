@@ -1,8 +1,9 @@
 #config_version=6
 
 modes:
-- pit
-- green_flag
-- grooveline
-- luxury
-- grand_prix
+- pit # <- base mode
+- green_flag # <- main mode
+- grooveline # multiball 1
+- luxury # multiball 2
+- grand_prix # multiball 3
+- red_flag # <- wizard mode

@@ -77,6 +77,8 @@ variable_player:
     is_luxury_completed: 1
   multiball_grand_prix_ended:
     is_grand_prix_completed: 1
+  multiball_red_flag_ended:
+    is_red_flag_completed: 1
 
   #####################
   ## Per-ball resets ##
