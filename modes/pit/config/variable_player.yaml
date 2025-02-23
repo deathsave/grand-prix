@@ -68,6 +68,9 @@ variable_player:
   s_outlane2_active:
     score: 50
 
+  logicblock_seq_lap_complete:
+    lap_count: 1
+
   ##########################
   ## Wizard-mode Progress ##
   ##########################
@@ -87,4 +90,3 @@ variable_player:
     grooveline_counter_count:
       action: set
       int: 0
-

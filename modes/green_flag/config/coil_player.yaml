@@ -1,7 +1,9 @@
 #config_version=6
 
 coil_player:
-  logicblock_seq_lap_complete:
+  logicblock_seq_lap_complete{not current_player.lap_count % 2 == 0}:
     c_shaker_motor:
-      action: pulse
-      hold_power: 0.5
+      action: on
+  logicblock_seq_lap_complete{current_player.lap_count % 2 == 0}:
+    c_shaker_motor:
+      action: off

@@ -1,6 +1,8 @@
 #config_version=6
 
 player_vars:
+  lap_count:
+    initial_value: 0
   # 2 is full
   # 1 is partial
   # 0 is empty

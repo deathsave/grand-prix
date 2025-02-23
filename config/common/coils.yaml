@@ -3,6 +3,7 @@
 coils:
   c_shaker_motor:
     number: 3-3
+    default_hold_power: 1
   c_trough:
     number: 4-2
     default_pulse_ms: 20
