@@ -1,0 +1,7 @@
+#config_version=6
+
+coil_player:
+  logicblock_seq_lap_complete:
+    c_shaker_motor:
+      action: pulse
+      hold_power: 0.5

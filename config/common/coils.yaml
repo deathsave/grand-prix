@@ -1,9 +1,8 @@
 #config_version=6
 
 coils:
-  c_auto_kicker:
-    number: 5-3
-    default_pulse_ms: 20
+  c_shaker_motor:
+    number: 3-3
   c_trough:
     number: 4-2
     default_pulse_ms: 20
@@ -21,3 +20,6 @@ coils:
   c_flipper2_hold:
     number: 5-1
     allow_enable: true
+  c_auto_kicker:
+    number: 5-3
+    default_pulse_ms: 20
