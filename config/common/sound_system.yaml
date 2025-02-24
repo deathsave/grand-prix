@@ -22,3 +22,7 @@ sound_system:
       type: standard
       simultaneous_sounds: 2
       volume: 0.4
+    chimebox:
+      type: standard
+      simultaneous_sounds: 3
+      volume: 0.5

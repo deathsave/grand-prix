@@ -15,6 +15,5 @@ config:
 - sequences.yaml
 - show_player.yaml
 - slide_player.yaml
-- sound_player.yaml
 - variable_player.yaml
 - coil_player.yaml

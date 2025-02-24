@@ -1,0 +1,31 @@
+#show_version=6
+
+# Just flashing the lights for now to prove the OPP Incand
+# works across boards.
+#
+- time: 0
+  lights:
+    tag_lights_signal: off
+- time: "+0.5s"
+  lights:
+    l_signal1: on
+  # TODO: replace these with actual chime coil pulse
+  sounds: chime_low
+- time: "+1.0s"
+  lights:
+    l_signal2: on
+  sounds: chime_low
+- time: "+1.0s"
+  lights:
+    l_signal3: on
+  sounds: chime_low
+- time: "+1.0s"
+  lights:
+    tag_lights_signal: off
+    l_signal4: on
+  sounds: chime_high
+# keep the last light on a bit longer
+- time: "+1.0s"
+  lights:
+    l_signal4: on
+  sounds: pit_done

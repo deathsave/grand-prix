@@ -292,26 +292,26 @@ lights:
   # Board PLAYFIELD2 #
   ####################
 
-  l_star4:
+  l_signal4:
     platform: opp
     subtype: matrix
     number: 3-8
-    tags: tag_lights_star
-  l_star3:
+    tags: tag_lights_signal
+  l_signal3:
     platform: opp
     subtype: matrix
     number: 3-9
-    tags: tag_lights_star
-  l_star2:
+    tags: tag_lights_signal
+  l_signal2:
     platform: opp
     subtype: matrix
     number: 3-10
-    tags: tag_lights_star
-  l_star1:
+    tags: tag_lights_signal
+  l_signal1:
     platform: opp
     subtype: matrix
     number: 3-11
-    tags: tag_lights_star
+    tags: tag_lights_signal
   l_grand_01:
     platform: opp
     subtype: matrix

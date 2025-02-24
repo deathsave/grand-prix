@@ -1,9 +1,64 @@
 #config_version=6
 
 sounds:
+  #########################
+  ## Chimebox simulation ##
+  #########################
+  # [x][][]
+  chime_low:
+    file: chime-low.ogg
+    track: chimebox
+  # [][x][]
+  chime_mid:
+    file: chime-mid.ogg
+    track: chimebox
+  # [][][x]
+  chime_high:
+    file: chime-high.ogg
+    track: chimebox
+  # [x][x][]
+  chime_low_mid:
+    file: chime-low-mid.ogg
+    track: chimebox
+  # [x][][x]
+  chime_low_high:
+    file: chime-low-high.ogg
+    track: chimebox
+  # [][x][x]
+  chime_mid_high:
+    file: chime-mid-high.ogg
+    track: chimebox
+  # [x][x][x]
+  chime_full:
+    file: chime-full.ogg
+    track: chimebox
+
+  #########
+  ## BGM ##
+  #########
   the_distance:
     file: the-distance.ogg
     track: music
+
+  ##############
+  ## Ambience ##
+  ##############
+  comm_noise_loop:
+    file: comm-noise-loop.ogg
+    track: ambience
+    volume: 0.2
+  comm_noise_off:
+    file: comm-noise-off.ogg
+    track: ambience
+    volume: 0.4
+  comm_noise_on:
+    file: comm-noise-on.ogg
+    track: ambience
+    volume: 0.4
+
+  ###############
+  ## Call outs ##
+  ###############
   bad_luck_blow_out01:
     file: bad-luck-blow-out-01.ogg
     track: voice
@@ -262,15 +317,3 @@ sounds:
   tires03:
     file: tires-03.ogg
     track: voice
-  comm_noise_loop:
-    file: comm-noise-loop.ogg
-    track: ambience
-    volume: 0.2
-  comm_noise_off:
-    file: comm-noise-off.ogg
-    track: ambience
-    volume: 0.4
-  comm_noise_on:
-    file: comm-noise-on.ogg
-    track: ambience
-    volume: 0.4
