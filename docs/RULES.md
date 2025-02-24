@@ -83,11 +83,11 @@ It's the name of the game!
   - Lights THIRD of the 4 traffic signal inserts (Green)
 
 
-#### Red-flag (Wizard Mode)
+#### Red Line (Wizard Mode)
 
 Once 3/4 traffic signals are lit, the fourth will begin flashing
 in red color. The player then only needs to lock a ball in ANY of
-the 3 holes to activate Red-flag Multiball.
+the 3 holes to activate Red Line Multiball.
 
 - "Music" is just a heart beat and heavy breathing
 - Constant multi-ball for 30 seconds

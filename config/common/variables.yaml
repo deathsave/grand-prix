@@ -22,7 +22,7 @@ player_vars:
     initial_value: 0
   is_grand_prix_completed:
     initial_value: 0
-  # ^ the above three enable red_flag
-  #   per red_flag_counter
-  is_red_flag_completed:
+  # ^ the above three enable red_line
+  #   per red_line_counter
+  is_red_line_completed:
     initial_value: 0

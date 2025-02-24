@@ -42,12 +42,12 @@ graph TD
   GP_MODE --> GP_MULTI("Grand Prix Multiball")
   GL_MULTI -- make 3 laps --> GL_MULTI_ADD_BALL("Add a Ball")
   GL_MULTI -->
-      IS_RF_MODE_READY{"Red Flag Mode Ready?"}
+      IS_RF_MODE_READY{"Red Line Mode Ready?"}
   LUX_MULTI --> IS_RF_MODE_READY
   GP_MULTI --> IS_RF_MODE_READY
-  IS_RF_MODE_READY -- yes --> RF_MODE[/"Red Flag<br>(Wizard) Mode"/]
+  IS_RF_MODE_READY -- yes --> RF_MODE[/"Red Line<br>(Wizard) Mode"/]
   IS_RF_MODE_READY -- no --> GREEN_FLAG
-  RF_MODE --> RF_MULTI("Red Flag Multiball")
+  RF_MODE --> RF_MULTI("Red Line Multiball")
 ```
 
 ### Production Machine Setup

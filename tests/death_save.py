@@ -56,6 +56,8 @@ def _start_green_flag(self):
     self.hit_and_release_switch("s_fuel")
     self.advance_time_and_run(1)
     self.assertModeRunning("green_flag")
+    # call out AFTER the signal countdown
+    self.advance_time_and_run(6)
     self._assertVoiceIs("playing", "pit_done")
 
 def _complete_lap(self):
