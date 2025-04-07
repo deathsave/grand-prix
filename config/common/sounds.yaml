@@ -36,8 +36,11 @@ sounds:
   #########
   ## BGM ##
   #########
-  the_distance:
-    file: the-distance.ogg
+  the_distance_intro:
+    file: the-distance-intro.ogg
+    track: music
+  the_distance_loop:
+    file: the-distance-loop.ogg
     track: music
 
   ##############
