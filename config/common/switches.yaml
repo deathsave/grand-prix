@@ -28,25 +28,31 @@ switches:
     tags:
     - playfield_active
     - qualifiers
+  # north drop right
   s_oil:
     number: 1-27
     tags:
     - playfield_active
     - qualifiers
-  s_podium_hole:
+  s_backfire_hole:
     number: 1-28
     tags:
     - playfield_active
     - tag_hole
-  s_disqualifier:
+  # central drop right
+  s_fuel:
     number: 1-29
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - qualifiers
   s_prix_hole:
     number: 1-30
     tags:
     - playfield_active
     - tag_hole
-  # UNUSED 1-31
+  s_bonus_target:
+    number: 1-31
+    tags: playfield_active
 
   #############
   # Board CAB #
@@ -69,7 +75,6 @@ switches:
     tags: start
   s_launch:
     number: 2-31
-  # UNUSED 2-31
 
   ####################
   # Board PLAYFIELD2 #
@@ -78,7 +83,7 @@ switches:
   s_grooveline:
     number: 3-24
     tags: playfield_active
-  s_grand_advance:
+  s_save_target:
     number: 3-25
     tags: playfield_active
   s_grand_hole:
@@ -86,22 +91,21 @@ switches:
     tags:
     - playfield_active
     - tag_hole
-  # central drop left
-  s_fuel:
+  s_multiball_target:
     number: 3-27
-    tags:
-    - playfield_active
-    - qualifiers
-  s_spinner:
+    tags: playfield_active
+  # central drop left
+  s_disqualifier:
     number: 3-28
     tags: playfield_active
-  s_podium_advance2:
+  s_spinner:
     number: 3-29
     tags: playfield_active
-  s_prix_advance:
+  s_swerve1:
     number: 3-30
     tags: playfield_active
-  s_podium_advance1:
+  # UNUSED 3-30
+  s_swerve2:
     number: 3-31
     tags: playfield_active
 
@@ -137,13 +141,13 @@ switches:
   s_trough4:
     number: 4-27
     type: NC
-  s_trough_jam:
-    number: 4-28
-    type: NC
+  # Room for more balls later...
   # UNUSED 4-28
   # UNUSED 4-29
   # UNUSED 4-30
-  # UNUSED 4-31
+  s_trough_jam:
+    number: 4-31
+    type: NC
 
   ################
   # Board APRON2 #
@@ -166,8 +170,15 @@ switches:
     tags: right_flipper
   # UNUSED 5-30
 
+  # UNUSED 5-31
   # NOTE: this is a dummy switch for use in testing
   #       without side effects
   s_activate_playfield:
     number: 5-31
     tags: playfield_active
+
+  ################
+  # Board APRON2 #
+  ################
+  #
+  # TODO (chimebox)

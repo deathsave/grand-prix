@@ -222,16 +222,16 @@ lights:
     subtype: matrix
     number: 2-10
     tags: tag_lights_grooveline
-  l_north_advance1:
+  l_swerve1:
     platform: opp
     subtype: matrix
     number: 2-11
-    tags: tag_lights_north_advance
-  l_north_advance2:
+    tags: tag_lights_swerve
+  l_swerve2:
     platform: opp
     subtype: matrix
     number: 2-12
-    tags: tag_lights_north_advance
+    tags: tag_lights_swerve
   l_spinner_10:
     platform: opp
     subtype: matrix

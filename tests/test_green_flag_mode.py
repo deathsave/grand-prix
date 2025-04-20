@@ -24,7 +24,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
 
         # Other switches score normally per Pit Mode
         self._assertIncrement(score, "s_pop1", 10)
-        self._assertIncrement(score, "s_podium_advance1", 10)
+        self._assertIncrement(score, "s_swerve1", 10)
         self._assertIncrement(score, "s_slingshot2", 10)
 
     def test_laps(self):

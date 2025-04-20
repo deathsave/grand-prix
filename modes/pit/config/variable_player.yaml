@@ -31,7 +31,7 @@ variable_player:
     level_tires:
       int: 2
       action: set
-  s_podium_hole_active:
+  s_backfire_hole_active:
     score: 500
     bonus: 50
   s_prix_hole_active:
@@ -43,16 +43,16 @@ variable_player:
   s_spinner_active:
     score: 10
     bonus: 1
-  s_grand_advance_active:
+  s_save_target_active:
     score: 10
     bonus: 10
-  s_prix_advance_active:
+  s_bonus_target_active:
     score: 10
     bonus: 10
-  s_podium_advance1_active:
+  s_swerve1_active:
     score: 10
     bonus: 10
-  s_podium_advance2_active:
+  s_swerve2_active:
     score: 10
     bonus: 10
   s_slingshot1_active:

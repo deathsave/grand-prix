@@ -16,7 +16,7 @@ class TestSegmentDisplays(DeathSaveMcTesting):
 
         ## player scores 10 points by hitting the
         ## grand advance switch scoring 10 points
-        self.hit_and_release_switch("s_grand_advance")
+        self.hit_and_release_switch("s_save_target")
         self.advance_time_and_run(1)
         self.assertEqual(10,
             int(self.machine.segment_displays['segment1'].text))

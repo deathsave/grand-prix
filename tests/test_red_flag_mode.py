@@ -64,7 +64,7 @@ class TestRedLineMode(DeathSaveGameTesting):
         # the red line mode is started by entering
         # ANY ONE OF THE HOLES on the playfield, so
         # we select a random one here
-        holes = ["s_grand_hole", "s_prix_hole", "s_podium_hole"]
+        holes = ["s_grand_hole", "s_prix_hole", "s_backfire_hole"]
         self.assertModeNotRunning("red_line")
         self.hit_and_release_switch(random.choice(holes))
 

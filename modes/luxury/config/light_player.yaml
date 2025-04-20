@@ -3,7 +3,7 @@
 # All multi-ball modes should light these
 light_player:
   mode_luxury_started:
-    l_north_advance1:
+    l_swerve1:
       color: white
-    l_north_advance2:
+    l_swerve2:
       color: white

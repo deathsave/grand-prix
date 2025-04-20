@@ -46,15 +46,15 @@ class TestGroovelineMode(DeathSaveGameTesting):
             0, self.machine.game.player.grooveline_counter_count)
 
         # Mult-ball light indicators off
-        self.assertLightColor('l_north_advance1', 'black')
-        self.assertLightColor('l_north_advance2', 'black')
+        self.assertLightColor('l_swerve1', 'black')
+        self.assertLightColor('l_swerve2', 'black')
 
         # Players hits the grooveline 10 times (10 laps)
         self._start_grooveline()
 
         # Mult-ball light indicators on
-        self.assertLightColor('l_north_advance1', 'white')
-        self.assertLightColor('l_north_advance2', 'white')
+        self.assertLightColor('l_swerve1', 'white')
+        self.assertLightColor('l_swerve2', 'white')
 
         # Counter resets
         self.assertEqual(

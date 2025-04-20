@@ -4,9 +4,9 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
     # To qualify:
     #
-    # - Advance "GRAND" by hitting s_grand_advance
+    # - Advance "GRAND" by hitting s_save_target
     # - With GRAND lit, hit s_grand_hole to qualify "PRIX"
-    # - Advance "PRIX" by hitting s_prix_advance
+    # - Advance "PRIX" by hitting s_bonus_target
     # - With PRIX lit, hit s_prix_hole to lock in one letter
     # - Repeat 3 more times to qualify "GRAND PRIX" and
     #   start multiball
@@ -42,8 +42,8 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             self.machine.game.player.grand_prix_counter_count)
 
         # Mult-ball light indicators off
-        self.assertLightColor('l_north_advance1', 'black')
-        self.assertLightColor('l_north_advance2', 'black')
+        self.assertLightColor('l_swerve1', 'black')
+        self.assertLightColor('l_swerve2', 'black')
 
         # Repeat sequence 3 more times
         for i in range(3):
@@ -58,10 +58,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     def test_grand_disqualification(self):
         self._start()
         self._start_green_flag()
-        self.hit_and_release_switch("s_grand_advance")
+        self.hit_and_release_switch("s_save_target")
         self.assertEqual(1,
             self.machine.game.player.grand_counter_count)
-        self.hit_and_release_switch("s_grand_advance")
+        self.hit_and_release_switch("s_save_target")
         self.assertEqual(2,
             self.machine.game.player.grand_counter_count)
         self.hit_and_release_switch("s_grand_hole")
@@ -79,10 +79,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             self.machine.counters["grand_counter"].enabled)
 
         # Driver advances Prix counter a couple times
-        self.hit_and_release_switch("s_prix_advance")
+        self.hit_and_release_switch("s_bonus_target")
         self.assertEqual(1,
             self.machine.game.player.prix_counter_count)
-        self.hit_and_release_switch("s_prix_advance")
+        self.hit_and_release_switch("s_bonus_target")
         self.assertEqual(2,
             self.machine.game.player.prix_counter_count)
 
@@ -148,7 +148,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
     def _light_grand(self):
         for i in range(5):
-            self.hit_and_release_switch("s_grand_advance")
+            self.hit_and_release_switch("s_save_target")
             self.assertModeRunning("green_flag")
         self.assertEqual(True,
             self.machine.counters["prix_counter"].enabled)
@@ -157,7 +157,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
     def _light_prix(self):
         for i in range(4):
-            self.hit_and_release_switch("s_prix_advance")
+            self.hit_and_release_switch("s_bonus_target")
         self.assertEqual(True,
             self.machine.counters["grand_counter"].enabled)
         self.assertEqual(False,
@@ -180,6 +180,6 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             self.machine.ball_devices["bd_shooter_lane"].balls)
 
         # Mult-ball light indicators on
-        self.assertLightColor('l_north_advance1', 'white')
-        self.assertLightColor('l_north_advance2', 'white')
+        self.assertLightColor('l_swerve1', 'white')
+        self.assertLightColor('l_swerve2', 'white')
 

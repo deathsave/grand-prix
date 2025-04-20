@@ -32,7 +32,7 @@ counters:
   grand_counter:
     disable_on_complete: true
     reset_on_complete: false
-    count_events: s_grand_advance_active
+    count_events: s_save_target_active
     starting_count: 0
     count_interval: 1
     count_complete_value: 5
@@ -54,7 +54,7 @@ counters:
   # lights the "PRIX" inserts in sequence temporarily.
   prix_counter:
     disable_on_complete: true
-    count_events: s_prix_advance_active
+    count_events: s_bonus_target_active
     starting_count: 0
     count_interval: 1
     count_complete_value: 4
