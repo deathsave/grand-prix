@@ -1,0 +1,8 @@
+#config_version=6
+
+mode:
+  #start_events:
+  # stop_events:
+  # - backfire_timer_ended
+  restart_on_next_ball: false
+  priority: 300

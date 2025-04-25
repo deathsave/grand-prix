@@ -8,3 +8,4 @@ config:
 - variable_player.yaml
 - sound_player.yaml
 - segment_display_player.yaml
+- timers.yaml

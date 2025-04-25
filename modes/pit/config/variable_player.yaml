@@ -68,6 +68,8 @@ variable_player:
   s_outlane2_active:
     score: 50
 
+  mode_green_flag_stopping:
+    pit_count: 1
   logicblock_seq_lap_complete:
     lap_count: 1
 

@@ -1,0 +1,10 @@
+#config_version=6
+
+timers:
+  # Hurry up timer for the "backfire pops"
+  backfire_timer:
+    end_value: 0
+    start_value: 15
+    control_events:
+    - event: start_backfire_timer
+      action: start
