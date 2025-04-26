@@ -2,3 +2,5 @@
 
 config:
 - mode.yaml
+- timers.yaml
+- coil_player.yaml

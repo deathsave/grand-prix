@@ -1,0 +1,8 @@
+#config_version=6
+
+timers:
+  backfire_timer:
+    # first 5 seconds used for display / ball hold
+    start_value: 35
+    direction: down
+    start_running: true

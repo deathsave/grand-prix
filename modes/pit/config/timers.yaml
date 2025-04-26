@@ -2,9 +2,10 @@
 
 timers:
   # Hurry up timer for the "backfire pops"
-  backfire_timer:
+  backfire_qualification_timer:
     end_value: 0
     start_value: 15
+    direction: down
     control_events:
-    - event: start_backfire_timer
+    - event: start_backfire_qualification_timer
       action: start
