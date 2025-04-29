@@ -42,8 +42,20 @@ def _start(self):
 
 def _start_and_expire_ball_save(self):
     self._start()
+    self._expire_ball_save()
+
+def _expire_ball_save(self):
+    active_time = 10
+    hurry_up_time = 5
+    grace_period = 2
+    full_delay = active_time + hurry_up_time + grace_period
+
+    # ensure the playfield is active
     self.hit_and_release_switch("s_activate_playfield")
-    self.advance_time_and_run(16)
+    self.advance_time_and_run(full_delay)
+    print("-----------------------------------------")
+    print("Ball save simulation ended")
+    print("-----------------------------------------")
 
 # assumes pit mode is running (game started)
 def _start_green_flag(self):

@@ -1,10 +1,16 @@
 #config_version=6
 
 ball_saves:
-  ball_start_ball_save:
+  ball_start:
     active_time: 10s
+    # NOTE: hurry_up_time is INCLUDED in active_time
     hurry_up_time: 5s
     timer_start_events: ball_started
     auto_launch: true
     grace_period: 2s
-    balls_to_save: 1
+    only_last_ball: true # won't save if 2+ balls on playfield
+    # disable_events:
+    # - multiball_grooveline_started
+    # - multiball_luxury_started
+    # - multiball_grand_prix_started
+    # - multiball_red_line_started

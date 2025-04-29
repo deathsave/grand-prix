@@ -19,6 +19,9 @@ class DeathSaveGameTesting(FullMachineTestCase):
     def _start(self):
         death_save._start(self)
 
+    def _expire_ball_save(self):
+        death_save._expire_ball_save(self)
+
     def _start_and_expire_ball_save(self):
         death_save._start_and_expire_ball_save(self)
 
