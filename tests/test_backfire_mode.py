@@ -16,7 +16,7 @@ class TestBackfireMode(DeathSaveGameTesting):
 
         # qualification window not ready yet
         self.assertEqual(False,
-            self.machine.timers["backfire_qualification_timer"].running)
+            self.machine.timers["backfire_qualification"].running)
         self.assertEqual(False, self.machine. \
             sequences["seq_backfire_qualifier"].enabled)
 
@@ -28,7 +28,7 @@ class TestBackfireMode(DeathSaveGameTesting):
 
         # qualification timer should be running now
         self.assertEqual(True,
-            self.machine.timers["backfire_qualification_timer"].running)
+            self.machine.timers["backfire_qualification"].running)
         # sequence should be enabled
         self.assertEqual(True, self.machine. \
             sequences["seq_backfire_qualifier"].enabled)

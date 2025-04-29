@@ -2,10 +2,10 @@
 
 timers:
   # Hurry up timer for the "backfire pops"
-  backfire_qualification_timer:
+  backfire_qualification:
     end_value: 0
     start_value: 15
     direction: down
     control_events:
-    - event: start_backfire_qualification_timer
+    - event: start_backfire_qualification{game.balls_in_play > 0}
       action: start

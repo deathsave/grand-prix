@@ -3,9 +3,9 @@
 sequences:
   seq_backfire_qualifier:
     enable_events:
-    - timer_backfire_qualification_timer_started
+    - timer_backfire_qualification_started
     disable_events:
-    - timer_backfire_qualification_timer_ended
+    - timer_backfire_qualification_ended
     events:
     - s_spinner_active
     - s_backfire_hole_active

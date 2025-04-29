@@ -10,6 +10,6 @@ mode:
   - green_flag_bad_luck
   - green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_oil == 1 or current_player.level_fuel == 1}
   events_when_stopped:
-  - start_backfire_qualification_timer
+  - start_backfire_qualification
   restart_on_next_ball: true
   priority: 200

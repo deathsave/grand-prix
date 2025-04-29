@@ -6,4 +6,5 @@ mode:
   stop_events:
   - timer_backfire_timer_stopped
   restart_on_next_ball: false
-  priority: 300
+  # kind of a purgatory mode between pit and green flag
+  priority: 150
