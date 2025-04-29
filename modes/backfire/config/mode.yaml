@@ -4,7 +4,7 @@ mode:
   start_events:
   - logicblock_seq_backfire_qualifier_complete
   stop_events:
-  - timer_backfire_timer_stopped
+  - timer_backfire_stopped
   restart_on_next_ball: false
   # kind of a purgatory mode between pit and green flag
   priority: 150

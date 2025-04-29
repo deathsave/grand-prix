@@ -2,4 +2,4 @@
 
 coil_player:
   # releases the ball after a 5 second delay
-  timer_backfire_timer_tick{ticks == 30}: c_backfire_hole
+  timer_backfire_tick{ticks == 30}: c_backfire_hole

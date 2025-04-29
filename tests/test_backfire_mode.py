@@ -43,7 +43,7 @@ class TestBackfireMode(DeathSaveGameTesting):
         self.assertModeRunning("backfire")
         # main timer should be running now
         self.assertEqual(True,
-            self.machine.timers["backfire_timer"].running)
+            self.machine.timers["backfire"].running)
 
         # ball is kicked out after 5 seconds
         self.advance_time_and_run(5)
@@ -51,7 +51,7 @@ class TestBackfireMode(DeathSaveGameTesting):
         # timer expires after 30 more seconds and mode ends
         self.advance_time_and_run(30)
         self.assertEqual(False,
-            self.machine.timers["backfire_timer"].running)
+            self.machine.timers["backfire"].running)
         self.assertModeNotRunning("backfire")
 
     # To complete:
