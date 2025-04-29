@@ -13,7 +13,6 @@ class TestBackfireMode(DeathSaveGameTesting):
         self._start()
         self._start_green_flag()
         self.assertModeRunning("green_flag")
-        self.assertEqual(1, self.machine.game.player.pit_count)
 
         # qualification window not ready yet
         self.assertEqual(False,
@@ -24,7 +23,6 @@ class TestBackfireMode(DeathSaveGameTesting):
         # player returns to the pit
         self.machine.events.post("pit_required_oil")
         self.advance_time_and_run(1)
-        self.assertEqual(2, self.machine.game.player.pit_count)
         self.assertModeNotRunning("green_flag")
         self.assertModeNotRunning("backfire")
 

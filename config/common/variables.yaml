@@ -1,9 +1,6 @@
 #config_version=6
 
 player_vars:
-  pit_count:
-    # player begins in the pit
-    initial_value: 1
   lap_count:
     initial_value: 0
   # 2 is full
