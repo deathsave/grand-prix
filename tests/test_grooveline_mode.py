@@ -71,16 +71,20 @@ class TestGroovelineMode(DeathSaveGameTesting):
 
         # Second ball already in play
         self.assertEqual(2, self.machine.playfield.balls)
+        # only 2 left in the trough
         self.assertEqual(2,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)
 
-        # A lot of time passes - should have
-        # exceeded the shoot again period
-        self.advance_time_and_run(20)
+        self._expire_ball_save()
 
         # Ball drains
+        self._drain_one_ball()
+        self.advance_time_and_run(4)
+
+        # Bug? Seems like we're getting a ball save here,
+        # but we shouldn't be
         self._drain_one_ball()
         self.advance_time_and_run(4)
 

@@ -1,0 +1,6 @@
+#config_version=6
+
+config:
+- mode.yaml
+- timers.yaml
+- coil_player.yaml

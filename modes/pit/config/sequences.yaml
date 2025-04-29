@@ -1,0 +1,12 @@
+#config_version=6
+
+sequences:
+  seq_backfire_qualifier:
+    enable_events:
+    - timer_backfire_qualification_started
+    disable_events:
+    - timer_backfire_qualification_ended
+    events:
+    - s_spinner_active
+    - s_backfire_hole_active
+    disable_on_complete: true

@@ -3,6 +3,7 @@
 modes:
 - pit # <- base mode
 - green_flag # <- main mode
+- backfire # <- hurry up beginning a pit stop
 - grooveline # multiball 1
 - luxury # multiball 2
 - grand_prix # multiball 3

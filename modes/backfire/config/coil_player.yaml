@@ -1,0 +1,5 @@
+#config_version=6
+
+coil_player:
+  # releases the ball after a 5 second delay
+  timer_backfire_tick{ticks == 30}: c_backfire_hole

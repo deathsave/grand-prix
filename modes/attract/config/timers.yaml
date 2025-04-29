@@ -1,6 +1,8 @@
 #config_version=6
 
 timers:
+  # To change the random segment display
+  # values during the Attract Mode
   segment_wiggle_timer:
     start_value: 0
     tick_interval: "0.2s"

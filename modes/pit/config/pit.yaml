@@ -4,7 +4,9 @@ config:
 - ball_saves.yaml
 - event_player.yaml
 - mode.yaml
-- slide_player.yaml
-- variable_player.yaml
-- sound_player.yaml
 - segment_display_player.yaml
+- sequences.yaml
+- slide_player.yaml
+- sound_player.yaml
+- timers.yaml
+- variable_player.yaml
