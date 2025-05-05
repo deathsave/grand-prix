@@ -4,3 +4,4 @@ config:
 - light_player.yaml
 - mode.yaml
 - multiballs.yaml
+- sound_player.yaml

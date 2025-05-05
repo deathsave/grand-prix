@@ -237,7 +237,7 @@ switch:
   s_coindoor:
     x: 0.2852043780691101
     y: 0.7259475218658893
-  s_disqualifier:
+  s_fuel:
     x: 0.7779512876579203
     y: 0.4562682215743441
   s_flipper1:
@@ -252,7 +252,7 @@ switch:
   s_flipper2_eos:
     x: 0.34903583411314903
     y: 0.9198250728862974
-  s_fuel:
+  s_disqualifier:
     x: 0.7246294946550048
     y: 0.4562682215743441
   s_multiball_target:

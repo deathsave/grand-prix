@@ -1,26 +1,6 @@
 #config_version=6
 
 sound_player:
-  mode_attract_started:
-    the_distance_intro:
-      track: music
-      action: play
-      events_when_stopped: sound_the_distance_intro_stopped
-  sound_the_distance_intro_stopped:
-    the_distance_loop:
-      track: music
-      action: play
-      loops: -1
-  mode_green_flag_stopped:
-    particular:
-      action: stop
-  mode_attract_stopped:
-    the_distance_loop:
-      track: music
-      action: stop
-    the_distance_intro:
-      track: music
-      action: stop
   s_launch_inactive:
     comm_noise_on:
       action: play

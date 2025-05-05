@@ -1,0 +1,9 @@
+#config_version=6
+
+sound_player:
+  mode_grooveline_started:
+    groove-thing:
+      action: play
+  mode_grooveline_stopped:
+    groove-thing:
+      action: stop

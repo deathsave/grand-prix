@@ -42,6 +42,12 @@ sounds:
   the_distance_loop:
     file: the-distance-loop.ogg
     track: music
+  308in:
+    file: 308in.ogg
+    track: music
+  groove-thing:
+    file: groove-thing.ogg
+    track: music
 
   ##############
   ## Ambience ##

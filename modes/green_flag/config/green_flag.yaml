@@ -17,3 +17,4 @@ config:
 - slide_player.yaml
 - variable_player.yaml
 - coil_player.yaml
+- sound_player.yaml
