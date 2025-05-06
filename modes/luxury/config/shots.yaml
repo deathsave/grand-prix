@@ -1,0 +1,45 @@
+#config_version=6
+
+shots:
+  luxury_a:
+    switch: s_bonus_target
+    profile: blinking
+    show_tokens:
+      lights: l_prix_01
+  luxury_b:
+    switch: s_prix_hole
+    profile: blinking
+    show_tokens:
+      lights: l_prix_04
+  luxury_c:
+    switch: s_spinner
+    profile: blinking
+    show_tokens:
+      lights: l_spinner_01
+  luxury_d:
+    switch: s_grooveline
+    profile: blinking
+    show_tokens:
+      lights: l_grooveline_01
+  luxury_e:
+    switch: s_grand_hole
+    profile: blinking
+    show_tokens:
+      lights: l_grand_01
+  luxury_f:
+    switch: s_save_target
+    profile: blinking
+    show_tokens:
+      lights: l_grand_05
+
+shot_groups:
+  luxury:
+    shots:
+      - luxury_a
+      - luxury_b
+      - luxury_c
+      - luxury_d
+      - luxury_e
+      - luxury_f
+    enable_events: mode_luxury_started
+    disable_events: mode_luxury_stopped

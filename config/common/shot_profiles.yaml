@@ -1,0 +1,10 @@
+#config_version=6
+
+shot_profiles:
+  blinking:
+    states:
+      - name: available
+        show: "blink"
+      - name: claimed
+        show: "off"
+

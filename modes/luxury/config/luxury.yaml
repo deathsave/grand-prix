@@ -4,3 +4,5 @@ config:
 - mode.yaml
 - light_player.yaml
 - multiballs.yaml
+- variable_player.yaml
+- shots.yaml

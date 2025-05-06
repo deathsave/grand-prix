@@ -20,3 +20,4 @@ config:
 - common/switches.yaml
 - common/variables.yaml
 - common/widgets.yaml
+- common/shot_profiles.yaml

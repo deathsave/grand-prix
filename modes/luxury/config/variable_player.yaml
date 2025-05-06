@@ -1,0 +1,17 @@
+#config_version=6
+
+variable_player:
+  # Applicable switches:
+  # - s_bonus_target
+  # - s_prix_hole
+  # - s_spinner
+  # - s_grooveline
+  # - s_grand_hole
+  # - s_save_target
+  luxury_available_hit:
+    score: 25000|block
+  # award big if all shots are completed
+  luxury_complete:
+    score: 500000|block
+  # score normally if already claimed
+  # luxury_claimed_hit:

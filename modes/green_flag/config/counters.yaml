@@ -20,10 +20,10 @@ counters:
   # This is the truly persisted counter
   # across all balls
   luxury_counter:
-    count_events: logicblock_seq_lap_complete
+    count_events: s_spinner_active
     starting_count: 0
     count_interval: 1
-    count_complete_value: 50
+    count_complete_value: 100 # will probably need to increase
     persist_state: true
 
   # The following three counters are dependent

@@ -10,7 +10,7 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertModeRunning("green_flag")
         self.assertModeNotRunning("red_line")
 
-        # Grooveline -> 1/3
+        # Grooveline -> 1/3 (2 ball multiball)
         self._start_grooveline() # no ball save here
         self.assertModeRunning("grooveline")
         self._drain_one_ball()
@@ -30,13 +30,12 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertEqual(False, self.machine. \
             counters["red_line_counter"].check_complete())
 
-        # Luxury -> 2/3
+        # Luxury -> 2/3 (2 ball multiball)
         self._start_luxury()
         self.assertModeRunning("luxury")
         self.advance_time_and_run(10) # expire mode ball save
-        for i in range(2):
-            self._drain_one_ball()
-            self.advance_time_and_run(1)
+        self._drain_one_ball()
+        self.advance_time_and_run(1)
         self.assertEqual(1, self.machine.playfield.balls)
         self.assertModeNotRunning("luxury")
         self.assertEqual(
@@ -48,7 +47,7 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertEqual(False, self.machine. \
             counters["red_line_counter"].check_complete())
 
-        # Grand Prix -> 3/3
+        # Grand Prix -> 3/3 (3 ball multiball)
         self._start_grand_prix()
         self.assertModeRunning("grand_prix")
         self.advance_time_and_run(20) # expire mode ball save

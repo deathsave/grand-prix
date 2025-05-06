@@ -2,7 +2,7 @@ from tests.death_save_game_testing import DeathSaveGameTesting
 
 class TestLuxuryMode(DeathSaveGameTesting):
 
-    # Player qualifies by making 50 laps
+    # Player qualifies by hitting the spinner a number of times
     # accumulating across all 3 balls
     def test_qualification(self):
         self._start()
@@ -32,7 +32,7 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.assertLightColor('l_swerve1', 'black')
         self.assertLightColor('l_swerve2', 'black')
 
-        # Players makes 50 laps
+        # Player hits the spinner a lot
         self._start_luxury()
 
         # Mult-ball light indicators on
@@ -50,10 +50,9 @@ class TestLuxuryMode(DeathSaveGameTesting):
         # exceeded the shoot again period
         self.advance_time_and_run(10)
 
-        # 2 balls drain
-        for i in range(2):
-            self._drain_one_ball()
-            self.advance_time_and_run(4)
+        # ball drains
+        self._drain_one_ball()
+        self.advance_time_and_run(4)
 
         # and one more?? bug?
         self._drain_one_ball()
@@ -72,9 +71,9 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         self._start_luxury()
-        self.assertEqual(3, self.machine.playfield.balls)
+        self.assertEqual(2, self.machine.playfield.balls)
         # A ball is ejected to the shooter lane
-        self.assertEqual(1,
+        self.assertEqual(2,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)

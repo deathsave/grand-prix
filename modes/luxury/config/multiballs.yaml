@@ -2,7 +2,7 @@
 
 multiballs:
   luxury:
-    ball_count: 3
+    ball_count: 2
     ball_count_type: total
     shoot_again: 10s
     enable_events:
