@@ -6,3 +6,4 @@ config:
 - multiballs.yaml
 - variable_player.yaml
 - shots.yaml
+- slide_player.yaml

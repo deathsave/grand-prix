@@ -25,6 +25,9 @@ widgets:
     - type: image
       image: rear-view
       z: 2
+  luxury:
+    - type: image
+      image: luxury
   oil_2:
   - type: image
     image: oil-2
