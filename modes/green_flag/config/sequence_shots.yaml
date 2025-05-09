@@ -6,4 +6,13 @@ sequence_shots:
     - logicblock_grooveline_counter_complete
     - s_multiball_target_active
     sequence_timeout: 0
-    cancel_events: ball_ending
+    cancel_events:
+    - ball_ending
+    - mode_grooveline_ended
+  luxury_qualifier:
+    event_sequence:
+    - logicblock_luxury_counter_complete
+    - s_multiball_target_active
+    sequence_timeout: 0
+    cancel_events:
+    - mode_luxury_ended

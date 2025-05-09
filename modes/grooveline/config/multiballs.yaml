@@ -15,3 +15,5 @@ multiballs:
     # Making 3 laps adds 1 ball
     add_a_ball_events:
     - player_grooveline_counter_count{current_player.grooveline_counter_count % 3 == 0}
+    tags:
+    - multiball

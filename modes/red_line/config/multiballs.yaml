@@ -11,3 +11,5 @@ multiballs:
     - mode_red_line_started
     stop_events:
     - mode_red_line_stopping
+    tags:
+    - multiball

@@ -167,7 +167,7 @@ lights:
   # Board CAB #
   #############
 
-  l_grooveline_lit:
+  l_multiball:
     platform: opp
     subtype: matrix
     number: 2-0
@@ -282,11 +282,10 @@ lights:
     subtype: matrix
     number: 2-22
     tags: tag_lights_spinner
-  l_spinner_lit:
+  l_luxury:
     platform: opp
     subtype: matrix
     number: 2-23
-    tags: tag_lights_spinner
 
   ####################
   # Board PLAYFIELD2 #

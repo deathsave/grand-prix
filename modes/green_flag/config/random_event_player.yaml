@@ -3,6 +3,7 @@
 # Every 3 laps, a random event will occur
 random_event_player:
   player_lap_counter_count{(current_player.lap_counter_count % 3 == 0) and (current_player.lap_counter_count > 0)}:
+    force_all: false
     events:
       # TODO: 20% chance good things happen
       green_flag_smooth_sailing: 20
@@ -25,4 +26,3 @@ random_event_player:
     - green_flag_degrade_fuel
     - green_flag_degrade_oil
     - green_flag_degrade_tires
-

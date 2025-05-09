@@ -23,7 +23,7 @@ counters:
     count_events: s_spinner_active
     starting_count: 0
     count_interval: 1
-    count_complete_value: 100 # will probably need to increase
+    count_complete_value: 5 # will probably need to increase
     persist_state: true
 
   # The following three counters are dependent

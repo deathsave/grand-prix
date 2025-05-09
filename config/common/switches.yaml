@@ -27,13 +27,13 @@ switches:
     number: 1-26
     tags:
     - playfield_active
-    - qualifiers
+    - pit_resource
   # north drop right
   s_oil:
     number: 1-27
     tags:
     - playfield_active
-    - qualifiers
+    - pit_resource
   s_backfire_hole:
     number: 1-28
     tags:
@@ -44,7 +44,7 @@ switches:
     number: 1-29
     tags:
     - playfield_active
-    - qualifiers
+    - pit_resource
   s_prix_hole:
     number: 1-30
     tags:

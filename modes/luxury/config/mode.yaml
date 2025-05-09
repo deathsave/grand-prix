@@ -2,7 +2,7 @@
 
 mode:
   start_events:
-  - logicblock_luxury_counter_complete
+  - luxury_qualifier_hit
   stop_events:
   - multiball_luxury_ended
   restart_on_next_ball: false

@@ -6,3 +6,12 @@ show_player:
     signal:
       loops: 0
       sync_ms: 2000
+  logicblock_luxury_counter_complete:
+    lights_blink:
+      show_tokens:
+        lights: l_multiball
+  multiball_luxury_ended:
+    lights_blink:
+      action: stop
+      show_tokens:
+        lights: l_multiball

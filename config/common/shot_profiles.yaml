@@ -1,10 +1,9 @@
 #config_version=6
 
 shot_profiles:
-  blinking:
+  lights_blink_then_on:
     states:
       - name: available
-        show: "blink"
+        show: "lights_blink"
       - name: claimed
-        show: "off"
-
+        show: "lights_on"
