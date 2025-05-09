@@ -5,3 +5,4 @@ config:
 - mode.yaml
 - multiballs.yaml
 - sound_player.yaml
+- slide_player.yaml

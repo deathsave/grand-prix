@@ -1,0 +1,4 @@
+#config_version=6
+
+slide_player:
+  mode_grooveline_started: grooveline_slide

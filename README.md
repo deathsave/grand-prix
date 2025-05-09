@@ -27,8 +27,8 @@ graph TD
   ATTRACT[/"Attract Mode"/] == press start ==> PIT[/"PIT Mode"/]
   PIT == fuel up ==> GREEN_FLAG[/"Green Flag Mode"/]
   GREEN_FLAG == make 3 laps ==> RANDOM1{"Random<br>Event"}
-  GREEN_FLAG == 10 laps on 1 ball ==> GL_MODE[/"Grooveline Mode"/]
-  GREEN_FLAG == 50 laps all day ==> LUX_MODE[/"Lap of Luxury Mode"/]
+  GREEN_FLAG == 10 laps on 1 ball,<br>multiball target ==> GL_MODE[/"Grooveline Mode"/]
+  GREEN_FLAG == 100 spins,<br>multiball target ==> LUX_MODE[/"Lap of Luxury Mode"/]
   GREEN_FLAG == grand prix sequence ==> GP_MODE[/"Grand Prix Mode"/]
   RANDOM1 == fuel ==>
     IS_NEED_PIT{"Fuel, Oil or Tires need attention?"}

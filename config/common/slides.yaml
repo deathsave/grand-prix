@@ -19,3 +19,5 @@ slides:
   - widget: tires_(current_player.level_tires)
   luxury_slide:
   - widget: luxury
+  grooveline_slide:
+  - widget: grooveline

@@ -28,6 +28,9 @@ widgets:
   luxury:
     - type: image
       image: luxury
+  grooveline:
+    - type: image
+      image: grooveline
   oil_2:
   - type: image
     image: oil-2
