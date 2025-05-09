@@ -28,17 +28,14 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.assertEqual(
             0, self.machine.game.player.grooveline_counter_count)
 
-        # Mult-ball light indicators off
-        self.assertLightColor('l_swerve1', 'black')
-        self.assertLightColor('l_swerve2', 'black')
+        # Mult-ball light indicator off
+        self.assertLightColor('l_multiball', 'black')
 
         # Player hits the spinner a lot
         self._start_luxury()
 
-        # Mult-ball light indicators on
-        self.assertLightColor('l_swerve1', 'white')
-        self.assertLightColor('l_swerve2', 'white')
-
+        # Mult-ball light indicator on
+        self.assertLightColor('l_multiball', 'white')
 
     def test_multiball(self):
         self._start_multiball()

@@ -88,6 +88,7 @@ def _start_grooveline(self):
 def _start_luxury(self):
     self.machine.events. \
         post("logicblock_luxury_counter_complete")
+    self.hit_and_release_switch("s_multiball_target")
     self.advance_time_and_run(8)
     self.assertModeRunning("luxury")
 
