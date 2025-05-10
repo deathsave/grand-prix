@@ -3,7 +3,5 @@
 # All multi-ball modes should light these
 light_player:
   mode_grand_prix_started:
-    l_swerve1:
-      color: white
-    l_swerve2:
+    l_multiball:
       color: white

@@ -4,6 +4,6 @@ sound_player:
   mode_grooveline_started:
     groove-thing:
       action: play
-  mode_grooveline_stopped:
-    groove-thing:
+  mode_red_line_stopped:
+    308in:
       action: stop

@@ -16,3 +16,9 @@ sound_player:
       action: play
     mistake:
       action: play
+  mode_grooveline_stopped:
+    groove-thing:
+      action: stop
+  mode_red_line_stopped:
+    groove-thing:
+      action: stop

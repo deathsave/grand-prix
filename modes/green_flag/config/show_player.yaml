@@ -10,7 +10,7 @@ show_player:
     lights_blink:
       show_tokens:
         lights: l_multiball
-  multiball_luxury_ended:
+  multiball_stopped:
     lights_blink:
       action: stop
       show_tokens:

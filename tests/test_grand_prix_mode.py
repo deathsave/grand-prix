@@ -41,9 +41,8 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(1,
             self.machine.game.player.grand_prix_counter_count)
 
-        # Mult-ball light indicators off
-        self.assertLightColor('l_swerve1', 'black')
-        self.assertLightColor('l_swerve2', 'black')
+        # Mult-ball light indicator off
+        self.assertLightColor('l_multiball', 'black')
 
         # Repeat sequence 3 more times
         for i in range(3):
@@ -53,6 +52,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             self.machine.game.player.grand_prix_counter_count)
 
         self.assertModeRunning("grand_prix")
+        self.assertLightColor('l_multiball', 'white')
 
 
     def test_grand_disqualification(self):
@@ -179,7 +179,6 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)
 
-        # Mult-ball light indicators on
-        self.assertLightColor('l_swerve1', 'white')
-        self.assertLightColor('l_swerve2', 'white')
+        # Mult-ball light indicator on
+        self.assertLightColor('l_multiball', 'white')
 

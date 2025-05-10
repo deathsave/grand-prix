@@ -1,9 +1,7 @@
 #config_version=6
 
-# All multi-ball modes should light these
+# All multi-ball modes
 light_player:
   mode_grooveline_started:
-    l_swerve1:
-      color: white
-    l_swerve2:
+    l_multiball:
       color: white

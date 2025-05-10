@@ -1,5 +1,9 @@
 #config_version=6
 
+# Start game with 's' key
+# Then 'l' to launch, 'f' to fuel up
+#
+
 keyboard:
   1:
     switch: s_trough1

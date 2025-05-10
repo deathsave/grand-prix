@@ -22,3 +22,4 @@ config:
 - common/widgets.yaml
 - common/shot_profiles.yaml
 - common/custom_code.yaml
+- common/info_lights.yaml

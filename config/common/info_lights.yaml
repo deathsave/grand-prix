@@ -1,0 +1,61 @@
+#config_version=6
+
+info_lights:
+  match_00:
+    light: l_backbox_match_00
+  match_10:
+    light: l_backbox_match_10
+  match_20:
+    light: l_backbox_match_20
+  match_30:
+    light: l_backbox_match_30
+  match_40:
+    light: l_backbox_match_40
+  match_50:
+    light: l_backbox_match_50
+  match_60:
+    light: l_backbox_match_60
+  match_70:
+    light: l_backbox_match_70
+  match_80:
+    light: l_backbox_match_80
+  match_90:
+    light: l_backbox_match_90
+  ball_1:
+    light: l_backbox_ball1
+  ball_2:
+    light: l_backbox_ball2
+  ball_3:
+    light: l_backbox_ball3
+  # this is the number of players
+  # in the game... for "player up",
+  # supposed to use score reel settings
+  # ... might be better to do something custom
+  player_1:
+    light: l_backbox_players_in1
+  player_2:
+    light: l_backbox_players_in2
+  player_3:
+    light: l_backbox_players_in3
+  player_4:
+    light: l_backbox_players_in4
+  game_over:
+    light: l_backbox_game_over
+  tilt:
+    light: l_backbox_tilt
+
+# Handled by the reels instead of info lights, but
+# we don't have reels, so we need to work around it
+light_player:
+  ball_starting{current_player.number == 1}:
+    tag_lights_player_up: off
+    l_backbox_player_up1: on
+  ball_starting{current_player.number == 2}:
+    tag_lights_player_up: off
+    l_backbox_player_up2: on
+  ball_starting{current_player.number == 3}:
+    tag_lights_player_up: off
+    l_backbox_player_up3: on
+  ball_starting{current_player.number == 4}:
+    tag_lights_player_up: off
+    l_backbox_player_up4: on

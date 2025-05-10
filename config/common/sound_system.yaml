@@ -21,7 +21,7 @@ sound_system:
     ambience:
       type: standard
       simultaneous_sounds: 2
-      volume: 0.4
+      volume: 0.2
     chimebox:
       type: standard
       simultaneous_sounds: 3

@@ -4,6 +4,3 @@ sound_player:
   mode_red_line_started:
     308in:
       action: play
-  mode_red_line_stopped:
-    308in:
-      action: stop

@@ -11,5 +11,3 @@ multiballs:
     - mode_luxury_started
     stop_events:
     - mode_luxury_stopping
-    tags:
-    - multiball

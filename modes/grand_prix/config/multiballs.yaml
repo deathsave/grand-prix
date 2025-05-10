@@ -11,5 +11,3 @@ multiballs:
     - mode_grand_prix_started
     stop_events:
     - mode_grand_prix_stopping
-    tags:
-    - multiball
