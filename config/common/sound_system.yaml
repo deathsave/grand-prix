@@ -9,11 +9,11 @@ sound_system:
     music:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.5
+      volume: 0.6
     voice:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.9
+      volume: 0.8
     sfx:
       type: standard
       simultaneous_sounds: 8
@@ -21,8 +21,8 @@ sound_system:
     ambience:
       type: standard
       simultaneous_sounds: 2
-      volume: 0.2
+      volume: 0.1
     chimebox:
       type: standard
       simultaneous_sounds: 3
-      volume: 0.5
+      volume: 0.4
