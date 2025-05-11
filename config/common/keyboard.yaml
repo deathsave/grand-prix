@@ -29,6 +29,8 @@ keyboard:
     switch: s_oil
   t:
     switch: s_tires
+  m:
+    switch: s_multiball_target
   # the next two switches (spinner, grooveline)
   # in sequence trigger a "lap"
   ",":
