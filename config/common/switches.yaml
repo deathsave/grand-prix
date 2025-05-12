@@ -7,56 +7,22 @@ switches:
   # USB          ||
   #    -- 000000 || 0 [(2) 0-16 => 0-23 ][(3) 0-24 => 0-31 ]00000
 
-  #################
-  # Board BACKBOX #
-  #################
+  ############################
+  # Board 0 - CAB1 (BACKBOX) #
+  ############################
 
   # NOTE: Only inserts and CPU-controlled coils here
 
-  ####################
-  # Board PLAYFIELD1 #
-  ####################
-  # NOTE: dropping left spinner entirely
+  #############################
+  # Board 1 - CAB2 (CHIMEBOX) #
+  #############################
 
-  s_pop1:
-    number: 1-24
-  s_pop2:
-    number: 1-25
-  # north_drop left
-  s_tires:
-    number: 1-26
-    tags:
-    - playfield_active
-    - pit_resource
-  # north drop right
-  s_oil:
-    number: 1-27
-    tags:
-    - playfield_active
-    - pit_resource
-  s_backfire_hole:
-    number: 1-28
-    tags:
-    - playfield_active
-    - tag_hole
-  # central drop right
-  s_fuel:
-    number: 1-29
-    tags:
-    - playfield_active
-    - pit_resource
-  s_prix_hole:
-    number: 1-30
-    tags:
-    - playfield_active
-    - tag_hole
-  s_bonus_target:
-    number: 1-31
-    tags: playfield_active
+  # TODO: Spinner will be direct-wired here for
+  #       instant audible feedback
 
-  #############
-  # Board CAB #
-  #############
+  ###################
+  # Board 2 - MIXED #
+  ###################
   s_tilt:
     number: 2-24
     tags: tilt_warning
@@ -76,109 +42,141 @@ switches:
   s_launch:
     number: 2-31
 
-  ####################
-  # Board PLAYFIELD2 #
-  ####################
+  ########################
+  # Board 3 - PLAYFIELD1 #
+  ########################
+  s_pop1:
+    number: 3-24
+  s_pop2:
+    number: 3-25
+  # north_drop left
+  s_tires:
+    number: 3-26
+    tags:
+    - playfield_active
+    - pit_resource
+  # north drop right
+  s_oil:
+    number: 3-27
+    tags:
+    - playfield_active
+    - pit_resource
+  s_backfire_hole:
+    number: 3-28
+    tags:
+    - playfield_active
+    - tag_hole
+  # central drop right
+  s_fuel:
+    number: 3-29
+    tags:
+    - playfield_active
+    - pit_resource
+  s_prix_hole:
+    number: 3-30
+    tags:
+    - playfield_active
+    - tag_hole
+  s_bonus_target:
+    number: 3-31
+    tags: playfield_active
+
+  ########################
+  # Board 4 - PLAYFIELD2 #
+  ########################
   # north west rollover
   s_grooveline:
-    number: 3-24
+    number: 4-24
     tags: playfield_active
   s_save_target:
-    number: 3-25
+    number: 4-25
     tags: playfield_active
   s_grand_hole:
-    number: 3-26
+    number: 4-26
     tags:
     - playfield_active
     - tag_hole
   s_multiball_target:
-    number: 3-27
+    number: 4-27
     tags: playfield_active
   # central drop left
   s_disqualifier:
-    number: 3-28
+    number: 4-28
     tags: playfield_active
   s_spinner:
-    number: 3-29
+    number: 4-29
     tags: playfield_active
   s_swerve1:
-    number: 3-30
+    number: 4-30
     tags: playfield_active
-  # UNUSED 3-30
+  # UNUSED 4-30
   s_swerve2:
-    number: 3-31
+    number: 4-31
     tags: playfield_active
 
-  ################
-  # Board APRON1 #
-  ################
+  ####################
+  # Board 5 - APRON1 #
+  ####################
   s_flipper1_eos:
-    number: 4-16
+    number: 5-16
   s_slingshot1:
-    number: 4-17
+    number: 5-17
     tags: playfield_active
   s_inlane1:
-    number: 4-18
+    number: 5-18
     tags: playfield_active
   s_outlane1:
-    number: 4-19
+    number: 5-19
     tags: playfield_active
   s_flipper1:
-    number: 4-20
+    number: 5-20
     tags: left_flipper
-  # UNUSED 4-21
-  # UNUSED 4-22
-  # UNUSED 4-23
+  # UNUSED 5-21
+  # UNUSED 5-22
+  # UNUSED 5-23
   s_trough1:
-    number: 4-24
+    number: 5-24
     type: NC
   s_trough2:
-    number: 4-25
+    number: 5-25
     type: NC
   s_trough3:
-    number: 4-26
+    number: 5-26
     type: NC
   s_trough4:
-    number: 4-27
+    number: 5-27
     type: NC
   # Room for more balls later...
-  # UNUSED 4-28
-  # UNUSED 4-29
-  # UNUSED 4-30
+  # UNUSED 5-28
+  # UNUSED 5-29
+  # UNUSED 5-30
   s_trough_jam:
-    number: 4-31
+    number: 5-31
     type: NC
 
-  ################
-  # Board APRON2 #
-  ################
+  ####################
+  # Board 6 - APRON1 #
+  ####################
   s_flipper2_eos:
-    number: 5-24
+    number: 6-24
   s_slingshot2:
-    number: 5-25
+    number: 6-25
     tags: playfield_active
   s_inlane2:
-    number: 5-26
+    number: 6-26
     tags: playfield_active
   s_outlane2:
-    number: 5-27
+    number: 6-27
     tags: playfield_active
   s_shooter_lane:
-    number: 5-28
+    number: 6-28
   s_flipper2:
-    number: 5-29
+    number: 6-29
     tags: right_flipper
-  # UNUSED 5-30
-
-  # UNUSED 5-31
+  # UNUSED 6-30
+  # UNUSED 6-31
   # NOTE: this is a dummy switch for use in testing
   #       without side effects
   s_activate_playfield:
-    number: 5-31
+    number: 6-31
     tags: playfield_active
-
-  ################
-  # Board APRON2 #
-  ################
-  #
-  # TODO (chimebox)

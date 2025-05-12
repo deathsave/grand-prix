@@ -14,20 +14,20 @@ coils:
   ## BOARD INDEX 1 ##
   ###################
   c_backfire_hole:
-    number: 1-0
+    number: 2-0
   c_tires:
-    number: 1-1
+    number: 2-1
   c_oil:
-    number: 1-2
-  # 1-3 OPEN
+    number: 2-2
+  # 2-3 OPEN
   c_pop1:
-    number: 1-8
+    number: 2-8
   c_pop2:
-    number: 1-9
+    number: 2-9
   c_fuel:
-    number: 1-10
+    number: 2-10
   c_prix_hole:
-    number: 1-11
+    number: 2-11
 
   ###############################
   ## NO COILS ON BOARD INDEX 2 ##
@@ -37,49 +37,49 @@ coils:
   ## BOARD INDEX 3 ##
   ###################
   c_disqualifier:
-    number: 3-0
+    number: 4-0
   c_grand_hole:
-    number: 3-1
-  # 3-2 OPEN
+    number: 4-1
+  # 4-2 OPEN
   c_shaker_motor:
-    number: 3-3
+    number: 4-3
     default_hold_power: 1
 
   ###################
   ## BOARD INDEX 4 ##
   ###################
   c_flipper1:
-    number: 4-0
+    number: 5-0
     default_hold_power: 0.5
   c_flipper1_hold:
-    number: 4-1
+    number: 5-1
     allow_enable: true
   c_slingshot1:
-    number: 4-2
+    number: 5-2
   c_trough:
-    number: 4-3
+    number: 5-3
 
   ###################
   ## BOARD INDEX 5 ##
   ###################
   c_flipper2:
-    number: 5-0
+    number: 6-0
     default_hold_power: 0.5
   c_flipper2_hold:
-    number: 5-1
+    number: 6-1
     allow_enable: true
   c_slingshot2:
-    number: 5-2
+    number: 6-2
   c_auto_kicker:
-    number: 5-3
+    number: 6-3
 
   #########################
   ## TODO: BOARD INDEX 6 ##
   #########################
   # c_chime1:
-  #   number: 6-0
+  #   number: 1-0
   # c_chime2:
-  #   number: 6-1
+  #   number: 1-1
   # c_chime3:
-  #   number: 6-2
-  # 6-3 OPEN
+  #   number: 1-2
+  # 1-3 OPEN
