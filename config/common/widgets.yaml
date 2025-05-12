@@ -1,9 +1,9 @@
 #config_version=6
 
 widgets:
-  attract:
+  splash:
     - type: image
-      image: attract
+      image: splash
       z: 0
   pit_background:
     - type: image
@@ -85,3 +85,8 @@ widgets:
     z: 5
     x: 12%
     y: 14%
+  dspc_animation:
+  - type: video
+    video: dspc-animation
+    width: 800
+    height: 480

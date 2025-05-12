@@ -1,4 +1,6 @@
 #config_version=6
 
 show_player:
-  mode_attract_started: attract
+  mode_attract_started:
+    attract: play
+    attract_apron: play

@@ -1,0 +1,13 @@
+#show_version=6
+
+# Seqeunce of shows to play when the game is in attract mode.
+
+- time: 0
+  slides:
+    dspc_animation_slide:
+      action: play
+- time: "8s"
+  slides:
+    splash_slide:
+      action: play
+  duration: -1

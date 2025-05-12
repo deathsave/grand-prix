@@ -1,8 +1,10 @@
 #config_version=6
 
 slides:
-  attract_slide:
-  - widget: attract
+  dspc_animation_slide:
+  - widget: dspc_animation
+  splash_slide:
+  - widget: splash
   pit_slide:
   - widget: pit_background
   - widget: pit_mirror

@@ -3,6 +3,5 @@
 config:
 - mode.yaml
 - show_player.yaml
-- slide_player.yaml
 - timers.yaml
 - sound_player.yaml
