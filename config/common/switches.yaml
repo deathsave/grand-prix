@@ -17,8 +17,9 @@ switches:
   # Board 1 - CAB2 (CHIMEBOX) #
   #############################
 
-  # TODO: Spinner will be direct-wired here for
-  #       instant audible feedback
+  s_spinner:
+    number: 1-0 # direct with chime
+    tags: playfield_active
 
   ###################
   # Board 2 - MIXED #
@@ -46,40 +47,42 @@ switches:
   # Board 3 - PLAYFIELD1 #
   ########################
   s_pop1:
-    number: 3-24
+    number: 3-8 # direct
   s_pop2:
-    number: 3-25
+    number: 3-9 # direct
   # north_drop left
   s_tires:
-    number: 3-26
+    number: 3-24
     tags:
     - playfield_active
     - pit_resource
   # north drop right
   s_oil:
-    number: 3-27
+    number: 3-25
     tags:
     - playfield_active
     - pit_resource
   s_backfire_hole:
-    number: 3-28
+    number: 3-26
     tags:
     - playfield_active
     - tag_hole
   # central drop right
   s_fuel:
-    number: 3-29
+    number: 3-27
     tags:
     - playfield_active
     - pit_resource
   s_prix_hole:
-    number: 3-30
+    number: 3-28
     tags:
     - playfield_active
     - tag_hole
   s_bonus_target:
-    number: 3-31
+    number: 3-29
     tags: playfield_active
+  # 3-30 OPEN
+  # 3-31 OPEN
 
   ########################
   # Board 4 - PLAYFIELD2 #
@@ -103,34 +106,32 @@ switches:
   s_disqualifier:
     number: 4-28
     tags: playfield_active
-  s_spinner:
-    number: 4-29
-    tags: playfield_active
   s_swerve1:
-    number: 4-30
+    number: 4-29
     tags: playfield_active
   # UNUSED 4-30
   s_swerve2:
-    number: 4-31
+    number: 4-30
     tags: playfield_active
 
   ####################
   # Board 5 - APRON1 #
   ####################
-  s_flipper1_eos:
-    number: 5-16
+  s_flipper1:
+    number: 5-0 # direct
+    tags: left_flipper
   s_slingshot1:
-    number: 5-17
+    number: 5-2 # direct
     tags: playfield_active
   s_inlane1:
-    number: 5-18
+    number: 5-16
     tags: playfield_active
   s_outlane1:
-    number: 5-19
+    number: 5-17
     tags: playfield_active
-  s_flipper1:
-    number: 5-20
-    tags: left_flipper
+  # UNUSED 5-18
+  # UNUSED 5-19
+  # UNUSED 5-20
   # UNUSED 5-21
   # UNUSED 5-22
   # UNUSED 5-23
@@ -157,22 +158,23 @@ switches:
   ####################
   # Board 6 - APRON1 #
   ####################
-  s_flipper2_eos:
-    number: 6-24
+  s_flipper2:
+    number: 6-0 # direct
+    tags: right_flipper
   s_slingshot2:
-    number: 6-25
+    number: 6-2 # direct
     tags: playfield_active
   s_inlane2:
-    number: 6-26
+    number: 6-24
     tags: playfield_active
   s_outlane2:
-    number: 6-27
+    number: 6-25
     tags: playfield_active
   s_shooter_lane:
-    number: 6-28
-  s_flipper2:
-    number: 6-29
-    tags: right_flipper
+    number: 6-26
+  # UNUSED 6-27
+  # UNUSED 6-28
+  # UNUSED 6-29
   # UNUSED 6-30
   # UNUSED 6-31
   # NOTE: this is a dummy switch for use in testing
