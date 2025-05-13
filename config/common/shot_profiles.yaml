@@ -6,4 +6,4 @@ shot_profiles:
       - name: available
         show: "lights_blink"
       - name: claimed
-        show: "lights_on"
+        show: "lights_blink_to_on"

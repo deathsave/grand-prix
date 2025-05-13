@@ -1,0 +1,18 @@
+#show_version=6
+
+- time: 0
+  lights:
+    (lights): on
+- time: 0.3
+  lights:
+    (lights): off
+- time: 0.6
+  lights:
+    (lights): on
+- time: 0.9
+  lights:
+    (lights): off
+- time: 1.2
+  lights:
+    (lights): on
+  duration: -1
