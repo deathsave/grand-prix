@@ -10,7 +10,7 @@ class Pit(Mode):
 
     def mode_start(self, **kwargs):
         self.reset_grooveline_count()
-        # self.machine.timers["eternal_timer"].reset()
+        self.update_progress()
         self.add_mode_event_handler("player_pit_eternal_tick",
             self.update_progress)
 
@@ -23,10 +23,8 @@ class Pit(Mode):
     # Checks and lights up the direct progress lights
     # per the PROGRESS_MAP
     def update_progress(self, **kwargs):
-        print("Updating progress")
         player = self.machine.game.player
         for event_name, light_name in self.PROGRESS_MAP.items():
-            print(f"Checking {event_name}")
             if not player.is_player_var(event_name):
                 return
 
