@@ -1,6 +1,11 @@
 #config_version=6
 
 timers:
+  # A fallback for players to ensure state is refreshed
+  eternal:
+    start_value: 0
+    tick_interval: "5s"
+    start_running: true
   # Hurry up timer for the "backfire pops"
   backfire_qualification:
     end_value: 0

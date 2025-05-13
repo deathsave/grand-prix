@@ -292,22 +292,22 @@ lights:
   # Board PLAYFIELD2 #
   ####################
 
-  l_signal4:
+  l_signal4: # red line
     platform: opp
     subtype: matrix
     number: 3-8
     tags: tag_lights_signal
-  l_signal3:
+  l_signal3: # grand prix
     platform: opp
     subtype: matrix
     number: 3-9
     tags: tag_lights_signal
-  l_signal2:
+  l_signal2: # luxury
     platform: opp
     subtype: matrix
     number: 3-10
     tags: tag_lights_signal
-  l_signal1:
+  l_signal1: # grooveline
     platform: opp
     subtype: matrix
     number: 3-11

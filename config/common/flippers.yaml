@@ -5,7 +5,6 @@ flippers:
     main_coil: c_flipper1
     hold_coil: c_flipper1_hold
     activation_switch: s_flipper1
-    eos_switch: s_flipper1_eos
     disable_events:
     - green_flag_bad_luck
     # OPP doesn't support this apparently
@@ -15,7 +14,6 @@ flippers:
     main_coil: c_flipper2
     hold_coil: c_flipper2_hold
     activation_switch: s_flipper2
-    eos_switch: s_flipper2_eos
     disable_events:
     - green_flag_bad_luck
     use_eos: false
