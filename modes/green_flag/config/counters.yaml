@@ -43,18 +43,13 @@ counters:
     reset_events:
     # Both holes should be avoided during
     # the first counter's progression
-    - s_grand_hole_active
     - s_prix_hole_active
     - logicblock_prix_counter_complete
     - player_prix_counter_count{current_player.prix_counter_count == 0}
     - multiball_grand_prix_ended
-    enable_events:
-    - logicblock_prix_counter_complete
-    - player_prix_counter_count{current_player.prix_counter_count == 0}
     start_enabled: true
   # This second counter is disabled until GRAND is
-  # fully lit per the counter above. This counter
-  # lights the "PRIX" inserts in sequence temporarily.
+  # fully lit per the counter above.
   prix_counter:
     disable_on_complete: true
     count_events: s_bonus_target_active
@@ -62,28 +57,11 @@ counters:
     count_interval: 1
     count_complete_value: 4
     persist_state: true
-    disable_events:
-    # GRAND hole is safe during this counter,
-    # but PRIX hole is not. Also resets progress
-    # of this specific counter.
-    - s_prix_hole_active
     reset_events:
-    - s_prix_hole_active
     - multiball_grand_prix_ended
     enable_events:
-    - logicblock_grand_counter_complete
-  # The third and final counter is incremented
-  # once PRIX is fully lit per the counter above.
-  # This counter "locks in" a PRIX letter.
-  grand_prix_counter:
-    reset_on_complete: false
-    count_events: logicblock_prix_counter_complete
-    starting_count: 0
-    count_complete_value: 4
-    persist_state: true
-    reset_events:
-    - multiball_grand_prix_ended
-  # tracks progress towards the wizard mode
+    - multiball_lock_grand_hole_locked_ball
+  # Tracks progress towards the wizard mode
   red_line_counter:
     reset_on_complete: false
     count_events:

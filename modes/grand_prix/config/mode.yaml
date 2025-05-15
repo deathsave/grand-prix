@@ -2,7 +2,7 @@
 
 mode:
   start_events:
-  - logicblock_grand_prix_counter_complete
+  - grand_prix_qualifier_hit
   stop_events:
   - multiball_grand_prix_ended
   restart_on_next_ball: false

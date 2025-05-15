@@ -22,3 +22,12 @@ ball_devices:
     eject_timeouts: 3s
     eject_coil: c_auto_kicker
     player_controlled_eject_event: s_launch_active
+  bd_grand_hole:
+    ball_switches: s_grand_hole
+    eject_coil: c_grand_hole
+  bd_prix_hole:
+    ball_switches: s_prix_hole
+    eject_coil: c_prix_hole
+  bd_backfire_hole:
+    ball_switches: s_backfire_hole
+    eject_coil: c_backfire_hole

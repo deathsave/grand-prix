@@ -65,7 +65,6 @@ switches:
   s_backfire_hole:
     number: 3-26
     tags:
-    - playfield_active
     - tag_hole
   # central drop right
   s_fuel:
@@ -76,7 +75,6 @@ switches:
   s_prix_hole:
     number: 3-28
     tags:
-    - playfield_active
     - tag_hole
   s_bonus_target:
     number: 3-29
@@ -97,7 +95,6 @@ switches:
   s_grand_hole:
     number: 4-26
     tags:
-    - playfield_active
     - tag_hole
   s_multiball_target:
     number: 4-27

@@ -94,8 +94,7 @@ def _start_luxury(self):
 
 # assumes green_flag mode is running
 def _start_grand_prix(self):
-    self.machine.events. \
-        post("logicblock_grand_prix_counter_complete")
+    self.machine.events.post("grand_prix_qualifier_hit")
     self.advance_time_and_run(4)
     self.assertModeRunning("grand_prix")
 

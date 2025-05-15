@@ -78,7 +78,7 @@ variable_player:
     is_multiball_ready: 1
   logicblock_luxury_counter_complete:
     is_multiball_ready: 1
-  logicblock_grand_prix_counter_complete:
+  multiball_lock_prix_hole_locked_ball:
     is_multiball_ready: 1
   logicblock_red_line_counter_complete:
     is_multiball_ready: 1

@@ -1,0 +1,13 @@
+#config_version=6
+
+multiball_locks:
+  grand_hole:
+    balls_to_lock: 1
+    lock_devices: bd_grand_hole
+    enable_events:
+    - logicblock_grand_counter_complete
+  prix_hole:
+    balls_to_lock: 1
+    lock_devices: bd_prix_hole
+    enable_events:
+    - logicblock_prix_counter_complete

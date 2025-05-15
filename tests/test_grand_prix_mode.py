@@ -6,10 +6,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     #
     # - Advance "GRAND" by hitting s_save_target
     # - With GRAND lit, hit s_grand_hole to qualify "PRIX"
+    # - Ball will be locked
     # - Advance "PRIX" by hitting s_bonus_target
-    # - With PRIX lit, hit s_prix_hole to lock in one letter
-    # - Repeat 3 more times to qualify "GRAND PRIX" and
-    #   start multiball
+    # - With PRIX lit, hit s_prix_hole to lock another ball
+    # - Hit the multiball target to start the multiball
     #
     def test_qualification(self):
         self._start()
@@ -27,9 +27,6 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self._light_grand()
         self.assertEqual(5,
             self.machine.game.player.grand_counter_count)
-        # Main counter unaffected so far
-        self.assertEqual(0,
-            self.machine.game.player.grand_prix_counter_count)
 
         # After lighting PRIX, the grand_counter is
         # re-enabled and user hits it 4 times
@@ -37,23 +34,14 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         # Counter resets immediately
         self.assertEqual(0,
             self.machine.game.player.prix_counter_count)
-        # And increases "Main" grand_prix_counter
-        self.assertEqual(1,
-            self.machine.game.player.grand_prix_counter_count)
 
-        # Mult-ball light indicator off
-        self.assertLightColor('l_multiball', 'black')
-
-        # Repeat sequence 3 more times
-        for i in range(3):
-            self._light_grand()
-            self._light_prix()
-        self.assertEqual(4,
-            self.machine.game.player.grand_prix_counter_count)
-
-        self.assertModeRunning("grand_prix")
+        self.assertModeNotRunning("grand_prix")
+        # Mult-ball is ready, but we still need to activate it
         self.assertLightColor('l_multiball', 'white')
-
+        # Player hits the multiball target
+        self.hit_and_release_switch("s_multiball_target")
+        self.assertLightColor('l_multiball', 'white')
+        self.assertModeRunning("grand_prix")
 
     def test_grand_disqualification(self):
         self._start()
@@ -65,7 +53,9 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(2,
             self.machine.game.player.grand_counter_count)
         self.hit_and_release_switch("s_grand_hole")
-        self.assertEqual(0,
+        # TODO: we'll raise the disqualifier drop target here
+        #       but it WONT reset the grand counter (for now)
+        self.assertEqual(2,
             self.machine.game.player.grand_counter_count)
 
     def test_prix_disqualification(self):
@@ -93,15 +83,12 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
         # Hitting Prix Hole disqualifies
         self.hit_and_release_switch("s_prix_hole")
-        self.assertEqual(0,
+        # TODO: we'll raise the disqualifier drop target here
+        #       but it WONT reset the prix counter (for now)
+        self.assertEqual(2,
             self.machine.game.player.prix_counter_count)
-        self.assertEqual(False,
-            self.machine.counters["prix_counter"].enabled)
-
-        # Driver must do it all over again
-        self.advance_time_and_run(1)
         self.assertEqual(True,
-            self.machine.counters["grand_counter"].enabled)
+            self.machine.counters["prix_counter"].enabled)
 
     def test_multiball(self):
         self._start_multiball()
@@ -150,6 +137,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         for i in range(5):
             self.hit_and_release_switch("s_save_target")
             self.assertModeRunning("green_flag")
+        self.assertEqual(False,
+            self.machine.counters["prix_counter"].enabled)
+        # Ball is held
+        self.hit_switch_and_run("s_grand_hole", 1)
         self.assertEqual(True,
             self.machine.counters["prix_counter"].enabled)
         self.assertEqual(False,
@@ -158,7 +149,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     def _light_prix(self):
         for i in range(4):
             self.hit_and_release_switch("s_bonus_target")
-        self.assertEqual(True,
+        # Ball is held
+        self.hit_switch_and_run("s_prix_hole", 1)
+        # Both counters are disabled now
+        self.assertEqual(False,
             self.machine.counters["grand_counter"].enabled)
         self.assertEqual(False,
             self.machine.counters["prix_counter"].enabled)

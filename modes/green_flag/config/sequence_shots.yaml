@@ -16,3 +16,10 @@ sequence_shots:
     sequence_timeout: 0
     cancel_events:
     - mode_luxury_ended
+  grand_prix_qualifier:
+    event_sequence:
+    - multiball_lock_prix_hole_locked_ball
+    - s_multiball_target_active
+    sequence_timeout: 0
+    cancel_events:
+    - mode_grand_prix_ended
