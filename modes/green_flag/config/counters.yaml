@@ -9,13 +9,16 @@ counters:
   # This is the per-ball lap counter:
   #   We keep state between mode changes
   #   BUT WILL RESET ON BALL END
-  #   (see Pit Mode variable_player)
+  #   (see Pit Mode variable_player + custom code)
   grooveline_counter:
     count_events: logicblock_seq_lap_complete
     starting_count: 0
     count_interval: 1
     count_complete_value: 10
     persist_state: true
+    reset_on_complete: false
+    reset_events:
+    - multiball_grooveline_started
 
   # This is the truly persisted counter
   # across all balls

@@ -7,3 +7,4 @@ timers:
     start_value: 0
     tick_interval: "0.2s"
     start_running: true
+    console_log: none

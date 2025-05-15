@@ -71,6 +71,22 @@ variable_player:
   logicblock_seq_lap_complete:
     lap_count: 1
 
+  # For indicating multiball is ready
+  # by lighting the multiball lamp
+  # (see modes/pit/code/pit.py)
+  logicblock_grooveline_counter_complete:
+    is_multiball_ready: 1
+  logicblock_luxury_counter_complete:
+    is_multiball_ready: 1
+  logicblock_grand_prix_counter_complete:
+    is_multiball_ready: 1
+  logicblock_red_line_counter_complete:
+    is_multiball_ready: 1
+  multiball_stopped:
+    is_multiball_ready:
+      action: set
+      int: 0
+
   ##########################
   ## Wizard-mode Progress ##
   ##########################

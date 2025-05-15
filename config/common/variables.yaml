@@ -1,6 +1,8 @@
 #config_version=6
 
 player_vars:
+  is_multiball_ready:
+    initial_value: 0
   lap_count:
     initial_value: 0
   # 2 is full

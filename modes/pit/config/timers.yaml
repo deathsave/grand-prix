@@ -4,8 +4,10 @@ timers:
   # A fallback for players to ensure state is refreshed
   eternal:
     start_value: 0
-    tick_interval: "5s"
+    tick_interval: "1s"
     start_running: true
+    console_log: none
+    file_log: none
   # Hurry up timer for the "backfire pops"
   backfire_qualification:
     end_value: 0

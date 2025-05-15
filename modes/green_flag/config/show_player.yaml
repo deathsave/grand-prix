@@ -1,12 +1,8 @@
 #config_version=6
 
 show_player:
-  player_grooveline_counter_count{current_player.grooveline_counter_count == 10}: grooveline_soon
-  mode_green_flag_started:
-    signal:
-      loops: 0
-      sync_ms: 2000
-  logicblock_luxury_counter_complete:
+  # global multiball indicator
+  timer_eternal_tick{current_player.is_multiball_ready == 1}:
     lights_blink:
       show_tokens:
         lights: l_multiball
@@ -15,3 +11,11 @@ show_player:
       action: stop
       show_tokens:
         lights: l_multiball
+  multiball_started:
+    grooveline_soon:
+      action: stop
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 10}: grooveline_soon
+  mode_green_flag_started:
+    signal:
+      loops: 0
+      sync_ms: 2000
