@@ -32,22 +32,17 @@ class Pit(Mode):
     def update_progress(self, **kwargs):
         player = self.machine.game.player
         for state, value in self.PROGRESS_MAP.items():
-            print(f"Checking {state} for {value}")
-            # if not player.is_player_var(state):
-            #     return
-
+            # print(f"Checking {state} for {value}")
             if state.startswith("is_"):
-                print(f"Syncing boolean state {state}")
+                # print(f"Syncing boolean state {state}")
                 if getattr(player, state) == 1:
                     self.machine.lights[value].on()
             else:
                 if not player.is_player_var(state):
-                    print(f"Skipping {state} for {value}")
+                    # print(f"Skipping {state} for {value}")
                     continue
-                print("TODO: Syncing counter")
-                # print(f"Syncing counter {state}")
+                # print("TODO: Syncing counter")
                 current_state = getattr(player, state)
-                # print(f"Current counter state: {current_state}")
                 for i in range(1, value[1] + 1):
                     light_name = f"{value[0]}_{i:0>2}"
                     if i <= current_state:

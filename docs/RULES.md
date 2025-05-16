@@ -120,12 +120,26 @@ Other Modes / Functionalities
 - Hitting the central-right drop target will remove one unit
   of "progress" from each mode (or some modes - TBD)
 
-### Music Thoughts:
+### Music
 
-- "No Particular Place to Go" by Chuck Berry (Green Flag)
-- "The Distance" by Cake
-- "Highway to the Danger Zone" by Kenny Loggins
-- "Mach 5" by The Presidents of the United States of America
-- "Shake your Groove Thing" by Peaches & Herb
-- "302 Cubic Inch V8 Powered Blues" by Zeke
-- "The Beautiful People" by Marilyn Manson (Chimebox)
+#### Shipped
+
+- "The Distance" by Cake (Attract Mode)
+- "Shake your Groove Thing" by Peaches & Herb (Grooveline Mode)
+- "302 Cubic Inch V8 Powered Blues" by Zeke (Red Line Mode)
+
+#### TODO
+
+- Blinding Lights - The Weeknd (Green Flag Mode)
+- Glamorous - Fergie (Luxury Mode)
+- "The Beautiful People" by Marilyn Manson (Chimebox / End of Ball Bonus)
+
+#### Undecided
+
+- GAME OVER
+- Backfire Mode (Back Street's Back)
+
+#### Other/Miscellaneous
+
+- Rev Match (rev sfx)
+- PIT (automotive repair sounds)
