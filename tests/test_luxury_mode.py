@@ -9,10 +9,26 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._start_green_flag()
 
         self._complete_lap()
-        self.assertEqual(
-            1, self.machine.game.player.luxury_counter_count)
+        # we made a lap
         self.assertEqual(
             1, self.machine.game.player.grooveline_counter_count)
+        # and that means the spinner at least was hit once
+        self.assertEqual(
+            1, self.machine.game.player.spin_counter_count)
+        # but it takes a lot of spins to qualify 1 luxury step
+        self.assertEqual(
+            0, self.machine.game.player.luxury_counter_count)
+
+        for i in range(18):
+            self.hit_and_release_switch("s_spinner")
+            self.advance_time_and_run(1)
+        self.assertEqual(
+            19, self.machine.game.player.spin_counter_count)
+        self.hit_and_release_switch("s_spinner")
+        self.assertEqual(
+            0, self.machine.game.player.spin_counter_count)
+        self.assertEqual(
+            1, self.machine.game.player.luxury_counter_count)
 
         # ball drains and ball 2 begins
         for i in range(2):
@@ -27,6 +43,12 @@ class TestLuxuryMode(DeathSaveGameTesting):
             1, self.machine.game.player.luxury_counter_count)
         self.assertEqual(
             0, self.machine.game.player.grooveline_counter_count)
+
+        # Lights in top-east chain show progress
+        self.assertLightColor('l_spinner_01', 'white')
+        self.assertLightColor('l_spinner_02', 'black')
+        self.assertLightColor('l_spinner_03', 'black')
+        # etc...
 
         # Mult-ball light indicator off
         self.assertLightColor('l_multiball', 'black')

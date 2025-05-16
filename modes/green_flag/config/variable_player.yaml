@@ -50,6 +50,10 @@ variable_player:
     lap_counter_count:
       int: value
       action: set
+  logicblock_spin_counter_updated:
+    spin_counter_count:
+      int: value
+      action: set
   logicblock_grooveline_counter_updated:
     grooveline_counter_count:
       int: value

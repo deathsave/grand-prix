@@ -25,16 +25,20 @@ The race begins!
   - Causes a random event
   - Awards a bonus (TODO)
 
-### Rubbing is Racing "Hurry Up"
+### Backfire Pops
 
-When exiting a special mode, the driver is given a "hurry up" with
-a chance to reactivate the mode. This should function more or less
-like "bats/rats" from "Dracula". Hit as many switches as possible in a short amount of time...
+When exiting green flag mode to pit, the drivers
+engine may "backfire". Hit the spinner, then enter
+the backfire hole to activate a hurry up. Hit the
+pop bumpers to collect points while the engine "pops".
 
-- 30 second hurry-up with 2x scoring awarded for all switches
-- If `n` (TBD) switches are hit:
-  - When time expires, random event fires and kicks the
-    player back to "Pit Row" (base mode)
+TODO:
+
+- Each consecutive pop bumper hit increases
+  linearly increasing the current bumpers
+  value by 10% up to a maximum TBD
+- If max is reached in time, immediately return player
+  to green flag (fuel, oil and tires are max)
 
 Special Modes
 -------------
@@ -42,7 +46,7 @@ Special Modes
 There are 3 special modes which build up to activation of the
 4th, pseudo-wizard mode.
 
-### Grooveline 1/3 (YELLOW 1)
+### Grooveline 1/3 (CYAN)
 
 The fastest way around the track (the North-West chain of 10
 purple inserts).
@@ -56,32 +60,26 @@ purple inserts).
   - Lights first of the 4 traffic signal inserts (Yellow)
 - **This mode resets progress after each ball**
 
-### Lap of Luxury 2/3 (YELLOW 2)
+### Lap of Luxury 2/3 (MAGENTA)
 
-Completing a (very high - TBD) number of laps during Green Flag
-across multiple balls will light the "Lap of Luxury" hole.
+"Spinning" a (very high - TBD) number of times during Green Flag
+across multiple balls will eventually max out the bonus, lighting all inserts in the North-East chain and qualifying the "Lap of Luxury". Hit the multiball target to being Luxury Multiball. 6 shots award higher scoring and a bonus if completed.
 
-### Grand Prix 3/3 (GREEN)
+### Grand Prix 3/3 (HOT PINK)
 
 It's the name of the game!
 
 - Top-most 5 inserts in South-West chain spells out G-R-A-N-D
 - Top-most 4 inserts in South-East chain spells out P-R-I-X
 - Left standing target lights a GRAND insert
-- Right standing target un-lights a GRAND insert
-- Lighting all 5 and entering the hole lights one letter of PRIX
-- Hitting either the PRIX hole or standing target:
-    - Resets GRAND inserts
-    - Lights left side of podium insert
-- Lighting all 4 of PRIX and entering hole:
-  - Lights right side of podium insert
-- With both sides lit, entering podium hole:
-  - **Activates Grand Prix Multiball!**
-    - Primary Multiball
-    - Top-hole keeps ball locked. Autokicker will launch the others.
-    - Add a ball up to 3 times by getting into any hole, exclusive
-  - Lights THIRD of the 4 traffic signal inserts (Green)
-
+- After lighting all of GRAND, entering the hole locks a ball,
+  completes GRAND and enables PRIX
+- Right standing target lights a PRIX insert
+- Afer lighting all 4 of PRIX, entering the hole locks a ball,
+  completes PRIX and lights the multiball insert
+- Hit the multiball target to start grand prix multiball
+  - Add a ball up to 3 times by getting into any hole, exclusive
+  - Lights THIRD of the 4 traffic signal inserts
 
 #### Red Line (Wizard Mode)
 
@@ -89,10 +87,11 @@ Once 3/4 traffic signals are lit, the fourth will begin flashing
 in red color. The player then only needs to lock a ball in ANY of
 the 3 holes to activate Red Line Multiball.
 
-- "Music" is just a heart beat and heavy breathing
-- Constant multi-ball for 30 seconds
-- Mode continues for another 30 seconds where the player needs
-  to hit every switch on the playfield to complete the mode
+- Constant multi-ball for 60 seconds - all balls returned
+- Player needs to hit every switch on the playfield to
+  complete the mode
+- Mode continues until all the extra balls drain or up to
+  another 50 seconds when the song completes
 - Each shot should play a random "wrecking/crash" sound from
   the pool and sound the chimebox
 

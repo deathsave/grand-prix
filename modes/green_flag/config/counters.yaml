@@ -6,6 +6,15 @@ counters:
     starting_count: 0
     count_interval: 1
 
+  spin_counter:
+    count_events: s_spinner_active
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 20
+    persist_state: true
+    reset_on_complete: true
+    disable_on_complete: false
+
   # This is the per-ball lap counter:
   #   We keep state between mode changes
   #   BUT WILL RESET ON BALL END
@@ -20,14 +29,15 @@ counters:
     reset_events:
     - multiball_grooveline_started
 
-  # This is the truly persisted counter
-  # across all balls
+  # This is the LONG counter, across all balls
   luxury_counter:
-    count_events: s_spinner_active
+    count_events:
+    - logicblock_spin_counter_complete
     starting_count: 0
     count_interval: 1
-    count_complete_value: 100 # will probably need to increase
+    count_complete_value: 10
     persist_state: true
+    reset_on_complete: false
 
   # The following three counters are dependent
   # on one another. This first counter lights
@@ -47,7 +57,6 @@ counters:
     - logicblock_prix_counter_complete
     - player_prix_counter_count{current_player.prix_counter_count == 0}
     - multiball_grand_prix_ended
-    start_enabled: true
   # This second counter is disabled until GRAND is
   # fully lit per the counter above.
   prix_counter:

@@ -10,6 +10,7 @@ class Pit(Mode):
         "is_grand_completed": "l_signal3",
         "is_red_line_completed": "l_signal4",
         "grooveline_counter_count": [ "l_grooveline", 10 ],
+        "luxury_counter_count": [ "l_spinner", 10 ],
         "grand_counter_count": [ "l_grand", 5 ],
         "prix_counter_count": [ "l_prix", 4 ],
     }
