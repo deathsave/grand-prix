@@ -4,6 +4,7 @@ multiballs:
   grand_prix:
     ball_count: 3
     ball_count_type: total
+    ball_locks: bd_prix_hole, bd_grand_hole
     shoot_again: 20s
     enable_events:
     - mode_grand_prix_starting
