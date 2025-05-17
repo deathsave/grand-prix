@@ -3,7 +3,7 @@
 flippers:
   left_flipper:
     main_coil: c_flipper1
-    hold_coil: c_flipper1_hold
+    #hold_coil: c_flipper1_hold
     activation_switch: s_flipper1
     disable_events:
     - green_flag_bad_luck
@@ -12,7 +12,7 @@ flippers:
     label: Left Flipper
   right_flipper:
     main_coil: c_flipper2
-    hold_coil: c_flipper2_hold
+    #hold_coil: c_flipper2_hold
     activation_switch: s_flipper2
     disable_events:
     - green_flag_bad_luck

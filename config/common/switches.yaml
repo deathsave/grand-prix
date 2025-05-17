@@ -9,21 +9,31 @@ switches:
 
   ############################
   # Board 0 - CAB1 (BACKBOX) #
+  # inc, inc, inc, sol       #
+  #                          #
+  # sol 0-0 -> knocker       #
   ############################
 
   # NOTE: Only inserts and CPU-controlled coils here
 
   #############################
   # Board 1 - CAB2 (CHIMEBOX) #
+  # sol, inp, inp, inp        #
+  #                           #
+  # sol 1-0 -> chime1         #
+  # sol 1-1 -> chime2         #
+  # sol 1-2 -> chime3         #
+  # sol 1-3 -> shaker         #
   #############################
 
   s_spinner:
     number: 1-0 # direct with chime
     tags: playfield_active
 
-  ###################
-  # Board 2 - MIXED #
-  ###################
+  ######################
+  # Board 2 - MIXED    #
+  # inc, inc, inc, inp #
+  ######################
   s_tilt:
     number: 2-24
     tags: tilt_warning
@@ -43,9 +53,19 @@ switches:
   s_launch:
     number: 2-31
 
-  ########################
-  # Board 3 - PLAYFIELD1 #
-  ########################
+  ############################
+  # Board 3 - PLAYFIELD1     #
+  # sol, sol, inc, inp       #
+  #                          #
+  # sol 3-0 -> backfire_hole #
+  # sol 3-1 -> tires         #
+  # sol 3-2 -> oil           #
+  # ------------------------ #
+  # sol 3-8 -> pop1          #
+  # sol 3-9 -> pop2          #
+  # sol 3-10 -> fuel         #
+  # sol 3-11 -> prix_hole    #
+  ############################
   s_pop1:
     number: 3-8 # direct
   s_pop2:
@@ -82,9 +102,13 @@ switches:
   # 3-30 OPEN
   # 3-31 OPEN
 
-  ########################
-  # Board 4 - PLAYFIELD2 #
-  ########################
+  ###########################
+  # Board 4 - PLAYFIELD2    #
+  # sol, inc, inc, inp      #
+  #                         #
+  # sol 4-0 -> disqualifier #
+  # sol 4-1 -> grand_hole   #
+  ###########################
   # north west rollover
   s_grooveline:
     number: 4-24
@@ -111,71 +135,68 @@ switches:
     number: 4-30
     tags: playfield_active
 
-  ####################
-  # Board 5 - APRON1 #
-  ####################
-  s_flipper1:
+  ######################
+  # Board 5 - APRON1   #
+  # sol, inc, inc, inp #
+  ######################
+  s_flipper2:
     number: 5-0 # direct
     tags: left_flipper
-  s_slingshot1:
-    number: 5-2 # direct
+  s_slingshot2:
+    number: 5-1 # direct
     tags: playfield_active
-  s_inlane1:
-    number: 5-16
-    tags: playfield_active
-  s_outlane1:
-    number: 5-17
-    tags: playfield_active
-  # UNUSED 5-18
-  # UNUSED 5-19
-  # UNUSED 5-20
-  # UNUSED 5-21
-  # UNUSED 5-22
-  # UNUSED 5-23
-  s_trough1:
+  # incands in this gap...
+  s_inlane2:
     number: 5-24
-    type: NC
-  s_trough2:
+    tags: playfield_active
+  s_outlane2:
     number: 5-25
-    type: NC
-  s_trough3:
+    tags: playfield_active
+  s_shooter_lane:
     number: 5-26
-    type: NC
-  s_trough4:
-    number: 5-27
-    type: NC
-  # Room for more balls later...
+  # UNUSED 5-27
   # UNUSED 5-28
   # UNUSED 5-29
   # UNUSED 5-30
-  s_trough_jam:
-    number: 5-31
-    type: NC
+  # UNUSED 5-31
 
-  ####################
-  # Board 6 - APRON1 #
-  ####################
-  s_flipper2:
+  ######################
+  # Board 6 - APRON2   #
+  # sol, inc, inp, inp #
+  ######################
+  s_flipper1:
     number: 6-0 # direct
     tags: right_flipper
-  s_slingshot2:
-    number: 6-2 # direct
+  s_slingshot1:
+    number: 6-1 # direct
     tags: playfield_active
-  s_inlane2:
+  s_inlane1:
+    number: 6-16
+    tags: playfield_active
+  s_outlane1:
+    number: 6-17
+    tags: playfield_active
+  s_trough1:
     number: 6-24
-    tags: playfield_active
-  s_outlane2:
+    type: NC
+  s_trough2:
     number: 6-25
-    tags: playfield_active
-  s_shooter_lane:
+    type: NC
+  s_trough3:
     number: 6-26
-  # UNUSED 6-27
+    type: NC
+  s_trough4:
+    number: 6-27
+    type: NC
+  # Room for more balls later...
   # UNUSED 6-28
   # UNUSED 6-29
   # UNUSED 6-30
-  # UNUSED 6-31
+  s_trough_jam:
+    number: 6-31
+    type: NC
   # NOTE: this is a dummy switch for use in testing
   #       without side effects
   s_activate_playfield:
-    number: 6-31
+    number: 6-30
     tags: playfield_active

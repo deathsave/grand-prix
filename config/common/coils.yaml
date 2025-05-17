@@ -61,27 +61,23 @@ coils:
   #############
   ## APRON 1 ##
   #############
-  c_flipper1:
+  c_flipper2:
     number: 5-0
     default_hold_power: 0.5
-  c_flipper1_hold:
+  c_slingshot2:
     number: 5-1
-    allow_enable: true
-  c_slingshot1:
-    number: 5-2
-  c_trough:
-    number: 5-3
+  # UNUSED 5-2
+  c_auto_kicker:
+    number: 6-3
 
   #############
   ## APRON 2 ##
   #############
-  c_flipper2:
+  c_flipper1:
     number: 6-0
     default_hold_power: 0.5
-  c_flipper2_hold:
+  c_slingshot1:
     number: 6-1
-    allow_enable: true
-  c_slingshot2:
-    number: 6-2
-  c_auto_kicker:
-    number: 6-3
+  # UNUSED 6-2
+  c_trough:
+    number: 5-3
