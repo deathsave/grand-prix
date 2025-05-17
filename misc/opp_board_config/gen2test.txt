@@ -1,0 +1,24 @@
+Sending inventory cmd
+Found 7 Gen2 brds.
+Addr = ['0x20', '0x21', '0x22', '0x23', '0x24', '0x25', '0x26']
+Card 0, firmware version = 0.3.0.1
+0x20 WingCfg = 0x03030301
+0x20 W[0]:INCAND_WING, W[1]:INCAND_WING, W[2]:INCAND_WING, W[3]:SOL_WING
+Card 1, firmware version = 0.3.0.1
+0x21 WingCfg = 0x01020202
+0x21 W[0]:SOL_WING, W[1]:INP_WING, W[2]:INP_WING, W[3]:INP_WING
+Card 2, firmware version = 0.3.0.1
+0x22 WingCfg = 0x03030302
+0x22 W[0]:INCAND_WING, W[1]:INCAND_WING, W[2]:INCAND_WING, W[3]:INP_WING
+Card 3, firmware version = 0.3.0.1
+0x23 WingCfg = 0x01010302
+0x23 W[0]:SOL_WING, W[1]:SOL_WING, W[2]:INCAND_WING, W[3]:INP_WING
+Card 4, firmware version = 0.3.0.1
+0x24 WingCfg = 0x01030302
+0x24 W[0]:SOL_WING, W[1]:INCAND_WING, W[2]:INCAND_WING, W[3]:INP_WING
+Card 5, firmware version = 0.3.0.1
+0x25 WingCfg = 0x01030202
+0x25 W[0]:SOL_WING, W[1]:INCAND_WING, W[2]:INP_WING, W[3]:INP_WING
+Card 6, firmware version = 0.3.0.1
+0x26 WingCfg = 0x01030302
+0x26 W[0]:SOL_WING, W[1]:INCAND_WING, W[2]:INCAND_WING, W[3]:INP_WING
