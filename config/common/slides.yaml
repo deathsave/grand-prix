@@ -23,3 +23,5 @@ slides:
   - widget: luxury
   grooveline_slide:
   - widget: grooveline
+  grand_prix_slide:
+  - widget: grand_prix

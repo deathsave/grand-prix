@@ -1,0 +1,4 @@
+#config_version=6
+
+slide_player:
+  mode_grand_prix_started: grand_prix_slide

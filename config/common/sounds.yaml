@@ -45,6 +45,9 @@ sounds:
   308in:
     file: 308in.ogg
     track: music
+  blinding_lights:
+    file: blinding-lights.ogg
+    track: music
   groove-thing:
     file: groove-thing.ogg
     track: music

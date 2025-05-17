@@ -1,1 +1,8 @@
 #config_version=6
+
+sound_player:
+  mode_green_flag_started:
+    blinding_lights:
+      action: play
+      delay: 5
+      loops: -1

@@ -9,7 +9,7 @@ sound_system:
     music:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.6
+      volume: 0.5
     voice:
       type: standard
       simultaneous_sounds: 1
@@ -25,4 +25,4 @@ sound_system:
     chimebox:
       type: standard
       simultaneous_sounds: 3
-      volume: 0.4
+      volume: 0.3
