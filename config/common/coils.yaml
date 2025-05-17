@@ -5,10 +5,10 @@ coils:
   ## CAB1 ##
   ##########
   c_knocker:
-    number: 0-24
-  # 0-25 OPEN
-  # 0-26 OPEN
-  # 0-27 OPEN
+    number: 0-12
+  # 0-13 OPEN
+  # 0-14 OPEN
+  # 0-15 OPEN
 
   ##########
   ## CAB2 ##
@@ -40,13 +40,13 @@ coils:
     number: 3-2
   # 3-3 OPEN
   c_pop1:
-    number: 3-8
+    number: 3-4
   c_pop2:
-    number: 3-9
+    number: 3-5
   c_fuel:
-    number: 3-10
+    number: 3-6
   c_prix_hole:
-    number: 3-11
+    number: 3-7
 
   ################
   ## PLAYFIELD2 ##
@@ -68,7 +68,7 @@ coils:
     number: 5-1
   # UNUSED 5-2
   c_auto_kicker:
-    number: 6-3
+    number: 5-3
 
   #############
   ## APRON 2 ##
@@ -80,4 +80,4 @@ coils:
     number: 6-1
   # UNUSED 6-2
   c_trough:
-    number: 5-3
+    number: 6-3
