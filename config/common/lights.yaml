@@ -391,21 +391,6 @@ lights:
     tags: tag_lights_outlane
   # UNUSED 5-14
   # UNUSED 5-15
-  l_multiplier_03:
-    platform: opp
-    subtype: matrix
-    number: 5-16
-    tags: tag_lights_multiplier
-  l_multiplier_02:
-    platform: opp
-    subtype: matrix
-    number: 5-17
-    tags: tag_lights_multiplier
-  l_multiplier_01:
-    platform: opp
-    subtype: matrix
-    number: 5-18
-    tags: tag_lights_multiplier
 
   ################
   # Board APRON2 #
@@ -451,11 +436,26 @@ lights:
     subtype: matrix
     number: 6-15
     tags: tag_lights_prix
-  # UNUSED 5-19
-  # UNUSED 5-20
-  # UNUSED 5-21
-  # UNUSED 5-22
-  # UNUSED 5-23
+  l_multiplier_03:
+    platform: opp
+    subtype: matrix
+    number: 6-16
+    tags: tag_lights_multiplier
+  l_multiplier_02:
+    platform: opp
+    subtype: matrix
+    number: 6-17
+    tags: tag_lights_multiplier
+  l_multiplier_01:
+    platform: opp
+    subtype: matrix
+    number: 6-18
+    tags: tag_lights_multiplier
+  # UNUSED 6-19
+  # UNUSED 6-20
+  # UNUSED 6-21
+  # UNUSED 6-22
+  # UNUSED 6-23
 
   #######################
   ## SweetLED (Neopixel #

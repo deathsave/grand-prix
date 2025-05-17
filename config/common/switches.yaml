@@ -146,6 +146,18 @@ switches:
     number: 5-1 # direct
     tags: playfield_active
   # incands in this gap...
+  s_inlane1:
+    number: 5-16
+    tags: playfield_active
+  s_outlane1:
+    number: 5-17
+    tags: playfield_active
+  # UNUSED 5-18
+  # UNUSED 5-19
+  # UNUSED 5-20
+  # UNUSED 5-21
+  # UNUSED 5-22
+  # UNUSED 5-23
   s_inlane2:
     number: 5-24
     tags: playfield_active
@@ -169,12 +181,6 @@ switches:
     tags: right_flipper
   s_slingshot1:
     number: 6-1 # direct
-    tags: playfield_active
-  s_inlane1:
-    number: 6-16
-    tags: playfield_active
-  s_outlane1:
-    number: 6-17
     tags: playfield_active
   s_trough1:
     number: 6-24
