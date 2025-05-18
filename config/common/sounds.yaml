@@ -48,7 +48,7 @@ sounds:
   blinding_lights:
     file: blinding-lights.ogg
     track: music
-  groove-thing:
+  groove_thing:
     file: groove-thing.ogg
     track: music
 
@@ -58,15 +58,53 @@ sounds:
   comm_noise_loop:
     file: comm-noise-loop.ogg
     track: ambience
-    volume: 0.2
+    volume: 0.15
   comm_noise_off:
     file: comm-noise-off.ogg
     track: ambience
-    volume: 0.4
+    volume: 0.1
   comm_noise_on:
     file: comm-noise-on.ogg
     track: ambience
-    volume: 0.4
+    volume: 0.1
+  at_the_track1:
+    file: at-the-track-1.ogg
+    track: ambience
+  at_the_track2:
+    file: at-the-track-2.ogg
+    track: ambience
+  at_the_track3:
+    file: at-the-track-3.ogg
+    track: ambience
+  at_the_track4:
+    file: at-the-track-4.ogg
+    track: ambience
+
+  ###################
+  ## Sound Effects ##
+  ###################
+
+  fly_by_full_long:
+    file: fly-by-full-long.ogg
+    track: effects
+  fly_by_full_mid:
+    file: fly-by-full-mid.ogg
+    track: effects
+  fly_by_short1:
+    file: fly-by-short1.ogg
+    track: effects
+  fly_by_short2:
+    file: fly-by-short2.ogg
+    track: effects
+  pit_fuel:
+    file: pit-fuel.ogg
+    track: effects
+  pit_oil:
+    file: pit-oil.ogg
+    track: effects
+  pit_tires:
+    file: pit-tires.ogg
+    track: effects
 
   ###############
   ## Call outs ##

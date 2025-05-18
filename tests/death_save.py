@@ -106,7 +106,7 @@ def _assertSound(self, track, state, sound_name):
             found_sound = sound
             break
     if "found_sound" not in locals():
-        self.fail(sound_name + " not found in " + track + ".")
+        self.fail(sound_name + " not found in track.")
     self.assertEqual(state, found_sound['status'])
 
 def _assertMusicIs(self, state, sound_name):

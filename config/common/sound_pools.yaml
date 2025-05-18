@@ -163,3 +163,19 @@ sound_pools:
     - tires01
     - tires02
     - tires03
+  fly_by:
+    type: random
+    track: effects
+    sounds:
+    - fly_by_full_long
+    - fly_by_full_mid
+    - fly_by_short1
+    - fly_by_short2
+  at_the_track:
+    type: random_force_all
+    track: ambience
+    sounds:
+    - at_the_track1
+    - at_the_track2
+    - at_the_track3
+    - at_the_track4

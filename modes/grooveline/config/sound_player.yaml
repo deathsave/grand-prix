@@ -2,7 +2,7 @@
 
 sound_player:
   mode_grooveline_started:
-    groove-thing:
+    groove_thing:
       action: play
   mode_red_line_stopped:
     308in:

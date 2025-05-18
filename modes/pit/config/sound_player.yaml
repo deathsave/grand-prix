@@ -21,3 +21,10 @@ sound_player:
   green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_oil == 1 or current_player.level_fuel == 1}:
     pit:
       action: play
+  # TODO: would like to do this... why no work?
+  # s_fuel_active{current_player.level_fuel < 2}: pit_fuel
+  # s_oil_active{current_player.level_oil < 2}: pit_oil
+  # s_tires_active{current_player.level_tires < 2}: pit_tires
+  s_fuel_active: pit_fuel
+  s_oil_active: pit_oil
+  s_tires_active: pit_tires

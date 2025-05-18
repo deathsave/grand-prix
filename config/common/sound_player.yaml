@@ -17,8 +17,24 @@ sound_player:
     mistake:
       action: play
   mode_grooveline_stopped:
-    groove-thing:
+    groove_thing:
       action: stop
   mode_red_line_stopped:
-    groove-thing:
+    308in:
+      action: stop
+  mode_green_flag_starting:
+    blinding_lights:
+      action: play
+      delay: 6
+      loops: -1
+  mode_green_flag_started:
+    at_the_track:
+      action: play
+      delay: 7
+      loops: -1
+  mode_green_flag_stopping:
+    blinding_lights:
+      action: stop
+  mode_green_flag_stopped:
+    at_the_track:
       action: stop

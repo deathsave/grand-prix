@@ -13,15 +13,15 @@ sound_system:
     voice:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.8
-    sfx:
+      volume: 0.7
+    effects:
       type: standard
-      simultaneous_sounds: 8
+      simultaneous_sounds: 3
       volume: 0.8
     ambience:
       type: standard
-      simultaneous_sounds: 2
-      volume: 0.1
+      simultaneous_sounds: 2 # comm noise and track background
+      volume: 0.4
     chimebox:
       type: standard
       simultaneous_sounds: 3
