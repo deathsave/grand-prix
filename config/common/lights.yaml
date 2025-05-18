@@ -168,11 +168,7 @@ lights:
   # Board CAB #
   #############
 
-  l_multiball:
-    platform: opp
-    subtype: matrix
-    number: 2-0
-    tags: tag_lights_grooveline
+  # UNUSED 2-0
   l_grooveline_01:
     platform: opp
     subtype: matrix
@@ -352,10 +348,15 @@ lights:
     subtype: matrix
     number: 4-19
     tags: tag_lights_pit
-  # UNUSED 3-20
-  # UNUSED 3-21
-  # UNUSED 3-22
-  # UNUSED 3-23
+  l_multiball:
+    platform: opp
+    subtype: matrix
+    number: 4-20
+    tags: tag_lights_grooveline
+  # UNUSED 4-20
+  # UNUSED 4-21
+  # UNUSED 4-22
+  # UNUSED 4-23
 
   ################
   # Board APRON1 #
