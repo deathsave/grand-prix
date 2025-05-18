@@ -37,3 +37,15 @@ keyboard:
     switch: s_spinner
   ".":
     switch: s_grooveline
+  z:
+    switch: s_flipper2
+  "/":
+    switch: s_flipper1
+  "[":
+    switch: s_pop1
+  "]":
+    switch: s_pop2
+  "-":
+    switch: s_slingshot2
+  "=":
+    switch: s_slingshot1
