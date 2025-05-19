@@ -144,7 +144,6 @@ switches:
     tags: left_flipper
   s_slingshot2:
     number: 5-1 # direct
-    tags: playfield_active
   # incands in this gap...
   s_inlane1:
     number: 5-16
@@ -155,7 +154,7 @@ switches:
   # UNUSED 5-18
   # UNUSED 5-19
   # UNUSED 5-20
-  # UNUSED 5-21
+  # nUNUSED 5-21
   # UNUSED 5-22
   # UNUSED 5-23
   s_inlane2:
@@ -181,7 +180,6 @@ switches:
     tags: right_flipper
   s_slingshot1:
     number: 6-1 # direct
-    tags: playfield_active
   s_trough1:
     number: 6-24
     type: NC

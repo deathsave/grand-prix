@@ -49,3 +49,7 @@ keyboard:
     switch: s_slingshot2
   "=":
     switch: s_slingshot1
+  b:
+    switch: s_backfire_hole
+  p:
+    switch: s_prix_hole
