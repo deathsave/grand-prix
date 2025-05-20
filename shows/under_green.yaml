@@ -28,4 +28,9 @@
 - time: "+1.0s"
   lights:
     l_signal4: on
+  sounds: real_pit
+- time: "+1.0s"
+  lights:
+    l_signal4: on
   sounds: pit_done
+- time: "+1.0s"

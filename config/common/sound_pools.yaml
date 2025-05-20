@@ -1,6 +1,15 @@
 #config_version=6
 
 sound_pools:
+  backfire:
+    type: random_force_all
+    track: effects
+    sounds:
+    - backfire1
+    - backfire2
+    - backfire3
+    - backfire4
+    - backfire5
   bad_luck_blow_out:
     type: random
     track: voice

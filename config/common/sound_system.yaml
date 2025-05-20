@@ -6,22 +6,22 @@ sound_system:
   enabled: true
   frequency: 44100
   tracks:
+    voice:
+      type: standard
+      simultaneous_sounds: 1
+      volume: 0.8
+    effects:
+      type: standard
+      simultaneous_sounds: 10
+      volume: 0.7
     music:
       type: standard
       simultaneous_sounds: 1
       volume: 0.5
-    voice:
-      type: standard
-      simultaneous_sounds: 1
-      volume: 0.7
-    effects:
-      type: standard
-      simultaneous_sounds: 3
-      volume: 0.8
     ambience:
       type: standard
       simultaneous_sounds: 2 # comm noise and track background
-      volume: 0.4
+      volume: 0.3
     chimebox:
       type: standard
       simultaneous_sounds: 3
