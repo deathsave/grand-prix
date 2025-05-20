@@ -1,9 +1,50 @@
 #config_version=6
 
 variable_player:
+  ##################
+  ## Base Scoring ##
+  ##################
+  s_pop1_active:
+    score: 10 * current_player.multiplier|block
+  s_pop2_active:
+    score: 10 * current_player.multiplier|block
+  s_grooveline_active:
+    score: 100 * current_player.multiplier|block
+  s_backfire_hole_active:
+    score: 500 * current_player.multiplier|block
+  s_prix_hole_active:
+    score: 100 * current_player.multiplier|block
+  s_grand_hole_active:
+    score: 100 * current_player.multiplier|block
+  s_spinner_active:
+    score: 10 * current_player.multiplier|block
+  s_save_target_active:
+    score: 10 * current_player.multiplier|block
+  s_bonus_target_active:
+    score: 10 * current_player.multiplier|block
+  s_swerve1_active:
+    score: 10 * current_player.multiplier|block
+  s_swerve2_active:
+    score: 10 * current_player.multiplier|block
+  s_slingshot1_active:
+    score: 10 * current_player.multiplier|block
+  s_slingshot2_active:
+    score: 10 * current_player.multiplier|block
+  s_inlane1_active:
+    score: 25 * current_player.multiplier|block
+  s_inlane2_active:
+    score: 25 * current_player.multiplier|block
+  s_outlane1_active:
+    score: 50 * current_player.multiplier|block
+  s_outlane2_active:
+    score: 50 * current_player.multiplier|block
+
   mode_green_flag_started:
     level_green_flag:
       action: add
+      int: 1
+    multiplier:
+      action: set
       int: 1
   green_flag_degrade_fuel:
     level_fuel:
@@ -33,13 +74,6 @@ variable_player:
     level_oil: 0|block
   s_tires_active:
     level_tires: 0|block
-  #############
-  ## Scoring ##
-  #############
-  s_spinner_active:
-    score: 20|block
-  s_grooveline_active:
-    score: 100|block
   ########################
   ## Counter Peristence ##
   ########################

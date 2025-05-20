@@ -116,6 +116,9 @@ sounds:
   fly_by_short2:
     file: fly-by-short2.ogg
     track: effects
+  fly_by_short3:
+    file: fly-by-short3.ogg
+    track: effects
   pit_fuel:
     file: pit-fuel.ogg
     track: effects
@@ -129,6 +132,18 @@ sounds:
     file: real-pit.ogg
     track: effects
     priority: 10
+  rev1:
+    file: rev-1.ogg
+    track: effects
+  rev2:
+    file: rev-2.ogg
+    track: effects
+  rev3:
+    file: rev-3.ogg
+    track: effects
+  rev4:
+    file: rev-4.ogg
+    track: effects
 
   ###############
   ## Call outs ##

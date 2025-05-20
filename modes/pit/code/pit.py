@@ -13,6 +13,7 @@ class Pit(Mode):
         "luxury_counter_count": [ "l_spinner", 10 ],
         "grand_counter_count": [ "l_grand", 5 ],
         "prix_counter_count": [ "l_prix", 4 ],
+        "multiplier": [ "l_multiplier", 3 ],
     }
 
     def mode_start(self, **kwargs):

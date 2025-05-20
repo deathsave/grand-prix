@@ -5,14 +5,47 @@ variable_player:
   # Scoring #
   ###########
 
-  # consider removing points
-  # s_disqualifier_active:
+  # Most switches aren't worth much since
+  # the drivers first goal is to get out
+  # of the pit as fast as possible
   s_pop1_active:
-    score: 10
+    score: 1
   s_pop2_active:
-    score: 10
+    score: 1
   s_grooveline_active:
-    score: 50
+    score: 1
+  s_backfire_hole_active:
+    score: 1
+  s_prix_hole_active:
+    score: 1
+  s_grand_hole_active:
+    score: 1
+  s_spinner_active:
+    score: 1
+  s_save_target_active:
+    score: 1
+  s_bonus_target_active:
+    score: 1
+  s_swerve1_active:
+    score: 1
+  s_swerve2_active:
+    score: 1
+  s_slingshot1_active:
+    score: 1
+  s_slingshot2_active:
+    score: 1
+  s_inlane1_active:
+    score: 1
+  s_inlane2_active:
+    score: 1
+  s_outlane1_active:
+    score: 1
+  s_outlane2_active:
+    score: 1
+
+  #####################
+  ## Limited scoring ##
+  #####################
   s_fuel_active:
     score: 100
     bonus: 10
@@ -31,43 +64,11 @@ variable_player:
     level_tires:
       int: 2
       action: set
-  s_backfire_hole_active:
-    score: 500
-    bonus: 50
-  s_prix_hole_active:
-    score: 100
-    bonus: 10
-  s_grand_hole_active:
-    score: 100
-    bonus: 10
-  s_spinner_active:
-    score: 10
-    bonus: 1
-  s_save_target_active:
-    score: 10
-    bonus: 10
-  s_bonus_target_active:
-    score: 10
-    bonus: 10
-  s_swerve1_active:
-    score: 10
-    bonus: 10
-  s_swerve2_active:
-    score: 10
-    bonus: 10
-  s_slingshot1_active:
-    score: 10
-  s_slingshot2_active:
-    score: 10
-  s_inlane1_active:
-    score: 25
-  s_inlane2_active:
-    score: 25
-  s_outlane1_active:
-    score: 50
-  s_outlane2_active:
-    score: 50
 
+  mode_green_flag_stopped:
+    multiplier:
+      action: set
+      int: 0
   logicblock_seq_lap_complete:
     lap_count: 1
 
