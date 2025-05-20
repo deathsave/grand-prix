@@ -21,8 +21,12 @@ keyboard:
     switch: s_start
   l:
     switch: s_launch
-  a:
+  g:
     switch: s_grand_hole
+  b:
+    switch: s_backfire_hole
+  p:
+    switch: s_prix_hole
   f:
     switch: s_fuel
   o:
@@ -49,5 +53,3 @@ keyboard:
     switch: s_slingshot2
   "=":
     switch: s_slingshot1
-  "b":
-    switch: s_backfire_hole
