@@ -10,12 +10,11 @@ hardware:
 
 opp:
   debug: true
-  baud: 115200
-  ports: /dev/ttyACM0, /dev/ttyACM2
+  ports: /dev/ttyACM0, /dev/ttyACM1
   chains:
     0: /dev/ttyACM0
-    1: /dev/ttyACM2
+    1: /dev/ttyACM1
 
 mypinballs:
   debug: true
-  port: /dev/ttyACM1
+  port: /dev/ttyACM2
