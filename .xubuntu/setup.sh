@@ -4,7 +4,7 @@ sudo groupadd -r autologin
 sudo gpasswd -a $USER autologin
 
 # To autologin to the Xubuntu Desktop X Server
-sudo ln -s $USER/grand-prix/.xubuntu/lightdm.conf \
+sudo ln -s $HOME/grand-prix/.xubuntu/lightdm.conf \
   /etc/lightdm/lightdm.conf
 
 # To launch MPF after starting the X Server
