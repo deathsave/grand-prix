@@ -28,7 +28,8 @@ switches:
 
   s_spinner:
     number: 0-1-0 # direct with chime
-    tags: playfield_active
+    tags:
+    - playfield_active
 
   ######################
   # Board 2 - MIXED    #
@@ -36,7 +37,8 @@ switches:
   ######################
   s_tilt:
     number: 0-2-24
-    tags: tilt_warning
+    tags:
+    - tilt_warning
   s_coindoor:
     number: 0-2-25
   s_service_forward:
@@ -49,7 +51,8 @@ switches:
     number: 0-2-29
   s_start:
     number: 0-2-30
-    tags: start
+    tags:
+    - start
   s_launch:
     number: 0-2-31
 
@@ -104,7 +107,7 @@ switches:
     number: 0-3-29
     tags:
     - playfield_active
-    - rev
+    - tag_rev
 
   # 3-30 OPEN
   # 3-31 OPEN
@@ -119,30 +122,37 @@ switches:
   # north west rollover
   s_grooveline:
     number: 0-4-24
-    tags: playfield_active
+    tags:
+    - playfield_active
   s_save_target:
     number: 0-4-25
     tags:
     - playfield_active
-    - rev
+    - tag_rev
   s_grand_hole:
     number: 0-4-26
     tags:
     - tag_hole
   s_multiball_target:
     number: 0-4-27
-    tags: playfield_active
+    tags:
+    - playfield_active
   # central drop left
   s_disqualifier:
     number: 0-4-28
-    tags: playfield_active
+    tags:
+    - playfield_active
   s_swerve1:
     number: 0-4-29
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - tag_swerve
   # UNUSED 4-30
   s_swerve2:
     number: 0-4-30
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - tag_swerve
 
   ######################
   # Board 5 - APRON1   #
@@ -150,16 +160,19 @@ switches:
   ######################
   s_flipper2:
     number: 0-5-0 # direct
-    tags: left_flipper
+    tags:
+    - left_flipper
   s_slingshot2:
     number: 0-5-1 # direct
   # incands in this gap...
   s_inlane1:
     number: 0-5-16
-    tags: playfield_active
+    tags:
+    - playfield_active
   s_outlane1:
     number: 0-5-17
-    tags: playfield_active
+    tags:
+    - playfield_active
   # UNUSED 5-18
   # UNUSED 5-19
   # UNUSED 5-20
@@ -168,10 +181,12 @@ switches:
   # UNUSED 5-23
   s_inlane2:
     number: 0-5-24
-    tags: playfield_active
+    tags:
+    - playfield_active
   s_outlane2:
     number: 0-5-25
-    tags: playfield_active
+    tags:
+    - playfield_active
   s_shooter_lane:
     number: 0-5-26
   # UNUSED 5-27
@@ -186,7 +201,8 @@ switches:
   ######################
   s_flipper1:
     number: 0-6-0 # direct
-    tags: right_flipper
+    tags:
+    - right_flipper
   s_slingshot1:
     number: 0-6-1 # direct
   s_trough1:
@@ -212,4 +228,5 @@ switches:
   #       without side effects
   s_activate_playfield:
     number: 0-6-30
-    tags: playfield_active
+    tags:
+    - playfield_active

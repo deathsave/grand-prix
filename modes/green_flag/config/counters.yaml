@@ -6,6 +6,18 @@ counters:
     starting_count: 0
     count_interval: 1
 
+  swerve_counter:
+    count_events:
+    - sw_tag_swerve{mode.grooveline.active}
+    - sw_tag_swerve{mode.luxury.active}
+    - sw_tag_swerve{mode.grand_prix.active}
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 5
+    reset_on_complete: false
+    reset_events:
+    - multiball_stopped
+
   spin_counter:
     count_events: s_spinner_active
     starting_count: 0

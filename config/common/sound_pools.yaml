@@ -1,6 +1,13 @@
 #config_version=6
 
 sound_pools:
+  swerve:
+    type: random_force_all
+    track: effects
+    sounds:
+    - swerve1
+    - swerve2
+    - swerve3
   backfire:
     type: random_force_all
     track: effects

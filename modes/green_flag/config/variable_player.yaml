@@ -80,31 +80,39 @@ variable_player:
   # Per docs, "Counters no longer save their
   # state in player variables", so we need
   # to map them manually here
+  multiball_stopped:
+    multiplier:
+      action: set
+      int: 1
+  logicblock_swerve_counter_complete:
+    multiplier:
+      action: set
+      int: 2
   logicblock_lap_counter_updated:
     lap_counter_count:
-      int: value
       action: set
+      int: value
   logicblock_spin_counter_updated:
     spin_counter_count:
-      int: value
       action: set
+      int: value
   logicblock_grooveline_counter_updated:
     grooveline_counter_count:
-      int: value
       action: set
+      int: value
   logicblock_luxury_counter_updated:
     luxury_counter_count:
-      int: value
       action: set
+      int: value
   logicblock_grand_counter_updated:
     grand_counter_count:
-      int: value
       action: set
+      int: value
   logicblock_prix_counter_updated:
     prix_counter_count:
-      int: value
       action: set
+      int: value
   logicblock_grand_prix_counter_updated:
     grand_prix_counter_count:
-      int: value
       action: set
+      int: value

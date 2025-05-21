@@ -144,6 +144,15 @@ sounds:
   rev4:
     file: rev-4.ogg
     track: effects
+  swerve1:
+    file: swerve-1.ogg
+    track: effects
+  swerve2:
+    file: swerve-2.ogg
+    track: effects
+  swerve3:
+    file: swerve-3.ogg
+    track: effects
 
   ###############
   ## Call outs ##
