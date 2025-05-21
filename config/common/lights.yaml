@@ -9,77 +9,106 @@ lights:
     subtype: matrix
     number: 0-0
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights_match
+    - tag_lights
   l_backbox_match_10:
     subtype: matrix
     number: 0-1
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights_match
+    - tag_lights
   l_backbox_match_20:
     subtype: matrix
     number: 0-2
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_match_30:
     subtype: matrix
     number: 0-3
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_match_40:
     subtype: matrix
     number: 0-4
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_match_50:
     subtype: matrix
     number: 0-5
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_match_60:
     subtype: matrix
     number: 0-6
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_match_70:
     subtype: matrix
     number: 0-7
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_match_80:
     subtype: matrix
     number: 0-8
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_match_90:
     subtype: matrix
     number: 0-9
     platform: opp
-    tags: tag_lights_match
+    tags:
+    - tag_lights
+    - tag_lights_match
   l_backbox_player_up1:
     subtype: matrix
     number: 0-10
     platform: opp
-    tags: tag_lights_player_up
+    tags:
+    - tag_lights
+    - tag_lights_player_up
   l_backbox_player_up2:
     subtype: matrix
     number: 0-11
     platform: opp
-    tags: tag_lights_player_up
+    tags:
+    - tag_lights
+    - tag_lights_player_up
   l_backbox_player_up3:
     subtype: matrix
     number: 0-12
     platform: opp
-    tags: tag_lights_player_up
+    tags:
+    - tag_lights
+    - tag_lights_player_up
   l_backbox_player_up4:
     subtype: matrix
     number: 0-13
     platform: opp
-    tags: tag_lights_player_up
+    tags:
+    - tag_lights
+    - tag_lights_player_up
   l_backbox_players_in1:
     subtype: matrix
     number: 0-14
     platform: opp
     tags:
+    - tag_lights
     - tag_lights_players_in
     - tag_lights_info_lights
   l_backbox_players_in2:
@@ -87,6 +116,7 @@ lights:
     number: 0-15
     platform: opp
     tags:
+    - tag_lights
     - tag_lights_players_in
     - tag_lights_info_lights
   l_backbox_players_in3:
@@ -94,6 +124,7 @@ lights:
     number: 0-16
     platform: opp
     tags:
+    - tag_lights
     - tag_lights_players_in
     - tag_lights_info_lights
   l_backbox_players_in4:
@@ -101,28 +132,36 @@ lights:
     number: 0-17
     platform: opp
     tags:
+    - tag_lights
     - tag_lights_players_in
     - tag_lights_info_lights
   l_backbox_game_over:
     subtype: matrix
     number: 0-18
     platform: opp
-    tags: tag_lights_info_lights
+    tags:
+    - tag_lights
+    - tag_lights_info_lights
   l_backbox_tilt:
     subtype: matrix
     number: 0-19
     platform: opp
-    tags: tag_lights_info_lights
+    tags:
+    - tag_lights_info_lights
+    - tag_lights
   l_backbox_shoot_again:
     subtype: matrix
     number: 0-20
     platform: opp
-    tags: tag_lights_info_lights
+    tags:
+    - tag_lights
+    - tag_lights_info_lights
   l_backbox_ball1:
     subtype: matrix
     number: 0-21
     platform: opp
     tags:
+    - tag_lights
     - tag_lights_active_ball
     - tag_lights_info_lights
   l_backbox_ball2:
@@ -130,6 +169,7 @@ lights:
     number: 0-22
     platform: opp
     tags:
+    - tag_lights
     - tag_lights_active_ball
     - tag_lights_info_lights
   l_backbox_ball3:
@@ -137,6 +177,7 @@ lights:
     number: 0-23
     platform: opp
     tags:
+    - tag_lights
     - tag_lights_active_ball
     - tag_lights_info_lights
 
@@ -150,6 +191,9 @@ lights:
     platform: opp
     subtype: matrix
     number: 3-16
+    tags:
+    - tag_lights
+
   # UNUSED 1-17
   # UNUSED 1-18
   # UNUSED 1-19
@@ -163,6 +207,8 @@ lights:
     platform: opp
     subtype: matrix
     number: 3-23
+    tags:
+    - tag_lights
 
   #############
   # Board CAB #
@@ -173,116 +219,161 @@ lights:
     platform: opp
     subtype: matrix
     number: 2-1
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_02:
     platform: opp
     subtype: matrix
     number: 2-2
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_03:
     platform: opp
     subtype: matrix
     number: 2-3
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_04:
     platform: opp
     subtype: matrix
     number: 2-4
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_05:
     platform: opp
     subtype: matrix
     number: 2-5
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_06:
     platform: opp
     subtype: matrix
     number: 2-6
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_07:
     platform: opp
     subtype: matrix
     number: 2-7
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_08:
     platform: opp
     subtype: matrix
     number: 2-8
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_09:
     platform: opp
     subtype: matrix
     number: 2-9
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_grooveline_10:
     platform: opp
     subtype: matrix
     number: 2-10
-    tags: tag_lights_grooveline
+    tags:
+    - tag_lights
+    - tag_lights_grooveline
   l_swerve1:
     platform: opp
     subtype: matrix
     number: 2-11
-    tags: tag_lights_swerve
+    tags:
+    - tag_lights
+    - tag_lights_swerve
   l_swerve2:
     platform: opp
     subtype: matrix
     number: 2-12
-    tags: tag_lights_swerve
+    tags:
+    - tag_lights
+    - tag_lights_swerve
   l_spinner_10:
     platform: opp
     subtype: matrix
     number: 2-13
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_09:
     platform: opp
     subtype: matrix
     number: 2-14
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_08:
     platform: opp
     subtype: matrix
     number: 2-15
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_07:
     platform: opp
     subtype: matrix
     number: 2-16
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights_spinner
   l_spinner_06:
     platform: opp
     subtype: matrix
     number: 2-17
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_05:
     platform: opp
     subtype: matrix
     number: 2-18
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_04:
     platform: opp
     subtype: matrix
     number: 2-19
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_03:
     platform: opp
     subtype: matrix
     number: 2-20
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_02:
     platform: opp
     subtype: matrix
     number: 2-21
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_01:
     platform: opp
     subtype: matrix
     number: 2-22
-    tags: tag_lights_spinner
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_luxury:
     platform: opp
     subtype: matrix
     number: 2-23
+    tags:
+    - tag_lights
 
   ####################
   # Board PLAYFIELD2 #
@@ -292,68 +383,92 @@ lights:
     platform: opp
     subtype: matrix
     number: 4-8
-    tags: tag_lights_signal
+    tags:
+    - tag_lights
+    - tag_lights_signal
   l_signal3: # grand prix
     platform: opp
     subtype: matrix
     number: 4-9
-    tags: tag_lights_signal
+    tags:
+    - tag_lights
+    - tag_lights_signal
   l_signal2: # luxury
     platform: opp
     subtype: matrix
     number: 4-10
-    tags: tag_lights_signal
+    tags:
+    - tag_lights
+    - tag_lights_signal
   l_signal1: # grooveline
     platform: opp
     subtype: matrix
     number: 4-11
-    tags: tag_lights_signal
+    tags:
+    - tag_lights
+    - tag_lights_signal
   l_grand_01:
     platform: opp
     subtype: matrix
     number: 4-12
-    tags: tag_lights_grand
+    tags:
+    - tag_lights
+    - tag_lights_grand
   l_grand_02:
     platform: opp
     subtype: matrix
     number: 4-13
-    tags: tag_lights_grand
+    tags:
+    - tag_lights
+    - tag_lights_grand
   l_grand_03:
     platform: opp
     subtype: matrix
     number: 4-14
-    tags: tag_lights_grand
+    tags:
+    - tag_lights
+    - tag_lights_grand
   l_grand_04:
     platform: opp
     subtype: matrix
     number: 4-15
-    tags: tag_lights_grand
+    tags:
+    - tag_lights
+    - tag_lights_grand
   l_grand_05:
     platform: opp
     subtype: matrix
     number: 4-16
-    tags: tag_lights_grand
+    tags:
+    - tag_lights
+    - tag_lights_grand
   l_pit_01:
     platform: opp
     subtype: matrix
     number: 4-17
-    tags: tag_lights_pit
+    tags:
+    - tag_lights
+    - tag_lights_pit
   l_pit_02:
     platform: opp
     subtype: matrix
     number: 4-18
-    tags: tag_lights_pit
+    tags:
+    - tag_lights
+    - tag_lights_pit
   l_pit_03:
     platform: opp
     subtype: matrix
     number: 4-19
-    tags: tag_lights_pit
+    tags:
+    - tag_lights
+    - tag_lights_pit
   l_multiball:
     platform: opp
     subtype: matrix
-    number: 4-20
-    tags: tag_lights_grooveline
-  # UNUSED 4-20
+    number: 4-21
+    tags:
+    - tag_lights
   # UNUSED 4-21
   # UNUSED 4-22
   # UNUSED 4-23
@@ -366,30 +481,42 @@ lights:
     platform: opp
     subtype: matrix
     number: 5-8
+    tags:
+    - tag_lights
   l_bottom_outlane1:
     platform: opp
     subtype: matrix
     number: 5-9
-    tags: tag_lights_outlane
+    tags:
+    - tag_lights
+    - tag_lights_outlane
   l_shoot_again:
     platform: opp
     subtype: matrix
     number: 5-10
+    tags:
+    - tag_lights
   l_arrow1a:
     platform: opp
     subtype: matrix
     number: 5-11
-    tags: tag_lights_arrow
+    tags:
+    - tag_lights
+    - tag_lights_arrow
   l_arrow1b:
     platform: opp
     subtype: matrix
     number: 5-12
-    tags: tag_lights_arrow
+    tags:
+    - tag_lights
+    - tag_lights_arrow
   l_top_outlane1:
     platform: opp
     subtype: matrix
     number: 5-13
-    tags: tag_lights_outlane
+    tags:
+    - tag_lights
+    - tag_lights_outlane
   # UNUSED 5-14
   # UNUSED 5-15
 
@@ -401,57 +528,79 @@ lights:
     platform: opp
     subtype: matrix
     number: 6-8
-    tags: tag_lights_outlane
+    tags:
+    - tag_lights
+    - tag_lights_outlane
   l_arrow2a:
     platform: opp
     subtype: matrix
     number: 6-9
-    tags: tag_lights_arrow
+    tags:
+    - tag_lights
+    - tag_lights_arrow
   l_arrow2b:
     platform: opp
     subtype: matrix
     number: 6-10
-    tags: tag_lights_arrow
+    tags:
+    - tag_lights
+    - tag_lights_arrow
   l_top_outlane2:
     platform: opp
     subtype: matrix
     number: 6-11
-    tags: tag_lights_outlane
+    tags:
+    - tag_lights
+    - tag_lights_outlane
   l_prix_04:
     platform: opp
     subtype: matrix
     number: 6-12
-    tags: tag_lights_prix
+    tags:
+    - tag_lights
+    - tag_lights_prix
   l_prix_03:
     platform: opp
     subtype: matrix
     number: 6-13
-    tags: tag_lights_prix
+    tags:
+    - tag_lights
+    - tag_lights_prix
   l_prix_02:
     platform: opp
     subtype: matrix
     number: 6-14
-    tags: tag_lights_prix
+    tags:
+    - tag_lights
+    - tag_lights_prix
   l_prix_01:
     platform: opp
     subtype: matrix
     number: 6-15
-    tags: tag_lights_prix
+    tags:
+    - tag_lights
+    - tag_lights_prix
   l_multiplier_03:
     platform: opp
     subtype: matrix
     number: 6-16
-    tags: tag_lights_multiplier
+    tags:
+    - tag_lights
+    - tag_lights_multiplier
   l_multiplier_02:
     platform: opp
     subtype: matrix
     number: 6-17
-    tags: tag_lights_multiplier
+    tags:
+    - tag_lights
+    - tag_lights_multiplier
   l_multiplier_01:
     platform: opp
     subtype: matrix
     number: 6-18
-    tags: tag_lights_multiplier
+    tags:
+    - tag_lights
+    - tag_lights_multiplier
   # UNUSED 6-19
   # UNUSED 6-20
   # UNUSED 6-21

@@ -24,3 +24,4 @@ config:
 - common/custom_code.yaml
 - common/info_lights.yaml
 - common/autofire_coils.yaml
+- common/show_player.yaml
