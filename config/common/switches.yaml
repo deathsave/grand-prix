@@ -27,7 +27,7 @@ switches:
   #############################
 
   s_spinner:
-    number: 1-0 # direct with chime
+    number: 0-1-0 # direct with chime
     tags: playfield_active
 
   ######################
@@ -35,23 +35,23 @@ switches:
   # inc, inc, inc, inp #
   ######################
   s_tilt:
-    number: 2-24
+    number: 0-2-24
     tags: tilt_warning
   s_coindoor:
-    number: 2-25
+    number: 0-2-25
   s_service_forward:
-    number: 2-26
+    number: 0-2-26
   s_service_down:
-    number: 2-27
+    number: 0-2-27
   s_service_up:
-    number: 2-28
+    number: 0-2-28
   s_service_back:
-    number: 2-29
+    number: 0-2-29
   s_start:
-    number: 2-30
+    number: 0-2-30
     tags: start
   s_launch:
-    number: 2-31
+    number: 0-2-31
 
   ############################
   # Board 3 - PLAYFIELD1     #
@@ -67,41 +67,41 @@ switches:
   # sol 3-11 -> prix_hole    #
   ############################
   s_pop1:
-    number: 3-8 # direct
+    number: 0-3-8 # direct
     tags:
     - pops
   s_pop2:
-    number: 3-9 # direct
+    number: 0-3-9 # direct
     tags:
     - pops
   # north_drop left
   s_tires:
-    number: 3-24
+    number: 0-3-24
     tags:
     - playfield_active
     - pit_resource
   # north drop right
   s_oil:
-    number: 3-25
+    number: 0-3-25
     tags:
     - playfield_active
     - pit_resource
   s_backfire_hole:
-    number: 3-26
+    number: 0-3-26
     tags:
     - tag_hole
   # central drop right
   s_fuel:
-    number: 3-27
+    number: 0-3-27
     tags:
     - playfield_active
     - pit_resource
   s_prix_hole:
-    number: 3-28
+    number: 0-3-28
     tags:
     - tag_hole
   s_bonus_target:
-    number: 3-29
+    number: 0-3-29
     tags:
     - playfield_active
     - rev
@@ -118,30 +118,30 @@ switches:
   ###########################
   # north west rollover
   s_grooveline:
-    number: 4-24
+    number: 0-4-24
     tags: playfield_active
   s_save_target:
-    number: 4-25
+    number: 0-4-25
     tags:
     - playfield_active
     - rev
   s_grand_hole:
-    number: 4-26
+    number: 0-4-26
     tags:
     - tag_hole
   s_multiball_target:
-    number: 4-27
+    number: 0-4-27
     tags: playfield_active
   # central drop left
   s_disqualifier:
-    number: 4-28
+    number: 0-4-28
     tags: playfield_active
   s_swerve1:
-    number: 4-29
+    number: 0-4-29
     tags: playfield_active
   # UNUSED 4-30
   s_swerve2:
-    number: 4-30
+    number: 0-4-30
     tags: playfield_active
 
   ######################
@@ -149,16 +149,16 @@ switches:
   # sol, inc, inc, inp #
   ######################
   s_flipper2:
-    number: 5-0 # direct
+    number: 0-5-0 # direct
     tags: left_flipper
   s_slingshot2:
-    number: 5-1 # direct
+    number: 0-5-1 # direct
   # incands in this gap...
   s_inlane1:
-    number: 5-16
+    number: 0-5-16
     tags: playfield_active
   s_outlane1:
-    number: 5-17
+    number: 0-5-17
     tags: playfield_active
   # UNUSED 5-18
   # UNUSED 5-19
@@ -167,13 +167,13 @@ switches:
   # UNUSED 5-22
   # UNUSED 5-23
   s_inlane2:
-    number: 5-24
+    number: 0-5-24
     tags: playfield_active
   s_outlane2:
-    number: 5-25
+    number: 0-5-25
     tags: playfield_active
   s_shooter_lane:
-    number: 5-26
+    number: 0-5-26
   # UNUSED 5-27
   # UNUSED 5-28
   # UNUSED 5-29
@@ -185,31 +185,31 @@ switches:
   # sol, inc, inp, inp #
   ######################
   s_flipper1:
-    number: 6-0 # direct
+    number: 0-6-0 # direct
     tags: right_flipper
   s_slingshot1:
-    number: 6-1 # direct
+    number: 0-6-1 # direct
   s_trough1:
-    number: 6-24
+    number: 0-6-24
     type: NC
   s_trough2:
-    number: 6-25
+    number: 0-6-25
     type: NC
   s_trough3:
-    number: 6-26
+    number: 0-6-26
     type: NC
   s_trough4:
-    number: 6-27
+    number: 0-6-27
     type: NC
   # Room for more balls later...
   # UNUSED 6-28
   # UNUSED 6-29
   # UNUSED 6-30
   s_trough_jam:
-    number: 6-31
+    number: 0-6-31
     type: NC
   # NOTE: this is a dummy switch for use in testing
   #       without side effects
   s_activate_playfield:
-    number: 6-30
+    number: 0-6-30
     tags: playfield_active
