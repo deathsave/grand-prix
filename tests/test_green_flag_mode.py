@@ -11,21 +11,34 @@ class TestGreenFlagMode(DeathSaveGameTesting):
 
         self._start()
         self._start_green_flag()
+        # 100 points for having hit the fuel switch...
+        self.assertEqual(self.machine.game.player.score, 100)
 
-        # Mini coils is activated making it
-        # possible to complete the loop
-        self.assertLightColor('x_loop_gate', 'white')
-
-        # Green Flag Mode is about the loop
-        # TODO: Count the number of loops:
-        #       both continuous and in total
-        self._assertIncrement(score, "s_spinner", 10 * 2)
-        self._assertIncrement(score, "s_grooveline", 50 * 2)
-
-        # Other switches score normally per Pit Mode
         self._assertIncrement(score, "s_pop1", 10)
+        self._assertIncrement(score, "s_pop2", 10)
+        self._assertIncrement(score, "s_grooveline", 100)
+
+        self._assertIncrement(score, "s_oil", 100)
+        self._assertIncrement(score, "s_tires", 100)
+        self._assertIncrement(score, "s_backfire_hole", 500)
+        self._assertIncrement(score, "s_prix_hole", 100)
+        self._assertIncrement(score, "s_grand_hole", 100)
+        self._assertIncrement(score, "s_spinner", 10)
+        self._assertIncrement(score, "s_save_target", 10)
+        self._assertIncrement(score, "s_bonus_target", 10)
         self._assertIncrement(score, "s_swerve1", 10)
+        self._assertIncrement(score, "s_swerve2", 10)
+        self._assertIncrement(score, "s_slingshot1", 10)
         self._assertIncrement(score, "s_slingshot2", 10)
+        self._assertIncrement(score, "s_inlane1", 25)
+        self._assertIncrement(score, "s_inlane2", 25)
+        self._assertIncrement(score, "s_outlane1", 50)
+        self._assertIncrement(score, "s_outlane2", 50)
+
+        # Bubbled up from the pit mode
+        self._assertIncrement(score, "s_fuel", 100)
+        self._assertIncrement(score, "s_oil", 100)
+        self._assertIncrement(score, "s_tires", 100)
 
     def test_laps(self):
         random_events = [

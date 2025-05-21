@@ -68,8 +68,12 @@ switches:
   ############################
   s_pop1:
     number: 3-8 # direct
+    tags:
+    - pops
   s_pop2:
     number: 3-9 # direct
+    tags:
+    - pops
   # north_drop left
   s_tires:
     number: 3-24
@@ -98,7 +102,10 @@ switches:
     - tag_hole
   s_bonus_target:
     number: 3-29
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - rev
+
   # 3-30 OPEN
   # 3-31 OPEN
 
@@ -115,7 +122,9 @@ switches:
     tags: playfield_active
   s_save_target:
     number: 4-25
-    tags: playfield_active
+    tags:
+    - playfield_active
+    - rev
   s_grand_hole:
     number: 4-26
     tags:

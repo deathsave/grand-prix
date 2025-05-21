@@ -58,15 +58,15 @@ sounds:
   comm_noise_loop:
     file: comm-noise-loop.ogg
     track: ambience
-    volume: 0.15
+    volume: 0.1
   comm_noise_off:
     file: comm-noise-off.ogg
     track: ambience
-    volume: 0.1
+    volume: 0.15
   comm_noise_on:
     file: comm-noise-on.ogg
     track: ambience
-    volume: 0.1
+    volume: 0.15
   at_the_track1:
     file: at-the-track-1.ogg
     track: ambience
@@ -84,6 +84,26 @@ sounds:
   ## Sound Effects ##
   ###################
 
+  backfire_loop:
+    file: backfire-loop.ogg
+    track: effects
+    volume: 0.3
+    fade_out: 2s
+  backfire1:
+    file: backfire-1.ogg
+    track: effects
+  backfire2:
+    file: backfire-2.ogg
+    track: effects
+  backfire3:
+    file: backfire-3.ogg
+    track: effects
+  backfire4:
+    file: backfire-4.ogg
+    track: effects
+  backfire5:
+    file: backfire-5.ogg
+    track: effects
   fly_by_full_long:
     file: fly-by-full-long.ogg
     track: effects
@@ -96,6 +116,9 @@ sounds:
   fly_by_short2:
     file: fly-by-short2.ogg
     track: effects
+  fly_by_short3:
+    file: fly-by-short3.ogg
+    track: effects
   pit_fuel:
     file: pit-fuel.ogg
     track: effects
@@ -104,6 +127,22 @@ sounds:
     track: effects
   pit_tires:
     file: pit-tires.ogg
+    track: effects
+  real_pit:
+    file: real-pit.ogg
+    track: effects
+    priority: 10
+  rev1:
+    file: rev-1.ogg
+    track: effects
+  rev2:
+    file: rev-2.ogg
+    track: effects
+  rev3:
+    file: rev-3.ogg
+    track: effects
+  rev4:
+    file: rev-4.ogg
     track: effects
 
   ###############

@@ -1,6 +1,15 @@
 #config_version=6
 
 sound_pools:
+  backfire:
+    type: random_force_all
+    track: effects
+    sounds:
+    - backfire1
+    - backfire2
+    - backfire3
+    - backfire4
+    - backfire5
   bad_luck_blow_out:
     type: random
     track: voice
@@ -171,6 +180,15 @@ sound_pools:
     - fly_by_full_mid
     - fly_by_short1
     - fly_by_short2
+    - fly_by_short3
+  rev:
+    type: random_force_all
+    track: effects
+    sounds:
+    - rev1
+    - rev2
+    - rev3
+    - rev4
   at_the_track:
     type: random_force_all
     track: ambience

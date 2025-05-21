@@ -4,3 +4,4 @@ config:
 - mode.yaml
 - timers.yaml
 - coil_player.yaml
+- sound_player.yaml

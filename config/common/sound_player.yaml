@@ -16,6 +16,9 @@ sound_player:
       action: play
     mistake:
       action: play
+  mode_backfire_stopped:
+    backfire_loop:
+      action: stop
   mode_grooveline_stopped:
     groove_thing:
       action: stop

@@ -69,7 +69,7 @@ def _start_green_flag(self):
     self.advance_time_and_run(1)
     self.assertModeRunning("green_flag")
     # call out AFTER the signal countdown
-    self.advance_time_and_run(6)
+    self.advance_time_and_run(7)
     self._assertVoiceIs("playing", "pit_done")
 
 def _complete_lap(self):

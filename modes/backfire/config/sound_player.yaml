@@ -1,0 +1,8 @@
+#config_version=6
+
+sound_player:
+  mode_backfire_started:
+    backfire_loop:
+      action: play
+      loops: -1
+  sw_pops: backfire

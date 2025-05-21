@@ -16,6 +16,6 @@ show_player:
       action: stop
   player_grooveline_counter_count{current_player.grooveline_counter_count == 10}: grooveline_soon
   mode_green_flag_started:
-    signal:
+    under_green:
       loops: 0
       sync_ms: 2000

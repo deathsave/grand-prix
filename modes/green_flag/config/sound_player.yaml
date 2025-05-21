@@ -2,3 +2,8 @@
 
 sound_player:
   logicblock_lap_counter_hit: fly_by
+  sw_rev: rev
+  logicblock_grand_counter_hit: rev
+  logicblock_prix_counter_hit: rev
+  logicblock_grand_counter_complete: fly_by
+  logicblock_prix_counter_complete: fly_by

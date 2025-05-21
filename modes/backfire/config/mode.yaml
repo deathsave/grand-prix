@@ -1,5 +1,7 @@
 #config_version=6
 
+# Hit "," (comma) then "b" after green flag ends
+# to activeate the backfire hole in development
 mode:
   start_events:
   - logicblock_seq_backfire_qualifier_complete
