@@ -33,8 +33,6 @@ keyboard:
     switch: s_oil
   t:
     switch: s_tires
-  q:
-    switch: s_bonus_target
   m:
     switch: s_multiball_target
   # the next two switches (spinner, grooveline)
@@ -57,3 +55,5 @@ keyboard:
     switch: s_slingshot1
   "'":
     event: light_all
+  q:
+    event: start_high_score

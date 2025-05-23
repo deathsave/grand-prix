@@ -1,0 +1,176 @@
+#config_version=6
+
+mode:
+  priority: 500
+  start_events: game_ending, start_high_score
+  use_wait_queue: true
+high_score:
+  _overwrite: true
+  enter_initials_timeout: 90
+  award_slide_display_time: 5s
+  # define your high score categories and the awards
+  categories: !!omap
+    - score:
+      - GRAND CHAMPION
+      - 1st Place
+      - 2nd Place
+      - 3rd Place
+    # - loops:
+    #     - LOOP CHAMP
+  # set the defaults
+  defaults:
+    score:
+      - DS: 10000
+      - GRA: 5000
+      - NDP: 1000
+      - RIX: 100
+    # loops:
+    #   - JAN: 42
+  # vars:
+  #   loops:
+  #     - player: character
+slide_player:
+  _overwrite: true
+  high_score_enter_initials: high_score_enter_initials
+  high_score_award_display: high_score_award_display
+slides:
+  _overwrite: true
+  high_score_enter_initials:
+    - type: text
+      font_size: 72
+      style: text_default
+      text: Driver (player_num)
+      color: DF02E3
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle+20%
+    - type: text_input
+      dynamic_x: false
+      initial_char: A
+      key: high_score
+      font_size: 48
+      style: text_default
+      max_chars: 3
+      x: middle
+      y: middle-15%
+      select_event: sw_start
+      color: 00E9FF
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      text: '<             >'
+      style: text_default
+      font_size: 90
+      x: middle
+      y: middle
+      color: 00E9FF
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      text: ''
+      key: high_score
+      font_size: 90
+      style: text_default
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle
+      color: 00E9FF
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.3s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.3s
+            repeat: true
+            easing: in_out_quint
+    # Example: "3rd Place"
+    - type: text
+      font_size: 72
+      style: text_default
+      text: (award)
+      color: DF02E3
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle-30%
+  high_score_award_display:
+    - type: text
+      text: (player_name)
+      style: text_default
+      font_size: 90
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle+30%
+      color: 00E9FF
+    - type: text
+      style: big
+      text: (value)
+      font_size: 90
+      x: middle
+      color: ffffff
+      anchor_x: middle
+      anchor_y: middle
+      number_grouping: true
+      min_digits: 2
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.05s
+          - property: opacity
+            value: 0
+            duration: 0.05s
+            repeat: true
+    - type: text
+      text: (award)
+      font_size: 72
+      style: text_default
+      x: middle
+      y: middle-25%
+      color: DF02E3
+      anchor_x: middle
+      anchor_y: middle
+# loops_award_display:
+#     - type: text
+#       text: (player_name)
+#       font_size: 72
+#       anchor_x: middle
+#       anchor_y: middle
+#       x: middle
+#       y: middle
+#       color: DF02E3
+#       animations:
+#         show_slide:
+#           - property: opacity
+#             value: 1
+#             duration: 0.05s
+#           - property: opacity
+#             value: 0
+#             duration: 0.05s
+#             repeat: true
+#     - type: text
+#       text: (award)
+#       font_size: 72
+#       x: middle
+#       y: 110
+#       color: DF02E3
+#     - type: text
+#       text: (value)
+#       x: middle
+#       y: 30
+#       color: DF02E3
+#       font_size: 20
+#       number_grouping: true
+#       min_digits: 2
+#     - type: text
+#       text: (player(player_num)|character)
+#       x: middle
+#       y: 10
+#       color: DF02E3
+#       font_size: 20
