@@ -1,0 +1,5 @@
+#config_version=6
+
+named_colors:
+  pink: DF02E3
+  cyan: 00E9FF

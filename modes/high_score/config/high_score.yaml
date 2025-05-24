@@ -40,7 +40,7 @@ slides:
       font_size: 72
       style: text_default
       text: Driver (player_num)
-      color: DF02E3
+      color: pink
       anchor_x: middle
       anchor_y: middle
       x: middle
@@ -55,7 +55,7 @@ slides:
       x: middle
       y: middle-15%
       select_event: sw_start
-      color: 00E9FF
+      color: cyan
       anchor_x: middle
       anchor_y: middle
     - type: text
@@ -64,7 +64,7 @@ slides:
       font_size: 90
       x: middle
       y: middle
-      color: 00E9FF
+      color: cyan
       anchor_x: middle
       anchor_y: middle
     - type: text
@@ -76,7 +76,7 @@ slides:
       anchor_y: middle
       x: middle
       y: middle
-      color: 00E9FF
+      color: cyan
       animations:
         show_slide:
           - property: opacity
@@ -93,7 +93,7 @@ slides:
       font_size: 72
       style: text_default
       text: (award)
-      color: DF02E3
+      color: pink
       anchor_x: middle
       anchor_y: middle
       x: middle
@@ -107,7 +107,7 @@ slides:
       anchor_y: middle
       x: middle
       y: middle+30%
-      color: 00E9FF
+      color: cyan
     - type: text
       style: big
       text: (value)
@@ -133,7 +133,7 @@ slides:
       style: text_default
       x: middle
       y: middle-25%
-      color: DF02E3
+      color: pink
       anchor_x: middle
       anchor_y: middle
 # loops_award_display:
@@ -144,7 +144,7 @@ slides:
 #       anchor_y: middle
 #       x: middle
 #       y: middle
-#       color: DF02E3
+#       color: pink
 #       animations:
 #         show_slide:
 #           - property: opacity
@@ -159,12 +159,12 @@ slides:
 #       font_size: 72
 #       x: middle
 #       y: 110
-#       color: DF02E3
+#       color: pink
 #     - type: text
 #       text: (value)
 #       x: middle
 #       y: 30
-#       color: DF02E3
+#       color: pink
 #       font_size: 20
 #       number_grouping: true
 #       min_digits: 2
@@ -172,5 +172,5 @@ slides:
 #       text: (player(player_num)|character)
 #       x: middle
 #       y: 10
-#       color: DF02E3
+#       color: pink
 #       font_size: 20

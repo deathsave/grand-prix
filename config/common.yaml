@@ -26,3 +26,4 @@ config:
 - common/autofire_coils.yaml
 - common/show_player.yaml
 - common/widget_styles.yaml
+- common/named_colors.yaml
