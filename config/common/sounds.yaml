@@ -36,12 +36,10 @@ sounds:
   #########
   ## BGM ##
   #########
-  the_distance_intro:
-    file: the-distance-intro.ogg
+  the_distance:
+    file: the-distance.ogg
     track: music
-  the_distance_loop:
-    file: the-distance-loop.ogg
-    track: music
+    loop_start_at: 10.52
   308in:
     file: 308in.ogg
     track: music
@@ -50,6 +48,9 @@ sounds:
     track: music
   groove_thing:
     file: groove-thing.ogg
+    track: music
+  million_dollars:
+    file: million-dollars.ogg
     track: music
 
   ##############

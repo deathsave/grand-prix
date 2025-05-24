@@ -2,20 +2,11 @@
 
 sound_player:
   mode_attract_started:
-    the_distance_intro:
-      track: music
-      action: play
-      events_when_stopped: sound_the_distance_intro_stopped
-  # "stopped" is apparently too late
-  mode_attract_stopping:
-    the_distance_intro:
-      track: music
-      action: stop
-    the_distance_loop:
-      track: music
-      action: stop
-  sound_the_distance_intro_stopped:
-    the_distance_loop:
+    the_distance:
       track: music
       action: play
       loops: -1
+  mode_attract_stopping:
+    the_distance:
+      track: music
+      action: stop
