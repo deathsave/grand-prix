@@ -9,6 +9,7 @@ event_player:
   - green_flag{current_player.level_fuel == 2 and current_player.level_tires == 2}
   s_tires_active:
   - green_flag{current_player.level_fuel == 2 and current_player.level_oil == 2}
+  # Multiball Started
   mode_grooveline_started:
   - multiball_started
   mode_luxury_started:
@@ -17,6 +18,7 @@ event_player:
   - multiball_started
   mode_red_line_started:
   - multiball_started
+  # Multiball Stopped
   mode_grooveline_stopped:
   - multiball_stopped
   mode_luxury_stopped:

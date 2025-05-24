@@ -22,6 +22,9 @@ sound_player:
   mode_grooveline_stopped:
     groove_thing:
       action: stop
+  mode_luxury_stopped:
+    million_dollars:
+      action: stop
   mode_red_line_stopped:
     308in:
       action: stop

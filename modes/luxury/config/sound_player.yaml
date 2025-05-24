@@ -1,0 +1,7 @@
+#config_version=6
+
+sound_player:
+  mode_luxury_started:
+    million_dollars:
+      action: play
+      loops: -1

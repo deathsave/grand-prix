@@ -7,3 +7,4 @@ config:
 - variable_player.yaml
 - shots.yaml
 - slide_player.yaml
+- sound_player.yaml
