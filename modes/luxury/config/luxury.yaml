@@ -8,3 +8,4 @@ config:
 - shots.yaml
 - slide_player.yaml
 - sound_player.yaml
+- show_player.yaml

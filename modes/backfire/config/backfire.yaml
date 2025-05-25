@@ -5,3 +5,4 @@ config:
 - timers.yaml
 - coil_player.yaml
 - sound_player.yaml
+- show_player.yaml

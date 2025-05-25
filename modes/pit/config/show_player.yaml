@@ -1,0 +1,5 @@
+#config_version=6
+
+show_player:
+  modes_active_modes_changed:
+    flash_color: stop

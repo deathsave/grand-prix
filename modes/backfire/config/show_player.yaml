@@ -1,0 +1,9 @@
+#config_version=6
+
+show_player:
+  mode_backfire_started:
+    flash_color:
+      speed: 5
+      show_tokens:
+        led: tag_lights_mode
+        color: orange

@@ -384,18 +384,6 @@ lights:
     tags:
     - tag_lights
     - tag_lights_outlane
-  l_arrow2a:
-    subtype: matrix
-    number: 0-6-9
-    tags:
-    - tag_lights
-    - tag_lights_arrow
-  l_arrow2b:
-    subtype: matrix
-    number: 0-6-10
-    tags:
-    - tag_lights
-    - tag_lights_arrow
   l_top_outlane2:
     subtype: matrix
     number: 0-6-11
@@ -533,9 +521,27 @@ lights:
     tags:
     - tag_lights
     - tag_lights_pit
-  l_pit_fuel:
+  l_mode_arrow1:
     subtype: led
     number: 1-0-13
     tags:
     - tag_lights
+    - tag_lights_mode
+  l_mode_arrow2:
+    subtype: led
+    number: 1-0-14
+    tags:
+    - tag_lights
+    - tag_lights_mode
+  l_pit_fuel:
+    subtype: led
+    number: 1-0-15
+    tags:
+    - tag_lights
     - tag_lights_pit
+  l_mode_backbox:
+    subtype: led
+    number: 1-0-16
+    tags:
+    - tag_lights
+    - tag_lights_mode

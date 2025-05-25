@@ -1,0 +1,9 @@
+#config_version=6
+
+show_player:
+  mode_red_line_started:
+    flash_color:
+      speed: 10
+      show_tokens:
+        led: tag_lights_mode
+        color: red

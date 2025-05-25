@@ -19,3 +19,8 @@ show_player:
     under_green:
       loops: 0
       sync_ms: 2000
+    flash_color:
+      speed: 3
+      show_tokens:
+        led: tag_lights_mode
+        color: lime

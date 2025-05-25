@@ -1,10 +1,11 @@
 #config_version=6
 
 named_colors:
-  cyan: 00E9FF # also, full lube
+  cyan: 00E9FF # also, full lube and MODE: grooveline
   aqua: 01FFF2 # also, full fuel
-  lime: 57F135 # also, full tires (and positive things)
-  pink: DF02E3 # also, low fuel
+  lime: 57F135 # also, full tires (and positive things) and mode: green_flag
+  pink: DF02E3 # also, low fuel and MODE: grand_prix
+  purple: 6A0EC3 # also, MODE: luxury
   magenta: C661ED # also, low tires
-  orange: FF7F35 # also, low lube
-  red: FF003B # empty resources (and negative things)
+  orange: FF7F35 # also, low lube and MODE: backfire
+  red: FF003B # empty resources (and negative things) and MODE: red_line
