@@ -34,10 +34,8 @@ coils:
   ################
   c_backfire_hole:
     number: 0-3-0
-  c_tires:
-    number: 0-3-1
-  c_oil:
-    number: 0-3-2
+  # 3-1 OPEN
+  # 3-2 OPEN
   # 3-3 OPEN
   c_pop1:
     number: 0-3-4

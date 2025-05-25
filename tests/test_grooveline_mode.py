@@ -12,8 +12,8 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertEqual(
             1, self.machine.game.player.grooveline_counter_count)
 
-        self.machine.events.post("green_flag_degrade_oil")
-        self.machine.events.post("green_flag_degrade_oil")
+        self.machine.events.post("green_flag_degrade_lube")
+        self.machine.events.post("green_flag_degrade_lube")
         self.advance_time_and_run(1)
 
         self.assertModeNotRunning("green_flag")
@@ -23,8 +23,8 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertEqual(
             1, self.machine.game.player.grooveline_counter_count)
 
-        # Player tops up the oil, reactivating green_flag mode
-        self.hit_and_release_switch("s_oil")
+        # Player tops up the lube, reactivating green_flag mode
+        self.hit_and_release_switch("s_pit_lube")
         self.advance_time_and_run(1)
         self.assertModeRunning("green_flag")
         # Grooveline counter still at 1 as its value is

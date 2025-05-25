@@ -21,7 +21,7 @@ class TestBackfireMode(DeathSaveGameTesting):
             sequences["seq_backfire_qualifier"].enabled)
 
         # player returns to the pit
-        self.machine.events.post("pit_required_oil")
+        self.machine.events.post("pit_required_lube")
         self.advance_time_and_run(1)
         self.assertModeNotRunning("green_flag")
         self.assertModeNotRunning("backfire")
@@ -60,7 +60,7 @@ class TestBackfireMode(DeathSaveGameTesting):
     #   linearly increasing the current bumpers
     #   value by 10% up to a maximum TBD
     # - If max is reached in time, immediately return player
-    #   to green flag (fuel, oil and tires are max)
+    #   to green flag (fuel, lube and tires are max)
     #
     def test_scoring(self):
         pass

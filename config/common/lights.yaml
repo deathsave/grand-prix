@@ -324,19 +324,19 @@ lights:
     tags:
     - tag_lights
     - tag_lights_grand
-  l_pit_01:
+  l_pit_tires:
     subtype: matrix
     number: 0-4-17
     tags:
     - tag_lights
     - tag_lights_pit
-  l_pit_02:
+  l_pit_lube:
     subtype: matrix
     number: 0-4-18
     tags:
     - tag_lights
     - tag_lights_pit
-  l_pit_03:
+  l_pit_fuel:
     subtype: matrix
     number: 0-4-19
     tags:

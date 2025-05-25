@@ -9,7 +9,7 @@ random_event_player:
       green_flag_smooth_sailing: 20
       # 74% chance of normal wear and tear
       green_flag_degrade_fuel: 20
-      green_flag_degrade_oil: 20
+      green_flag_degrade_lube: 20
       green_flag_degrade_tires: 20
       green_flag_degrade_all: 14
       # TODO: 5% chance of a multi-car wreck
@@ -24,5 +24,5 @@ random_event_player:
   s_disqualifier_active:
     events:
     - green_flag_degrade_fuel
-    - green_flag_degrade_oil
+    - green_flag_degrade_lube
     - green_flag_degrade_tires

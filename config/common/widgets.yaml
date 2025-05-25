@@ -34,21 +34,21 @@ widgets:
   grand_prix:
     - type: image
       image: grand-prix
-  oil_2:
+  lube_2:
   - type: image
-    image: oil-2
+    image: lube-2
     z: 3
     x: 9%
     y: 86%
-  oil_1:
+  lube_1:
   - type: image
-    image: oil-1
+    image: lube-1
     z: 3
     x: 9%
     y: 86%
-  oil_0:
+  lube_0:
   - type: image
-    image: oil-0
+    image: lube-0
     z: 3
     x: 9%
     y: 86%

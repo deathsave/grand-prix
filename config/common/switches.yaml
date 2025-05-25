@@ -62,7 +62,7 @@ switches:
   #                          #
   # sol 3-0 -> backfire_hole #
   # sol 3-1 -> tires         #
-  # sol 3-2 -> oil           #
+  # sol 3-2 -> pit_lube      #
   # ------------------------ #
   # sol 3-8 -> pop1          #
   # sol 3-9 -> pop2          #
@@ -78,13 +78,13 @@ switches:
     tags:
     - pops
   # north_drop left
-  s_tires:
+  s_pit_tires:
     number: 0-3-24
     tags:
     - playfield_active
     - pit_resource
   # north drop right
-  s_oil:
+  s_pit_lube:
     number: 0-3-25
     tags:
     - playfield_active
@@ -94,7 +94,7 @@ switches:
     tags:
     - tag_hole
   # central drop right
-  s_fuel:
+  s_pit_fuel:
     number: 0-3-27
     tags:
     - playfield_active

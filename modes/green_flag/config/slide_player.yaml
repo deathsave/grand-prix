@@ -6,5 +6,5 @@ slide_player:
       action: play
   player_level_fuel: green_flag_slide
   player_level_tires: green_flag_slide
-  player_level_oil: green_flag_slide
+  player_level_lube: green_flag_slide
 

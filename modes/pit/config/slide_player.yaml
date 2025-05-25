@@ -6,4 +6,4 @@ slide_player:
       action: play
   player_level_fuel: pit_slide
   player_level_tires: pit_slide
-  player_level_oil: pit_slide
+  player_level_lube: pit_slide

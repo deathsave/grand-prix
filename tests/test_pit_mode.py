@@ -18,8 +18,8 @@ class TestPitMode(DeathSaveGameTesting):
         self.hit_and_release_switch("s_launch")
 
         self.assertEqual(0, self.machine.game.player.score)
-        self._assertIncrement(score, "s_oil", 100)
-        self._assertIncrement(score, "s_tires", 100)
+        self._assertIncrement(score, "s_pit_lube", 100)
+        self._assertIncrement(score, "s_pit_tires", 100)
 
         # most switches only score 1 point
         self._assertIncrement(score, "s_pop1", 1)
@@ -42,4 +42,4 @@ class TestPitMode(DeathSaveGameTesting):
 
         # Activates green_flag mode, so check last
         # to prevent scoring false positives
-        self._assertIncrement(score, "s_fuel", 100)
+        self._assertIncrement(score, "s_pit_fuel", 100)

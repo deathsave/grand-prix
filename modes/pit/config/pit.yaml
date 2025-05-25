@@ -10,3 +10,4 @@ config:
 - sound_player.yaml
 - timers.yaml
 - variable_player.yaml
+- light_player.yaml

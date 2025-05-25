@@ -3,12 +3,12 @@
 event_player:
   # To activate "green_flag" mode, the user's vehicle
   # must be ready to race:
-  s_fuel_active:
-  - green_flag{current_player.level_oil == 2 and current_player.level_tires == 2}
-  s_oil_active:
+  s_pit_fuel_active:
+  - green_flag{current_player.level_lube == 2 and current_player.level_tires == 2}
+  s_pit_lube_active:
   - green_flag{current_player.level_fuel == 2 and current_player.level_tires == 2}
-  s_tires_active:
-  - green_flag{current_player.level_fuel == 2 and current_player.level_oil == 2}
+  s_pit_tires_active:
+  - green_flag{current_player.level_fuel == 2 and current_player.level_lube == 2}
   # Multiball Started
   mode_grooveline_started:
   - multiball_started

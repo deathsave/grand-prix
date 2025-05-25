@@ -50,8 +50,8 @@ variable_player:
     level_fuel:
       action: add
       int: -1
-  green_flag_degrade_oil:
-    level_oil:
+  green_flag_degrade_lube:
+    level_lube:
       action: add
       int: -1
   green_flag_degrade_tires:
@@ -62,17 +62,17 @@ variable_player:
     level_fuel:
       action: add
       int: -1
-    level_oil:
+    level_lube:
       action: add
       int: -1
     level_tires:
       action: add
       int: -1
-  s_fuel_active:
+  s_pit_fuel_active:
     level_fuel: 0|block
-  s_oil_active:
-    level_oil: 0|block
-  s_tires_active:
+  s_pit_lube_active:
+    level_lube: 0|block
+  s_pit_tires_active:
     level_tires: 0|block
   ########################
   ## Counter Peristence ##

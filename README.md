@@ -31,9 +31,9 @@ graph TD
   GREEN_FLAG == 100 spins,<br>multiball target ==> LUX_MODE[/"Lap of Luxury Mode"/]
   GREEN_FLAG == grand prix sequence ==> GP_MODE[/"Grand Prix Mode"/]
   RANDOM1 == fuel ==>
-    IS_NEED_PIT{"Fuel, Oil or Tires need attention?"}
+    IS_NEED_PIT{"Fuel, Lube or Tires need attention?"}
   RANDOM1 == tires ==> IS_NEED_PIT
-  RANDOM1 == oil ==> IS_NEED_PIT
+  RANDOM1 == lube ==> IS_NEED_PIT
   RANDOM1 == bad luck ==> BALL_DRAINS((("Ball Drains")))
   IS_NEED_PIT == yes ==> IS_BACKFIRE_QUALIFIED{"Backfire Qualified?"}
   IS_BACKFIRE_QUALIFIED == yes ==> BACKFIRE_MODE[/"Backfire<br>Mode"/]

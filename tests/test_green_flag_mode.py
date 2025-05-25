@@ -18,8 +18,8 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self._assertIncrement(score, "s_pop2", 10)
         self._assertIncrement(score, "s_grooveline", 100)
 
-        self._assertIncrement(score, "s_oil", 100)
-        self._assertIncrement(score, "s_tires", 100)
+        self._assertIncrement(score, "s_pit_lube", 100)
+        self._assertIncrement(score, "s_pit_tires", 100)
         self._assertIncrement(score, "s_backfire_hole", 500)
         self._assertIncrement(score, "s_prix_hole", 100)
         self._assertIncrement(score, "s_grand_hole", 100)
@@ -36,15 +36,15 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self._assertIncrement(score, "s_outlane2", 50)
 
         # Bubbled up from the pit mode
-        self._assertIncrement(score, "s_fuel", 100)
-        self._assertIncrement(score, "s_oil", 100)
-        self._assertIncrement(score, "s_tires", 100)
+        self._assertIncrement(score, "s_pit_fuel", 100)
+        self._assertIncrement(score, "s_pit_lube", 100)
+        self._assertIncrement(score, "s_pit_tires", 100)
 
     def test_laps(self):
         random_events = [
             "green_flag_smooth_sailing",
             "green_flag_degrade_fuel",
-            "green_flag_degrade_oil",
+            "green_flag_degrade_lube",
             "green_flag_degrade_tires",
             "green_flag_degrade_all",
             "green_flag_under_red",
@@ -75,27 +75,27 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self._start()
         self.assertModeNotRunning("green_flag")
 
-        self.hit_and_release_switch("s_fuel")
+        self.hit_and_release_switch("s_pit_fuel")
         self.assertEqual(
             2, self.machine.game.player.level_fuel)
         self.assertModeRunning("green_flag")
 
         # player hits the disqualifier which triggers
-        # the random event "green_flag_degrade_oil" reducing the
-        # player's oil level from 2 to 1
-        self.machine.events.post("green_flag_degrade_oil")
+        # the random event "green_flag_degrade_lube" reducing the
+        # player's lube level from 2 to 1
+        self.machine.events.post("green_flag_degrade_lube")
         self.advance_time_and_run(1)
         self.assertEqual(
-            1, self.machine.game.player.level_oil)
+            1, self.machine.game.player.level_lube)
         self.assertModeRunning("green_flag")
 
         # player's poor luck continues as they hit the
         # disqualifier again, triggering the same event,
-        # reducing their oil level from 1 to 0
-        self.machine.events.post("green_flag_degrade_oil")
+        # reducing their lube level from 1 to 0
+        self.machine.events.post("green_flag_degrade_lube")
         self.advance_time_and_run(1)
         self.assertEqual(
-            0, self.machine.game.player.level_oil)
+            0, self.machine.game.player.level_lube)
         self.assertModeNotRunning("green_flag")
 
     def test_random_green_flag_degrade_fuel_event(self):
@@ -111,23 +111,23 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertEqual(
             0, self.machine.game.player.level_fuel)
         self.assertEqual(
-            2, self.machine.game.player.level_oil)
+            2, self.machine.game.player.level_lube)
         self.assertEqual(
             2, self.machine.game.player.level_tires)
         self.assertModeNotRunning("green_flag")
 
-    def test_random_green_flag_degrade_oil_event(self):
+    def test_random_green_flag_degrade_lube_event(self):
         self._start()
         self._start_green_flag()
-        self.machine.events.post("green_flag_degrade_oil")
+        self.machine.events.post("green_flag_degrade_lube")
         self.advance_time_and_run(1)
         self.assertEqual(
-            1, self.machine.game.player.level_oil)
+            1, self.machine.game.player.level_lube)
         self.assertModeRunning("green_flag")
-        self.machine.events.post("green_flag_degrade_oil")
+        self.machine.events.post("green_flag_degrade_lube")
         self.advance_time_and_run(1)
         self.assertEqual(
-            0, self.machine.game.player.level_oil)
+            0, self.machine.game.player.level_lube)
         self.assertEqual(
             2, self.machine.game.player.level_tires)
         self.assertEqual(
@@ -149,7 +149,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertEqual(
             0, self.machine.game.player.level_tires)
         self.assertEqual(
-            2, self.machine.game.player.level_oil)
+            2, self.machine.game.player.level_lube)
         self.assertEqual(
             2, self.machine.game.player.level_fuel)
         self.assertModeNotRunning("green_flag")
@@ -162,7 +162,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertEqual(
             1, self.machine.game.player.level_tires)
         self.assertEqual(
-            1, self.machine.game.player.level_oil)
+            1, self.machine.game.player.level_lube)
         self.assertEqual(
             1, self.machine.game.player.level_fuel)
         self.assertModeRunning("green_flag")
@@ -171,7 +171,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertEqual(
             0, self.machine.game.player.level_tires)
         self.assertEqual(
-            0, self.machine.game.player.level_oil)
+            0, self.machine.game.player.level_lube)
         self.assertEqual(
             0, self.machine.game.player.level_fuel)
         self.assertModeNotRunning("green_flag")

@@ -18,7 +18,7 @@ Racers, on your mark...
 
 The race begins!
 
-- Activated when fuel, oil, and tires reach max level
+- Activated when fuel, lube, and tires reach max level
 - Top left gate opens allowing a counter-clockwise orbit
 - Each orbit increases the lap counter and adds to the bonus
 - 3 successful orbits:
@@ -38,7 +38,7 @@ TODO:
   linearly increasing the current bumpers
   value by 10% up to a maximum TBD
 - If max is reached in time, immediately return player
-  to green flag (fuel, oil and tires are max)
+  to green flag (fuel, lube and tires are max)
 
 Special Modes
 -------------

@@ -123,8 +123,8 @@ sounds:
   pit_fuel:
     file: pit-fuel.ogg
     track: effects
-  pit_oil:
-    file: pit-oil.ogg
+  pit_lube:
+    file: pit-lube.ogg
     track: effects
   pit_tires:
     file: pit-tires.ogg

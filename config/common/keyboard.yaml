@@ -28,11 +28,11 @@ keyboard:
   p:
     switch: s_prix_hole
   f:
-    switch: s_fuel
+    switch: s_pit_fuel
   o:
-    switch: s_oil
+    switch: s_pit_lube
   t:
-    switch: s_tires
+    switch: s_pit_tires
   m:
     switch: s_multiball_target
   # the next two switches (spinner, grooveline)

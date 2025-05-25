@@ -46,19 +46,19 @@ variable_player:
   #####################
   ## Limited scoring ##
   #####################
-  s_fuel_active:
+  s_pit_fuel_active:
     score: 100
     bonus: 10
     level_fuel:
       int: 2
       action: set
-  s_oil_active:
+  s_pit_lube_active:
     score: 100
     bonus: 10
-    level_oil:
+    level_lube:
       int: 2
       action: set
-  s_tires_active:
+  s_pit_tires_active:
     score: 100
     bonus: 10
     level_tires:

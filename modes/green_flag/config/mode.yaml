@@ -4,11 +4,11 @@ mode:
   start_events:
   - green_flag
   stop_events:
-  - pit_required_oil
+  - pit_required_lube
   - pit_required_fuel
   - pit_required_tires
   - green_flag_bad_luck
-  - green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_oil == 1 or current_player.level_fuel == 1}
+  - green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_lube == 1 or current_player.level_fuel == 1}
   events_when_stopped:
   - start_backfire_qualification
   restart_on_next_ball: true
