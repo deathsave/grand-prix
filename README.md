@@ -8,7 +8,7 @@ of the 1976
 [EM Pinball Machine](http://www.ipdb.org/machine.cgi?id=1072)
 by Williams.
 
-![Attract Slide](https://raw.githubusercontent.com/deathsave/grand-prix/refs/heads/main/images/preload/attract.jpg)
+![Attract Slide](https://raw.githubusercontent.com/deathsave/grand-prix/refs/heads/main/images/preload/splash.jpg)
 
 ### Rules
 
