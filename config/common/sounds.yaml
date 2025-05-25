@@ -40,6 +40,10 @@ sounds:
     file: the-distance.ogg
     track: music
     loop_start_at: 10.52
+  favourite_game:
+    file: favourite-game.ogg
+    track: music
+    loop_start_at: 6.7
   308in:
     file: 308in.ogg
     track: music

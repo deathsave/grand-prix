@@ -25,6 +25,9 @@ sound_player:
   mode_luxury_stopped:
     million_dollars:
       action: stop
+  mode_grand_prix_stopped:
+    favourite_game:
+      action: stop
   mode_red_line_stopped:
     308in:
       action: stop

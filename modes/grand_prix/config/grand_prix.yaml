@@ -6,3 +6,4 @@ config:
 - multiballs.yaml
 - slide_player.yaml
 - show_player.yaml
+- sound_player.yaml
