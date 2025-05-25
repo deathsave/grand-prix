@@ -8,3 +8,6 @@ sound_player:
   logicblock_grand_counter_complete: fly_by
   logicblock_prix_counter_complete: fly_by
   sw_tag_swerve: swerve
+  mode_green_flag_started:
+    pit_ambience:
+      action: stop

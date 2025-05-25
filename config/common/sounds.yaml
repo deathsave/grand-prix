@@ -133,6 +133,9 @@ sounds:
     file: real-pit.ogg
     track: effects
     priority: 10
+  pit_ambience:
+    file: pit-ambience.ogg
+    track: music
   rev1:
     file: rev-1.ogg
     track: effects
