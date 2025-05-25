@@ -2,8 +2,13 @@ from mpf.core.mode import Mode
 
 class Pit(Mode):
     # Maps various states to corresponding lights
-    # For non-bool states, the value is a tuple of the
-    # light prefix and the max number in the sequence
+    #
+    # - For boolean states, the value is the light name
+    # - For multi-value states, the values appear in
+    #   descending order following the first value which
+    #   is the target light name
+    # - For sequential counters, the value is a tuple of the
+    #   light prefix and the max number in the sequence
     PROGRESS_MAP = {
         "is_grooveline_completed": "l_signal1",
         "is_luxury_completed": "l_signal2",
@@ -14,6 +19,11 @@ class Pit(Mode):
         "grand_counter_count": [ "l_grand", 5 ],
         "prix_counter_count": [ "l_prix", 4 ],
         "multiplier": [ "l_multiplier", 3 ],
+        "level_tires": [
+            "l_pit_tires", "red", "magenta", "lime",
+        ],
+        "level_lube": [ "l_pit_lube", "red", "orange","cyan" ],
+        "level_fuel": [ "l_pit_fuel", "red", "pink", "aqua" ]
     }
 
     def mode_start(self, **kwargs):
@@ -31,22 +41,34 @@ class Pit(Mode):
     # Checks and lights up the direct progress lights
     # per the PROGRESS_MAP
     def update_progress(self, **kwargs):
-        player = self.machine.game.player
         for state, value in self.PROGRESS_MAP.items():
-            # print(f"Checking {state} for {value}")
             if state.startswith("is_"):
-                # print(f"Syncing boolean state {state}")
-                if getattr(player, state) == 1:
-                    self.machine.lights[value].on()
+                self.handle_bool(state, value)
+            elif state.startswith("level_"):
+                self.handle_multi_value(state, value)
             else:
-                if not player.is_player_var(state):
-                    # print(f"Skipping {state} for {value}")
-                    continue
-                # print("TODO: Syncing counter")
-                current_state = getattr(player, state)
-                for i in range(1, value[1] + 1):
-                    light_name = f"{value[0]}_{i:0>2}"
-                    if i <= current_state:
-                        self.machine.lights[light_name].on()
-                    else:
-                        self.machine.lights[light_name].off()
+                self.handle_sequential_counter(state, value)
+
+    def handle_bool(self, state, light_name):
+        player = self.machine.game.player
+        if getattr(player, state) == 1:
+            self.machine.lights[light_name].on()
+        else:
+            self.machine.lights[light_name].off()
+
+    def handle_multi_value(self, state, values):
+        player = self.machine.game.player
+        current_state = getattr(player, state)
+        light_name = values[0]
+        self.machine.lights[light_name]. \
+            color(values[current_state + 1])
+
+    def handle_sequential_counter(self, state, value_tuple):
+        player = self.machine.game.player
+        current_state = getattr(player, state)
+        for i in range(1, value_tuple[1] + 1):
+            light_name = f"{value_tuple[0]}_{i:0>2}"
+            if i <= current_state:
+                self.machine.lights[light_name].on()
+            else:
+                self.machine.lights[light_name].off()

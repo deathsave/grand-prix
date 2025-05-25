@@ -324,24 +324,6 @@ lights:
     tags:
     - tag_lights
     - tag_lights_grand
-  l_pit_tires:
-    subtype: matrix
-    number: 0-4-17
-    tags:
-    - tag_lights
-    - tag_lights_pit
-  l_pit_lube:
-    subtype: matrix
-    number: 0-4-18
-    tags:
-    - tag_lights
-    - tag_lights_pit
-  l_pit_fuel:
-    subtype: matrix
-    number: 0-4-19
-    tags:
-    - tag_lights
-    - tag_lights_pit
   l_multiball:
     subtype: matrix
     number: 0-4-21
@@ -539,3 +521,21 @@ lights:
     tags:
     - tag_lights
     - tag_lights_grooveline
+  l_pit_tires:
+    subtype: led
+    number: 1-0-11
+    tags:
+    - tag_lights
+    - tag_lights_pit
+  l_pit_lube:
+    subtype: led
+    number: 1-0-12
+    tags:
+    - tag_lights
+    - tag_lights_pit
+  l_pit_fuel:
+    subtype: led
+    number: 1-0-13
+    tags:
+    - tag_lights
+    - tag_lights_pit

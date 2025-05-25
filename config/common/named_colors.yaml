@@ -1,10 +1,10 @@
 #config_version=6
 
 named_colors:
-  cyan: 00E9FF
-  aqua: 01FFCC # also, full fuel + full lube
+  cyan: 00E9FF # also, full lube
+  aqua: 01FFF2 # also, full fuel
+  lime: 57F135 # also, full tires (and positive things)
   pink: DF02E3 # also, low fuel
   magenta: C661ED # also, low tires
-  lime: 57F135 # also, full tires or positive things
   orange: FF7F35 # also, low lube
-  red: FF003B # also, negative things
+  red: FF003B # empty resources (and negative things)

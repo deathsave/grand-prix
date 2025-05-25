@@ -27,3 +27,9 @@ event_player:
   - multiball_stopped
   mode_red_line_stopped:
   - multiball_stopped
+  player_level_tires_active:
+  - pit_resource
+  player_level_lube_active:
+  - pit_resource
+  player_level_fuel_active:
+  - pit_resource
