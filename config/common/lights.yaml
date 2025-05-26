@@ -223,6 +223,7 @@ lights:
     subtype: matrix
     number: 0-2-16
     tags:
+    - tag_lights
     - tag_lights_spinner
   l_spinner_06:
     subtype: matrix

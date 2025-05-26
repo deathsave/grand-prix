@@ -2,9 +2,17 @@
 
 # Start game with 's' key
 # Then 'l' to launch, 'f' to fuel up
-#
 
 keyboard:
+  #########################
+  ## Testing / Debugging ##
+  #########################
+  ctrl+l:
+    event: light_all
+
+  ####################
+  ## Trough / Drain ##
+  ####################
   1:
     switch: s_trough1
     toggle: true
@@ -17,49 +25,63 @@ keyboard:
   4:
     switch: s_trough_jam
     toggle: true
+
+  #############
+  ## Control ##
+  #############
   s:
     switch: s_start
   l:
     switch: s_launch
+
+  # Flippers
+  z:
+    switch: s_flipper2
+  "/":
+    switch: s_flipper1
+
+  ########################
+  ## Switches / Targets ##
+  ########################
+  m:
+    switch: s_multiball_target
+
+  # Scoops
   g:
     switch: s_grand_hole
   b:
     switch: s_backfire_hole
   p:
     switch: s_prix_hole
+
+  # Pit Resources
   f:
     switch: s_pit_fuel
   o:
     switch: s_pit_lube
   t:
     switch: s_pit_tires
-  m:
-    switch: s_multiball_target
-  # the next two switches (spinner, grooveline)
-  # in sequence trigger a "lap"
+
+  # Lap sequence (spinner, grooveline)
   ",":
     switch: s_spinner
   ".":
     switch: s_grooveline
-  z:
-    switch: s_flipper2
-  "/":
-    switch: s_flipper1
+
   "[":
     switch: s_pop1
   "]":
     switch: s_pop2
-  "-":
+  ";":
     switch: s_slingshot2
-  "=":
-    switch: s_slingshot1
   "'":
-    event: light_all
-  q:
-    event: start_high_score
+    switch: s_slingshot1
+
   #####################
   ## MODE ACTIVATION ##
   #####################
+  shift-h:
+    event: start_high_score
   # Luxury
   shift-l:
     event: luxury_qualifier_hit
