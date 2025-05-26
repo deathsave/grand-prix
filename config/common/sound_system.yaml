@@ -20,9 +20,9 @@ sound_system:
       volume: 0.4
     ambience:
       type: standard
-      simultaneous_sounds: 2 # comm noise and track background
+      simultaneous_sounds: 3
       volume: 0.2
     chimebox:
       type: standard
-      simultaneous_sounds: 3
-      volume: 0.5
+      simultaneous_sounds: 10
+      volume: 0.4

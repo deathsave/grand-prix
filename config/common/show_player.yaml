@@ -5,3 +5,6 @@ show_player:
     lights_blink:
       show_tokens:
         lights: tag_lights
+  player_will_add:
+    chime_default:
+      loops: 0

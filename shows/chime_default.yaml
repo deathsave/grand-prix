@@ -1,0 +1,18 @@
+#show_version=6
+
+- time: 0
+  sounds:
+    chime_mid: play
+- time: "+0.12s"
+  sounds:
+    chime_mid: play
+- time: "+0.12s"
+  sounds:
+    chime_mid: play
+- time: "+0.12s"
+  sounds:
+    chime_mid: play
+- time: "+0.12s"
+  sounds:
+    chime_mid: play
+- time: "+0.6s"
