@@ -57,3 +57,14 @@ keyboard:
     event: light_all
   q:
     event: start_high_score
+  #####################
+  ## MODE ACTIVATION ##
+  #####################
+  # Luxury
+  shift-l:
+    event: luxury_qualifier_hit
+  # Grand Prix
+  shift-p:
+    event: grand_prix_qualifier_hit
+  shift-g:
+    event: grooveline_qualifier_hit

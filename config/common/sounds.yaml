@@ -40,22 +40,33 @@ sounds:
     file: the-distance.ogg
     track: music
     loop_start_at: 10.52
+    volume: 0.5
   favourite_game:
     file: favourite-game.ogg
     track: music
     loop_start_at: 6.7
+    volume: 0.4
   308in:
     file: 308in.ogg
     track: music
+    volume: 0.5
   blinding_lights:
     file: blinding-lights.ogg
     track: music
+    volume: 0.3
   groove_thing:
     file: groove-thing.ogg
     track: music
+    volume: 0.5
+    loop_start_at: 7.27
   million_dollars:
     file: million-dollars.ogg
     track: music
+    volume: 0.5
+  pit_ambience:
+    file: pit-ambience.ogg
+    track: music
+    volume: 0.2
 
   ##############
   ## Ambience ##
@@ -67,23 +78,27 @@ sounds:
   comm_noise_off:
     file: comm-noise-off.ogg
     track: ambience
-    volume: 0.15
+    volume: 0.1
   comm_noise_on:
     file: comm-noise-on.ogg
     track: ambience
-    volume: 0.15
+    volume: 0.1
   at_the_track1:
     file: at-the-track-1.ogg
     track: ambience
+    volume: 0.4
   at_the_track2:
     file: at-the-track-2.ogg
     track: ambience
+    volume: 0.4
   at_the_track3:
     file: at-the-track-3.ogg
     track: ambience
+    volume: 0.4
   at_the_track4:
     file: at-the-track-4.ogg
     track: ambience
+    volume: 0.4
 
   ###################
   ## Sound Effects ##
@@ -137,9 +152,6 @@ sounds:
     file: real-pit.ogg
     track: effects
     priority: 10
-  pit_ambience:
-    file: pit-ambience.ogg
-    track: music
   rev1:
     file: rev-1.ogg
     track: effects
@@ -290,13 +302,13 @@ sounds:
     track: voice
   grooveline01:
     file: grooveline-01.ogg
-    track: music
+    track: voice
   grooveline02:
     file: grooveline-02.ogg
-    track: music
+    track: voice
   grooveline03:
     file: grooveline-03.ogg
-    track: music
+    track: voice
   grooveline_progress01:
     file: grooveline-progress-01.ogg
     track: voice
@@ -308,22 +320,22 @@ sounds:
     track: voice
   luxury01:
     file: luxury-01.ogg
-    track: music
+    track: voice
   luxury02:
     file: luxury-02.ogg
-    track: music
+    track: voice
   luxury_progress01:
     file: luxury-progress-01.ogg
-    track: music
+    track: voice
   luxury_progress02:
     file: luxury-progress-02.ogg
-    track: music
+    track: voice
   luxury_start01:
     file: luxury-start-01.ogg
-    track: music
+    track: voice
   luxury_start02:
     file: luxury-start-02.ogg
-    track: music
+    track: voice
   mistake01:
     file: mistake-01.ogg
     track: voice

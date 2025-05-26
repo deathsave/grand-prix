@@ -4,3 +4,4 @@ sound_player:
   mode_grooveline_started:
     groove_thing:
       action: play
+      loops: -1
