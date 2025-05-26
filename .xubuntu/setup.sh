@@ -22,3 +22,6 @@ sudo sed -i -e 's/NM_ONLINE_TIMEOUT=60/NM_ONLINE_TIMEOUT=5/g' \
 # Remap Caps Lock to Backspace for VIM
 sudo sed -i -e 's/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:backspace\"/g' /etc/default/keyboard
 sudo dpkg-reconfigure keyboard-configuration
+
+# Alias serial devices
+sudo ln -s $HOME/grand-prix/.xubuntu/opp.rules /etc/udev/rules.d/opp.rules
