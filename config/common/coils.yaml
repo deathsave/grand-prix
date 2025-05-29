@@ -34,7 +34,8 @@ coils:
   ################
   c_backfire_hole:
     number: 0-3-0
-  # 3-1 OPEN
+  c_prix_hole:
+    number: 0-3-1
   # 3-2 OPEN
   # 3-3 OPEN
   c_pop1:
@@ -43,8 +44,7 @@ coils:
     number: 0-3-5
   c_fuel:
     number: 0-3-6
-  c_prix_hole:
-    number: 0-3-7
+  # 3-7 BLOWN
 
   ################
   ## PLAYFIELD2 ##

@@ -46,13 +46,19 @@ keyboard:
   m:
     switch: s_multiball_target
 
-  # Scoops
-  g:
-    switch: s_grand_hole
-  b:
+  # Scoops & grouped switched
+  b+h:
     switch: s_backfire_hole
-  p:
+
+  g+h:
+    switch: s_grand_hole
+  g+t:
+    switch: s_save_target
+
+  p+h:
     switch: s_prix_hole
+  p+t:
+    switch: s_save_target
 
   # Pit Resources
   f:
