@@ -10,11 +10,11 @@ hardware:
 
 opp:
   debug: true
-  ports: /dev/ttyACM0, /dev/ttyACM1
+  ports: /dev/ttyOPP0, /dev/ttyOPP1
   chains:
-    0: /dev/ttyACM0
-    1: /dev/ttyACM1
+    0: /dev/ttyOPP0
+    1: /dev/ttyOPP1
 
 mypinballs:
   debug: true
-  port: /dev/ttyACM2
+  port: /dev/ttyMYPB
