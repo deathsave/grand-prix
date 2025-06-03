@@ -10,6 +10,7 @@ config:
 - common/game.yaml
 - common/keyboard.yaml
 - common/lights.yaml
+- common/rgb_leds.yaml
 - common/modes.yaml
 - common/playfields.yaml
 - common/slides.yaml

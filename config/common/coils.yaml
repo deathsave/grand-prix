@@ -1,18 +1,8 @@
 #config_version=6
 
 coils:
-  ##########
-  ## CAB1 ##
-  ##########
   c_knocker:
     number: 0-0-12
-  # 0-13 OPEN
-  # 0-14 OPEN
-  # 0-15 OPEN
-
-  ##########
-  ## CAB2 ##
-  ##########
   c_chime1:
     number: 0-1-0
   c_chime2:
@@ -22,60 +12,31 @@ coils:
   c_shaker_motor:
     number: 0-1-3
     default_hold_power: 1
-
-  ###########
-  ## MIXED ##
-  ###########
-  #
-  # NO COILS ON BOARD INDEX 2
-
-  ################
-  ## PLAYFIELD1 ##
-  ################
   c_backfire_hole:
     number: 0-3-0
   c_prix_hole:
     number: 0-3-1
-  # 3-2 OPEN
-  # 3-3 OPEN
   c_pop1:
     number: 0-3-4
   c_pop2:
     number: 0-3-5
   c_fuel:
     number: 0-3-6
-  # 3-7 BLOWN
-
-  ################
-  ## PLAYFIELD2 ##
-  ################
   c_disqualifier:
     number: 0-4-0
   c_grand_hole:
     number: 0-4-1
-  # 4-2 OPEN
-  # 4-3 OPEN
-
-  #############
-  ## APRON 1 ##
-  #############
   c_flipper2:
     number: 0-5-0
     default_hold_power: 0.5
   c_slingshot2:
     number: 0-5-1
-  # UNUSED 5-2
   c_auto_kicker:
     number: 0-5-3
-
-  #############
-  ## APRON 2 ##
-  #############
   c_flipper1:
     number: 0-6-0
     default_hold_power: 0.5
   c_slingshot1:
     number: 0-6-1
-  # UNUSED 6-2
   c_trough:
     number: 0-6-3

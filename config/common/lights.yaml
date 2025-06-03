@@ -1,10 +1,6 @@
 #config_version=6
 
 lights:
-  #################
-  # Board BACKBOX #
-  #################
-
   l_backbox_match_00:
     subtype: matrix
     number: 0-0-0
@@ -156,39 +152,16 @@ lights:
     - tag_lights
     - tag_lights_active_ball
     - tag_lights_info_lights
-
-  ####################
-  # Board PLAYFIELD1 #
-  ####################
-
-  # NOTE: Only the 3rd wing is wired
-  #       for incandescent / 6v drivers
   l_gi:
     subtype: matrix
     number: 0-3-16
     tags:
     - tag_lights
-
-  # UNUSED 1-17
-  # UNUSED 1-18
-  # UNUSED 1-19
-  # UNUSED 1-20
-  # UNUSED 1-21
-  # UNUSED 1-22
-
-  # NOTE: this is a workaround for the mini
-  #       coils which only require 5v
   x_loop_gate:
     subtype: matrix
     number: 0-3-23
     tags:
     - tag_lights
-
-  #############
-  # Board CAB #
-  #############
-
-  # UNUSED 2-0
   l_swerve1:
     subtype: matrix
     number: 0-2-11
@@ -266,11 +239,6 @@ lights:
     number: 0-2-23
     tags:
     - tag_lights
-
-  ####################
-  # Board PLAYFIELD2 #
-  ####################
-
   l_signal4: # red line
     subtype: matrix
     number: 0-4-8
@@ -330,14 +298,6 @@ lights:
     number: 0-4-21
     tags:
     - tag_lights
-  # UNUSED 4-21
-  # UNUSED 4-22
-  # UNUSED 4-23
-
-  ################
-  # Board APRON1 #
-  ################
-
   l_apron:
     subtype: matrix
     number: 0-5-8
@@ -372,13 +332,6 @@ lights:
     tags:
     - tag_lights
     - tag_lights_outlane
-  # UNUSED 5-14
-  # UNUSED 5-15
-
-  ################
-  # Board APRON2 #
-  ################
-
   l_bottom_outlane2:
     subtype: matrix
     number: 0-6-8
@@ -433,116 +386,3 @@ lights:
     tags:
     - tag_lights
     - tag_lights_multiplier
-  # UNUSED 6-19
-  # UNUSED 6-20
-  # UNUSED 6-21
-  # UNUSED 6-22
-  # UNUSED 6-23
-
-  #######################
-  ## SweetLED (Neopixel #
-  #######################
-
-  l_backfire:
-    subtype: led
-    number: 1-0-0
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  #   number: 7-0
-  l_grooveline_01:
-    subtype: led
-    number: 1-0-1
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_02:
-    subtype: led
-    number: 1-0-2
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_03:
-    subtype: led
-    number: 1-0-3
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_04:
-    subtype: led
-    number: 1-0-4
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_05:
-    subtype: led
-    number: 1-0-5
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_06:
-    subtype: led
-    number: 1-0-6
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_07:
-    subtype: led
-    number: 1-0-7
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_08:
-    subtype: led
-    number: 1-0-8
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_09:
-    subtype: led
-    number: 1-0-9
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_grooveline_10:
-    subtype: led
-    number: 1-0-10
-    tags:
-    - tag_lights
-    - tag_lights_grooveline
-  l_pit_tires:
-    subtype: led
-    number: 1-0-11
-    tags:
-    - tag_lights
-    - tag_lights_pit
-  l_pit_lube:
-    subtype: led
-    number: 1-0-12
-    tags:
-    - tag_lights
-    - tag_lights_pit
-  l_mode_arrow1:
-    subtype: led
-    number: 1-0-13
-    tags:
-    - tag_lights
-    - tag_lights_mode
-  l_mode_arrow2:
-    subtype: led
-    number: 1-0-14
-    tags:
-    - tag_lights
-    - tag_lights_mode
-  l_pit_fuel:
-    subtype: led
-    number: 1-0-15
-    tags:
-    - tag_lights
-    - tag_lights_pit
-  l_mode_backbox:
-    subtype: led
-    number: 1-0-16
-    tags:
-    - tag_lights
-    - tag_lights_mode
