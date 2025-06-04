@@ -6,7 +6,6 @@ ball_devices:
     - s_trough1
     - s_trough2
     - s_trough3
-    - s_trough4
     tags:
     - trough
     - home

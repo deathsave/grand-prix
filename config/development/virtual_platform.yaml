@@ -87,9 +87,8 @@ widget_player:
         # https://missionpinball.org/latest/mc/widgets/layers/
         z: -1
 
-# So a dev/test game starts with balls in the trough
+# So a dev/test game starts with 3 balls in the trough
 virtual_platform_start_active_switches:
 - s_trough1
 - s_trough2
 - s_trough3
-- s_trough4

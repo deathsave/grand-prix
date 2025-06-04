@@ -136,9 +136,6 @@ switches:
   s_trough3:
     number: 0-4-25
     type: NC
-  s_trough4:
-    number: 0-4-26
-    type: NC
   s_trough_jam:
     number: 0-4-27
     type: NC
