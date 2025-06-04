@@ -5,6 +5,10 @@ show_player:
     lights_blink:
       show_tokens:
         lights: tag_lights
+  s_flipper1_active:
+    light_one: advance
+  s_flipper2_active:
+    light_one: step_back
   player_will_add:
     chime_default:
       loops: 0

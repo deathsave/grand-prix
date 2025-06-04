@@ -14,10 +14,13 @@ hardware:
 
 opp:
   baud: 115200
-  ports: /dev/cu.usbmodem1401
+  ports: /dev/cu.usbmodem1101, /dev/cu.usbmodem4EC1526B4B001
+  chains:
+    0: /dev/cu.usbmodem1101
+    1: /dev/cu.usbmodem4EC1526B4B001
 
 mypinballs:
   debug: true
-  port: /dev/cu.usbmodem13101
+  port: /dev/cu.usbmodem1301
   #port: /dev/ttyAMA0
   #port: /dev/ttyACM0

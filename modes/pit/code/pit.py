@@ -26,6 +26,8 @@ class Pit(Mode):
         "level_fuel": [ "l_pit_fuel", "red", "pink", "aqua" ]
     }
 
+    index = 0
+
     def mode_start(self, **kwargs):
         self.reset_grooveline_count()
         self.update_progress()
@@ -41,13 +43,29 @@ class Pit(Mode):
     # Checks and lights up the direct progress lights
     # per the PROGRESS_MAP
     def update_progress(self, **kwargs):
-        for state, value in self.PROGRESS_MAP.items():
-            if state.startswith("is_"):
-                self.handle_bool(state, value)
-            elif state.startswith("level_"):
-                self.handle_multi_value(state, value)
-            else:
-                self.handle_sequential_counter(state, value)
+        for i, light in enumerate(self.machine.lights.values()):
+            print("****************************************")
+            print(f"Light {i}: {light.name}")
+            print(light.hw_drivers.values())
+            print("****************************************")
+            light.off()
+            if self.index >= len(self.machine.lights):
+                self.index = 0
+            if i == self.index:
+                light.on()
+                print(light.hw_drivers.values())
+                self.index = i + 1
+                break
+            # print("****************************************")
+            # print(f"Light {i}: {val}")
+            # print("****************************************")
+        # for state, value in self.PROGRESS_MAP.items():
+        #     if state.startswith("is_"):
+        #         self.handle_bool(state, value)
+        #     elif state.startswith("level_"):
+        #         self.handle_multi_value(state, value)
+        #     else:
+        #         self.handle_sequential_counter(state, value)
 
     def handle_bool(self, state, light_name):
         player = self.machine.game.player
