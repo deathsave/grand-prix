@@ -5,4 +5,6 @@ sound_player:
     backfire_loop:
       action: play
       loops: -1
-  sw_pops: backfire
+  sw_pops:
+    backfire:
+      block: true

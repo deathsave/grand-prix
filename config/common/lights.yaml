@@ -169,12 +169,12 @@ lights:
     tags:
     - tag_lights
     - tag_lights_swerve
-  # l_spinner_10:
-  #   subtype: matrix
-  #   number: 0-2-10
-  #   tags:
-  #   - tag_lights
-  #   - tag_lights_spinner
+  l_spinner_10:
+    subtype: matrix
+    number: 0-2-10
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_spinner_09:
     subtype: matrix
     number: 0-2-11

@@ -104,6 +104,10 @@ sounds:
   ## Sound Effects ##
   ###################
 
+  bell:
+    file: bell.ogg
+    volume: 0.1
+    track: effects
   backfire_loop:
     file: backfire-loop.ogg
     track: effects

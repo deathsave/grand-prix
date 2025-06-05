@@ -34,10 +34,12 @@ switches:
     number: 0-1-0 # direct
     tags:
     - pops
+    - tag_bell
   s_pop2:
     number: 0-1-1 # direct
     tags:
     - pops
+    - tag_bell
   s_pit_tires:
     number: 0-2-25
     tags:
@@ -52,6 +54,7 @@ switches:
     number: 0-2-27
     tags:
     - tag_hole
+    - tag_bell
   s_pit_fuel:
     number: 0-2-28
     tags:
@@ -61,28 +64,34 @@ switches:
     number: 0-2-29
     tags:
     - tag_hole
+    - tag_bell
   s_bonus_target:
     number: 0-2-30
     tags:
     - playfield_active
     - tag_rev
+    - tag_bell
   s_grooveline:
     number: 0-2-31
     tags:
     - playfield_active
+    - tag_bell
   s_save_target:
     number: 0-3-16
     tags:
     - playfield_active
     - tag_rev
+    - tag_bell
   s_grand_hole:
     number: 0-3-17
     tags:
     - tag_hole
+    - tag_bell
   s_multiball_target:
     number: 0-3-18
     tags:
     - playfield_active
+    - tag_bell
   s_disqualifier:
     number: 0-3-19
     tags:
@@ -92,33 +101,41 @@ switches:
     tags:
     - playfield_active
     - tag_swerve
+    - tag_bell
   s_swerve2:
     number: 0-3-21
     tags:
     - playfield_active
     - tag_swerve
+    - tag_bell
   s_flipper2:
     number: 0-3-22 # direct
     tags:
     - left_flipper
   s_slingshot2:
     number: 0-3-23 # direct
+    tags:
+    - tag_bell
   s_inlane1:
     number: 0-3-24
     tags:
     - playfield_active
+    - tag_bell
   s_outlane1:
     number: 0-3-25
     tags:
     - playfield_active
+    - tag_bell
   s_inlane2:
     number: 0-3-26
     tags:
     - playfield_active
+    - tag_bell
   s_outlane2:
     number: 0-3-27
     tags:
     - playfield_active
+    - tag_bell
   s_shooter_lane:
     number: 0-3-28
   s_flipper1:
@@ -127,6 +144,8 @@ switches:
     - right_flipper
   s_slingshot1:
     number: 0-3-30 # direct
+    tags:
+    - tag_bell
   s_trough1:
     number: 0-3-31
     type: NC

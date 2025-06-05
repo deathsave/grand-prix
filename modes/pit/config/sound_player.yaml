@@ -36,3 +36,5 @@ sound_player:
   s_pit_fuel_active: pit_fuel
   s_pit_lube_active: pit_lube
   s_pit_tires_active: pit_tires
+  # fallback sound
+  sw_tag_bell: bell

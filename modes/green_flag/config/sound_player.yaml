@@ -1,13 +1,27 @@
 #config_version=6
 
 sound_player:
-  logicblock_lap_counter_hit: fly_by
-  sw_tag_rev: rev
-  logicblock_grand_counter_hit: rev
-  logicblock_prix_counter_hit: rev
-  logicblock_grand_counter_complete: fly_by
-  logicblock_prix_counter_complete: fly_by
-  sw_tag_swerve: swerve
+  sw_tag_rev:
+    rev:
+      block: true
+  logicblock_grand_counter_hit:
+    rev:
+      block: true
+  logicblock_prix_counter_hit:
+    rev:
+      block: true
+  logicblock_lap_counter_hit:
+    fly_by:
+      block: true
+  logicblock_grand_counter_complete:
+    fly_by:
+      block: true
+  logicblock_prix_counter_complete:
+    fly_by:
+      block: true
+  sw_tag_swerve:
+    swerve:
+      block: true
   mode_green_flag_started:
     pit_ambience:
       action: stop
