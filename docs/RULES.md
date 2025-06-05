@@ -1,145 +1,91 @@
-Grand Prix ’86 RULES
-====================
+Grand Prix ’86
+==============
 
-Main objective is to gas up, keep the car in good shape, and
-either run up the score completing laps or qualify the Grand Prix.
+[![Grand Prix '86 Pinball](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml/badge.svg)](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml)
 
-Fundamental Modes
------------------
+Strap in for Grand Prix ’86—the homebrew pinball thrill ride where speed meets spaghetti code, and every multiball is a minor miracle!
 
-### Pit Row (Base Mode)
+Your quest: fuel up, fix up, and fly through laps in Green Flag Mode, where orbit shots rack up points and sometimes even do other things yet to be determined. Smash your way through Backfire Pops for a frenzy of bumpers and “hurry ups” that may or may not hurry anything. Craving more chaos? Unlock Grooveline, Lap of Luxury, or the gloriously glitchy Grand Prix multiballs—each one lighting up inserts like a disco ball with a loose wire. Nab three traffic signals to trigger the legendary Red Line Wizard Mode, a 60-second ball-slinging spectacle that probably doesn't exist yet. End-of-ball bonus? Well... that's in development, too, but imagine how amazing it will be when or if we ever get around to integrating it!
 
-Racers, on your mark...
+How things are supposed to Work
+-------------------------------
 
-- Top left gate is closed.
-- Standard scoring described here
+A day before the expo, this game was not flipping, so if
+it is, you're in luck and maybe some of this is relevant?
+If it isn't flipping, well, you can still read about our
+failed dreams and aspirations.
 
-### Green-flag (Main Mode)
+### General Modes
 
-The race begins!
+#### Pit Row
 
-- Activated when fuel, lube, and tires reach max level
-- Top left gate opens allowing a counter-clockwise orbit
-- Each orbit increases the lap counter and adds to the bonus
-- 3 successful orbits:
-  - Causes a random event
-  - Awards a bonus (TODO)
+> Every driver's got to pit Cole...
 
-### Backfire Pops
+- Fuel up, lube up, and change the treads
 
-When exiting green flag mode to pit, the drivers
+#### Green-flag (Main Mode)
+
+With a well-oiled vehicle, the race begins:
+
+- Counter-clockwise orbit awards a lap
+- A successful lap awards a Grooveline insert
+- 3 laps simulates wear and tear on the vehicle
+
+#### Backfire Pops
+
+When exiting green flag mode to pit, a drivers
 engine may "backfire". Hit the spinner, then enter
 the backfire hole to activate a hurry up. Hit the
-pop bumpers to collect points while the engine "pops".
+pop bumpers to collect points in this limited time mode.
 
-TODO:
+### Special Modes
 
-- Each consecutive pop bumper hit increases
-  linearly increasing the current bumpers
-  value by 10% up to a maximum TBD
-- If max is reached in time, immediately return player
-  to green flag (fuel, lube and tires are max)
+Three special modes build up to activation of a
+fourth, pseudo-wizard mode.
 
-Special Modes
--------------
+#### Grooveline Multiball 1/3
 
-There are 3 special modes which build up to activation of the
-4th, pseudo-wizard mode.
-
-### Grooveline 1/3 (CYAN)
+![Grooveline Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grooveline.png)
 
 The fastest way around the track (the North-West chain of 10
 purple inserts).
 
 - Making a lap during Green Flag lights an insert, in sequence
   from top to bottom
-- Lighting all 10 inserts and then hitting the "disqualifer":
-  - **Activates "Grooveline" Multiball!**
-    - Spinner and Grooveline rollover awards 2x scoring
-    - Add single ball by completing 3 laps within 15 seconds
-  - Lights first of the 4 traffic signal inserts (Yellow)
-- **This mode resets progress after each ball**
+- Light all 10 inserts to qualify the multiball
+- Hit the multiball target to activate Grooveline Multiball
+  - Add a ball by completing 3 laps within 15 seconds
+  - **Mode resets progress with the conclusion of each ball**
 
-### Lap of Luxury 2/3 (MAGENTA)
+#### Lap of Luxury Multiball 2/3
 
-"Spinning" a (very high - TBD) number of times during Green Flag
-across multiple balls will eventually max out the bonus, lighting all inserts in the North-East chain and qualifying the "Lap of Luxury". Hit the multiball target to being Luxury Multiball. 6 shots award higher scoring and a bonus if completed.
+![Lap of Luxury Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/luxury.png)
 
-### Grand Prix 3/3 (HOT PINK)
+Crushing the Spinner during Green Flag across multiple
+balls will eventually max out the bonus, lighting all
+inserts in the North-East chain and qualifying the "Lap of 
+Luxury". Hit the multiball target to begin Luxury Multiball.
+
+#### Grand Prix Multiball 3/3
+
+![Grand Prix Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grand-prix.png)
 
 It's the name of the game!
 
 - Top-most 5 inserts in South-West chain spells out G-R-A-N-D
 - Top-most 4 inserts in South-East chain spells out P-R-I-X
 - Left standing target lights a GRAND insert
-- After lighting all of GRAND, entering the hole locks a ball,
-  completes GRAND and enables PRIX
+- After lighting all of GRAND, entering the hole:
+  - Locks a ball
+  - Completes GRAND
+  - Enables PRIX
 - Right standing target lights a PRIX insert
-- Afer lighting all 4 of PRIX, entering the hole locks a ball,
-  completes PRIX and lights the multiball insert
-- Hit the multiball target to start grand prix multiball
-  - Add a ball up to 3 times by getting into any hole, exclusive
-  - Lights THIRD of the 4 traffic signal inserts
+- Afer lighting all 4 of PRIX, entering the hole:
+  - Locks a ball
+  - Completes PRIX
+  - Lights the multiball
+- Hit the multiball target to start Grand Prix Multiball
 
 #### Red Line (Wizard Mode)
 
-Once 3/4 traffic signals are lit, the fourth will begin flashing
-in red color. The player then only needs to lock a ball in ANY of
-the 3 holes to activate Red Line Multiball.
-
-- Constant multi-ball for 60 seconds - all balls returned
-- Player needs to hit every switch on the playfield to
-  complete the mode
-- Mode continues until all the extra balls drain or up to
-  another 50 seconds when the song completes
-- Each shot should play a random "wrecking/crash" sound from
-  the pool and sound the chimebox
-
-Other Modes / Functionalities
------------------------------
-
-### End of Ball Bonus
-
-- Pulses chimebox in time with music equal to lit
-  letters, turning them off with each group (throwback)
-  and is followed by "There's no time to discriminate
-  Hate every motherfucker That's in your way"
-- Bonus inserts lit by spinner
-  - Every `n` spins lights 1/10 of the bonus inserts in sequence
-    - (experiment with how many spins a typical ball gets)
-  - Lighting the last insert locks in the first, second and so on
-- Bonus calculated by:
-  - Lit Bonus insert * (Number of lit traffic signals)
-
-### Tilt
-
-- Sound clip: "Hey, you, are you trying to be mean?"
-
-### Disqualifier
-
-- Hitting the central-right drop target will remove one unit
-  of "progress" from each mode (or some modes - TBD)
-
-### Music
-
-#### Shipped
-
-- "The Distance" by Cake (Attract Mode)
-- "Shake your Groove Thing" by Peaches & Herb (Grooveline Mode)
-- "302 Cubic Inch V8 Powered Blues" by Zeke (Red Line Mode)
-
-#### TODO
-
-- Blinding Lights - The Weeknd (Green Flag Mode)
-- Glamorous - Fergie (Luxury Mode)
-- "The Beautiful People" by Marilyn Manson (Chimebox / End of Ball Bonus)
-
-#### Undecided
-
-- GAME OVER
-- Backfire Mode (Back Street's Back)
-
-#### Other/Miscellaneous
-
-- Rev Match (rev sfx)
-- PIT (automotive repair sounds)
+You red line and find out how deep the rabbit hole goes.
