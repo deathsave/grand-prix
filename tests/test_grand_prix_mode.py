@@ -121,7 +121,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             self._drain_one_ball()
             self.advance_time_and_run(4)
         self.assertEqual(1, self.machine.playfield.balls)
-        self.assertEqual(3,
+        self.assertEqual(2,
             self.machine.ball_devices["bd_trough"].balls)
 
         # Mode ends
@@ -168,7 +168,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         # 3 ball multiball
         self.advance_time_and_run(4)
         self.assertEqual(3, self.machine.playfield.balls)
-        self.assertEqual(1,
+        self.assertEqual(0,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)

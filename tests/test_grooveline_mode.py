@@ -70,7 +70,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         # Second ball already in play
         self.assertEqual(2, self.machine.playfield.balls)
         # only 2 left in the trough
-        self.assertEqual(2,
+        self.assertEqual(1,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)
@@ -108,7 +108,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
             self._complete_lap()
 
         # Another a ball is added
-        self.assertEqual(1,
+        self.assertEqual(0,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)
@@ -124,7 +124,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self._start_grooveline()
         self.assertEqual(2, self.machine.playfield.balls)
         # A ball is ejected to the shooter lane
-        self.assertEqual(2,
+        self.assertEqual(1,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)

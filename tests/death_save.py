@@ -25,13 +25,13 @@ def _assertIncrement(self, var, switch, value):
     )
 
 def _start(self):
-    self.assertEqual(4,
+    self.assertEqual(3,
         self.machine.ball_devices["bd_trough"].balls)
     self.assertModeRunning('attract')
     self.assertModeNotRunning('pit')
     self.hit_and_release_switch("s_start")
     self.advance_time_and_run(1)
-    self.assertEqual(3,
+    self.assertEqual(2,
         self.machine.ball_devices["bd_trough"].balls)
     self.assertEqual(1,
         self.machine.ball_devices["bd_shooter_lane"].balls)

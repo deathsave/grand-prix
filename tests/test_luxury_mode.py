@@ -92,7 +92,7 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._start_luxury()
         self.assertEqual(2, self.machine.playfield.balls)
         # A ball is ejected to the shooter lane
-        self.assertEqual(2,
+        self.assertEqual(1,
             self.machine.ball_devices["bd_trough"].balls)
         self.assertEqual(0,
             self.machine.ball_devices["bd_shooter_lane"].balls)
