@@ -28,8 +28,6 @@ switches:
     number: 0-1-14
     tags:
     - start
-  s_launch:
-    number: 0-2-24
   s_pop1:
     number: 0-1-0 # direct
     tags:
@@ -40,6 +38,10 @@ switches:
     tags:
     - pops
     - tag_bell
+
+
+  s_launch:
+    number: 0-2-24
   s_pit_tires:
     number: 0-2-25
     tags:
@@ -76,6 +78,8 @@ switches:
     tags:
     - playfield_active
     - tag_bell
+
+
   s_save_target:
     number: 0-3-16
     tags:
@@ -138,17 +142,19 @@ switches:
     - tag_bell
   s_shooter_lane:
     number: 0-3-28
-  s_flipper1:
-    number: 0-3-29 # direct
-    tags:
-    - right_flipper
-  s_slingshot1:
-    number: 0-3-30 # direct
-    tags:
-    - tag_bell
   s_trough1:
     number: 0-3-31
     type: NC
+
+
+  s_flipper1:
+    number: 0-4-0 # direct
+    tags:
+    - right_flipper
+  s_slingshot1:
+    number: 0-4-1 # direct
+    tags:
+    - tag_bell
   s_trough2:
     number: 0-4-24
     type: NC

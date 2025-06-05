@@ -1,6 +1,7 @@
 #config_version=6
 
 coils:
+  # Board index 0 - Wing index 3
   c_chime1:
     number: 0-0-12
   c_chime2:
@@ -10,33 +11,48 @@ coils:
   c_shaker_motor:
     number: 0-0-15
     default_hold_power: 1
-  c_knocker:
-    number: 0-1-0
-  c_backfire_hole:
-    number: 0-1-1
-  c_prix_hole:
-    number: 0-1-2
+  # Board index 1 - Wing index 0
   c_pop1:
-    number: 0-1-3
+    number: 0-1-0
   c_pop2:
-    number: 0-1-8
-  c_fuel:
-    number: 0-1-9
-  c_disqualifier:
-    number: 0-1-10
+    number: 0-1-1
+  # Board index 1 - Wing index 2
+  # NOTHING
+
+  # Board index 1 - Wing index 3
   c_grand_hole:
-    number: 0-1-11
-  c_flipper2:
+    number: 0-1-14
+  c_backfire_hole:
+    number: 0-1-15
+
+  # Board index 2 - Wing index 0
+  c_disqualifier_up:
     number: 0-2-0
-    default_hold_power: 0.5
-  c_slingshot2:
-    number: 0-2-1
-  c_auto_kicker:
+  # 0-2-1 FRIED
+  c_disqualifier_down:
     number: 0-2-2
-  c_flipper1:
+  c_prix_hole:
     number: 0-2-3
+
+  # Board index 3 - Wing index 0
+  # 0-3-0 NOTHING
+  c_slingshot2:
+    number: 0-3-1
+  c_flipper2:
+    number: 0-3-2
+    default_hold_power: 0.5
+  c_auto_kicker:
+    number: 0-3-3
+
+  # Board index 4 - Wing index 0
+  c_flipper1:
+    number: 0-4-0
     default_hold_power: 0.5
   c_slingshot1:
-    number: 0-3-0
+    number: 0-4-1
+  # 0-4-2 EMPTY
   c_trough:
-    number: 0-3-1
+    number: 0-4-3
+
+  # c_knocker
+  # volt meter
