@@ -1,6 +1,9 @@
 #config_version=6
 
 switches:
+
+  # Board 0 (inside cabinet)
+
   s_spinner:
     # seems like auto-fire switches follow normal numbering
     # 12 -> 24
@@ -10,26 +13,9 @@ switches:
     number: 0-0-24 # direct with chime
     tags:
     - playfield_active
-  s_tilt:
-    number: 0-1-8
-    tags:
-    - tilt_warning
-  s_coindoor:
-    number: 0-1-9
-  s_service_forward:
-    number: 0-1-10
-  s_service_down:
-    number: 0-1-11
-  s_service_up:
-    number: 0-1-12
-  s_service_back:
-    number: 0-1-13
-  s_start:
-    number: 0-1-14
-    tags:
-    - start
-  s_launch:
-    number: 0-2-24
+
+  # Board 1 (back of playfield)
+
   s_pop1:
     number: 0-1-0 # direct
     tags:
@@ -40,125 +26,174 @@ switches:
     tags:
     - pops
     - tag_bell
-  s_pit_tires:
-    number: 0-2-25
-    tags:
-    - playfield_active
-    - pit_resource
-  s_pit_lube:
-    number: 0-2-26
-    tags:
-    - playfield_active
-    - pit_resource
-  s_backfire_hole:
-    number: 0-2-27
-    tags:
-    - tag_hole
-    - tag_bell
-  s_pit_fuel:
-    number: 0-2-28
-    tags:
-    - playfield_active
-    - pit_resource
-  s_prix_hole:
-    number: 0-2-29
-    tags:
-    - tag_hole
-    - tag_bell
-  s_bonus_target:
-    number: 0-2-30
-    tags:
-    - playfield_active
-    - tag_rev
-    - tag_bell
+
+
+  # Board 2 middle of playfield
+
   s_grooveline:
-    number: 0-2-31
+    number: 0-2-24
     tags:
     - playfield_active
     - tag_bell
-  s_save_target:
-    number: 0-3-16
-    tags:
-    - playfield_active
-    - tag_rev
-    - tag_bell
+  # N/C 0-2-25
   s_grand_hole:
-    number: 0-3-17
+    number: 0-2-26
     tags:
     - tag_hole
     - tag_bell
   s_multiball_target:
-    number: 0-3-18
+    number: 0-2-27
     tags:
     - playfield_active
     - tag_bell
   s_disqualifier:
-    number: 0-3-19
+    number: 0-2-28
     tags:
     - playfield_active
-  s_swerve1:
-    number: 0-3-20
-    tags:
-    - playfield_active
-    - tag_swerve
-    - tag_bell
-  s_swerve2:
-    number: 0-3-21
-    tags:
-    - playfield_active
-    - tag_swerve
-    - tag_bell
-  s_flipper2:
-    number: 0-3-22 # direct
-    tags:
-    - left_flipper
-  s_slingshot2:
-    number: 0-3-23 # direct
-    tags:
-    - tag_bell
-  s_inlane1:
-    number: 0-3-24
-    tags:
-    - playfield_active
-    - tag_bell
-  s_outlane1:
-    number: 0-3-25
-    tags:
-    - playfield_active
-    - tag_bell
+
+  # Board 3 (near prix hole)
+
   s_inlane2:
-    number: 0-3-26
+    number: 0-3-16
     tags:
     - playfield_active
     - tag_bell
   s_outlane2:
+    number: 0-3-17
+    tags:
+    - playfield_active
+    - tag_bell
+  # N/C 0-3-18 -> 0-3-25
+  s_flipper2: 
+    number: 0-3-22 # direct # TODO - SEEMS WRONG (sol wing first)
+    tags:
+    - left_flipper
+  s_slingshot2:
+    number: 0-3-23 # direct # TODO - SEEMS WRONG (sol wing first)
+    tags:
+    - tag_bell
+  s_inlane1:
+    number: 0-3-26
+    tags:
+    - playfield_active
+    - tag_bell
+  s_outlane1:
     number: 0-3-27
     tags:
     - playfield_active
     - tag_bell
   s_shooter_lane:
     number: 0-3-28
+
+  # Board 3 (near grand hole)
+
   s_flipper1:
-    number: 0-3-29 # direct
+    number: 0-4-0 # direct
     tags:
     - right_flipper
   s_slingshot1:
-    number: 0-3-30 # direct
+    number: 0-4-1 # direct
     tags:
     - tag_bell
-  s_trough1:
-    number: 0-3-31
-    type: NC
-  s_trough2:
-    number: 0-4-24
-    type: NC
-  s_trough3:
+  s_trough_jam:
     number: 0-4-25
     type: NC
-  s_trough_jam:
+  s_trough1:
+    number: 0-4-26
+    type: NC
+  s_trough2:
     number: 0-4-27
     type: NC
-  s_activate_playfield:
+  s_trough3:
     number: 0-4-28
+    type: NC
+
+  # TODO!!!!!!!!!!!!!!!!
+  #
+  s_launch:
+    number: 1-0-30
+  s_bonus_target:
+    number: 1-0-29
     tags:
     - playfield_active
+    - tag_rev
+    - tag_bell
+
+
+  s_save_target:
+    number: 1-0-28
+    tags:
+    - playfield_active
+    - tag_rev
+    - tag_bell
+  s_swerve1:
+    number: 1-0-27
+    tags:
+    - playfield_active
+    - tag_swerve
+    - tag_bell
+  s_swerve2:
+    number: 1-0-26
+    tags:
+    - playfield_active
+    - tag_swerve
+    - tag_bell
+
+  s_tilt:
+    number: 1-0-25
+    tags:
+    - tilt_warning
+  s_coindoor:
+    number: 1-0-24
+  s_service_forward:
+    number: 1-0-23
+  s_service_down:
+    number: 1-0-22
+  s_service_up:
+    number: 1-0-21
+  s_service_back:
+    number: 1-0-20
+  s_start:
+    number: 1-0-19
+    tags:
+    - start
+
+  # just for testing but needs a number,
+  # so will probaby keep changing until
+  # we're full build
+  s_activate_playfield:
+    number: 1-0-18
+    tags:
+    - playfield_active
+
+  # Sweet LED Board (chain 1)
+
+  s_pit_tires:
+    number: 1-0-1
+    tags:
+    - playfield_active
+    - pit_resource
+  s_pit_lube:
+    number: 1-0-2
+    tags:
+    - playfield_active
+    - pit_resource
+  s_backfire_hole:
+    number: 1-0-3
+    tags:
+    - tag_hole
+    - tag_bell
+  s_prix_hole:
+    number: 1-0-5
+    tags:
+    - tag_hole
+    - tag_bell
+  # N/C 1-0-6 (loose blue-cyan wire)
+  s_pit_fuel:
+    number: 1-0-6
+    tags:
+    - playfield_active
+    - pit_resource
+
+  # servo on number: 1-0-10
+  # servo on number: 1-0-11
