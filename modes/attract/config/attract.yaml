@@ -5,3 +5,4 @@ config:
 - show_player.yaml
 - timers.yaml
 - sound_player.yaml
+- event_player.yaml
