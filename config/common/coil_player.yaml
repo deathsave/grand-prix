@@ -1,0 +1,8 @@
+#config_version=6
+
+coil_player:
+  coil_pop1: c_pop1
+  coil_pop2: c_pop2
+  coil_backfire: c_backfire_hole
+  coil_prix: c_prix_hole
+  coil_grand: c_grand_hole

@@ -17,12 +17,12 @@ switches:
   # Board 1 (back of playfield)
 
   s_pop1:
-    number: 0-1-0 # direct
+    number: 0-1-25
     tags:
     - pops
     - tag_bell
   s_pop2:
-    number: 0-1-1 # direct
+    number: 0-1-24
     tags:
     - pops
     - tag_bell
@@ -35,6 +35,10 @@ switches:
     tags:
     - playfield_active
     - tag_bell
+  s_start:
+    number: 0-2-25
+    tags:
+    - start
   # N/C 0-2-25
   s_grand_hole:
     number: 0-2-26
@@ -64,12 +68,12 @@ switches:
     - playfield_active
     - tag_bell
   # N/C 0-3-18 -> 0-3-25
-  s_flipper2: 
-    number: 0-3-22 # direct # TODO - SEEMS WRONG (sol wing first)
+  s_flipper2:
+    number: 0-4-24
     tags:
-    - left_flipper
+    - right_flipper
   s_slingshot2:
-    number: 0-3-23 # direct # TODO - SEEMS WRONG (sol wing first)
+    number: 0-3-1 # direct # TODO - SEEMS WRONG (sol wing first)
     tags:
     - tag_bell
   s_inlane1:
@@ -88,9 +92,9 @@ switches:
   # Board 3 (near grand hole)
 
   s_flipper1:
-    number: 0-4-0 # direct
+    number: 0-3-24 # direct
     tags:
-    - right_flipper
+    - left_flipper
   s_slingshot1:
     number: 0-4-1 # direct
     tags:
@@ -107,25 +111,19 @@ switches:
   s_trough3:
     number: 0-4-28
     type: NC
+  s_save_target:
+    number: 0-4-29
+    tags:
+    - playfield_active
+    - tag_rev
+    - tag_bell
 
   # TODO!!!!!!!!!!!!!!!!
   #
   s_launch:
     number: 1-0-30
-  s_bonus_target:
-    number: 1-0-29
-    tags:
-    - playfield_active
-    - tag_rev
-    - tag_bell
 
 
-  s_save_target:
-    number: 1-0-28
-    tags:
-    - playfield_active
-    - tag_rev
-    - tag_bell
   s_swerve1:
     number: 1-0-27
     tags:
@@ -153,10 +151,6 @@ switches:
     number: 1-0-21
   s_service_back:
     number: 1-0-20
-  s_start:
-    number: 1-0-19
-    tags:
-    - start
 
   # just for testing but needs a number,
   # so will probaby keep changing until
@@ -183,8 +177,14 @@ switches:
     tags:
     - tag_hole
     - tag_bell
-  s_prix_hole:
+  s_bonus_target:
     number: 1-0-5
+    tags:
+    - playfield_active
+    - tag_rev
+    - tag_bell
+  s_prix_hole:
+    number: 1-0-7
     tags:
     - tag_hole
     - tag_bell

@@ -9,6 +9,16 @@ keyboard:
   #########################
   ctrl+l:
     event: light_all
+  ctrl+q:
+    event: coil_pop1
+  ctrl+w:
+    event: coil_pop2
+  ctrl+p:
+    event: coil_prix
+  ctrl+b:
+    event: coil_backfire
+  ctrl+g:
+    event: coil_grand
 
   ####################
   ## Trough / Drain ##
