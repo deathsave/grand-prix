@@ -40,19 +40,27 @@ coils:
     number: 0-3-1
   c_flipper2:
     number: 0-3-2
-    default_hold_power: 0.5
+    default_pulse_ms: 25
+#see note on c_flipper1
+    default_hold_power: 0.8
   c_auto_kicker:
     number: 0-3-3
 
   # Board index 4 - Wing index 0
   c_flipper1:
     number: 0-4-0
-    default_hold_power: 0.5
+    default_pulse_ms: 25
+#technically the coils mechanically handle
+#the switch to low power, but this should be
+#enough to hold the flipper up and also kinda
+#protect against a shorted EOS switch
+    default_hold_power: 0.8
   c_slingshot1:
     number: 0-4-1
   # 0-4-2 EMPTY
   c_trough:
     number: 0-4-3
+    default_pulse_ms: 25
 
   # c_knocker
   # volt meter
