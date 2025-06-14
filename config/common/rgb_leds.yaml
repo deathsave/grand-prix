@@ -104,13 +104,13 @@ lights:
     - tag_lights
     - tag_lights_mode
   l_pit_arrow1:
-    subtype: matrix
+    subtype: led
     number: 1-0-17
     tags:
     - tag_lights
     - tag_lights_arrow
   l_pit_arrow2:
-    subtype: matrix
+    subtype: led
     number: 1-0-18
     tags:
     - tag_lights
