@@ -16,6 +16,20 @@ sound_player:
       action: play
     mistake:
       action: play
+    backfire_loop:
+      action: stop
+    groove_thing:
+      action: stop
+    million_dollars:
+      action: stop
+    favourite_game:
+      action: stop
+    308in:
+      action: stop
+    blinding_lights:
+      action: stop
+    pit_ambience:
+      action: stop
   mode_backfire_stopped:
     backfire_loop:
       action: stop

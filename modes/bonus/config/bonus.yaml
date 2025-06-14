@@ -1,0 +1,18 @@
+#config_version=6
+
+mode_settings:
+  display_delay_ms: 2000
+  bonus_entries:
+  - event: bonus_main
+    score: 10000
+  - event: bonus_laps
+    score: 1000
+  - event: bonus_game_progress
+    score: 10000
+# slide_player:
+#   mode_bonus_started: bonus_start_slide
+# slides:
+#   bonus_start_slide:
+#     widgets:
+#     - type: text
+#       text: Bonus
