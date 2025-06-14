@@ -115,65 +115,66 @@ switches:
     - playfield_active
 
 
-  # # TODO: Wire this bank:
-  s_tilt:
-    number: 1-0-16
-    tags:
-    - tilt_warning
-  s_coindoor:
-    number: 1-0-17
-  s_service_forward:
-    number: 1-0-18
-  s_service_down:
-    number: 1-0-19
-  s_service_up:
-    number: 1-0-20
-  s_service_back:
-    number: 1-0-21
-  # unused:
-  # 1-0-22,
-  # 1-0-23
-
   s_pit_tires:
-    number: 1-0-24
+    number: 1-0-16
     tags:
     - playfield_active
     - pit_resource
   s_pit_lube:
-    number: 1-0-25
+    number: 1-0-17
     tags:
     - playfield_active
     - pit_resource
   s_backfire_hole:
-    number: 1-0-26
+    number: 1-0-18
     tags:
     - tag_hole
     - tag_bell
   s_bonus_target:
-    number: 1-0-27
+    number: 1-0-19
     tags:
     - playfield_active
     - tag_rev
     - tag_bell
   s_prix_hole:
-    number: 1-0-28
+    number: 1-0-20
     tags:
     - tag_hole
     - tag_bell
   s_pit_fuel:
-    number: 1-0-29
+    number: 1-0-21
     tags:
     - playfield_active
     - pit_resource
   s_swerve1:
-    number: 1-0-30
+    number: 1-0-22
     tags:
     - playfield_active
     - tag_swerve
     - tag_bell
   s_swerve2:
-    number: 1-0-31
+    number: 1-0-23
     tags:
     - playfield_active
     - tag_swerve
     - tag_bell
+
+
+  # # TODO: Wire this bank:
+  s_tilt:
+    number: 1-0-24
+    tags:
+    - tilt_warning
+  s_coindoor:
+    number: 1-0-25
+  s_service_forward:
+    number: 1-0-26
+  s_service_down:
+    number: 1-0-27
+  s_service_up:
+    number: 1-0-28
+  s_service_back:
+    number: 1-0-29
+  # unused:
+  # 1-0-30,
+  # 1-0-31
