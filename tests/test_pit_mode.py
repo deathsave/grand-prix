@@ -4,7 +4,7 @@ class TestPitMode(DeathSaveGameTesting):
 
     def test_sound(self):
         self._start()
-        self.hit_and_release_switch("s_launch")
+        self.hit_and_release_switch("s_shooter_lane")
         self.advance_time_and_run(1)
         self._assertVoiceIs("playing", "fuel")
         self._assertAmbienceIs("playing", "comm_noise_on")
@@ -15,7 +15,7 @@ class TestPitMode(DeathSaveGameTesting):
         score = "score"
 
         self._start()
-        self.hit_and_release_switch("s_launch")
+        self.hit_and_release_switch("s_shooter_lane")
 
         self.assertEqual(0, self.machine.game.player.score)
         self._assertIncrement(score, "s_pit_lube", 100)

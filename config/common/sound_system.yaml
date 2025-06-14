@@ -8,7 +8,7 @@ sound_system:
   tracks:
     voice:
       type: standard
-      simultaneous_sounds: 1
+      simultaneous_sounds: 2
       volume: 0.9
     effects:
       type: standard

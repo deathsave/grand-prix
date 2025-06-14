@@ -62,7 +62,7 @@ keyboard:
   s:
     switch: s_start
   l:
-    switch: s_launch
+    switch: s_shooter_lane
 
   # Flippers
   z:

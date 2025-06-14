@@ -11,10 +11,10 @@ sound_player:
     pit_ambience:
       action: play
       loops: -1
-  s_launch_inactive{current_player.score == 0}:
+  s_shooter_lane_inactive{current_player.score == 0}:
     fuel:
       action: play
-  s_launch_inactive{current_player.score > 0}:
+  s_shooter_lane_inactive{current_player.score > 0}:
     start:
       action: play
   pit_required_fuel:

@@ -10,6 +10,14 @@ virtual_segment_display_connector:
   - segment3
   - segment4
 
+switches:
+  # just for testing but needs a number,
+  # so using the "fried" coil
+  s_activate_playfield:
+    number: 0-2-0
+    tags:
+    - playfield_active
+
 widgets:
   segment_display_widget:
   - type: segment_display_emulator

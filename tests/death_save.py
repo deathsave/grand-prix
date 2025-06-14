@@ -25,6 +25,7 @@ def _assertIncrement(self, var, switch, value):
     )
 
 def _start(self):
+    self.advance_time_and_run(4)
     self.assertEqual(3,
         self.machine.ball_devices["bd_trough"].balls)
     self.assertModeRunning('attract')
@@ -69,7 +70,9 @@ def _start_green_flag(self):
     self.advance_time_and_run(1)
     self.assertModeRunning("green_flag")
     # call out AFTER the signal countdown
-    self.advance_time_and_run(7)
+    self.advance_time_and_run(6)
+    self._assertSoundEffectIs("playing", "real_pit")
+    self.advance_time_and_run(1)
     self._assertVoiceIs("playing", "pit_done")
 
 def _complete_lap(self):
@@ -117,6 +120,9 @@ def _assertVoiceIs(self, state, sound_name):
 
 def _assertAmbienceIs(self, state, sound_name):
     _assertSound(self, "ambience", state, sound_name)
+
+def _assertSoundEffectIs(self, state, sound_name):
+    _assertSound(self, "effects", state, sound_name)
 
 # From https://github.com/missionpinball/mpf/blob \
 #   /dev/mpf/tests/MpfGameTestCase.py#L141
