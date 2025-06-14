@@ -16,103 +16,103 @@ switches:
 
   # Board 1 (back of playfield)
 
-  s_pop1:
-    number: 0-1-25
-    tags:
-    - pops
-    - tag_bell
-  s_pop2:
-    number: 0-1-24
-    tags:
-    - pops
-    - tag_bell
+  # s_pop1:
+  #   number: 0-1-25
+  #   tags:
+  #   - pops
+  #   - tag_bell
+  # s_pop2:
+  #   number: 0-1-24
+  #   tags:
+  #   - pops
+  #   - tag_bell
 
 
   # Board 2 middle of playfield
 
   s_grooveline:
-    number: 0-2-24
+    number: 0-1-24
     tags:
     - playfield_active
     - tag_bell
   s_start:
-    number: 0-2-25
+    number: 0-1-25
     tags:
     - start
   # N/C 0-2-25
   s_grand_hole:
-    number: 0-2-26
+    number: 0-1-26
     tags:
     - tag_hole
     - tag_bell
   s_multiball_target:
-    number: 0-2-27
+    number: 0-1-27
     tags:
     - playfield_active
     - tag_bell
   s_disqualifier:
-    number: 0-2-28
+    number: 0-1-28
     tags:
     - playfield_active
 
   # Board 3 (near prix hole)
 
   s_inlane2:
-    number: 0-3-16
+    number: 0-2-16
     tags:
     - playfield_active
     - tag_bell
   s_outlane2:
-    number: 0-3-17
+    number: 0-2-17
     tags:
     - playfield_active
     - tag_bell
   # N/C 0-3-18 -> 0-3-25
   s_flipper2:
-    number: 0-4-24
+    number: 0-3-24
     tags:
     - right_flipper
   s_slingshot2:
-    number: 0-3-1 # direct # TODO - SEEMS WRONG (sol wing first)
+    number: 0-2-1 # direct # TODO - SEEMS WRONG (sol wing first)
     tags:
     - tag_bell
   s_inlane1:
-    number: 0-3-26
+    number: 0-2-26
     tags:
     - playfield_active
     - tag_bell
   s_outlane1:
-    number: 0-3-27
+    number: 0-2-27
     tags:
     - playfield_active
     - tag_bell
   s_shooter_lane:
-    number: 0-3-28
+    number: 0-2-28
 
   # Board 3 (near grand hole)
 
   s_flipper1:
-    number: 0-3-24 # direct
+    number: 0-2-24 # direct
     tags:
     - left_flipper
   s_slingshot1:
-    number: 0-4-1 # direct
+    number: 0-3-1 # direct
     tags:
     - tag_bell
   s_trough_jam:
-    number: 0-4-25
+    number: 0-3-25
     type: NC
   s_trough1:
-    number: 0-4-26
+    number: 0-3-26
     type: NC
   s_trough2:
-    number: 0-4-27
+    number: 0-3-27
     type: NC
   s_trough3:
-    number: 0-4-28
+    number: 0-3-28
     type: NC
   s_save_target:
-    number: 0-4-29
+    number: 0-3-29
     tags:
     - playfield_active
     - tag_rev
