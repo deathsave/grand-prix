@@ -7,18 +7,38 @@ keyboard:
   #########################
   ## Testing / Debugging ##
   #########################
-  ctrl+l:
+  shift+l:
     event: light_all
   ctrl+q:
     event: coil_pop1
   ctrl+w:
     event: coil_pop2
-  ctrl+p:
-    event: coil_prix
-  ctrl+b:
+  ctrl+e:
     event: coil_backfire
-  ctrl+g:
+  ctrl+r:
+    event: coil_prix
+  ctrl+t:
     event: coil_grand
+  ctrl+y:
+    event: coil_chime1
+  ctrl+u:
+    event: coil_chime2
+  ctrl+i:
+    event: coil_chime3
+  ctrl+o:
+    event: coil_shaker
+  ctrl+p:
+    event: coil_disqualifier_up
+  ctrl+a:
+    event: coil_disqualifier_down
+  ctrl+s:
+    event: coil_auto_kicker
+  ctrl+d:
+    event: coil_flipper1
+  ctrl+f:
+    event: coil_flipper2
+  ctrl+g:
+    event: coil_trough
 
   ####################
   ## Trough / Drain ##

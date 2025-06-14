@@ -4,29 +4,7 @@ switches:
 
   # Board 0 (inside cabinet)
 
-  s_spinner:
-    # seems like auto-fire switches follow normal numbering
-    # 12 -> 24
-    # 13 -> 25
-    # 14 -> 26
-    # 15 -> 27
-    number: 0-0-24 # direct with chime
-    tags:
-    - playfield_active
-
   # Board 1 (back of playfield)
-
-  # s_pop1:
-  #   number: 0-1-25
-  #   tags:
-  #   - pops
-  #   - tag_bell
-  # s_pop2:
-  #   number: 0-1-24
-  #   tags:
-  #   - pops
-  #   - tag_bell
-
 
   # Board 2 middle of playfield
 
@@ -118,82 +96,97 @@ switches:
     - tag_rev
     - tag_bell
 
-  # TODO!!!!!!!!!!!!!!!!
-  #
-  s_launch:
-    number: 1-0-30
-
-
-  s_swerve1:
-    number: 1-0-27
-    tags:
-    - playfield_active
-    - tag_swerve
-    - tag_bell
-  s_swerve2:
-    number: 1-0-26
-    tags:
-    - playfield_active
-    - tag_swerve
-    - tag_bell
-
-  s_tilt:
-    number: 1-0-25
-    tags:
-    - tilt_warning
-  s_coindoor:
-    number: 1-0-24
-  s_service_forward:
-    number: 1-0-23
-  s_service_down:
-    number: 1-0-22
-  s_service_up:
-    number: 1-0-21
-  s_service_back:
-    number: 1-0-20
-
-  # just for testing but needs a number,
-  # so will probaby keep changing until
-  # we're full build
-  s_activate_playfield:
-    number: 1-0-18
-    tags:
-    - playfield_active
-
   # Sweet LED Board (chain 1)
 
+  # Cobrapin Satellite
+
   s_pit_tires:
-    number: 1-0-1
+    number: 1-0-24
     tags:
     - playfield_active
     - pit_resource
   s_pit_lube:
-    number: 1-0-2
+    number: 1-0-25
     tags:
     - playfield_active
     - pit_resource
   s_backfire_hole:
-    number: 1-0-3
+    number: 1-0-26
     tags:
     - tag_hole
     - tag_bell
   s_bonus_target:
-    number: 1-0-5
+    number: 1-0-27
     tags:
     - playfield_active
     - tag_rev
     - tag_bell
   s_prix_hole:
-    number: 1-0-7
+    number: 1-0-28
     tags:
     - tag_hole
     - tag_bell
-  # N/C 1-0-6 (loose blue-cyan wire)
   s_pit_fuel:
-    number: 1-0-6
+    number: 1-0-29
     tags:
     - playfield_active
     - pit_resource
+  # unused 30,31
 
-  # servo on number: 1-0-10
-  # servo on number: 1-0-11
+  s_pop1:
+    number: 1-0-1
+    tags:
+    - pops
+    - tag_bell
+  s_pop2:
+    number: 1-0-2
+    tags:
+    - pops
+    - tag_bell
+  s_spinner:
+    number: 1-0-3 # direct with chime
+    tags:
+    - playfield_active
+
+  # # TODO!!!!!!!!!!!!!!!!
+  # #
+  # s_launch:
+  #   number: 1-0-30
+
+
+  # s_swerve1:
+  #   number: 1-0-27
+  #   tags:
+  #   - playfield_active
+  #   - tag_swerve
+  #   - tag_bell
+  # s_swerve2:
+  #   number: 1-0-26
+  #   tags:
+  #   - playfield_active
+  #   - tag_swerve
+  #   - tag_bell
+
+
+#   s_tilt:
+#     number: 1-0-25
+#     tags:
+#     - tilt_warning
+#   s_coindoor:
+#     number: 1-0-24
+#   s_service_forward:
+#     number: 1-0-23
+#   s_service_down:
+#     number: 1-0-22
+#   s_service_up:
+#     number: 1-0-21
+#   s_service_back:
+#     number: 1-0-20
+
+#   # just for testing but needs a number,
+#   # so will probaby keep changing until
+#   # we're full build
+#   s_activate_playfield:
+#     number: 1-0-18
+#     tags:
+#     - playfield_active

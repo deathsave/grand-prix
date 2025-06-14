@@ -6,3 +6,15 @@ coil_player:
   coil_backfire: c_backfire_hole
   coil_prix: c_prix_hole
   coil_grand: c_grand_hole
+  coil_chime1: c_chime1
+  coil_chime2: c_chime2
+  coil_chime3: c_chime3
+  coil_shaker: c_shaker_motor
+  coil_disqualifier_up: c_disqualifier_up
+  coil_disqualifier_down: c_disqualifier_down
+  coil_auto_kicker: c_auto_kicker
+  coil_flipper1: c_flipper1
+  coil_flipper2: c_flipper2
+  coil_trough: c_trough
+
+
