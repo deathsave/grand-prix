@@ -43,7 +43,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertLightColor('l_multiball', 'white')
         self.assertModeRunning("grand_prix")
 
-    def test_grand_disqualification(self):
+    def test_grand_05isqualification(self):
         self._start()
         self._start_green_flag()
         self.hit_and_release_switch("s_save_target")
