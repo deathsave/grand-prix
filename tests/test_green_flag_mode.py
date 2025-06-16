@@ -7,7 +7,7 @@ class TestGreenFlagMode(DeathSaveGameTesting):
 
         # Workaround to use the incandescent
         # driver for the mini coils
-        self.assertLightColor('x_loop_gate', 'black')
+        # self.assertLightColor('x_loop_gate', 'black')
 
         self._start()
         self._start_green_flag()

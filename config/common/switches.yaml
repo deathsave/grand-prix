@@ -110,10 +110,7 @@ switches:
     - pops
     - tag_bell
   s_spinner:
-    number: 1-0-3 # direct with chime
-    tags:
-    - playfield_active
-
+    number: 0-0-24 # direct with chime
 
   s_pit_tires:
     number: 1-0-16

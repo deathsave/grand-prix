@@ -16,5 +16,4 @@ coil_player:
   coil_flipper1: c_flipper1
   coil_flipper2: c_flipper2
   coil_trough: c_trough
-
-
+  coil_loop_gate: c_loop_gate

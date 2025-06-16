@@ -1,6 +1,9 @@
 #config_version=6
 
 lights:
+  x_loop_gate:
+    number: c_loop_gate
+    platform: drivers
   l_backbox_match_00:
     subtype: matrix
     number: 0-0-0
@@ -239,14 +242,11 @@ lights:
     number: 0-1-21
     tags:
     - tag_lights
-  l_gi:
-    subtype: matrix
-    number: 0-1-22
-    tags:
-    - tag_lights
-  x_loop_gate:
-    subtype: matrix
-    number: 0-1-23
+  # l_gi:
+  #   subtype: matrix
+  #   number: 0-1-22
+  #   tags:
+  #   - tag_lights
   l_signal4: # red line
     subtype: matrix
     number: 0-1-8
@@ -307,11 +307,6 @@ lights:
     tags:
     - tag_lights
     - tag_lights_grand
-  l_apron:
-    subtype: matrix
-    number: 0-3-8
-    tags:
-    - tag_lights
   l_shoot_again:
     subtype: matrix
     number: 0-3-10
@@ -337,43 +332,43 @@ lights:
     - tag_lights_outlane
   l_prix_04:
     subtype: matrix
-    number: 0-3-16
+    number: 0-3-12
     tags:
     - tag_lights
     - tag_lights_prix
   l_prix_03:
     subtype: matrix
-    number: 0-3-17
+    number: 0-3-13
     tags:
     - tag_lights
     - tag_lights_prix
   l_prix_02:
     subtype: matrix
-    number: 0-3-18
+    number: 0-3-14
     tags:
     - tag_lights
     - tag_lights_prix
   l_prix_01:
     subtype: matrix
-    number: 0-3-19
+    number: 0-3-15
     tags:
     - tag_lights
     - tag_lights_prix
   l_multiplier_03:
     subtype: matrix
-    number: 0-3-20
+    number: 0-2-11
     tags:
     - tag_lights
     - tag_lights_multiplier
   l_multiplier_02:
     subtype: matrix
-    number: 0-3-21
+    number: 0-2-12
     tags:
     - tag_lights
     - tag_lights_multiplier
   l_multiplier_01:
     subtype: matrix
-    number: 0-3-22
+    number: 0-2-13
     tags:
     - tag_lights
     - tag_lights_multiplier

@@ -7,3 +7,6 @@ coil_player:
   logicblock_seq_lap_complete{current_player.lap_count % 2 == 0}:
     c_shaker_motor:
       action: off
+  # mode_green_flag_started:
+  #   c_loop_gate:
+  #     action: on
