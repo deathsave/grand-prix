@@ -354,7 +354,7 @@ lights:
     tags:
     - tag_lights
     - tag_lights_prix
-  l_multiplier_03:
+  l_multiplier_01:
     subtype: matrix
     number: 0-2-11
     tags:
@@ -366,7 +366,7 @@ lights:
     tags:
     - tag_lights
     - tag_lights_multiplier
-  l_multiplier_01:
+  l_multiplier_03:
     subtype: matrix
     number: 0-2-13
     tags:
