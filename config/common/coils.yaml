@@ -32,6 +32,7 @@ coils:
     #see note on c_flipper1
     default_hold_power: 0.8
   c_auto_kicker:
+    default_pulse_ms: 20
     number: 0-2-3
 
   # Board index 3 - Wing index 0
