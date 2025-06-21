@@ -111,8 +111,7 @@ switches:
     - tag_bell
   s_spinner:
     number: 1-0-3
-    debounce_close: 1
-    debounce_open: 1
+    debounce: quick
     tags:
     - spinner
     - tag_bell
