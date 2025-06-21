@@ -106,7 +106,7 @@ sounds:
 
   bell:
     file: bell.ogg
-    volume: 0.1
+    volume: 0.2
     track: effects
   backfire_loop:
     file: backfire-loop.ogg
