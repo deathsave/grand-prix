@@ -7,6 +7,21 @@ coil_player:
   logicblock_seq_lap_complete{current_player.lap_count % 2 == 0}:
     c_shaker_motor:
       action: off
-  # mode_green_flag_started:
-  #   c_loop_gate:
-  #     action: on
+  # Spinner activates the chimebox in sequence
+  # and pulses all together on completion
+  s_spinner_active{current_player.spin_counter_count == 5}:
+    c_chime1:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 10}:
+    c_chime2:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 15}:
+    c_chime3:
+      action: pulse
+  logicblock_spin_counter_complete:
+    c_chime1:
+      action: pulse
+    c_chime2:
+      action: pulse
+    c_chime3:
+      action: pulse
