@@ -1,9 +1,9 @@
 #config_version=6
 
 lights:
-  x_loop_gate:
-    number: c_loop_gate
-    platform: drivers
+  # x_loop_gate:
+  #   number: c_loop_gate
+  #   platform: drivers
   l_backbox_match_00:
     subtype: matrix
     number: 0-0-0

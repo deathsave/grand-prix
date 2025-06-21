@@ -9,6 +9,7 @@ coils:
   c_chime3:
     number: 0-0-14
   c_shaker_motor:
+    allow_enable: true
     number: 0-0-15
 
   # Board index 1 - Wing index 0
@@ -65,8 +66,6 @@ coils:
   c_loop_gate:
     number: 1-0-6
     allow_enable: true
-    #default_hold_power: 1
-    default_pulse_ms: 255
   # unused:
   # 1-0-0,
   # 1-0-3,
