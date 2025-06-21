@@ -61,7 +61,7 @@ coils:
     number: 1-0-4
   c_prix_hole:
     number: 1-0-5
-    default_pulse_ms: 18
+    default_pulse_ms: 22
   c_loop_gate:
     number: 1-0-6
     allow_enable: true

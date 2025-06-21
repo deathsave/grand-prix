@@ -4,9 +4,11 @@ diverters:
   loop_gate:
     activation_coil: c_loop_gate
     type: hold
-    activation_time: 1s
+    activation_time: 2s
     activate_events:
-    - s_spinner_active{current_player.spin_counter_count % 5 == 0}
+    - s_spinner_active
+    deactivate_events:
+    - s_grooveline_active
     targets_when_active: playfield
     cool_down_time: 2s
     enable_events:

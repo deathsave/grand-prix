@@ -91,25 +91,25 @@ lights:
     tags:
     - tag_lights
     - tag_lights_pit
-  l_mode_arrow2:
+  l_pit_arrow2:
     subtype: led
     number: 1-0-15
     tags:
     - tag_lights
     - tag_lights_mode
-  l_mode_arrow1:
+  l_pit_arrow1:
     subtype: led
     number: 1-0-16
     tags:
     - tag_lights
     - tag_lights_mode
-  l_pit_arrow1:
+  l_mode_arrow1:
     subtype: led
     number: 1-0-17
     tags:
     - tag_lights
     - tag_lights_arrow
-  l_pit_arrow2:
+  l_mode_arrow2:
     subtype: led
     number: 1-0-18
     tags:
