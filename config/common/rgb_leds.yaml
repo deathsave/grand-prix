@@ -67,39 +67,63 @@ lights:
     tags:
     - tag_lights
     - tag_lights_grooveline
-  l_pit_tires:
+  l_grand_hole:
     subtype: led
     number: 1-0-11
     tags:
     - tag_lights
-    - tag_lights_pit
-  l_pit_lube:
+    - tag_lights_grand
+  l_pit_tires:
     subtype: led
     number: 1-0-12
     tags:
     - tag_lights
     - tag_lights_pit
-  l_mode_arrow1:
+  l_pit_lube:
     subtype: led
     number: 1-0-13
     tags:
     - tag_lights
-    - tag_lights_mode
-  l_mode_arrow2:
+    - tag_lights_pit
+  l_pit_fuel:
     subtype: led
     number: 1-0-14
     tags:
     - tag_lights
-    - tag_lights_mode
-  l_pit_fuel:
+    - tag_lights_pit
+  l_pit_arrow2:
     subtype: led
     number: 1-0-15
     tags:
     - tag_lights
-    - tag_lights_pit
-  l_mode_backbox:
+    - tag_lights_mode
+  l_pit_arrow1:
     subtype: led
     number: 1-0-16
+    tags:
+    - tag_lights
+    - tag_lights_mode
+  l_mode_arrow1:
+    subtype: led
+    number: 1-0-17
+    tags:
+    - tag_lights
+    - tag_lights_arrow
+  l_mode_arrow2:
+    subtype: led
+    number: 1-0-18
+    tags:
+    - tag_lights
+    - tag_lights_arrow
+  l_prix_hole:
+    subtype: led
+    number: 1-0-19
+    tags:
+    - tag_lights
+    - tag_lights_grand
+  l_mode_backbox:
+    subtype: led
+    number: 1-0-20
     tags:
     - tag_lights
     - tag_lights_mode

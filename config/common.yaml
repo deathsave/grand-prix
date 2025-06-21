@@ -29,3 +29,4 @@ config:
 - common/widget_styles.yaml
 - common/named_colors.yaml
 - common/coil_player.yaml
+- common/diverters.yaml

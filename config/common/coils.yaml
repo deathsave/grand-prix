@@ -4,13 +4,16 @@ coils:
   # Board index 1 - Wing index 0
   c_chime1:
     number: 0-0-12
+    default_pulse_ms: 25
   c_chime2:
     number: 0-0-13
+    default_pulse_ms: 25
   c_chime3:
     number: 0-0-14
+    default_pulse_ms: 25
   c_shaker_motor:
+    allow_enable: true
     number: 0-0-15
-    default_hold_power: 1
 
   # Board index 1 - Wing index 0
   c_disqualifier_up:
@@ -20,23 +23,26 @@ coils:
     number: 0-1-2
   c_grand_hole:
     number: 0-1-3
+    default_pulse_ms: 8
 
   # Board index 2 - Wing index 0
   # 0-2-0 NOTHING
   c_slingshot2:
     number: 0-2-1
+    default_pulse_ms: 20
   c_flipper1:
     number: 0-2-2
-    default_pulse_ms: 25
+    default_pulse_ms: 32
     #see note on c_flipper1
     default_hold_power: 0.8
   c_auto_kicker:
+    default_pulse_ms: 20
     number: 0-2-3
 
   # Board index 3 - Wing index 0
   c_flipper2:
     number: 0-3-0
-    default_pulse_ms: 25
+    default_pulse_ms: 32
     #technically the coils mechanically handle
     #the switch to low power, but this should be
     #enough to hold the flipper up and also kinda
@@ -44,6 +50,7 @@ coils:
     default_hold_power: 0.8
   c_slingshot1:
     number: 0-3-1
+    default_pulse_ms: 20
   # 0-3-2 EMPTY
   c_trough:
     number: 0-3-3
@@ -56,8 +63,13 @@ coils:
     number: 1-0-2
   c_backfire_hole:
     number: 1-0-4
+    default_pulse_ms: 8
   c_prix_hole:
     number: 1-0-5
+    default_pulse_ms: 20
+  c_loop_gate:
+    number: 1-0-6
+    allow_enable: true
   # unused:
   # 1-0-0,
   # 1-0-3,

@@ -10,10 +10,7 @@ Your quest: fuel up, fix up, and fly through laps in Green Flag Mode, where orbi
 How things are supposed to Work
 -------------------------------
 
-A day before the expo, this game was not flipping, so if
-it is, you're in luck and maybe some of this is relevant?
-If it isn't flipping, well, you can still read about our
-failed dreams and aspirations.
+A day before the expo, this game was not flipping, so if it is, you're in luck and maybe some of this is relevant?  If it isn't flipping, well, you can still read about our failed dreams and aspirations.
 
 ### General Modes
 
@@ -33,22 +30,17 @@ With a well-oiled vehicle, the race begins:
 
 #### Backfire Pops
 
-When exiting green flag mode to pit, a drivers
-engine may "backfire". Hit the spinner, then enter
-the backfire hole to activate a hurry up. Hit the
-pop bumpers to collect points in this limited time mode.
+When exiting green flag mode to pit, a drivers engine may "backfire". Hit the spinner, then enter the backfire hole to activate a hurry up. Hit the pop bumpers to collect points in this limited time mode.
 
 ### Special Modes
 
-Three special modes build up to activation of a
-fourth, pseudo-wizard mode.
+Three special modes build up to activation of a fourth, pseudo-wizard mode.
 
 #### Grooveline Multiball 1/3
 
 ![Grooveline Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grooveline.png)
 
-The fastest way around the track (the North-West chain of 10
-purple inserts).
+The fastest way around the track (the North-West chain of 10 purple inserts).
 
 - Making a lap during Green Flag lights an insert, in sequence
   from top to bottom
@@ -61,10 +53,7 @@ purple inserts).
 
 ![Lap of Luxury Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/luxury.png)
 
-Crushing the Spinner during Green Flag across multiple
-balls will eventually max out the bonus, lighting all
-inserts in the North-East chain and qualifying the "Lap of 
-Luxury". Hit the multiball target to begin Luxury Multiball.
+Crushing the Spinner during Green Flag across multiple balls will eventually max out the bonus, lighting all inserts in the North-East chain and qualifying the "Lap of Luxury". Hit the multiball target to begin Luxury Multiball.
 
 #### Grand Prix Multiball 3/3
 

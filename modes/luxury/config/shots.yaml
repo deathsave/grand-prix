@@ -15,7 +15,7 @@ shots:
     switch: s_spinner
     profile: lights_blink_then_on
     show_tokens:
-      lights: l_spinner_01
+      lights: l_bonus_01
   luxury_d:
     switch: s_grooveline
     profile: lights_blink_then_on

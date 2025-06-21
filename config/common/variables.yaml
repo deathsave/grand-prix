@@ -5,6 +5,8 @@ player_vars:
     initial_value: 0
   lap_count:
     initial_value: 0
+  spin_counter_count:
+    initial_value: 0
   # bonus
   bonus_main:
     initial_value: 0

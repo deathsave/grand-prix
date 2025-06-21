@@ -39,6 +39,9 @@ keyboard:
     event: coil_flipper2
   ctrl+g:
     event: coil_trough
+  ctrl+h:
+    event: coil_loop_gate
+
 
   ####################
   ## Trough / Drain ##

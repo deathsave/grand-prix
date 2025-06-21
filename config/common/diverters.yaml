@@ -1,0 +1,17 @@
+#config_version=6
+
+diverters:
+  loop_gate:
+    activation_coil: c_loop_gate
+    type: hold
+    activation_time: 2s
+    activate_events:
+    - s_spinner_active
+    deactivate_events:
+    - s_grooveline_active
+    targets_when_active: playfield
+    cool_down_time: 2s
+    enable_events:
+    - mode_green_flag_started
+    disable_events:
+    - mode_green_flag_stopped
