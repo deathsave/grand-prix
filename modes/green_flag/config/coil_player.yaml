@@ -34,3 +34,5 @@ coil_player:
       action: pulse
     c_chime3:
       action: pulse
+  sw_tag_rev: c_shaker_motor
+  sw_tag_swerve: c_shaker_motor

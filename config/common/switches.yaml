@@ -111,6 +111,7 @@ switches:
     - tag_bell
   s_spinner:
     number: 1-0-3
+    type: NC
     debounce: quick
     tags:
     - spinner

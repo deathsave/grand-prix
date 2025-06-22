@@ -12,7 +12,7 @@ coils:
     number: 0-0-14
     default_pulse_ms: 25
   c_shaker_motor:
-    allow_enable: true
+    default_pulse_ms: 255
     number: 0-0-15
 
   # Board index 1 - Wing index 0
