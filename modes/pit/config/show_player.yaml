@@ -3,3 +3,17 @@
 show_player:
   modes_active_modes_changed:
     flash_color: stop
+  mode_pit_started:
+    flash_color:
+      speed: 8
+      show_tokens:
+        led: tag_lights_pit_arrow
+        color: yellow
+  mode_green_flag_stopped:
+    flash_color:
+      speed: 8
+      show_tokens:
+        led: tag_lights_pit_arrow
+        color: yellow
+  mode_green_flag_started:
+    flash_color: stop
