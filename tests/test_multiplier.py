@@ -4,7 +4,7 @@ class TestMultiplier(DeathSaveGameTesting):
 
     def test_qualification(self):
         self._start()
-        self.assertEqual(0, self.machine.game.player.multiplier)
+        self.assertEqual(1, self.machine.game.player.multiplier)
         self._start_green_flag()
         self._start_luxury()
 
@@ -16,6 +16,8 @@ class TestMultiplier(DeathSaveGameTesting):
         self.assertEqual(1, self.machine.game.player.multiplier)
 
         # after swerving 5 times, the
-        # multiplier is increated by 1
+        # multiplier is increased by 1
         self.hit_and_release_switch("s_swerve1")
         self.assertEqual(2, self.machine.game.player.multiplier)
+
+        # TODO: handle 5x multiplier

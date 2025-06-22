@@ -6,4 +6,4 @@ mode:
   stop_events:
   - multiball_grand_prix_ended
   restart_on_next_ball: false
-  priority: 300
+  priority: 3002

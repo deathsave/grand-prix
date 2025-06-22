@@ -1,8 +1,15 @@
 #config_version=6
 
+# BACKFIRE MODE
+#
+# The hurry up mode activated when leaving Green Flag for
+# a Pit Stop. A chance to resume Green Flag without collecting
+# all the pit resources.
+
 config:
 - mode.yaml
 - timers.yaml
-- coil_player.yaml
 - sound_player.yaml
 - show_player.yaml
+- variable_player.yaml
+- counters.yaml

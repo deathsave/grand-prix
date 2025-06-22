@@ -1,0 +1,13 @@
+#config_version=6
+
+ball_holds:
+  backfire_hole:
+    balls_to_hold: 1
+    hold_devices: bd_backfire_hole
+    release_all_events:
+    - timer_backfire_tick{ticks == 30}
+    enable_events:
+    - timer_backfire_qualification_started
+    disable_events:
+    - timer_backfire_qualification_stopped
+    - timer_backfire_qualification_complete

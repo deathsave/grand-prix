@@ -8,9 +8,7 @@ variable_player:
   # Most switches aren't worth much since
   # the drivers first goal is to get out
   # of the pit as fast as possible
-  s_pop1_active:
-    score: 1
-  s_pop2_active:
+  sw_pops:
     score: 1
   s_grooveline_active:
     score: 1
@@ -68,7 +66,7 @@ variable_player:
   mode_green_flag_stopped:
     multiplier:
       action: set
-      int: 0
+      float: 1
   logicblock_seq_lap_complete:
     lap_count: 1
 

@@ -11,3 +11,4 @@ config:
 - timers.yaml
 - variable_player.yaml
 - show_player.yaml
+- ball_holds.yaml

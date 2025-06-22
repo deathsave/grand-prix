@@ -3,6 +3,8 @@
 mode:
   start_events:
   - green_flag
+  # backfire mode shortcut to resume green flag
+  - logicblock_backfire_counter_complete
   stop_events:
   - pit_required_lube
   - pit_required_fuel
@@ -12,4 +14,4 @@ mode:
   events_when_stopped:
   - start_backfire_qualification
   restart_on_next_ball: true
-  priority: 200
+  priority: 2000

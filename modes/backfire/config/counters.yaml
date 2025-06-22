@@ -1,0 +1,11 @@
+#config_version=6
+
+counters:
+  backfire_counter:
+    count_events: sw_pops
+    # start at 1 so we don't have to check for 0
+    starting_count: 1
+    count_interval: 1
+    count_complete_value: 11
+    persist_state: false
+    reset_on_complete: true

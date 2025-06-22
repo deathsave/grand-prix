@@ -4,9 +4,7 @@ variable_player:
   ##################
   ## Base Scoring ##
   ##################
-  s_pop1_active:
-    score: 10 * current_player.multiplier|block
-  s_pop2_active:
+  sw_pops:
     score: 10 * current_player.multiplier|block
   s_grooveline_active:
     score: 100 * current_player.multiplier|block
