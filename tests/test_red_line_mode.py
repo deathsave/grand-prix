@@ -16,10 +16,6 @@ class TestRedLineMode(DeathSaveGameTesting):
         self._drain_one_ball()
         self.advance_time_and_run(1)
 
-        # drain another? bug?
-        self._drain_one_ball()
-        self.advance_time_and_run(1)
-
         self.assertEqual(
             1, self.machine.game.player.is_grooveline_completed)
         self.assertModeNotRunning("grooveline")
