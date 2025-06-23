@@ -1,0 +1,27 @@
+#config_version=6
+
+variable_player:
+  logicblock_backfire_counter_updated:
+    backfire_counter_count:
+      action: set
+      int: value
+  # all pit resources restores with successful backfire
+  logicblock_backfire_counter_complete:
+    level_fuel:
+      action: set
+      int: 2
+    level_lube:
+      action: set
+      int: 2
+    level_tires:
+      action: set
+      int: 2
+  mode_green_flag_stopped:
+    backfire_counter_count:
+      action: set
+      int: 0
+  # Scoring
+  sw_pops:
+    score:
+      int: ((1000 * current_player.backfire_counter_count) * current_player.multiplier)
+      block: true

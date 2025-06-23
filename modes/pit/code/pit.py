@@ -43,22 +43,6 @@ class Pit(Mode):
     # Checks and lights up the direct progress lights
     # per the PROGRESS_MAP
     def update_progress(self, **kwargs):
-        # for i, light in enumerate(self.machine.lights.values()):
-        #     print("****************************************")
-        #     print(f"Light {i}: {light.name}")
-        #     print(light.hw_drivers.values())
-        #     print("****************************************")
-        #     light.off()
-        #     if self.index >= len(self.machine.lights):
-        #         self.index = 0
-        #     if i == self.index:
-        #         light.on()
-        #         print(light.hw_drivers.values())
-        #         self.index = i + 1
-        #         break
-            # print("****************************************")
-            # print(f"Light {i}: {val}")
-            # print("****************************************")
         for state, value in self.PROGRESS_MAP.items():
             if state.startswith("is_"):
                 self.handle_bool(state, value)

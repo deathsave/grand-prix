@@ -18,5 +18,4 @@ config:
 - variable_player.yaml
 - coil_player.yaml
 - sound_player.yaml
-- ball_holds.yaml
 - multiball_locks.yaml

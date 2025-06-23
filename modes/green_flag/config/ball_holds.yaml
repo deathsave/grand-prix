@@ -1,6 +1,0 @@
-#config_version=6
-
-ball_holds:
-  backfire_hole:
-    balls_to_hold: 1
-    hold_devices: bd_backfire_hole

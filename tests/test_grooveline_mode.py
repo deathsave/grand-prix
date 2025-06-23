@@ -81,11 +81,6 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self._drain_one_ball()
         self.advance_time_and_run(4)
 
-        # Bug? Seems like we're getting a ball save here,
-        # but we shouldn't be
-        self._drain_one_ball()
-        self.advance_time_and_run(4)
-
         # the mode and multiball ends
         self.assertModeNotRunning("grooveline")
 

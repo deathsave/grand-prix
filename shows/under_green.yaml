@@ -10,20 +10,20 @@
   lights:
     l_signal1: on
   # TODO: replace these with actual chime coil pulse
-  sounds: chime_low
+  coils: c_chime1
 - time: "+1.0s"
   lights:
     l_signal2: on
-  sounds: chime_low
+  coils: c_chime1
 - time: "+1.0s"
   lights:
     l_signal3: on
-  sounds: chime_low
+  coils: c_chime1
 - time: "+1.0s"
   lights:
     tag_lights_signal: off
     l_signal4: on
-  sounds: chime_high
+  coils: c_chime3
 # keep the last light on a bit longer
 - time: "+1.0s"
   lights:

@@ -1,5 +1,7 @@
 #config_version=6
 
+# Kind of a "purgatory" mode between pit and green flag
+#
 # Hit "," (comma) then "b" after green flag ends
 # to activeate the backfire hole in development
 mode:
@@ -7,6 +9,6 @@ mode:
   - logicblock_seq_backfire_qualifier_complete
   stop_events:
   - timer_backfire_stopped
+  - mode_green_flag_started
   restart_on_next_ball: false
-  # kind of a purgatory mode between pit and green flag
-  priority: 150
+  priority: 1000

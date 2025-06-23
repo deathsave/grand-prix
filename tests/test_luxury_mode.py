@@ -73,10 +73,6 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._drain_one_ball()
         self.advance_time_and_run(4)
 
-        # and one more?? bug?
-        self._drain_one_ball()
-        self.advance_time_and_run(4)
-
         # the mode and multiball ends
         self.assertModeNotRunning("luxury")
 

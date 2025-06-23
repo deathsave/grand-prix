@@ -1,5 +1,5 @@
 #config_version=6
 
 mode:
-  priority: 1
+  priority: 10
   code: attract.GrandPrixAttract

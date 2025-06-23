@@ -31,6 +31,9 @@ class DeathSaveGameTesting(FullMachineTestCase):
     def _start_green_flag(self):
         death_save._start_green_flag(self)
 
+    def _start_backfire(self):
+        death_save._start_backfire(self)
+
     def _start_grooveline(self):
         death_save._start_grooveline(self)
 

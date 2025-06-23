@@ -75,6 +75,25 @@ def _start_green_flag(self):
     self.advance_time_and_run(1)
     self._assertVoiceIs("playing", "pit_done")
 
+def _start_backfire(self):
+    self._start_green_flag()
+    # player returns to the pit
+    self.machine.events.post("pit_required_lube")
+    self.advance_time_and_run(1)
+
+    # player hits the spinner
+    self.hit_and_release_switch("s_spinner")
+    self.advance_time_and_run(1)
+
+    # then enters the top hole
+    self.hit_switch_and_run("s_backfire_hole", 1)
+    self.assertModeRunning("backfire")
+
+    # ball kicked out
+    self.advance_time_and_run(5)
+    self.assertEqual(True,
+        self.machine.counters["backfire_counter"].enabled)
+
 def _complete_lap(self):
     self.hit_and_release_switch("s_spinner")
     self.hit_and_release_switch("s_grooveline")

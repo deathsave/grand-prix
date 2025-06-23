@@ -1,0 +1,4 @@
+#config_version=6
+
+slide_player:
+  mode_backfire_started: backfire_slide

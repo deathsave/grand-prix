@@ -96,25 +96,25 @@ lights:
     number: 1-0-15
     tags:
     - tag_lights
-    - tag_lights_mode
+    - tag_lights_pit_arrow
   l_pit_arrow1:
     subtype: led
     number: 1-0-16
     tags:
     - tag_lights
-    - tag_lights_mode
+    - tag_lights_pit_arrow
   l_mode_arrow1:
     subtype: led
     number: 1-0-17
     tags:
     - tag_lights
-    - tag_lights_arrow
+    - tag_lights_mode
   l_mode_arrow2:
     subtype: led
     number: 1-0-18
     tags:
     - tag_lights
-    - tag_lights_arrow
+    - tag_lights_mode
   l_prix_hole:
     subtype: led
     number: 1-0-19

@@ -25,3 +25,5 @@ slides:
   - widget: grooveline
   grand_prix_slide:
   - widget: grand_prix
+  backfire_slide:
+  - widget: backfire

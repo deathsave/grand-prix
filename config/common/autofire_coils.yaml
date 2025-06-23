@@ -22,6 +22,3 @@ autofire_coils:
   slingshot2:
     coil: c_slingshot2
     switch: s_slingshot2
-  chime:
-    coil: c_chime1
-    switch: s_spinner
