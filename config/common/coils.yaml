@@ -63,7 +63,7 @@ coils:
     number: 1-0-2
   c_backfire_hole:
     number: 1-0-4
-    default_pulse_ms: 8
+    default_pulse_ms: 6
   c_prix_hole:
     number: 1-0-5
     default_pulse_ms: 20

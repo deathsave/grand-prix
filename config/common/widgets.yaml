@@ -2,38 +2,41 @@
 
 widgets:
   splash:
-    - type: image
-      image: splash
-      z: 0
+  - type: image
+    image: splash
+    z: 0
   pit_background:
-    - type: image
-      image: pit-background
-      z: 0
+  - type: image
+    image: pit-background
+    z: 0
   pit_mirror:
-    - type: image
-      image: pit-mirror
-      z: 1
+  - type: image
+    image: pit-mirror
+    z: 1
   green_flag_background:
-    - type: image
-      image: green-flag-background
-      z: 0
+  - type: image
+    image: green-flag-background
+    z: 0
   green_flag_mirror:
-    - type: image
-      image: green-flag-mirror
-      z: 1
+  - type: image
+    image: green-flag-mirror
+    z: 1
   rear_view:
-    - type: image
-      image: rear-view
-      z: 2
+  - type: image
+    image: rear-view
+    z: 2
   grooveline:
-    - type: image
-      image: grooveline
+  - type: image
+    image: grooveline
   luxury:
-    - type: image
-      image: luxury
+  - type: image
+    image: luxury
+  backfire:
+  - type: image
+    image: backfire
   grand_prix:
-    - type: image
-      image: grand-prix
+  - type: image
+    image: grand-prix
   lube_2:
   - type: image
     image: lube-2

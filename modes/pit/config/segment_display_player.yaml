@@ -8,11 +8,8 @@ segment_display_player:
     segment4: ""
   ball_started{game.num_players > 1}:
     segment2: "{players[1].score:d}"
-    segment3: ""
-    segment4: ""
   ball_started{game.num_players > 2}:
     segment3: "{players[2].score:d}"
-    segment4: ""
   ball_started{game.num_players > 3}:
     segment4: "{players[3].score:d}"
   player_score{game.num_players > 0}:

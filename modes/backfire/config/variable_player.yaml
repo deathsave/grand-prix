@@ -5,6 +5,17 @@ variable_player:
     backfire_counter_count:
       action: set
       int: value
+  # all pit resources restores with successful backfire
+  logicblock_backfire_counter_complete:
+    level_fuel:
+      action: set
+      int: 2
+    level_lube:
+      action: set
+      int: 2
+    level_tires:
+      action: set
+      int: 2
   mode_green_flag_stopped:
     backfire_counter_count:
       action: set

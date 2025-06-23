@@ -13,3 +13,4 @@ config:
 - show_player.yaml
 - variable_player.yaml
 - counters.yaml
+- slide_player.yaml
