@@ -1,12 +1,6 @@
 #config_version=6
 
 coil_player:
-  logicblock_seq_lap_complete{not current_player.lap_count % 2 == 0}:
-    c_shaker_motor:
-      action: on
-  logicblock_seq_lap_complete{current_player.lap_count % 2 == 0}:
-    c_shaker_motor:
-      action: off
   # Spinner activates the chimebox in sequence every 3 spins
   # and pulses all together on completion of 20 spins
   s_spinner_active{current_player.spin_counter_count == 2}:
@@ -34,3 +28,6 @@ coil_player:
       action: pulse
     c_chime3:
       action: pulse
+  sw_tag_rev: c_shaker_motor
+  sw_tag_swerve: c_shaker_motor
+  logicblock_seq_lap_complete: c_shaker_motor
