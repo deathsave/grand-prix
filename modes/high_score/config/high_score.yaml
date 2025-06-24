@@ -1,7 +1,7 @@
 #config_version=6
 
 mode:
-  priority: 10000
+  priority: 20000
   start_events: game_ending, start_high_score
   use_wait_queue: true
 high_score:
@@ -55,6 +55,8 @@ slides:
       x: middle
       y: middle-15%
       select_event: sw_start
+      shift_left_event: sw_right_flipper
+      shift_right_event: sw_left_flipper
       color: cyan
       anchor_x: middle
       anchor_y: middle

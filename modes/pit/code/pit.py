@@ -37,7 +37,7 @@ class Pit(Mode):
     # Resets the grooveline counter on every ball start
     def reset_grooveline_count(self):
         player = self.machine.game.player
-        if player.is_player_var('grooveline_counter_count'):
+        if self.machine.counters['grooveline_counter'].enabled:
             self.machine.counters['grooveline_counter'].reset()
 
     # Checks and lights up the direct progress lights

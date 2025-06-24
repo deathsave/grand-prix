@@ -1,0 +1,44 @@
+#config_version=6
+
+mode:
+  priority: 10000
+
+mode_settings:
+  display_delay_ms: 4000
+  bonus_entries:
+  - event: luxury_counter_count
+    score: 10000
+    player_score_entry: luxury_counter_count
+
+slides:
+  bonus_start_slide:
+    widgets:
+    - type: text
+      font_size: 120
+      x: middle
+      y: middle
+      text: "End of Ball Bonus"
+      color: cyan
+  bonus_main_slide:
+    widgets:
+    - type: text
+      font_size: 90
+      x: middle
+      y: middle + 10%
+      text: "Bonus"
+      color: pink
+    - type: text
+      font_size: 120
+      text: (score)
+      x: middle
+      y: middle - 10%
+
+slide_player:
+  mode_bonus_started: bonus_start_slide
+  luxury_counter_count: bonus_main_slide
+
+sound_player:
+  mode_bonus_started:
+    quote:
+      action: play
+      loops: 0

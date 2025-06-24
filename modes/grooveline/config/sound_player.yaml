@@ -5,3 +5,6 @@ sound_player:
     groove_thing:
       action: play
       loops: -1
+  mode_grooveline_will_stop:
+    groove_thing:
+      action: stop

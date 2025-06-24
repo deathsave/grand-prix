@@ -18,3 +18,11 @@ opp:
 mypinballs:
   debug: true
   port: /dev/ttyMYPB
+
+window:
+  title: Grand Prix ’86
+  width: 800
+  height: 480
+  maxfps: 30
+  show_cursor: false
+  fullscreen: true
