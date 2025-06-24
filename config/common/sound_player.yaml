@@ -18,8 +18,6 @@ sound_player:
       action: play
     backfire_loop:
       action: stop
-    groove_thing:
-      action: stop
     million_dollars:
       action: stop
     favourite_game:
@@ -33,9 +31,6 @@ sound_player:
   mode_backfire_stopped:
     backfire_loop:
       action: stop
-  mode_grooveline_stopped:
-    groove_thing:
-      action: stop
   mode_luxury_stopped:
     million_dollars:
       action: stop
@@ -44,20 +39,4 @@ sound_player:
       action: stop
   mode_red_line_stopped:
     308in:
-      action: stop
-  mode_green_flag_starting:
-    blinding_lights:
-      action: play
-      delay: 6
-      loops: -1
-  mode_green_flag_started:
-    at_the_track:
-      action: play
-      delay: 7
-      loops: -1
-  mode_green_flag_stopping:
-    blinding_lights:
-      action: stop
-  mode_green_flag_stopped:
-    at_the_track:
       action: stop

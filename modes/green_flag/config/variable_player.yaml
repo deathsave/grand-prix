@@ -114,7 +114,3 @@ variable_player:
     grand_prix_counter_count:
       action: set
       int: value
-  logicblock_spin_counter_complete:
-    bonus_main:
-      action: add
-      int: 1

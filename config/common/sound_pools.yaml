@@ -165,8 +165,6 @@ sound_pools:
     - quote01
     - quote02
     - quote03
-    - quote04
-    - quote05
   start:
     type: random
     track: voice

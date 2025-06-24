@@ -35,6 +35,9 @@ class TestLuxuryMode(DeathSaveGameTesting):
             self.hit_switch_and_run("s_trough1", 4)
             self.hit_and_release_switch("s_shooter_lane")
 
+        # wait for end of ball bonus
+        self.advance_time_and_run(6)
+
         # Green flag mode resumes
         self.assertModeRunning("green_flag")
         # Count doesn't reset between balls

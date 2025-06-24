@@ -46,19 +46,16 @@ variable_player:
   #####################
   s_pit_fuel_active:
     score: 100
-    bonus: 10
     level_fuel:
       int: 2
       action: set
   s_pit_lube_active:
     score: 100
-    bonus: 10
     level_lube:
       int: 2
       action: set
   s_pit_tires_active:
     score: 100
-    bonus: 10
     level_tires:
       int: 2
       action: set

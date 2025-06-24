@@ -421,12 +421,6 @@ sounds:
   quote03:
     file: quote-03.ogg
     track: voice
-  quote04:
-    file: quote-04.ogg
-    track: voice
-  quote05:
-    file: quote-05.ogg
-    track: voice
   start01:
     file: start-01.ogg
     track: voice

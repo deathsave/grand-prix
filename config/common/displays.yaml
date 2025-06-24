@@ -1,14 +1,5 @@
 #config_version=6
 
-window:
-  title: Grand Prix ’86
-  # Per https://www.amazon.com/gp/product/B0CP3DH3LN
-  width: 800
-  height: 480
-  maxfps: 30
-  show_cursor: false
-  fullscreen: true
-
 displays:
   apron:
     width: 800

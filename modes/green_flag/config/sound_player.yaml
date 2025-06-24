@@ -25,3 +25,22 @@ sound_player:
   mode_green_flag_started:
     pit_ambience:
       action: stop
+    blinding_lights:
+      action: play
+      delay: 6
+      loops: -1
+    at_the_track:
+      action: play
+      delay: 7
+      loops: -1
+      priority: 5000
+  mode_green_flag_will_stop:
+    blinding_lights:
+      action: stop
+    at_the_track:
+      action: stop
+  multiball_stopped:
+    blinding_lights:
+      action: play
+      delay: 6
+      loops: -1

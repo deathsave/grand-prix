@@ -3,6 +3,14 @@
 hardware:
   platform: smart_virtual
 
+window:
+  title: Grand Prix ’86
+  width: 800
+  height: 480
+  maxfps: 30
+  show_cursor: false
+  fullscreen: false
+
 virtual_segment_display_connector:
   segment_displays:
   - segment1
