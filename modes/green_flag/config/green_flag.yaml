@@ -8,7 +8,6 @@
 config:
 - counters.yaml
 - event_player.yaml
-- light_player.yaml
 - mode.yaml
 - random_event_player.yaml
 - sequence_shots.yaml

@@ -5,10 +5,6 @@ class TestGreenFlagMode(DeathSaveGameTesting):
     def test_scoring(self):
         score = "score"
 
-        # Workaround to use the incandescent
-        # driver for the mini coils
-        # self.assertLightColor('x_loop_gate', 'black')
-
         self._start()
         self._start_green_flag()
         # 100 points for having hit the fuel switch...
@@ -97,6 +93,38 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertEqual(
             0, self.machine.game.player.level_lube)
         self.assertModeNotRunning("green_flag")
+
+    def test_loop_gate(self):
+        self._start()
+        self.assertEqual(
+            False, self.machine.diverters["loop_gate"].enabled)
+
+        self._start_green_flag()
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].enabled)
+        self.assertEqual(
+            False, self.machine.diverters["loop_gate"].active)
+
+        # hitting the spinner activates the loop gate
+        self.hit_and_release_switch("s_spinner")
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].active)
+        self.advance_time_and_run(1)
+        # still active after 1 second
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].active)
+        self.advance_time_and_run(2)
+        # no longer active after 2 more
+        self.assertEqual(
+            False, self.machine.diverters["loop_gate"].active)
+
+        # reactivate and disable with the grooveline switch
+        self.hit_and_release_switch("s_spinner")
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].active)
+        self.hit_and_release_switch("s_grooveline")
+        self.assertEqual(
+            False, self.machine.diverters["loop_gate"].active)
 
     def test_random_green_flag_degrade_fuel_event(self):
         self._start()
