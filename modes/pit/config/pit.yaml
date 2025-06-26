@@ -4,7 +4,6 @@ config:
 - ball_saves.yaml
 - event_player.yaml
 - mode.yaml
-- segment_display_player.yaml
 - sequences.yaml
 - slide_player.yaml
 - sound_player.yaml

@@ -10,3 +10,4 @@ modes:
 - red_line # <- wizard mode
 - high_score
 - bonus
+- segment_display

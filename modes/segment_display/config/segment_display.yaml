@@ -1,0 +1,4 @@
+#config_version=6
+
+config:
+- segment_display_player.yaml

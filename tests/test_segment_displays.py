@@ -38,3 +38,29 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         self.advance_time_and_run(2)
         self.assertEqual(1337,
             int(self.machine.segment_displays['segment4'].text))
+
+    def test_two_players(self):
+        self._start()
+        # add another player
+        self.hit_and_release_switch("s_start")
+        self.assertEqual(1, self.machine.game.player.number)
+        self.advance_time_and_run(1)
+        self.hit_and_release_switch("s_pop1")
+
+        self.assertEqual(1,
+            int(self.machine.segment_displays['segment1'].text))
+        self.assertEqual(0,
+            int(self.machine.segment_displays['segment2'].text))
+
+        self._expire_ball_save()
+        # Driver 1 ball drains
+        self._drain_one_ball()
+        self.advance_time_and_run(10)
+
+        # Next driver's turn
+        self.assertEqual(2, self.machine.game.player.number)
+
+        self.assertEqual(1,
+            int(self.machine.segment_displays['segment1'].text))
+        self.assertEqual(0,
+            int(self.machine.segment_displays['segment2'].text))

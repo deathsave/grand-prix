@@ -10,6 +10,12 @@ class DeathSaveMcTesting(FullMachineTestCase):
     def _start(self):
         death_save._start(self)
 
+    def _expire_ball_save(self):
+        death_save._expire_ball_save(self)
+
+    def _drain_one_ball(self):
+        death_save._drain_one_ball(self)
+
     # Helper function to check for existence
     # of test on the display.
     #
