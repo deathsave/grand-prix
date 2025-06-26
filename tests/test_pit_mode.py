@@ -11,6 +11,19 @@ class TestPitMode(DeathSaveGameTesting):
         self.advance_time_and_run(5)
         self._assertAmbienceIs("playing", "comm_noise_loop")
 
+    def test_loop_gate(self):
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].enabled)
+        self.hit_and_release_switch("s_shooter_lane")
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].active)
+        self.hit_and_release_switch("s_grooveline")
+        self.assertEqual(
+            False, self.machine.diverters["loop_gate"].active)
+
     def test_scoring(self):
         score = "score"
 
