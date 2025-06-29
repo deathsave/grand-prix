@@ -7,6 +7,10 @@ sound_player:
     pit_ambience:
       action: play
       loops: -1
+  mode_backfire_stopped:
+    pit_ambience:
+      action: play
+      loops: -1
   mode_green_flag_stopped:
     pit_ambience:
       action: play

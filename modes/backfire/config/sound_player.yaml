@@ -2,9 +2,12 @@
 
 sound_player:
   mode_backfire_started:
-    backfire_loop:
+    everybody:
       action: play
       loops: -1
+  mode_backfire_stopping:
+    everybody:
+      action: stop
   sw_pops:
     backfire:
       block: true

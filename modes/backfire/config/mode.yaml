@@ -11,4 +11,4 @@ mode:
   - timer_backfire_stopped
   - mode_green_flag_started
   restart_on_next_ball: false
-  priority: 1000
+  priority: 3000

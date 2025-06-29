@@ -129,3 +129,6 @@ keyboard:
     event: grand_prix_qualifier_hit
   shift-g:
     event: grooveline_qualifier_hit
+  # Backfire
+  shift-b:
+    event: logicblock_seq_backfire_qualifier_complete

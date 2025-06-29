@@ -45,7 +45,7 @@ sounds:
     file: favourite-game.ogg
     track: music
     loop_start_at: 6.7
-    volume: 0.4
+    volume: 0.5
   308in:
     file: 308in.ogg
     track: music
@@ -53,7 +53,7 @@ sounds:
   blinding_lights:
     file: blinding-lights.ogg
     track: music
-    volume: 0.3
+    volume: 0.5
   groove_thing:
     file: groove-thing.ogg
     track: music
@@ -67,6 +67,10 @@ sounds:
     file: pit-ambience.ogg
     track: music
     volume: 0.2
+  everybody:
+    file: everybody.ogg
+    track: music
+    volume: 0.5
 
   ##############
   ## Ambience ##
@@ -111,7 +115,7 @@ sounds:
   backfire_loop:
     file: backfire-loop.ogg
     track: effects
-    volume: 0.3
+    volume: 0.5
     fade_out: 2s
   backfire1:
     file: backfire-1.ogg
