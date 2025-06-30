@@ -7,16 +7,25 @@ mode:
   game_mode: false
 
 segment_display_player:
+  # Clear all segments when the game starts
+  game_started:
+    segment1:
+      text: ""
+    segment2:
+      text: ""
+    segment3:
+      text: ""
+    segment4:
+      text: ""
+
   # Player 1
   ball_started{player == 1}:
     segment1:
-      action: add
       text: "{players[0].score:d}"
       flashing: all
       priority: 1
   player_score{player_num == 1}:
     segment1:
-      action: add
       text: "{players[0].score:d}"
       flashing: off
       priority: 10
@@ -24,13 +33,11 @@ segment_display_player:
   # Player 2
   ball_started{player == 2}:
     segment2:
-      action: add
       text: "{players[1].score:d}"
       flashing: all
       priority: 1
   player_score{player_num == 2}:
     segment2:
-      action: add
       text: "{players[1].score:d}"
       flashing: off
       priority: 10
@@ -38,13 +45,11 @@ segment_display_player:
   # Player 3
   ball_started{player == 3}:
     segment3:
-      action: add
       text: "{players[2].score:d}"
       flashing: all
       priority: 1
   player_score{player_num == 3}:
     segment3:
-      action: add
       text: "{players[2].score:d}"
       flashing: off
       priority: 10
@@ -52,13 +57,11 @@ segment_display_player:
   # Player 3
   ball_started{player == 4}:
     segment4:
-      action: add
       text: "{players[3].score:d}"
       flashing: all
       priority: 1
   player_score{player_num == 4}:
     segment4:
-      action: add
       text: "{players[3].score:d}"
       flashing: off
       priority: 10

@@ -21,6 +21,36 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         self.assertEqual(1,
             int(self.machine.segment_displays['segment1'].text))
 
+    def test_clearing(self):
+        self.assertModeRunning("attract")
+        self.advance_time_and_run(10)
+        self.assertEqual(1986,
+            int(self.machine.segment_displays['segment1'].text))
+        self.assertEqual(15,
+            int(self.machine.segment_displays['segment2'].text))
+        self.assertEqual(50,
+            int(self.machine.segment_displays['segment3'].text))
+        self.assertEqual(1337,
+            int(self.machine.segment_displays['segment4'].text))
+
+        # game starts
+        self.hit_and_release_switch("s_start")
+        self.hit_and_release_switch("s_shooter_lane")
+        self.advance_time_and_run(1)
+
+        # player 1's score is on segment1
+        self.assertEqual(self.machine.game.player.score,
+            int(self.machine.segment_displays['segment1'].text))
+
+        # other segments are cleared
+        self.assertEqual("       ",
+            self.machine.segment_displays['segment2'].text)
+        self.assertEqual("       ",
+            self.machine.segment_displays['segment3'].text)
+        self.assertEqual("       ",
+            self.machine.segment_displays['segment4'].text)
+
+
     def _attract_show_plays(self):
         self.assertModeRunning("attract")
         self.advance_time_and_run(1)
