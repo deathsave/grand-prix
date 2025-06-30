@@ -6,8 +6,15 @@ timers:
     start_value: 0
     tick_interval: "1s"
     start_running: true
-    console_log: none
-    file_log: none
+  skill_shot:
+    start_value: 7
+    end_value: 0
+    direction: down
+    tick_interval: "1s"
+    control_events:
+    # activate on initial ball launch
+    - event: s_shooter_lane_inactive{not mode.green_flag.active}
+      action: start
   # Hurry up timer for the "backfire pops"
   backfire_qualification:
     end_value: 0

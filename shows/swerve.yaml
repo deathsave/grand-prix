@@ -1,0 +1,23 @@
+#show_version=6
+
+- time: 0
+  lights:
+    l_swerve1: on
+    l_backfire: off
+    l_swerve2: off
+- time: "+0.2s"
+  lights:
+    l_swerve1: off
+    l_backfire: on
+    l_swerve2: off
+- time: "+1s"
+  lights:
+    l_swerve1: off
+    l_backfire: off
+    l_swerve2: on
+- time: "+0.2s"
+  lights:
+    l_swerve1: off
+    l_backfire: on
+    l_swerve2: off
+- time: "+1s"

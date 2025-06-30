@@ -1,0 +1,10 @@
+#config_version=6
+
+shots:
+  skill_backfire:
+    enable_events:
+    - timer_skill_shot_started
+    disable_events:
+    - timer_skill_shot_complete
+    - skill_backfire_hit
+    switch: s_backfire_hole

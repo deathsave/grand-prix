@@ -3,8 +3,9 @@
 mode:
   start_events:
   - green_flag
-  # backfire mode shortcut to resume green flag
+  # shortcuts to resume/start green flag
   - logicblock_backfire_counter_complete
+  - skill_backfire_hit
   stop_events:
   - pit_required_lube
   - pit_required_fuel

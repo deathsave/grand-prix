@@ -8,7 +8,7 @@ variable_player:
     score: 10 * current_player.multiplier|block
   s_grooveline_active:
     score: 100 * current_player.multiplier|block
-  s_backfire_hole_active:
+  s_backfire_hole_active{not device.timers.skill_shot.running}:
     score: 500 * current_player.multiplier|block
   s_prix_hole_active:
     score: 100 * current_player.multiplier|block

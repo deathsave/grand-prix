@@ -17,3 +17,7 @@ show_player:
         color: yellow
   mode_green_flag_started:
     flash_color: stop
+  timer_skill_shot_started:
+    swerve: play
+  timer_skill_shot_complete:
+    swerve: stop

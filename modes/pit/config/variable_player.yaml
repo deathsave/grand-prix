@@ -12,7 +12,8 @@ variable_player:
     score: 1
   s_grooveline_active:
     score: 1
-  s_backfire_hole_active:
+  # so skill shot isn't 1000 + 1
+  s_backfire_hole_active{not device.timers.skill_shot.running}:
     score: 1
   s_prix_hole_active:
     score: 1
@@ -40,6 +41,19 @@ variable_player:
     score: 1
   s_outlane2_active:
     score: 1
+
+  # Skillshots immediately restore fuel resources
+  skill_backfire_hit:
+    score: 1000
+    level_fuel:
+      int: 2
+      action: set
+    level_lube:
+      int: 2
+      action: set
+    level_tires:
+      int: 2
+      action: set
 
   #####################
   ## Limited scoring ##
