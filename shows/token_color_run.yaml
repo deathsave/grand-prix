@@ -1,0 +1,50 @@
+#show_version=6
+
+# Parameters:
+# - tag: The tag for the light section.
+# - color: The color to be used for the lights.
+# - light(x): The individual light tags to be controlled.
+
+- time: 0
+  lights:
+    (tag): off
+    (light1): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light2): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light3): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light4): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light5): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light6): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light7): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light8): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light9): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off
+    (light10): (color)
+- time: "+0.1s"
+  lights:
+    (tag): off

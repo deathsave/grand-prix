@@ -12,9 +12,23 @@ show_player:
       show_tokens:
         lights: l_multiball
   multiball_started:
-    grooveline_soon:
+    token_color_run:
       action: stop
-  player_grooveline_counter_count{current_player.grooveline_counter_count == 10}: grooveline_soon
+  player_grooveline_counter_count{current_player.grooveline_counter_count == 10}:
+    token_color_run:
+      show_tokens:
+        tag: tag_lights_grooveline
+        color: cyan
+        light1: l_grooveline_01
+        light2: l_grooveline_02
+        light3: l_grooveline_03
+        light4: l_grooveline_04
+        light5: l_grooveline_05
+        light6: l_grooveline_06
+        light7: l_grooveline_07
+        light8: l_grooveline_08
+        light9: l_grooveline_09
+        light10: l_grooveline_10
   mode_green_flag_started:
     under_green:
       loops: 0

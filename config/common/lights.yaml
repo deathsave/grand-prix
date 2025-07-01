@@ -280,30 +280,35 @@ lights:
     tags:
     - tag_lights
     - tag_lights_grand
+    - tag_lights_grand_prix
   l_grand_02:
     subtype: matrix
     number: 0-1-13
     tags:
     - tag_lights
     - tag_lights_grand
+    - tag_lights_grand_prix
   l_grand_03:
     subtype: matrix
     number: 0-1-22
     tags:
     - tag_lights
     - tag_lights_grand
+    - tag_lights_grand_prix
   l_grand_04:
     subtype: matrix
     number: 0-1-15
     tags:
     - tag_lights
     - tag_lights_grand
+    - tag_lights_grand_prix
   l_grand_05:
     subtype: matrix
     number: 0-2-8
     tags:
     - tag_lights
     - tag_lights_grand
+    - tag_lights_grand_prix
   l_shoot_again:
     subtype: matrix
     number: 0-3-10
@@ -333,24 +338,28 @@ lights:
     tags:
     - tag_lights
     - tag_lights_prix
+    - tag_lights_grand_prix
   l_prix_03:
     subtype: matrix
     number: 0-3-13
     tags:
     - tag_lights
     - tag_lights_prix
+    - tag_lights_grand_prix
   l_prix_02:
     subtype: matrix
     number: 0-3-14
     tags:
     - tag_lights
     - tag_lights_prix
+    - tag_lights_grand_prix
   l_prix_01:
     subtype: matrix
     number: 0-3-15
     tags:
     - tag_lights
     - tag_lights_prix
+    - tag_lights_grand_prix
   l_multiplier_01:
     subtype: matrix
     number: 0-2-11

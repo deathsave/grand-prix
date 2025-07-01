@@ -6,15 +6,66 @@
   shows:
     match:
       loops: 0
-      sync_ms: 2000
+      sync_ms: 1000
     player_up:
       loops: 0
-      sync_ms: 2000
-    grooveline:
+      sync_ms: 1000
+    token_color_run:
       loops: 0
+      sync_ms: 1000
+      speed: 0.8
+      show_tokens:
+        tag: tag_lights_grooveline
+        color: cyan
+        light1: l_grooveline_01
+        light2: l_grooveline_02
+        light3: l_grooveline_03
+        light4: l_grooveline_04
+        light5: l_grooveline_05
+        light6: l_grooveline_06
+        light7: l_grooveline_07
+        light8: l_grooveline_08
+        light9: l_grooveline_09
+        light10: l_grooveline_10
+- time: "+2s"
+  shows:
+    token_color_run:
+      loops: 0
+      speed: 0.8
       sync_ms: 2000
-- time: "4s"
+      show_tokens:
+        tag: tag_lights_grand_prix
+        color: pink
+        light1: l_grand_01
+        light2: l_grand_02
+        light3: l_grand_03
+        light4: l_grand_04
+        light5: l_grand_05
+        light6: l_prix_01
+        light7: l_prix_02
+        light8: l_prix_03
+        light9: l_prix_04
+- time: "+2s"
+  shows:
+    token_color_run:
+      loops: 0
+      speed: 0.8
+      sync_ms: 1000
+      show_tokens:
+        tag: tag_lights_spinner
+        color: white
+        light1: l_bonus_01
+        light2: l_bonus_02
+        light3: l_bonus_03
+        light4: l_bonus_04
+        light5: l_bonus_05
+        light6: l_bonus_06
+        light7: l_bonus_07
+        light8: l_bonus_08
+        light9: l_bonus_09
+        light10: l_bonus_10
+- time: "6s"
   shows:
     info_lights:
       loops: 0
-      sync_ms: 2000
+      sync_ms: 1000

@@ -6,7 +6,7 @@
   slides:
     dspc_animation_slide:
       action: play
-- time: "8s"
+- time: "12s"
   slides:
     splash_slide:
       action: play
