@@ -155,7 +155,7 @@ lights:
     - tag_lights_active_ball
     - tag_lights_info_lights
 
-  # BOARD INDEX 1 (first playfield) No Lamps
+  # BOARD INDEX 1 (first playfield)
 
   l_swerve1:
     subtype: matrix
@@ -175,45 +175,76 @@ lights:
     tags:
     - tag_lights
     - tag_lights_spinner
-  l_bonus_09:
-    subtype: matrix
-    number: 0-3-23
-    tags:
-    - tag_lights
-    - tag_lights_spinner
   l_bonus_08:
     subtype: matrix
     number: 0-1-20
     tags:
     - tag_lights
     - tag_lights_spinner
-  l_bonus_07:
+  l_multiball:
     subtype: matrix
-    number: 0-3-22
+    number: 0-1-21
     tags:
     - tag_lights
-    - tag_lights_spinner
-  l_bonus_06:
+  l_grand_03:
     subtype: matrix
-    number: 0-3-21
+    number: 0-1-22
     tags:
     - tag_lights
-    - tag_lights_spinner
-  l_bonus_05:
+    - tag_lights_grand
+    - tag_lights_grand_prix
+
+  # BOARD INDEX 2
+
+  l_grand_05:
     subtype: matrix
-    number: 0-3-20
+    number: 0-2-8
     tags:
     - tag_lights
-    - tag_lights_spinner
-  l_bonus_04:
+    - tag_lights_grand
+    - tag_lights_grand_prix
+  l_bottom_outlane1:
     subtype: matrix
-    number: 0-3-19
+    number: 0-2-9
     tags:
     - tag_lights
-    - tag_lights_spinner
-  l_bonus_03:
+    - tag_lights_outlane
+  l_multiplier_01:
     subtype: matrix
-    number: 0-3-18
+    number: 0-2-11
+    tags:
+    - tag_lights
+    - tag_lights_multiplier
+  l_multiplier_02:
+    subtype: matrix
+    number: 0-2-12
+    tags:
+    - tag_lights
+    - tag_lights_multiplier
+  l_multiplier_03:
+    subtype: matrix
+    number: 0-2-13
+    tags:
+    - tag_lights
+    - tag_lights_multiplier
+  l_top_outlane1:
+    subtype: matrix
+    number: 0-2-14
+    tags:
+    - tag_lights
+    - tag_lights_outlane
+  l_luxury:
+    subtype: matrix
+    number: 0-2-15
+    tags:
+    - tag_lights
+
+  # BOARD INDEX 3
+
+  # 0-3-18 might be disconnected inline
+  l_bonus_01:
+    subtype: matrix
+    number: 0-3-16
     tags:
     - tag_lights
     - tag_lights_spinner
@@ -223,22 +254,42 @@ lights:
     tags:
     - tag_lights
     - tag_lights_spinner
-  l_bonus_01:
+  l_bonus_04:
     subtype: matrix
-    number: 0-3-16
+    number: 0-3-19
     tags:
     - tag_lights
     - tag_lights_spinner
-  l_luxury:
+  l_bonus_05:
     subtype: matrix
-    number: 0-2-15
+    number: 0-3-20
     tags:
     - tag_lights
-  l_multiball:
+    - tag_lights_spinner
+  l_bonus_06:
     subtype: matrix
-    number: 0-1-21
+    number: 0-3-21
     tags:
     - tag_lights
+    - tag_lights_spinner
+  l_bonus_07:
+    subtype: matrix
+    number: 0-3-22
+    tags:
+    - tag_lights
+    - tag_lights_spinner
+  l_bonus_03:
+    subtype: matrix
+    number: 0-3-23
+    tags:
+    - tag_lights
+    - tag_lights_spinner
+  l_bonus_09:
+    subtype: matrix
+    number: 0-1-16
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   # l_gi:
   #   subtype: matrix
   #   number: 0-1-22
@@ -268,12 +319,6 @@ lights:
     tags:
     - tag_lights
     - tag_lights_signal
-  l_bottom_outlane1:
-    subtype: matrix
-    number: 0-2-9
-    tags:
-    - tag_lights
-    - tag_lights_outlane
   l_grand_01:
     subtype: matrix
     number: 0-1-12
@@ -288,23 +333,9 @@ lights:
     - tag_lights
     - tag_lights_grand
     - tag_lights_grand_prix
-  l_grand_03:
-    subtype: matrix
-    number: 0-1-22
-    tags:
-    - tag_lights
-    - tag_lights_grand
-    - tag_lights_grand_prix
   l_grand_04:
     subtype: matrix
     number: 0-1-15
-    tags:
-    - tag_lights
-    - tag_lights_grand
-    - tag_lights_grand_prix
-  l_grand_05:
-    subtype: matrix
-    number: 0-2-8
     tags:
     - tag_lights
     - tag_lights_grand
@@ -314,12 +345,6 @@ lights:
     number: 0-3-10
     tags:
     - tag_lights
-  l_top_outlane1:
-    subtype: matrix
-    number: 0-2-14
-    tags:
-    - tag_lights
-    - tag_lights_outlane
   l_bottom_outlane2:
     subtype: matrix
     number: 0-3-8
@@ -360,21 +385,3 @@ lights:
     - tag_lights
     - tag_lights_prix
     - tag_lights_grand_prix
-  l_multiplier_01:
-    subtype: matrix
-    number: 0-2-11
-    tags:
-    - tag_lights
-    - tag_lights_multiplier
-  l_multiplier_02:
-    subtype: matrix
-    number: 0-2-12
-    tags:
-    - tag_lights
-    - tag_lights_multiplier
-  l_multiplier_03:
-    subtype: matrix
-    number: 0-2-13
-    tags:
-    - tag_lights
-    - tag_lights_multiplier
