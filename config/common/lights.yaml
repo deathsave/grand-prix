@@ -157,6 +157,7 @@ lights:
 
   # BOARD INDEX 1 (first playfield)
 
+  # 0-1-16 might be bad
   l_swerve1:
     subtype: matrix
     number: 0-1-17
@@ -287,7 +288,7 @@ lights:
     - tag_lights_spinner
   l_bonus_09:
     subtype: matrix
-    number: 0-1-16
+    number: 0-3-23
     tags:
     - tag_lights
     - tag_lights_spinner
