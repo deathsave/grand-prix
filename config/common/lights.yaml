@@ -175,9 +175,10 @@ lights:
     tags:
     - tag_lights
     - tag_lights_spinner
+  # 1-20 might be bad
   l_bonus_08:
     subtype: matrix
-    number: 0-1-20
+    number: 0-1-23
     tags:
     - tag_lights
     - tag_lights_spinner
@@ -254,6 +255,12 @@ lights:
     tags:
     - tag_lights
     - tag_lights_spinner
+  l_bonus_03:
+    subtype: matrix
+    number: 0-3-18
+    tags:
+    - tag_lights
+    - tag_lights_spinner
   l_bonus_04:
     subtype: matrix
     number: 0-3-19
@@ -275,12 +282,6 @@ lights:
   l_bonus_07:
     subtype: matrix
     number: 0-3-22
-    tags:
-    - tag_lights
-    - tag_lights_spinner
-  l_bonus_03:
-    subtype: matrix
-    number: 0-3-23
     tags:
     - tag_lights
     - tag_lights_spinner
