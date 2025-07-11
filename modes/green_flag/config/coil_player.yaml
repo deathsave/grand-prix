@@ -3,23 +3,62 @@
 coil_player:
   # Spinner activates the chimebox in sequence every 3 spins
   # and pulses all together on completion of 20 spins
+  s_spinner_active{current_player.spin_counter_count == 1}:
+    c_chime1:
+      action: pulse
   s_spinner_active{current_player.spin_counter_count == 2}:
+    c_chime2:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 3}:
+    c_chime3:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 4}:
     c_chime1:
       action: pulse
   s_spinner_active{current_player.spin_counter_count == 5}:
     c_chime2:
       action: pulse
-  s_spinner_active{current_player.spin_counter_count == 8}:
+  s_spinner_active{current_player.spin_counter_count == 6}:
     c_chime3:
       action: pulse
+  s_spinner_active{current_player.spin_counter_count == 7}:
+    c_chime1:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 8}:
+    c_chime2:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 9}:
+    c_chime3:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 10}:
+    c_chime1:
+      action: pulse
   s_spinner_active{current_player.spin_counter_count == 11}:
+    c_chime2:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 12}:
+    c_chime3:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 13}:
     c_chime1:
       action: pulse
   s_spinner_active{current_player.spin_counter_count == 14}:
     c_chime2:
       action: pulse
-  s_spinner_active{current_player.spin_counter_count == 17}:
+  s_spinner_active{current_player.spin_counter_count == 15}:
     c_chime3:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 16}:
+    c_chime1:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 17}:
+    c_chime2:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 18}:
+    c_chime3:
+      action: pulse
+  s_spinner_active{current_player.spin_counter_count == 19}:
+    c_chime1:
       action: pulse
   logicblock_spin_counter_complete:
     c_chime1:
@@ -27,6 +66,8 @@ coil_player:
     c_chime2:
       action: pulse
     c_chime3:
+      action: pulse
+    c_shaker_motor:
       action: pulse
   sw_tag_rev: c_shaker_motor
   sw_tag_swerve: c_shaker_motor
