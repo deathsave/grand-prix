@@ -66,30 +66,6 @@ lights:
   l_tach:
     subtype: matrix
     number: 0-0-11
-  l_backbox_player_up1:
-    subtype: matrix
-    number: 0-0-10
-    tags:
-    - tag_lights
-    - tag_lights_player_up
-  l_backbox_player_up2:
-    subtype: matrix
-    number: 0-1-16 # bad just to boot
-    tags:
-    - tag_lights
-    - tag_lights_player_up
-  l_backbox_player_up3:
-    subtype: matrix
-    number: 0-0-12
-    tags:
-    - tag_lights
-    - tag_lights_player_up
-  l_backbox_player_up4:
-    subtype: matrix
-    number: 0-0-13
-    tags:
-    - tag_lights
-    - tag_lights_player_up
   l_backbox_players_in1:
     subtype: matrix
     number: 0-0-14

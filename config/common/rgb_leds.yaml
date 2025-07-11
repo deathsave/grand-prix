@@ -121,9 +121,141 @@ lights:
     tags:
     - tag_lights
     - tag_lights_grand
-  l_mode_backbox:
+  l_loop_18:
     subtype: led
     number: 1-0-20
     tags:
     - tag_lights
+    - tag_lights_loop
+  l_loop_17:
+    subtype: led
+    number: 1-0-21
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_16:
+    subtype: led
+    number: 1-0-22
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_15:
+    subtype: led
+    number: 1-0-23
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_14:
+    subtype: led
+    number: 1-0-24
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_13:
+    subtype: led
+    number: 1-0-25
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_12:
+    subtype: led
+    number: 1-0-26
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_11:
+    subtype: led
+    number: 1-0-27
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_10:
+    subtype: led
+    number: 1-0-28
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_09:
+    subtype: led
+    number: 1-0-29
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_08:
+    subtype: led
+    number: 1-0-30
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_07:
+    subtype: led
+    number: 1-0-31
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_06:
+    subtype: led
+    number: 1-0-32
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_05:
+    subtype: led
+    number: 1-0-33
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_04:
+    subtype: led
+    number: 1-0-34
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_03:
+    subtype: led
+    number: 1-0-35
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_02:
+    subtype: led
+    number: 1-0-36
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_loop_01:
+    subtype: led
+    number: 1-0-37
+    tags:
+    - tag_lights
+    - tag_lights_loop
+  l_mode_backbox:
+    subtype: led
+    number: 1-0-38
+    tags:
+    - tag_lights
     - tag_lights_mode
+  l_backbox_player_up1:
+    subtype: led
+    number: 1-0-39
+    tags:
+    - tag_lights
+    - tag_lights_player_up
+  l_backbox_player_up2:
+    subtype: led
+    number: 1-0-40
+    tags:
+    - tag_lights
+    - tag_lights_player_up
+  l_backbox_player_up3:
+    subtype: led
+    number: 1-0-41
+    tags:
+    - tag_lights
+    - tag_lights_player_up
+  l_backbox_player_up4:
+    subtype: led
+    number: 1-0-42
+    tags:
+    - tag_lights
+    - tag_lights_player_up

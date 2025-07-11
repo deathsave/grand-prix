@@ -1,0 +1,79 @@
+#show_version=6
+
+# Chasing lights right to left in the back of the loop.
+#
+- time: 0
+  lights:
+    tag_lights_loop: off
+    l_loop_01: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_02: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_03: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_04: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_05: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_06: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_07: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_08: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_09: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_10: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_11: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_12: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_13: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_14: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_15: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_16: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_17: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off
+    l_loop_18: (color)
+- time: "+0.05s"
+  lights:
+    tag_lights_loop: off

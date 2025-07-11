@@ -12,6 +12,11 @@ show_player:
       loops: 0
       show_tokens:
         lights: l_tach
+  logicblock_seq_lap_complete:
+    loop:
+      loops: 0
+      show_tokens:
+        color: lime
   multiball_stopped:
     lights_blink:
       action: stop
