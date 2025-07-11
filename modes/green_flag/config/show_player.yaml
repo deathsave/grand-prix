@@ -6,6 +6,12 @@ show_player:
     lights_blink:
       show_tokens:
         lights: l_multiball
+  sw_tag_rev:
+    lights_blink:
+      speed: 1.5
+      loops: 0
+      show_tokens:
+        lights: l_tach
   multiball_stopped:
     lights_blink:
       action: stop
