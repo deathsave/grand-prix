@@ -1,0 +1,6 @@
+#config_version=6
+
+spinners:
+  spinner:
+    switch: s_spinner
+    active_ms: 500

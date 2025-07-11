@@ -30,3 +30,4 @@ config:
 - common/named_colors.yaml
 - common/coil_player.yaml
 - common/diverters.yaml
+- common/spinners.yaml
