@@ -1,0 +1,76 @@
+#show_version=6
+
+# Chasing lights left to right and back across the
+# bottom of the backbox.
+
+# step 1
+- duration: 1
+  lights:
+    l_bonus_10: off
+  shows:
+    chime_default:
+      loops: 0
+# step 2
+- duration: 1
+  lights:
+    l_bonus_09: on
+  shows:
+    chime_default:
+      loops: 0
+# step 3
+- duration: 1
+  lights:
+    l_bonus_08: on
+  shows:
+    chime_default:
+      loops: 0
+# step 4
+- duration: 1
+  lights:
+    l_bonus_07: on
+  shows:
+    chime_default:
+      loops: 0
+# step 4
+- duration: 1
+  lights:
+    l_bonus_06: on
+  shows:
+    chime_default:
+      loops: 0
+# step 4
+- duration: 1
+  lights:
+    l_bonus_05: on
+  shows:
+    chime_default:
+      loops: 0
+# step 4
+- duration: 1
+  lights:
+    l_bonus_04: on
+  shows:
+    chime_default:
+      loops: 0
+# step 4
+- duration: 1
+  lights:
+    l_bonus_03: on
+  shows:
+    chime_default:
+      loops: 0
+# step 4
+- duration: 1
+  lights:
+    l_bonus_02: on
+  shows:
+    chime_default:
+      loops: 0
+# step 4
+- duration: 1
+  lights:
+    l_bonus_01: on
+  shows:
+    chime_default:
+      loops: 0
+- duration: 1

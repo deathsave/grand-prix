@@ -42,3 +42,9 @@ sound_player:
     quote:
       action: play
       loops: 0
+
+show_player:
+  some_advance_event:
+    bonus:
+      action: play
+      start_step: current_player.luxury_counter_count
