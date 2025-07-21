@@ -1,0 +1,10 @@
+#config_version=6
+
+# All multi-ball modes should light these
+light_player:
+  sw_tag_rev:
+    l_tach:
+      color: white
+  timer_eternal_tick{ticks % 3 == 0}:
+    l_tach:
+      color: black
