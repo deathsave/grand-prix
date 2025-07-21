@@ -44,7 +44,7 @@ sound_player:
       loops: 0
 
 show_player:
-  some_advance_event:
+  slide_bonus_main_slide_active:
     bonus:
       action: play
-      start_step: current_player.luxury_counter_count
+      start_step: 10 - current_player.luxury_counter_count
