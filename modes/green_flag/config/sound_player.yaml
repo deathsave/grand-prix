@@ -45,6 +45,15 @@ sound_player:
       delay: 6
       loops: -1
 
+  ##########################
+  ## Grooveline Multiball ##
+  ##########################
+
+  logicblock_grooveline_counter_complete:
+    grooveline_multiball_ready:
+      action: play
+      delay: 0.5
+
   ############################
   ## Money/Luxury Multiball ##
   ############################

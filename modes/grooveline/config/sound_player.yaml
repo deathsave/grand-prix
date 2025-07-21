@@ -2,6 +2,8 @@
 
 sound_player:
   mode_grooveline_started:
+    grooveline_starting:
+      action: play
     groove_thing:
       action: play
       loops: -1
