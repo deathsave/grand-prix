@@ -2,6 +2,13 @@
 
 sound_player:
   mode_luxury_started:
+    luxury_starting:
+      action: play
     million_dollars:
       action: play
       loops: -1
+      delay: 1
+  luxury_claimed_complete:
+    luxury_completed:
+      action: play
+      delay: 0.5

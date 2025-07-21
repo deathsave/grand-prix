@@ -3,6 +3,7 @@
 # All multi-ball modes should light these
 light_player:
   mode_luxury_started:
+    tag_lights_state: off
     l_multiball:
       color: white
     l_luxury:

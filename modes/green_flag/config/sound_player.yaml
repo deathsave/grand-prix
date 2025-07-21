@@ -45,6 +45,15 @@ sound_player:
       delay: 6
       loops: -1
 
+  ############################
+  ## Money/Luxury Multiball ##
+  ############################
+
+  logicblock_luxury_counter_complete:
+    luxury_multiball_ready:
+      action: play
+      delay: 0.5
+
   ##########################
   ## Grand Prix Multiball ##
   ##########################
