@@ -7,7 +7,7 @@ keyboard:
   #########################
   ## Testing / Debugging ##
   #########################
-  shift+l:
+  ctrl+l:
     event: light_all
   ctrl+q:
     event: coil_pop1
@@ -79,19 +79,19 @@ keyboard:
   m:
     switch: s_multiball_target
 
-  # Scoops & grouped switched
-  b+h:
-    switch: s_backfire_hole
+  # # Scoops & grouped switched
+  # b+h:
+  #   switch: s_backfire_hole
 
-  g+h:
-    switch: s_grand_hole
-  g+t:
-    switch: s_save_target
+  # g+h:
+  #   switch: s_grand_hole
+  # g+t:
+  #   switch: s_save_target
 
-  p+h:
-    switch: s_prix_hole
-  p+t:
-    switch: s_save_target
+  # p+h:
+  #   switch: s_prix_hole
+  # p+t:
+  #   switch: s_save_target
 
   # Pit Resources
   f:
