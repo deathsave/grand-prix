@@ -60,7 +60,7 @@ graph TD
 We used the built-in macOS `say` command to generate these and the
 "Tritik Krush" VST plugin to bit-crush them.
 
-`say -v "Vicki" "Nothing left to proove. Time to go Demolition Derby on this shit!" -o redline-starting.ogg`
+`say -v "Vicki" "Nothing left to prove. Time to go Demolition Derby on this shit!" -o redline-starting.ogg`
 
 ### Production Machine Setup
 

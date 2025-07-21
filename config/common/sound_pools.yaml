@@ -1,6 +1,23 @@
 #config_version=6
 
 sound_pools:
+  late:
+    type: random
+    track: voice
+    sounds:
+    - late1
+    - late2
+    - late3
+  compliment:
+    type: random
+    track: voice
+    sounds:
+    - compliment1
+    - compliment2
+    - compliment3
+    - compliment4
+    - compliment5
+    - compliment6
   swerve:
     type: random_force_all
     track: effects

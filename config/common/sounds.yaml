@@ -188,6 +188,43 @@ sounds:
 
   ######## Synth #########
 
+  late1:
+    file: late1.ogg
+    track: voice
+  late2:
+    file: late2.ogg
+    track: voice
+  late3:
+    file: late3.ogg
+    track: voice
+  backfire_completed:
+    file: backfire-completed.ogg
+    track: voice
+  backfire_reminder:
+    file: backfire-reminder.ogg
+    track: voice
+  backfire_starting:
+    file: backfire-starting.ogg
+    track: voice
+  compliment1:
+    file: compliment1.ogg
+    track: voice
+  compliment2:
+    file: compliment2.ogg
+    track: voice
+  compliment3:
+    file: compliment3.ogg
+    track: voice
+  compliment4:
+    file: compliment4.ogg
+    track: voice
+  compliment5:
+    file: compliment5.ogg
+    track: voice
+  compliment6:
+    file: compliment6.ogg
+    track: voice
+
   ball_two_locked:
     file: ball-two-locked.ogg
     track: voice

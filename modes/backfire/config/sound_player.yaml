@@ -2,12 +2,18 @@
 
 sound_player:
   mode_backfire_started:
+    backfire_starting:
+      action: play
     everybody:
       action: play
       loops: -1
+      delay: 1
   mode_backfire_stopping:
     everybody:
       action: stop
+  logicblock_backfire_counter_complete:
+    compliment:
+      action: play
   sw_pops:
     backfire:
       block: true

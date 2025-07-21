@@ -11,6 +11,10 @@ sound_player:
     pit_ambience:
       action: play
       loops: -1
+  # Reminders to get into the backfire hole
+  # and "too late" if not done in time
+  timer_backfire_qualification_tick{ticks == 10 and not mode.backfire.active and not mode.green_flag.active}: backfire_reminder
+  timer_backfire_qualification_tick{ticks == 1 and not mode.backfire.active and not mode.green_flag.active}: late
   mode_green_flag_stopped:
     pit_ambience:
       action: play
