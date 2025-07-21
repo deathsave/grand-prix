@@ -96,3 +96,20 @@ widgets:
     video: dspc-animation
     width: 800
     height: 480
+  laps_key:
+  - type: text
+    text: "Laps:"
+    x: 55%
+    y: 10%
+    z: 5
+    color: cyan
+    font_size: 36
+  laps_value:
+  - type: text
+    text: "(lap_count)"
+    z: 5
+    x: 62%
+    y: 10%
+    color: cyan
+    style: medium
+    font_size: 26

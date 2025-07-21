@@ -19,6 +19,8 @@ slides:
   - widget: fuel_(current_player.level_fuel)
   - widget: lube_(current_player.level_lube)
   - widget: tires_(current_player.level_tires)
+  - widget: laps_key
+  - widget: laps_value
   luxury_slide:
   - widget: luxury
   grooveline_slide:
