@@ -33,6 +33,10 @@ class Pit(Mode):
         self.update_progress()
         self.add_mode_event_handler("player_pit_eternal_tick",
             self.update_progress)
+        self.machine.segment_displays["segment1"].add_text("")
+        self.machine.segment_displays["segment2"].add_text("")
+        self.machine.segment_displays["segment3"].add_text("")
+        self.machine.segment_displays["segment4"].add_text("")
 
     # Resets the grooveline counter on every ball start
     def reset_grooveline_count(self):

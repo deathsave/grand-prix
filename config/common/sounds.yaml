@@ -185,6 +185,48 @@ sounds:
   ###############
   ## Call outs ##
   ###############
+
+  ######## Synth #########
+
+  ball_two_locked:
+    file: ball-two-locked.ogg
+    track: voice
+  grand_prix_ball_locked:
+    file: grand-prix-ball-locked.ogg
+    track: voice
+  grand_prix_completed:
+    file: grand-prix-completed.ogg
+    track: voice
+  grand_prix_multiball_ready:
+    file: grand-prix-multiball-ready.ogg
+    track: voice
+  grand_prix_starting:
+    file: grand-prix-starting.ogg
+    track: voice
+  grooveline_completed:
+    file: grooveline-completed.ogg
+    track: voice
+  grooveline_multiball_ready:
+    file: grooveline-multiball-ready.ogg
+    track: voice
+  grooveline_starting:
+    file: grooveline-starting.ogg
+    track: voice
+  luxury_completed:
+    file: luxury-completed.ogg
+    track: voice
+  luxury_multiball_ready:
+    file: luxury-multiball-ready.ogg
+    track: voice
+  luxury_starting:
+    file: luxury-starting.ogg
+    track: voice
+  multiball_ready:
+    file: multiball-ready.ogg
+    track: voice
+
+  ######## Steve #########
+
   bad_luck_blow_out01:
     file: bad-luck-blow-out-01.ogg
     track: voice

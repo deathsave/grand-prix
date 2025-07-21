@@ -55,6 +55,13 @@ graph TD
   RF_MODE ==> RF_MULTI("Red Line Multiball")
 ```
 
+### Synthesis Call outs
+
+We used the built-in macOS `say` command to generate these and the
+"Tritik Krush" VST plugin to bit-crush them.
+
+`say -v "Vicki" "Nothing left to proove. Time to go Demolition Derby on this shit!" -o redline-starting.ogg`
+
 ### Production Machine Setup
 
 Hardware is as such:

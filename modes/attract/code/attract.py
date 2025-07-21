@@ -13,6 +13,10 @@ class GrandPrixAttract(Attract):
 
     def wiggle_segment(self, **kwargs):
         ticks = self.machine.timers["segment_wiggle_timer"].ticks
+        self.machine.segment_displays["segment1"].add_text("")
+        self.machine.segment_displays["segment2"].add_text("")
+        self.machine.segment_displays["segment3"].add_text("")
+        self.machine.segment_displays["segment4"].add_text("")
 
         if ticks > 58:
             segment_number = random.randint(1, 4)

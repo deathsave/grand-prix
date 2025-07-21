@@ -44,3 +44,26 @@ sound_player:
       action: play
       delay: 6
       loops: -1
+
+  ##########################
+  ## Grand Prix Multiball ##
+  ##########################
+  multiball_lock_grand_hole_locked_ball{current_player.prix_hole_locked_balls == 0}:
+    grand_prix_ball_locked:
+      action: play
+      delay: 0.5
+  multiball_lock_prix_hole_locked_ball{current_player.grand_hole_locked_balls == 0}:
+    grand_prix_ball_locked:
+      action: play
+      delay: 0.5
+  multiball_lock_grand_hole_locked_ball{current_player.prix_hole_locked_balls > 0}:
+    ball_two_locked:
+      action: play
+      delay: 0.5
+  multiball_lock_prix_hole_locked_ball{current_player.grand_hole_locked_balls > 0}:
+    ball_two_locked:
+      action: play
+      delay: 0.5
+  balldevice_bd_backfire_hole_ball_entered{current_player.grand_hole_locked_balls > 0 and current_player.prix_hole_locked_balls > 0}:
+    grand_prix_multiball_ready:
+      action: play

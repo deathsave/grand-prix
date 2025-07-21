@@ -2,6 +2,9 @@
 
 sound_player:
   mode_grand_prix_started:
+    grand_prix_starting:
+      action: play
     favourite_game:
       action: play
       loops: -1
+      delay: 2
