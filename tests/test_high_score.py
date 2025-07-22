@@ -14,7 +14,9 @@ class TestHighScore(DeathSaveGameTesting):
 
             # ball drains and next ball begins
             self._drain_one_ball()
-            self.advance_time_and_run(10)
+
+            # wait out bonus
+            self.advance_time_and_run(18)
 
         # now we're on ball 3
         self.assertEqual(3, self.machine.game.player.ball)
@@ -28,7 +30,9 @@ class TestHighScore(DeathSaveGameTesting):
         for i in range(30):
             self.hit_and_release_switch("s_pit_lube")
         self._drain_one_ball()
-        self.advance_time_and_run(10)
+
+        # wait out bonus
+        self.advance_time_and_run(18)
 
         self.assertModeRunning("high_score")
         current_widgets = self.get_text_widgets()

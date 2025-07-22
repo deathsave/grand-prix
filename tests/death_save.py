@@ -105,11 +105,16 @@ def _start_grooveline(self):
 
 # assumes green_flag mode is running
 def _start_luxury(self):
-    self.machine.events. \
-        post("logicblock_luxury_counter_complete")
+    for i in range(100):
+        self.hit_and_release_switch("s_spinner")
+    self.assertEqual(10,
+        self.machine.game.player.luxury_counter_count)
+    self.advance_time_and_run(1)
+    # Mult-ball light indicator on
+    self.assertLightColor('l_multiball', 'white')
     self.hit_and_release_switch("s_multiball_target")
-    self.advance_time_and_run(8)
     self.assertModeRunning("luxury")
+    self.advance_time_and_run(4)
 
 # assumes green_flag mode is running
 def _start_grand_prix(self):

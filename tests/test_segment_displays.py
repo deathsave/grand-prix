@@ -85,7 +85,9 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         self._expire_ball_save()
         # Driver 1 ball drains
         self._drain_one_ball()
-        self.advance_time_and_run(10)
+
+        # wait out bonus
+        self.advance_time_and_run(18)
 
         # Next driver's turn
         self.assertEqual(2, self.machine.game.player.number)

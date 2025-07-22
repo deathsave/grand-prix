@@ -37,7 +37,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.hit_switch_and_run("s_trough1", 3)
 
         # wait for end of ball bonus
-        self.advance_time_and_run(8)
+        self.advance_time_and_run(15)
 
         # Green flag mode resumes
         self.assertModeRunning("green_flag")

@@ -11,13 +11,15 @@ player_vars:
     initial_value: 0
   backfire_counter_count:
     initial_value: 0
-  # bonus
-  bonus_main:
-    initial_value: 0
-  bonus_laps:
-    initial_value: 0
-  bonus_game_progress:
-    initial_value: 0
+
+  # # TODO: per ball bonuses
+  # bonus_main:
+  #   initial_value: 0
+  # bonus_laps:
+  #   initial_value: 0
+  # bonus_game_progress:
+  #   initial_value: 0
+
   # 2 is full
   # 1 is partial
   # 0 is empty

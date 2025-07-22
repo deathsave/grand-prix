@@ -49,9 +49,9 @@ class TestBonusMode(DeathSaveGameTesting):
         # ensure multiplier is standard
         self.assertEqual(1, self.machine.game.player.multiplier)
 
-
         # bonus mode is now running
         self.assertModeRunning("bonus")
+        self.advance_time_and_run(2.2)
         # at this point, chime1 fires during bonus
         # show (5 times the luxury counter value)
         # 8th step of show
@@ -75,7 +75,7 @@ class TestBonusMode(DeathSaveGameTesting):
             self.machine.coils["c_chime1"].pulse.call_count)
         self.assertLightColor('l_bonus_01', 'black')
 
-        self.advance_time_and_run(1)
+        self.advance_time_and_run(10)
 
         # next ball begins and bonus has been added
         self.assertEqual(2, self.machine.game.player.ball)
@@ -92,3 +92,34 @@ class TestBonusMode(DeathSaveGameTesting):
         self.assertLightColor('l_bonus_02', 'white')
         self.assertLightColor('l_bonus_03', 'white')
         self.assertLightColor('l_bonus_04', 'black')
+
+    def test_bonus_lap(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self.assertEqual(self.machine.game.player.score, 100)
+
+        # driver makes 5 laps on ball one
+        for i in range(5):
+            self._complete_lap()
+
+        # ball drains
+        self.hit_switch_and_run("s_trough1", 3)
+
+        # ensure multiplier is standard
+        self.assertEqual(1, self.machine.game.player.multiplier)
+
+        # - 100 for initial fuel to get into green flag
+        # - 500 for the 5 laps and
+        # - 10 for each spinner hit during those laps
+        self.assertEqual(650, self.machine.game.player.score)
+        # bonus mode is now running
+        self.assertModeRunning("bonus")
+
+        self.advance_time_and_run(15)
+
+        # next ball begins and bonus has been added
+        self.assertEqual(2, self.machine.game.player.ball)
+
+        # bonus of 1000 per lap made
+        self.assertEqual(650 + 5000,
+            self.machine.game.player.score)

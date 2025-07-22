@@ -59,9 +59,6 @@ class TestLuxuryMode(DeathSaveGameTesting):
         # Player hits the spinner a lot
         self._start_luxury()
 
-        # Mult-ball light indicator on
-        self.assertLightColor('l_multiball', 'white')
-
     def test_multiball(self):
         self._start_multiball()
         # started, but not completed, yet

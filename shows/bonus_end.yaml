@@ -1,0 +1,10 @@
+#show_version=6
+
+# To ensure the `bonus_show_ended` event is posted. Needs
+# to be long to allow the prior "main" bonus to complete
+# its sequence in case the player had a big bonus.
+
+- duration: 4
+- duration: 1
+  events:
+  - bonus_show_ended

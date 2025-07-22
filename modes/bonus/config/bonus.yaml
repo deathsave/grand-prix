@@ -4,18 +4,25 @@ mode:
   priority: 10000
 
 mode_settings:
-  display_delay_ms: 1500
+  display_delay_ms: 4000
   end_bonus_event: bonus_show_ended
   bonus_entries:
-  - event: luxury_counter_count
+  # display in the order here
+  - event: bonus_main
     score: 10000
     player_score_entry: luxury_counter_count
-    # we need this one to always fire since the
-    # last step triggers the end_bonus_event above
+    skip_if_zero: false
+  # the name of the event the bonus will post
+  - event: bonus_lap
+    # the value to add to the score per counted event
+    score: 1000
+    # what is multiplied by the score value
+    player_score_entry: lap_count
     skip_if_zero: false
 
 slides:
   bonus_start_slide:
+    display_delay_ms: 1000
     widgets:
     - type: text
       font_size: 120
@@ -24,6 +31,7 @@ slides:
       text: "End of Ball Bonus"
       color: cyan
   bonus_main_slide:
+    display_delay_ms: 8000
     widgets:
     - type: text
       font_size: 90
@@ -32,14 +40,43 @@ slides:
       text: "Bonus"
       color: pink
     - type: text
-      font_size: 120
+      font_size: 140
       text: (score)
       x: middle
       y: middle - 10%
+  bonus_lap_slide:
+    widgets:
+    - type: text
+      font_size: 90
+      x: middle
+      y: middle + 10%
+      text: "Laps"
+      color: pink
+    - type: text
+      font_size: 110
+      text: (score)
+      x: middle
+      y: middle - 10%
+  bonus_total_slide:
+    widgets:
+    - type: text
+      font_size: 110
+      x: middle
+      y: middle + 10%
+      text: "Total Bonus"
+      color: cyan
+    - type: text
+      font_size: 140
+      text: (score)
+      x: middle
+      y: middle - 10%
+      color: pink
 
 slide_player:
   mode_bonus_started: bonus_start_slide
-  luxury_counter_count: bonus_main_slide
+  bonus_lap: bonus_lap_slide
+  bonus_main: bonus_main_slide
+  bonus_total: bonus_total_slide
 
 sound_player:
   mode_bonus_started:
@@ -49,7 +86,12 @@ sound_player:
 
 show_player:
   slide_bonus_main_slide_active:
-    bonus:
+    bonus_main:
       action: play
       loops: 0
+      # start at 11 to compensate for 0 index
       start_step: (11 - current_player.luxury_counter_count)
+  bonus_total:
+    bonus_end:
+      action: play
+      loops: 0
