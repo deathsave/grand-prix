@@ -9,6 +9,15 @@ show_player:
       show_tokens:
         led: tag_lights_pit_arrow
         color: yellow
+  # TODO: Will not re-enable because pit doesn't end,
+  # but putting in backfire->started also didn't work
+  # even with priority set, not sure why
+  mode_pit_started{current_player.level_fuel < 2}:
+    flash_color:
+      speed: 8
+      show_tokens:
+        led: l_shoot_fuel
+        color: white
   mode_green_flag_stopped:
     flash_color:
       speed: 8
