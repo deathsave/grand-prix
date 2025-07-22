@@ -30,36 +30,6 @@ coil_player:
   s_spinner_active{current_player.spin_counter_count == 9}:
     c_chime3:
       action: pulse
-  s_spinner_active{current_player.spin_counter_count == 10}:
-    c_chime1:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 11}:
-    c_chime2:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 12}:
-    c_chime3:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 13}:
-    c_chime1:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 14}:
-    c_chime2:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 15}:
-    c_chime3:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 16}:
-    c_chime1:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 17}:
-    c_chime2:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 18}:
-    c_chime3:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 19}:
-    c_chime1:
-      action: pulse
   logicblock_spin_counter_complete:
     c_chime1:
       action: pulse

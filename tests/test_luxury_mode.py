@@ -19,11 +19,11 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.assertEqual(
             0, self.machine.game.player.luxury_counter_count)
 
-        for i in range(18):
+        for i in range(8):
             self.hit_and_release_switch("s_spinner")
             self.advance_time_and_run(1)
         self.assertEqual(
-            19, self.machine.game.player.spin_counter_count)
+            9, self.machine.game.player.spin_counter_count)
         self.hit_and_release_switch("s_spinner")
         self.assertEqual(
             0, self.machine.game.player.spin_counter_count)

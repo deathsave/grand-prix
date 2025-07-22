@@ -4,11 +4,15 @@ mode:
   priority: 10000
 
 mode_settings:
-  display_delay_ms: 4000
+  display_delay_ms: 1500
+  end_bonus_event: bonus_show_ended
   bonus_entries:
   - event: luxury_counter_count
     score: 10000
     player_score_entry: luxury_counter_count
+    # we need this one to always fire since the
+    # last step triggers the end_bonus_event above
+    skip_if_zero: false
 
 slides:
   bonus_start_slide:
@@ -47,4 +51,5 @@ show_player:
   slide_bonus_main_slide_active:
     bonus:
       action: play
-      start_step: 10 - current_player.luxury_counter_count
+      loops: 0
+      start_step: (11 - current_player.luxury_counter_count)

@@ -74,3 +74,6 @@
   shows:
     chime_default:
       loops: 0
+- duration: 1
+  events:
+  - bonus_show_ended

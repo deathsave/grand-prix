@@ -5,7 +5,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
     # Player qualifies by making 10 laps during
     # green_flag mode on a single ball.
     def test_qualification(self):
-        self._start()
+        self._start_and_expire_ball_save()
         self._start_green_flag()
 
         self._complete_lap()
@@ -34,12 +34,10 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertEqual(1, self.machine.game.player.ball)
 
         # ball drains and ball 2 begins
-        for i in range(2):
-            self.hit_switch_and_run("s_trough1", 4)
-            self.hit_and_release_switch("s_shooter_lane")
+        self.hit_switch_and_run("s_trough1", 3)
 
         # wait for end of ball bonus
-        self.advance_time_and_run(6)
+        self.advance_time_and_run(8)
 
         # Green flag mode resumes
         self.assertModeRunning("green_flag")
