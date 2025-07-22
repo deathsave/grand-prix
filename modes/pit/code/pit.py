@@ -55,6 +55,12 @@ class Pit(Mode):
             else:
                 self.handle_sequential_counter(state, value)
 
+    # Turns a light on or off by checking
+    # the current :state (player variable) value.
+    #
+    #   Example:
+    #       handle_bool("is_grand_completed", "l_signal3")
+    #
     def handle_bool(self, state, light_name):
         player = self.machine.game.player
         if getattr(player, state) == 1:
@@ -62,6 +68,13 @@ class Pit(Mode):
         else:
             self.machine.lights[light_name].off()
 
+    # Matches the value of the tuple of [light, *values]
+    # to the current :state of the player variable.
+    #
+    #   Example:
+    #       handle_multi_value("level_foo",
+    #           [ "l_foo", "red", "green", "blue" ])
+    #
     def handle_multi_value(self, state, values):
         player = self.machine.game.player
         current_state = getattr(player, state)
@@ -69,6 +82,16 @@ class Pit(Mode):
         self.machine.lights[light_name]. \
             color(values[current_state + 1])
 
+    # Handles sequential counters by matching the base
+    # name of the light value_tuple[0] with the
+    # coorresponding player variable :state and lighting
+    # up to the current value, not exceeding the maximum
+    # value (value_tuple[1]).
+    #
+    #   Example:
+    #       handle_sequential_counter("prix_counter_count",
+    #           [ "l_prix", 4 ])
+    #
     def handle_sequential_counter(self, state, value_tuple):
         player = self.machine.game.player
         current_state = getattr(player, state)
