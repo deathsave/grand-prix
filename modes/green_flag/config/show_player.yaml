@@ -2,7 +2,7 @@
 
 show_player:
   # global multiball indicator
-  timer_eternal_tick{current_player.is_multiball_ready == 1}:
+  timer_eternal_tick{current_player.is_multiball_ready == 1 and current_player.is_grand_prix_multiball_ready != 1}:
     lights_blink:
       show_tokens:
         lights: l_multiball

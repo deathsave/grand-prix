@@ -6,8 +6,12 @@ multiball_locks:
     lock_devices: bd_grand_hole
     enable_events:
     - logicblock_grand_counter_complete
+    reset_count_for_current_player_events:
+    - mode_grand_prix_started
   prix_hole:
     balls_to_lock: 1
     lock_devices: bd_prix_hole
     enable_events:
     - logicblock_prix_counter_complete
+    reset_count_for_current_player_events:
+    - mode_grand_prix_started

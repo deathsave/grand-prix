@@ -113,8 +113,9 @@ def _start_luxury(self):
 
 # assumes green_flag mode is running
 def _start_grand_prix(self):
-    self.machine.events.post("grand_prix_qualifier_hit")
-    self.advance_time_and_run(4)
+    self.machine.events.post("grand_prix_multiball_ready")
+    # extra time needed here to eject the other balls
+    self.hit_switch_and_run("s_backfire_hole", 8)
     self.assertModeRunning("grand_prix")
 
 def _assertSound(self, track, state, sound_name):

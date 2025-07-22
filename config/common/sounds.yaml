@@ -234,9 +234,6 @@ sounds:
   grand_prix_completed:
     file: grand-prix-completed.ogg
     track: voice
-  grand_prix_multiball_ready:
-    file: grand-prix-multiball-ready.ogg
-    track: voice
   grand_prix_starting:
     file: grand-prix-starting.ogg
     track: voice

@@ -9,6 +9,12 @@ event_player:
   - green_flag{current_player.level_fuel == 2 and current_player.level_tires == 2}
   s_pit_tires_active:
   - green_flag{current_player.level_fuel == 2 and current_player.level_lube == 2}
+  # For Grand Prix, the multiball is NOT activated
+  # with the general multiball switch.
+  balldevice_bd_prix_hole_ball_entered{current_player.prix_counter_count >= 4 and current_player.grand_hole_locked_balls > 0 and not mode.grand_prix.active}:
+  - grand_prix_multiball_ready
+  balldevice_bd_grand_hole_ball_entered{current_player.grand_counter_count >= 5 and current_player.prix_hole_locked_balls > 0 and not mode.grand_prix.active}:
+  - grand_prix_multiball_ready
   # Multiball Started
   mode_grooveline_started:
   - multiball_started

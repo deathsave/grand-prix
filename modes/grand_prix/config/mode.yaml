@@ -2,7 +2,7 @@
 
 mode:
   start_events:
-  - grand_prix_qualifier_hit
+  - balldevice_bd_backfire_hole_ball_entered{current_player.is_grand_prix_multiball_ready}
   stop_events:
   - multiball_grand_prix_ended
   restart_on_next_ball: false

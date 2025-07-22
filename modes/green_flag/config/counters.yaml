@@ -51,27 +51,23 @@ counters:
     persist_state: true
     reset_on_complete: false
 
-  # The following three counters are dependent
-  # on one another. This first counter lights
-  # the "GRAND" inserts.
+  # This first counter lights the "GRAND" inserts.
   grand_counter:
-    disable_on_complete: true
     reset_on_complete: false
+    disable_on_complete: true
     count_events: s_save_target_active
     starting_count: 0
     count_interval: 1
     count_complete_value: 5
     persist_state: true
     reset_events:
-    # Both holes should be avoided during
-    # the first counter's progression
-    - s_prix_hole_active
-    - logicblock_prix_counter_complete
-    - player_prix_counter_count{current_player.prix_counter_count == 0}
-    - multiball_grand_prix_ended
-  # This second counter is disabled until GRAND is
-  # fully lit per the counter above.
+    - s_grand_hole_active{current_player.grand_counter_count < 5}
+    - mode_grand_prix_stopped
+    enable_events:
+    - mode_grand_prix_stopped
+    start_enabled: true
   prix_counter:
+    reset_on_complete: false
     disable_on_complete: true
     count_events: s_bonus_target_active
     starting_count: 0
@@ -79,9 +75,11 @@ counters:
     count_complete_value: 4
     persist_state: true
     reset_events:
-    - multiball_grand_prix_ended
+    - s_prix_hole_active{current_player.prix_counter_count < 4}
+    - mode_grand_prix_stopped
     enable_events:
-    - multiball_lock_grand_hole_locked_ball
+    - mode_grand_prix_stopped
+    start_enabled: true
   # Tracks progress towards the wizard mode
   red_line_counter:
     reset_on_complete: false
@@ -94,4 +92,4 @@ counters:
     count_complete_value: 3
     persist_state: true
     reset_events:
-    - multiball_red_line_ended
+    - mode_red_line_stopped

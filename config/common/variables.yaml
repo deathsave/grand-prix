@@ -3,6 +3,8 @@
 player_vars:
   is_multiball_ready:
     initial_value: 0
+  is_grand_prix_multiball_ready:
+    initial_value: 0
   lap_count:
     initial_value: 0
   spin_counter_count:

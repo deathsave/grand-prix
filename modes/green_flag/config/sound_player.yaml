@@ -82,6 +82,3 @@ sound_player:
     ball_two_locked:
       action: play
       delay: 0.5
-  balldevice_bd_backfire_hole_ball_entered{current_player.grand_hole_locked_balls > 0 and current_player.prix_hole_locked_balls > 0}:
-    grand_prix_multiball_ready:
-      action: play
