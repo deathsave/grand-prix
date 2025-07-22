@@ -9,14 +9,15 @@ class GrandPrixAttract(Attract):
         timer_event = "timer_segment_wiggle_timer_tick"
         self.add_mode_event_handler(timer_event,
             self.wiggle_segment)
-        super().mode_start(**kwargs)
-
-    def wiggle_segment(self, **kwargs):
-        ticks = self.machine.timers["segment_wiggle_timer"].ticks
+        # clear the segment displays on init
         self.machine.segment_displays["segment1"].add_text("")
         self.machine.segment_displays["segment2"].add_text("")
         self.machine.segment_displays["segment3"].add_text("")
         self.machine.segment_displays["segment4"].add_text("")
+        super().mode_start(**kwargs)
+
+    def wiggle_segment(self, **kwargs):
+        ticks = self.machine.timers["segment_wiggle_timer"].ticks
 
         if ticks > 58:
             segment_number = random.randint(1, 4)

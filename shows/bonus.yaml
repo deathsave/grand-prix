@@ -1,7 +1,8 @@
 #show_version=6
 
-# Chasing lights left to right and back across the
-# bottom of the backbox.
+# Meant to replicate the original bonus sequence from
+# the EM game, where the bonus lights are turned off
+# and the chime is played 5 times in 1 second per step.
 
 # step 1
 - duration: 1
