@@ -2,11 +2,9 @@
 
 switches:
 
-  # Board 0 (inside cabinet)
+  # Board 0 (inside cabinet) - only incandescent and coils
 
   # Board 1 (back of playfield)
-
-  # Board 2 middle of playfield
 
   s_grooveline:
     number: 0-1-24
@@ -33,7 +31,7 @@ switches:
     tags:
     - playfield_active
 
-  # Board 3 (near prix hole)
+  # Board 2 middle of playfield
 
   s_inlane2:
     number: 0-2-16
@@ -96,9 +94,8 @@ switches:
     - tag_rev
     - tag_bell
 
-  # Sweet LED Board (chain 1)
+  # Cobrapin Satellite (only board in chain 1)
 
-  # Cobrapin Satellite
   s_pop1:
     number: 1-0-1
     tags:

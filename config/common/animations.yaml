@@ -1,0 +1,58 @@
+#config_version=6
+animations:
+  scroll_right:
+    - property: x
+      value: -1920
+      duration: 1ms
+    - property: x
+      value: 2768
+      duration: 4s
+      repeat: true
+  scroll_left:
+    - property: x
+      value: 1920
+      duration: 1ms
+    - property: x
+      value: -2768
+      duration: 4s
+      repeat: true
+  scroll_left_medium:
+    - property: x
+      value: 1920
+      duration: 1ms
+    - property: x
+      value: -2768
+      duration: 8s
+      repeat: true
+  scroll_left_long:
+    - property: x
+      value: 1920
+      duration: 1ms
+    - property: x
+      value: -2768
+      duration: 12s
+      repeat: true
+  wide_scroll_left:
+    - property: x
+      value: 4200
+      duration: 1ms
+    - property: x
+      value: -4200
+      duration: 10s
+      repeat: false
+  pulsate_fast:
+    - property: opacity
+      value: 0.0
+      duration: 250ms
+    - property: opacity
+      value: 1.0
+      duration: 250ms
+      repeat: true
+  pulsate_slow:
+    - property: opacity
+      value: 0.0
+      duration: 500ms
+    - property: opacity
+      value: 1.0
+      duration: 500ms
+      repeat: true

@@ -76,6 +76,8 @@ keyboard:
   ########################
   ## Switches / Targets ##
   ########################
+  x:
+    switch: s_tilt
   m:
     switch: s_multiball_target
 

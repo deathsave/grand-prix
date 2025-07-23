@@ -9,13 +9,6 @@ autofire_coils:
   pop2:
     coil: c_pop2
     switch: s_pop2
-  # TODO: flippers complaining about base config
-  # flipper2:
-  #   coil: c_flipper2
-  #   switch: s_flipper2
-  # flipper1:
-  #   coil: c_flipper1
-  #   switch: s_flipper1
   slingshot1:
     coil: c_slingshot1
     switch: s_slingshot1
