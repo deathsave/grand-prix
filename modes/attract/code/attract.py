@@ -6,6 +6,9 @@ class GrandPrixAttract(Attract):
 
     def mode_start(self, **kwargs):
         self.machine.timers["segment_wiggle_timer"].reset()
+        print("***************************")
+        print(self.machine.timers["segment_wiggle_timer"].ticks)
+        print("***************************")
         timer_event = "timer_segment_wiggle_timer_tick"
         self.add_mode_event_handler(timer_event,
             self.wiggle_segment)

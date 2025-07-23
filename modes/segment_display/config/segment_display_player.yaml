@@ -17,6 +17,15 @@ segment_display_player:
       text: ""
     segment4:
       text: ""
+  mode_game_stopped:
+    segment1:
+      text: ""
+    segment2:
+      text: ""
+    segment3:
+      text: ""
+    segment4:
+      text: ""
 
   # Player 1
   ball_started{player == 1}:
