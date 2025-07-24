@@ -1,7 +1,8 @@
 #config_version=6
 
 mode:
-  start_events: reset_complete
+  start_events: mode_attract_stopped
+  stop_events: mode_attract_started
   events_when_started: displays_init_done
   priority: 100
   game_mode: false
