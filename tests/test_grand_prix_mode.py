@@ -24,10 +24,10 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
         # After lighting GRAND, the prix_counter is
         # enabled and the grand_counter is disabled
-        self._light_grand()
+        self._qualify_grand()
 
         # Same goes for PRIX
-        self._light_prix()
+        self._qualify_prix()
 
         self.assertModeNotRunning("grand_prix")
         # Mult-ball is ready, but we still need to activate it
@@ -84,6 +84,18 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(True,
             self.machine.multiballs["grand_prix"].shoot_again)
 
+        # Counters should have been reset
+        self.assertEqual(
+            0, self.machine.game.player.grand_counter_count)
+        self.assertEqual(
+            0, self.machine.game.player.prix_counter_count)
+
+        # And locks disabled
+        self.assertEqual(False,
+            self.machine.multiball_locks["grand_hole"].enabled)
+        self.assertEqual(False,
+            self.machine.multiball_locks["prix_hole"].enabled)
+
         # couple balls drain during shoot_again period
         for i in range(2):
             self._drain_one_ball()
@@ -115,7 +127,13 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(
             1, self.machine.game.player.is_grand_prix_completed)
 
-    def _light_grand(self):
+        # Can be repeated later in the game
+        self._qualify_grand()
+        self._qualify_prix()
+        self.hit_switch_and_run("s_backfire_hole", 2)
+        self.assertModeRunning("grand_prix")
+
+    def _qualify_grand(self):
         for i in range(5):
             self.hit_and_release_switch("s_save_target")
             self.assertModeRunning("green_flag")
@@ -124,7 +142,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(False,
             self.machine.counters["grand_counter"].enabled)
 
-    def _light_prix(self):
+    def _qualify_prix(self):
         for i in range(4):
             self.hit_and_release_switch("s_bonus_target")
         # Ball is held
