@@ -4,6 +4,9 @@ class TestPitMode(DeathSaveGameTesting):
 
     def test_sound(self):
         self._start()
+        # allow a bit more time for the "player up" sound
+        # to play since voice is limited to 1 sound at a time
+        self.advance_time_and_run(1)
         self.hit_and_release_switch("s_shooter_lane")
         self.advance_time_and_run(1)
         self._assertVoiceIs("playing", "fuel")

@@ -188,6 +188,55 @@ sounds:
 
   ######## Synth #########
 
+  jackpot:
+    file: jackpot.ogg
+    track: voice
+  jackpot_double:
+    file: jackpot-double.ogg
+    track: voice
+
+  tilt1:
+    file: tilt1.ogg
+    track: voice
+  tilt2:
+    file: tilt2.ogg
+    track: voice
+  tilt3:
+    file: tilt3.ogg
+    track: voice
+
+  name1:
+    file: name1.ogg
+    track: voice
+  name2:
+    file: name2.ogg
+    track: voice
+  name3:
+    file: name3.ogg
+    track: voice
+  name4:
+    file: name4.ogg
+    track: voice
+
+  player_up1:
+    file: player-up1.ogg
+    track: voice
+  player_up2:
+    file: player-up2.ogg
+    track: voice
+  player_up3:
+    file: player-up3.ogg
+    track: voice
+  player_up4:
+    file: player-up4.ogg
+    track: voice
+  player_up5:
+    file: player-up5.ogg
+    track: voice
+  player_up6:
+    file: player-up6.ogg
+    track: voice
+
   late1:
     file: late1.ogg
     track: voice

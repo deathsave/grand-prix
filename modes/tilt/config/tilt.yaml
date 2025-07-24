@@ -15,7 +15,7 @@ slides:
       color: orange
       anchor_y: middle
       anchor_x: center
-    expire: 2s
+    expire: 0.75s
   tilt_warning_2:
     widgets:
     - type: text
@@ -26,7 +26,7 @@ slides:
       anchor_x: center
       animations:
         add_to_slide: pulsate_fast
-    expire: 4s
+    expire: 1.5s
   tilt:
     widgets:
     - type: text
@@ -37,3 +37,14 @@ slides:
       anchor_x: center
       animations:
         add_to_slide: pulsate_slow
+
+sound_player:
+  tilt_warning_1:
+    tilt1:
+      action: play
+  tilt_warning_2:
+    tilt2:
+      action: play
+  tilt:
+    tilt3:
+      action: play

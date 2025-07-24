@@ -79,10 +79,15 @@ slide_player:
   bonus_total: bonus_total_slide
 
 sound_player:
-  mode_bonus_started:
+  mode_bonus_started{not mode.tilt.active}:
     quote:
       action: play
       loops: 0
+      volume: 0.9
+    pit_ambience:
+      action: play
+      loops: -1
+      volume: 0.6
 
 show_player:
   slide_bonus_main_slide_active:

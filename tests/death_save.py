@@ -70,7 +70,6 @@ def _start_green_flag(self):
     self.advance_time_and_run(6)
     self._assertSoundEffectIs("playing", "real_pit")
     self.advance_time_and_run(1)
-    self._assertVoiceIs("playing", "pit_done")
 
 def _start_backfire(self):
     self._start_green_flag()

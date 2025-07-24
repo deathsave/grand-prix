@@ -1,6 +1,16 @@
 #config_version=6
 
 sound_pools:
+  player_up:
+    type: random_force_all
+    track: voice
+    sounds:
+    - player_up1
+    - player_up2
+    - player_up3
+    - player_up4
+    - player_up5
+    - player_up6
   late:
     type: random
     track: voice

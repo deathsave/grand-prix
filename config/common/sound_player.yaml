@@ -1,7 +1,29 @@
 #config_version=6
 
 sound_player:
-  s_shooter_lane_inactive:
+  ball_starting{current_player.number == 1}:
+    name1:
+      action: play
+      # delay to allow for player add chime sequence
+      # and across all for consistency/simplicity
+      delay: 1s
+  ball_starting{current_player.number == 2}:
+    name2:
+      action: play
+      delay: 1s
+  ball_starting{current_player.number == 3}:
+    name3:
+      action: play
+      delay: 1s
+  ball_starting{current_player.number == 4}:
+    name4:
+      action: play
+      delay: 1s
+  ball_starting:
+    player_up:
+      action: play
+      delay: 1s
+  s_shooter_lane_inactive{current_player.tilt_warnings < 2}:
     comm_noise_on:
       action: play
     comm_noise_loop:
@@ -13,8 +35,6 @@ sound_player:
       action: stop
     comm_noise_off:
       delay: 1.5s
-      action: play
-    mistake:
       action: play
     backfire_loop:
       action: stop

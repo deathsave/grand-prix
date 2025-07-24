@@ -19,11 +19,11 @@ sound_player:
     pit_ambience:
       action: play
       loops: -1
-  s_shooter_lane_inactive{current_player.score == 0}:
+  s_shooter_lane_inactive{current_player.score == 0 and current_player.tilt_warnings < 2}:
     fuel:
       action: play
-  s_shooter_lane_inactive{current_player.score > 0}:
-    start:
+  s_shooter_lane_inactive{current_player.score > 0 and current_player.tilt_warnings < 2}:
+    swerve:
       action: play
   pit_required_fuel:
     fuel:
@@ -41,7 +41,7 @@ sound_player:
   # TODO: would like to do this... why no work?
   # s_pit_fuel_active{current_player.level_fuel < 2}: pit_fuel
   # s_pit_lube_active{current_player.level_lube < 2}: pit_lube
-  # s_pit_tires_active{current_player.level_tires < 2}: pit_tires
+ # s_pit_tires_active{current_player.level_tires < 2}: pit_tires
   s_pit_fuel_active: pit_fuel
   s_pit_lube_active: pit_lube
   s_pit_tires_active: pit_tires
