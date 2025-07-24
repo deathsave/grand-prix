@@ -1,7 +1,8 @@
 #config_version=6
 
 mode:
-  start_events: reset_complete
+  start_events: mode_attract_stopped
+  stop_events: mode_attract_started
   events_when_started: displays_init_done
   priority: 100
   game_mode: false
@@ -9,6 +10,15 @@ mode:
 segment_display_player:
   # Clear all segments when the game starts
   game_started:
+    segment1:
+      text: ""
+    segment2:
+      text: ""
+    segment3:
+      text: ""
+    segment4:
+      text: ""
+  mode_game_stopped:
     segment1:
       text: ""
     segment2:

@@ -50,6 +50,26 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         self.assertEqual("       ",
             self.machine.segment_displays['segment4'].text)
 
+    def test_subsequent_game(self):
+        self._attract_show_plays()
+
+        # start a game
+        self._start()
+
+        # play through all the balls
+        for i in range(3):
+            self.assertEqual(i + 1, self.machine.game.player.ball)
+            self.hit_and_release_switch("s_shooter_lane")
+            self.hit_and_release_switch("s_activate_playfield")
+            self._expire_ball_save()
+            # drain and wait out bonus
+            self.hit_switch_and_run("s_trough1", 18)
+
+        # back to Attract mode
+        self.assertModeRunning("attract")
+
+        self._attract_show_plays()
+        self.advance_time_and_run(5)
 
     def _attract_show_plays(self):
         self.assertModeRunning("attract")

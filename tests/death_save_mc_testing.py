@@ -13,6 +13,12 @@ class DeathSaveMcTesting(FullMachineTestCase):
     def _expire_ball_save(self):
         death_save._expire_ball_save(self)
 
+    def _start_and_expire_ball_save(self):
+        death_save._start_and_expire_ball_save(self)
+
+    def _expire_ball_save(self):
+        death_save._expire_ball_save(self)
+
     def _drain_one_ball(self):
         death_save._drain_one_ball(self)
 
