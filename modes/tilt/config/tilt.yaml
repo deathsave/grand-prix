@@ -38,6 +38,28 @@ slides:
       animations:
         add_to_slide: pulsate_slow
 
+show_player:
+  tilt_warning_1:
+    lights_blink:
+      speed: 8
+      priority: 1
+      loops: 3
+      show_tokens:
+        lights: l_backbox_tilt
+  tilt_warning_2:
+    lights_blink:
+      speed: 12
+      priority: 2
+      loops: 6
+      show_tokens:
+        lights: l_backbox_tilt
+  tilt:
+    lights_blink:
+      action: stop
+      priority: 3
+      show_tokens:
+        lights: l_backbox_tilt
+
 sound_player:
   tilt_warning_1:
     tilt1:
