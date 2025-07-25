@@ -1,0 +1,6 @@
+#config_version=6
+
+coil_player:
+  pure_evil:
+    c_disqualifier_up:
+      action: pulse
