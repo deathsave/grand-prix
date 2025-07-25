@@ -19,11 +19,11 @@ sound_player:
     pit_ambience:
       action: play
       loops: -1
-  s_shooter_lane_inactive{current_player.score == 0 and current_player.tilt_warnings < 2}:
+  timer_eternal_tick{(ticks % 15 == 0) and current_player.score < 10 and current_player.tilt_warnings < 2}:
     fuel:
       action: play
   s_shooter_lane_inactive{current_player.score > 0 and current_player.tilt_warnings < 2}:
-    swerve:
+    rev:
       action: play
   pit_required_fuel:
     fuel:
