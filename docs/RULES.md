@@ -7,6 +7,8 @@ Strap in for Grand Prix ’86—the homebrew pinball thrill ride where speed mee
 
 **Your quest**: fuel up, fix up, and fly through laps in Green Flag Mode, where orbit shots rack up points and sometimes even do other things yet to be determined. Smash your way through Backfire Pops for a frenzy of bumpers and “hurry ups” that may or may not hurry anything. Craving more chaos? Unlock Grooveline, Lap of Luxury, or the gloriously glitchy Grand Prix multiballs—each one lighting up inserts like a disco ball with a loose wire. Nab three traffic signals to trigger the legendary Red Line Wizard Mode, a 60-second ball-slinging spectacle that will leave you wondering what you're actually supposed to do here because we haven't written that code yet, but imagine how amazing it will be when or if we ever get around to doing so!
 
+![Grand Prix Pinball Machine](https://github.com/deathsave/grand-prix/raw/main/misc/grand-prix-front.png)
+
 How things are supposed to Work
 -------------------------------
 

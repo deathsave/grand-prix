@@ -14,7 +14,7 @@ by Williams.
 
 **Proposed rules [can be found from here](https://github.com/deathsave/grand-prix/blob/main/docs/RULES.md).**
 
-![Playfield](https://github.com/deathsave/grand-prix/raw/main/monitor/playfield.jpg)
+![Grand Prix Pinball Machine](https://github.com/deathsave/grand-prix/raw/main/misc/grand-prix-front.png)
 
 ### Docs
 
