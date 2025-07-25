@@ -127,6 +127,11 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(
             1, self.machine.game.player.is_grand_prix_completed)
 
+        # getting back into the backfire hole
+        # DOES NOT restart the mode
+        self.hit_switch_and_run("s_backfire_hole", 2)
+        self.assertModeNotRunning("grand_prix")
+
         # Can be repeated later in the game
         self._qualify_grand()
         self._qualify_prix()

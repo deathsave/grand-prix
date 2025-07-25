@@ -97,6 +97,10 @@ variable_player:
     is_multiball_ready:
       action: set
       int: 0
+  mode_grand_prix_stopped:
+    is_grand_prix_multiball_ready:
+      action: set
+      int: 0
 
   ##########################
   ## Wizard-mode Progress ##
