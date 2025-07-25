@@ -40,7 +40,6 @@ class Pit(Mode):
         self.machine.game.player.name = self.driver_name()
 
     def driver_name(self):
-        print("Driver number is", self.machine.game.player.number)
         match self.machine.game.player.number:
             case 2:
                 return "Deuce"

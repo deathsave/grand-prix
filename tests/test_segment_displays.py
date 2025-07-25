@@ -62,8 +62,8 @@ class TestSegmentDisplays(DeathSaveMcTesting):
             self.hit_and_release_switch("s_shooter_lane")
             self.hit_and_release_switch("s_activate_playfield")
             self._expire_ball_save()
-            # drain and wait out bonus
-            self.hit_switch_and_run("s_trough1", 18)
+            # drain (no bonus to wait out)
+            self.hit_switch_and_run("s_trough1", 2)
 
         # back to Attract mode
         self.assertModeRunning("attract")

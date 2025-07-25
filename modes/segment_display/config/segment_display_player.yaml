@@ -9,6 +9,7 @@ mode:
 
 segment_display_player:
   # Clear all segments when the game starts
+  # and when the game stops
   game_started:
     segment1:
       text: ""
@@ -20,13 +21,20 @@ segment_display_player:
       text: ""
   mode_game_stopped:
     segment1:
+      flashing: off
       text: ""
     segment2:
+      flashing: off
       text: ""
     segment3:
+      flashing: off
       text: ""
     segment4:
+      flashing: off
       text: ""
+
+  # Flash the current player's score
+  # until they actually do something
 
   # Player 1
   ball_started{player == 1}:
@@ -42,11 +50,17 @@ segment_display_player:
 
   # Player 2
   ball_started{player == 2}:
+    segment1:
+      flashing: off
+      text: "{players[0].score:d}"
     segment2:
       text: "{players[1].score:d}"
       flashing: all
       priority: 1
   player_score{player_num == 2}:
+    segment1:
+      flashing: off
+      text: "{players[0].score:d}"
     segment2:
       text: "{players[1].score:d}"
       flashing: off
@@ -54,23 +68,53 @@ segment_display_player:
 
   # Player 3
   ball_started{player == 3}:
+    segment1:
+      flashing: off
+      text: "{players[0].score:d}"
+    segment2:
+      flashing: off
+      text: "{players[1].score:d}"
     segment3:
       text: "{players[2].score:d}"
       flashing: all
       priority: 1
   player_score{player_num == 3}:
+    segment1:
+      flashing: off
+      text: "{players[0].score:d}"
+    segment2:
+      flashing: off
+      text: "{players[1].score:d}"
     segment3:
       text: "{players[2].score:d}"
       flashing: off
       priority: 10
 
-  # Player 3
+  # Player 4
   ball_started{player == 4}:
+    segment1:
+      flashing: off
+      text: "{players[0].score:d}"
+    segment2:
+      flashing: off
+      text: "{players[1].score:d}"
+    segment3:
+      flashing: off
+      text: "{players[2].score:d}"
     segment4:
       text: "{players[3].score:d}"
       flashing: all
       priority: 1
   player_score{player_num == 4}:
+    segment1:
+      flashing: off
+      text: "{players[0].score:d}"
+    segment2:
+      flashing: off
+      text: "{players[1].score:d}"
+    segment3:
+      flashing: off
+      text: "{players[2].score:d}"
     segment4:
       text: "{players[3].score:d}"
       flashing: off
