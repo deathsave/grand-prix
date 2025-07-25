@@ -3,12 +3,27 @@ from unittest.mock import MagicMock
 
 class TestBonusMode(DeathSaveGameTesting):
 
+    def test_no_bonus_earned(self):
+        self._start_and_expire_ball_save()
+
+        # ball drains
+        self.hit_switch_and_run("s_trough1", 3)
+
+        self.assertModeNotRunning("bonus")
+
+        # next ball begins and bonus has been skipped
+        self.assertEqual(2, self.machine.game.player.ball)
+
     def test_bonus_main(self):
         self.machine.coils["c_chime1"].pulse = MagicMock()
 
         chime1_count = 0
 
         self._start_and_expire_ball_save()
+
+        # Bonus is not constantly running
+        self.assertModeNotRunning("bonus")
+
         self._start_green_flag()
         self.assertEqual(100, self.machine.game.player.score)
 

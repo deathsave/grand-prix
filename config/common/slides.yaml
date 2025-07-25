@@ -12,6 +12,11 @@ slides:
   - widget: fuel_(current_player.level_fuel)
   - widget: lube_(current_player.level_lube)
   - widget: tires_(current_player.level_tires)
+  - widget: laps_key
+  - widget: laps_value
+  - widget: ball_key
+  - widget: ball_value
+  - widget: driver_name
   green_flag_slide:
   - widget: green_flag_background
   - widget: green_flag_mirror
@@ -21,6 +26,9 @@ slides:
   - widget: tires_(current_player.level_tires)
   - widget: laps_key
   - widget: laps_value
+  - widget: ball_key
+  - widget: ball_value
+  - widget: driver_name
   luxury_slide:
   - widget: luxury
   grooveline_slide:

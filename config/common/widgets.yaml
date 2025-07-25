@@ -99,17 +99,42 @@ widgets:
   laps_key:
   - type: text
     text: "Laps:"
-    x: 55%
-    y: 10%
+    x: 64%
+    y: 16%
     z: 5
-    color: cyan
-    font_size: 36
+    color: pink
+    font_size: 28
   laps_value:
   - type: text
     text: "(lap_count)"
     z: 5
-    x: 62%
-    y: 10%
-    color: cyan
+    x: 70%
+    y: 16.2%
+    color: pink
     style: medium
-    font_size: 26
+    font_size: 20
+  ball_key:
+  - type: text
+    text: "Ball:"
+    x: 64%
+    y: 8.8%
+    z: 5
+    color: white
+    font_size: 28
+  ball_value:
+  - type: text
+    text: "(ball)"
+    z: 5
+    x: 70%
+    y: 9%
+    color: white
+    style: medium
+    font_size: 20
+  driver_name:
+  - type: text
+    text: "(name)"
+    x: 54.5%
+    y: 9.5%
+    z: 6
+    color: cyan
+    font_size: 42
