@@ -1,6 +1,9 @@
 #config_version=6
 
 player_vars:
+  name:
+    initial_value: ""
+    value_type: str
   is_multiball_ready:
     initial_value: 0
   is_grand_prix_multiball_ready:

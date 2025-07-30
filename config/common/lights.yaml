@@ -123,6 +123,7 @@ lights:
     tags:
     - tag_lights
     - tag_lights_info_lights
+    - tag_shoot_again
   l_backbox_ball1:
     subtype: matrix
     number: 0-0-21
@@ -356,6 +357,7 @@ lights:
     number: 0-3-10
     tags:
     - tag_lights
+    - tag_shoot_again
   l_bottom_outlane2:
     subtype: matrix
     number: 0-3-8

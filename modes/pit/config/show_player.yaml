@@ -9,6 +9,23 @@ show_player:
       show_tokens:
         led: tag_lights_pit_arrow
         color: yellow
+  ball_save_ball_start_timer_start:
+    lights_blink:
+      speed: 4
+      show_tokens:
+        lights: tag_shoot_again
+  ball_save_ball_start_hurry_up:
+    lights_blink:
+      speed: 8
+      priority: 1
+      show_tokens:
+        lights: tag_shoot_again
+  ball_save_ball_start_grace_period:
+    lights_blink:
+      action: stop
+      priority: 2
+      show_tokens:
+        lights: tag_shoot_again
   # TODO: Will not re-enable because pit doesn't end,
   # but putting in backfire->started also didn't work
   # even with priority set, not sure why

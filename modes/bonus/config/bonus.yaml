@@ -2,6 +2,10 @@
 
 mode:
   priority: 10000
+  start_events:
+  - ball_ending{current_player.luxury_counter_count > 0 or current_player.lap_count > 0}
+  stop_events:
+  - ball_starting
 
 mode_settings:
   display_delay_ms: 4000
@@ -79,7 +83,7 @@ slide_player:
   bonus_total: bonus_total_slide
 
 sound_player:
-  mode_bonus_started{not mode.tilt.active}:
+  mode_bonus_started:
     quote:
       action: play
       loops: 0

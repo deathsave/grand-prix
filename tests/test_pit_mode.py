@@ -9,10 +9,14 @@ class TestPitMode(DeathSaveGameTesting):
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_shooter_lane")
         self.advance_time_and_run(1)
-        self._assertVoiceIs("playing", "fuel")
         self._assertAmbienceIs("playing", "comm_noise_on")
         self.advance_time_and_run(5)
         self._assertAmbienceIs("playing", "comm_noise_loop")
+
+        # every 15 seconds while players score is trash,
+        # they will be reminded to fuel up
+        self.advance_time_and_run(8)
+        self._assertVoiceIs("playing", "fuel")
 
     def test_loop_gate(self):
         self.hit_and_release_switch("s_start")

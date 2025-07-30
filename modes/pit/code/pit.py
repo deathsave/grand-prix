@@ -37,6 +37,18 @@ class Pit(Mode):
         self.machine.segment_displays["segment2"].add_text("")
         self.machine.segment_displays["segment3"].add_text("")
         self.machine.segment_displays["segment4"].add_text("")
+        self.machine.game.player.name = self.driver_name()
+
+    def driver_name(self):
+        match self.machine.game.player.number:
+            case 2:
+                return "Deuce"
+            case 3:
+                return "Trey"
+            case 4:
+                return "Ford"
+            case _:
+                return "Juan"
 
     # Resets the grooveline counter on every ball start
     def reset_grooveline_count(self):
