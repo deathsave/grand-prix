@@ -83,7 +83,7 @@ slide_player:
   bonus_total: bonus_total_slide
 
 sound_player:
-  mode_bonus_started{not mode.tilt.active}:
+  mode_bonus_started:
     quote:
       action: play
       loops: 0
