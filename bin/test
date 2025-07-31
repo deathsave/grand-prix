@@ -8,9 +8,8 @@ else
 fi
 
 if [ -z "$1" ]; then
-  FILES="tests/test_*.py"
+  PURE_EVIL=0 $CMD tests/test_*.py && \
+    $CMD tests/test_pure_evil.py
 else
-  FILES="$1"
+  $CMD $1
 fi
-
-$CMD $FILES

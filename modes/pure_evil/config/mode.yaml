@@ -1,0 +1,35 @@
+#config_version=6
+
+mode:
+  start_events: pure_evil_enters{machine.is_pure_evil_available}
+  stop_events: pure_evil_exits
+  priority: 5000
+
+variable_player:
+  # delay setting the value out of range slightly
+  timer_eternal_tick{current_player.evil_number < 999999}:
+    evil_number: 999999
+
+event_player:
+  # we wait for the slight delay before we
+  # allow the player to end the mode to prevent
+  # the c_disqualifier_up from triggering it
+  s_disqualifier_active{current_player.evil_number >= 999999}:
+  - pure_evil_exits
+
+show_player:
+  mode_pure_evil_started:
+    flash_color:
+      speed: 8
+      show_tokens:
+        led: tag_rgb
+        color: red
+
+sound_player:
+  mode_pure_evil_started:
+    civil_siren:
+      action: play
+      loops: -1
+  mode_pure_evil_stopping:
+    civil_siren:
+      action: stop

@@ -1,3 +1,4 @@
+import random
 from mpf.core.mode import Mode
 
 class Pit(Mode):
@@ -38,6 +39,9 @@ class Pit(Mode):
         self.machine.segment_displays["segment3"].add_text("")
         self.machine.segment_displays["segment4"].add_text("")
         self.machine.game.player.name = self.driver_name()
+        self.machine.game.player.evil_number = random.randint( \
+            self.machine.game.player.lap_count or 1,
+            self.machine.game.player.ball * 10)
 
     def driver_name(self):
         match self.machine.game.player.number:

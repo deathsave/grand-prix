@@ -2,6 +2,7 @@
 
 config:
 - common/animations.yaml
+- common/event_player.yaml
 - common/assets.yaml
 - common/autofire_coils.yaml
 - common/ball_devices.yaml
