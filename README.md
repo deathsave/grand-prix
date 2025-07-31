@@ -27,6 +27,7 @@ graph TD
   ATTRACT[/"Attract Mode"/] == press start ==> PIT[/"PIT Mode"/]
   PIT == fuel up ==> GREEN_FLAG[/"Green Flag Mode"/]
   GREEN_FLAG == make 3 laps ==> RANDOM1{"Random<br>Event"}
+  GREEN_FLAG ==> IS_LAP_EVIL{"Is Lap<br>the root of<br>all Evil?"}
   GREEN_FLAG == 10 laps on 1 ball,<br>multiball target ==> GL_MODE[/"Grooveline Mode"/]
   GREEN_FLAG == 100 spins,<br>multiball target ==> LUX_MODE[/"Lap of Luxury Mode"/]
   GREEN_FLAG == grand prix sequence ==> GP_MODE[/"Grand Prix Mode"/]
@@ -38,6 +39,11 @@ graph TD
   IS_NEED_PIT == yes ==> IS_BACKFIRE_QUALIFIED{"Backfire Qualified?"}
   IS_BACKFIRE_QUALIFIED == yes ==> BACKFIRE_MODE[/"Backfire<br>Mode"/]
   IS_BACKFIRE_QUALIFIED == no ==> PIT
+  IS_LAP_EVIL == yes ==> PURE_EVIL[/"Pure Evil<br>Shows its Face"/]
+  IS_LAP_EVIL == no ==> GREEN_FLAG
+  PURE_EVIL == makes driver unhappy ==> IS_DISQUALIFIER_HIT{"Disqualifier Hit?"}
+  IS_DISQUALIFIER_HIT{"Disqualifier Hit?"} == yes ==> GREEN_FLAG
+  IS_DISQUALIFIER_HIT{"Disqualifier Hit?"} == no ==> PURE_EVIL
   BACKFIRE_MODE ==> IS_BACKFIRE_COMPLETED{"Backfire Completed?"}
   IS_BACKFIRE_COMPLETED == yes ==> GREEN_FLAG
   IS_BACKFIRE_COMPLETED == no ==> PIT
