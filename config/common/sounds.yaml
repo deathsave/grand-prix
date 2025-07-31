@@ -107,7 +107,9 @@ sounds:
   ###################
   ## Sound Effects ##
   ###################
-
+  civil_siren:
+    file: civil-siren.ogg
+    track: effects
   bell:
     file: bell.ogg
     volume: 0.2

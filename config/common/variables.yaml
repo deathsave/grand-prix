@@ -4,6 +4,9 @@ player_vars:
   name:
     initial_value: ""
     value_type: str
+  evil_number:
+    initial_value: 0
+    value_type: int
   is_multiball_ready:
     initial_value: 0
   is_grand_prix_multiball_ready:

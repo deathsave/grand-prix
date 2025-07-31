@@ -1,0 +1,5 @@
+#config_version=6
+
+event_player:
+  logicblock_seq_lap_complete{current_player.evil_number == current_player.lap_count}:
+  - pure_evil_enters

@@ -1,6 +1,10 @@
 #config_version=6
 
 coil_player:
-  pure_evil:
+  mode_pure_evil_started:
     c_disqualifier_up:
       action: pulse
+
+variable_player:
+  timer_eternal_tick:
+    score: -(current_player.score / 100)

@@ -2,3 +2,4 @@
 
 config:
 - mode.yaml
+- coil_player.yaml

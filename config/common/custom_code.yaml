@@ -1,4 +1,4 @@
 #config_version=6
 
-# custom_code:
-# - code.file_name.ClassName
+custom_code:
+- code.configure.Configure
