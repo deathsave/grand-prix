@@ -42,9 +42,10 @@ class TestGroovelineMode(DeathSaveGameTesting):
         # Green flag mode resumes
         self.assertModeRunning("green_flag")
         self.assertEqual(2, self.machine.game.player.ball)
-        # Grooveline counter is reset to 0
+
+        # Grooveline counter persists across balls
         self.assertEqual(
-            0, self.machine.game.player.grooveline_counter_count)
+            1, self.machine.game.player.grooveline_counter_count)
 
         # Mult-ball light indicators off
         self.assertLightColor('l_multiball', 'black')

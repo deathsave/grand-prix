@@ -30,7 +30,6 @@ class Pit(Mode):
     index = 0
 
     def mode_start(self, **kwargs):
-        self.reset_grooveline_count()
         self.update_progress()
         self.add_mode_event_handler("player_pit_eternal_tick",
             self.update_progress)
