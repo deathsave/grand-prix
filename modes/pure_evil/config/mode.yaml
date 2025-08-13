@@ -9,6 +9,8 @@ variable_player:
   # delay setting the value out of range slightly
   timer_eternal_tick{current_player.evil_number < 999999}:
     evil_number: 999999
+  timer_eternal_tick:
+    score: -(current_player.score / 100)
 
 event_player:
   # we wait for the slight delay before we

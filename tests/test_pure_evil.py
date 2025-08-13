@@ -1,10 +1,16 @@
 from tests.death_save_game_testing import DeathSaveGameTesting
+from unittest.mock import MagicMock
 
 class TestPureEvilMode(DeathSaveGameTesting):
 
     # Player qualifies when their "evil_number" is
     # equal to their current lap count.
     def test_qualification(self):
+        self.machine.coils["c_disqualifier_up"]. \
+            pulse = MagicMock()
+        self.assertEqual(0, self.machine. \
+            coils["c_disqualifier_up"].pulse.call_count)
+
         if self.machine.variables. \
             get_machine_var("is_pure_evil_available") == 0:
             print("Pure Evil mode is not available.")
@@ -26,6 +32,8 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self.assertModeRunning("pure_evil")
 
         self.advance_time_and_run(3)
+        self.assertEqual(1, self.machine. \
+            coils["c_disqualifier_up"].pulse.call_count)
         # value is set to ensure not called again
         # on the current ball
         self.assertEqual(True,
