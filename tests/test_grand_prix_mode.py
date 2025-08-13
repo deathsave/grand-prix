@@ -42,36 +42,6 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.hit_switch_and_run("s_backfire_hole", 2)
         self.assertModeRunning("grand_prix")
 
-    def test_grand_disqualification(self):
-        self._start()
-        self._start_green_flag()
-        self.hit_and_release_switch("s_save_target")
-        self.assertEqual(1,
-            self.machine.game.player.grand_counter_count)
-        self.hit_and_release_switch("s_save_target")
-        self.assertEqual(2,
-            self.machine.game.player.grand_counter_count)
-        self.hit_and_release_switch("s_grand_hole")
-        # TODO: consider also raising the disqualifier
-        #       drop target here
-        self.assertEqual(0,
-            self.machine.game.player.grand_counter_count)
-
-    def test_prix_disqualification(self):
-        self._start()
-        self._start_green_flag()
-        self.hit_and_release_switch("s_bonus_target")
-        self.assertEqual(1,
-            self.machine.game.player.prix_counter_count)
-        self.hit_and_release_switch("s_bonus_target")
-        self.assertEqual(2,
-            self.machine.game.player.prix_counter_count)
-        self.hit_and_release_switch("s_prix_hole")
-        # TODO: consider also raising the disqualifier
-        #       drop target here
-        self.assertEqual(0,
-            self.machine.game.player.prix_counter_count)
-
     def test_multiball(self):
         self._start_multiball()
         # started, but not completed, yet

@@ -61,7 +61,6 @@ counters:
     count_complete_value: 5
     persist_state: true
     reset_events:
-    - s_grand_hole_active{current_player.grand_counter_count < 5}
     - mode_grand_prix_stopped
     enable_events:
     - mode_grand_prix_stopped
@@ -75,7 +74,6 @@ counters:
     count_complete_value: 4
     persist_state: true
     reset_events:
-    - s_prix_hole_active{current_player.prix_counter_count < 4}
     - mode_grand_prix_stopped
     enable_events:
     - mode_grand_prix_stopped
