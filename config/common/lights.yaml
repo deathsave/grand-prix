@@ -354,7 +354,7 @@ lights:
     - tag_lights_state
   l_shoot_again:
     subtype: matrix
-    number: 0-3-10
+    number: 0-2-10
     tags:
     - tag_lights
     - tag_shoot_again
