@@ -84,14 +84,13 @@ slide_player:
 
 sound_player:
   mode_bonus_started:
-    quote:
-      action: play
-      loops: 0
-      volume: 0.9
     pit_ambience:
       action: play
       loops: -1
       volume: 0.6
+  bonus_start: bonus
+  bonus_lap: bonus_laps
+  bonus_total: start # god speed (for now)
 
 show_player:
   slide_bonus_main_slide_active:

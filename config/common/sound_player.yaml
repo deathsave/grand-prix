@@ -30,6 +30,11 @@ sound_player:
       action: play
       delay: 1.5s
       loops: -1
+  ball_ending{current_player.luxury_counter_count == 0 and current_player.lap_count == 0}:
+    quote:
+      action: play
+      loops: 0
+      volume: 0.9
   ball_ending:
     comm_noise_loop:
       action: stop

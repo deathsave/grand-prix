@@ -1,6 +1,20 @@
 #config_version=6
 
 sound_pools:
+  bonus:
+    type: random
+    track: voice
+    sounds:
+    - bonus1
+    - bonus2
+    - bonus3
+  bonus_laps:
+    type: random
+    track: voice
+    sounds:
+    - bonus_laps1
+    - bonus_laps2
+    - bonus_laps3
   player_up:
     type: random_force_all
     track: voice

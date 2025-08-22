@@ -220,6 +220,26 @@ sounds:
     file: name4.ogg
     track: voice
 
+  bonus1:
+    file: bonus1.ogg
+    track: voice
+  bonus2:
+    file: bonus2.ogg
+    track: voice
+  bonus3:
+    file: bonus3.ogg
+    track: voice
+
+  bonus_laps1:
+    file: bonus-laps1.ogg
+    track: voice
+  bonus_laps2:
+    file: bonus-laps2.ogg
+    track: voice
+  bonus_laps3:
+    file: bonus-laps3.ogg
+    track: voice
+
   player_up1:
     file: player-up1.ogg
     track: voice
