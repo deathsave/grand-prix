@@ -3,19 +3,23 @@
 multiball_locks:
   grand_hole:
     balls_to_lock: 1
+    # locked_ball_counting_strategy: physical_only
+    empty_lock_devices_on_ball_end: true
     lock_devices: bd_grand_hole
     enable_events:
     - logicblock_grand_counter_complete
     disable_events:
-    - mode_grand_prix_started
+    - mode_grand_prix_starting
     reset_count_for_current_player_events:
-    - mode_grand_prix_stopped
+    - multiball_grand_prix_started
   prix_hole:
     balls_to_lock: 1
+    empty_lock_devices_on_ball_end: true
+    # locked_ball_counting_strategy: physical_only
     lock_devices: bd_prix_hole
     enable_events:
     - logicblock_prix_counter_complete
     disable_events:
-    - mode_grand_prix_started
+    - mode_grand_prix_starting
     reset_count_for_current_player_events:
-    - mode_grand_prix_stopped
+    - multiball_grand_prix_started
