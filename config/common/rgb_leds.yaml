@@ -9,6 +9,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_01:
+    type: grb
     subtype: led
     number: 1-0-1
     tags:
@@ -16,6 +17,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_02:
+    type: grb
     subtype: led
     number: 1-0-2
     tags:
@@ -23,6 +25,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_03:
+    type: grb
     subtype: led
     number: 1-0-3
     tags:
@@ -30,6 +33,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_04:
+    type: grb
     subtype: led
     number: 1-0-4
     tags:
@@ -37,6 +41,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_05:
+    type: grb
     subtype: led
     number: 1-0-5
     tags:
@@ -44,6 +49,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_06:
+    type: grb
     subtype: led
     number: 1-0-6
     tags:
@@ -51,6 +57,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_07:
+    type: grb
     subtype: led
     number: 1-0-7
     tags:
@@ -58,6 +65,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_08:
+    type: grb
     subtype: led
     number: 1-0-8
     tags:
@@ -65,6 +73,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_09:
+    type: grb
     subtype: led
     number: 1-0-9
     tags:
@@ -72,6 +81,7 @@ lights:
     - tag_lights_grooveline
     - tag_rgb
   l_grooveline_10:
+    type: grb
     subtype: led
     number: 1-0-10
     tags:
@@ -86,6 +96,7 @@ lights:
     - tag_lights_grand
     - tag_rgb
   l_pit_tires:
+    type: grb
     subtype: led
     number: 1-0-12
     tags:
@@ -93,6 +104,7 @@ lights:
     - tag_lights_pit
     - tag_rgb
   l_pit_lube:
+    type: grb
     subtype: led
     number: 1-0-13
     tags:
@@ -100,6 +112,7 @@ lights:
     - tag_lights_pit
     - tag_rgb
   l_pit_fuel:
+    type: grb
     subtype: led
     number: 1-0-14
     tags:
@@ -121,6 +134,7 @@ lights:
     - tag_lights_pit_arrow
     - tag_rgb
   l_mode_arrow1:
+    type: grb
     subtype: led
     number: 1-0-17
     tags:
@@ -128,6 +142,7 @@ lights:
     - tag_lights_mode
     - tag_rgb
   l_mode_arrow2:
+    type: grb
     subtype: led
     number: 1-0-18
     tags:
@@ -149,6 +164,7 @@ lights:
     - tag_lights_pit
     - tag_rgb
   l_loop_18:
+    type: grb
     subtype: led
     number: 1-0-21
     tags:
@@ -156,6 +172,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_17:
+    type: grb
     subtype: led
     number: 1-0-22
     tags:
@@ -163,6 +180,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_16:
+    type: grb
     subtype: led
     number: 1-0-23
     tags:
@@ -170,6 +188,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_15:
+    type: grb
     subtype: led
     number: 1-0-24
     tags:
@@ -177,6 +196,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_14:
+    type: grb
     subtype: led
     number: 1-0-25
     tags:
@@ -184,6 +204,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_13:
+    type: grb
     subtype: led
     number: 1-0-26
     tags:
@@ -191,6 +212,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_12:
+    type: grb
     subtype: led
     number: 1-0-27
     tags:
@@ -198,6 +220,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_11:
+    type: grb
     subtype: led
     number: 1-0-28
     tags:
@@ -205,6 +228,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_10:
+    type: grb
     subtype: led
     number: 1-0-29
     tags:
@@ -212,6 +236,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_09:
+    type: grb
     subtype: led
     number: 1-0-30
     tags:
@@ -219,6 +244,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_08:
+    type: grb
     subtype: led
     number: 1-0-31
     tags:
@@ -226,6 +252,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_07:
+    type: grb
     subtype: led
     number: 1-0-32
     tags:
@@ -233,6 +260,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_06:
+    type: grb
     subtype: led
     number: 1-0-33
     tags:
@@ -240,6 +268,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_05:
+    type: grb
     subtype: led
     number: 1-0-34
     tags:
@@ -247,6 +276,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_04:
+    type: grb
     subtype: led
     number: 1-0-35
     tags:
@@ -254,6 +284,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_03:
+    type: grb
     subtype: led
     number: 1-0-36
     tags:
@@ -261,6 +292,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_02:
+    type: grb
     subtype: led
     number: 1-0-37
     tags:
@@ -268,6 +300,7 @@ lights:
     - tag_lights_loop
     - tag_rgb
   l_loop_01:
+    type: grb
     subtype: led
     number: 1-0-38
     tags:
@@ -282,24 +315,28 @@ lights:
     - tag_lights_mode
     - tag_rgb
   l_backbox_player_up4:
+    type: grb
     subtype: led
     number: 1-0-40
     tags:
     - tag_lights
     - tag_lights_player_up
   l_backbox_player_up3:
+    type: grb
     subtype: led
     number: 1-0-41
     tags:
     - tag_lights
     - tag_lights_player_up
   l_backbox_player_up2:
+    type: grb
     subtype: led
     number: 1-0-42
     tags:
     - tag_lights
     - tag_lights_player_up
   l_backbox_player_up1:
+    type: grb
     subtype: led
     number: 1-0-43
     tags:
