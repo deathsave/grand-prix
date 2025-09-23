@@ -11,5 +11,6 @@ modes:
 - pure_evil # mode the player will not like
 - high_score
 - bonus
-- segment_display
+- match
 - tilt
+- segment_display
