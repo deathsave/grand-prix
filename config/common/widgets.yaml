@@ -138,3 +138,36 @@ widgets:
     z: 6
     color: cyan
     font_size: 42
+  match_00:
+  - type: image
+    image: match-00
+  match_10:
+  - type: image
+    image: match-10
+  match_20:
+  - type: image
+    image: match-20
+  match_30:
+  - type: image
+    image: match-30
+  match_40:
+  - type: image
+    image: match-40
+  match_50:
+  - type: image
+    image: match-50
+  match_60:
+  - type: image
+    image: match-60
+  match_70:
+  - type: image
+    image: match-70
+  match_80:
+  - type: image
+    image: match-80
+  match_90:
+  - type: image
+    image: match-90
+  match_none:
+  - type: image
+    image: match-none

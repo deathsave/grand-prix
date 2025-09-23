@@ -54,3 +54,7 @@ slides:
     text: "Player 4: (match_number3)"
   - type: text
     text: "Match number: (winner_number)"
+# TODO: quickly animate match_none to match_00 and
+#       back down a couple times with a rev sound then
+#       then have it run again and stop on the step
+#       matching winner_number (match_{winner_number})
