@@ -13,58 +13,38 @@
       action: add
     match_none:
       action: remove
+  lights:
+    l_backbox_match_10: on
 - time: "+0.2s"
   widgets:
     match_20:
       action: add
     match_10:
       action: remove
+  lights:
+    l_backbox_match_20: on
 - time: "+0.15s"
   widgets:
     match_30:
       action: add
     match_20:
       action: remove
+  lights:
+    l_backbox_match_30: on
 - time: "+0.15s"
   widgets:
     match_40:
       action: add
     match_30:
       action: remove
+  lights:
+    l_backbox_match_40: on
 - time: "+0.15s"
   widgets:
     match_50:
       action: add
     match_40:
       action: remove
-- time: "+0.1s"
-  widgets:
-    match_60:
-      action: add
-    match_50:
-      action: remove
-- time: "+0.1s"
-  widgets:
-    match_70:
-      action: add
-    match_60:
-      action: remove
-- time: "+0.1s"
-  widgets:
-    match_80:
-      action: add
-    match_70:
-      action: remove
-- time: "+0.1s"
-  widgets:
-    match_90:
-      action: add
-    match_80:
-      action: remove
-- time: "+0.05s"
-  widgets:
-    match_00:
-      action: add
-    match_90:
-      action: remove
+  lights:
+    l_backbox_match_50: on
 - time: "+1s"

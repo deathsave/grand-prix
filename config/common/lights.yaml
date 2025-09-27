@@ -1,14 +1,14 @@
 #config_version=6
 
 lights:
-  l_backbox_match_00:
+  l_backbox_match_10:
     subtype: matrix
     number: 0-0-0
     tags:
     - tag_lights_match
     - tag_lights_state
     - tag_lights
-  l_backbox_match_10:
+  l_backbox_match_20:
     subtype: matrix
     number: 0-0-1
     tags:
@@ -16,7 +16,7 @@ lights:
     - tag_lights_state
     - tag_lights
     - tag_match02
-  l_backbox_match_20:
+  l_backbox_match_30:
     subtype: matrix
     number: 0-0-2
     tags:
@@ -24,35 +24,35 @@ lights:
     - tag_lights_state
     - tag_lights_match
     - tag_match03
-  l_backbox_match_30:
+  l_backbox_match_40:
     subtype: matrix
     number: 0-0-3
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_40:
+  l_backbox_match_50:
     subtype: matrix
     number: 0-0-4
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_50:
+  l_backbox_match_60:
     subtype: matrix
     number: 0-0-5
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_60:
+  l_backbox_match_70:
     subtype: matrix
     number: 0-0-6
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_70:
+  l_backbox_match_80:
     subtype: matrix
     number: 0-0-7
     tags:
@@ -60,14 +60,14 @@ lights:
     - tag_lights_match
     - tag_lights_state
     - tag_lights_state
-  l_backbox_match_80:
+  l_backbox_match_90:
     subtype: matrix
     number: 0-0-8
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_90:
+  l_backbox_match_00:
     subtype: matrix
     number: 0-0-9
     tags:

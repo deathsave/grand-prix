@@ -36,16 +36,49 @@ show_player:
     match_animation_full:
       speed: 3
       action: play
-  timer_match_tick{ticks==10}:
+  timer_match_tick{ticks == 10}:
     match_animation_full:
       action: stop
-    match_animation_up:
-      manual_advance: true
+  timer_match_tick{ticks == 10 and machine.match_number == 10}:
+    match_animation_10:
+      speed: 2
       action: play
-  # Advance each tick up to the winning number in increments of 10
-  timer_match_tick{ticks>=10 and ticks <= 10 + (winner_number / 10)}:
-    match_animation_up:
-      action: advance
+  timer_match_tick{ticks == 10 and machine.match_number == 20}:
+    match_animation_20:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 30}:
+    match_animation_30:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 40}:
+    match_animation_40:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 50}:
+    match_animation_50:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 60}:
+    match_animation_60:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 70}:
+    match_animation_70:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 80}:
+    match_animation_80:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 90}:
+    match_animation_90:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 0}:
+    match_animation_00:
+      speed: 2
+      action: play
 
 coil_player:
   rev_match: c_shaker_motor
