@@ -15,16 +15,36 @@ event_player:
 queue_relay_player:
   match_no_match:
     post: no_match
-    wait_for: timer_match_tick{ticks==36}
+    wait_for: timer_match_tick{ticks==20}
     pass_args: true
   match_has_match:
     post: has_match
-    wait_for: timer_match_tick{ticks==36}
+    wait_for: timer_match_tick{ticks==20}
     pass_args: true
 mode_settings:
   non_match_number_step: 10
 sound_player:
   rev_match: rev
+
+  match_has_match:
+    you_matched:
+      action: play
+  match_has_match{match_number0 == winner_number}:
+    name1:
+      action: play
+      delay: 1s
+  match_has_match{match_number1 == winner_number}:
+    name2:
+      action: play
+      delay: 1s
+  match_has_match{match_number2 == winner_number}:
+    name3:
+      action: play
+      delay: 1s
+  match_has_match{match_number3 == winner_number}:
+    name4:
+      action: play
+      delay: 1s
 #   match_no_match:
 #     no_match_sound:
 #       action: play

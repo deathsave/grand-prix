@@ -190,6 +190,9 @@ sounds:
 
   ######## Synth #########
 
+  you_matched:
+    file: you-matched.ogg
+    track: voice
   jackpot:
     file: jackpot.ogg
     track: voice
