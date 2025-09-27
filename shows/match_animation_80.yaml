@@ -1,0 +1,74 @@
+#show_version=6
+
+# Match animation - runs through the match widgets to
+# simulate revving up on the apron display.
+#
+- time: 0
+  widgets:
+    match_none:
+      action: add
+- time: "+0.2s"
+  widgets:
+    match_10:
+      action: add
+    match_none:
+      action: remove
+  lights:
+    l_backbox_match_10: on
+- time: "+0.2s"
+  widgets:
+    match_20:
+      action: add
+    match_10:
+      action: remove
+  lights:
+    l_backbox_match_20: on
+- time: "+0.15s"
+  widgets:
+    match_30:
+      action: add
+    match_20:
+      action: remove
+  lights:
+    l_backbox_match_30: on
+- time: "+0.15s"
+  widgets:
+    match_40:
+      action: add
+    match_30:
+      action: remove
+  lights:
+    l_backbox_match_40: on
+- time: "+0.15s"
+  widgets:
+    match_50:
+      action: add
+    match_40:
+      action: remove
+  lights:
+    l_backbox_match_50: on
+- time: "+0.1s"
+  widgets:
+    match_60:
+      action: add
+    match_50:
+      action: remove
+  lights:
+    l_backbox_match_60: on
+- time: "+0.1s"
+  widgets:
+    match_70:
+      action: add
+    match_60:
+      action: remove
+  lights:
+    l_backbox_match_70: on
+- time: "+0.1s"
+  widgets:
+    match_80:
+      action: add
+    match_70:
+      action: remove
+  lights:
+    l_backbox_match_80: on
+- time: "+1s"

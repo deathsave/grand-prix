@@ -6,10 +6,6 @@
 - time: 0
   lights:
     tag_lights_match: off
-    l_backbox_match_00: on
-- time: "+0.2s"
-  lights:
-    tag_lights_match: off
     l_backbox_match_10: on
 - time: "+0.2s"
   lights:
@@ -46,6 +42,14 @@
 - time: "+0.2s"
   lights:
     tag_lights_match: off
+    l_backbox_match_00: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
+    l_backbox_match_90: on
+- time: "+0.2s"
+  lights:
+    tag_lights_match: off
     l_backbox_match_80: on
 - time: "+0.2s"
   lights:
@@ -75,10 +79,6 @@
   lights:
     tag_lights_match: off
     l_backbox_match_10: on
-- time: "+0.2s"
-  lights:
-    tag_lights_match: off
-    l_backbox_match_00: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off

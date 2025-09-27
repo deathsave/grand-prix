@@ -12,7 +12,7 @@ opp:
     0: /dev/cu.usbmodem101
 
 lights:
-  l_backbox_match_00:
+  l_backbox_match_10:
     subtype: matrix
     number: 0-0-0
   l_grooveline_lit:

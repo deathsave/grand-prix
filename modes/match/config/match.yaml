@@ -1,0 +1,146 @@
+#config_version=6
+
+mode:
+  start_events: start_match
+timers:
+  # A fallback for players to ensure state is refreshed
+  match:
+    start_value: 0
+    tick_interval: "0.3s"
+    start_running: true
+event_player:
+  mode_match_started: rev_match
+  timer_match_tick{ticks==6}: rev_match
+  timer_match_tick{ticks==10}: rev_match
+queue_relay_player:
+  match_no_match:
+    post: no_match
+    wait_for: timer_match_tick{ticks==20}
+    pass_args: true
+  match_has_match:
+    post: has_match
+    wait_for: timer_match_tick{ticks==20}
+    pass_args: true
+mode_settings:
+  non_match_number_step: 10
+sound_player:
+  rev_match: rev
+
+  match_has_match:
+    you_matched:
+      action: play
+  match_has_match{match_number0 == winner_number}:
+    name1:
+      action: play
+      delay: 1s
+  match_has_match{match_number1 == winner_number}:
+    name2:
+      action: play
+      delay: 1s
+  match_has_match{match_number2 == winner_number}:
+    name3:
+      action: play
+      delay: 1s
+  match_has_match{match_number3 == winner_number}:
+    name4:
+      action: play
+      delay: 1s
+#   match_no_match:
+#     no_match_sound:
+#       action: play
+#   match_has_match:
+#     match_sound:
+#       action: play
+show_player:
+  mode_match_started:
+    match_animation_full:
+      speed: 3
+      action: play
+  timer_match_tick{ticks == 10}:
+    match_animation_full:
+      action: stop
+  timer_match_tick{ticks == 10 and machine.match_number == 10}:
+    match_animation_10:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 20}:
+    match_animation_20:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 30}:
+    match_animation_30:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 40}:
+    match_animation_40:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 50}:
+    match_animation_50:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 60}:
+    match_animation_60:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 70}:
+    match_animation_70:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 80}:
+    match_animation_80:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 90}:
+    match_animation_90:
+      speed: 2
+      action: play
+  timer_match_tick{ticks == 10 and machine.match_number == 0}:
+    match_animation_00:
+      speed: 2
+      action: play
+
+coil_player:
+  rev_match: c_shaker_motor
+# TODO: convert modes/green_flag/config/light_player.yaml
+#       into a show
+light_player:
+  rev_match:
+    l_tach:
+      color: white
+  timer_eternal_tick{ticks % 3 == 0}:
+    l_tach:
+      color: black
+# slides:
+#   match_slide:
+#   - type: text
+#     text: MATCH
+#   - type: text
+#     text: "Player 1: (match_number0)"
+#   - type: text
+#     text: "Player 2: (match_number1)"
+#   - type: text
+#     text: "Player 3: (match_number2)"
+#   - type: text
+#     text: "Player 4: (match_number3)"
+#   - type: text
+#     text: "Match number: (winner_number)"
+#   no_match_slide:
+#   - type: text
+#     text: NO MATCH
+#     font_size: 12
+#     anchor_y: bottom
+#   - type: text
+#     text: "Player 1: (match_number0)"
+#   - type: text
+#     text: "Player 2: (match_number1)"
+#   - type: text
+#     text: "Player 3: (match_number2)"
+#   - type: text
+#     text: "Player 4: (match_number3)"
+#   - type: text
+#     text: "Match number: (winner_number)"
+# TODO: quickly animate match_none to match_00 and
+#       back down a couple times with a rev sound then
+#       then have it run again and stop on the step
+#       matching winner_number (match_{winner_number})

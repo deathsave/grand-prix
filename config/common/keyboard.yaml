@@ -123,6 +123,8 @@ keyboard:
   #####################
   shift-h:
     event: start_high_score
+  shift-m:
+    event: start_match
   # Luxury
   shift-l:
     event: luxury_qualifier_hit

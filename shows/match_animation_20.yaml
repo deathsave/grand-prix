@@ -1,0 +1,22 @@
+#show_version=6
+
+# Match animation - runs through the match widgets to
+# simulate revving up on the apron display.
+#
+- time: 0
+  widgets:
+    match_none:
+      action: add
+- time: "+0.2s"
+  widgets:
+    match_10:
+      action: add
+    match_none:
+      action: remove
+- time: "+0.2s"
+  widgets:
+    match_20:
+      action: add
+    match_10:
+      action: remove
+- time: "+1s"
