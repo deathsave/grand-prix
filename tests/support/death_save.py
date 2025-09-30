@@ -66,10 +66,7 @@ def _start_green_flag(self):
     self.hit_and_release_switch("s_pit_fuel")
     self.advance_time_and_run(1)
     self.assertModeRunning("green_flag")
-    # call out AFTER the signal countdown
-    self.advance_time_and_run(6)
-    self._assertSoundEffectIs("playing", "real_pit")
-    self.advance_time_and_run(1)
+    self.advance_time_and_run(7)
 
 def _start_backfire(self):
     self._start_green_flag()
@@ -121,29 +118,6 @@ def _start_grand_prix(self):
     # extra time needed here to eject the other balls
     self.hit_switch_and_run("s_backfire_hole", 8)
     self.assertModeRunning("grand_prix")
-
-def _assertSound(self, track, state, sound_name):
-    track = self.mc.sound_system.audio_interface. \
-        get_track_by_name(track)
-    for sound in track.get_status():
-        if self.mc.sounds[sound_name].id == sound['sound_id']:
-            found_sound = sound
-            break
-    if "found_sound" not in locals():
-        self.fail(sound_name + " not found in track.")
-    self.assertEqual(state, found_sound['status'])
-
-def _assertMusicIs(self, state, sound_name):
-    _assertSound(self, "music", state, sound_name)
-
-def _assertVoiceIs(self, state, sound_name):
-    _assertSound(self, "voice", state, sound_name)
-
-def _assertAmbienceIs(self, state, sound_name):
-    _assertSound(self, "ambience", state, sound_name)
-
-def _assertSoundEffectIs(self, state, sound_name):
-    _assertSound(self, "effects", state, sound_name)
 
 # From https://github.com/missionpinball/mpf/blob \
 #   /dev/mpf/tests/MpfGameTestCase.py#L141

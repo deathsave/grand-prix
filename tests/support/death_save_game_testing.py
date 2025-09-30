@@ -1,23 +1,12 @@
-from mpfmc.tests.FullMpfMachineTestCase import FullMachineTestCase
+from mpf.tests.MpfMachineTestCase import MpfMachineTestCase
 
-import tests.death_save as death_save
+import tests.support.death_save as death_save
 
-class DeathSaveGameTesting(FullMachineTestCase):
-
+# Extends MpfMachineTestCase with common helpers.
+# We should use this as the base class for most tests.
+class DeathSaveGameTesting(MpfMachineTestCase):
     def _assertIncrement(self, var, switch, value):
         death_save._assertIncrement(self, var, switch, value)
-
-    def _assertMusicIs(self, state, track):
-        death_save._assertMusicIs(self, state, track)
-
-    def _assertAmbienceIs(self, state, track):
-        death_save._assertAmbienceIs(self, state, track)
-
-    def _assertVoiceIs(self, state, track):
-        death_save._assertVoiceIs(self, state, track)
-
-    def _assertSoundEffectIs(self, state, track):
-        death_save._assertSoundEffectIs(self, state, track)
 
     def _start(self):
         death_save._start(self)

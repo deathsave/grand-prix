@@ -1,7 +1,7 @@
-from tests.death_save_game_testing import DeathSaveGameTesting
+from tests.support.death_save_mc_testing import DeathSaveMcTesting
 from unittest.mock import MagicMock
 
-class TestBonusMode(DeathSaveGameTesting):
+class TestBonusMode(DeathSaveMcTesting):
 
     def test_no_bonus_earned(self):
         self._start_and_expire_ball_save()

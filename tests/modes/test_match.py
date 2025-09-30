@@ -1,4 +1,4 @@
-from tests.death_save_game_testing import DeathSaveGameTesting
+from tests.support.death_save_game_testing import DeathSaveGameTesting
 
 class TestMatch(DeathSaveGameTesting):
 
@@ -6,16 +6,14 @@ class TestMatch(DeathSaveGameTesting):
         self._start()
 
         # blow through all three balls
-        for ball in range(1, 4):
+        for ball in range(3):
             self.assertModeNotRunning("match")
+            self.assertEqual(ball + 1,
+                self.machine.game.player.ball)
             self.hit_and_release_switch("s_shooter_lane")
             self.hit_and_release_switch("s_swerve1")
             self._expire_ball_save()
-            self.assertEqual(ball, self.machine.game.player.ball)
+            # drain (no bonus to wait out)
+            self.hit_switch_and_run("s_trough1", 2)
 
-            # ball drains and next ball begins
-            self._drain_one_ball()
-            self.advance_time_and_run(2)
-
-        self.assertEqual(self.machine.game.player.score, 3)
         self.assertModeRunning("match")

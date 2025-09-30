@@ -4,7 +4,9 @@ coil_player:
   # This doesn't want to physically run in the mode
   # so putting here to ensure it's registered
   mode_pure_evil_started: c_disqualifier_up
+  # Make sure the disqualifier is reset after ball
   ball_ending: c_disqualifier_down
+  mode_bonus_started: c_disqualifier_down
   # Spinner activates the chimebox in sequence every 3 spins
   # and pulses all together on completion of 20 spins
   s_spinner_active{current_player.spin_counter_count == 1}:

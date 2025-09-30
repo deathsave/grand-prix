@@ -1,5 +1,5 @@
 import random
-from tests.death_save_game_testing import DeathSaveGameTesting
+from tests.support.death_save_game_testing import DeathSaveGameTesting
 
 class TestRedLineMode(DeathSaveGameTesting):
 

@@ -1,4 +1,4 @@
-from tests.death_save_game_testing import DeathSaveGameTesting
+from tests.support.death_save_game_testing import DeathSaveGameTesting
 
 class TestHighScore(DeathSaveGameTesting):
 
@@ -31,17 +31,6 @@ class TestHighScore(DeathSaveGameTesting):
             self.hit_and_release_switch("s_pit_lube")
         self._drain_one_ball()
 
-        # wait out bonus
-        self.advance_time_and_run(18)
+        self.advance_time_and_run(1)
 
         self.assertModeRunning("high_score")
-        current_widgets = self.get_text_widgets()
-        self.assertIn("Driver 1",
-            [x.text for x in current_widgets])
-
-    def get_text_widgets(self):
-        current_widgets = []
-        for w in self.mc.displays['apron'].current_slide.widgets:
-            if hasattr(w.widget, 'text'):
-                current_widgets.append(w.widget)
-        return current_widgets

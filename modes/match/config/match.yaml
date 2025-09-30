@@ -1,7 +1,5 @@
 #config_version=6
 
-mode:
-  start_events: start_match
 timers:
   # A fallback for players to ensure state is refreshed
   match:

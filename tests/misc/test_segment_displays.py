@@ -1,4 +1,4 @@
-from tests.death_save_mc_testing import DeathSaveMcTesting
+from tests.support.death_save_mc_testing import DeathSaveMcTesting
 
 class TestSegmentDisplays(DeathSaveMcTesting):
 
@@ -18,7 +18,7 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         ## grand advance switch scoring 10 points
         self.hit_and_release_switch("s_save_target")
         self.advance_time_and_run(1)
-        self.assertEqual(1,
+        self.assertEqual(10,
             int(self.machine.segment_displays['segment1'].text))
 
     def test_clearing(self):
@@ -65,6 +65,10 @@ class TestSegmentDisplays(DeathSaveMcTesting):
             # drain (no bonus to wait out)
             self.hit_switch_and_run("s_trough1", 2)
 
+        # advance through the match mode
+        self.assertModeRunning("match")
+        self.advance_time_and_run(6)
+
         # back to Attract mode
         self.assertModeRunning("attract")
 
@@ -97,7 +101,7 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_pop1")
 
-        self.assertEqual(1,
+        self.assertEqual(10,
             int(self.machine.segment_displays['segment1'].text))
         self.assertEqual(0,
             int(self.machine.segment_displays['segment2'].text))
@@ -112,7 +116,7 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         # Next driver's turn
         self.assertEqual(2, self.machine.game.player.number)
 
-        self.assertEqual(1,
+        self.assertEqual(10,
             int(self.machine.segment_displays['segment1'].text))
         self.assertEqual(0,
             int(self.machine.segment_displays['segment2'].text))

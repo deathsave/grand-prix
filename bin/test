@@ -2,14 +2,16 @@
 
 if ! [ -z "$CI" ]; then
   # don't run verbose tests in CI
-  CMD="python -m unittest"
+  CMD="python -m unittest "
 else
   CMD="python -m unittest -v"
 fi
 
 if [ -z "$1" ]; then
-  PURE_EVIL=0 $CMD tests/test_*.py && \
-    $CMD tests/test_pure_evil.py
+  # Disable random pure evil mode for the suite and test it
+  # separately, so it doesn't interfere with other tests.
+  PURE_EVIL=0 $CMD tests/**/test_*.py && \
+    $CMD tests/modes/test_pure_evil.py
 else
   $CMD $1
 fi
