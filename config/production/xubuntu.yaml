@@ -23,3 +23,63 @@ window:
   maxfps: 30
   show_cursor: false
   fullscreen: true
+
+logging:
+  console:
+    asset_manager: none
+    ball_controller: none
+    ball_search: none
+    bcp: none
+    bcp_client: none
+    bcp_interface: none
+    bcp_server: none
+    clock: none
+    config_players: none       # todo
+    data_manager: none       # todo subclasses
+    delay_manager: none
+    device_manager: none
+    event_manager: none
+    file_manager: none       # todo
+    logic_blocks: none
+    machine_controller: none
+    mode_controller: none
+    placeholder_manager: none
+    platforms: none       # todo
+    players: none       # todo
+    plugins: none       # todo
+    score_reel_controller: none
+    scriptlets: none       # todo
+    service_controller: none
+    settings_controller: none
+    show_controller: none
+    switch_controller: none
+    timers: none
+  file:
+    asset_manager: none
+    ball_controller: none
+    ball_search: none
+    bcp: none
+    bcp_client: none
+    bcp_interface: none
+    bcp_server: none
+    clock: none
+    config_players: none
+    data_manager: none
+    delay_manager: none
+    device_manager: none
+    event_manager: none
+    file_manager: none
+    logic_blocks: none
+    machine_controller: none
+    mode_controller: none
+    placeholder_manager: none
+    platforms: none
+    players: full
+    plugins: none
+    score_reel_controller: none
+    scriptlets: none
+    service_controller: none
+    settings_controller: none
+    show_controller: none
+    switch_controller: full
+    timers: none
