@@ -54,8 +54,15 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self._start()
         self._start_green_flag()
 
-        for i in range(3):
+        for i in range(2):
             self._complete_lap()
+        self.assertEqual(
+            2, self.machine.game.player.lap_counter_count)
+
+        # Can also make laps via the pop bumpers
+        for i in range(10):
+            self.hit_and_release_switch("s_pop1")
+            self.hit_and_release_switch("s_pop2")
         self.assertEqual(
             3, self.machine.game.player.lap_counter_count)
 

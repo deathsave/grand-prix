@@ -2,7 +2,9 @@
 
 counters:
   lap_counter:
-    count_events: logicblock_seq_lap_complete
+    count_events:
+    - logicblock_seq_lap_complete
+    - logicblock_rubbing_is_racing_counter_complete
     starting_count: 0
     count_interval: 1
 
@@ -17,6 +19,16 @@ counters:
     reset_on_complete: false
     reset_events:
     - multiball_stopped
+
+  # Use the pops as another way to make a lap
+  rubbing_is_racing_counter:
+    count_events:
+    - s_pop1_active
+    - s_pop2_active
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 20
+    reset_on_complete: true
 
   spin_counter:
     count_events: s_spinner_active
