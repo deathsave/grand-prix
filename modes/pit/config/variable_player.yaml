@@ -44,7 +44,7 @@ variable_player:
 
   # Skillshots immediately restore fuel resources
   skill_backfire_hit:
-    score: 1000
+    score: 25000
     level_fuel:
       int: 2
       action: set
@@ -54,6 +54,8 @@ variable_player:
     level_tires:
       int: 2
       action: set
+  off_the_line_hit:
+    score: 5000
 
   #####################
   ## Limited scoring ##

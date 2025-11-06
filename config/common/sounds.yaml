@@ -190,6 +190,9 @@ sounds:
 
   ######## Synth #########
 
+  skill_shot:
+    file: skill-shot.ogg
+    track: voice
   you_matched:
     file: you-matched.ogg
     track: voice

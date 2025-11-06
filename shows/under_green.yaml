@@ -24,6 +24,7 @@
     tag_lights_signal: off
     l_signal4: on
   coils: c_chime3
+  events: green_flag_dropped
 # keep the last light on a bit longer
 - time: "+1.0s"
   lights:
@@ -32,5 +33,4 @@
 - time: "+1.0s"
   lights:
     l_signal4: on
-  sounds: pit_done
 - time: "+1.0s"

@@ -8,3 +8,13 @@ shots:
     - timer_skill_shot_complete
     - skill_backfire_hit
     switch: s_backfire_hole
+  # either plunge or land in the backfire hole
+  # in the tiny half second window
+  off_the_line:
+    enable_events:
+    - green_flag_dropped
+    disable_events:
+    - timer_off_the_line_complete
+    hit_events:
+    - s_shooter_lane_inactive
+    switch: s_backfire_hole

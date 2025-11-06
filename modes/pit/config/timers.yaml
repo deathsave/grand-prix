@@ -23,3 +23,13 @@ timers:
     control_events:
     - event: start_backfire_qualification{game.balls_in_play > 0}
       action: start
+  # timer for skillful plunge when starting a new
+  # ball while green flag is active
+  off_the_line:
+    start_value: 5
+    end_value: 0
+    direction: down
+    tick_interval: "0.1s"
+    control_events:
+    - event: green_flag_dropped
+      action: start
