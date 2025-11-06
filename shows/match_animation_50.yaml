@@ -48,3 +48,9 @@
   lights:
     l_backbox_match_50: on
 - time: "+1s"
+  widgets:
+    match_text:
+      action: add
+      widget_settings:
+        text: "50"
+- time: "+2s"

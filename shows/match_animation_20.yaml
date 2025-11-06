@@ -20,3 +20,9 @@
     match_10:
       action: remove
 - time: "+1s"
+  widgets:
+    match_text:
+      action: add
+      widget_settings:
+        text: "20"
+- time: "+2s"

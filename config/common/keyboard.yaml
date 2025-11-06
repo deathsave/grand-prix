@@ -4,6 +4,7 @@
 # Then 'l' to launch, 'f' to fuel up
 
 keyboard:
+  debug: true
   #########################
   ## Testing / Debugging ##
   #########################
@@ -121,18 +122,18 @@ keyboard:
   #####################
   ## MODE ACTIVATION ##
   #####################
-  shift-h:
+  shift+h:
     event: start_high_score
-  shift-m:
+  shift+m:
     event: start_match
   # Luxury
-  shift-l:
+  shift+l:
     event: luxury_qualifier_hit
   # Grand Prix
-  shift-p:
+  shift+p:
     event: grand_prix_qualifier_hit
-  shift-g:
+  shift+g:
     event: grooveline_qualifier_hit
   # Backfire
-  shift-b:
+  shift+b:
     event: logicblock_seq_backfire_qualifier_complete

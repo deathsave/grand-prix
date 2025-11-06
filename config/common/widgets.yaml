@@ -182,3 +182,13 @@ widgets:
   - type: image
     image: match-90
     z: 10
+  match_text:
+  - type: text
+    text: "00"
+    min_digits: 2
+    x: center
+    y: bottom+15%
+    style: big
+    color: cyan
+    font_size: 150
+    z: 10

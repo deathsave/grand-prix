@@ -16,3 +16,9 @@
   lights:
     l_backbox_match_10: on
 - time: "+1s"
+  widgets:
+    match_text:
+      action: add
+      widget_settings:
+        text: "10"
+- time: "+2s"

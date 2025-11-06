@@ -32,3 +32,9 @@
   lights:
     l_backbox_match_30: on
 - time: "+1s"
+  widgets:
+    match_text:
+      action: add
+      widget_settings:
+        text: "30"
+- time: "+2s"

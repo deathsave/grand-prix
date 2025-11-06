@@ -64,3 +64,9 @@
   lights:
     l_backbox_match_70: on
 - time: "+1s"
+  widgets:
+    match_text:
+      action: add
+      widget_settings:
+        text: "70"
+- time: "+2s"
