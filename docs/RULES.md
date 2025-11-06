@@ -12,15 +12,11 @@ Strap in for Grand Prix ’86—the homebrew pinball thrill ride where speed mee
 How things are supposed to Work
 -------------------------------
 
-A day before the Pacific Northwest Pinball & Arcade Show, this game was not even flipping. Many burned up components and a hell of a lot of elbow grease later, well... there's still much to do. But she's flipping! If you've got ideas, share them with Death Save Pinball Cult.
+A day before the 2024 Pacific Northwest Pinball & Arcade Show, this game was not even flipping. Many burned up components and a hell of a lot of elbow grease later, well there's still much to do ...but she's flipping! If you've got ideas, share them with Death Save Pinball Cult.
 
-### General Modes
+### General
 
-#### Pit Row
-
-> Every driver's got to pit Cole...
-
-- Fuel up, lube up, and change the treads
+Out of the gate, try to get into the Backfire Hole with a skillful plunge. This will immediate drop the Green Flag. Otherwise, **your adventure begins in the pit**. But don't fret, Your ride is almost ready to roll. You only need to fill up the tank (hit the Fuel target).
 
 #### Green-flag (Main Mode)
 
@@ -28,11 +24,15 @@ With a well-oiled vehicle, the race begins:
 
 - Counter-clockwise orbit awards a lap
 - A successful lap awards a Grooveline insert
-- 3 laps simulates wear and tear on the vehicle
+- 3 laps is likely to put some wear and tear on the vehicle
+
+Beginning a ball with Green Flag mode active gives you an opportunity to time your plunge off the line. Don't miss the free points!
+
+Too much wear and tear and you'll be back in the pit. Fuel up, lubricate, and swap those tires as needed.
 
 #### Backfire Pops
 
-When exiting green flag mode for a needed pit stop, a drivers engine may "backfire just right". Hit the spinner, then enter the backfire hole within 10 seconds to activate the hurry up. Once activated, work the pop bumpers to collect big points and possibly even delay your pit stop.
+When exiting Green Flag mode for a needed pit stop, a drivers engine may "backfire just right". Hit the spinner, then enter the backfire hole within 10 seconds to activate the hurry up. Once activated, work the pop bumpers to collect some big points and possibly even delay your pit stop.
 
 ### Special Modes
 
