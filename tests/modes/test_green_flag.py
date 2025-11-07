@@ -26,8 +26,8 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self._assertIncrement(score, "s_swerve2", 10)
         self._assertIncrement(score, "s_slingshot1", 10)
         self._assertIncrement(score, "s_slingshot2", 10)
-        self._assertIncrement(score, "s_inlane1", 25)
-        self._assertIncrement(score, "s_inlane2", 25)
+        self._assertIncrement(score, "s_inlane1", 30)
+        self._assertIncrement(score, "s_inlane2", 30)
         self._assertIncrement(score, "s_outlane1", 50)
         self._assertIncrement(score, "s_outlane2", 50)
 

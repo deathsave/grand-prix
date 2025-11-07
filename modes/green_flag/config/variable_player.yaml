@@ -29,9 +29,9 @@ variable_player:
   s_slingshot2_active:
     score: 10 * current_player.multiplier|block
   s_inlane1_active:
-    score: 25 * current_player.multiplier|block
+    score: 30 * current_player.multiplier|block
   s_inlane2_active:
-    score: 25 * current_player.multiplier|block
+    score: 30 * current_player.multiplier|block
   s_outlane1_active:
     score: 50 * current_player.multiplier|block
   s_outlane2_active:
