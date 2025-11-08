@@ -8,8 +8,8 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         ## game begins and puts player1's score
         ## on the segment display
         self.hit_and_release_switch("s_start")
-        self.hit_and_release_switch("s_shooter_lane")
         self.advance_time_and_run(1)
+        self.assertModeRunning("pit")
 
         self.assertEqual(self.machine.game.player.score,
             int(self.machine.segment_displays['segment1'].text))
@@ -91,6 +91,22 @@ class TestSegmentDisplays(DeathSaveMcTesting):
 
         self.advance_time_and_run(2)
         self.assertEqual(1337,
+            int(self.machine.segment_displays['segment4'].text))
+
+        # After the message sequence, the displays
+        # contain the top 4 High Scores
+        self.advance_time_and_run(2)
+        self.assertEqual(self.machine.variables. \
+            get_machine_var("score1_value"),
+            int(self.machine.segment_displays['segment1'].text))
+        self.assertEqual(self.machine.variables. \
+            get_machine_var("score2_value"),
+            int(self.machine.segment_displays['segment2'].text))
+        self.assertEqual(self.machine.variables. \
+            get_machine_var("score3_value"),
+            int(self.machine.segment_displays['segment3'].text))
+        self.assertEqual(self.machine.variables. \
+            get_machine_var("score4_value"),
             int(self.machine.segment_displays['segment4'].text))
 
     def test_two_players(self):

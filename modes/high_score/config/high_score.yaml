@@ -15,8 +15,8 @@ high_score:
       - 1st Place
       - 2nd Place
       - 3rd Place
-    # - loops:
-    #     - LOOP CHAMP
+    - laps:
+      - LAPS CHAMP
   # set the defaults
   defaults:
     score:
@@ -24,8 +24,8 @@ high_score:
       - GRA: 5000
       - NDP: 1000
       - RIX: 100
-    # loops:
-    #   - JAN: 42
+    laps:
+      - DS: 3
   # vars:
   #   loops:
   #     - player: character

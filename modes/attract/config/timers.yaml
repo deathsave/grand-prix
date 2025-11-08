@@ -3,7 +3,7 @@
 timers:
   # To change the random segment display
   # values during the Attract Mode
-  segment_wiggle_timer:
+  segment_message_timer:
     start_value: 0
     tick_interval: "0.2s"
     start_running: true

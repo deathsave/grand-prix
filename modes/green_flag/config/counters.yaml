@@ -28,7 +28,9 @@ counters:
     starting_count: 0
     count_interval: 1
     count_complete_value: 20
+    persist_state: true
     reset_on_complete: true
+    disable_on_complete: false
 
   spin_counter:
     count_events: s_spinner_active
@@ -44,7 +46,8 @@ counters:
   #   BUT WILL RESET ON BALL END
   #   (see Pit Mode variable_player + custom code)
   grooveline_counter:
-    count_events: logicblock_seq_lap_complete
+    count_events:
+    - logicblock_lap_counter_hit
     starting_count: 0
     count_interval: 1
     count_complete_value: 10

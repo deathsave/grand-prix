@@ -3,3 +3,18 @@
 mode:
   priority: 100
   code: attract.GrandPrixAttract
+
+segment_display_player:
+  displays_init_done:
+    segment1:
+      flashing: all
+      text: "{machine.score1_value}"
+    segment2:
+      flashing: off
+      text: "{machine.score2_value}"
+    segment3:
+      flashing: off
+      text: "{machine.score3_value}"
+    segment4:
+      flashing: off
+      text: "{machine.score4_value}"

@@ -1,23 +1,30 @@
 #config_version=6
 
 mode:
-  start_events: mode_attract_stopped
-  stop_events: mode_attract_started
-  events_when_started: displays_init_done
+  start_events:
+  - segment_message_done
+  - game_started
+  stop_events:
+  - game_ended
+  events_when_started:
+  - displays_init_done
   priority: 100
   game_mode: false
 
+# Clear displays on game start/stop
 segment_display_player:
-  # Clear all segments when the game starts
-  # and when the game stops
-  game_started:
+  mode_game_started:
     segment1:
+      flashing: off
       text: ""
     segment2:
+      flashing: off
       text: ""
     segment3:
+      flashing: off
       text: ""
     segment4:
+      flashing: off
       text: ""
   mode_game_stopped:
     segment1:

@@ -12,8 +12,8 @@ show_player:
       loops: 0
       show_tokens:
         lights: l_tach
-  logicblock_seq_lap_complete:
-    loop:
+  logicblock_lap_counter_hit:
+    lap_chaser:
       loops: 0
       show_tokens:
         color: lime
