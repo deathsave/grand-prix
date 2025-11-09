@@ -5,6 +5,13 @@ slides:
   - widget: dspc_animation
   splash_slide:
   - widget: splash
+  - widget: champ_label
+  - widget: champ_value
+  - widget: first_place
+  - widget: second_place
+  - widget: third_place
+  - widget: laps_champ_label
+  - widget: laps_champ_value
   pit_slide:
   - widget: pit_background
   - widget: pit_mirror

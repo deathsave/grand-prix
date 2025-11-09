@@ -192,3 +192,73 @@ widgets:
     color: cyan
     font_size: 150
     z: 10
+  champ_label:
+  - type: text
+    text: "Grand Champion"
+    anchor_x: left
+    z: 2
+    x: 5%
+    y: bottom+92%
+    color: cyan
+    style: text_default
+    font_size: 60
+  champ_value:
+  - type: text
+    text: "(machine|score1_name): (machine|score1_value)"
+    anchor_x: left
+    z: 2
+    x: 5%
+    y: bottom+78%
+    color: white
+    style: big
+    font_size: 40
+  first_place:
+  - type: text
+    text: "1st: (machine|score2_name) ((machine|score2_value))"
+    anchor_x: left
+    z: 2
+    x: 5%
+    y: bottom+69%
+    color: white
+    style: medium
+    font_size: 28
+  second_place:
+  - type: text
+    text: "2nd: (machine|score3_name) ((machine|score3_value))"
+    anchor_x: left
+    z: 2
+    x: 5%
+    y: bottom+62%
+    color: white
+    style: medium
+    font_size: 28
+  third_place:
+  - type: text
+    text: "3rd: (machine|score4_name) ((machine|score4_value))"
+    anchor_x: left
+    z: 2
+    x: 5%
+    y: bottom+55%
+    color: white
+    style: medium
+    font_size: 28
+  laps_champ_label:
+  - type: text
+    text: "Laps Champ"
+    anchor_x: left
+    z: 2
+    x: 2%
+    y: bottom+10%
+    color: pink
+    style: big
+    font_size: 20
+  laps_champ_value:
+  - type: text
+    text: "(machine|lap_count1_name): (machine|lap_count1_value) Laps"
+    anchor_x: left
+    z: 2
+    x: 2%
+    y: bottom+4%
+    color: white
+    style: medium
+    font_size: 18

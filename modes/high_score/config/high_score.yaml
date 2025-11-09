@@ -15,7 +15,7 @@ high_score:
       - 1st Place
       - 2nd Place
       - 3rd Place
-    - laps:
+    - lap_count:
       - LAPS CHAMP
   # set the defaults
   defaults:
@@ -24,7 +24,7 @@ high_score:
       - GRA: 5000
       - NDP: 1000
       - RIX: 100
-    laps:
+    lap_count:
       - DS: 3
   # vars:
   #   loops:
