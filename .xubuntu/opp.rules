@@ -1,3 +1,16 @@
-SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-5/1-5:1.0/*", SYMLINK+="ttyOPP0", GROUP="adm", MODE="0660"
-SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-6/1-6:1.0/*", SYMLINK+="ttyOPP1", GROUP="adm", MODE="0660"
-SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-8/1-8:1.0/*", SYMLINK+="ttyMYPB", GROUP="adm", MODE="0660"
+# # OPP Chain 1
+# SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-8/1-8:1.0/*", SYMLINK+="ttyOPP1", GROUP="adm", MODE="0660"
+# # The Cobrapin Board (OPP Chain 2)
+# SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-5/1-5:1.0/*", SYMLINK+="ttyOPP1", GROUP="adm", MODE="0660"
+# # My Pinballs Displays
+# SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-6/1-6:1.0/*", SYMLINK+="ttyMYPB", GROUP="adm", MODE="0660"
+
+# OPP Chain 1 - Cypress Thermometer (hidraw fallback)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="0002", SYMLINK+="ttyOPP0"
+
+# OPP Chain 2 - STMicro Virtual COM Port
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", SYMLINK+="ttyOPP1"
+
+# Pinballs Segment Displays - Arduino Uno
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", SYMLINK+="ttyMYPB"
+
