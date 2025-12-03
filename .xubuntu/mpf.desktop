@@ -2,7 +2,7 @@
 Version=1.0
 Name=MPF
 Comment=Mission Pinball
-Exec=/home/unrared/grand-prix/bin/run
-Path=/home/unrared/grand-prix
+Exec=/home/grand-prix/grand-prix/bin/run
+Path=/home/grand-prix/grand-prix
 Terminal=false
 Type=Application
