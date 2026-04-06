@@ -75,17 +75,11 @@ Hardware is as such:
 - [Mini 5" HDMI Display](https://www.amazon.com/dp/B0CP3DH3LN)
 - [MLLSE M2 Mini PC](https://www.newegg.com/mllse-m2/p/2SW-00A4-00007)
 - [OPP "Cypress" Pinball Interface](https://pinballmakers.com/wiki/index.php?title=OPP-Cypress)
+- [CobraPin Satellite Board](https://pinside.com/pinball/shops/shop/1254-cobra-amusements/05354-cobrapin-satellite-board)
+- [CobraPin SweetLED Board](https://pinside.com/pinball/shops/shop/1254-cobra-amusements/09750-cobrapin-sweetled-board)
 - [My Pinballs Segment Display](https://missionpinball.org/latest/hardware/mypinballs/wiring/)
-- [FadeCandy LED Controller](https://www.adafruit.com/product/1689)
 
 **A guide to setup the [production machine on Xubuntu is here](https://github.com/deathsave/grand-prix/blob/main/docs/XUBUNTU.md).**
-
-Proposed OPP Build
-------------------
-
-OPP boards can each have up to 4 wings attached as shown:
-
-![OPP Processor Board](http://pinballmakers.com/wiki/images/f/f1/Opp-processor.png)
 
 ### Board Switch Mapping
 

@@ -24,11 +24,14 @@ def _assertIncrement(self, var, switch, value):
         "Expected %s, got %s" % (value, new_val - current_val)
     )
 
+# Ensures Attract Mode is running, that we have balls in the
+# trough, and that starting a game will move one ball into
+# the shooter lane.
 def _start(self):
-    self.advance_time_and_run(4)
+    self.advance_time_and_run(10)
+    self.assertModeRunning('attract')
     self.assertEqual(3,
         self.machine.ball_devices["bd_trough"].balls)
-    self.assertModeRunning('attract')
     self.assertModeNotRunning('pit')
     self.hit_and_release_switch("s_start")
     self.advance_time_and_run(1)
