@@ -101,6 +101,17 @@ class TestGreenFlagMode(DeathSaveGameTesting):
             0, self.machine.game.player.level_lube)
         self.assertModeNotRunning("green_flag")
 
+    def test_auto_qualification(self):
+        self._start_and_expire_ball_save()
+        self.assertModeNotRunning("green_flag")
+
+        # ball drains
+        self.hit_switch_and_run("s_trough1", 3)
+
+        # next ball begins and bonus has been skipped
+        self.assertEqual(2, self.machine.game.player.ball)
+        self.assertModeRunning("green_flag")
+
     def test_loop_gate(self):
         self._start()
         self.assertEqual(

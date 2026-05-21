@@ -6,6 +6,8 @@ mode:
   # shortcuts to resume/start green flag
   - logicblock_backfire_counter_complete
   - skill_backfire_hit
+  # immediately start green flag on ball 2 if player whiffed ball 1
+  - ball_started{current_player.ball == 2 and current_player.is_green_flag_completed == 0}
   stop_events:
   - pit_required_lube
   - pit_required_fuel

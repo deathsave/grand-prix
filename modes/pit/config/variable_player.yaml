@@ -105,6 +105,12 @@ variable_player:
       int: 0
 
   ##########################
+  ## Base-mode prison fix ##
+  ##########################
+  mode_green_flag_started:
+    is_green_flag_completed: 1
+
+  ##########################
   ## Wizard-mode Progress ##
   ##########################
   multiball_grooveline_ended:
