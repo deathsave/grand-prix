@@ -7,11 +7,12 @@ else
   CMD="python -m unittest -v"
 fi
 
+# Handle passing
 if [ -z "$1" ]; then
   # Disable random pure evil mode for the suite and test it
   # separately, so it doesn't interfere with other tests.
-  PURE_EVIL=0 $CMD tests/**/test_*.py && \
-    $CMD tests/modes/test_pure_evil.py
+  $CMD tests/**/test_*.py && \
+    $PURE_EVIL=1 CMD tests/modes/test_pure_evil.py
 else
   $CMD $1
 fi

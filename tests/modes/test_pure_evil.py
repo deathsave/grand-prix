@@ -6,6 +6,8 @@ class TestPureEvilMode(DeathSaveGameTesting):
     # Player qualifies when their "evil_number" is
     # equal to their current lap count.
     def test_points_loss(self):
+        if self._is_unavailable("pure_evil"): return None
+
         self._activate_pure_evil()
 
         self.advance_time_and_run(3)
@@ -29,6 +31,8 @@ class TestPureEvilMode(DeathSaveGameTesting):
         assert(self.machine.game.player.score < score)
 
     def test_deactivation(self):
+        if self._is_unavailable("pure_evil"): return None
+
         self._activate_pure_evil()
 
         # player knocks down the "disqualifier" drop
@@ -41,6 +45,8 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self.assertEqual(score, self.machine.game.player.score)
 
     def test_auto_deactivation(self):
+        if self._is_unavailable("pure_evil"): return None
+
         self._activate_pure_evil()
 
         # ball drains
@@ -73,3 +79,6 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self._complete_lap()
 
         self.assertModeRunning("pure_evil")
+
+    def _is_unavailable(self, mode):
+        self.machine.variables.get_machine_var(f"is_{mode}_available") == 0
