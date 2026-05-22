@@ -139,3 +139,7 @@ keyboard:
   # Backfire
   shift+b:
     event: logicblock_seq_backfire_qualifier_complete
+
+  # Disqualifier (stop pure evil)
+  shift+d:
+    event: pure_evil_exits

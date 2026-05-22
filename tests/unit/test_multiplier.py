@@ -54,14 +54,14 @@ class TestMultiplier(DeathSaveGameTesting):
         self.advance_time_and_run(1)
         self.assertEqual(2, self.machine.game.player.multiplier)
 
-        # Player can increase it again
+        # Player CANNOT increase it again - too easy otherwise
         self._complete_lap()
         self.advance_time_and_run(1)
-        self.assertEqual(5, self.machine.game.player.multiplier)
+        self.assertEqual(2, self.machine.game.player.multiplier)
 
         # But eventually it will expire
         self.advance_time_and_run(25)
-        self.assertEqual(5, self.machine.game.player.multiplier)
+        self.assertEqual(2, self.machine.game.player.multiplier)
         self.advance_time_and_run(5)
         self.assertEqual(1, self.machine.game.player.multiplier)
 
