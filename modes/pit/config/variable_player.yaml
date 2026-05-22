@@ -56,6 +56,10 @@ variable_player:
       action: set
   off_the_line_hit:
     score: 5000
+  sw_playfield_active:
+    is_playfield_active:
+      int: 1
+      action: set
 
   #####################
   ## Limited scoring ##
@@ -144,3 +148,6 @@ variable_player:
     grooveline_counter_count:
       action: set
       int: 0
+    is_playfield_active:
+      int: 0
+      action: set

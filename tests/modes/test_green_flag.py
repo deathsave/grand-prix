@@ -112,6 +112,17 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertEqual(2, self.machine.game.player.ball)
         self.assertModeRunning("green_flag")
 
+        # Loop gate is still open for ball launch
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].enabled)
+        self.hit_and_release_switch("s_shooter_lane")
+        self.assertEqual(
+            True, self.machine.diverters["loop_gate"].active)
+        self.hit_and_release_switch("s_grooveline")
+        self.assertEqual(
+            False, self.machine.diverters["loop_gate"].active)
+
+
     def test_loop_gate(self):
         self._start()
         self.assertEqual(

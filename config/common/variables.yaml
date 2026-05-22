@@ -20,6 +20,11 @@ player_vars:
   backfire_counter_count:
     initial_value: 0
 
+  # to know if we can open the loop gate
+  # when ball leaves the shooter lane
+  is_playfield_active:
+    initial_value: 0
+
   # # TODO: per ball bonuses
   # bonus_main:
   #   initial_value: 0

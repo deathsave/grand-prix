@@ -7,8 +7,8 @@ diverters:
     activation_time: 2s
     activate_events:
     - s_spinner_active
-    # activate on initial ball launch
-    - s_shooter_lane_inactive{not mode.green_flag.active}
+    # activate on initial ball leaving the shooter lane
+    - s_shooter_lane_inactive{current_player.is_playfield_active == 0}
     deactivate_events:
     - s_grooveline_active
     # hitting ANYTHING following initial ball
