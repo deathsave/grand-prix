@@ -15,13 +15,19 @@ SIMPLE_CSS = '<link rel="stylesheet" ' \
 
 app = Flask(__name__)
 
-@app.route('/')
-def readme():
-    with open(os.path.join(MACHINE_ROOT, 'README.md')) as f:
-        html = markdown.markdown(
+def render_md(path):
+    with open(path) as f:
+        return SIMPLE_CSS + markdown.markdown(
             f.read(), extensions=["markdown_mermaidjs"]
         )
-        return SIMPLE_CSS + html
+
+@app.route('/')
+def readme():
+    return render_md(os.path.join(MACHINE_ROOT, 'README.md'))
+
+@app.route('/rules')
+def rules():
+    return render_md(os.path.join(MACHINE_ROOT, 'docs', 'RULES.md'))
 
 if __name__ == '__main__':
     app.run()
