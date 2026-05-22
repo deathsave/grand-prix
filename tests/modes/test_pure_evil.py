@@ -5,7 +5,50 @@ class TestPureEvilMode(DeathSaveGameTesting):
 
     # Player qualifies when their "evil_number" is
     # equal to their current lap count.
-    def test_qualification(self):
+    def test_points_loss(self):
+        self._activate_pure_evil()
+
+        self.advance_time_and_run(3)
+        self.assertEqual(1, self.machine. \
+            coils["c_disqualifier_up"].pulse.call_count)
+        # value is set to ensure not called again
+        # on the current ball
+        self.assertEqual(True,
+            self.machine.game.player.evil_number >= 999999)
+
+        self.advance_time_and_run(1)
+
+        # pure_evil eats your points
+        score = self.machine.game.player.score
+        self.advance_time_and_run(1)
+        assert(self.machine.game.player.score < score)
+
+        # and continues to...
+        score = self.machine.game.player.score
+        self.advance_time_and_run(1)
+        assert(self.machine.game.player.score < score)
+
+    def test_deactivation(self):
+        self._activate_pure_evil()
+
+        # player knocks down the "disqualifier" drop
+        self.hit_and_release_switch("s_disqualifier")
+        self.assertModeNotRunning("pure_evil")
+
+        # score no longer decreasing
+        score = self.machine.game.player.score
+        self.advance_time_and_run(1)
+        self.assertEqual(score, self.machine.game.player.score)
+
+    def test_auto_deactivation(self):
+        self._activate_pure_evil()
+
+        # ball drains
+        self.hit_switch_and_run("s_trough1", 3)
+        self.assertModeRunning("bonus")
+        self.assertModeNotRunning("pure_evil")
+
+    def _activate_pure_evil(self):
         self.machine.coils["c_disqualifier_up"]. \
             pulse = MagicMock()
         self.assertEqual(0, self.machine. \
@@ -30,32 +73,3 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self._complete_lap()
 
         self.assertModeRunning("pure_evil")
-
-        self.advance_time_and_run(3)
-        self.assertEqual(1, self.machine. \
-            coils["c_disqualifier_up"].pulse.call_count)
-        # value is set to ensure not called again
-        # on the current ball
-        self.assertEqual(True,
-            self.machine.game.player.evil_number >= 999999)
-
-        self.advance_time_and_run(1)
-
-        # pure_evil eats your points
-        score = self.machine.game.player.score
-        self.advance_time_and_run(1)
-        assert(self.machine.game.player.score < score)
-
-        # and continues to...
-        score = self.machine.game.player.score
-        self.advance_time_and_run(1)
-        assert(self.machine.game.player.score < score)
-
-        # until player knocks down the "disqualifier" drop
-        self.hit_and_release_switch("s_disqualifier")
-        self.assertModeNotRunning("pure_evil")
-
-        # score no longer decreasing
-        score = self.machine.game.player.score
-        self.advance_time_and_run(1)
-        self.assertEqual(score, self.machine.game.player.score)
