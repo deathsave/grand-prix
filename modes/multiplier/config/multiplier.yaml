@@ -1,0 +1,7 @@
+#config_version=6
+
+# NOTE: There is no "multiplier mode". We manipulate the player_var by:
+#       - Hitting swerve switches during Multiball(s) OR
+#       - Getting subsequent lap(s) within 5 seconds
+#         (Can increase multiple times, but 30 seconds
+#          without will variable return to 1.0 value)

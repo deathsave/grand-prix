@@ -57,12 +57,28 @@ class Pit(Mode):
     # per the PROGRESS_MAP
     def update_progress(self, **kwargs):
         for state, value in self.PROGRESS_MAP.items():
-            if state.startswith("is_"):
+            if state == "multiplier":
+                self.handle_multiplier()
+            elif state.startswith("is_"):
                 self.handle_bool(state, value)
             elif state.startswith("level_"):
                 self.handle_multi_value(state, value)
             else:
                 self.handle_sequential_counter(state, value)
+
+    # Lights the current multiplier and turns the others off
+    #
+    #   Example: handle_multiplier()
+    #
+    def handle_multiplier(self):
+        for i in range(1, 4):
+            self.machine.lights[f"l_multiplier_{i:0>2}"].off()
+        if self.machine.game.player.multiplier == 5:
+            self.machine.lights["l_multiplier_03"].on()
+        elif self.machine.game.player.multiplier == 2:
+            self.machine.lights["l_multiplier_02"].on()
+        else:
+            self.machine.lights["l_multiplier_01"].on()
 
     # Turns a light on or off by checking
     # the current :state (player variable) value.

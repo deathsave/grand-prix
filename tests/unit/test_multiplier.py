@@ -2,15 +2,18 @@ from tests.support.death_save_game_testing import DeathSaveGameTesting
 
 class TestMultiplier(DeathSaveGameTesting):
 
-    def test_qualification(self):
+    def test_swerve_qualification(self):
         self._start()
         self.assertEqual(1, self.machine.game.player.multiplier)
         self._start_green_flag()
         self._start_luxury()
+        self.advance_time_and_run(5)
+
+        # Start with multiplier of 1
+        self.assertEqual(1, self.machine.game.player.multiplier)
 
         # once in multiball, the swerve targets
         # can activate the multiplier
-        self.assertEqual(1, self.machine.game.player.multiplier)
         for i in range(4):
             self.hit_and_release_switch("s_swerve1")
         self.assertEqual(1, self.machine.game.player.multiplier)
@@ -20,4 +23,79 @@ class TestMultiplier(DeathSaveGameTesting):
         self.hit_and_release_switch("s_swerve1")
         self.assertEqual(2, self.machine.game.player.multiplier)
 
-        # TODO: handle 5x multiplier
+        # Swerving more doesn't bring the multiplier beyond 2
+        for i in range(5):
+            self.hit_and_release_switch("s_swerve1")
+        self.assertEqual(2, self.machine.game.player.multiplier)
+
+        # Eventually it expires
+        self.advance_time_and_run(25)
+        self.assertEqual(2, self.machine.game.player.multiplier)
+        self.advance_time_and_run(5)
+        self.assertEqual(1, self.machine.game.player.multiplier)
+
+    def test_subsequent_lap_qualification(self):
+        self._start()
+        self.assertEqual(1, self.machine.game.player.multiplier)
+        self._start_green_flag()
+
+        # Making a lap after 5 seconds does not trigger the multiplier
+        self._complete_lap()
+        self.assertEqual(True, self.machine.timers["lap_to_lap"].running)
+        self.advance_time_and_run(6)
+        self.assertEqual(False, self.machine.timers["lap_to_lap"].running)
+        self._complete_lap()
+        self.assertEqual(1, self.machine.game.player.multiplier)
+
+        # But under 5 seconds does
+        self.assertEqual(True, self.machine.timers["lap_to_lap"].running)
+        self.advance_time_and_run(3)
+        self._complete_lap()
+        self.advance_time_and_run(1)
+        self.assertEqual(2, self.machine.game.player.multiplier)
+
+        # Player can increase it again
+        self._complete_lap()
+        self.advance_time_and_run(1)
+        self.assertEqual(5, self.machine.game.player.multiplier)
+
+        # But eventually it will expire
+        self.advance_time_and_run(25)
+        self.assertEqual(5, self.machine.game.player.multiplier)
+        self.advance_time_and_run(5)
+        self.assertEqual(1, self.machine.game.player.multiplier)
+
+    def test_grooveline_override(self):
+        self._start()
+        self._start_green_flag()
+        self._complete_lap()
+        self._complete_lap()
+        self.assertEqual(2, self.machine.game.player.multiplier)
+        self.assertEqual(2, self.machine.game.player.lap_count)
+        self._complete_lap()
+        self.assertEqual(4, self.machine.game.player.lap_count)
+
+    def test_luxury_override(self):
+        self._start()
+        self._start_green_flag()
+        self._complete_lap()
+        self._complete_lap()
+        self.assertEqual(2, self.machine.game.player.multiplier)
+
+        for i in range(10):
+            self.hit_and_release_switch("s_spinner")
+        self.assertEqual(2,
+            self.machine.game.player.luxury_counter_count)
+
+    def test_grand_prix_override(self):
+        self._start()
+        self._start_green_flag()
+        self._complete_lap()
+        self._complete_lap()
+        self.assertEqual(2, self.machine.game.player.multiplier)
+
+        self.hit_and_release_switch("s_save_target")
+        self.assertEqual(2, self.machine.game.player.grand_counter_count)
+
+        self.hit_and_release_switch("s_bonus_target")
+        self.assertEqual(2, self.machine.game.player.prix_counter_count)

@@ -18,3 +18,4 @@ config:
 - coil_player.yaml
 - sound_player.yaml
 - multiball_locks.yaml
+- timers.yaml

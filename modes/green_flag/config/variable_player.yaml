@@ -72,17 +72,9 @@ variable_player:
     level_lube: 0|block
   s_pit_tires_active:
     level_tires: 0|block
-  ########################
-  ## Counter Peristence ##
-  ########################
-  # Per docs, "Counters no longer save their
-  # state in player variables", so we need
-  # to map them manually here
-  multiball_stopped:
-    multiplier:
-      action: set
-      int: 1
-  logicblock_swerve_counter_complete:
+
+  # "Swerving during multiballs triggers the first-level multiplier
+  logicblock_swerve_counter_complete{(current_player.multiplier < 5)}:
     multiplier:
       action: set
       int: 2
@@ -101,15 +93,15 @@ variable_player:
   logicblock_luxury_counter_updated:
     luxury_counter_count:
       action: set
-      int: value
+      int: value * current_player.multiplier
   logicblock_grand_counter_updated:
     grand_counter_count:
       action: set
-      int: value
+      int: value * current_player.multiplier
   logicblock_prix_counter_updated:
     prix_counter_count:
       action: set
-      int: value
+      int: value * current_player.multiplier
   logicblock_grand_prix_counter_updated:
     grand_prix_counter_count:
       action: set

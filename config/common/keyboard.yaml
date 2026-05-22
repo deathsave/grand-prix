@@ -118,6 +118,8 @@ keyboard:
     switch: s_slingshot2
   "'":
     switch: s_slingshot1
+  "v":
+    switch: s_swerve1
 
   #####################
   ## MODE ACTIVATION ##

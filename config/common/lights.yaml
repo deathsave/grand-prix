@@ -212,21 +212,18 @@ lights:
     number: 0-2-11
     tags:
     - tag_lights
-    - tag_lights_state
     - tag_lights_multiplier
   l_multiplier_02:
     subtype: matrix
     number: 0-2-12
     tags:
     - tag_lights
-    - tag_lights_state
     - tag_lights_multiplier
   l_multiplier_03:
     subtype: matrix
     number: 0-2-13
     tags:
     - tag_lights
-    - tag_lights_state
     - tag_lights_multiplier
   l_top_outlane1:
     subtype: matrix

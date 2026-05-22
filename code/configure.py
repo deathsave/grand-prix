@@ -3,15 +3,10 @@ from mpf.core.custom_code import CustomCode
 
 class Configure(CustomCode):
     def on_load(self):
-        # To allow this mode to be loaded
-        # based on Environment variable
-        if "PURE_EVIL" not in os.environ:
-            self.machine.variables. \
-                set_machine_var("is_pure_evil_available", 1)
+        self._handle_mode_availability("pure_evil")
 
-        elif os.environ["PURE_EVIL"] == "1":
-            self.machine.variables. \
-                set_machine_var("is_pure_evil_available", 1)
-        else:
-            self.machine.variables. \
-                set_machine_var("is_pure_evil_available", 0)
+    def _handle_mode_availability(self, mode):
+        env_var = mode.upper()
+        env_val = os.environ.get(env_var)
+        available = 1 if env_val is None or env_val == "1" else 0
+        self.machine.variables.set_machine_var(f"is_{mode}_available", available)

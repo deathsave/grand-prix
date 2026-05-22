@@ -76,12 +76,26 @@ variable_player:
       int: 2
       action: set
 
+  logicblock_seq_lap_complete:
+    lap_count: 1 * current_player.multiplier
+
+  # Multiplier handling
+  logicblock_seq_lap_complete{(current_player.multiplier == 2) and device.timers.lap_to_lap.running}:
+    multiplier:
+      action: set
+      int: 5
+  logicblock_seq_lap_complete{(current_player.multiplier < 5) and device.timers.lap_to_lap.running}:
+    multiplier:
+      action: set
+      int: 2
   mode_green_flag_stopped:
     multiplier:
       action: set
-      float: 1
-  logicblock_seq_lap_complete:
-    lap_count: 1
+      int: 1
+  timer_multiplier_complete:
+    multiplier:
+      action: set
+      int: 1
 
   # For indicating multiball is ready
   # by lighting the multiball lamp

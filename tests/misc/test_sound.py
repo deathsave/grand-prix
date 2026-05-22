@@ -19,6 +19,8 @@ class TestSound(DeathSaveMcTesting):
         # every 15 seconds while players score is trash,
         # they will be reminded to fuel up
         self.advance_time_and_run(9)
+
+        # NOTE: this is a flakey one
         self._assertVoiceIs("playing", "fuel")
 
     def test_green_flag_sound(self):

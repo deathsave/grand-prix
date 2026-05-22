@@ -4,17 +4,16 @@ timers:
   # A fallback for players to ensure state is refreshed
   eternal:
     start_value: 0
-    tick_interval: "1s"
     start_running: true
   skill_shot:
     start_value: 7
     end_value: 0
     direction: down
-    tick_interval: "1s"
     control_events:
     # activate on initial ball launch
     - event: s_shooter_lane_inactive{not mode.green_flag.active}
       action: start
+
   # Hurry up timer for the "backfire pops"
   backfire_qualification:
     end_value: 0
@@ -23,6 +22,7 @@ timers:
     control_events:
     - event: start_backfire_qualification{game.balls_in_play > 0}
       action: start
+
   # timer for skillful plunge when starting a new
   # ball while green flag is active
   off_the_line:
@@ -33,3 +33,14 @@ timers:
     control_events:
     - event: green_flag_dropped
       action: start
+
+  # Hurry up timer for the multiplier period
+  multiplier:
+    end_value: 0
+    start_value: 30
+    direction: down
+    control_events:
+    - event: player_multiplier{current_player.multiplier > 1}
+      action: start
+    - event: player_multiplier{current_player.multiplier == 1}
+      action: reset
