@@ -22,7 +22,7 @@ nav:
   - Development: development.md
 
 extra_css:
-  - stylesheets/synthwave.css
+  - stylesheets/mkdocs.css
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -30,3 +30,4 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list

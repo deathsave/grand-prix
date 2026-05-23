@@ -13,6 +13,8 @@
   --md-footer-bg-color: #0a0a14;
 }
 
+.gh-only { display: none !important; }
+
 h1, h2, h3 {
   color: #ff2d78;
   text-shadow: 0 0 10px #ff2d78, 0 0 20px #ff006699;
