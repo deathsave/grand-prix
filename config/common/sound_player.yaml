@@ -23,6 +23,13 @@ sound_player:
     player_up:
       action: play
       delay: 1s
+  player_multiplier{change==1 and value==2 and source=="pit"}:
+    multiplier_2x:
+      delay: 1s
+      action: play
+  player_multiplier{change==-1 and value==1 and source=="pit"}:
+    multiplier_lost:
+      action: play
   s_shooter_lane_inactive{current_player.tilt_warnings < 2}:
     comm_noise_on:
       action: play

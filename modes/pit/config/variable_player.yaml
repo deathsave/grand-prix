@@ -81,7 +81,7 @@ variable_player:
       action: set
 
   logicblock_seq_lap_complete:
-    lap_count: 1 * current_player.multiplier
+    lap_count: 1
 
   # Multiplier handling
   #

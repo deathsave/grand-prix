@@ -190,6 +190,13 @@ sounds:
 
   ######## Synth #########
 
+  multiplier_2x:
+    file: multiplier-2x.ogg
+    track: voice
+  multiplier_lost:
+    file: multiplier-lost.ogg
+    track: voice
+
   skill_shot:
     file: skill-shot.ogg
     track: voice
