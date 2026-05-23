@@ -19,3 +19,10 @@ Making Laps
 1. The ball continues its travel from the top of the playfield to the left lane where it will roll over the `s_grooveline`.
 1. The `seq_lap` sequence in `./modes/green_flag/config/sequences.yaml` is completed.
 1. `logicblock_seq_lap_complete` adds 1 to the `lap_count` player variable.
+
+Shows
+-----
+
+- Hitting the `s_spinner` hits each of the 3 chimes in sequence 3 times. On the
+  10th hit, all 3 chimes sound together and pulse the shaker motor. This syncs
+  with the current value of `spin_counter_count`.

@@ -3,8 +3,7 @@ Multiplier
 
     Updated 5/23/26 by unrared.
 
-Machine Variable: multiplier  
-Insert state: `./modes/pit/code/pit.py`
+The multiplier is NOT a mode, but a player variable called `multiplier`.
 
 Activation
 ----------
