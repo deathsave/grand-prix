@@ -41,9 +41,6 @@ variable_player:
     level_green_flag:
       action: add
       int: 1
-    multiplier:
-      action: set
-      int: 1
   green_flag_degrade_fuel:
     level_fuel:
       action: add

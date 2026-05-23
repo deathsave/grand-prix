@@ -19,6 +19,7 @@ nav:
   - Logic:
     - Flowchart: logic/index.md
     - Multiplier: logic/multiplier.md
+    - Green Flag Mode: logic/green-flag.md
   - Development: development.md
 
 extra_css:

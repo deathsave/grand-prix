@@ -23,3 +23,9 @@ Activation
 1. `tag_swerve` switches increment `swerve_counter` in `./modes/green_flag/config/counters.yaml`.
 1. 5 `tag_swerve` switches hit.
 1. `multiplier` set to `2` from `./modes/green_flag/config/variable_player.yaml` on `logicblock_swerve_counter_complete`.
+
+Application
+-----------
+
+- Inserts are lit per `handle_multiplier` in `./modes/pit/code/pit.py`.
+- Most/all switch hit scoring is multiplied per `./modes/green_flag/config/variable_player.yaml`.
