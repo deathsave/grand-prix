@@ -1,0 +1,64 @@
+:root {
+  --md-primary-fg-color: #7b2fff;
+  --md-primary-fg-color--light: #9d55ff;
+  --md-primary-fg-color--dark: #5a00e0;
+  --md-accent-fg-color: #ff2d78;
+  --md-default-bg-color: #0d0d1a;
+  --md-default-fg-color: #e0d4ff;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d0d1a;
+  --md-code-bg-color: #1a0a2e;
+  --md-footer-bg-color: #0a0a14;
+}
+
+h1, h2, h3 {
+  color: #ff2d78;
+  text-shadow: 0 0 10px #ff2d78, 0 0 20px #ff006699;
+}
+
+h4, h5, h6 {
+  color: #00f5ff;
+  text-shadow: 0 0 8px #00f5ff88;
+}
+
+a, a:visited {
+  color: #00f5ff;
+  text-shadow: 0 0 6px #00f5ff66;
+}
+
+a:hover {
+  color: #ff2d78;
+  text-shadow: 0 0 8px #ff2d7888;
+}
+
+.md-nav__link--active,
+.md-nav__link:hover {
+  color: #ff2d78 !important;
+}
+
+.md-header {
+  background: linear-gradient(135deg, #1a0a2e 0%, #0d0d1a 100%);
+  border-bottom: 1px solid #7b2fff44;
+  box-shadow: 0 2px 20px #7b2fff33;
+}
+
+.md-footer {
+  background: #0a0a14;
+  border-top: 1px solid #ff2d7833;
+}
+
+.md-typeset code {
+  color: #00f5ff;
+  background: #1a0a2e;
+}
+
+.md-typeset pre > code {
+  background: #12001f;
+  border-left: 3px solid #7b2fff;
+}
+
+.md-nav {
+  background: #0d0d1a;
+}

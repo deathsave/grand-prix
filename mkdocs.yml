@@ -1,0 +1,32 @@
+site_name: Grand Prix '86
+site_description: Homebrew solid-state conversion of a 1976 Williams EM pinball machine
+repo_url: https://github.com/deathsave/grand-prix
+repo_name: deathsave/grand-prix
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: pink
+  font:
+    text: Exo 2
+    code: JetBrains Mono
+
+nav:
+  - Home: index.md
+  - How to Play: how-to-play.md
+  - Logic:
+    - Flowchart: logic/index.md
+    - Multiplier: logic/multiplier.md
+  - Development: development.md
+
+extra_css:
+  - stylesheets/synthwave.css
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

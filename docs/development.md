@@ -1,11 +1,14 @@
+Development
+===========
+
 Xubuntu Setup
-=============
+-------------
+
+    This is a bit outdated. Compare with the Github Build.
 
 This is a guide to setup a production environment in
 Xubuntu (24.04 LTS as of this writing).
 
-Machine Setup
--------------
 
 First, [install
 Xubuntu](https://mirror.us.leaseweb.net/ubuntu-cdimage/xubuntu/releases/24.04/release/xubuntu-24.04.1-desktop-amd64.iso)
@@ -80,3 +83,22 @@ rvm install 3.2.1 -C --with-openssl-dir=/usr/share/rvm/usr
 rvm use 3.2.1 --default
 gem install foreman
 ```
+
+Running the Game
+----------------
+
+- **Development** - `bin/dev` will run both `mpf` and `mpf-mc`
+  without the console GUI. It will also run `mpf monitor` so you can
+  interact with it.
+- **Production** - `bin/run` will run for production using the real
+  hardware devices and the console GUI.
+- **Test** - Run a test with `bin/test tests/test_something.py` or
+  simply `bin/test` to run all tests from the `./tests` folder.
+
+Synthesis Call outs
+-------------------
+
+We used the built-in macOS `say` command to generate these and the
+"Tritik Krush" VST plugin to bit-crush them.
+
+`say -v "Vicki" "Let's race\!" -o sounds/preload/voice/synth/player-up4.ogg`

@@ -1,38 +1,24 @@
-Grand Prix '86
-==============
+How to Play
+===========
 
-[![Grand Prix '86 Pinball](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml/badge.svg)](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml)
+Strap in for Grand Prix '86!
+----------------------------
 
-Strap in for Grand Prix '86—the homebrew pinball thrill ride where speed meets
-spaghetti code, and every multiball is a minor miracle!
+The homebrew pinball thrill ride where speed meets spaghetti code, and every multiball is a minor miracle!
 
-**Your quest**: fuel up, fix up, and fly through laps in Green Flag Mode, where
-orbit shots rack up points and sometimes even do other things yet to be
-determined. Smash your way through Backfire Pops for a frenzy of bumpers and
-"hurry ups" that may or may not hurry anything. Craving more chaos? Unlock
-Grooveline, Lap of Luxury, or the gloriously glitchy Grand Prix multiballs—each
-one lighting up inserts like a disco ball with a loose wire. Complete all three
-to trigger the legendary Red Line Wizard Mode, a ball-slinging spectacle that
-will leave you wondering what you're actually supposed to do here because we
-haven't written that code yet, but imagine how amazing it will be when or if we
-ever get around to doing so!
+![Attract Slide](https://raw.githubusercontent.com/deathsave/grand-prix/refs/heads/main/images/preload/splash.jpg)
 
-![Grand Prix Pinball Machine](https://github.com/deathsave/grand-prix/raw/main/misc/grand-prix-front.png)
+**Your quest**: fuel up, fix up, and fly through laps in Green Flag Mode, where orbit shots rack up points and sometimes even do other things yet to be determined. Smash your way through Backfire Pops for a frenzy of bumpers and "hurry ups" that may or may not hurry anything. Craving more chaos? Unlock Grooveline, Lap of Luxury, or the gloriously glitchy Grand Prix multiballs—each one lighting up inserts like a disco ball with a loose wire. Complete all three to trigger the legendary Red Line Wizard Mode, a ball-slinging spectacle that will leave you wondering what you're actually supposed to do here because we haven't written that code yet, but imagine how amazing it will be when or if we ever get around to doing so!
+
 
 How things are supposed to Work
 -------------------------------
 
-A day before the 2025 Pacific Northwest Pinball & Arcade Show, this game was
-not even flipping. Many burned up components and a hell of a lot of elbow
-grease later, well there's still much to do ...but she's flipping! If you've
-got ideas, share them with Death Save Pinball Cult.
+A day before the 2025 Pacific Northwest Pinball & Arcade Show, this game was not even flipping. Many burned up components and a hell of a lot of elbow grease later, well there's still much to do ...but she's flipping! If you've got ideas, share them with Death Save Pinball Cult.
 
 ### General
 
-Out of the gate, try to get into the Backfire Hole with a skillful plunge. This
-will immediately drop the Green Flag. Otherwise, **your adventure begins in the
-pit**. But don't fret, your ride is almost ready to roll. You only need to fill
-up the tank (hit the Fuel target) to join the pack.
+Out of the gate, try to get into the Backfire Hole with a skillful plunge. This will immediately drop the Green Flag. Otherwise, **your adventure begins in the pit**. But don't fret, your ride is almost ready to roll. You only need to fill up the tank (hit the Fuel target) to join the pack.
 
 #### Skill Shots
 
@@ -45,9 +31,7 @@ Plunge directly into the Backfire Hole on your first launch:
 
 **Off the Line** (Under a Green Flag)
 
-When a ball begins under a Green Flag, a chime countdown keeps you honest.
-Launch the ball out of the shooter lane during the brief window at the end to
-pocket an extra 5,000 points with a shit-eating grin.
+When a ball begins under a Green Flag, a chime countdown keeps you honest.  Launch the ball out of the shooter lane during the brief window at the end to pocket an extra 5,000 points with a shit-eating grin.
 
 #### Green-flag (Main Mode)
 
@@ -61,8 +45,7 @@ Your car needs three things to "go": **fuel**, **lube**, and **tires**. Wear and
 
 #### Backfire Pops
 
-When returning to the pit, your engine may "backfire just right". After leaving
-Green Flag:
+When returning to the pit, your engine may "backfire just right". After leaving Green Flag:
 
 - You have 10 seconds to hit the Spinner, then enter the Backfire Hole
 - Once activated, work the pop bumpers — scoring starts at 1,000 points and increases by 1,000 per hit (1k, 2k, 3k... up to 10k)
@@ -83,8 +66,7 @@ No bonus is awarded if nothing was earned that ball.
 
 #### Multiplier
 
-During any multiball, "Swerve" at apex of the loop to increment your
-multiplier.
+During any multiball, "Swerve" at apex of the loop to increment your multiplier.
 
 ### Special Modes
 
@@ -152,3 +134,5 @@ Beware the "Pure Evil" straight from James Cameron's nitemarish dreams:
 
 - Every second costs you
 - Hit the drop target to stop the bleeding
+
+![Grand Prix Pinball Machine](https://github.com/deathsave/grand-prix/raw/main/misc/grand-prix-front.png)
