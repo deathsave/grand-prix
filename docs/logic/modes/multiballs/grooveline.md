@@ -5,6 +5,8 @@ Grooveline Multiball
 
 Grooveline is built up by making laps and hitting pop bumpers.
 
+![Grooveline Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grooveline.png)
+
 Activation
 ----------
 
@@ -17,6 +19,8 @@ There are two ways to increment the
 Doing either increments the `grooveline_counter`. After 10 hits, the
 Grooveline inserts will trace indicating multiball is ready and hitting the
 `s_multiball_target` begins the mode.
+
+![Multiball Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/multiball.jpeg)
 
 Shots
 -----

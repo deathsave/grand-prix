@@ -1,7 +1,7 @@
 Grand Prix '86
 ==============
 
-[![Grand Prix '86 Pinball](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml/badge.svg)](https://github.com/deathsave/grand-prix/actions/workflows/python-app.yml)
+![Display](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/display.jpeg)
 
 <span class="gh-only">[Read the Documentation](https://grandprix.bham.diy)</span>
 
@@ -9,8 +9,6 @@ Grand Prix '86 is an attempt at a solid-state conversion / re-theme
 of the 1976
 [EM Pinball Machine](http://www.ipdb.org/machine.cgi?id=1072)
 by Williams.
-
-![Attract Slide](https://raw.githubusercontent.com/deathsave/grand-prix/refs/heads/main/images/preload/splash.jpg)
 
 Physical Build
 --------------

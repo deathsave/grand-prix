@@ -24,5 +24,9 @@ Base Functionality
 ------------------
 
 - Base scoring is here from `./modes/pit/config/variable_player.yaml`.
-- The `ball_start` ball save lasts 10s with a 2s grace period.
+- The `ball_start` ball save lasts 10s with a2s grace period.
 - Shows for the ball save, the pit arrow, swerve and fuel are from `./modes/pit/config/show_player.yaml`.
+
+![Fuel](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/fuel.jpeg)
+![Lube](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/lube.jpeg)
+![Tires](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/tires.jpeg)

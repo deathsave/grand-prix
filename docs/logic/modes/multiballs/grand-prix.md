@@ -6,6 +6,8 @@ Grand Prix Multiball
 Grand Prix is primarily controlled by the mid-playfield, left and right-side
 targets and kick-out holes.
 
+![Grand Prix Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grand-prix.png)
+
 Activation
 ----------
 
@@ -26,6 +28,8 @@ increments the `prix_counter`.
 1. Entering the `prix_hole` locks the ball there.
 
 ### 3. Backfire Lock
+
+![Backfire Hole](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/backfire.jpeg)
 
 Unlike the other multiball modes, Grand Prix Multiball begins with the
 `balldevice_bd_backfire_hole_ball_entered` event in

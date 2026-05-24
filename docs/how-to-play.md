@@ -22,6 +22,8 @@ A day before the 2025 Pacific Northwest Pinball & Arcade Show, this game was not
 
 Out of the gate, try to get into the Backfire Hole with a skillful plunge. This will immediately drop the Green Flag. Otherwise, **your adventure begins in the pit**. But don't fret, your ride is almost ready to roll. You only need to fill up the tank (hit the Fuel target) to join the pack.
 
+![Fuel Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/fuel.jpeg)
+
 #### Skill Shots
 
 **Backfire Skill Shot** (Ball 1 launch)
@@ -33,9 +35,11 @@ Plunge directly into the Backfire Hole on your first launch:
 
 **Off the Line** (Under a Green Flag)
 
+
 When a ball begins under a Green Flag, a chime countdown keeps you honest.  Launch the ball out of the shooter lane during the brief window at the end to pocket an extra 5,000 points with a shit-eating grin.
 
 #### Green-flag (Main Mode)
+
 
 With a well-oiled vehicle, the race begins:
 
@@ -47,6 +51,8 @@ Your car needs three things to "go": **fuel**, **lube**, and **tires**. Wear and
 
 #### Backfire Pops
 
+![Backfire Hole](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/backfire.jpeg)
+
 When returning to the pit, your engine may "backfire just right". After leaving Green Flag:
 
 - You have 10 seconds to hit the Spinner, then enter the Backfire Hole
@@ -57,6 +63,8 @@ If you don't backfire, you'll need to ensure all three resources are filled
 before getting back under green.
 
 #### End of Ball Bonus
+
+![Bonus](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/bonus.jpeg)
 
 At the end of each ball, bonus is tallied and added to your score:
 
@@ -76,7 +84,7 @@ Three special modes build up to the activation of a fourth, wizard mode.
 
 #### Grooveline Multiball 1/3
 
-![Grooveline Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grooveline.png)
+![Grooveline B](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/grooveline-b.jpeg)
 
 The fastest way around the track (the North-West chain of 10 purple inserts).
 
@@ -84,6 +92,8 @@ The fastest way around the track (the North-West chain of 10 purple inserts).
 - Progress persists across balls and through pit stops within a ball
 - Light all 10 inserts to qualify the multiball
 - Hit the multiball target to activate Grooveline Multiball
+
+![Multiball Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/multiball.jpeg)
   - Add a ball by completing 3 laps during multiball
 - Activating the mode advances Red Line progress
 
@@ -91,7 +101,7 @@ There are no scoring bonuses here, yet. Sorry bro.
 
 #### Lap of Luxury Multiball 2/3
 
-![Lap of Luxury Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/luxury.png)
+![Luxury](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/luxury.jpeg)
 
 Crush the Spinner during Green Flag across multiple balls to max out the bonus, lighting all inserts in the North-East chain and qualifying the "Lap of Luxury".
 
@@ -106,7 +116,7 @@ Crush the Spinner during Green Flag across multiple balls to max out the bonus, 
 
 #### Grand Prix Multiball 3/3
 
-![Grand Prix Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grand-prix.png)
+![Prix](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/prix.jpeg)
 
 It's the name of the game!
 
@@ -131,6 +141,8 @@ There are no scoring bonuses here, yet. Sorry bro.
 Complete all three special modes — Grooveline, Lap of Luxury, and Grand Prix — to qualify Red Line. Enter any hole (Grand, Prix, or Backfire) to start the mode and find out how deep the rabbit hole goes, which right now is nowhere, but you can pat yourself on the back for having come this far!
 
 ### Pure Evil
+
+![Pure Evil](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/pure-evil.jpeg)
 
 Beware the "Pure Evil" straight from James Cameron's nitemarish dreams:
 

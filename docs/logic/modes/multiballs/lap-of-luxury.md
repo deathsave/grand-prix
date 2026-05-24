@@ -3,6 +3,10 @@ Lap of Luxury Multiball
 
     Updated 5/24/26 by unrared.
 
+Lap of Luxury is practically exclusively driven by hitting the Spinner.
+
+![Luxury](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/luxury.jpeg)
+
 Activation
 ----------
 
@@ -18,6 +22,8 @@ Activation
    `logicblock_luxury_counter_complete` event is triggered.
 1. The multiball insert will now flash and hitting the `s_multiball_target`
   begins the mode.
+
+![Multiball Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/multiball.jpeg)
 
 
 Shots
