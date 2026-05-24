@@ -39,17 +39,17 @@ class TestMultiplier(DeathSaveGameTesting):
         self.assertEqual(1, self.machine.game.player.multiplier)
         self._start_green_flag()
 
-        # Making a lap after 5 seconds does not trigger the multiplier
+        # Making a lap after 10 seconds does not trigger the multiplier
         self._complete_lap()
         self.assertEqual(True, self.machine.timers["lap_to_lap"].running)
-        self.advance_time_and_run(6)
+        self.advance_time_and_run(12)
         self.assertEqual(False, self.machine.timers["lap_to_lap"].running)
         self._complete_lap()
         self.assertEqual(1, self.machine.game.player.multiplier)
 
-        # But under 5 seconds does
+        # But under 10 seconds does
         self.assertEqual(True, self.machine.timers["lap_to_lap"].running)
-        self.advance_time_and_run(3)
+        self.advance_time_and_run(8)
         self._complete_lap()
         self.advance_time_and_run(1)
         self.assertEqual(2, self.machine.game.player.multiplier)
