@@ -80,22 +80,6 @@ variable_player:
       int: 2
       action: set
 
-  logicblock_seq_lap_complete:
-    lap_count: 1
-
-  # Multiplier handling
-  #
-  # 5 is too much for the base mode
-  # - we'll need to make getting this harder - only in multiball?
-  #
-  # logicblock_seq_lap_complete{(current_player.multiplier == 2) and device.timers.lap_to_lap.running}:
-  #   multiplier:
-  #     action: set
-  #     int: 5
-  logicblock_seq_lap_complete{(current_player.multiplier < 5) and device.timers.lap_to_lap.running}:
-    multiplier:
-      action: set
-      int: 2
   mode_green_flag_stopped:
     multiplier:
       action: set

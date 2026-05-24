@@ -65,19 +65,28 @@ class TestMultiplier(DeathSaveGameTesting):
         self.advance_time_and_run(5)
         self.assertEqual(1, self.machine.game.player.multiplier)
 
+    def test_grooveline_override(self):
+        self._start()
+        self._start_green_flag()
+        self._complete_lap()
+        self._complete_lap()
+
+        self.assertEqual(2, self.machine.game.player.lap_count)
+        self.assertEqual(
+            2, self.machine.game.player.grooveline_counter_count)
+        # Multiplier increases
+        self.assertEqual(2, self.machine.game.player.multiplier)
+
+        # Next lap is under multiplier and doubles the reward
+        # affecting BOTH the lap_count and grooveline
+        self._complete_lap()
+        self.assertEqual(4, self.machine.game.player.lap_count)
+        self.assertEqual(
+            4, self.machine.game.player.grooveline_counter_count)
+
     # These need more thought to not get out of sync with
     # the counters.
     #
-    # def test_grooveline_override(self):
-    #     self._start()
-    #     self._start_green_flag()
-    #     self._complete_lap()
-    #     self._complete_lap()
-    #     self.assertEqual(2, self.machine.game.player.multiplier)
-    #     self.assertEqual(2, self.machine.game.player.lap_count)
-    #     self._complete_lap()
-    #     self.assertEqual(4, self.machine.game.player.lap_count)
-
     # def test_luxury_override(self):
     #     self._start()
     #     self._start_green_flag()

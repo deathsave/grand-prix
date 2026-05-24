@@ -28,3 +28,5 @@ Application
 
 - Inserts are lit per `handle_multiplier` in `./modes/pit/code/pit.py`.
 - Most/all switch hit scoring is multiplied per `./modes/green_flag/config/variable_player.yaml`.
+- The `grooveline_counter` in `./modes/green_flag/config/counters.yaml/` is incremented once more per the `multiplier_lap` event.
+- The `lap_count` player variable is incremented once more per the `multiplier_lap` event in `./modes/green_flag/config/variable_player.yaml`.

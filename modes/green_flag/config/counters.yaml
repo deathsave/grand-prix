@@ -55,6 +55,10 @@ counters:
     reset_on_complete: false
     reset_events:
     - multiball_grooveline_started
+    control_events:
+    - event: multiplier_lap
+      action: add
+      value: 1
 
   # This is the LONG counter, across all balls
   luxury_counter:

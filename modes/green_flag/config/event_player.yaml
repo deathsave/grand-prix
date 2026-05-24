@@ -7,3 +7,5 @@ event_player:
   - pit_required_lube
   green_flag_degrade_tires{current_player.level_tires == 1}:
   - pit_required_tires
+  logicblock_seq_lap_complete{current_player.multiplier == 2}:
+  - multiplier_lap
