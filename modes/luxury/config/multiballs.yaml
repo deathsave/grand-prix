@@ -10,4 +10,5 @@ multiballs:
     start_events:
     - mode_luxury_started
     stop_events:
+    - luxury_complete
     - mode_luxury_stopping

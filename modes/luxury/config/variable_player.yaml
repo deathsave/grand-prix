@@ -1,16 +1,24 @@
 #config_version=6
 
 variable_player:
-  # Applicable switches:
-  # - s_bonus_target
-  # - s_prix_hole
-  # - s_spinner
-  # - s_grooveline
-  # - s_grand_hole
-  # - s_save_target
+  # Ensure applicable switches don't score on
+  # top of the amplified luxury shots:
+  s_bonus_target_active:
+    score: 0|block
+  s_prix_hole_active:
+    score: 0|block
+  s_spinner_active:
+    score: 0|block
+  s_grooveline_active:
+    score: 0|block
+  s_grand_hole_active:
+    score: 0|block
+  s_save_target_active:
+    score: 0|block
+  # Each of the six shots is awarded 25k
   luxury_available_hit:
     score: 25000|block
-  # award big if all shots are completed
+  # Award big if all shots are completed
   luxury_complete:
     score: 250000|block
   # score normally if already claimed

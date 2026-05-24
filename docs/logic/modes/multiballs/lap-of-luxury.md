@@ -31,4 +31,4 @@ Once activated, six areas of the playfield will blink inserts at:
 - The bottom and top of the "G R A N D" chain for `s_save_target` and `s_grand_hole`.
 
 Hitting any of the individual switches awards 25,000 points per `./modes/luxury/config/variable_player.yaml`. Activating all the switches completes the mode
-**awarding 250,000 points**.
+**awarding 250,000 points** and gameplay returns to `green_flag`.

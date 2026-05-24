@@ -39,6 +39,7 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.advance_time_and_run(6)
 
         # Green flag mode resumes
+        self.assertModeNotRunning("luxury")
         self.assertModeRunning("green_flag")
         # Count doesn't reset between balls
         # in contrast with grooveline mode
@@ -60,7 +61,7 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._start_luxury()
 
     def test_multiball(self):
-        self._start_multiball()
+        self._start_luxury_multiball()
         # started, but not completed, yet
         self.assertEqual(
             0, self.machine.game.player.is_luxury_completed)
@@ -82,7 +83,44 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.assertEqual(
             1, self.machine.game.player.is_luxury_completed)
 
-    def _start_multiball(self):
+    def test_multiball_scoring(self):
+        self._start_luxury_multiball()
+
+        score = self.machine.game.player.score
+        self.hit_switch_and_run("s_bonus_target", 1)
+        self.assertEqual(
+            score + 25000, self.machine.game.player.score)
+
+        score = self.machine.game.player.score
+        self.hit_switch_and_run("s_prix_hole", 1)
+        self.assertEqual(
+            score + 25000, self.machine.game.player.score)
+
+        score = self.machine.game.player.score
+        self.hit_switch_and_run("s_spinner", 1)
+        self.assertEqual(
+            score + 25000, self.machine.game.player.score)
+
+        score = self.machine.game.player.score
+        self.hit_switch_and_run("s_grooveline", 1)
+        self.assertEqual(
+            score + 25000, self.machine.game.player.score)
+
+        score = self.machine.game.player.score
+        self.hit_switch_and_run("s_grand_hole", 1)
+        self.assertEqual(
+            score + 25000, self.machine.game.player.score)
+
+        # Getting 6/6 shots gives a 10x reward on top
+        score = self.machine.game.player.score
+        self.hit_switch_and_run("s_save_target", 1)
+        self.assertEqual(
+            score + 25000 + 250000, self.machine.game.player.score)
+
+        # Completion also ends the mode
+        self.assertModeNotRunning("luxury")
+
+    def _start_luxury_multiball(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         self._start_luxury()
