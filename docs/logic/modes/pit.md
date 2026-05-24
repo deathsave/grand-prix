@@ -1,6 +1,8 @@
 Pit Mode
 ========
 
+    Updated 5/23/26 by unrared.
+
 This is the base mode a game begins with on ball 1. Much of the default/global
 config lives here.
 

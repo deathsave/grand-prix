@@ -12,6 +12,6 @@ variable_player:
     score: 25000|block
   # award big if all shots are completed
   luxury_complete:
-    score: 500000|block
+    score: 250000|block
   # score normally if already claimed
   # luxury_claimed_hit:

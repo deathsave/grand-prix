@@ -1,6 +1,8 @@
 How to Play
 ===========
 
+    Updated 5/23/26 by unrared.
+
 Strap in for Grand Prix '86!
 ----------------------------
 
