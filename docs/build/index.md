@@ -1,5 +1,15 @@
-Development
-===========
+Overview
+========
+
+    Updated 5/25/26 by unrared.
+
+This project was started in 2018 where the deprecated [opp cypress
+tech](https://pinballmakers.com/wiki/index.php?title=OPP-Cypress) was
+leveraged. After a period of dormancy, some of the components became
+difficult to source, and given the OPP project was more or less abandoned, we
+have added a cobrapin board to the mix.
+
+![Playfield Wiring](https://github.com/deathsave/grand-prix/raw/main/misc/images/wiring/playfield-backside.png)
 
 Xubuntu Setup
 -------------
@@ -83,22 +93,3 @@ rvm install 3.2.1 -C --with-openssl-dir=/usr/share/rvm/usr
 rvm use 3.2.1 --default
 gem install foreman
 ```
-
-Running the Game
-----------------
-
-- **Development** - `bin/dev` will run both `mpf` and `mpf-mc`
-  without the console GUI. It will also run `mpf monitor` so you can
-  interact with it.
-- **Production** - `bin/run` will run for production using the real
-  hardware devices and the console GUI.
-- **Test** - Run a test with `bin/test tests/test_something.py` or
-  simply `bin/test` to run all tests from the `./tests` folder.
-
-Synthesis Call outs
--------------------
-
-We used the built-in macOS `say` command to generate these and the
-"Tritik Krush" VST plugin to bit-crush them.
-
-`say -v "Vicki" "Let's race\!" -o sounds/preload/voice/synth/player-up4.ogg`

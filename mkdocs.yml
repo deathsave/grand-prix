@@ -1,4 +1,4 @@
-site_name: Grand Prix '86
+site_name: Grand Prix '86 Homebrew
 site_description: Homebrew solid-state conversion of a 1976 Williams EM pinball machine
 repo_url: https://github.com/deathsave/grand-prix
 repo_name: deathsave/grand-prix
@@ -22,4 +22,5 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
   - attr_list
