@@ -3,7 +3,12 @@ Green Flag Mode
 
     Updated 5/23/26 by unrared.
 
-This is the primary mode activated in several ways:
+This is the primary mode.
+
+![Green Flag Mode](https://github.com/deathsave/grand-prix/raw/main/misc/images/screens/green-flag.png)
+
+Activation
+----------
 
 1. On ball launch, hitting the `skill_backfire` skill shot from `./modes/pit/config/shots.yaml`.
 1. During the `pit` mode, hitting 1 of the 3 (`s_pit_fuel`, `s_pit_lube`,

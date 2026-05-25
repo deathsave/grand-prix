@@ -6,6 +6,8 @@ Pit Mode
 This is the base mode a game begins with on ball 1. Much of the default/global
 config lives here.
 
+![Pit Mode](https://github.com/deathsave/grand-prix/raw/main/misc/images/screens/pit.png)
+
 Custom Pit Class
 ----------------
 
