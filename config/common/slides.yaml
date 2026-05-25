@@ -38,9 +38,17 @@ slides:
   - widget: driver_name
   luxury_slide:
   - widget: luxury
+  - widget: overlay_right
+  - widget: mode_name
   grooveline_slide:
   - widget: grooveline
+  - widget: overlay_right
+  - widget: mode_name
   grand_prix_slide:
   - widget: grand_prix
+  - widget: overlay_right
+  - widget: mode_name
   backfire_slide:
   - widget: backfire
+  - widget: overlay_right
+  - widget: mode_name

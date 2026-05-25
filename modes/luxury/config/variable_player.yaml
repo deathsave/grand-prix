@@ -23,3 +23,7 @@ variable_player:
     score: 250000|block
   # score normally if already claimed
   # luxury_claimed_hit:
+  mode_luxury_started:
+    mode_name:
+      action: set_machine
+      string: Lap of Luxury Multiball

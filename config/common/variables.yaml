@@ -1,5 +1,11 @@
 #config_version=6
 
+machine_vars:
+  mode_name:
+    initial_value: "Pit"
+    value_type: str
+    persist: false
+
 player_vars:
   name:
     initial_value: ""

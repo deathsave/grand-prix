@@ -1,6 +1,14 @@
 #config_version=6
 
 widgets:
+  overlay:
+  - type: image
+    image: overlay
+    z: 1
+  overlay_right:
+  - type: image
+    image: overlay-right
+    z: 1
   splash:
   - type: image
     image: splash
@@ -31,6 +39,9 @@ widgets:
   luxury:
   - type: image
     image: luxury
+  luxury_shot:
+  - type: image
+    image: luxury-shot
   backfire:
   - type: image
     image: backfire
@@ -262,3 +273,14 @@ widgets:
     color: white
     style: medium
     font_size: 18
+  mode_name:
+  - type: text
+    text: "(machine|mode_name)"
+    z: 10
+    x: 75%
+    y: bottom+9%
+    color: white
+    style: text_default
+    font_size: 52
+    animations:
+      add_to_slide: pulsate_fast
