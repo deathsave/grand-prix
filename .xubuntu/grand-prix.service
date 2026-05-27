@@ -1,0 +1,23 @@
+[Unit]
+Description=Grand Prix '86 Pinball Machine
+After=network.target graphical.target sound.target
+
+[Service]
+Type=simple
+User=grand-prix
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/grand-prix/.Xauthority
+Environment=HOME=/home/grand-prix
+Environment=PATH=/home/grand-prix/.pyenv/shims:/home/grand-prix/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PULSE_SERVER=unix:/run/user/1000/pulse/native
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+WorkingDirectory=/home/grand-prix/grand-prix
+ExecStartPre=/bin/bash -c 'while ! xdpyinfo >/dev/null 2>&1; do sleep 1; done'
+ExecStart=/home/grand-prix/grand-prix/bin/run
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=graphical.target

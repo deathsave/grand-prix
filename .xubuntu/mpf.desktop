@@ -2,7 +2,7 @@
 Version=1.0
 Name=MPF
 Comment=Mission Pinball
-Exec=/home/grand-prix/grand-prix/bin/run
+Exec=/bin/bash -c "sudo systemctl restart grand-prix"
 Path=/home/grand-prix/grand-prix
 Terminal=false
 Type=Application

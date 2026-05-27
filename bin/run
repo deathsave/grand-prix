@@ -15,5 +15,5 @@ else
 
   echo "Booting MPF using production_linux config."
   CMD="source ~/.bash_profile && mpf both -v -c production_linux"
-  xterm -hold -e "cd ~/grand-prix && bash -c '$CMD'"
+  xterm -e "cd ~/grand-prix && bash -c '$CMD'"
 fi

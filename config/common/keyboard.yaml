@@ -42,6 +42,8 @@ keyboard:
     event: coil_trough
   ctrl+h:
     event: coil_loop_gate
+  ctrl+x:
+    event: request_machine_reset
 
 
   ####################

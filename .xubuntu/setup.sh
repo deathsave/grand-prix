@@ -32,3 +32,9 @@ sudo dpkg-reconfigure keyboard-configuration
 # Alias serial devices
 [ -f "/etc/udev/rules.d/opp.rules" ] && sudo rm "/etc/udev/rules.d/opp.rules"
 sudo ln -s $HOME/grand-prix/.xubuntu/opp.rules /etc/udev/rules.d/opp.rules
+
+# Install systemd service for auto-restart
+[ -f "/etc/systemd/system/grand-prix.service" ] && sudo rm "/etc/systemd/system/grand-prix.service"
+sudo ln -s $HOME/grand-prix/.xubuntu/grand-prix.service /etc/systemd/system/grand-prix.service
+sudo systemctl daemon-reload
+echo "grand-prix ALL=(ALL) NOPASSWD: /bin/systemctl restart grand-prix, /bin/systemctl stop grand-prix, /bin/systemctl start grand-prix" | sudo tee /etc/sudoers.d/grand-prix
