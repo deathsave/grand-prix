@@ -11,7 +11,7 @@ Activation
 ### During Green Flag
 
 1. Lap made. 
-1. 10s `lap_to_lap` timer in `./modes/green_flag/config/timers.yaml` begins.
+1. 15s `lap_to_lap` timer in `./modes/green_flag/config/timers.yaml` begins.
 1. Another lap made (before timer expires).
 1. `multiplier` set to `2` from `./modes/pit/config/variable_player.yaml`
    on `logicblock_seq_lap_complete`.

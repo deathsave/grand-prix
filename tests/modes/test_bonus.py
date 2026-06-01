@@ -116,7 +116,7 @@ class TestBonusMode(DeathSaveMcTesting):
         # driver makes 5 laps on ball one
         for i in range(5):
             # clear the lap to lap timer to dodge the multiplier change
-            self.advance_time_and_run(12)
+            self.advance_time_and_run(17)
             self._complete_lap()
 
         # ball drains

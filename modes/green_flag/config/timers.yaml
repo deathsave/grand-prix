@@ -3,7 +3,7 @@
 timers:
   lap_to_lap:
     end_value: 0
-    start_value: 10
+    start_value: 15
     direction: down
     control_events:
     # start when a lap is recorded
