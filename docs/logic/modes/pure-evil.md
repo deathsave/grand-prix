@@ -23,7 +23,9 @@ Function
 
 With the mode running, `./modes/pure_evil/config/mode.yaml` subscribes to
 to the `timer_eternal_tick` event. Each second, 1% of the players current
-score is removed.
+score is removed. Also, the `pure_evil` timer in `./pit/config/timers.yaml`
+starts counting down 30s to ensure the player will only need to ensure this
+for a short while.
 
 Deactivation
 ------------

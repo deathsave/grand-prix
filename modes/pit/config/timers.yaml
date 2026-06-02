@@ -23,6 +23,17 @@ timers:
     - event: start_backfire_qualification{game.balls_in_play > 0}
       action: start
 
+  # Hurry up timer for the "backfire pops"
+  pure_evil:
+    end_value: 0
+    start_value: 30
+    direction: down
+    control_events:
+    - event: pure_evil_enters{machine.is_pure_evil_available}
+      action: start
+    - event: mode_pure_evil_ended
+      action: stop
+
   # timer for skillful plunge when starting a new
   # ball while green flag is active
   off_the_line:

@@ -30,7 +30,7 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self.advance_time_and_run(1)
         assert(self.machine.game.player.score < score)
 
-    def test_deactivation(self):
+    def test_manual_deactivation(self):
         if self._is_unavailable("pure_evil"): return None
 
         self._activate_pure_evil()
@@ -49,9 +49,9 @@ class TestPureEvilMode(DeathSaveGameTesting):
 
         self._activate_pure_evil()
 
-        # ball drains
-        self.hit_switch_and_run("s_trough1", 3)
-        self.assertModeRunning("bonus")
+        self.advance_time_and_run(28)
+        self.assertModeRunning("pure_evil")
+        self.advance_time_and_run(2)
         self.assertModeNotRunning("pure_evil")
 
     def _activate_pure_evil(self):

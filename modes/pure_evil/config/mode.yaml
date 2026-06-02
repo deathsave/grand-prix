@@ -1,11 +1,13 @@
 #config_version=6
 
 mode:
-  start_events: pure_evil_enters{machine.is_pure_evil_available}
+  start_events:
+  - pure_evil_enters{machine.is_pure_evil_available}
   stop_events:
   - pure_evil_exits
   # ensure the long bonus sequence isn't laughing in your face
   - ball_will_end
+  - timer_pure_evil_complete
   priority: 5000
 
 variable_player:
