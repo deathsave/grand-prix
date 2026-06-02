@@ -1,6 +1,13 @@
 #config_version=6
 
 sound_pools:
+  chug:
+    type: random_force_all
+    track: effects
+    sounds:
+    - chug1
+    - chug2
+    - chug3
   bonus:
     type: random
     track: voice

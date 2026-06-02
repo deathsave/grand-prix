@@ -2,5 +2,6 @@
 
 # Converts all mp3 files to ogg in their respective directories
 find . -type f -name '*.mp3' -print0 | while IFS= read -r -d '' file; do
-  ffmpeg -i "$file" -ac 2 -c:a vorbis -strict -2 -q:a 5 "${file%.mp3}.ogg"
+  ffmpeg -y -i "$file" -ac 2 -c:a vorbis -strict -2 -q:a 5 "${file%.mp3}.ogg"
+  rm "$file"
 done

@@ -107,6 +107,22 @@ sounds:
   ###################
   ## Sound Effects ##
   ###################
+  ball_will_end:
+    file: ball-will-end.ogg
+    track: effects
+  # need to test this one
+  pure_evil_enters:
+    file: pure-evil-enters.ogg
+    track: effects
+  chug1:
+    file: chug-1.ogg
+    track: effects
+  chug2:
+    file: chug-2.ogg
+    track: effects
+  chug3:
+    file: chug-3.ogg
+    track: effects
   civil_siren:
     file: civil-siren.ogg
     track: effects
