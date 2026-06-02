@@ -4,6 +4,7 @@ from mpf.core.mode import Mode
 class Pit(Mode):
     # Maps various states to corresponding lights
     #
+    # - For one off-offs, we use "_" and don't pass any arguments
     # - For boolean states, the value is the light name
     # - For multi-value states, the values appear in
     #   descending order following the first value which
@@ -11,6 +12,8 @@ class Pit(Mode):
     # - For sequential counters, the value is a tuple of the
     #   light prefix and the max number in the sequence
     PROGRESS_MAP = {
+        "multiplier": "_",
+        "awareness": "_",
         "is_grooveline_completed": "l_signal1",
         "is_luxury_completed": "l_signal2",
         "is_grand_completed": "l_signal3",
@@ -18,8 +21,6 @@ class Pit(Mode):
         "grooveline_counter_count": [ "l_grooveline", 10 ],
         "luxury_counter_count": [ "l_bonus", 10 ],
         "grand_counter_count": [ "l_grand", 5 ],
-        "prix_counter_count": [ "l_prix", 4 ],
-        "multiplier": [ "l_multiplier", 3 ],
         "level_tires": [
             "l_pit_tires", "red", "magenta", "lime",
         ],
@@ -65,6 +66,8 @@ class Pit(Mode):
         for state, value in self.PROGRESS_MAP.items():
             if state == "multiplier":
                 self.handle_multiplier()
+            elif state == "awareness":
+                self.handle_prix()
             elif state.startswith("is_"):
                 self.handle_bool(state, value)
             elif state.startswith("level_"):
@@ -120,8 +123,8 @@ class Pit(Mode):
     # value (value_tuple[1]).
     #
     #   Example:
-    #       handle_sequential_counter("prix_counter_count",
-    #           [ "l_prix", 4 ])
+    #       handle_sequential_counter("grand_counter_count",
+    #           [ "l_grand", 4 ])
     #
     def handle_sequential_counter(self, state, value_tuple):
         player = self.machine.game.player
@@ -132,3 +135,26 @@ class Pit(Mode):
                 self.machine.lights[light_name].on()
             else:
                 self.machine.lights[light_name].off()
+
+    # Handles the awkward prix / awareness sequences. Prix lights
+    # the inserts and Awareness (Extra Ball) turns them off.
+    #
+    #   Example: handle_prix()
+    #
+    def handle_prix(self):
+        player = self.machine.game.player
+        awareness_state = getattr(player, "awareness_counter_count")
+        # player has extra ball lit, defer to
+        # modes/green_flag/config/show_player.yaml
+        if awareness_state < 4:
+            if awareness_state > 0:
+                for i in range(1, 5):
+                    light_name = f"l_prix_{i:0>2}"
+                    if i <= awareness_state:
+                        self.machine.lights[light_name].off()
+            else:
+                prix_state = getattr(player, "prix_counter_count")
+                for i in range(1, 5):
+                    light_name = f"l_prix_{i:0>2}"
+                    if i <= prix_state:
+                        self.machine.lights[light_name].on()

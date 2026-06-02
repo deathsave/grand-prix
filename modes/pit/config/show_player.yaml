@@ -1,6 +1,17 @@
 #config_version=6
 
 show_player:
+  # Extra ball is ready indication
+  player_is_awareness_completed:
+    lights_blink:
+      speed: 4
+      show_tokens:
+        lights: tag_lights_prix
+  extra_ball_awarded:
+    lights_blink:
+      action: stop
+      show_tokens:
+        lights: tag_shoot_again
   modes_active_modes_changed:
     flash_color: stop
   mode_pit_started:

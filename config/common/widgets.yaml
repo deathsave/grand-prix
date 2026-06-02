@@ -48,6 +48,9 @@ widgets:
   grand_prix:
   - type: image
     image: grand-prix
+  extra_ball:
+  - type: image
+    image: extra-ball
   lube_2:
   - type: image
     image: lube-2

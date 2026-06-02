@@ -7,3 +7,10 @@ slide_player:
   player_level_fuel: pit_slide
   player_level_tires: pit_slide
   player_level_lube: pit_slide
+  extra_ball_awareness_lit:
+    extra_ball_slide:
+      action: play
+      expire: 10s
+      transition_out:
+        type: fade
+      priority: 5000

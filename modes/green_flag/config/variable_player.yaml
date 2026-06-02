@@ -103,6 +103,10 @@ variable_player:
     grand_prix_counter_count:
       action: set
       int: value
+  logicblock_awareness_counter_updated:
+    awareness_counter_count:
+      action: set
+      int: value
 
   logicblock_seq_lap_complete:
     lap_count: 1

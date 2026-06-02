@@ -52,3 +52,5 @@ slides:
   - widget: backfire
   - widget: overlay_right
   - widget: mode_name
+  extra_ball_slide:
+  - widget: extra_ball

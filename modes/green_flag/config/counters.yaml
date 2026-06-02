@@ -97,6 +97,29 @@ counters:
     enable_events:
     - mode_grand_prix_stopped
     start_enabled: true
+
+  # "awareness" is being able to hit the bonus target
+  # WITHOUT getting into the hole near it
+  awareness_counter:
+    reset_on_complete: true
+    disable_on_complete: false
+    count_events: s_bonus_target_active
+    starting_count: 0
+    count_interval: 1
+    count_complete_value: 4
+    persist_state: true
+    reset_events:
+    - s_prix_hole_active
+    # start
+    - mode_grand_prix_started
+    enable_events:
+    - logicblock_prix_counter_complete
+    - s_bonus_target_active{current_player.prix_counter_count == 4}
+    disable_events:
+    # the "awareness" is being able to hit the targets
+    # without getting in the hole
+    - s_prix_hole_active
+
   # Tracks progress towards the wizard mode
   red_line_counter:
     reset_on_complete: false

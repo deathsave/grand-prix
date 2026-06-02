@@ -190,6 +190,16 @@ sounds:
 
   ######## Synth #########
 
+  extra_ball:
+    file: extra-ball.ogg
+    track: voice
+  extra_ball_lit:
+    file: extra-ball-lit.ogg
+    track: voice
+  awareness:
+    file: awareness.ogg
+    track: voice
+
   multiplier_2x:
     file: multiplier-2x.ogg
     track: voice

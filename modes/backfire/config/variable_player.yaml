@@ -25,3 +25,7 @@ variable_player:
     score:
       int: ((1000 * current_player.backfire_counter_count) * current_player.multiplier)
       block: true
+  mode_backfire_started:
+    mode_name:
+      action: set_machine
+      string: Backfire Pops, Alright!

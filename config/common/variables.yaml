@@ -2,7 +2,7 @@
 
 machine_vars:
   mode_name:
-    initial_value: "Pit"
+    initial_value: Pit
     value_type: str
     persist: false
 
@@ -51,6 +51,9 @@ player_vars:
     initial_value: 2
   multiplier:
     initial_value: 1
+  # for extra ball
+  is_awareness_completed:
+    initial_value: 0
   ##########################
   ## Wizard Mode Progress ##
   ##########################

@@ -1,0 +1,9 @@
+#config_version=6
+
+light_player:
+  extra_ball_awareness_lit:
+    l_top_outlane2:
+      color: white
+  extra_ball_awarded:
+    l_top_outlane2:
+      color: black

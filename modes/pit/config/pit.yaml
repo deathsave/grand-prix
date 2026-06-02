@@ -12,3 +12,5 @@ config:
 - show_player.yaml
 - ball_holds.yaml
 - shots.yaml
+- extra_balls.yaml
+- light_player.yaml

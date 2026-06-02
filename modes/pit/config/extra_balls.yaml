@@ -1,0 +1,8 @@
+#config_version=6
+
+extra_balls:
+  awareness:
+    light_events:
+    - logicblock_awareness_counter_complete
+    award_events:
+    - s_inlane2_active{current_player.is_awareness_completed > 0}

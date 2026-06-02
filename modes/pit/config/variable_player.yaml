@@ -110,6 +110,12 @@ variable_player:
       action: set
       int: 0
 
+  ####################
+  ## For Extra Ball ##
+  ####################
+  logicblock_awareness_counter_complete:
+    is_awareness_completed: 1
+
   ##########################
   ## Base-mode prison fix ##
   ##########################
