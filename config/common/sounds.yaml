@@ -1,6 +1,12 @@
 #config_version=6
 
 sounds:
+  #################
+  ## Workarounds ##
+  #################
+  nothing:
+    file: nothing.ogg
+    track: effects
   #########################
   ## Chimebox simulation ##
   #########################
@@ -110,9 +116,21 @@ sounds:
   ball_will_end:
     file: ball-will-end.ogg
     track: effects
+  swoop:
+    file: swoop.ogg
+    track: effects
+  welp:
+    file: welp.ogg
+    track: effects
   # need to test this one
   pure_evil_enters:
     file: pure-evil-enters.ogg
+    track: effects
+  boing1:
+    file: boing-1.ogg
+    track: effects
+  boing2:
+    file: boing-2.ogg
     track: effects
   chug1:
     file: chug-1.ogg

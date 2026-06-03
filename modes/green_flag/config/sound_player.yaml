@@ -1,7 +1,19 @@
 #config_version=6
 
 sound_player:
-  sw_pops:
+  s_outlane2_active:
+    welp:
+      block: true
+  s_inlane2_active:
+    swoop:
+      block: true
+  sw_tag_bell:
+    nothing:
+      block: true
+  sw_tag_slings:
+    boing:
+      block: true
+  sw_tag_pops:
     chug:
       block: true
   sw_tag_rev:

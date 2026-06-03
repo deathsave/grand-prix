@@ -1,6 +1,12 @@
 #config_version=6
 
 sound_pools:
+  boing:
+    type: random_force_all
+    track: effects
+    sounds:
+    - boing1
+    - boing2
   chug:
     type: random_force_all
     track: effects

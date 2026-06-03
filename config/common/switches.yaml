@@ -52,6 +52,7 @@ switches:
     number: 0-2-1 # direct
     tags:
     - tag_bell
+    - tag_slings
   s_flipper1:
     number: 0-2-24
     tags:
@@ -75,6 +76,7 @@ switches:
     number: 0-3-1 # direct
     tags:
     - tag_bell
+    - tag_slings
   s_trough_jam:
     number: 0-3-25
     type: NC
@@ -99,12 +101,12 @@ switches:
   s_pop1:
     number: 1-0-1
     tags:
-    - pops
+    - tag_pops
     - tag_bell
   s_pop2:
     number: 1-0-2
     tags:
-    - pops
+    - tag_pops
     - tag_bell
   s_spinner:
     number: 1-0-3

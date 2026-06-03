@@ -10,14 +10,21 @@ sound_system:
       type: standard
       simultaneous_sounds: 1
       volume: 0.9
+      ducking:
+        target: music
+        #delay: 0
+        attack: 0.1 sec
+        attenuation: -20db
+        release_point: 1.0 sec
+        release: 0.5 sec
     effects:
       type: standard
       simultaneous_sounds: 10
-      volume: 0.8
+      volume: 0.7
     music:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.5
+      volume: 0.4
     ambience:
       type: standard
       simultaneous_sounds: 3

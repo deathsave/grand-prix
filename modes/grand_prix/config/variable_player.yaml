@@ -1,7 +1,7 @@
 #config_version=6
 
 variable_player:
-  mode_grooveline_started:
+  mode_grand_prix_started:
     mode_name:
       action: set_machine
       string: Grand Prix Multiball

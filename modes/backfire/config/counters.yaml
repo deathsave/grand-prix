@@ -2,7 +2,7 @@
 
 counters:
   backfire_counter:
-    count_events: sw_pops
+    count_events: sw_tag_pops
     # start at 1 so we don't have to check for 0
     starting_count: 1
     count_interval: 1

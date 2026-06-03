@@ -76,7 +76,7 @@ sound_player:
     awareness:
       action: play
       delay: 2s
-  player_awareness_counter_count{current_player.awareness_counter_count == 4}:
+  logicblock_awareness_counter_complete{current_player.extra_balls == 0}:
     extra_ball_lit:
       action: play
       delay: 2s

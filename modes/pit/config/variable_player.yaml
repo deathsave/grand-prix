@@ -8,7 +8,7 @@ variable_player:
   # Most switches aren't worth much since
   # the drivers first goal is to get out
   # of the pit as fast as possible
-  sw_pops:
+  sw_tag_pops:
     score: 10
   s_grooveline_active:
     score: 10
