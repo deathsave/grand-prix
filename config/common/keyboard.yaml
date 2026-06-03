@@ -43,7 +43,7 @@ keyboard:
   ctrl+h:
     event: coil_loop_gate
   ctrl+x:
-    event: request_machine_reset
+    event: shutdown
 
 
   ####################

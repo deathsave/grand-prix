@@ -211,7 +211,7 @@ widgets:
     text: "Grand Champion"
     anchor_x: left
     z: 2
-    x: 5%
+    x: 3%
     y: bottom+92%
     color: cyan
     style: text_default
@@ -221,7 +221,7 @@ widgets:
     text: "(machine|score1_name): (machine|score1_value)"
     anchor_x: left
     z: 2
-    x: 5%
+    x: 3%
     y: bottom+78%
     color: white
     style: big
@@ -231,7 +231,7 @@ widgets:
     text: "1st: (machine|score2_name) ((machine|score2_value))"
     anchor_x: left
     z: 2
-    x: 5%
+    x: 3%
     y: bottom+69%
     color: white
     style: medium
@@ -241,7 +241,7 @@ widgets:
     text: "2nd: (machine|score3_name) ((machine|score3_value))"
     anchor_x: left
     z: 2
-    x: 5%
+    x: 3%
     y: bottom+62%
     color: white
     style: medium
@@ -251,7 +251,7 @@ widgets:
     text: "3rd: (machine|score4_name) ((machine|score4_value))"
     anchor_x: left
     z: 2
-    x: 5%
+    x: 3%
     y: bottom+55%
     color: white
     style: medium
@@ -261,8 +261,8 @@ widgets:
     text: "Laps Champ"
     anchor_x: left
     z: 2
-    x: 2%
-    y: bottom+10%
+    x: 3%
+    y: bottom+12%
     color: pink
     style: big
     font_size: 20
@@ -271,8 +271,8 @@ widgets:
     text: "(machine|lap_count1_name): (machine|lap_count1_value) Laps"
     anchor_x: left
     z: 2
-    x: 2%
-    y: bottom+4%
+    x: 3%
+    y: bottom+6%
     color: white
     style: medium
     font_size: 18
@@ -280,7 +280,7 @@ widgets:
   - type: text
     text: "(machine|mode_name)"
     z: 10
-    x: 75%
+    x: 70%
     y: bottom+9%
     color: white
     style: text_default
