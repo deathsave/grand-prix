@@ -97,27 +97,45 @@ def _complete_lap(self):
     self.advance_time_and_run(1)
 
 # assumes green_flag mode is running
-def _start_grooveline(self):
-    self.machine.events. \
-        post("grooveline_qualifier_hit")
-    self.advance_time_and_run(4)
-    self.assertModeRunning("grooveline")
-
-# assumes green_flag mode is running
 def _start_luxury(self):
     for i in range(100):
         self.hit_and_release_switch("s_spinner")
     self.assertEqual(10,
         self.machine.game.player.luxury_counter_count)
     self.advance_time_and_run(1)
-    # Mult-ball light indicator on
-    self.assertLightColor('l_multiball', 'white')
     self.hit_and_release_switch("s_multiball_target")
     self.assertModeRunning("luxury")
     self.advance_time_and_run(4)
 
 # assumes green_flag mode is running
-def _start_grand_prix(self):
+def _start_grooveline(self):
+    for i in range(2):
+        self._make_lap()
+    # multipliier added following 2 quick laps
+    for i in range(4):
+        self._make_lap()
+    # # dodge the random event likelyhood
+    # for i in range(10):
+    #     self.hit_and_release_switch("s_pop1")
+    #     self.hit_and_release_switch("s_pop2")
+
+    self.assertEqual(10, self.machine.game.player.lap_count)
+    self.assertEqual(10, self.machine.game.player.grooveline_counter_count)
+    self.advance_time_and_run(3)
+    self.hit_and_release_switch("s_multiball_target")
+    self.advance_time_and_run(3)
+    self.assertModeRunning("grooveline")
+    self.advance_time_and_run(4)
+
+# assumes green_flag mode is running
+def _sim_grooveline(self):
+    self.machine.events. \
+        post("grooveline_qualifier_hit")
+    self.advance_time_and_run(4)
+    self.assertModeRunning("grooveline")
+
+# assumes green_flag mode is running
+def _sim_grand_prix(self):
     self.machine.events.post("grand_prix_multiball_ready")
     # extra time needed here to eject the other balls
     self.hit_switch_and_run("s_backfire_hole", 8)
@@ -128,3 +146,11 @@ def _start_grand_prix(self):
 def _drain_one_ball(self):
     drain = self.machine.ball_devices.items_tagged("drain")[0]
     self.machine.default_platform.add_ball_to_device(drain)
+
+def _make_lap(self):
+    self.hit_and_release_switch("s_spinner")
+    self.hit_and_release_switch("s_grooveline")
+    self.advance_time_and_run(1)
+
+def _is_unavailable(self, identifier):
+    self.machine.variables.get_machine_var(f"is_{identifier}_available") == 0

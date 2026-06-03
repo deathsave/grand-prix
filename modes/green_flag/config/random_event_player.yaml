@@ -2,7 +2,7 @@
 
 # Every 3 laps, a random event will occur
 random_event_player:
-  player_lap_counter_count{(current_player.lap_counter_count % 3 == 0) and (current_player.lap_counter_count > 0)}:
+  player_lap_counter_count{(current_player.lap_counter_count % 3 == 0) and (current_player.lap_counter_count > 0) and machine.is_wear_and_tear_available}:
     force_all: false
     events:
       # TODO: 20% chance good things happen

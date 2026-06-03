@@ -51,7 +51,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertLightColor('l_multiball', 'black')
 
         # Players hits the grooveline 10 times (10 laps)
-        self._start_grooveline()
+        self._sim_grooveline()
 
         # Mult-ball light indicators on
         self.assertLightColor('l_multiball', 'white')
@@ -92,33 +92,10 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertEqual(
             1, self.machine.game.player.is_grooveline_completed)
 
-    def test_add_a_ball(self):
-        self._start_multiball()
-
-        # Player launches the ball
-        self.hit_and_release_switch("s_shooter_lane")
-        self.hit_switch_and_run("s_activate_playfield", 4)
-        self.assertEqual(2, self.machine.playfield.balls)
-
-        # Player completes 3 laps
-        for i in range(3):
-            self._complete_lap()
-
-        # Another a ball is added
-        self.assertEqual(0,
-            self.machine.ball_devices["bd_trough"].balls)
-        self.assertEqual(0,
-            self.machine.ball_devices["bd_shooter_lane"].balls)
-
-        # Player launches this ball, too
-        self.hit_and_release_switch("s_shooter_lane")
-        self.hit_switch_and_run("s_activate_playfield", 4)
-        self.assertEqual(3, self.machine.playfield.balls)
-
     def _start_multiball(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()
-        self._start_grooveline()
+        self._sim_grooveline()
         self.assertEqual(2, self.machine.playfield.balls)
         # A ball is ejected to the shooter lane
         self.assertEqual(1,

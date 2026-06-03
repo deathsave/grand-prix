@@ -29,11 +29,20 @@ class DeathSaveGameTesting(MpfMachineTestCase):
     def _start_luxury(self):
         death_save._start_luxury(self)
 
-    def _start_grand_prix(self):
-        death_save._start_grand_prix(self)
+    def _sim_grand_prix(self):
+        death_save._sim_grand_prix(self)
+
+    def _sim_grooveline(self):
+        death_save._sim_grooveline(self)
 
     def _complete_lap(self):
         death_save._complete_lap(self)
 
     def _drain_one_ball(self):
         death_save._drain_one_ball(self)
+
+    def _make_lap(self):
+        death_save._make_lap(self)
+
+    def _is_unavailable(self, identifier):
+        death_save._is_unavailable(self, identifier)

@@ -9,10 +9,19 @@ fi
 
 # Handle passing
 if [ -z "$1" ]; then
-  # Disable random pure evil mode for the suite and test it
-  # separately, so it doesn't interfere with other tests.
+  # Test randomized features in isolation
   PURE_EVIL=1 $CMD tests/modes/test_pure_evil.py
-  PURE_EVIL=0 $CMD $(find tests -name "test_*.py" ! -name "test_pure_evil.py" | sort)
+  WEAR_AND_TEAR=1 $CMD tests/modes/test_pure_evil.py
+
+  # Ensure those tests are not run again with the suite
+  EXCLUDED_TESTS=("test_pure_evil.py" "test_wear_and_tear.py")
+  EXCLUDE_ARGS=()
+  for test in "${EXCLUDED_TESTS[@]}"; do
+    EXCLUDE_ARGS+=("!" "-name" "$test")
+  done
+
+  # Disable these features to prevent flakey test runs
+  WEAR_AND_TEAR=0 PURE_EVIL=0 $CMD $(find tests -name "test_*.py" "${EXCLUDE_ARGS[@]}" | sort)
 else
   $CMD $1
 fi

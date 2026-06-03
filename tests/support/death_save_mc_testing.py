@@ -25,11 +25,20 @@ class DeathSaveMcTesting(FullMachineTestCase):
     def _drain_one_ball(self):
         death_save._drain_one_ball(self)
 
+    def _make_lap(self):
+        death_save._make_lap(self)
+
+    def _start_grooveline(self):
+        death_save._start_grooveline(self)
+
     def _start_green_flag(self):
         death_save._start_green_flag(self)
 
     def _complete_lap(self):
         death_save._complete_lap(self)
+
+    def _is_unavailable(self, identifier):
+        death_save._is_unavailable(self, identifier)
 
     # Helper function to check for existence
     # of test on the display.

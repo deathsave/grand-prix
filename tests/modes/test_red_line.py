@@ -11,7 +11,7 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertModeNotRunning("red_line")
 
         # Grooveline -> 1/3 (2 ball multiball)
-        self._start_grooveline() # no ball save here
+        self._sim_grooveline() # no ball save here
         self.assertModeRunning("grooveline")
         self._drain_one_ball()
         self.advance_time_and_run(1)
@@ -44,7 +44,7 @@ class TestRedLineMode(DeathSaveGameTesting):
             counters["red_line_counter"].check_complete())
 
         # Grand Prix -> 3/3 (3 ball multiball)
-        self._start_grand_prix()
+        self._sim_grand_prix()
         self.assertModeRunning("grand_prix")
         self.advance_time_and_run(20) # expire mode ball save
         for i in range(2):

@@ -79,6 +79,3 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self._complete_lap()
 
         self.assertModeRunning("pure_evil")
-
-    def _is_unavailable(self, mode):
-        self.machine.variables.get_machine_var(f"is_{mode}_available") == 0

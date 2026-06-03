@@ -54,7 +54,6 @@ graph TD
   GL_MODE ==> GL_MULTI("Grooveline Multiball")
   LUX_MODE ==> LUX_MULTI("Lap of Luxury Multiball")
   GP_MODE ==> GP_MULTI("Grand Prix Multiball")
-  GL_MULTI == make 3 laps ==> GL_MULTI_ADD_BALL("Add a Ball")
   GL_MULTI ==>
       IS_RF_MODE_READY{"Red Line Mode Ready?"}
   LUX_MULTI ==> IS_RF_MODE_READY

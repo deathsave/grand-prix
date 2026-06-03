@@ -230,7 +230,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     def _start_multiball(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()
-        self._start_grand_prix()
+        self._sim_grand_prix()
         self.assertModeRunning("grand_prix")
         self.assertEqual(True,
             self.machine.multiballs["grand_prix"].enabled)
