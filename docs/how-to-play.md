@@ -94,7 +94,6 @@ The fastest way around the track (the North-West chain of 10 purple inserts).
 - Hit the multiball target to activate Grooveline Multiball
 
 ![Multiball Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/multiball.jpeg)
-  - Add a ball by completing 3 laps during multiball
 - Activating the mode advances Red Line progress
 
 There are no scoring bonuses here, yet. Sorry bro.
