@@ -14,7 +14,7 @@ sound_player:
     boing:
       block: true
   sw_tag_pops:
-    chug:
+    green_flag_notes:
       block: true
   sw_tag_rev:
     rev:

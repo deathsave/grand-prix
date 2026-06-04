@@ -110,6 +110,46 @@ sounds:
     track: ambience
     volume: 0.4
 
+  ###########
+  ## NOTES ##
+  ###########
+  ab:
+    file: Ab.ogg
+    track: effects
+  an:
+    file: A.ogg
+    track: effects
+  bb:
+    file: Bb.ogg
+    track: effects
+  bn:
+    file: B.ogg
+    track: effects
+  cn:
+    file: C.ogg
+    track: effects
+  db:
+    file: Db.ogg
+    track: effects
+  dn:
+    file: D.ogg
+    track: effects
+  eb:
+    file: Eb.ogg
+    track: effects
+  en:
+    file: E.ogg
+    track: effects
+  fn:
+    file: F.ogg
+    track: effects
+  gb:
+    file: Gb.ogg
+    track: effects
+  gn:
+    file: G.ogg
+    track: effects
+
   ###################
   ## Sound Effects ##
   ###################
@@ -131,15 +171,6 @@ sounds:
     track: effects
   boing2:
     file: boing-2.ogg
-    track: effects
-  chug1:
-    file: chug-1.ogg
-    track: effects
-  chug2:
-    file: chug-2.ogg
-    track: effects
-  chug3:
-    file: chug-3.ogg
     track: effects
   civil_siren:
     file: civil-siren.ogg

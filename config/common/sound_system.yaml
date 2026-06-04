@@ -14,8 +14,8 @@ sound_system:
         target: music
         #delay: 0
         attack: 0.1 sec
-        attenuation: -20db
-        release_point: 1.0 sec
+        attenuation: -16db
+        release_point: 2.0 sec
         release: 0.5 sec
     effects:
       type: standard
