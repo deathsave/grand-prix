@@ -14,6 +14,9 @@ class GrandPrixAttract(Attract):
         self.machine.segment_displays["segment2"].add_text("")
         self.machine.segment_displays["segment3"].add_text("")
         self.machine.segment_displays["segment4"].add_text("")
+
+        self.blank_lights()
+
         super().mode_start(**kwargs)
 
     def message_segment(self, **kwargs):
@@ -38,3 +41,8 @@ class GrandPrixAttract(Attract):
         elif ticks > 5:
             self.machine.segment_displays["segment1"]. \
                 add_text("1986")
+
+    def blank_lights(self):
+        for light in self.machine.lights:
+            light.clear_stack()
+        print("lights cleared")
