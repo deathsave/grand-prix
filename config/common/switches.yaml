@@ -47,7 +47,7 @@ switches:
   s_flipper2:
     number: 0-3-24
     tags:
-    - right_flipper
+    - left_flipper
   s_slingshot2:
     number: 0-2-1 # direct
     tags:
@@ -56,7 +56,7 @@ switches:
   s_flipper1:
     number: 0-2-24
     tags:
-    - left_flipper
+    - right_flipper
   s_inlane1:
     number: 0-2-26
     tags:

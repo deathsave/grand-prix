@@ -72,9 +72,9 @@ keyboard:
 
   # Flippers
   z:
-    switch: s_flipper1
-  "/":
     switch: s_flipper2
+  "/":
+    switch: s_flipper1
 
   ########################
   ## Switches / Targets ##
