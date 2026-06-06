@@ -30,3 +30,4 @@ ball_devices:
   bd_backfire_hole:
     ball_switches: s_backfire_hole
     eject_coil: c_backfire_hole
+    eject_coil_retry_pulse: 15s
