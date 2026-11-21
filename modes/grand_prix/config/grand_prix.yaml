@@ -1,6 +1,7 @@
 #config_version=6
 
 config:
+- ball_holds.yaml
 - light_player.yaml
 - mode.yaml
 - multiballs.yaml

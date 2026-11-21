@@ -7,10 +7,11 @@ show_player:
       show_tokens:
         led: tag_lights_mode
         color: pink
+  # trying to sync with the music
   multiball_started:
-    flash_color:
-      # trying to sync with the music
+    grand_prix_grand_chase:
       speed: 2.3
-      show_tokens:
-        led: tag_lights_grand_prix
-        color: white
+    grand_prix_prix_chase:
+      speed: 2.3
+    grand_prix_swerve:
+      speed: 2.3

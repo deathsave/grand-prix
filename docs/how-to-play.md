@@ -133,7 +133,20 @@ It's the name of the game!
 - Completing the mode marks it done and advances Red Line progress
 - The mode can be qualified and played again after completion
 
-There are no scoring bonuses here, yet. Sorry bro.
+During the multiball, GRAND chases down and PRIX chases up while the swerve
+lights alternate. Get back into the 3 holes that started the race (Grand, Prix
+and Backfire):
+
+- Each hole holds the ball and its lights stay on (GRAND, PRIX or the swerve
+  lights for the Backfire Hole) for as long as it's there
+- Every hole entered restarts a single **30 second** timer. Get into another
+  hole before it runs out or the last ball held is kicked back out (then the
+  timer restarts for any still held)
+- Each new hole filled is a **Jackpot** (100,000), up to 3 per sequence. Losing
+  a hole and refilling it doesn't pay that jackpot again
+- Fill all 3 for the **Super Jackpot** (500,000)! All 3 balls are released and
+  the sequence starts over
+- Draining a ball empties all the holes
 
 #### Red Line (Wizard Mode)
 

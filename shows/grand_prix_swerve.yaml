@@ -1,0 +1,13 @@
+#show_version=6
+
+# Grand Prix Multiball: alternates the two swerve lights.
+# 1s steps, sped up by the show_player to match the music.
+
+- duration: 1s
+  lights:
+    l_swerve1: on
+    l_swerve2: off
+- duration: 1s
+  lights:
+    l_swerve1: off
+    l_swerve2: on

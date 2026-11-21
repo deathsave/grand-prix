@@ -8,3 +8,5 @@ sound_player:
       action: play
       loops: -1
       delay: 2
+  grand_prix_jackpot: jackpot
+  grand_prix_super_jackpot: jackpot_double

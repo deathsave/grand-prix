@@ -1,0 +1,21 @@
+#show_version=6
+
+# Grand Prix Multiball: lights PRIX in ascending order (1 to 4) one by one
+# (each staying on), then all off and repeat.
+# 1s steps, sped up by the show_player to match the music.
+
+- duration: 1s
+  lights:
+    tag_lights_prix: off
+- duration: 1s
+  lights:
+    l_prix_01: on
+- duration: 1s
+  lights:
+    l_prix_02: on
+- duration: 1s
+  lights:
+    l_prix_03: on
+- duration: 1s
+  lights:
+    l_prix_04: on

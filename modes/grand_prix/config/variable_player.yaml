@@ -5,3 +5,7 @@ variable_player:
     mode_name:
       action: set_machine
       string: Grand Prix Multiball
+  grand_prix_jackpot:
+    score: 100000
+  grand_prix_super_jackpot:
+    score: 500000

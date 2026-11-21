@@ -1,0 +1,9 @@
+#config_version=6
+
+# Held by the GrandPrix mode code (code/grand_prix.py), which
+# releases them on a super jackpot, hurry up or drain
+ball_holds:
+  grand_prix_holes:
+    hold_devices: bd_grand_hole, bd_prix_hole, bd_backfire_hole
+    balls_to_hold: 3
+    enable_events: mode_grand_prix_started
