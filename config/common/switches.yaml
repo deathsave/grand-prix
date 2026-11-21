@@ -1,5 +1,8 @@
 #config_version=6
 
+# Pairs are numbered left to right from the player's view:
+# 1 is left, 2 is right (s_flipper1 is the left flipper).
+
 switches:
 
   # Board 0 (inside cabinet) - only incandescent and coils
@@ -47,7 +50,7 @@ switches:
   s_flipper2:
     number: 0-3-24
     tags:
-    - left_flipper
+    - right_flipper
   s_slingshot2:
     number: 0-2-1 # direct
     tags:
@@ -56,7 +59,7 @@ switches:
   s_flipper1:
     number: 0-2-24
     tags:
-    - right_flipper
+    - left_flipper
   s_inlane1:
     number: 0-2-26
     tags:

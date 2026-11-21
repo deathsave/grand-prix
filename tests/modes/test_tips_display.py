@@ -28,7 +28,7 @@ class TestTipsDisplay(DeathSaveMcTesting):
     def test_left_flipper_rewinds_slide(self):
         self.advance_time_and_run(14)
         self.assertEqual("splash_slide", self._slide())
-        self.hit_and_release_switch("s_flipper2")
+        self.hit_and_release_switch("s_flipper1")
         self.advance_time_and_run(1)
         self.assertEqual("tip_pure_evil_slide", self._slide())
 
@@ -36,7 +36,7 @@ class TestTipsDisplay(DeathSaveMcTesting):
     def test_flipper_shows_tip_slide(self):
         self.advance_time_and_run(14)
         self.assertEqual("splash_slide", self._slide())
-        self.hit_and_release_switch("s_flipper1")
+        self.hit_and_release_switch("s_flipper2")
         self.advance_time_and_run(1)
         self.assertEqual("tip_green_flag_slide", self._slide())
 
@@ -54,6 +54,6 @@ class TestTipsDisplay(DeathSaveMcTesting):
         ]
         self.advance_time_and_run(1)
         for slide in expected:
-            self.hit_and_release_switch("s_flipper1")
+            self.hit_and_release_switch("s_flipper2")
             self.advance_time_and_run(1)
             self.assertEqual(slide, self._slide())

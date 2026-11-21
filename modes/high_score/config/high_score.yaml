@@ -55,8 +55,8 @@ slides:
       x: middle
       y: middle-15%
       select_event: sw_start
-      shift_left_event: sw_right_flipper
-      shift_right_event: sw_left_flipper
+      shift_left_event: sw_left_flipper
+      shift_right_event: sw_right_flipper
       color: cyan
       anchor_x: middle
       anchor_y: middle

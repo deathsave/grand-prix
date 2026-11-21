@@ -91,7 +91,7 @@ class TestTipsMode(DeathSaveGameTesting):
     def test_right_flipper_from_intro(self):
         self.advance_time_and_run(2)
         self.assertEqual("", self._var("tip_title"))
-        self.hit_and_release_switch("s_flipper1") # right
+        self.hit_and_release_switch("s_flipper2") # right
         self.advance_time_and_run(8)
         self.assertEqual("Get Under Green", self._title())
         # the end of the intro does not interrupt the tip,
@@ -101,7 +101,7 @@ class TestTipsMode(DeathSaveGameTesting):
 
     def test_left_flipper_from_intro(self):
         self.advance_time_and_run(2)
-        self.hit_and_release_switch("s_flipper2") # left
+        self.hit_and_release_switch("s_flipper1") # left
         self.advance_time_and_run(8)
         self.assertEqual("Pure Evil", self._title())
         # and the splash comes next
@@ -114,7 +114,7 @@ class TestTipsMode(DeathSaveGameTesting):
         self.advance_time_and_run(13)
         titles = []
         for i in range(10):
-            self.hit_and_release_switch("s_flipper1")
+            self.hit_and_release_switch("s_flipper2")
             self.advance_time_and_run(8)
             titles.append(self._title())
         self.assertEqual([
@@ -137,7 +137,7 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertEqual("Back... Fire", self._title()[:12])
         titles = []
         for i in range(3):
-            self.hit_and_release_switch("s_flipper2")
+            self.hit_and_release_switch("s_flipper1")
             self.advance_time_and_run(8)
             titles.append(self._title())
         self.assertEqual(
@@ -146,7 +146,7 @@ class TestTipsMode(DeathSaveGameTesting):
     # A step's full time restarts after a flipper press
     def test_flipper_restarts_step_time(self):
         self.advance_time_and_run(13 + 15 + 9)
-        self.hit_and_release_switch("s_flipper2")
+        self.hit_and_release_switch("s_flipper1")
         self.advance_time_and_run(9.5)
         self.assertEqual("Get Under Green", self._title())
 

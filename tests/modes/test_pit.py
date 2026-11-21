@@ -47,3 +47,20 @@ class TestPitMode(DeathSaveGameTesting):
         # Activates green_flag mode, so check last
         # to prevent scoring false positives
         self._assertIncrement(score, "s_pit_fuel", 100)
+
+    # The signals show each completed special mode:
+    # Grooveline, Luxury, Grand Prix and Red Line
+    def test_progress_signals(self):
+        self._start()
+        player = self.machine.game.player
+        pit = self.machine.modes["pit"]
+        signals = {"is_grooveline_completed": "l_signal1",
+            "is_luxury_completed": "l_signal2",
+            "is_grand_prix_completed": "l_signal3",
+            "is_red_line_completed": "l_signal4"}
+        for variable, light in signals.items():
+            pit.update_progress()
+            self.assertLightColor(light, "black")
+            setattr(player, variable, 1)
+            pit.update_progress()
+            self.assertLightColor(light, "white")

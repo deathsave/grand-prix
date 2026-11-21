@@ -16,7 +16,7 @@ class Pit(Mode):
         "awareness": "_",
         "is_grooveline_completed": "l_signal1",
         "is_luxury_completed": "l_signal2",
-        "is_grand_completed": "l_signal3",
+        "is_grand_prix_completed": "l_signal3",
         "is_red_line_completed": "l_signal4",
         "grooveline_counter_count": [ "l_grooveline", 10 ],
         "luxury_counter_count": [ "l_bonus", 10 ],
@@ -93,7 +93,7 @@ class Pit(Mode):
     # the current :state (player variable) value.
     #
     #   Example:
-    #       handle_bool("is_grand_completed", "l_signal3")
+    #       handle_bool("is_grand_prix_completed", "l_signal3")
     #
     def handle_bool(self, state, light_name):
         player = self.machine.game.player
