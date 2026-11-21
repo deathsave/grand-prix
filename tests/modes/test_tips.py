@@ -78,3 +78,40 @@ class TestTipsMode(DeathSaveGameTesting):
         self.hit_and_release_switch("s_flipper2")
         self.advance_time_and_run(0.2)
         self.assertTrue(self._var("tip_title").endswith("_"))
+
+    # Each tip comes up in order, wrapping back to the first
+    def test_cycles_through_tips(self):
+        titles = []
+        # (stay under the 12s intro, which clears the tip)
+        for i in range(8):
+            self.post_event("attract_tip")
+            self.advance_time_and_run(1.2)
+            titles.append(self._var("tip_title").rstrip("_"))
+        self.assertTrue(titles[0].startswith("Get Under"))
+        self.assertTrue(titles[1].startswith("Backfire"))
+        self.assertTrue(titles[2].startswith("Grooveline"))
+        self.assertTrue(titles[3].startswith("Lap of"))
+        self.assertTrue(titles[4].startswith("Grand Prix"))
+        self.assertTrue(titles[5].startswith("Red Line"))
+        self.assertTrue(titles[6].startswith("Pure Evil"))
+        # back to the start
+        self.assertTrue(titles[7].startswith("Get Under"))
+
+    # Every tip line fits the 4 line slide
+    def test_tips_fit_the_slide(self):
+        tips = self.machine.modes["tips"].tips
+        self.assertEqual(7, len(tips))
+        for tip in tips:
+            self.assertTrue(tip["title"])
+            self.assertLessEqual(len(tip["lines"]), 4)
+            for line in tip["lines"]:
+                self.assertLessEqual(len(line), 48, line)
+
+    # Pressing a flipper while a tip is up goes to the next one
+    def test_flipper_skips_during_tip(self):
+        self.hit_and_release_switch("s_flipper1")
+        self.advance_time_and_run(1.2)
+        self.assertTrue(self._var("tip_title").startswith("Get Under"))
+        self.hit_and_release_switch("s_flipper1")
+        self.advance_time_and_run(1.2)
+        self.assertTrue(self._var("tip_title").startswith("Backfire"))

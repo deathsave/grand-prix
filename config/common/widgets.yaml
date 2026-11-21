@@ -316,6 +316,37 @@ widgets:
     color: pink
     style: text_default
     font_size: 32
+  # Pure Evil tip: dark red with flashing white headers
+  tip_evil_background:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 4a0000
+    z: 0
+  tip_evil_header:
+  - type: text
+    text: "Pit Crew Tip"
+    anchor_x: left
+    x: 5%
+    y: bottom+88%
+    z: 2
+    color: white
+    style: text_default
+    font_size: 32
+    animations:
+      add_to_slide: flash
+  tip_evil_title:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: white
+    style: text_default
+    font_size: 60
+    animations:
+      add_to_slide: flash
   tip_title:
   - type: text
     text: "(machine|tip_title)"

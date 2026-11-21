@@ -37,6 +37,7 @@ class Tips(Mode):
     # Flipper pressed: jump to the next tip
     def skip(self, **kwargs):
         self.rotating = True
+        self.machine.events.post("tips_skip_stop")
         self.machine.events.post("tips_skip")
 
     def mode_stop(self, **kwargs):
@@ -63,12 +64,12 @@ class Tips(Mode):
         self.chars = 0
         self.delay.add(self.CHAR_MS, self.type_next_char, "typing")
 
-    # Tips with an image use that mode's background
-    # (tip_<image>_slide), otherwise the plain tip_slide.
+    # Tips with a mode use that mode's look
+    # (tip_<mode>_slide), otherwise the plain tip_slide.
     # The event and slide share a name (see slide_player).
     def slide_for(self, tip):
-        image = tip.get("image")
-        return f"tip_{image}_slide" if image else "tip_slide"
+        mode = tip.get("mode")
+        return f"tip_{mode}_slide" if mode else "tip_slide"
 
     # Reveals one more character of the current line, then
     # schedules itself until every line has been typed

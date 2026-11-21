@@ -3,15 +3,58 @@
 # Each tip has a title and up to 4 lines. Keep lines under
 # ~48 characters so they fit the 800px apron display.
 #
-# `image` (optional) shows that mode's background behind the
-# tip, dimmed. It needs a matching tip_<image>_slide in
-# config/common/slides.yaml and a line in the Tips mode's
-# config/slide_player.yaml.
+# `mode` (optional) gives the tip that mode's look, usually
+# its background dimmed behind the text. It needs a matching
+# tip_<mode>_slide in config/common/slides.yaml and a line in
+# the Tips mode's config/slide_player.yaml.
 
 - title: Get Under Green
-  image: green_flag
+  mode: green_flag
   lines:
   - "1. Skill shot: plunge into the Backfire Hole"
   - "2. Fill up fuel, lube & tires in the pit"
   - "3. Backfire: hit the Spinner, then the"
   - "    Backfire Hole, then 10 pop bumpers"
+
+- title: Backfire Pops
+  mode: backfire
+  lines:
+  - "Leaving Green Flag? Quick! Hit the Spinner,"
+  - "then get into the Backfire Hole"
+  - "Pops score 1K, 2K, 3K... up to 10K"
+  - "10 pops and you're back under green"
+
+- title: Grooveline Multiball
+  mode: grooveline
+  lines:
+  - "Each lap under green lights a purple"
+  - "Grooveline insert, top to bottom"
+  - "Light all 10, then hit the multiball target"
+  - "to start Grooveline Multiball"
+
+- title: Lap of Luxury
+  mode: luxury
+  lines:
+  - "Every 10 Spinner hits under green lights"
+  - "a Luxury insert. It never resets!"
+  - "Light all 10, then hit the multiball target"
+  - "Collect lit inserts for big money"
+
+- title: Grand Prix Multiball
+  mode: grand_prix
+  lines:
+  - "1. Left target 5x for GRAND, lock Grand Hole"
+  - "2. Right target 4x for PRIX, lock Prix Hole"
+  - "3. Shoot the Backfire Hole to start the race"
+
+- title: Red Line
+  lines:
+  - "Finish Grooveline, Lap of Luxury and"
+  - "Grand Prix multiballs, then enter any hole"
+  - "to start the Red Line wizard mode"
+
+- title: Pure Evil
+  mode: pure_evil
+  lines:
+  - "Every second costs you points"
+  - "Hit the drop target to stop the bleeding"

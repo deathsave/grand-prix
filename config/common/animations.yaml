@@ -56,3 +56,18 @@ animations:
       value: 1.0
       duration: 500ms
       repeat: true
+  # hard on/off blink (pulsate_* fade instead)
+  flash:
+    - property: opacity
+      value: 1.0
+      duration: 1ms
+    - property: opacity
+      value: 1.0
+      duration: 400ms
+    - property: opacity
+      value: 0.0
+      duration: 1ms
+    - property: opacity
+      value: 0.0
+      duration: 250ms
+      repeat: true

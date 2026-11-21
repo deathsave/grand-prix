@@ -26,3 +26,20 @@ class TestTipsDisplay(DeathSaveMcTesting):
         self.hit_and_release_switch("s_flipper1")
         self.advance_time_and_run(1)
         self.assertEqual("tip_green_flag_slide", self._slide())
+
+    # Each tip uses its mode's look when it has one
+    def test_tip_slides_by_mode(self):
+        expected = [
+            "tip_green_flag_slide",
+            "tip_backfire_slide",
+            "tip_grooveline_slide",
+            "tip_luxury_slide",
+            "tip_grand_prix_slide",
+            "tip_slide", # red line (no image)
+            "tip_pure_evil_slide",
+        ]
+        self.advance_time_and_run(1)
+        for slide in expected:
+            self.hit_and_release_switch("s_flipper1")
+            self.advance_time_and_run(1)
+            self.assertEqual(slide, self._slide())

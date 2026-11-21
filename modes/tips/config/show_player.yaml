@@ -9,7 +9,13 @@ show_player:
       key: attract_rotation
       loops: -1
   # A flipper was pressed: jump straight to the
-  # next tip (step 2) and restart its 15 seconds
+  # next tip (step 2) and restart its 15 seconds.
+  # The show is stopped first because MPF ignores a
+  # play at step 2 when the show is already on it.
+  tips_skip_stop:
+    attract_rotation:
+      key: attract_rotation
+      action: stop
   tips_skip:
     attract_rotation:
       key: attract_rotation
