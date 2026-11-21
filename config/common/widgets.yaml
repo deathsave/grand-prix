@@ -297,13 +297,14 @@ widgets:
     height: 480
     color: 000000
     z: 0
-  # dims a mode's background image behind the tip text
+  # dims a mode's background image behind the tip text.
+  # NOTE: widget `opacity` is ignored by mpf-mc, so the
+  # alpha goes in the color: cc = 80% opaque black
   tip_dim:
   - type: rectangle
     width: 800
     height: 480
-    color: 000000
-    opacity: 0.8
+    color: 000000cc
     z: 1
   tip_header:
   - type: text
