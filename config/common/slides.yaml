@@ -37,7 +37,7 @@ slides:
   - widget: backfire
   - widget: tip_dim
   - widget: tip_header
-  - widget: tip_title
+  - widget: tip_title_backfire
   - widget: tip_line1
   - widget: tip_line2
   - widget: tip_line3
@@ -46,7 +46,7 @@ slides:
   - widget: grooveline
   - widget: tip_dim
   - widget: tip_header
-  - widget: tip_title
+  - widget: tip_title_grooveline
   - widget: tip_line1
   - widget: tip_line2
   - widget: tip_line3
@@ -55,7 +55,7 @@ slides:
   - widget: luxury
   - widget: tip_dim
   - widget: tip_header
-  - widget: tip_title
+  - widget: tip_title_luxury
   - widget: tip_line1
   - widget: tip_line2
   - widget: tip_line3
@@ -64,13 +64,32 @@ slides:
   - widget: grand_prix
   - widget: tip_dim
   - widget: tip_header
-  - widget: tip_title
+  - widget: tip_title_grand_prix
+  - widget: tip_line1
+  - widget: tip_line2
+  - widget: tip_line3
+  - widget: tip_line4
+  tip_extra_ball_slide:
+  - widget: extra_ball
+  - widget: tip_dim
+  - widget: tip_header
+  - widget: tip_title_extra_ball
+  - widget: tip_line1
+  - widget: tip_line2
+  - widget: tip_line3
+  - widget: tip_line4
+  tip_red_line_slide:
+  - widget: red_line
+  - widget: tip_dim
+  - widget: tip_header
+  - widget: tip_title_red_line
   - widget: tip_line1
   - widget: tip_line2
   - widget: tip_line3
   - widget: tip_line4
   tip_pure_evil_slide:
-  - widget: tip_evil_background
+  - widget: pure_evil
+  - widget: tip_dim
   - widget: tip_evil_header
   - widget: tip_evil_title
   - widget: tip_line1
@@ -119,3 +138,7 @@ slides:
   - widget: mode_name
   extra_ball_slide:
   - widget: extra_ball
+  red_line_slide:
+  - widget: red_line
+  pure_evil_slide:
+  - widget: pure_evil

@@ -5,6 +5,10 @@ class TestTipsMode(DeathSaveGameTesting):
     def _var(self, name):
         return self.machine.variables.get_machine_var(name)
 
+    # the tip title without the typing cursor
+    def _title(self):
+        return self._var("tip_title").rstrip("_")
+
     # Tips run alongside attract mode (outside of a game)
     def test_runs_during_attract(self):
         self.assertModeRunning("attract")
@@ -20,9 +24,9 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertTrue(title.endswith("_"))
         self.assertEqual("", self._var("tip_line1"))
 
-        # typing takes ~8.5s (and the attract show
-        # returns to the splash at 12s, clearing it)
-        self.advance_time_and_run(10)
+        # typing takes under 7s (and the intro ending
+        # at 12s starts the splash, clearing it)
+        self.advance_time_and_run(8)
         self.assertEqual("Get Under Green", self._var("tip_title"))
         self.assertEqual(
             "1. Skill shot: plunge into the Backfire Hole",
@@ -41,14 +45,32 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertEqual("", self._var("tip_title"))
         self.assertEqual("", self._var("tip_line4"))
 
-    # The attract show rotates splash -> tip after the intro
+    # After the intro (12s): the splash for 15s, then
+    # each tip for 10s, then back to the splash
     def test_attract_rotation(self):
-        # intro (12s) + splash (15s) puts us on the tip slide
-        self.advance_time_and_run(28)
-        self.assertTrue(self._var("tip_title"))
-        # and back to the splash 15s later
-        self.advance_time_and_run(15)
+        self.advance_time_and_run(13)
         self.assertEqual("", self._var("tip_title"))
+        self.advance_time_and_run(15)
+        self.assertEqual("Get Under Green", self._title())
+        self.advance_time_and_run(10)
+        self.assertEqual("Back... Fire", self._title()[:12])
+        # 6 more tips (8 total) puts us on the last one
+        self.advance_time_and_run(60)
+        self.assertEqual("Pure Evil", self._title())
+        # then the splash again
+        self.advance_time_and_run(10)
+        self.assertEqual("", self._var("tip_title"))
+        self.advance_time_and_run(15)
+        self.assertEqual("Get Under Green", self._title())
+
+    # The show has one 10s step per tip after the 15s splash
+    def test_show_has_a_step_per_tip(self):
+        steps = self.machine.shows["attract_rotation"].get_show_steps()
+        tips = self.machine.modes["tips"].tips
+        self.assertEqual(len(tips) + 1, len(steps))
+        self.assertEqual(15, steps[0]["duration"])
+        for step in steps[1:]:
+            self.assertEqual(10, step["duration"])
 
     # Starting a game stops the tips and clears the text
     def test_stops_on_game_start(self):
@@ -58,60 +80,76 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertModeNotRunning("tips")
         self.assertEqual("", self._var("tip_title"))
 
-    # Either flipper skips to the next tip right away
-    def test_flipper_skips_to_next_tip(self):
-        # still on the Death Save intro
+    # From the intro, the right flipper starts at the first
+    # tip and the left flipper at the last
+    def test_right_flipper_from_intro(self):
         self.advance_time_and_run(2)
         self.assertEqual("", self._var("tip_title"))
+        self.hit_and_release_switch("s_flipper1") # right
+        self.advance_time_and_run(8)
+        self.assertEqual("Get Under Green", self._title())
+        # the end of the intro does not interrupt the tip,
+        # it stays up for its full 10s
+        self.advance_time_and_run(1.5)
+        self.assertEqual("Get Under Green", self._title())
 
-        self.hit_and_release_switch("s_flipper1")
-        self.advance_time_and_run(10)
-        self.assertEqual("Get Under Green", self._var("tip_title"))
-
-        # the end of the intro does not interrupt the tip
-        # (12s mark has passed), it stays up for its full 15s
-        self.assertEqual("Get Under Green", self._var("tip_title"))
-        self.advance_time_and_run(5)
+    def test_left_flipper_from_intro(self):
+        self.advance_time_and_run(2)
+        self.hit_and_release_switch("s_flipper2") # left
+        self.advance_time_and_run(8)
+        self.assertEqual("Pure Evil", self._title())
+        # and the splash comes next
+        self.advance_time_and_run(2.5)
         self.assertEqual("", self._var("tip_title"))
 
-        # the other flipper skips too, restarting the typing
-        self.hit_and_release_switch("s_flipper2")
-        self.advance_time_and_run(0.2)
-        self.assertTrue(self._var("tip_title").endswith("_"))
-
-    # Each tip comes up in order, wrapping back to the first
-    def test_cycles_through_tips(self):
+    # The right flipper advances through every step
+    # (splash included) and wraps around
+    def test_right_flipper_advances(self):
+        self.advance_time_and_run(13)
         titles = []
-        # (stay under the 12s intro, which clears the tip)
-        for i in range(8):
-            self.post_event("attract_tip")
-            self.advance_time_and_run(1.2)
-            titles.append(self._var("tip_title").rstrip("_"))
-        self.assertTrue(titles[0].startswith("Get Under"))
-        self.assertTrue(titles[1].startswith("Backfire"))
-        self.assertTrue(titles[2].startswith("Grooveline"))
-        self.assertTrue(titles[3].startswith("Lap of"))
-        self.assertTrue(titles[4].startswith("Grand Prix"))
-        self.assertTrue(titles[5].startswith("Red Line"))
-        self.assertTrue(titles[6].startswith("Pure Evil"))
-        # back to the start
-        self.assertTrue(titles[7].startswith("Get Under"))
+        for i in range(10):
+            self.hit_and_release_switch("s_flipper1")
+            self.advance_time_and_run(8)
+            titles.append(self._title())
+        self.assertEqual([
+            "Get Under Green",
+            "Back... Fire... Pops! Alright?",
+            "Grooveline Multiball",
+            "Lap of Luxury",
+            "Grand Prix Multiball",
+            "Extra Ball & 2X",
+            "Red Line",
+            "Pure Evil",
+            "", # splash
+            "Get Under Green",
+        ], titles)
+
+    # The left flipper steps back, wrapping from the
+    # splash to the last tip
+    def test_left_flipper_rewinds(self):
+        self.advance_time_and_run(13 + 15 + 10)
+        self.assertEqual("Back... Fire", self._title()[:12])
+        titles = []
+        for i in range(3):
+            self.hit_and_release_switch("s_flipper2")
+            self.advance_time_and_run(8)
+            titles.append(self._title())
+        self.assertEqual(
+            ["Get Under Green", "", "Pure Evil"], titles)
+
+    # A step's full time restarts after a flipper press
+    def test_flipper_restarts_step_time(self):
+        self.advance_time_and_run(13 + 15 + 9)
+        self.hit_and_release_switch("s_flipper2")
+        self.advance_time_and_run(9.5)
+        self.assertEqual("Get Under Green", self._title())
 
     # Every tip line fits the 4 line slide
     def test_tips_fit_the_slide(self):
         tips = self.machine.modes["tips"].tips
-        self.assertEqual(7, len(tips))
+        self.assertEqual(8, len(tips))
         for tip in tips:
             self.assertTrue(tip["title"])
             self.assertLessEqual(len(tip["lines"]), 4)
             for line in tip["lines"]:
                 self.assertLessEqual(len(line), 48, line)
-
-    # Pressing a flipper while a tip is up goes to the next one
-    def test_flipper_skips_during_tip(self):
-        self.hit_and_release_switch("s_flipper1")
-        self.advance_time_and_run(1.2)
-        self.assertTrue(self._var("tip_title").startswith("Get Under"))
-        self.hit_and_release_switch("s_flipper1")
-        self.advance_time_and_run(1.2)
-        self.assertTrue(self._var("tip_title").startswith("Backfire"))

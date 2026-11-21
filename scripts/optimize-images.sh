@@ -6,22 +6,29 @@ MAX_DIMENSION=1200
 MIN_SAVINGS=0.10  # 10%
 MANIFEST="$REPO_ROOT/.optimize-images-manifest"
 
-# Load existing manifest
-declare -A MANIFEST_ENTRIES
+# Manifest entries are "path|size" lines. Updates are
+# appended to a working copy (last entry for a path wins)
+# so this runs on macOS's bash 3.2 (no associative arrays).
+MANIFEST_WORK="${MANIFEST}.tmp"
 if [ -f "$MANIFEST" ]; then
-  while IFS='|' read -r path size; do
-    MANIFEST_ENTRIES["$path"]="$size"
-  done < "$MANIFEST"
+  cp "$MANIFEST" "$MANIFEST_WORK"
+else
+  : > "$MANIFEST_WORK"
 fi
 
-# Save manifest
+manifest_get() {
+  awk -F'|' -v p="$1" '$1 == p { v = $2 } END { print v }' "$MANIFEST_WORK"
+}
+
+manifest_set() {
+  echo "${1}|${2}" >> "$MANIFEST_WORK"
+}
+
+# Save manifest, keeping only the latest entry per path
 save_manifest() {
-  local tmp="${MANIFEST}.tmp"
-  > "$tmp"
-  for path in "${!MANIFEST_ENTRIES[@]}"; do
-    echo "${path}|${MANIFEST_ENTRIES[$path]}" >> "$tmp"
-  done
-  mv "$tmp" "$MANIFEST"
+  awk -F'|' '{ v[$1] = $2 } END { for (p in v) print p "|" v[p] }' \
+    "$MANIFEST_WORK" | sort > "$MANIFEST"
+  rm -f "$MANIFEST_WORK"
 }
 
 optimize_image() {
@@ -30,7 +37,7 @@ optimize_image() {
   current_size=$(stat -f%z "$file")
 
   # Skip if already optimized (size matches manifest)
-  if [ "${MANIFEST_ENTRIES[$file]:-}" = "$current_size" ]; then
+  if [ "$(manifest_get "$file")" = "$current_size" ]; then
     echo "⏭ $file: already optimized, skipping"
     return
   fi
@@ -77,7 +84,7 @@ optimize_image() {
     local savings_pct
     savings_pct=$(echo "scale=1; $savings * 100" | bc)
     echo "✓ $file: ${original_size} -> ${new_size} bytes (${savings_pct}% saved)"
-    MANIFEST_ENTRIES["$file"]="$new_size"
+    manifest_set "$file" "$new_size"
     rm -f "$backup"
   else
     # Revert if savings < 10%
@@ -93,8 +100,9 @@ echo ""
 
 # Find all images
 while read -r img; do
-  # Skip node_modules, .git, etc
-  if [[ "$img" == *"/node_modules/"* ]] || [[ "$img" == *"/.git/"* ]]; then
+  # Skip node_modules, .git, misc, etc
+  if [[ "$img" == *"/node_modules/"* ]] || [[ "$img" == *"/.git/"* ]] ||
+     [[ "$img" == "$REPO_ROOT/misc/"* ]]; then
     continue
   fi
   optimize_image "$img"

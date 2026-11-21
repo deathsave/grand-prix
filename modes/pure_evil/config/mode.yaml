@@ -24,6 +24,9 @@ event_player:
   s_disqualifier_active{current_player.evil_number >= 999999}:
   - pure_evil_exits
 
+slide_player:
+  mode_pure_evil_started: pure_evil_slide
+
 show_player:
   mode_pure_evil_started:
     flash_color:

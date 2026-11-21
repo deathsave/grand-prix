@@ -9,38 +9,56 @@ class Tips(Mode):
     TITLE_VAR = "tip_title"
     LINE_VARS = [ "tip_line1", "tip_line2", "tip_line3", "tip_line4" ]
 
-    CHAR_MS = 45        # delay between characters
-    LINE_PAUSE_MS = 400 # pause after finishing a line
+    # fast enough to type the longest tip in ~7s of
+    # its 10s (see shows/attract_rotation.yaml)
+    CHAR_MS = 30        # delay between characters
+    LINE_PAUSE_MS = 300 # pause after finishing a line
     CURSOR = "_"
+
+    # The rotation show: splash, then one step per tip
+    # (see shows/attract_rotation.yaml)
+    SHOW = "attract_rotation"
+    FIRST_TIP_STEP = 2
 
     def mode_init(self):
         self.tips = self.load_tips()
-        self.tip_index = 0
 
     def mode_start(self, **kwargs):
-        self.rotating = False
+        self.show = None
         self.clear()
-        self.add_mode_event_handler("attract_tip", self.next_tip)
+        self.add_mode_event_handler("attract_tip", self.show_tip)
         self.add_mode_event_handler("attract_tip_clear", self.clear)
         self.add_mode_event_handler("attract_intro_done",
             self.start_rotation)
-        self.add_mode_event_handler("sw_left_flipper", self.skip)
-        self.add_mode_event_handler("sw_right_flipper", self.skip)
+        self.add_mode_event_handler("sw_right_flipper", self.advance)
+        self.add_mode_event_handler("sw_left_flipper", self.rewind)
 
-    # The Death Save intro finished. Start the splash/tip
-    # rotation unless a flipper already started it.
-    def start_rotation(self, **kwargs):
-        if not self.rotating:
-            self.rotating = True
-            self.machine.events.post("tips_rotation_start")
+    # Plays the rotation show (looping forever). This mode
+    # holds on to it so the flippers can step through it.
+    def start_rotation(self, start_step=1, **kwargs):
+        if self.show:
+            return
+        self.show = self.machine.shows[self.SHOW].play(
+            priority=self.priority, loops=-1, start_step=start_step)
 
-    # Flipper pressed: jump to the next tip
-    def skip(self, **kwargs):
-        self.rotating = True
-        self.machine.events.post("tips_skip_stop")
-        self.machine.events.post("tips_skip")
+    # Right flipper: next step (from the intro: first tip)
+    def advance(self, **kwargs):
+        if self.show:
+            self.show.advance()
+        else:
+            self.start_rotation(start_step=self.FIRST_TIP_STEP)
+
+    # Left flipper: previous step (from the intro: last tip)
+    def rewind(self, **kwargs):
+        if self.show:
+            self.show.step_back()
+        else:
+            self.start_rotation(start_step=-1)
 
     def mode_stop(self, **kwargs):
+        if self.show:
+            self.show.stop()
+            self.show = None
         self.clear()
 
     # Reads the tip content from modes/tips/content/tips.yaml
@@ -49,12 +67,11 @@ class Tips(Mode):
         with open(path) as f:
             return YAML(typ="safe").load(f) or []
 
-    # Types out the next tip, wrapping back to the first
-    def next_tip(self, **kwargs):
+    # Types out the tip for the show's current step
+    def show_tip(self, **kwargs):
         if not self.tips:
             return
-        tip = self.tips[self.tip_index % len(self.tips)]
-        self.tip_index += 1
+        tip = self.tips[self.tip_number() % len(self.tips)]
 
         self.clear()
         self.machine.events.post(self.slide_for(tip))
@@ -63,6 +80,13 @@ class Tips(Mode):
             list(zip(self.LINE_VARS, lines))
         self.chars = 0
         self.delay.add(self.CHAR_MS, self.type_next_char, "typing")
+
+    # Which tip the rotation show is on (the first
+    # tip when posted without the show, e.g. in tests)
+    def tip_number(self):
+        if not self.show or self.show.current_step_index is None:
+            return 0
+        return self.show.current_step_index - (self.FIRST_TIP_STEP - 1)
 
     # Tips with a mode use that mode's look
     # (tip_<mode>_slide), otherwise the plain tip_slide.

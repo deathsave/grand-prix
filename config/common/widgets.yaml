@@ -51,6 +51,12 @@ widgets:
   extra_ball:
   - type: image
     image: extra-ball
+  red_line:
+  - type: image
+    image: red-line
+  pure_evil:
+  - type: image
+    image: pure-evil
   lube_2:
   - type: image
     image: lube-2
@@ -316,13 +322,7 @@ widgets:
     color: pink
     style: text_default
     font_size: 32
-  # Pure Evil tip: dark red with flashing white headers
-  tip_evil_background:
-  - type: rectangle
-    width: 800
-    height: 480
-    color: 4a0000
-    z: 0
+  # Pure Evil tip: flashing white header, light red title
   tip_evil_header:
   - type: text
     text: "Pit Crew Tip"
@@ -342,11 +342,13 @@ widgets:
     x: 5%
     y: bottom+74%
     z: 2
-    color: white
+    color: light_red
     style: text_default
     font_size: 60
     animations:
       add_to_slide: flash
+  # Mode tips color their title in the mode's color
+  # (tip_title_<mode>, used by tip_<mode>_slide)
   tip_title:
   - type: text
     text: "(machine|tip_title)"
@@ -355,6 +357,66 @@ widgets:
     y: bottom+74%
     z: 2
     color: lime
+    style: text_default
+    font_size: 60
+  tip_title_backfire:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: orange
+    style: text_default
+    font_size: 60
+  tip_title_grooveline:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: cyan
+    style: text_default
+    font_size: 60
+  tip_title_luxury:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: yellow
+    style: text_default
+    font_size: 60
+  tip_title_grand_prix:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: pink
+    style: text_default
+    font_size: 60
+  tip_title_extra_ball:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: purple
+    style: text_default
+    font_size: 60
+  tip_title_red_line:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: bright_red
     style: text_default
     font_size: 60
   tip_line1:

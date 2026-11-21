@@ -9,3 +9,6 @@ named_colors:
   magenta: C661ED # also, low tires
   orange: FF7F35 # also, low lube and MODE: backfire
   red: FF003B # empty resources (and negative things) and MODE: red_line
+  yellow: FFE600 # tip title: luxury
+  bright_red: FF0000 # tip title: red_line
+  light_red: FF6B6B # tip title: pure_evil

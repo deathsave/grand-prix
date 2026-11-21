@@ -16,7 +16,7 @@
   - "3. Backfire: hit the Spinner, then the"
   - "    Backfire Hole, then 10 pop bumpers"
 
-- title: Backfire Pops
+- title: "Back... Fire... Pops! Alright?"
   mode: backfire
   lines:
   - "Leaving Green Flag? Quick! Hit the Spinner,"
@@ -47,7 +47,16 @@
   - "2. Right target 4x for PRIX, lock Prix Hole"
   - "3. Shoot the Backfire Hole to start the race"
 
+- title: Extra Ball & 2X
+  mode: extra_ball
+  lines:
+  - "PRIX lit? Hit the bonus target 4 more times"
+  - "(skip the Prix Hole), collect at right inlane"
+  - "Swerve 5x in multiball or chain 2 laps in"
+  - "15s for 2X scoring and bonus for 30 seconds"
+
 - title: Red Line
+  mode: red_line
   lines:
   - "Finish Grooveline, Lap of Luxury and"
   - "Grand Prix multiballs, then enter any hole"

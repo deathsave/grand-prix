@@ -2,13 +2,14 @@
 
 # TIPS
 #
-# Runs alongside Attract Mode. When the attract_rotation show
-# brings up the tip slide, the next tip from content/tips.yaml is
-# "typed" onto the screen one character at a time.
+# Runs alongside Attract Mode. After the Death Save intro it
+# plays the attract_rotation show: the splash for 15s, then each
+# tip from content/tips.yaml for 10s, "typed" onto the screen
+# one character at a time, looping forever.
 #
-# Either flipper skips ahead to the next tip.
+# The right flipper advances the show a step and the left
+# flipper steps it back (from the intro: first / last tip).
 #
 config:
 - mode.yaml
-- show_player.yaml
 - slide_player.yaml
