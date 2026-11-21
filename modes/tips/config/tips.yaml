@@ -1,0 +1,13 @@
+#config_version=6
+
+# TIPS
+#
+# Runs alongside Attract Mode. When the attract_rotation show
+# brings up the tip slide, the next tip from data/tips.yaml is
+# "typed" onto the screen one character at a time.
+#
+# Either flipper skips ahead to the next tip.
+#
+config:
+- mode.yaml
+- show_player.yaml

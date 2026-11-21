@@ -5,6 +5,27 @@ machine_vars:
     initial_value: Pit
     value_type: str
     persist: false
+  # Gameplay tip text, typed out by the Tips mode
+  tip_title:
+    initial_value: ""
+    value_type: str
+    persist: false
+  tip_line1:
+    initial_value: ""
+    value_type: str
+    persist: false
+  tip_line2:
+    initial_value: ""
+    value_type: str
+    persist: false
+  tip_line3:
+    initial_value: ""
+    value_type: str
+    persist: false
+  tip_line4:
+    initial_value: ""
+    value_type: str
+    persist: false
 
 player_vars:
   name:

@@ -1,0 +1,9 @@
+#config_version=6
+
+mode:
+  start_events: mode_attract_started
+  stop_events: mode_attract_stopping
+  # runs outside of a game (during attract)
+  game_mode: false
+  priority: 110
+  code: tips.Tips

@@ -1,13 +1,14 @@
 #show_version=6
 
 # Seqeunce of shows to play when the game is in attract mode.
+#
+# After the Death Save intro, the Tips mode takes over the
+# display with the attract_rotation show (see modes/tips).
 
 - time: 0
   slides:
     dspc_animation_slide:
       action: play
 - time: "12s"
-  slides:
-    splash_slide:
-      action: play
+  events: attract_intro_done
   duration: -1

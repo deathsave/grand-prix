@@ -12,6 +12,14 @@ slides:
   - widget: third_place
   - widget: laps_champ_label
   - widget: laps_champ_value
+  tip_slide:
+  - widget: tip_background
+  - widget: tip_header
+  - widget: tip_title
+  - widget: tip_line1
+  - widget: tip_line2
+  - widget: tip_line3
+  - widget: tip_line4
   pit_slide:
   - widget: pit_background
   - widget: pit_mirror

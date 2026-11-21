@@ -14,3 +14,4 @@ modes:
 - match
 - tilt
 - segment_display
+- tips # <- gameplay tips during attract

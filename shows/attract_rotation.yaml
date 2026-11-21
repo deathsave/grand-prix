@@ -1,0 +1,17 @@
+#show_version=6
+
+# Loops after the Death Save intro (see attract_apron):
+# the splash (high scores) alternates with a typed gameplay
+# tip from the Tips mode (modes/tips). Step 2 is the tip,
+# which the flippers jump to (see tips show_player).
+
+- duration: 15s
+  slides:
+    splash_slide:
+      action: play
+  events: attract_tip_clear
+- duration: 15s
+  slides:
+    tip_slide:
+      action: play
+  events: attract_tip
