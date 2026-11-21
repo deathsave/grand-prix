@@ -1,3 +1,4 @@
+from unittest.mock import MagicMock
 from tests.support.death_save_game_testing import DeathSaveGameTesting
 
 class TestFlippers(DeathSaveGameTesting):
@@ -29,4 +30,18 @@ class TestFlippers(DeathSaveGameTesting):
         # through match and back to attract
         self.advance_time_and_run(6)
         self.assertModeRunning("attract")
+        self._assertFlippers(False)
+
+    # A machine reset clears any flipper rules the OPP boards
+    # still hold (e.g. MPF restarted in the middle of a game)
+    def test_reset_clears_stale_flipper_rules(self):
+        self.advance_time_and_run(1)
+        clear = MagicMock()
+        self.machine.platform_controller.clear_hw_rule = clear
+
+        self.machine.events.post("machine_reset_phase_3")
+        self.advance_time_and_run(1)
+
+        # one rule cleared per flipper, and both left off
+        self.assertEqual(2, clear.call_count)
         self._assertFlippers(False)
