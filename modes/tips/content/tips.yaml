@@ -1,7 +1,7 @@
 # Gameplay tips shown during Attract Mode, one per slide.
 #
 # Each tip has a title and up to 4 lines. Keep lines under
-# ~40 characters so they fit the 800px apron display.
+# ~48 characters so they fit the 800px apron display.
 
 - title: Get Under Green
   lines:

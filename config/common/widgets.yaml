@@ -288,7 +288,9 @@ widgets:
     animations:
       add_to_slide: pulsate_fast
   # Gameplay tips (see modes/tips). The text is "typed" by
-  # the Tips mode updating these machine variables.
+  # the Tips mode updating these machine variables. Header and
+  # title use the Grand Prix font; tip lines use pixelmix
+  # (medium) for readability.
   tip_background:
   - type: rectangle
     width: 800
@@ -323,7 +325,8 @@ widgets:
     y: bottom+54%
     z: 1
     color: white
-    font_size: 30
+    style: medium
+    font_size: 22
   tip_line2:
   - type: text
     text: "(machine|tip_line2)"
@@ -332,7 +335,8 @@ widgets:
     y: bottom+43%
     z: 1
     color: white
-    font_size: 30
+    style: medium
+    font_size: 22
   tip_line3:
   - type: text
     text: "(machine|tip_line3)"
@@ -341,7 +345,8 @@ widgets:
     y: bottom+32%
     z: 1
     color: white
-    font_size: 30
+    style: medium
+    font_size: 22
   tip_line4:
   - type: text
     text: "(machine|tip_line4)"
@@ -350,4 +355,5 @@ widgets:
     y: bottom+21%
     z: 1
     color: white
-    font_size: 30
+    style: medium
+    font_size: 22
