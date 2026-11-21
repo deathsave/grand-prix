@@ -49,7 +49,7 @@ show_player:
     flash_color:
       speed: 8
       show_tokens:
-        led: l_shoot_fuel
+        led: l_pit_shoot_fuel
         color: white
   mode_green_flag_stopped:
     flash_color:

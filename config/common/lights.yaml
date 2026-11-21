@@ -200,7 +200,7 @@ lights:
     - tag_lights_grand
     - tag_lights_grand_prix
     - tag_lights_state
-  l_bottom_outlane1:
+  l_outlane_bottom1:
     subtype: matrix
     number: 0-2-9
     tags:
@@ -225,7 +225,7 @@ lights:
     tags:
     - tag_lights
     - tag_lights_multiplier
-  l_top_outlane1:
+  l_outlane_top1:
     subtype: matrix
     number: 0-2-14
     tags:
@@ -355,13 +355,13 @@ lights:
     tags:
     - tag_lights
     - tag_shoot_again
-  l_bottom_outlane2:
+  l_outlane_bottom2:
     subtype: matrix
     number: 0-3-8
     tags:
     - tag_lights
     - tag_lights_outlane
-  l_top_outlane2:
+  l_outlane_top2:
     subtype: matrix
     number: 0-3-11
     tags:

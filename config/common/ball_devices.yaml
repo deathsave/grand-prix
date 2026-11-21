@@ -25,16 +25,16 @@ ball_devices:
   # is 10s). A ball that gets back in before an eject is
   # confirmed counts as a failed eject (it is ejected again and
   # not held), which broke getting back into a Grand Prix hole.
-  bd_grand_hole:
-    ball_switches: s_grand_hole
-    eject_coil: c_grand_hole
+  bd_hole_grand:
+    ball_switches: s_hole_grand
+    eject_coil: c_hole_grand
     eject_timeouts: 2s
-  bd_prix_hole:
-    ball_switches: s_prix_hole
-    eject_coil: c_prix_hole
+  bd_hole_prix:
+    ball_switches: s_hole_prix
+    eject_coil: c_hole_prix
     eject_timeouts: 2s
-  bd_backfire_hole:
-    ball_switches: s_backfire_hole
-    eject_coil: c_backfire_hole
+  bd_hole_backfire:
+    ball_switches: s_hole_backfire
+    eject_coil: c_hole_backfire
     eject_timeouts: 2s
     eject_coil_retry_pulse: 15s

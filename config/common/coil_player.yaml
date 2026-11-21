@@ -3,9 +3,9 @@
 coil_player:
   coil_pop1: c_pop1
   coil_pop2: c_pop2
-  coil_backfire: c_backfire_hole
-  coil_prix: c_prix_hole
-  coil_grand: c_grand_hole
+  coil_backfire: c_hole_backfire
+  coil_prix: c_hole_prix
+  coil_grand: c_hole_grand
   coil_chime1: c_chime1
   coil_chime2: c_chime2
   coil_chime3: c_chime3

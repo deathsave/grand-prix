@@ -13,17 +13,17 @@ variable_player:
   s_grooveline_active:
     score: 10
   # so skill shot isn't 1000 + 1
-  s_backfire_hole_active{not device.timers.skill_shot.running}:
+  s_hole_backfire_active{not device.timers.skill_shot.running}:
     score: 10
-  s_prix_hole_active:
+  s_hole_prix_active:
     score: 10
-  s_grand_hole_active:
+  s_hole_grand_active:
     score: 10
   s_spinner_active:
     score: 10
-  s_save_target_active:
+  s_target_save_active:
     score: 10
-  s_bonus_target_active:
+  s_target_bonus_active:
     score: 10
   s_swerve1_active:
     score: 10

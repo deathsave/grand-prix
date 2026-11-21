@@ -238,8 +238,8 @@ def race(t, lights):
     # outlanes and multiplier chase upward
     step = int(t * 6)
     for l in lights:
-        if l.group in ("bottom_outlane", "top_outlane"):
-            row = 0 if l.group == "bottom_outlane" else 1
+        if l.group in ("outlane_bottom", "outlane_top"):
+            row = 0 if l.group == "outlane_bottom" else 1
             out[l.name] = ON if step % 2 == row else BLACK
         elif l.group == "multiplier":
             out[l.name] = ON if step % 3 == l.index - 1 \
@@ -352,7 +352,7 @@ def pit_stop(t, lights):
     period = 0.5 - 0.42 * (t / duration)
     phase = int(t / period) % 2
     pit = {"l_pit_fuel": "cyan", "l_pit_lube": "purple",
-        "l_pit_tires": "hot_pink", "l_shoot_fuel": "cyan",
+        "l_pit_tires": "hot_pink", "l_pit_shoot_fuel": "cyan",
         "l_pit_arrow1": "sun", "l_pit_arrow2": "sun"}
     for l in lights:
         if l.name in pit:

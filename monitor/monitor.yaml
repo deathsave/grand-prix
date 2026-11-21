@@ -104,10 +104,10 @@ light:
   l_bonus_10:
     x: 0.9228771865889214
     y: 0.2011661807580175
-  l_bottom_outlane1:
+  l_outlane_bottom1:
     x: 0.5947430758017493
     y: 0.7900874635568514
-  l_bottom_outlane2:
+  l_outlane_bottom2:
     x: 0.9092049319727892
     y: 0.7886297376093294
   l_gi:
@@ -266,7 +266,7 @@ light:
   l_shoot_again:
     x: 0.7519740038872692
     y: 0.8017492711370262
-  l_shoot_fuel:
+  l_pit_shoot_fuel:
     x: 0.8
     y: 0.44
   l_signal1:
@@ -290,20 +290,20 @@ light:
   l_tach:
     x: 0.9502216958211857
     y: 0.030000000000000002
-  l_top_outlane1:
+  l_outlane_top1:
     x: 0.6015792031098154
     y: 0.6413994169096211
-  l_top_outlane2:
+  l_outlane_top2:
     x: 0.9023688046647231
     y: 0.6413994169096211
 switch:
-  s_backfire_hole:
+  s_hole_backfire:
     x: 0.750606778425656
     y: 0.10787172011661808
-  s_bonus_target:
+  s_target_bonus:
     x: 0.9180864741653257
     y: 0.5306122448979592
-  s_coindoor:
+  s_coin_door:
     x: 0.2852043780691101
     y: 0.7259475218658893
   s_disqualifier:
@@ -315,7 +315,7 @@ switch:
   s_flipper2:
     x: 0.4305227992757519
     y: 0.8877551020408163
-  s_grand_hole:
+  s_hole_grand:
     x: 0.5783363702623907
     y: 0.47230320699708467
   s_grooveline:
@@ -327,7 +327,7 @@ switch:
   s_inlane2:
     x: 0.8963566167886317
     y: 0.7186588921282799
-  s_multiball_target:
+  s_target_multiball:
     x: 0.64
     y: 0.36
   s_outlane1:
@@ -351,10 +351,10 @@ switch:
   s_pop2:
     x: 0.794357993197279
     y: 0.3017492711370262
-  s_prix_hole:
+  s_hole_prix:
     x: 0.9228771865889214
     y: 0.4708454810495627
-  s_save_target:
+  s_target_save:
     x: 0.5797035957240039
     y: 0.5349854227405249
   s_service_back:

@@ -83,7 +83,7 @@ def _start_backfire(self):
     self.advance_time_and_run(1)
 
     # then enters the top hole
-    self.hit_switch_and_run("s_backfire_hole", 1)
+    self.hit_switch_and_run("s_hole_backfire", 1)
     self.assertModeRunning("backfire")
 
     # ball kicked out
@@ -103,7 +103,7 @@ def _start_luxury(self):
     self.assertEqual(10,
         self.machine.game.player.luxury_counter_count)
     self.advance_time_and_run(1)
-    self.hit_and_release_switch("s_multiball_target")
+    self.hit_and_release_switch("s_target_multiball")
     self.assertModeRunning("luxury")
     self.advance_time_and_run(4)
 
@@ -122,7 +122,7 @@ def _start_grooveline(self):
     self.assertEqual(10, self.machine.game.player.lap_count)
     self.assertEqual(10, self.machine.game.player.grooveline_counter_count)
     self.advance_time_and_run(3)
-    self.hit_and_release_switch("s_multiball_target")
+    self.hit_and_release_switch("s_target_multiball")
     self.advance_time_and_run(3)
     self.assertModeRunning("grooveline")
     self.advance_time_and_run(4)
@@ -138,7 +138,7 @@ def _sim_grooveline(self):
 def _sim_grand_prix(self):
     self.machine.events.post("grand_prix_multiball_ready")
     # extra time needed here to eject the other balls
-    self.hit_switch_and_run("s_backfire_hole", 8)
+    self.hit_switch_and_run("s_hole_backfire", 8)
     self.assertModeRunning("grand_prix")
 
 # From https://github.com/missionpinball/mpf/blob \

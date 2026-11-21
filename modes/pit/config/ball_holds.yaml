@@ -3,7 +3,7 @@
 ball_holds:
   backfire_hole:
     balls_to_hold: 1
-    hold_devices: bd_backfire_hole
+    hold_devices: bd_hole_backfire
     release_all_events:
     - timer_backfire_tick{ticks == 30}
     enable_events:

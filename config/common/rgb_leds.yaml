@@ -88,7 +88,7 @@ lights:
     - tag_lights
     - tag_lights_grooveline
     - tag_rgb
-  l_grand_hole:
+  l_hole_grand:
     subtype: led
     number: 1-0-11
     tags:
@@ -149,14 +149,14 @@ lights:
     - tag_lights
     - tag_lights_mode
     - tag_rgb
-  l_prix_hole:
+  l_hole_prix:
     subtype: led
     number: 1-0-19
     tags:
     - tag_lights
     - tag_lights_grand
     - tag_rgb
-  l_shoot_fuel:
+  l_pit_shoot_fuel:
     subtype: led
     number: 1-0-20
     tags:

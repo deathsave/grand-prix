@@ -8,17 +8,17 @@ variable_player:
     score: 10 * current_player.multiplier|block
   s_grooveline_active:
     score: 100 * current_player.multiplier|block
-  s_backfire_hole_active{not device.timers.skill_shot.running}:
+  s_hole_backfire_active{not device.timers.skill_shot.running}:
     score: 500 * current_player.multiplier|block
-  s_prix_hole_active:
+  s_hole_prix_active:
     score: 100 * current_player.multiplier|block
-  s_grand_hole_active:
+  s_hole_grand_active:
     score: 100 * current_player.multiplier|block
   s_spinner_active:
     score: 10 * current_player.multiplier|block
-  s_save_target_active:
+  s_target_save_active:
     score: 10 * current_player.multiplier|block
-  s_bonus_target_active:
+  s_target_bonus_active:
     score: 10 * current_player.multiplier|block
   s_swerve1_active:
     score: 10 * current_player.multiplier|block

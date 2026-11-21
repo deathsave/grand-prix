@@ -66,16 +66,16 @@ coils:
   c_pop2:
     number: 1-0-2
   # 1-0-3 Unused (maybe burnt)?
-  c_backfire_hole:
+  c_hole_backfire:
     number: 1-0-4
     default_pulse_ms: 10
-  c_prix_hole:
+  c_hole_prix:
     number: 1-0-5
     default_pulse_ms: 18
   c_loop_gate:
     number: 1-0-6
     allow_enable: true
-  c_grand_hole:
+  c_hole_grand:
     number: 1-0-7
     default_pulse_ms: 15
   # 1-0-0 Unused

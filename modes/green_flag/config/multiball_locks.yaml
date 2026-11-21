@@ -5,7 +5,7 @@ multiball_locks:
     balls_to_lock: 1
     # locked_ball_counting_strategy: physical_only
     empty_lock_devices_on_ball_end: true
-    lock_devices: bd_grand_hole
+    lock_devices: bd_hole_grand
     enable_events:
     - logicblock_grand_counter_complete
     disable_events:
@@ -16,7 +16,7 @@ multiball_locks:
     balls_to_lock: 1
     empty_lock_devices_on_ball_end: true
     # locked_ball_counting_strategy: physical_only
-    lock_devices: bd_prix_hole
+    lock_devices: bd_hole_prix
     enable_events:
     - logicblock_prix_counter_complete
     disable_events:

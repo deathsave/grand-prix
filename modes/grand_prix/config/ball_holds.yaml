@@ -4,6 +4,6 @@
 # releases them on a super jackpot, hurry up or drain
 ball_holds:
   grand_prix_holes:
-    hold_devices: bd_grand_hole, bd_prix_hole, bd_backfire_hole
+    hold_devices: bd_hole_grand, bd_hole_prix, bd_hole_backfire
     balls_to_hold: 3
     enable_events: mode_grand_prix_started

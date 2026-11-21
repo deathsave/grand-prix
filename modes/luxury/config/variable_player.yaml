@@ -3,17 +3,17 @@
 variable_player:
   # Ensure applicable switches don't score on
   # top of the amplified luxury shots:
-  s_bonus_target_active:
+  s_target_bonus_active:
     score: 0|block
-  s_prix_hole_active:
+  s_hole_prix_active:
     score: 0|block
   s_spinner_active:
     score: 0|block
   s_grooveline_active:
     score: 0|block
-  s_grand_hole_active:
+  s_hole_grand_active:
     score: 0|block
-  s_save_target_active:
+  s_target_save_active:
     score: 0|block
   # Each of the six shots is awarded 25k
   luxury_available_hit:

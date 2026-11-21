@@ -27,7 +27,7 @@ class TestSkillShots(DeathSaveGameTesting):
         self.assertLightColor('l_backfire', 'black')
         self.assertLightColor('l_swerve2', 'white')
 
-        self.hit_and_release_switch("s_backfire_hole")
+        self.hit_and_release_switch("s_hole_backfire")
         self.assertEqual(self.machine.game.player.score, 25000)
 
         # restores all pit resources to max

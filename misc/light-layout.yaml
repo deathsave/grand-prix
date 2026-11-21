@@ -20,5 +20,5 @@ overrides:
   # in the playfield's corner)
   l_tach: [297, 320]
   # not in the monitor, so at their hole switches
-  l_grand_hole: [694, 532]
-  l_prix_hole: [1107, 530]
+  l_hole_grand: [694, 532]
+  l_hole_prix: [1107, 530]

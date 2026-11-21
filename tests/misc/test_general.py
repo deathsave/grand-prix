@@ -25,7 +25,7 @@ class TestGeneral(DeathSaveGameTesting):
 
     def _ball_live(self):
         self.hit_and_release_switch("s_shooter_lane")
-        self.hit_and_release_switch("s_save_target")
+        self.hit_and_release_switch("s_target_save")
         self.advance_time_and_run(4)
         self.assertEqual(1, self.machine.playfield.balls)
         self.assertEqual(0,

@@ -106,8 +106,8 @@ class TestMultiplier(DeathSaveGameTesting):
     #     self._complete_lap()
     #     self.assertEqual(2, self.machine.game.player.multiplier)
 
-    #     self.hit_and_release_switch("s_save_target")
+    #     self.hit_and_release_switch("s_target_save")
     #     self.assertEqual(2, self.machine.game.player.grand_counter_count)
 
-    #     self.hit_and_release_switch("s_bonus_target")
+    #     self.hit_and_release_switch("s_target_bonus")
     #     self.assertEqual(2, self.machine.game.player.prix_counter_count)

@@ -37,10 +37,10 @@ class TestBackfireMode(DeathSaveGameTesting):
         self.hit_and_release_switch("s_spinner")
         self.advance_time_and_run(1)
         # then enters the top hole
-        self.hit_switch_and_run("s_backfire_hole", 1)
+        self.hit_switch_and_run("s_hole_backfire", 1)
 
         self.assertEqual(1,
-            self.machine.ball_devices["bd_backfire_hole"].balls)
+            self.machine.ball_devices["bd_hole_backfire"].balls)
         self.assertModeRunning("backfire")
         # main timer should be running now
         self.assertEqual(True,
@@ -49,7 +49,7 @@ class TestBackfireMode(DeathSaveGameTesting):
         # ball is kicked out after 5 seconds
         self.advance_time_and_run(5)
         self.assertEqual(0,
-            self.machine.ball_devices["bd_backfire_hole"].balls)
+            self.machine.ball_devices["bd_hole_backfire"].balls)
 
         # timer expires after 30 more seconds and mode ends
         self.advance_time_and_run(30)

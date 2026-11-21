@@ -21,7 +21,7 @@ class TestExtraBalls(DeathSaveGameTesting):
         self.assertEqual(0, player.prix_counter_count)
 
         for i in range(4):
-            self.hit_and_release_switch("s_bonus_target")
+            self.hit_and_release_switch("s_target_bonus")
 
         # after a the next "sync", all the
         # prix inserts should be lit
@@ -38,7 +38,7 @@ class TestExtraBalls(DeathSaveGameTesting):
 
         # Player gets 3/4 hits
         for i in range(3):
-            self.hit_and_release_switch("s_bonus_target")
+            self.hit_and_release_switch("s_target_bonus")
             self.advance_time_and_run(1)
         self.assertEqual(3, player.awareness_counter_count)
 
@@ -55,7 +55,7 @@ class TestExtraBalls(DeathSaveGameTesting):
 
         # Another hit resets the disables and resets
         # the counter, but lights the extra ball
-        self.hit_and_release_switch("s_bonus_target")
+        self.hit_and_release_switch("s_target_bonus")
         self.assertEqual(0, player.awareness_counter_count)
 
         # This time it's collected
@@ -69,19 +69,19 @@ class TestExtraBalls(DeathSaveGameTesting):
         self._start_green_flag()
 
         for i in range(4):
-            self.hit_and_release_switch("s_bonus_target")
+            self.hit_and_release_switch("s_target_bonus")
         self.assertEqual(True,
             self.machine.counters["awareness_counter"].enabled)
         self.assertEqual(0, player.awareness_counter_count)
 
         # Player gets 3/4 hits
         for i in range(3):
-            self.hit_and_release_switch("s_bonus_target")
+            self.hit_and_release_switch("s_target_bonus")
             self.advance_time_and_run(1)
         self.assertEqual(3, player.awareness_counter_count)
 
         # Then gets in the hole, disqualifying the progress
-        self.hit_switch_and_run("s_prix_hole", 2)
+        self.hit_switch_and_run("s_hole_prix", 2)
         self.assertEqual(0, player.awareness_counter_count)
         self.hit_and_release_switch("s_inlane2")
         self.assertEqual(0, player.extra_balls)
@@ -89,7 +89,7 @@ class TestExtraBalls(DeathSaveGameTesting):
         # Player tries again with better awareness
         for i in range(4):
             self.assertEqual(i, player.awareness_counter_count)
-            self.hit_and_release_switch("s_bonus_target")
+            self.hit_and_release_switch("s_target_bonus")
             self.advance_time_and_run(1)
         self.assertEqual(0, player.awareness_counter_count)
         self.hit_and_release_switch("s_inlane2")

@@ -90,12 +90,12 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._start_luxury_multiball()
 
         score = self.machine.game.player.score
-        self.hit_switch_and_run("s_bonus_target", 1)
+        self.hit_switch_and_run("s_target_bonus", 1)
         self.assertEqual(
             score + 25000, self.machine.game.player.score)
 
         score = self.machine.game.player.score
-        self.hit_switch_and_run("s_prix_hole", 1)
+        self.hit_switch_and_run("s_hole_prix", 1)
         self.assertEqual(
             score + 25000, self.machine.game.player.score)
 
@@ -110,13 +110,13 @@ class TestLuxuryMode(DeathSaveGameTesting):
             score + 25000, self.machine.game.player.score)
 
         score = self.machine.game.player.score
-        self.hit_switch_and_run("s_grand_hole", 1)
+        self.hit_switch_and_run("s_hole_grand", 1)
         self.assertEqual(
             score + 25000, self.machine.game.player.score)
 
         # Getting 6/6 shots gives a 10x reward on top
         score = self.machine.game.player.score
-        self.hit_switch_and_run("s_save_target", 1)
+        self.hit_switch_and_run("s_target_save", 1)
         self.assertEqual(
             score + 25000 + 250000, self.machine.game.player.score)
 
@@ -164,7 +164,7 @@ class TestLuxuryMode(DeathSaveGameTesting):
     def test_skill_shot_step(self):
         self._start()
         self.assertModeNotRunning("green_flag")
-        self.hit_switch_and_run("s_backfire_hole", 2)
+        self.hit_switch_and_run("s_hole_backfire", 2)
         self.assertModeRunning("green_flag")
         self.assertEqual(
             1, self.machine.game.player.luxury_counter_count)

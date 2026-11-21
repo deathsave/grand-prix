@@ -5,11 +5,11 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
     # To qualify:
     #
-    # - Advance "GRAND" by hitting s_save_target
-    # - With GRAND lit, hit s_grand_hole to qualify "PRIX"
+    # - Advance "GRAND" by hitting s_target_save
+    # - With GRAND lit, hit s_hole_grand to qualify "PRIX"
     # - Ball will be locked
-    # - Advance "PRIX" by hitting s_bonus_target
-    # - With PRIX lit, hit s_prix_hole to lock another ball
+    # - Advance "PRIX" by hitting s_target_bonus
+    # - With PRIX lit, hit s_hole_prix to lock another ball
     # - Hit the multiball target to start the multiball
     #
     def test_qualification(self):
@@ -40,18 +40,18 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertLightColor('l_multiball', 'black')
 
         # Player needs to get into the backfire hole,
-        self.hit_switch_and_run("s_backfire_hole", 2)
+        self.hit_switch_and_run("s_hole_backfire", 2)
         self.assertModeRunning("grand_prix")
 
         # TODO: doesn't put the balls onto the playfield
         # self.assertEqual(3, self.machine.playfield.balls)
 
     def test_reactivation(self):
-        self.machine.coils["c_grand_hole"]. \
+        self.machine.coils["c_hole_grand"]. \
             pulse = MagicMock()
-        self.machine.coils["c_prix_hole"]. \
+        self.machine.coils["c_hole_prix"]. \
             pulse = MagicMock()
-        self.machine.coils["c_backfire_hole"]. \
+        self.machine.coils["c_hole_backfire"]. \
             pulse = MagicMock()
 
         self._start_and_expire_ball_save()
@@ -65,22 +65,22 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
         # locks have not released yet
         self.assertEqual(0, self.machine. \
-            coils["c_grand_hole"].pulse.call_count)
+            coils["c_hole_grand"].pulse.call_count)
         self.assertEqual(0, self.machine. \
-            coils["c_prix_hole"].pulse.call_count)
+            coils["c_hole_prix"].pulse.call_count)
         self.assertEqual(0, self.machine. \
-            coils["c_backfire_hole"].pulse.call_count)
+            coils["c_hole_backfire"].pulse.call_count)
 
         # getting into the backfire hole starts
         # the mode and releases the locks
-        self.hit_switch_and_run("s_backfire_hole", 1)
+        self.hit_switch_and_run("s_hole_backfire", 1)
         self.assertModeRunning("grand_prix")
         self.assertEqual(1, self.machine. \
-            coils["c_grand_hole"].pulse.call_count)
+            coils["c_hole_grand"].pulse.call_count)
         self.assertEqual(1, self.machine. \
-            coils["c_prix_hole"].pulse.call_count)
+            coils["c_hole_prix"].pulse.call_count)
         self.assertEqual(1, self.machine. \
-            coils["c_backfire_hole"].pulse.call_count)
+            coils["c_hole_backfire"].pulse.call_count)
         self.assertEqual(0, self.machine. \
             multiball_locks["grand_hole"].locked_balls)
         self.assertEqual(0, self.machine. \
@@ -175,7 +175,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
         # getting back into the backfire hole
         # DOES NOT restart the mode
-        self.hit_switch_and_run("s_backfire_hole", 2)
+        self.hit_switch_and_run("s_hole_backfire", 2)
         self.assertModeNotRunning("grand_prix")
 
         # Can be repeated later in the game
@@ -183,7 +183,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertModeNotRunning("grand_prix")
         self._qualify_prix()
         self.assertModeNotRunning("grand_prix")
-        self.hit_switch_and_run("s_backfire_hole", 2)
+        self.hit_switch_and_run("s_hole_backfire", 2)
         self.assertModeRunning("grand_prix")
 
     # Shots: get back into the Grand, Prix and Backfire holes
@@ -191,46 +191,46 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     # Each hole holds a ball and pays a jackpot
     def test_holes_hold_balls_for_jackpots(self):
         self._start_multiball()
-        self._enter("s_grand_hole")
+        self._enter("s_hole_grand")
         self.assertEqual(1, self._held())
         self.assertEqual(1, self._jackpots())
-        self._enter("s_prix_hole")
+        self._enter("s_hole_prix")
         self.assertEqual(2, self._held())
         self.assertEqual(2, self._jackpots())
-        self.assertEqual(1, self.machine.ball_devices["bd_grand_hole"].balls)
-        self.assertEqual(1, self.machine.ball_devices["bd_prix_hole"].balls)
+        self.assertEqual(1, self.machine.ball_devices["bd_hole_grand"].balls)
+        self.assertEqual(1, self.machine.ball_devices["bd_hole_prix"].balls)
 
     # 30s without another hole ejects ONE ball (the most
     # recent), then 30s more ejects the next
     def test_hurry_up_ejects_one_ball(self):
         self._start_multiball()
-        self._enter("s_grand_hole")
+        self._enter("s_hole_grand")
         self.advance_time_and_run(20)
-        self._enter("s_prix_hole")
+        self._enter("s_hole_prix")
         # 30s is counted from the 2nd hole
         self.advance_time_and_run(25)
         self.assertEqual(2, self._held())
         self.advance_time_and_run(6)
         self.assertEqual(1, self._held())
-        self.assertEqual(1, self.machine.ball_devices["bd_grand_hole"].balls)
-        self.assertEqual(0, self.machine.ball_devices["bd_prix_hole"].balls)
+        self.assertEqual(1, self.machine.ball_devices["bd_hole_grand"].balls)
+        self.assertEqual(0, self.machine.ball_devices["bd_hole_prix"].balls)
         self.advance_time_and_run(30)
         self.assertEqual(0, self._held())
-        self.assertEqual(0, self.machine.ball_devices["bd_grand_hole"].balls)
+        self.assertEqual(0, self.machine.ball_devices["bd_hole_grand"].balls)
 
     # Getting back into a hole that timed out holds the ball
     # again, and every hole shares the one 30s timer
     def test_reentering_timed_out_hole(self):
         self._start_multiball()
-        grand = self.machine.ball_devices["bd_grand_hole"]
-        self._enter("s_grand_hole")
+        grand = self.machine.ball_devices["bd_hole_grand"]
+        self._enter("s_hole_grand")
         self.advance_time_and_run(31)
         self.assertEqual(0, self._held())
         self.advance_time_and_run(3)
-        self._enter("s_grand_hole")
+        self._enter("s_hole_grand")
         self.assertEqual(1, self._held())
         self.advance_time_and_run(20)
-        self._enter("s_prix_hole")
+        self._enter("s_hole_prix")
         # 29s after the prix hole (49s after grand):
         # both still held
         self.advance_time_and_run(28)
@@ -245,14 +245,14 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     # Going 2 -> 1 -> 2 does not pay the 2nd jackpot again
     def test_jackpots_once_per_sequence(self):
         self._start_multiball()
-        self._enter("s_grand_hole")
-        self._enter("s_prix_hole")
+        self._enter("s_hole_grand")
+        self._enter("s_hole_prix")
         self.assertEqual(2, self._jackpots())
         self.advance_time_and_run(31)
         self.assertEqual(1, self._held())
         # the ejected ball comes back around
         self.advance_time_and_run(3)
-        self._enter("s_prix_hole")
+        self._enter("s_hole_prix")
         self.assertEqual(2, self._held())
         self.assertEqual(2, self._jackpots())
 
@@ -260,9 +260,9 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     def test_super_jackpot(self):
         self._start_multiball()
         score = self.machine.game.player.score
-        self._enter("s_grand_hole")
-        self._enter("s_prix_hole")
-        self._enter("s_backfire_hole")
+        self._enter("s_hole_grand")
+        self._enter("s_hole_prix")
+        self._enter("s_hole_backfire")
         self.assertEqual(3, self._jackpots())
         self.assertEqual(1, self._super_jackpots())
         self.assertGreaterEqual(self.machine.game.player.score - score,
@@ -271,21 +271,21 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(0, self._held())
         for hole in ["grand", "prix", "backfire"]:
             self.assertEqual(0, self.machine. \
-                ball_devices[f"bd_{hole}_hole"].balls)
+                ball_devices[f"bd_hole_{hole}"].balls)
         # and the sequence pays jackpots again
-        self._enter("s_prix_hole")
+        self._enter("s_hole_prix")
         self.assertEqual(4, self._jackpots())
 
     # A drain empties every hole
     def test_drain_empties_holes(self):
         self._start_multiball()
-        self._enter("s_grand_hole")
-        self._enter("s_prix_hole")
+        self._enter("s_hole_grand")
+        self._enter("s_hole_prix")
         self._drain_one_ball()
         self.advance_time_and_run(3)
         self.assertEqual(0, self._held())
-        self.assertEqual(0, self.machine.ball_devices["bd_grand_hole"].balls)
-        self.assertEqual(0, self.machine.ball_devices["bd_prix_hole"].balls)
+        self.assertEqual(0, self.machine.ball_devices["bd_hole_grand"].balls)
+        self.assertEqual(0, self.machine.ball_devices["bd_hole_prix"].balls)
         self.assertModeRunning("grand_prix")
         # and the hurry up is cancelled (no further ejects)
         self.advance_time_and_run(31)
@@ -299,12 +299,12 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self._drain_one_ball()
         self.advance_time_and_run(4)
         self.assertEqual(2, self.machine.game.balls_in_play)
-        self._enter("s_grand_hole")
+        self._enter("s_hole_grand")
         self.assertEqual(1, self._held())
         self._drain_one_ball()
         self.advance_time_and_run(4)
         self.assertModeNotRunning("grand_prix")
-        self.assertEqual(0, self.machine.ball_devices["bd_grand_hole"].balls)
+        self.assertEqual(0, self.machine.ball_devices["bd_hole_grand"].balls)
         self.assertEqual(1, self.machine.game.balls_in_play)
 
     # GRAND chases 5 -> 1 and PRIX 1 -> 4 (each light staying
@@ -332,8 +332,8 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         grand = [f"l_grand_0{i}" for i in range(1, 6)]
         prix = [f"l_prix_0{i}" for i in range(1, 5)]
         swerve = ["l_swerve1", "l_swerve2"]
-        self._enter("s_grand_hole")
-        self._enter("s_backfire_hole")
+        self._enter("s_hole_grand")
+        self._enter("s_hole_backfire")
         prix_counts = set()
         for i in range(30):
             self.advance_time_and_run(0.1)
@@ -406,7 +406,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
     def _qualify_grand(self):
         for i in range(5):
-            self.hit_and_release_switch("s_save_target")
+            self.hit_and_release_switch("s_target_save")
             self.assertModeRunning("green_flag")
 
         # after a the next "sync", all the
@@ -417,7 +417,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
                 format(i + 1), 'white')
 
         # Ball is held after entering the grand hole
-        self.hit_switch_and_run("s_grand_hole", 1)
+        self.hit_switch_and_run("s_hole_grand", 1)
         self.assertEqual(False,
             self.machine.counters["grand_counter"].enabled)
         self.assertEqual(True, self.machine. \
@@ -427,7 +427,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
     def _qualify_prix(self):
         for i in range(4):
-            self.hit_and_release_switch("s_bonus_target")
+            self.hit_and_release_switch("s_target_bonus")
 
         # after a the next "sync", all the
         # prix inserts should be lit
@@ -437,7 +437,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
                 format(i + 1), 'white')
 
         # Ball is held after entering the prix hole
-        self.hit_switch_and_run("s_prix_hole", 1)
+        self.hit_switch_and_run("s_hole_prix", 1)
         self.assertEqual(False,
             self.machine.counters["prix_counter"].enabled)
         self.assertEqual(True, self.machine. \

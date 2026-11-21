@@ -19,12 +19,12 @@ switches:
     tags:
     - start
   # N/C 0-2-25
-  s_grand_hole:
+  s_hole_grand:
     number: 0-1-26
     tags:
     - tag_hole
     - tag_bell
-  s_multiball_target:
+  s_target_multiball:
     number: 0-1-27
     tags:
     - playfield_active
@@ -92,7 +92,7 @@ switches:
   s_trough3:
     number: 0-3-28
     type: NC
-  s_save_target:
+  s_target_save:
     number: 0-3-29
     tags:
     - playfield_active
@@ -128,18 +128,18 @@ switches:
     tags:
     - playfield_active
     - pit_resource
-  s_backfire_hole:
+  s_hole_backfire:
     number: 1-0-18
     tags:
     - tag_hole
     - tag_bell
-  s_bonus_target:
+  s_target_bonus:
     number: 1-0-19
     tags:
     - playfield_active
     - tag_rev
     - tag_bell
-  s_prix_hole:
+  s_hole_prix:
     number: 1-0-20
     tags:
     - tag_hole
@@ -168,7 +168,7 @@ switches:
     number: 1-0-24
     tags:
     - tilt_warning
-  s_coindoor:
+  s_coin_door:
     number: 1-0-25
   s_service_forward:
     number: 1-0-26

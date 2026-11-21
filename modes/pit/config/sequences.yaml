@@ -8,5 +8,5 @@ sequences:
     - timer_backfire_qualification_ended
     events:
     - s_spinner_active
-    - s_backfire_hole_active
+    - s_hole_backfire_active
     disable_on_complete: true

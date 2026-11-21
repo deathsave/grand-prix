@@ -12,11 +12,11 @@ Activation
 
 ### 1. P-R-I-X Lock
 
-1. The **Advance Awareness Bonus** target `s_bonus_target` increments the 
+1. The **Advance Awareness Bonus** target `s_target_bonus` increments the 
    `prix_counter`.
 1. With "P R I X" lit, additional hits to the same target reverse the sequence
    per the `awareness_counter` in `./modes/green_flag/config/counters.yaml`.
-1. **Carefully** hitting the target 4 times without entering the `s_prix_hole`
+1. **Carefully** hitting the target 4 times without entering the `s_hole_prix`
    will light the Extra Ball per `./modes/pit/config/light_player.yaml`.
 1. Claim the extra ball by entering the right-side inline via the
    `s_top_inlane2` switch.

@@ -82,21 +82,21 @@ keyboard:
   x:
     switch: s_tilt
   m:
-    switch: s_multiball_target
+    switch: s_target_multiball
 
   # # Scoops & grouped switched
   # b+h:
-  #   switch: s_backfire_hole
+  #   switch: s_hole_backfire
 
   # g+h:
-  #   switch: s_grand_hole
+  #   switch: s_hole_grand
   # g+t:
-  #   switch: s_save_target
+  #   switch: s_target_save
 
   # p+h:
-  #   switch: s_prix_hole
+  #   switch: s_hole_prix
   # p+t:
-  #   switch: s_save_target
+  #   switch: s_target_save
 
   # Pit Resources
   f:

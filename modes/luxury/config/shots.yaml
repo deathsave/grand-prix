@@ -2,12 +2,12 @@
 
 shots:
   luxury_a:
-    switch: s_bonus_target
+    switch: s_target_bonus
     profile: lights_blink_then_on
     show_tokens:
       lights: l_prix_01
   luxury_b:
-    switch: s_prix_hole
+    switch: s_hole_prix
     profile: lights_blink_then_on
     show_tokens:
       lights: l_prix_04
@@ -22,12 +22,12 @@ shots:
     show_tokens:
       lights: l_grooveline_01
   luxury_e:
-    switch: s_grand_hole
+    switch: s_hole_grand
     profile: lights_blink_then_on
     show_tokens:
       lights: l_grand_01
   luxury_f:
-    switch: s_save_target
+    switch: s_target_save
     profile: lights_blink_then_on
     show_tokens:
       lights: l_grand_05
