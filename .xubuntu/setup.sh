@@ -30,8 +30,15 @@ sudo sed -i -e 's/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:backspace\"/g' /etc/default/
 sudo dpkg-reconfigure keyboard-configuration
 
 # Alias serial devices
-[ -f "/etc/udev/rules.d/opp.rules" ] && sudo rm "/etc/udev/rules.d/opp.rules"
+[ -e "/etc/udev/rules.d/opp.rules" ] && sudo rm "/etc/udev/rules.d/opp.rules"
 sudo ln -s $HOME/grand-prix/.xubuntu/opp.rules /etc/udev/rules.d/opp.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger --subsystem-match=tty
+
+# ModemManager probes new USB serial ports at boot and can confuse the
+# OPP/Arduino boards. A pinball machine has no modem, so turn it off.
+sudo systemctl disable --now ModemManager 2>/dev/null || true
+sudo systemctl mask ModemManager 2>/dev/null || true
 
 # Install systemd service for auto-restart
 [ -f "/etc/systemd/system/grand-prix.service" ] && sudo rm "/etc/systemd/system/grand-prix.service"

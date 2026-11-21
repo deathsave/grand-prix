@@ -1,16 +1,15 @@
-# # OPP Chain 1
-# SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-8/1-8:1.0/*", SYMLINK+="ttyOPP1", GROUP="adm", MODE="0660"
-# # The Cobrapin Board (OPP Chain 2)
-# SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-5/1-5:1.0/*", SYMLINK+="ttyOPP1", GROUP="adm", MODE="0660"
-# # My Pinballs Displays
-# SUBSYSTEM=="tty", ACTION=="add", DEVPATH=="/devices/pci0000:00/0000:00:15.0/usb1/1-6/1-6:1.0/*", SYMLINK+="ttyMYPB", GROUP="adm", MODE="0660"
+# Stable names for the pinball serial boards.
+#
+# ID_MM_DEVICE_IGNORE stops ModemManager from probing these ports with AT
+# commands at boot, which can leave the boards in a bad state so MPF can't
+# talk to them. TAG+="systemd" creates dev-tty*.device units so the
+# grand-prix service can wait for the ports to exist before starting MPF.
 
-# OPP Chain 1 - Cypress Thermometer (hidraw fallback)
-SUBSYSTEM=="tty", ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="0002", SYMLINK+="ttyOPP0"
+# OPP Chain 1 - Cypress PSoC4 (reports as "CY7C63x0x Thermometer")
+SUBSYSTEM=="tty", ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="0002", SYMLINK+="ttyOPP0", ENV{ID_MM_DEVICE_IGNORE}="1", TAG+="systemd"
 
-# OPP Chain 2 - STMicro Virtual COM Port
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", SYMLINK+="ttyOPP1"
+# OPP Chain 2 - Cobrapin (STMicro Virtual COM Port)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", SYMLINK+="ttyOPP1", ENV{ID_MM_DEVICE_IGNORE}="1", TAG+="systemd"
 
-# Pinballs Segment Displays - Arduino Uno
-SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", SYMLINK+="ttyMYPB"
-
+# My Pinballs Segment Displays - Arduino Uno
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", SYMLINK+="ttyMYPB", ENV{ID_MM_DEVICE_IGNORE}="1", TAG+="systemd"

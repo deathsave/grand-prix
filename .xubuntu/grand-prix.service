@@ -1,6 +1,8 @@
 [Unit]
 Description=Grand Prix '86 Pinball Machine
-After=network.target graphical.target sound.target
+After=network.target graphical.target sound.target dev-ttyOPP0.device dev-ttyOPP1.device dev-ttyMYPB.device
+# Wait for the udev serial symlinks (see opp.rules) before launching MPF
+Wants=dev-ttyOPP0.device dev-ttyOPP1.device dev-ttyMYPB.device
 
 [Service]
 Type=simple
