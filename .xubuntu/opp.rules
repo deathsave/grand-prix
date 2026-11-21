@@ -5,7 +5,8 @@
 # talk to them. TAG+="systemd" creates dev-tty*.device units so the
 # grand-prix service can wait for the ports to exist before starting MPF.
 
-# OPP Chain 1 - Cypress PSoC4 (reports as "CY7C63x0x Thermometer")
+# OPP Chain 1 - Cypress USB-Serial bridge (shares its ID with the cytherm
+# thermometer driver, see blacklist-cytherm.conf)
 SUBSYSTEM=="tty", ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="0002", SYMLINK+="ttyOPP0", ENV{ID_MM_DEVICE_IGNORE}="1", TAG+="systemd"
 
 # OPP Chain 2 - Cobrapin (STMicro Virtual COM Port)
