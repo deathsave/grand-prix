@@ -10,8 +10,6 @@
     splash_slide:
       action: play
   events: attract_tip_clear
+# The Tips mode plays the tip's slide (see modes/tips)
 - duration: 15s
-  slides:
-    tip_slide:
-      action: play
   events: attract_tip

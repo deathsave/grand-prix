@@ -12,8 +12,20 @@ slides:
   - widget: third_place
   - widget: laps_champ_label
   - widget: laps_champ_value
+  # Gameplay tips (see modes/tips). A tip with an `image`
+  # uses tip_<image>_slide: that mode's background under an
+  # 80% black overlay. Tips without one use tip_slide.
   tip_slide:
   - widget: tip_background
+  - widget: tip_header
+  - widget: tip_title
+  - widget: tip_line1
+  - widget: tip_line2
+  - widget: tip_line3
+  - widget: tip_line4
+  tip_green_flag_slide:
+  - widget: green_flag_background
+  - widget: tip_dim
   - widget: tip_header
   - widget: tip_title
   - widget: tip_line1

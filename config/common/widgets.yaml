@@ -297,13 +297,21 @@ widgets:
     height: 480
     color: 000000
     z: 0
+  # dims a mode's background image behind the tip text
+  tip_dim:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.8
+    z: 1
   tip_header:
   - type: text
     text: "Pit Crew Tip"
     anchor_x: left
     x: 5%
     y: bottom+88%
-    z: 1
+    z: 2
     color: pink
     style: text_default
     font_size: 32
@@ -313,7 +321,7 @@ widgets:
     anchor_x: left
     x: 5%
     y: bottom+74%
-    z: 1
+    z: 2
     color: lime
     style: text_default
     font_size: 60
@@ -323,7 +331,7 @@ widgets:
     anchor_x: left
     x: 5%
     y: bottom+54%
-    z: 1
+    z: 2
     color: white
     style: medium
     font_size: 22
@@ -333,7 +341,7 @@ widgets:
     anchor_x: left
     x: 5%
     y: bottom+43%
-    z: 1
+    z: 2
     color: white
     style: medium
     font_size: 22
@@ -343,7 +351,7 @@ widgets:
     anchor_x: left
     x: 5%
     y: bottom+32%
-    z: 1
+    z: 2
     color: white
     style: medium
     font_size: 22
@@ -353,7 +361,7 @@ widgets:
     anchor_x: left
     x: 5%
     y: bottom+21%
-    z: 1
+    z: 2
     color: white
     style: medium
     font_size: 22

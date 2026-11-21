@@ -2,8 +2,14 @@
 #
 # Each tip has a title and up to 4 lines. Keep lines under
 # ~48 characters so they fit the 800px apron display.
+#
+# `image` (optional) shows that mode's background behind the
+# tip, dimmed. It needs a matching tip_<image>_slide in
+# config/common/slides.yaml and a line in the Tips mode's
+# config/slide_player.yaml.
 
 - title: Get Under Green
+  image: green_flag
   lines:
   - "1. Skill shot: plunge into the Backfire Hole"
   - "2. Fill up fuel, lube & tires in the pit"

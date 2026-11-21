@@ -56,11 +56,19 @@ class Tips(Mode):
         self.tip_index += 1
 
         self.clear()
+        self.machine.events.post(self.slide_for(tip))
         lines = (tip.get("lines") or [])[:len(self.LINE_VARS)]
         self.queue = [ (self.TITLE_VAR, tip["title"]) ] + \
             list(zip(self.LINE_VARS, lines))
         self.chars = 0
         self.delay.add(self.CHAR_MS, self.type_next_char, "typing")
+
+    # Tips with an image use that mode's background
+    # (tip_<image>_slide), otherwise the plain tip_slide.
+    # The event and slide share a name (see slide_player).
+    def slide_for(self, tip):
+        image = tip.get("image")
+        return f"tip_{image}_slide" if image else "tip_slide"
 
     # Reveals one more character of the current line, then
     # schedules itself until every line has been typed

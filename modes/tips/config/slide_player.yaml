@@ -1,0 +1,7 @@
+#config_version=6
+
+# The Tips mode code posts the slide's name as an
+# event when a tip comes up (see code/tips.py)
+slide_player:
+  tip_slide: tip_slide
+  tip_green_flag_slide: tip_green_flag_slide
