@@ -44,6 +44,10 @@ player_vars:
     initial_value: 0
   spin_counter_count:
     initial_value: 0
+  # a luxury step earned before green flag
+  # starts (see pit variable/event players)
+  luxury_step_pending:
+    initial_value: 0
   backfire_counter_count:
     initial_value: 0
 

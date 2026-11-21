@@ -35,10 +35,10 @@
 - title: Lap of Luxury
   mode: luxury
   lines:
-  - "Every 10 Spinner hits under green lights"
-  - "a Luxury insert. It never resets!"
+  - "Light Luxury inserts under green with laps,"
+  - "8 spins/swerves (2X counts double), skill"
+  - "shots & Backfire Pops. It never resets!"
   - "Light all 10, then hit the multiball target"
-  - "Collect lit inserts for big money"
 
 - title: Grand Prix Multiball
   mode: grand_prix

@@ -32,11 +32,12 @@ Plunge directly into the Backfire Hole on your first launch:
 - Awards 25,000 points
 - All pit resources (fuel, lube, tires) are maxed out
 - Green Flag mode starts immediately
+- Lights a Luxury insert
 
 **Off the Line** (Under a Green Flag)
 
 
-When a ball begins under a Green Flag, a chime countdown keeps you honest.  Launch the ball out of the shooter lane during the brief window at the end to pocket an extra 5,000 points with a shit-eating grin.
+When a ball begins under a Green Flag, a chime countdown keeps you honest.  Launch the ball out of the shooter lane during the brief window at the end to pocket an extra 5,000 points (and a Luxury insert) with a shit-eating grin.
 
 #### Green-flag (Main Mode)
 
@@ -102,9 +103,16 @@ There are no scoring bonuses here, yet. Sorry bro.
 
 ![Luxury](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/luxury.jpeg)
 
-Crush the Spinner during Green Flag across multiple balls to max out the bonus, lighting all inserts in the North-East chain and qualifying the "Lap of Luxury".
+Race in style during Green Flag across multiple balls to max out the bonus, lighting all inserts in the North-East chain and qualifying the "Lap of Luxury".
 
-- Every 10 Spinner hits during Green Flag advances one Luxury step
+Each Luxury step lights an insert (worth 10,000 in the end of ball bonus). Steps come from:
+
+- Every 8 Spinner hits during Green Flag. Swerve hits count as Spinner hits too
+- With the multiplier, each Spinner or Swerve hit counts that many times (2X counts double)
+- Every lap
+- The Backfire Skill Shot and Off the Line
+- Completing Backfire Pops (getting back under green)
+
 - Progress accumulates across all balls (it never resets)
 - North-East bonus inserts show your progress
 - Light all 10 Luxury inserts to qualify

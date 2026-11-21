@@ -15,20 +15,23 @@ class TestLuxuryMode(DeathSaveGameTesting):
         # and that means the spinner at least was hit once
         self.assertEqual(
             1, self.machine.game.player.spin_counter_count)
-        # but it takes a lot of spins to qualify 1 luxury step
+        # each lap is a luxury step
         self.assertEqual(
-            0, self.machine.game.player.luxury_counter_count)
+            1, self.machine.game.player.luxury_counter_count)
 
-        for i in range(8):
+        # and so is every 8 spins
+        for i in range(6):
             self.hit_and_release_switch("s_spinner")
             self.advance_time_and_run(1)
         self.assertEqual(
-            9, self.machine.game.player.spin_counter_count)
+            7, self.machine.game.player.spin_counter_count)
+        self.assertEqual(
+            1, self.machine.game.player.luxury_counter_count)
         self.hit_and_release_switch("s_spinner")
         self.assertEqual(
             0, self.machine.game.player.spin_counter_count)
         self.assertEqual(
-            1, self.machine.game.player.luxury_counter_count)
+            2, self.machine.game.player.luxury_counter_count)
 
         # ball drains and ball 2 begins
         for i in range(2):
@@ -44,13 +47,13 @@ class TestLuxuryMode(DeathSaveGameTesting):
         # Count doesn't reset between balls
         # in contrast with grooveline mode
         self.assertEqual(
-            1, self.machine.game.player.luxury_counter_count)
+            2, self.machine.game.player.luxury_counter_count)
         self.assertEqual(
             0, self.machine.game.player.grooveline_counter_count)
 
         # Lights in top-east chain show progress
         self.assertLightColor('l_bonus_01', 'white')
-        self.assertLightColor('l_bonus_02', 'black')
+        self.assertLightColor('l_bonus_02', 'white')
         self.assertLightColor('l_bonus_03', 'black')
         # etc...
 
@@ -132,3 +135,87 @@ class TestLuxuryMode(DeathSaveGameTesting):
             self.machine.ball_devices["bd_shooter_lane"].balls)
         self.assertEqual(True, self.machine. \
             multiballs["luxury"].enabled)
+
+    # With the multiplier, each spin counts that many times
+    def test_multiplier_spins(self):
+        self._start()
+        self._start_green_flag()
+        player = self.machine.game.player
+        player.multiplier = 2
+        for i in range(3):
+            self.hit_and_release_switch("s_spinner")
+            self.advance_time_and_run(0.5)
+        self.assertEqual(6, player.spin_counter_count)
+        self.assertEqual(0, player.luxury_counter_count)
+        # reaching 8 (or more) completes a step
+        # (extra counts past 8 are not carried over)
+        player.multiplier = 3
+        self.hit_and_release_switch("s_spinner")
+        self.advance_time_and_run(0.5)
+        self.assertEqual(1, player.luxury_counter_count)
+        self.assertEqual(0, player.spin_counter_count)
+        # back to 1X
+        player.multiplier = 1
+        self.hit_and_release_switch("s_spinner")
+        self.advance_time_and_run(0.5)
+        self.assertEqual(1, player.spin_counter_count)
+
+    # The skill shot (which drops the green flag) is a step
+    def test_skill_shot_step(self):
+        self._start()
+        self.assertModeNotRunning("green_flag")
+        self.hit_switch_and_run("s_backfire_hole", 2)
+        self.assertModeRunning("green_flag")
+        self.assertEqual(
+            1, self.machine.game.player.luxury_counter_count)
+
+    # Off the line is a step
+    def test_off_the_line_step(self):
+        self._start()
+        self._start_green_flag()
+        self.machine.events.post("off_the_line_hit")
+        self.advance_time_and_run(1)
+        self.assertEqual(
+            1, self.machine.game.player.luxury_counter_count)
+
+    # Completing Backfire Pops (back to green) is a step
+    def test_backfire_pops_step(self):
+        self._start()
+        self._start_backfire()
+        self.assertEqual(
+            0, self.machine.game.player.luxury_counter_count)
+        for i in range(10):
+            self.hit_and_release_switch("s_pop1")
+            self.advance_time_and_run(1)
+        self.assertModeRunning("green_flag")
+        self.assertEqual(
+            1, self.machine.game.player.luxury_counter_count)
+
+    # Swerve hits count like spinner hits
+    def test_swerve_counts_as_spins(self):
+        self._start()
+        self._start_green_flag()
+        player = self.machine.game.player
+        self.hit_and_release_switch("s_swerve1")
+        self.hit_and_release_switch("s_swerve2")
+        self.hit_and_release_switch("s_spinner")
+        self.advance_time_and_run(0.5)
+        self.assertEqual(3, player.spin_counter_count)
+        # and count extra with the multiplier
+        player.multiplier = 2
+        self.hit_and_release_switch("s_swerve1")
+        self.advance_time_and_run(0.5)
+        self.assertEqual(5, player.spin_counter_count)
+        # 8 total is a luxury step
+        for i in range(3):
+            self.hit_and_release_switch("s_swerve2")
+            self.advance_time_and_run(0.5)
+        self.assertEqual(1, player.luxury_counter_count)
+
+    # Not outside of green flag
+    def test_swerve_needs_green_flag(self):
+        self._start()
+        self.assertModeNotRunning("green_flag")
+        self.hit_and_release_switch("s_swerve1")
+        self.advance_time_and_run(0.5)
+        self.assertEqual(0, self.machine.game.player.spin_counter_count)

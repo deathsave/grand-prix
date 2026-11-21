@@ -7,8 +7,8 @@ coil_player:
   # Make sure the disqualifier is reset after ball
   ball_ending: c_disqualifier_down
   mode_bonus_started: c_disqualifier_down
-  # Spinner activates the chimebox in sequence every 3 spins
-  # and pulses all together on completion of 20 spins
+  # Spinner plays the chimebox in sequence (1, 2, 3, ...)
+  # and pulses all together on completing a spin_counter step
   s_spinner_active{current_player.spin_counter_count == 1}:
     c_chime1:
       action: pulse
@@ -29,12 +29,6 @@ coil_player:
       action: pulse
   s_spinner_active{current_player.spin_counter_count == 7}:
     c_chime1:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 8}:
-    c_chime2:
-      action: pulse
-  s_spinner_active{current_player.spin_counter_count == 9}:
-    c_chime3:
       action: pulse
   logicblock_spin_counter_complete:
     c_chime1:

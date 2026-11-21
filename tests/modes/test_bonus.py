@@ -34,19 +34,19 @@ class TestBonusMode(DeathSaveMcTesting):
         self.assertEqual(chime1_count,
             self.machine.coils["c_chime1"].pulse.call_count)
 
-        # Spinner hit 30 times to bump the first
-        # three bonus inserts
-        for i in range(30):
+        # Spinner hit 24 times (8 per step) to bump
+        # the first three bonus inserts
+        for i in range(24):
             self._assertIncrement("score", "s_spinner", 10)
             self.advance_time_and_run(1)
         ball1_score = self.machine.game.player.score
-        self.assertEqual(100 + (30 * 10), ball1_score)
+        self.assertEqual(100 + (24 * 10), ball1_score)
         self.assertEqual(
             3, self.machine.game.player.luxury_counter_count)
 
         # 4 chimes per counter value:
         #   1st, 4th, and 7th spinner hits as well as
-        #   part of a "chord" on the 10th spinner hit
+        #   part of a "chord" on the 8th spinner hit
         chime1_count += ( \
             self.machine.game.player.luxury_counter_count * 4)
         self.assertEqual(chime1_count,
@@ -137,6 +137,7 @@ class TestBonusMode(DeathSaveMcTesting):
         # next ball begins and bonus has been added
         self.assertEqual(2, self.machine.game.player.ball)
 
-        # bonus of 1000 per lap made
-        self.assertEqual(650 + 5000,
+        # bonus of 1000 per lap made, and each lap
+        # also lit a luxury insert (10,000 each)
+        self.assertEqual(650 + 5000 + 50000,
             self.machine.game.player.score)

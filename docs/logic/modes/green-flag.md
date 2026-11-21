@@ -28,6 +28,8 @@ Making Laps
 Shows
 -----
 
-- Hitting the `s_spinner` hits each of the 3 chimes in sequence 3 times. On the
-  10th hit, all 3 chimes sound together and pulse the shaker motor. This syncs
-  with the current value of `spin_counter_count`.
+- Hitting the `s_spinner` plays the 3 chimes in sequence (1, 2, 3, 1, 2, 3,
+  1). On completing a `spin_counter` step (8 counts), all 3 chimes sound
+  together and pulse the shaker motor. This syncs with the current value of
+  `spin_counter_count` (with the multiplier or swerve hits counting too, some
+  chimes are skipped).

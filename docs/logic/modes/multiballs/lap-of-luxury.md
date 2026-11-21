@@ -1,27 +1,38 @@
 Lap of Luxury Multiball
 =======================
 
-    Updated 5/24/26 by unrared.
+    Updated 11/21/26 by unrared.
 
-Lap of Luxury is practically exclusively driven by hitting the Spinner.
+Lap of Luxury is driven by the `luxury_counter`, which persists across all
+balls. Each step lights a Luxury/Bonus insert (worth 10,000 in the end of ball
+bonus).
 
 ![Luxury](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/luxury.jpeg)
 
 Activation
 ----------
 
-1. Hitting the spinner during `green_flag` increments the `spin_counter` in 
-   `./modes/green_flag/config/counters.yaml` which
-   is **completed at 10 spinner hits** and triggers the 
-   `logicblock_spin_counter_complete` event.
-1. The `luxury_counter` also in `./modes/green_flag/config/counters.yaml` 
-   is incremented at this time.
-1. The `luxury_qualifier` sequence shot in
-    `./modes/green_flag/config/sequence_shots.yaml` comes into play after
-   another 9 of these (100 total hits of `s_spinner`) when the 
-   `logicblock_luxury_counter_complete` event is triggered.
-1. The multiball insert will now flash and hitting the `s_multiball_target`
-  begins the mode.
+The `luxury_counter` in `./modes/green_flag/config/counters.yaml` advances a
+step on any of:
+
+1. **Spins:** the `spin_counter` (same file) counts `s_spinner` and the
+   `tag_swerve` switches during `green_flag` and is **completed at 8**,
+   triggering `logicblock_spin_counter_complete`. With the `multiplier` above
+   1, each hit counts `multiplier` times (via `control_events`). Counts past 8
+   are not carried over to the next step.
+1. **Laps:** every `logicblock_lap_counter_hit`.
+1. **Off the Line:** `off_the_line_hit`.
+1. **Skill shot and Backfire Pops:** `skill_backfire_hit` and
+   `logicblock_backfire_counter_complete` both START `green_flag` (so the
+   counter isn't running yet). `./modes/pit/config/variable_player.yaml` sets
+   the `luxury_step_pending` player variable, and once `green_flag` has
+   started, `./modes/pit/config/event_player.yaml` posts `luxury_step` to
+   award it.
+
+Once all 10 steps are lit (`logicblock_luxury_counter_complete`), the
+`luxury_qualifier` sequence shot in
+`./modes/green_flag/config/sequence_shots.yaml` comes into play. The multiball
+insert will now flash and hitting the `s_multiball_target` begins the mode.
 
 ![Multiball Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/multiball.jpeg)
 

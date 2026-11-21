@@ -32,14 +32,27 @@ counters:
     reset_on_complete: true
     disable_on_complete: false
 
+  # Every 8 spins is a step of the luxury_counter.
+  # The swerve switches count like spinner hits.
   spin_counter:
-    count_events: s_spinner_active
+    count_events:
+    - s_spinner_active
+    - sw_tag_swerve
     starting_count: 0
     count_interval: 1
-    count_complete_value: 10
+    count_complete_value: 8
     persist_state: true
     reset_on_complete: true
     disable_on_complete: false
+    # with the multiplier (2X...) each spin counts that
+    # many times (the count_event adds the first)
+    control_events:
+    - event: s_spinner_active{current_player.multiplier > 1}
+      action: add
+      value: current_player.multiplier - 1
+    - event: sw_tag_swerve{current_player.multiplier > 1}
+      action: add
+      value: current_player.multiplier - 1
 
   # This is the per-ball lap counter:
   #   We keep state between mode changes
@@ -60,10 +73,19 @@ counters:
       action: add
       value: 1
 
-  # This is the LONG counter, across all balls
+  # This is the LONG counter, across all balls. Each step
+  # lights a Luxury/Bonus insert (10,000 bonus) from:
+  # - every 8 spins (spin_counter)
+  # - every lap
+  # - the skill shot, off the line and Backfire Pops
+  #   (the skill shot and Backfire Pops start green flag,
+  #   so the pit posts luxury_step once it has started)
   luxury_counter:
     count_events:
     - logicblock_spin_counter_complete
+    - logicblock_lap_counter_hit
+    - off_the_line_hit
+    - luxury_step
     starting_count: 0
     count_interval: 1
     count_complete_value: 10

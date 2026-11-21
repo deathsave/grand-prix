@@ -39,3 +39,8 @@ event_player:
   - pit_resource
   player_level_fuel_active:
   - pit_resource
+  # The skill shot and Backfire Pops earn a luxury step,
+  # but they start green flag (where the luxury_counter
+  # lives) so it is awarded once green flag has started
+  mode_green_flag_started{current_player.luxury_step_pending == 1}:
+  - luxury_step

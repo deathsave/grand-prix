@@ -98,7 +98,7 @@ def _complete_lap(self):
 
 # assumes green_flag mode is running
 def _start_luxury(self):
-    for i in range(100):
+    for i in range(80):
         self.hit_and_release_switch("s_spinner")
     self.assertEqual(10,
         self.machine.game.player.luxury_counter_count)
