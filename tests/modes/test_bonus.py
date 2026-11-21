@@ -53,10 +53,10 @@ class TestBonusMode(DeathSaveMcTesting):
             self.machine.coils["c_chime1"].pulse.call_count)
 
         # first 3 bonus inserts are lit
-        self.assertLightColor('l_bonus_01', 'white')
-        self.assertLightColor('l_bonus_02', 'white')
-        self.assertLightColor('l_bonus_03', 'white')
-        self.assertLightColor('l_bonus_04', 'black')
+        self.assertLightColor('l_bonus01', 'white')
+        self.assertLightColor('l_bonus02', 'white')
+        self.assertLightColor('l_bonus03', 'white')
+        self.assertLightColor('l_bonus04', 'black')
 
         # ball drains
         self.hit_switch_and_run("s_trough1", 3)
@@ -73,22 +73,22 @@ class TestBonusMode(DeathSaveMcTesting):
         chime1_count += 5
         self.assertEqual(chime1_count,
             self.machine.coils["c_chime1"].pulse.call_count)
-        self.assertLightColor('l_bonus_01', 'white')
-        self.assertLightColor('l_bonus_02', 'white')
-        self.assertLightColor('l_bonus_03', 'black')
+        self.assertLightColor('l_bonus01', 'white')
+        self.assertLightColor('l_bonus02', 'white')
+        self.assertLightColor('l_bonus03', 'black')
 
         self.advance_time_and_run(1)
         chime1_count += 5
         self.assertEqual(chime1_count,
             self.machine.coils["c_chime1"].pulse.call_count)
-        self.assertLightColor('l_bonus_01', 'white')
-        self.assertLightColor('l_bonus_02', 'black')
+        self.assertLightColor('l_bonus01', 'white')
+        self.assertLightColor('l_bonus02', 'black')
 
         self.advance_time_and_run(1)
         chime1_count += 5
         self.assertEqual(chime1_count,
             self.machine.coils["c_chime1"].pulse.call_count)
-        self.assertLightColor('l_bonus_01', 'black')
+        self.assertLightColor('l_bonus01', 'black')
 
         self.advance_time_and_run(10)
 
@@ -103,10 +103,10 @@ class TestBonusMode(DeathSaveMcTesting):
 
         # first 3 bonus inserts are restored as the
         # main bonus persists through all balls
-        self.assertLightColor('l_bonus_01', 'white')
-        self.assertLightColor('l_bonus_02', 'white')
-        self.assertLightColor('l_bonus_03', 'white')
-        self.assertLightColor('l_bonus_04', 'black')
+        self.assertLightColor('l_bonus01', 'white')
+        self.assertLightColor('l_bonus02', 'white')
+        self.assertLightColor('l_bonus03', 'white')
+        self.assertLightColor('l_bonus04', 'black')
 
     def test_bonus_lap(self):
         self._start_and_expire_ball_save()

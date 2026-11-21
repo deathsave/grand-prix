@@ -87,44 +87,44 @@ sound_pools:
     type: random
     track: voice
     sounds:
-    - bad_luck_blow_out01
-    - bad_luck_blow_out02
-    - bad_luck_blow_out03
-  bad_luck_ceased_up:
+    - bad_luck_blow_out1
+    - bad_luck_blow_out2
+    - bad_luck_blow_out3
+  bad_luck_seized_up:
     type: random
     track: voice
     sounds:
-    - bad_luck_ceased_up01
-    - bad_luck_ceased_up02
-    - bad_luck_ceased_up03
-    - bad_luck_ceased_up04
-    - bad_luck_ceased_up05
-    - bad_luck_ceased_up06
+    - bad_luck_seized_up1
+    - bad_luck_seized_up2
+    - bad_luck_seized_up3
+    - bad_luck_seized_up4
+    - bad_luck_seized_up5
+    - bad_luck_seized_up6
   bad_luck_fuel_line:
     type: random
     track: voice
     sounds:
-    - bad_luck_fuel_line01
-    - bad_luck_fuel_line02
-    - bad_luck_fuel_line03
-    - bad_luck_fuel_line04
+    - bad_luck_fuel_line1
+    - bad_luck_fuel_line2
+    - bad_luck_fuel_line3
+    - bad_luck_fuel_line4
   blackout:
     type: random
     track: voice
     sounds:
-    - blackout01
-    - blackout02
-    - blackout03
-    - blackout04
-    - blackout05
-    - blackout06
+    - blackout1
+    - blackout2
+    - blackout3
+    - blackout4
+    - blackout5
+    - blackout6
   diss:
     type: random
     track: voice
     sounds:
-    - diss01
-    - diss02
-    - diss03
+    - diss1
+    - diss2
+    - diss3
   good:
     type: random
     track: voice
@@ -147,47 +147,47 @@ sound_pools:
     type: random
     track: voice
     sounds:
-    - fuel01
+    - fuel1
   grand_prix_start:
     type: random
     track: voice
     sounds:
-    - grand_prix_start01
-    - grand_prix_start02
-    - grand_prix_start03
-    - grand_prix_start04
+    - grand_prix_start1
+    - grand_prix_start2
+    - grand_prix_start3
+    - grand_prix_start4
   grooveline_progress:
     type: random
     track: voice
     sounds:
-    - grooveline_progress01
-    - grooveline_progress02
-    - grooveline_progress03
+    - grooveline_progress1
+    - grooveline_progress2
+    - grooveline_progress3
   grooveline:
     type: random
     track: voice
     sounds:
-    - grooveline01
-    - grooveline02
-    - grooveline03
+    - grooveline1
+    - grooveline2
+    - grooveline3
   luxury_progress:
     type: random
     track: voice
     sounds:
-    - luxury_progress01
-    - luxury_progress02
+    - luxury_progress1
+    - luxury_progress2
   luxury_start:
     type: random
     track: voice
     sounds:
-    - luxury_start01
-    - luxury_start02
+    - luxury_start1
+    - luxury_start2
   luxury:
     type: random
     track: voice
     sounds:
-    - luxury01
-    - luxury02
+    - luxury1
+    - luxury2
   mistake:
     type: random
     track: voice
@@ -209,40 +209,40 @@ sound_pools:
     type: random
     track: voice
     sounds:
-    - pit01
-    - pit02
-    - pit03
-    - pit04
+    - pit1
+    - pit2
+    - pit3
+    - pit4
   pit_done:
     type: random
     track: voice
     sounds:
-    - pit_done01
-    - pit_done02
-    - pit_done03
-    - pit_done04
-    - pit_done05
-    - pit_done06
-    - pit_done07
+    - pit_done1
+    - pit_done2
+    - pit_done3
+    - pit_done4
+    - pit_done5
+    - pit_done6
+    - pit_done7
   quote:
     type: random
     track: voice
     sounds:
-    - quote01
-    - quote02
-    - quote03
+    - quote1
+    - quote2
+    - quote3
   start:
     type: random
     track: voice
     sounds:
-    - start01
+    - start1
   tires:
     type: random
     track: voice
     sounds:
-    - tires01
-    - tires02
-    - tires03
+    - tires1
+    - tires2
+    - tires3
   fly_by:
     type: random
     track: effects

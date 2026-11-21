@@ -445,71 +445,71 @@ sounds:
 
   ######## Steve #########
 
-  bad_luck_blow_out01:
-    file: bad-luck-blow-out-01.ogg
+  bad_luck_blow_out1:
+    file: bad-luck-blow-out-1.ogg
     track: voice
-  bad_luck_blow_out02:
-    file: bad-luck-blow-out-02.ogg
+  bad_luck_blow_out2:
+    file: bad-luck-blow-out-2.ogg
     track: voice
-  bad_luck_blow_out03:
-    file: bad-luck-blow-out-03.ogg
+  bad_luck_blow_out3:
+    file: bad-luck-blow-out-3.ogg
     track: voice
-  bad_luck_ceased_up01:
-    file: bad-luck-ceased-up-01.ogg
+  bad_luck_seized_up1:
+    file: bad-luck-seized-up-1.ogg
     track: voice
-  bad_luck_ceased_up02:
-    file: bad-luck-ceased-up-02.ogg
+  bad_luck_seized_up2:
+    file: bad-luck-seized-up-2.ogg
     track: voice
-  bad_luck_ceased_up03:
-    file: bad-luck-ceased-up-03.ogg
+  bad_luck_seized_up3:
+    file: bad-luck-seized-up-3.ogg
     track: voice
-  bad_luck_ceased_up04:
-    file: bad-luck-ceased-up-04.ogg
+  bad_luck_seized_up4:
+    file: bad-luck-seized-up-4.ogg
     track: voice
-  bad_luck_ceased_up05:
-    file: bad-luck-ceased-up-05.ogg
+  bad_luck_seized_up5:
+    file: bad-luck-seized-up-5.ogg
     track: voice
-  bad_luck_ceased_up06:
-    file: bad-luck-ceased-up-06.ogg
+  bad_luck_seized_up6:
+    file: bad-luck-seized-up-6.ogg
     track: voice
-  bad_luck_fuel_line01:
-    file: bad-luck-fuel-line-01.ogg
+  bad_luck_fuel_line1:
+    file: bad-luck-fuel-line-1.ogg
     track: voice
-  bad_luck_fuel_line02:
-    file: bad-luck-fuel-line-02.ogg
+  bad_luck_fuel_line2:
+    file: bad-luck-fuel-line-2.ogg
     track: voice
-  bad_luck_fuel_line03:
-    file: bad-luck-fuel-line-03.ogg
+  bad_luck_fuel_line3:
+    file: bad-luck-fuel-line-3.ogg
     track: voice
-  bad_luck_fuel_line04:
-    file: bad-luck-fuel-line-04.ogg
+  bad_luck_fuel_line4:
+    file: bad-luck-fuel-line-4.ogg
     track: voice
-  blackout01:
-    file: blackout-01.ogg
+  blackout1:
+    file: blackout-1.ogg
     track: voice
-  blackout02:
-    file: blackout-02.ogg
+  blackout2:
+    file: blackout-2.ogg
     track: voice
-  blackout03:
-    file: blackout-03.ogg
+  blackout3:
+    file: blackout-3.ogg
     track: voice
-  blackout04:
-    file: blackout-04.ogg
+  blackout4:
+    file: blackout-4.ogg
     track: voice
-  blackout05:
-    file: blackout-05.ogg
+  blackout5:
+    file: blackout-5.ogg
     track: voice
-  blackout06:
-    file: blackout-06.ogg
+  blackout6:
+    file: blackout-6.ogg
     track: voice
-  diss01:
-    file: diss-01.ogg
+  diss1:
+    file: diss-1.ogg
     track: voice
-  diss02:
-    file: diss-02.ogg
+  diss2:
+    file: diss-2.ogg
     track: voice
-  diss03:
-    file: diss-03.ogg
+  diss3:
+    file: diss-3.ogg
     track: voice
   good01:
     file: good-01.ogg
@@ -553,56 +553,56 @@ sounds:
   good14:
     file: good-14.ogg
     track: voice
-  fuel01:
-    file: fuel-01.ogg
+  fuel1:
+    file: fuel-1.ogg
     track: voice
-  grand_prix_start01:
-    file: grand-prix-start-01.ogg
+  grand_prix_start1:
+    file: grand-prix-start-1.ogg
     track: voice
-  grand_prix_start02:
-    file: grand-prix-start-02.ogg
+  grand_prix_start2:
+    file: grand-prix-start-2.ogg
     track: voice
-  grand_prix_start03:
-    file: grand-prix-start-03.ogg
+  grand_prix_start3:
+    file: grand-prix-start-3.ogg
     track: voice
-  grand_prix_start04:
-    file: grand-prix-start-04.ogg
+  grand_prix_start4:
+    file: grand-prix-start-4.ogg
     track: voice
-  grooveline01:
-    file: grooveline-01.ogg
+  grooveline1:
+    file: grooveline-1.ogg
     track: voice
-  grooveline02:
-    file: grooveline-02.ogg
+  grooveline2:
+    file: grooveline-2.ogg
     track: voice
-  grooveline03:
-    file: grooveline-03.ogg
+  grooveline3:
+    file: grooveline-3.ogg
     track: voice
-  grooveline_progress01:
-    file: grooveline-progress-01.ogg
+  grooveline_progress1:
+    file: grooveline-progress-1.ogg
     track: voice
-  grooveline_progress02:
-    file: grooveline-progress-02.ogg
+  grooveline_progress2:
+    file: grooveline-progress-2.ogg
     track: voice
-  grooveline_progress03:
-    file: grooveline-progress-03.ogg
+  grooveline_progress3:
+    file: grooveline-progress-3.ogg
     track: voice
-  luxury01:
-    file: luxury-01.ogg
+  luxury1:
+    file: luxury-1.ogg
     track: voice
-  luxury02:
-    file: luxury-02.ogg
+  luxury2:
+    file: luxury-2.ogg
     track: voice
-  luxury_progress01:
-    file: luxury-progress-01.ogg
+  luxury_progress1:
+    file: luxury-progress-1.ogg
     track: voice
-  luxury_progress02:
-    file: luxury-progress-02.ogg
+  luxury_progress2:
+    file: luxury-progress-2.ogg
     track: voice
-  luxury_start01:
-    file: luxury-start-01.ogg
+  luxury_start1:
+    file: luxury-start-1.ogg
     track: voice
-  luxury_start02:
-    file: luxury-start-02.ogg
+  luxury_start2:
+    file: luxury-start-2.ogg
     track: voice
   mistake01:
     file: mistake-01.ogg
@@ -643,57 +643,57 @@ sounds:
   mistake13:
     file: mistake-13.ogg
     track: voice
-  pit01:
-    file: pit-01.ogg
+  pit1:
+    file: pit-1.ogg
     track: voice
-  pit02:
-    file: pit-02.ogg
+  pit2:
+    file: pit-2.ogg
     track: voice
-  pit03:
-    file: pit-03.ogg
+  pit3:
+    file: pit-3.ogg
     track: voice
-  pit04:
-    file: pit-04.ogg
+  pit4:
+    file: pit-4.ogg
     track: voice
-  pit_done01:
-    file: pit-done-01.ogg
+  pit_done1:
+    file: pit-done-1.ogg
     track: voice
-  pit_done02:
-    file: pit-done-02.ogg
+  pit_done2:
+    file: pit-done-2.ogg
     track: voice
-  pit_done03:
-    file: pit-done-03.ogg
+  pit_done3:
+    file: pit-done-3.ogg
     track: voice
-  pit_done04:
-    file: pit-done-04.ogg
+  pit_done4:
+    file: pit-done-4.ogg
     track: voice
-  pit_done05:
-    file: pit-done-05.ogg
+  pit_done5:
+    file: pit-done-5.ogg
     track: voice
-  pit_done06:
-    file: pit-done-06.ogg
+  pit_done6:
+    file: pit-done-6.ogg
     track: voice
-  pit_done07:
-    file: pit-done-07.ogg
+  pit_done7:
+    file: pit-done-7.ogg
     track: voice
-  quote01:
-    file: quote-01.ogg
+  quote1:
+    file: quote-1.ogg
     track: voice
-  quote02:
-    file: quote-02.ogg
+  quote2:
+    file: quote-2.ogg
     track: voice
-  quote03:
-    file: quote-03.ogg
+  quote3:
+    file: quote-3.ogg
     track: voice
-  start01:
-    file: start-01.ogg
+  start1:
+    file: start-1.ogg
     track: voice
-  tires01:
-    file: tires-01.ogg
+  tires1:
+    file: tires-1.ogg
     track: voice
-  tires02:
-    file: tires-02.ogg
+  tires2:
+    file: tires-2.ogg
     track: voice
-  tires03:
-    file: tires-03.ogg
+  tires3:
+    file: tires-3.ogg
     track: voice

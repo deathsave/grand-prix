@@ -23,8 +23,8 @@ class GrandPrix(Mode):
     HURRY_UP_MS = 30000
 
     AREA_LIGHTS = {
-        "bd_hole_grand": [ f"l_grand_0{i}" for i in range(1, 6) ],
-        "bd_hole_prix": [ f"l_prix_0{i}" for i in range(1, 5) ],
+        "bd_hole_grand": [ f"l_grand{i}" for i in range(1, 6) ],
+        "bd_hole_prix": [ f"l_prix{i}" for i in range(1, 5) ],
         "bd_hole_backfire": [ "l_swerve1", "l_swerve2" ],
     }
     LIGHT_KEY = "grand_prix_held"

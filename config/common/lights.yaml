@@ -1,73 +1,70 @@
 #config_version=6
 
 lights:
-  l_backbox_match_10:
+  l_backbox_match10:
     subtype: matrix
     number: 0-0-0
     tags:
     - tag_lights_match
     - tag_lights_state
     - tag_lights
-  l_backbox_match_20:
+  l_backbox_match20:
     subtype: matrix
     number: 0-0-1
     tags:
     - tag_lights_match
     - tag_lights_state
     - tag_lights
-    - tag_match02
-  l_backbox_match_30:
+  l_backbox_match30:
     subtype: matrix
     number: 0-0-2
     tags:
     - tag_lights
     - tag_lights_state
     - tag_lights_match
-    - tag_match03
-  l_backbox_match_40:
+  l_backbox_match40:
     subtype: matrix
     number: 0-0-3
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_50:
+  l_backbox_match50:
     subtype: matrix
     number: 0-0-4
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_60:
+  l_backbox_match60:
     subtype: matrix
     number: 0-0-5
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_70:
+  l_backbox_match70:
     subtype: matrix
     number: 0-0-6
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_80:
+  l_backbox_match80:
     subtype: matrix
     number: 0-0-7
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-    - tag_lights_state
-  l_backbox_match_90:
+  l_backbox_match90:
     subtype: matrix
     number: 0-0-8
     tags:
     - tag_lights
     - tag_lights_match
     - tag_lights_state
-  l_backbox_match_00:
+  l_backbox_match00:
     subtype: matrix
     number: 0-0-9
     tags:
@@ -161,27 +158,25 @@ lights:
     tags:
     - tag_lights
     - tag_lights_swerve
-  l_bonus_10:
+  l_bonus10:
     subtype: matrix
     number: 0-1-19
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
   # 1-20 might be bad
-  l_bonus_08:
+  l_bonus08:
     subtype: matrix
     number: 0-1-23
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
   l_multiball:
     subtype: matrix
     number: 0-1-21
     tags:
     - tag_lights
-  l_grand_03:
+  l_grand3:
     subtype: matrix
     number: 0-1-22
     tags:
@@ -192,7 +187,7 @@ lights:
 
   # BOARD INDEX 2
 
-  l_grand_05:
+  l_grand5:
     subtype: matrix
     number: 0-2-8
     tags:
@@ -207,19 +202,19 @@ lights:
     - tag_lights
     - tag_lights_outlane
     - tag_lights_state
-  l_multiplier_01:
+  l_multiplier1:
     subtype: matrix
     number: 0-2-11
     tags:
     - tag_lights
     - tag_lights_multiplier
-  l_multiplier_02:
+  l_multiplier2:
     subtype: matrix
     number: 0-2-12
     tags:
     - tag_lights
     - tag_lights_multiplier
-  l_multiplier_03:
+  l_multiplier3:
     subtype: matrix
     number: 0-2-13
     tags:
@@ -240,62 +235,54 @@ lights:
   # BOARD INDEX 3
 
   # 0-3-18 might be disconnected inline
-  l_bonus_01:
+  l_bonus01:
     subtype: matrix
     number: 0-3-16
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
-  l_bonus_02:
+  l_bonus02:
     subtype: matrix
     number: 0-3-17
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
-  l_bonus_03:
+  l_bonus03:
     subtype: matrix
     number: 0-3-18
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
-  l_bonus_04:
+  l_bonus04:
     subtype: matrix
     number: 0-3-19
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
-  l_bonus_05:
+  l_bonus05:
     subtype: matrix
     number: 0-3-20
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
-  l_bonus_06:
+  l_bonus06:
     subtype: matrix
     number: 0-3-21
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
-  l_bonus_07:
+  l_bonus07:
     subtype: matrix
     number: 0-3-22
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
-  l_bonus_09:
+  l_bonus09:
     subtype: matrix
     number: 0-3-23
     tags:
     - tag_lights
     - tag_lights_state
-    - tag_lights_spinner
   # l_gi:
   #   subtype: matrix
   #   number: 0-1-22
@@ -325,7 +312,7 @@ lights:
     tags:
     - tag_lights
     - tag_lights_signal
-  l_grand_01:
+  l_grand1:
     subtype: matrix
     number: 0-1-12
     tags:
@@ -333,7 +320,7 @@ lights:
     - tag_lights_grand
     - tag_lights_grand_prix
     - tag_lights_state
-  l_grand_02:
+  l_grand2:
     subtype: matrix
     number: 0-1-13
     tags:
@@ -341,7 +328,7 @@ lights:
     - tag_lights_grand
     - tag_lights_grand_prix
     - tag_lights_state
-  l_grand_04:
+  l_grand4:
     subtype: matrix
     number: 0-1-15
     tags:
@@ -367,7 +354,7 @@ lights:
     tags:
     - tag_lights
     - tag_lights_outlane
-  l_prix_04:
+  l_prix4:
     subtype: matrix
     number: 0-3-12
     tags:
@@ -375,7 +362,7 @@ lights:
     - tag_lights_prix
     - tag_lights_grand_prix
     - tag_lights_state
-  l_prix_03:
+  l_prix3:
     subtype: matrix
     number: 0-3-13
     tags:
@@ -383,7 +370,7 @@ lights:
     - tag_lights_prix
     - tag_lights_grand_prix
     - tag_lights_state
-  l_prix_02:
+  l_prix2:
     subtype: matrix
     number: 0-3-14
     tags:
@@ -391,7 +378,7 @@ lights:
     - tag_lights_prix
     - tag_lights_grand_prix
     - tag_lights_state
-  l_prix_01:
+  l_prix1:
     subtype: matrix
     number: 0-3-15
     tags:

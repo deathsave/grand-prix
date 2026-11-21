@@ -27,7 +27,7 @@ class TestExtraBalls(DeathSaveGameTesting):
         # prix inserts should be lit
         self.advance_time_and_run(3)
         for i in range(4):
-            self.assertLightColor("l_prix_0{}". \
+            self.assertLightColor("l_prix{}". \
                 format(i + 1), 'white')
         self.assertEqual(4, player.prix_counter_count)
 
@@ -45,7 +45,7 @@ class TestExtraBalls(DeathSaveGameTesting):
         # hit shots are unlit
         self.advance_time_and_run(3)
         for i in range(3):
-            self.assertLightColor("l_prix_0{}". \
+            self.assertLightColor("l_prix{}". \
                 format(i + 1), 'black')
         self.assertEqual(3, player.awareness_counter_count)
 

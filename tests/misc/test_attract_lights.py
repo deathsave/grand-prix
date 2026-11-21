@@ -9,8 +9,8 @@ class TestAttractLights(DeathSaveGameTesting):
     # lighting both the RGB LEDs and the lamps, and loops
     def test_show_plays_and_loops(self):
         self.assertModeRunning("attract")
-        rgb = ["l_loop_01", "l_grooveline_05", "l_pit_lube"]
-        lamps = ["l_bonus_05", "l_grand_03", "l_signal2"]
+        rgb = ["l_loop01", "l_grooveline05", "l_pit_lube"]
+        lamps = ["l_bonus05", "l_grand3", "l_signal2"]
         seen_rgb, seen_lamps = set(), set()
         for i in range(140):  # just over a loop (66.5s)
             self.advance_time_and_run(0.5)
@@ -26,7 +26,7 @@ class TestAttractLights(DeathSaveGameTesting):
         self.hit_and_release_switch("s_start")
         self.advance_time_and_run(1)
         self.assertModeNotRunning("attract")
-        lights = ["l_loop_01", "l_loop_09", "l_loop_18", "l_bonus_05"]
+        lights = ["l_loop01", "l_loop09", "l_loop18", "l_bonus05"]
         before = self._states(lights)
         self.advance_time_and_run(3)
         self.assertEqual(before, self._states(lights))

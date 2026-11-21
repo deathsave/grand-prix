@@ -19,7 +19,7 @@ random_event_player:
   green_flag_bad_luck:
     events:
     - bad_luck_blow_out
-    - bad_luck_ceased_up
+    - bad_luck_seized_up
     - bad_luck_fuel_line
   s_disqualifier_active:
     events:

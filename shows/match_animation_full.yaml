@@ -14,7 +14,7 @@
     match_none:
       action: remove
   lights:
-    l_backbox_match_10: on
+    l_backbox_match10: on
 - time: "+0.2s"
   widgets:
     match_20:
@@ -22,7 +22,7 @@
     match_10:
       action: remove
   lights:
-    l_backbox_match_20: on
+    l_backbox_match20: on
 - time: "+0.15s"
   widgets:
     match_30:
@@ -30,7 +30,7 @@
     match_20:
       action: remove
   lights:
-    l_backbox_match_30: on
+    l_backbox_match30: on
 - time: "+0.15s"
   widgets:
     match_40:
@@ -38,7 +38,7 @@
     match_30:
       action: remove
   lights:
-    l_backbox_match_40: on
+    l_backbox_match40: on
 - time: "+0.15s"
   widgets:
     match_50:
@@ -46,7 +46,7 @@
     match_40:
       action: remove
   lights:
-    l_backbox_match_50: on
+    l_backbox_match50: on
 - time: "+0.1s"
   widgets:
     match_60:
@@ -54,7 +54,7 @@
     match_50:
       action: remove
   lights:
-    l_backbox_match_60: on
+    l_backbox_match60: on
 - time: "+0.1s"
   widgets:
     match_70:
@@ -62,7 +62,7 @@
     match_60:
       action: remove
   lights:
-    l_backbox_match_70: on
+    l_backbox_match70: on
 - time: "+0.1s"
   widgets:
     match_80:
@@ -70,7 +70,7 @@
     match_70:
       action: remove
   lights:
-    l_backbox_match_80: on
+    l_backbox_match80: on
 - time: "+0.1s"
   widgets:
     match_90:
@@ -78,7 +78,7 @@
     match_80:
       action: remove
   lights:
-    l_backbox_match_90: on
+    l_backbox_match90: on
 - time: "+0.05s"
   widgets:
     match_00:
@@ -86,7 +86,7 @@
     match_90:
       action: remove
   lights:
-    l_backbox_match_00: on
+    l_backbox_match00: on
 - time: "+0.05s"
   widgets:
     match_90:
@@ -94,7 +94,7 @@
     match_00:
       action: remove
   lights:
-    l_backbox_match_00: off
+    l_backbox_match00: off
 - time: "+0.15s"
   widgets:
     match_80:
@@ -102,7 +102,7 @@
     match_90:
       action: remove
   lights:
-    l_backbox_match_90: off
+    l_backbox_match90: off
 - time: "+0.2s"
   widgets:
     match_70:
@@ -110,7 +110,7 @@
     match_80:
       action: remove
   lights:
-    l_backbox_match_80: off
+    l_backbox_match80: off
 - time: "+0.25s"
   widgets:
     match_60:
@@ -118,7 +118,7 @@
     match_70:
       action: remove
   lights:
-    l_backbox_match_70: off
+    l_backbox_match70: off
 - time: "+0.3s"
   widgets:
     match_50:
@@ -126,7 +126,7 @@
     match_60:
       action: remove
   lights:
-    l_backbox_match_60: off
+    l_backbox_match60: off
 - time: "+0.35s"
   widgets:
     match_40:
@@ -134,7 +134,7 @@
     match_50:
       action: remove
   lights:
-    l_backbox_match_50: off
+    l_backbox_match50: off
 - time: "+0.4s"
   widgets:
     match_30:
@@ -142,7 +142,7 @@
     match_40:
       action: remove
   lights:
-    l_backbox_match_40: off
+    l_backbox_match40: off
 - time: "+0.45s"
   widgets:
     match_20:
@@ -150,7 +150,7 @@
     match_30:
       action: remove
   lights:
-    l_backbox_match_30: off
+    l_backbox_match30: off
 - time: "+0.45s"
   widgets:
     match_10:
@@ -158,7 +158,7 @@
     match_20:
       action: remove
   lights:
-    l_backbox_match_20: off
+    l_backbox_match20: off
 - time: "+0.5s"
   widgets:
     match_none:
@@ -166,5 +166,5 @@
     match_10:
       action: remove
   lights:
-    l_backbox_match_10: off
+    l_backbox_match10: off
 - time: "+0.55s"

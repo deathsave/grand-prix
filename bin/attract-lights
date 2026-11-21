@@ -70,7 +70,7 @@ class Light:
     def __init__(self, name, x, y, rgb, backbox):
         self.name, self.x, self.y = name, x, y
         self.rgb, self.backbox = rgb, backbox
-        # "l_loop_07" -> ("loop", 7), "l_signal3" -> ("signal", 3)
+        # "l_loop07" -> ("loop", 7), "l_signal3" -> ("signal", 3)
         match = re.fullmatch(r"(.*?)_?(\d+)", name[2:])
         if match:
             self.group, self.index = match.group(1), int(match.group(2))

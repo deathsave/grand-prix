@@ -9,13 +9,13 @@
     tag_lights_prix: off
 - duration: 1s
   lights:
-    l_prix_01: on
+    l_prix1: on
 - duration: 1s
   lights:
-    l_prix_02: on
+    l_prix2: on
 - duration: 1s
   lights:
-    l_prix_03: on
+    l_prix3: on
 - duration: 1s
   lights:
-    l_prix_04: on
+    l_prix4: on

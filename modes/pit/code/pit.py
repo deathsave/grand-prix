@@ -1,6 +1,12 @@
 import random
 from mpf.core.mode import Mode
 
+# Numbered lights: groups that reach 10 are zero padded (l_bonus01),
+# smaller groups aren't (l_grand1)
+def numbered_light(prefix, number, count):
+    return f"{prefix}{number:02}" if count >= 10 else f"{prefix}{number}"
+
+
 class Pit(Mode):
     # Maps various states to corresponding lights
     #
@@ -81,13 +87,13 @@ class Pit(Mode):
     #
     def handle_multiplier(self):
         for i in range(1, 4):
-            self.machine.lights[f"l_multiplier_{i:0>2}"].off()
+            self.machine.lights[numbered_light("l_multiplier", i, 3)].off()
         if self.machine.game.player.multiplier == 5:
-            self.machine.lights["l_multiplier_03"].on()
+            self.machine.lights["l_multiplier3"].on()
         elif self.machine.game.player.multiplier == 2:
-            self.machine.lights["l_multiplier_02"].on()
+            self.machine.lights["l_multiplier2"].on()
         else:
-            self.machine.lights["l_multiplier_01"].on()
+            self.machine.lights["l_multiplier1"].on()
 
     # Turns a light on or off by checking
     # the current :state (player variable) value.
@@ -130,7 +136,7 @@ class Pit(Mode):
         player = self.machine.game.player
         current_state = getattr(player, state)
         for i in range(1, value_tuple[1] + 1):
-            light_name = f"{value_tuple[0]}_{i:0>2}"
+            light_name = numbered_light(value_tuple[0], i, value_tuple[1])
             if i <= current_state:
                 self.machine.lights[light_name].on()
             else:
@@ -149,12 +155,12 @@ class Pit(Mode):
         if awareness_state < 4:
             if awareness_state > 0:
                 for i in range(1, 5):
-                    light_name = f"l_prix_{i:0>2}"
+                    light_name = numbered_light("l_prix", i, 4)
                     if i <= awareness_state:
                         self.machine.lights[light_name].off()
             else:
                 prix_state = getattr(player, "prix_counter_count")
                 for i in range(1, 5):
-                    light_name = f"l_prix_{i:0>2}"
+                    light_name = numbered_light("l_prix", i, 4)
                     if i <= prix_state:
                         self.machine.lights[light_name].on()

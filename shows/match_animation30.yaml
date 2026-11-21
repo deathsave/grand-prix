@@ -14,11 +14,27 @@
     match_none:
       action: remove
   lights:
-    l_backbox_match_10: on
+    l_backbox_match10: on
+- time: "+0.2s"
+  widgets:
+    match_20:
+      action: add
+    match_10:
+      action: remove
+  lights:
+    l_backbox_match20: on
+- time: "+0.15s"
+  widgets:
+    match_30:
+      action: add
+    match_20:
+      action: remove
+  lights:
+    l_backbox_match30: on
 - time: "+1s"
   widgets:
     match_text:
       action: add
       widget_settings:
-        text: "10"
+        text: "30"
 - time: "+2s"

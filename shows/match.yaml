@@ -6,79 +6,79 @@
 - time: 0
   lights:
     tag_lights_match: off
-    l_backbox_match_10: on
+    l_backbox_match10: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_20: on
+    l_backbox_match20: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_30: on
+    l_backbox_match30: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_40: on
+    l_backbox_match40: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_50: on
+    l_backbox_match50: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_60: on
+    l_backbox_match60: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_70: on
+    l_backbox_match70: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_80: on
+    l_backbox_match80: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_90: on
+    l_backbox_match90: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_00: on
+    l_backbox_match00: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_90: on
+    l_backbox_match90: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_80: on
+    l_backbox_match80: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_70: on
+    l_backbox_match70: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_60: on
+    l_backbox_match60: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_50: on
+    l_backbox_match50: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_40: on
+    l_backbox_match40: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_30: on
+    l_backbox_match30: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_20: on
+    l_backbox_match20: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off
-    l_backbox_match_10: on
+    l_backbox_match10: on
 - time: "+0.2s"
   lights:
     tag_lights_match: off

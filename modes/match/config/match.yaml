@@ -58,43 +58,43 @@ show_player:
     match_animation_full:
       action: stop
   timer_match_tick{ticks == 10 and machine.match_number == 10}:
-    match_animation_10:
+    match_animation10:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 20}:
-    match_animation_20:
+    match_animation20:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 30}:
-    match_animation_30:
+    match_animation30:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 40}:
-    match_animation_40:
+    match_animation40:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 50}:
-    match_animation_50:
+    match_animation50:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 60}:
-    match_animation_60:
+    match_animation60:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 70}:
-    match_animation_70:
+    match_animation70:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 80}:
-    match_animation_80:
+    match_animation80:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 90}:
-    match_animation_90:
+    match_animation90:
       speed: 2
       action: play
   timer_match_tick{ticks == 10 and machine.match_number == 0}:
-    match_animation_00:
+    match_animation00:
       speed: 2
       action: play
 

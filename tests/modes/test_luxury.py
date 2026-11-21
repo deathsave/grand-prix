@@ -52,9 +52,9 @@ class TestLuxuryMode(DeathSaveGameTesting):
             0, self.machine.game.player.grooveline_counter_count)
 
         # Lights in top-east chain show progress
-        self.assertLightColor('l_bonus_01', 'white')
-        self.assertLightColor('l_bonus_02', 'white')
-        self.assertLightColor('l_bonus_03', 'black')
+        self.assertLightColor('l_bonus01', 'white')
+        self.assertLightColor('l_bonus02', 'white')
+        self.assertLightColor('l_bonus03', 'black')
         # etc...
 
         # Mult-ball light indicator off

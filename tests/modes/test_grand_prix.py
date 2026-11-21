@@ -311,8 +311,8 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     # on until all go off) while the swerve lights alternate
     def test_light_shows(self):
         self._start_multiball()
-        grand = [f"l_grand_0{i}" for i in range(5, 0, -1)]
-        prix = [f"l_prix_0{i}" for i in range(1, 5)]
+        grand = [f"l_grand{i}" for i in range(5, 0, -1)]
+        prix = [f"l_prix{i}" for i in range(1, 5)]
         grand_seen, prix_seen, swerve_seen = set(), set(), set()
         # sample every ~1/4 step (steps are 1s / 2.3)
         for i in range(60):
@@ -329,8 +329,8 @@ class TestGrandPrixMode(DeathSaveGameTesting):
     # A hole's area stays lit while it holds a ball
     def test_held_hole_lights_stay_on(self):
         self._start_multiball()
-        grand = [f"l_grand_0{i}" for i in range(1, 6)]
-        prix = [f"l_prix_0{i}" for i in range(1, 5)]
+        grand = [f"l_grand{i}" for i in range(1, 6)]
+        prix = [f"l_prix{i}" for i in range(1, 5)]
         swerve = ["l_swerve1", "l_swerve2"]
         self._enter("s_hole_grand")
         self._enter("s_hole_backfire")
@@ -413,7 +413,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         # grand inserts should be lit
         self.advance_time_and_run(3)
         for i in range(5):
-            self.assertLightColor("l_grand_0{}". \
+            self.assertLightColor("l_grand{}". \
                 format(i + 1), 'white')
 
         # Ball is held after entering the grand hole
@@ -433,7 +433,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         # prix inserts should be lit
         self.advance_time_and_run(3)
         for i in range(4):
-            self.assertLightColor("l_prix_0{}". \
+            self.assertLightColor("l_prix{}". \
                 format(i + 1), 'white')
 
         # Ball is held after entering the prix hole

@@ -9,16 +9,16 @@
     tag_lights_grand: off
 - duration: 1s
   lights:
-    l_grand_05: on
+    l_grand5: on
 - duration: 1s
   lights:
-    l_grand_04: on
+    l_grand4: on
 - duration: 1s
   lights:
-    l_grand_03: on
+    l_grand3: on
 - duration: 1s
   lights:
-    l_grand_02: on
+    l_grand2: on
 - duration: 1s
   lights:
-    l_grand_01: on
+    l_grand1: on
