@@ -42,9 +42,9 @@ class Tips(Mode):
     def mode_stop(self, **kwargs):
         self.clear()
 
-    # Reads the tip content from modes/tips/data/tips.yaml
+    # Reads the tip content from modes/tips/content/tips.yaml
     def load_tips(self):
-        path = os.path.join(self.path, "data", "tips.yaml")
+        path = os.path.join(self.path, "content", "tips.yaml")
         with open(path) as f:
             return YAML(typ="safe").load(f) or []
 
