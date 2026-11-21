@@ -49,10 +49,38 @@ class TestPureEvilMode(DeathSaveGameTesting):
 
         self._activate_pure_evil()
 
-        self.advance_time_and_run(28)
+        # lasts at most 40 seconds
+        self.advance_time_and_run(38)
         self.assertModeRunning("pure_evil")
         self.advance_time_and_run(2)
         self.assertModeNotRunning("pure_evil")
+
+    # A taunt 5 seconds in, then every 10 seconds
+    def test_taunts_every_10_seconds(self):
+        if self._is_unavailable("pure_evil"): return None
+        times = []
+
+        def started(**kwargs):
+            times.append(("started", self.machine.clock.get_time()))
+
+        def tick(ticks, **kwargs):
+            if ticks % 2 == 1:  # (the sound_player's condition)
+                times.append(("taunt", self.machine.clock.get_time()))
+
+        self.machine.events.add_handler("mode_pure_evil_started", started)
+        self.machine.events.add_handler("timer_pure_evil_taunts_tick", tick)
+        self._activate_pure_evil()
+        self.advance_time_and_run(30)
+        start = times[0][1]
+        self.assertEqual(
+            [("taunt", 5.0), ("taunt", 15.0), ("taunt", 25.0)],
+            [(name, round(t - start, 1)) for name, t in times[1:]])
+
+        # and they stop with the mode
+        self.hit_and_release_switch("s_disqualifier")
+        self.assertModeNotRunning("pure_evil")
+        self.advance_time_and_run(20)
+        self.assertEqual(4, len(times))
 
     def _activate_pure_evil(self):
         self.machine.coils["c_disqualifier_up"]. \

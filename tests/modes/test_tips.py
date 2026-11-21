@@ -72,6 +72,12 @@ class TestTipsMode(DeathSaveGameTesting):
         for step in steps[1:]:
             self.assertEqual(10, step["duration"])
 
+    # Every slide change whooshes (timed or from a flipper)
+    def test_every_step_whooshes(self):
+        steps = self.machine.shows["attract_rotation"].get_show_steps()
+        for step in steps:
+            self.assertIn("whoosh", step.get("sounds", {}))
+
     # Starting a game stops the tips and clears the text
     def test_stops_on_game_start(self):
         self.post_event("attract_tip")

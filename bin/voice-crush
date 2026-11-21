@@ -1,0 +1,206 @@
+#!/usr/bin/env python3
+"""Slightly distort and bitcrush the voice call outs (then de-ess
+them so the crunch isn't harsh).
+
+Synth call outs listed in misc/voice-callouts.yaml are skipped: they
+are made from text (with this same crush) by bin/voice-callout.
+
+Processes every other .ogg under sounds/preload/voice from an untouched copy
+in misc/voice-originals (made automatically the first time a file is
+seen), so running it again re-crushes from the originals instead of
+stacking the effect. Tweak the settings and re-run as often as you like.
+
+Examples:
+
+  bin/voice-crush                      # crush all voice audio
+  bin/voice-crush --preview jackpot    # hear one (before, then after)
+  bin/voice-crush --bits 6 --drive 9   # crunchier
+  bin/voice-crush --deess 0.8          # tame more sibilance
+  bin/voice-crush synth/extra-ball     # only matching files
+  bin/voice-crush --restore            # put the originals back
+
+Needs ffmpeg (brew install ffmpeg). --preview plays with afplay (macOS).
+"""
+
+import argparse
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+from concurrent.futures import ThreadPoolExecutor
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+VOICE_DIR = os.path.join(ROOT, "sounds", "preload", "voice")
+# Kept outside of sounds/ so MPF doesn't load duplicates
+ORIGINALS_DIR = os.path.join(ROOT, "misc", "voice-originals")
+# Synth call outs made from text by bin/voice-callout (which applies
+# this same crush itself), so they're skipped here
+CALLOUTS = os.path.join(ROOT, "misc", "voice-callouts.yaml")
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(
+        description="Slightly distort and bitcrush the voice audio.",
+        epilog="Originals are kept in misc/voice-originals.")
+    parser.add_argument("match", nargs="*",
+        help="only files whose path (relative to sounds/preload/voice) "
+             "contains one of these")
+    parser.add_argument("--bits", type=float, default=12,
+        help="bit depth to crush to (lower is crunchier, default 12)")
+    parser.add_argument("--mix", type=float, default=0.2,
+        help="how much of the crushed signal to mix in, 0-1 (default 0.2)")
+    parser.add_argument("--drive", type=float, default=3,
+        help="dB of gain into the soft clipper (more is more "
+             "distorted, default 3)")
+    parser.add_argument("--downsample", type=int, default=1,
+        help="hold each sample this many times for a lo-fi rate "
+             "reduction (1 is off, default 1)")
+    parser.add_argument("--deess", type=float, default=0.6,
+        help="de-esser intensity to soften harsh highs and esses, "
+             "0-1 (0 is off, default 0.6)")
+    parser.add_argument("--preview", action="store_true",
+        help="play the first matching file before and after (no changes)")
+    parser.add_argument("--dry-run", action="store_true",
+        help="list the files that would be processed")
+    parser.add_argument("--restore", action="store_true",
+        help="copy the originals back over the voice audio")
+    return parser
+
+
+def parse_args():
+    return build_parser().parse_args()
+
+
+def callout_files():
+    """Files bin/voice-callout makes (synth/<name>.ogg)."""
+    if not os.path.exists(CALLOUTS):
+        return set()
+    from ruamel.yaml import YAML
+    with open(CALLOUTS) as f:
+        config = YAML(typ="safe").load(f) or {}
+    return {f"synth/{name}.ogg" for name in config.get("callouts") or {}}
+
+
+def voice_files(matches):
+    files = []
+    skip = callout_files()
+    for root, _, names in os.walk(VOICE_DIR):
+        for name in names:
+            if not name.endswith(".ogg"):
+                continue
+            rel = os.path.relpath(os.path.join(root, name), VOICE_DIR)
+            if rel in skip:
+                continue
+            if not matches or any(m in rel for m in matches):
+                files.append(rel)
+    return sorted(files)
+
+
+def original_for(rel):
+    """Path of the untouched copy, making it on first sight."""
+    original = os.path.join(ORIGINALS_DIR, rel)
+    if not os.path.exists(original):
+        os.makedirs(os.path.dirname(original), exist_ok=True)
+        shutil.copy2(os.path.join(VOICE_DIR, rel), original)
+    return original
+
+
+def audio_filter(args):
+    # drive into a soft clipper (warm distortion), back the level
+    # off again, blend in a bitcrushed copy, then de-ess the harsh
+    # highs (esses and crusher fizz) the first two add
+    filters = [
+        f"volume={args.drive}dB",
+        "asoftclip=type=tanh",
+        f"volume={-args.drive / 2}dB",
+        f"acrusher=bits={args.bits}:mix={args.mix}:mode=log"
+        f":samples={args.downsample}:aa=1",
+    ]
+    if args.deess > 0:
+        filters.append(f"deesser=i={args.deess}:m=0.5:f=0.5")
+    # keep the peaks under 0 dBFS
+    filters.append("alimiter=limit=0.95:level=disabled")
+    return ",".join(filters)
+
+
+def crush(source, dest, args):
+    # write next to dest then swap in, so a failure never
+    # leaves a half written file in the game
+    tmp = dest + ".tmp.ogg"
+    result = subprocess.run([
+        "ffmpeg", "-v", "error", "-y", "-i", source,
+        "-af", audio_filter(args),
+        # match bin/mp3-to-ogg
+        "-ac", "2", "-c:a", "vorbis", "-strict", "-2", "-q:a", "5",
+        tmp,
+    ], capture_output=True, text=True)
+    if result.returncode != 0:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+        raise RuntimeError(result.stderr.strip())
+    os.replace(tmp, dest)
+
+
+def preview(rel, args):
+    original = original_for(rel)
+    with tempfile.TemporaryDirectory() as tmp:
+        crushed = os.path.join(tmp, "crushed.ogg")
+        crush(original, crushed, args)
+        for label, path in [("before", original), ("after", crushed)]:
+            print(f"{label}: {rel}")
+            subprocess.run(["afplay", path])
+
+
+def main():
+    args = parse_args()
+    if not shutil.which("ffmpeg"):
+        sys.exit("ffmpeg not found (brew install ffmpeg)")
+
+    files = voice_files(args.match)
+    if not files:
+        sys.exit("no matching voice audio")
+
+    if args.dry_run:
+        print("\n".join(files))
+        print(f"{len(files)} files")
+        return
+
+    if args.preview:
+        preview(files[0], args)
+        return
+
+    if args.restore:
+        restored = 0
+        for rel in files:
+            original = os.path.join(ORIGINALS_DIR, rel)
+            if os.path.exists(original):
+                shutil.copy2(original, os.path.join(VOICE_DIR, rel))
+                restored += 1
+        print(f"restored {restored} of {len(files)} files")
+        return
+
+    def run(rel):
+        crush(original_for(rel), os.path.join(VOICE_DIR, rel), args)
+        return rel
+
+    print(f"crushing {len(files)} files "
+          f"(bits {args.bits}, mix {args.mix}, drive {args.drive}dB, "
+          f"downsample {args.downsample}, deess {args.deess})")
+    failed = []
+    with ThreadPoolExecutor() as pool:
+        futures = {pool.submit(run, rel): rel for rel in files}
+        for future, rel in futures.items():
+            try:
+                future.result()
+            except RuntimeError as error:
+                failed.append(rel)
+                print(f"failed: {rel}\n  {error}", file=sys.stderr)
+    print(f"done ({len(files) - len(failed)} crushed, "
+          f"{len(failed)} failed)")
+    if failed:
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

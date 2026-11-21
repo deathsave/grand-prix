@@ -44,3 +44,7 @@ event_player:
   # lives) so it is awarded once green flag has started
   mode_green_flag_started{current_player.luxury_step_pending == 1}:
   - luxury_step
+  # Off the Line window closed with the ball still in the
+  # shooter lane: the player was late (an early plunge isn't)
+  timer_off_the_line_complete{device.switches.s_shooter_lane.state == 1}:
+  - off_the_line_late

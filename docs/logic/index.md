@@ -15,10 +15,27 @@ Running the Game
 Synthesis Call outs
 -------------------
 
-We used the built-in macOS `say` command to generate these and the
-"Tritik Krush" VST plugin to bit-crush them.
+The synth call outs are made from text with `bin/voice-callout`. Every one
+is listed in `./misc/voice-callouts.yaml` (the voice to use, then each file
+name and what's said). It says each with macOS `say`, compresses and
+bit-crushes it (an approximation of the "Tritik Krush" VST the originals were
+made with), EQs and loudness matches it to the original call outs, then gives
+it the same saturation, crush and de-esser as the rest of the voice audio.
 
-`say -v "Vicki" "Let's race\!" -o sounds/preload/voice/synth/player-up4.ogg`
+- Rebuild all of them: `bin/voice-callout`
+- Rebuild some (and hear them): `bin/voice-callout jackpot tilt1 --play`
+- Add a new one (also added to `./config/common/sounds.yaml`):
+  `bin/voice-callout add grand-prix-position-lost "Lost position!"`
+- Try another voice: `bin/voice-callout jackpot --voice Ralph --play`
+
+Then play it from a `sound_player` by its sound name (the file name with
+underscores, e.g. `grand_prix_position_lost`). To change a call out (or the
+voice for all of them), edit `./misc/voice-callouts.yaml` and re-run.
+
+The rest of the voice audio (Steve, and the synth `bonus3` which has custom
+audio mixed in) is lightly distorted, bit-crushed and de-essed by
+`bin/voice-crush`, working from untouched copies in `./misc/voice-originals`
+so it can be re-run with new settings (`bin/voice-crush --help`).
 
 Flowchart
 ---------

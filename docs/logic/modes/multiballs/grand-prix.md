@@ -46,8 +46,10 @@ ball hold (`./modes/grand_prix/config/ball_holds.yaml`) and run by
 `./modes/grand_prix/code/grand_prix.py`.
 
 1. Every ball held (re)starts a single **30s hurry up** shared by all 3 holes.
-   If it runs out, ONE ball is ejected (the most recently held) and the hurry
-   up restarts for any balls still held.
+   If it runs out, ONE ball is ejected (the most recently held), the
+   "Lost position!" call out plays (`grand_prix_hole_lost` ->
+   `grand_prix_position_lost`) and the hurry up restarts for any balls still
+   held.
 1. A **Jackpot** (100,000) is awarded each time the number of held balls
    reaches a new high for the sequence, so up to 3 per sequence. Going from 2
    held to 1 and back to 2 does NOT pay the 2nd jackpot again.

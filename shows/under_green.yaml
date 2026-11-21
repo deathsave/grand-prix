@@ -19,7 +19,11 @@
   lights:
     l_signal3: on
   coils: c_chime1
-- time: "+1.0s"
+# the Off the Line window opens halfway (0.4s) before the
+# final ding and closes 0.4s after it (see pit timers)
+- time: "+0.6s"
+  events: off_the_line_open
+- time: "+0.4s"
   lights:
     tag_lights_signal: off
     l_signal4: on

@@ -39,6 +39,17 @@ sound_pools:
     - player_up4
     - player_up5
     - player_up6
+  # every 10s during Pure Evil (each once before repeating)
+  pure_evil_taunt:
+    type: random_force_all
+    track: voice
+    sounds:
+    - pure_evil_taunt1
+    - pure_evil_taunt2
+    - pure_evil_taunt3
+    - pure_evil_taunt4
+    - pure_evil_taunt5
+    - pure_evil_taunt6
   late:
     type: random
     track: voice

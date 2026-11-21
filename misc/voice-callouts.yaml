@@ -1,0 +1,108 @@
+# Synth voice call outs, made by bin/voice-callout
+#
+# Each call out is its file name (sounds/preload/voice/synth/<name>.ogg,
+# sound name with underscores in config/common/sounds.yaml) and what's
+# said. Edit the text or the voice and re-run:
+#
+#   bin/voice-callout              # all of them
+#   bin/voice-callout jackpot      # just one
+#   bin/voice-callout add <name> "<text>"   # a new one
+#
+# A call out can also have its own speed (0.5 is half speed, 2 is
+# double, without changing the pitch):
+#
+#   name1: {text: "Juan!", speed: 0.5}
+#
+# Try a voice (or --rate) first with --voice (e.g. bin/voice-callout jackpot
+# --voice Ralph --play). See all with: say -v '?'
+#
+# Transcribed from the original Vicki call outs. Those marked
+# "check" couldn't be confirmed word for word, so give them a listen.
+#
+# Not here: bonus3 (it has custom audio mixed in), which
+# bin/voice-crush handles like the other voice audio.
+
+voice: "Tara"
+# words per minute (say -r). Tara's default is about 172, 130 is
+# about 10% slower. Try one with: bin/voice-callout jackpot --rate 120 --play
+rate: 130
+
+callouts:
+  awareness: "Keep away from the hole on your right!"
+  backfire-completed: "Nice! Now back to green." # check
+  backfire-reminder: "Make her backfire and skip the pit!" # check
+  backfire-starting: "Get that engine popping!" # check
+  ball-two-locked: "Ball two is locked!"
+  bonus-laps1: "I'm counting your laps."
+  bonus-laps2: "Let's see what you did for laps."
+  bonus-laps3: "Did you make much for laps?"
+  bonus1: "I'm feeling bonusy, aren't you?" # check
+  bonus2: "What was your bonus?" # check (a guess)
+  compliment1: "Nice!"
+  compliment2: "Great!"
+  compliment3: "Sweet!" # check ("Sweet" or "Solid")
+  compliment4: "Splendid!"
+  compliment5: "Crushing it!"
+  compliment6: "Incredible!"
+  extra-ball-lit: "Well done! Now get the extra ball." # check
+  extra-ball: "You got an extra ball!" # check
+  grand-prix-ball-locked: "All locked for Grand Prix Multiball!" # check
+  grand-prix-completed: "You've made the podium. Well done!"
+  grand-prix-position-lost: "Lost position!"
+  grand-prix-starting: "The Grand Prix multi ball is in progress!" # check
+  grooveline-completed: "You shoot that thing very nicely. I'm impressed." # check
+  grooveline-multiball-ready: "Grooveline multi ball is ready!" # check
+  grooveline-starting: "Show-em how we do it now!"
+  jackpot-double: "Double jackpot!"
+  jackpot: "Jackpot!"
+  late1: "Too late!"
+  late2: "You took too long!"
+  late3: "You're too slow!"
+  luxury-completed: "You have reached the lap of luxury. Congrats!" # check
+  luxury-multiball-ready: "Money multi ball is ready. Make it rain!" # check
+  luxury-starting: "Make money-money. Make money-money!" # check
+  multiball-ready: "Multi ball is ready!"
+  multiplier-2x: "Two X multiplier engaged!" # check
+  multiplier-lost: "Multiplier lost." # check
+  name1: {text: "Juan!", speed: 0.85} # check (player 1, see driver_name in modes/pit/code/pit.py)
+  name2: {text: "Deuce!", speed: 0.75} # check (player 2)
+  name3: {text: "Trey!", speed: 0.75}
+  name4: {text: "Ford!", speed: 0.75}
+  player-up1: "You're up!"
+  player-up2: "Let's go!"
+  player-up3: "You ready?"
+  player-up4: "Let's race!"
+  player-up5: "Go get it!"
+  player-up6: "Make me proud!"
+  skill-shot: "Wow. You got some skills!"
+  tilt1: "No!"
+  tilt2: "I said no!"
+  tilt3: "Get better at playing pinball!"
+  you-matched: "You match-making motherfucker!" # check
+
+  # Pure Evil taunts (the pure_evil_taunt pool, every 10s during the
+  # mode): robotized, with a fast cackle (say's embedded [[rate]])
+  pure-evil-taunt1:
+    text: "Your points are mine now, driver! [[rate 220]] Ha ha ha!"
+    robot: 0.5
+    robot_pitch: 90
+  pure-evil-taunt2:
+    text: "Every second, I take more of your points! [[rate 220]] Mwa ha ha!"
+    robot: 0.5
+    robot_pitch: 90
+  pure-evil-taunt3:
+    text: "Tick tock, driver. Your score is draining away! [[rate 220]] Ha ha ha!"
+    robot: 0.5
+    robot_pitch: 90
+  pure-evil-taunt4:
+    text: "Hit the drop target? You'll never make it! [[rate 220]] Ha ha ha!"
+    robot: 0.5
+    robot_pitch: 90
+  pure-evil-taunt5:
+    text: "Thanks for the points, driver! [[rate 220]] Heh heh heh!"
+    robot: 0.5
+    robot_pitch: 90
+  pure-evil-taunt6:
+    text: "Can't stop me now! Your points keep falling! [[rate 220]] Mwa ha ha!"
+    robot: 0.5
+    robot_pitch: 90

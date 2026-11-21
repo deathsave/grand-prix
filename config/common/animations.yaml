@@ -56,6 +56,16 @@ animations:
       value: 1.0
       duration: 500ms
       repeat: true
+  # once a second, dipping (not all the way) to black
+  # (the Pure Evil mode slide)
+  pulsate_evil:
+    - property: opacity
+      value: 0.35
+      duration: 500ms
+    - property: opacity
+      value: 1.0
+      duration: 500ms
+      repeat: true
   # hard on/off blink (pulsate_* fade instead)
   flash:
     - property: opacity

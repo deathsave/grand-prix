@@ -7,6 +7,9 @@
 # There is one tip step per tip in
 # modes/tips/content/tips.yaml (test_tips checks this),
 # so add/remove a step when adding/removing a tip.
+# Every slide change (timed or from the flippers) plays
+# the whoosh effect.
+#
 # The Tips mode plays this show (modes/tips/code/tips.py)
 # and picks each tip from the current step. The right
 # flipper advances a step and the left flipper steps back.
@@ -16,20 +19,29 @@
     splash_slide:
       action: play
   events: attract_tip_clear
+  sounds: whoosh
 # The Tips mode plays each tip's slide (see modes/tips)
 - duration: 10s
   events: attract_tip
+  sounds: whoosh
 - duration: 10s
   events: attract_tip
+  sounds: whoosh
 - duration: 10s
   events: attract_tip
+  sounds: whoosh
 - duration: 10s
   events: attract_tip
+  sounds: whoosh
 - duration: 10s
   events: attract_tip
+  sounds: whoosh
 - duration: 10s
   events: attract_tip
+  sounds: whoosh
 - duration: 10s
   events: attract_tip
+  sounds: whoosh
 - duration: 10s
   events: attract_tip
+  sounds: whoosh

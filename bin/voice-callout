@@ -1,0 +1,349 @@
+#!/usr/bin/env python3
+"""Make the synth voice call outs from text.
+
+Every synth call out is listed in misc/voice-callouts.yaml (the voice and
+speaking rate to use, and each call out's file name: text). This says each one with macOS
+`say` and runs it through the whole sound in one go:
+
+  1. compress and bit-crush it (an approximation of the "Tritik Krush"
+     VST the original call outs were made with)
+  2. EQ it to the original call outs' average spectrum (TARGET_EQ) and
+     match their loudness
+  3. the same saturation, crush and de-esser bin/voice-crush gives all
+     the voice audio (using its default settings)
+
+and writes sounds/preload/voice/synth/<name>.ogg. A call out can also be
+a map with its own settings:
+
+  text:         what to say
+  speed:        0.5 is half speed, 2 double (the pitch stays the same)
+  voice, rate:  instead of the file's voice and rate
+  robot:        0-1, how much robot (a monotone buzz) to mix in
+  robot_pitch:  the robot's pitch in Hz (default 120)
+
+Any call out missing from config/common/sounds.yaml is added to it. Edit the text (or the
+voice) in misc/voice-callouts.yaml and re-run to change them.
+
+Examples:
+
+  bin/voice-callout                          # rebuild every call out
+  bin/voice-callout jackpot tilt1 --play     # rebuild some, then hear them
+  bin/voice-callout add hole-lost "Lost position!"   # a new one
+  bin/voice-callout jackpot --voice Ralph --play     # try another voice
+  bin/voice-callout jackpot --rate 120 --play        # try a speed
+
+`add` also puts it in config/common/sounds.yaml (track: voice), so play
+it from a sound_player by its sound name (the file name with
+underscores, e.g. hole_lost).
+
+Needs macOS (say, afplay), ffmpeg and numpy.
+"""
+
+import argparse
+import functools
+import importlib.machinery
+import importlib.util
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from concurrent.futures import ThreadPoolExecutor
+
+import numpy as np
+from ruamel.yaml import YAML
+
+# keep our output in order
+print = functools.partial(print, flush=True)
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CALLOUTS = os.path.join(ROOT, "misc", "voice-callouts.yaml")
+GAME_DIR = os.path.join(ROOT, "sounds", "preload", "voice", "synth")
+SOUNDS_YAML = os.path.join(ROOT, "config", "common", "sounds.yaml")
+
+SAMPLE_RATE = 22050
+
+# 1. Compression (raises the quiet parts) into an 8 bit crush with 2x
+# sample rate reduction. Calibrated against renders of the original
+# "Let's race!" (player-up4) and "Too late!" (late1).
+KRUSH = ("acompressor=threshold=-30dB:ratio=6:attack=2:release=60:makeup=1,"
+         "acrusher=bits=8:samples=2:mode=lin:mix=0.6:aa=0")
+
+# 2. The original call outs' average spectrum (dB per band, loudest
+# band 0) and loudness, measured from the Vicki + Tritik Krush ones.
+EDGES = [0, 150, 300, 600, 1200, 2400, 3600, 5000, 7000, 9000, 11025]
+TARGET_EQ = [-7.7, 0.0, -8.9, -11.9, -16.1, -20.9, -43.1, -52.6, -52.4, -52.7]
+TARGET_LUFS = -13.7
+MAX_BOOST = 12   # dB, so nearly empty bands aren't boosted into noise
+MAX_CUT = 30
+CENTERS = [np.sqrt(max(lo, 40) * hi) for lo, hi in zip(EDGES, EDGES[1:])]
+
+
+def voice_crush():
+    """bin/voice-crush, for its final stage and settings."""
+    path = os.path.join(ROOT, "bin", "voice-crush")
+    loader = importlib.machinery.SourceFileLoader("voice_crush", path)
+    spec = importlib.util.spec_from_loader("voice_crush", loader)
+    module = importlib.util.module_from_spec(spec)
+    loader.exec_module(module)
+    return module
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Make the synth voice call outs from text "
+                    "(misc/voice-callouts.yaml).",
+        epilog="See the top of this file for the full process.")
+    parser.add_argument("names", nargs="*",
+        help="call outs to rebuild (default: all), or: "
+             "add <name> <text>")
+    parser.add_argument("--voice",
+        help="macOS say voice to use instead of the one in "
+             "misc/voice-callouts.yaml (e.g. to try one out)")
+    parser.add_argument("--rate", type=int,
+        help="speaking rate (say -r, words per minute) instead of the "
+             "one in misc/voice-callouts.yaml")
+    parser.add_argument("--play", action="store_true",
+        help="play each call out after making it")
+    return parser.parse_args()
+
+
+def load_callouts():
+    with open(CALLOUTS) as f:
+        config = YAML(typ="safe").load(f) or {}
+    return (config.get("voice", "Vicki"), config.get("rate"),
+        config.get("callouts") or {})
+
+
+def ffmpeg(*args):
+    subprocess.run(["ffmpeg", "-v", "error", "-y", *args], check=True)
+
+
+def load(path):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-ac", "1",
+        "-ar", str(SAMPLE_RATE), "-f", "f32le", "-"],
+        capture_output=True, check=True).stdout
+    return np.frombuffer(raw, dtype=np.float32)
+
+
+def band_levels(x):
+    """Average spectrum (dB per band, loudest band 0) of the louder
+    parts of a sound."""
+    n = 2048
+    frames = [x[i:i + n] * np.hanning(n)
+        for i in range(0, len(x) - n, n // 2)]
+    if not frames:  # very short: one zero padded frame
+        frames = [np.pad(x, (0, n - len(x))) * np.hanning(n)]
+    rms = np.array([np.sqrt(np.mean(f ** 2)) for f in frames])
+    loud = [f for f, r in zip(frames, rms) if r >= np.percentile(rms, 40)]
+    spectrum = np.mean([np.abs(np.fft.rfft(f)) ** 2 for f in loud], axis=0)
+    freqs = np.fft.rfftfreq(n, 1 / SAMPLE_RATE)
+    levels = np.array([
+        10 * np.log10(spectrum[(freqs >= lo) & (freqs < hi)].mean() + 1e-12)
+        for lo, hi in zip(EDGES, EDGES[1:])])
+    return levels - levels.max()
+
+
+def loudness(path):
+    out = subprocess.run(["ffmpeg", "-i", path, "-af", "ebur128",
+        "-f", "null", "-"], capture_output=True, text=True).stderr
+    return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", out)[-1])
+
+
+def equalizer(gains):
+    entries = ";".join(f"entry({c:.0f},{g:.1f})"
+        for c, g in zip(CENTERS, gains))
+    return f"firequalizer=gain_entry='{entries}':gain='cubic_interpolate(f)'"
+
+
+SETTINGS = {"text", "speed", "voice", "rate", "robot", "robot_pitch"}
+
+
+def callout_settings(entry):
+    """A call out's settings: "text" or a map (see the top)."""
+    settings = dict(entry) if isinstance(entry, dict) else {"text": entry}
+    unknown = set(settings) - SETTINGS
+    if unknown:
+        raise ValueError(f"unknown settings: {', '.join(sorted(unknown))}")
+    settings["text"] = str(settings["text"])
+    settings["speed"] = float(settings.get("speed", 1))
+    settings["robot"] = float(settings.get("robot", 0))
+    settings["robot_pitch"] = float(settings.get("robot_pitch", 120))
+    return settings
+
+
+def describe(entry):
+    """The text plus any settings, for printing."""
+    settings = callout_settings(entry)
+    extras = [f"{k} {settings[k]}" for k in ["voice", "rate"] if k in settings]
+    if settings["speed"] != 1:
+        extras.append(f"speed {settings['speed']:g}")
+    if settings["robot"]:
+        extras.append(f"robot {settings['robot']:g}")
+    return settings["text"] + (f" ({', '.join(extras)})" if extras else "")
+
+
+def robot(amount, pitch):
+    """Robotize (phases zeroed in an FFT, which makes a monotone buzz at
+    sample rate / hop) mixed with `1 - amount` of the dry voice."""
+    hop = round(SAMPLE_RATE / pitch)
+    win = 1024
+    return (f"asplit[dry][wet];[wet]afftfilt=real='hypot(re,im)':imag='0'"
+        f":win_size={win}:overlap={1 - hop / win:.6f}[bot];"
+        f"[bot][dry]amix=inputs=2:weights='{amount} {1 - amount}'"
+        ":normalize=1")
+
+
+def tempo(speed):
+    """atempo filters for `speed` (each atempo is limited to 0.5-2)."""
+    filters = []
+    while speed < 0.5:
+        filters.append("atempo=0.5")
+        speed /= 0.5
+    while speed > 2:
+        filters.append("atempo=2")
+        speed /= 2
+    filters.append(f"atempo={speed}")
+    return filters
+
+
+def render(entry, voice, rate, dest, final_filter):
+    """Say a call out and run it through the whole chain into `dest`."""
+    settings = callout_settings(entry)
+    voice = settings.get("voice", voice)
+    rate = settings.get("rate", rate)
+    with tempfile.TemporaryDirectory() as tmp:
+        spoken = os.path.join(tmp, "say.aiff")
+        say_rate = ["-r", str(rate)] if rate else []
+        subprocess.run(["say", "-v", voice, *say_rate, settings["text"],
+            "-o", spoken], check=True)
+
+        # 1. (re-time, robotize,) compress and crush
+        crushed = os.path.join(tmp, "crushed.wav")
+        chain = [f"aresample={SAMPLE_RATE}",
+            "aformat=channel_layouts=mono"]
+        if settings["speed"] != 1:
+            chain += tempo(settings["speed"])
+        graph = ",".join(chain)
+        if settings["robot"] > 0:
+            graph += "," + robot(settings["robot"], settings["robot_pitch"])
+        ffmpeg("-i", spoken, "-filter_complex", graph + "," + KRUSH,
+            crushed)
+
+        # 2. EQ to the target (a few passes to converge), then loudness
+        gains = np.zeros(len(CENTERS))
+        matched = os.path.join(tmp, "matched.wav")
+        for _ in range(5):
+            ffmpeg("-i", crushed, "-af", equalizer(gains), matched)
+            diff = np.array(TARGET_EQ) - band_levels(load(matched))
+            gains = np.clip(gains + 0.8 * diff, -MAX_CUT, MAX_BOOST)
+            gains[-1] = min(gains[-1], 0)
+        ffmpeg("-i", crushed, "-af", equalizer(gains), matched)
+        leveled = os.path.join(tmp, "leveled.wav")
+        ffmpeg("-i", matched, "-af",
+            f"volume={TARGET_LUFS - loudness(matched):.2f}dB,"
+            "alimiter=limit=0.89:level=disabled", leveled)
+
+        # 3. the voice-crush stage, encoded like the rest of the voice
+        ffmpeg("-i", leveled, "-af", final_filter,
+            "-ac", "2", "-c:a", "vorbis", "-strict", "-2", "-q:a", "5",
+            dest)
+
+
+def add_callout(name, text):
+    """Add `name: text` to the end of misc/voice-callouts.yaml."""
+    with open(CALLOUTS) as f:
+        content = f.read()
+    yaml_text = text.replace("\\", "\\\\").replace('"', '\\"')
+    with open(CALLOUTS, "a") as f:
+        if not content.endswith("\n"):
+            f.write("\n")
+        f.write(f'  {name}: "{yaml_text}"\n')
+
+
+def add_sound(name):
+    """Add the call out to sounds.yaml after the other synth sounds."""
+    sound = name.replace("-", "_")
+    with open(SOUNDS_YAML) as f:
+        content = f.read()
+    if re.search(rf"^  {re.escape(sound)}:\s*$", content, re.M):
+        return None
+    entry = f"  {sound}:\n    file: {name}.ogg\n    track: voice\n"
+    synth = content.index("######## Synth")
+    end = content.find("\n  ####", synth + 1)
+    if end < 0:
+        end = len(content)
+    at = len(content[:end].rstrip("\n")) + 1
+    with open(SOUNDS_YAML, "w") as f:
+        f.write(content[:at] + entry + content[at:])
+    return sound
+
+
+def main():
+    args = parse_args()
+    for tool in ["say", "ffmpeg"]:
+        if not shutil.which(tool):
+            sys.exit(f"{tool} not found")
+    voice, rate, callouts = load_callouts()
+    voice = args.voice or voice
+    rate = args.rate or rate
+    adding = args.names[:1] == ["add"]
+
+    if adding:
+        if len(args.names) != 3:
+            sys.exit('usage: bin/voice-callout add <name> "<text>"')
+        _, name, text = args.names
+        if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name):
+            sys.exit("name should be lowercase words joined by dashes, "
+                "e.g. hole-lost")
+        if name in callouts:
+            sys.exit(f"{name} already exists, edit its text in "
+                f"{os.path.relpath(CALLOUTS, ROOT)} and rebuild it")
+        add_callout(name, text)
+        _, _, callouts = load_callouts()
+        names = [name]
+    else:
+        names = args.names or list(callouts)
+        unknown = [n for n in names if n not in callouts]
+        if unknown:
+            sys.exit(f"not in {os.path.relpath(CALLOUTS, ROOT)}: "
+                + ", ".join(unknown))
+
+    crush = voice_crush()
+    final_filter = crush.audio_filter(crush.build_parser().parse_args([]))
+
+    speed = f" at {rate} wpm" if rate else ""
+    print(f"making {len(names)} call out(s) with {voice}{speed}...")
+    failed = []
+    with ThreadPoolExecutor() as pool:
+        jobs = {name: pool.submit(render, callouts[name], voice, rate,
+            os.path.join(GAME_DIR, f"{name}.ogg"), final_filter)
+            for name in names}
+        for name, job in jobs.items():
+            try:
+                job.result()
+                print(f"  {name}: {describe(callouts[name])}")
+            except (subprocess.CalledProcessError, ValueError,
+                    IndexError) as error:
+                failed.append(name)
+                print(f"  {name}: FAILED ({error})", file=sys.stderr)
+
+    for name in names:
+        sound = None if name in failed else add_sound(name)
+        if sound:
+            print(f"added `{sound}` to "
+                f"{os.path.relpath(SOUNDS_YAML, ROOT)}, play it from a "
+                f"sound_player, e.g.  some_event: {sound}")
+
+    if args.play:
+        for name in names:
+            if name not in failed:
+                subprocess.run(["afplay",
+                    os.path.join(GAME_DIR, f"{name}.ogg")])
+    if failed:
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

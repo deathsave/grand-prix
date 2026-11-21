@@ -57,6 +57,13 @@ widgets:
   pure_evil:
   - type: image
     image: pure-evil
+  # the Pure Evil mode slide's (pure_evil is also the
+  # tip background, which doesn't pulsate)
+  pure_evil_pulsing:
+  - type: image
+    image: pure-evil
+    animations:
+      add_to_slide: pulsate_evil
   lube_2:
   - type: image
     image: lube-2

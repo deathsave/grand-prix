@@ -141,4 +141,4 @@ slides:
   red_line_slide:
   - widget: red_line
   pure_evil_slide:
-  - widget: pure_evil
+  - widget: pure_evil_pulsing

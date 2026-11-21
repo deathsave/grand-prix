@@ -35,7 +35,40 @@ show_player:
         led: tag_rgb
         color: red
 
+# Only the sirens: silence the background music and ambience
+# (the taunts and gameplay sounds still play) and bring them
+# back after (to their config/common/sound_system.yaml volumes)
+track_player:
+  mode_pure_evil_started:
+    music:
+      action: set_volume
+      volume: 0
+      fade: 500ms
+    ambience:
+      action: set_volume
+      volume: 0
+      fade: 500ms
+  mode_pure_evil_stopping:
+    music:
+      action: set_volume
+      volume: 0.4
+      fade: 1s
+    ambience:
+      action: set_volume
+      volume: 0.2
+      fade: 1s
+
+# A taunt 5 seconds in, then every 10 seconds (5s ticks,
+# taunting on the odd ones: 5s, 15s, 25s, 35s)
+timers:
+  pure_evil_taunts:
+    start_value: 0
+    direction: up
+    tick_interval: 5s
+    start_running: true
+
 sound_player:
+  timer_pure_evil_taunts_tick{ticks % 2 == 1}: pure_evil_taunt
   mode_pure_evil_started:
     civil_siren:
       action: play

@@ -10,3 +10,5 @@ sound_player:
       delay: 2
   grand_prix_jackpot: jackpot
   grand_prix_super_jackpot: jackpot_double
+  # the 30s hurry up ran out and a held ball was ejected
+  grand_prix_hole_lost: grand_prix_position_lost

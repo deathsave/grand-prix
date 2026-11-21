@@ -3,6 +3,7 @@
 sound_player:
   # Skill shot callouts
   off_the_line_hit: good
+  off_the_line_late: late
   skill_backfire_hit: skill_shot
   # initially, player needs to top up
   # fuel to hit green flag

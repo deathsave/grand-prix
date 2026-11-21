@@ -159,6 +159,10 @@ sounds:
   swoop:
     file: swoop.ogg
     track: effects
+  # attract slide changes (shows/attract_rotation.yaml)
+  whoosh:
+    file: whoosh.ogg
+    track: effects
   welp:
     file: welp.ogg
     track: effects
@@ -416,6 +420,27 @@ sounds:
     track: voice
   multiball_ready:
     file: multiball-ready.ogg
+    track: voice
+  grand_prix_position_lost:
+    file: grand-prix-position-lost.ogg
+    track: voice
+  pure_evil_taunt1:
+    file: pure-evil-taunt1.ogg
+    track: voice
+  pure_evil_taunt2:
+    file: pure-evil-taunt2.ogg
+    track: voice
+  pure_evil_taunt3:
+    file: pure-evil-taunt3.ogg
+    track: voice
+  pure_evil_taunt4:
+    file: pure-evil-taunt4.ogg
+    track: voice
+  pure_evil_taunt5:
+    file: pure-evil-taunt5.ogg
+    track: voice
+  pure_evil_taunt6:
+    file: pure-evil-taunt6.ogg
     track: voice
 
   ######## Steve #########

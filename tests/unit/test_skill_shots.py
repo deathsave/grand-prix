@@ -44,34 +44,100 @@ class TestSkillShots(DeathSaveGameTesting):
     def test_off_the_line_skill_shot_timeout(self):
         self._qualify_off_the_line_skill_shot()
 
-        # player has only a half second to get
+        # player has under a second (0.8s) to get
         # a solid start off the line
-        self.advance_time_and_run(0.5)
+        self.advance_time_and_run(0.7)
+        self.assertEqual(True,
+            self.machine.timers["off_the_line"].running)
+        self.assertEventNotCalled("off_the_line_late")
+        self.advance_time_and_run(0.2)
         self.assertEqual(False,
             self.machine.timers["off_the_line"].running)
         # skill shot failed
         self.assertEqual(0,
             self.machine.shots["off_the_line"].state)
+        # and the player is told they're late
+        self.assertEventCalled("off_the_line_late")
+
+    # The window is centered on the final ding (the green
+    # flag dropping): 0.4s before it to 0.4s after
+    def test_off_the_line_window_centered(self):
+        times = {}
+
+        def record(name):
+            def handler(**kwargs):
+                times.setdefault(name, self.machine.clock.get_time())
+            return handler
+
+        for event in ["off_the_line_open", "green_flag_dropped",
+                "timer_off_the_line_complete"]:
+            self.machine.events.add_handler(event, record(event))
+        self._qualify_off_the_line_skill_shot()
+        self.advance_time_and_run(2)
+        dropped = times["green_flag_dropped"]
+        self.assertAlmostEqual(-0.4,
+            times["off_the_line_open"] - dropped, delta=0.05)
+        self.assertAlmostEqual(0.4,
+            times["timer_off_the_line_complete"] - dropped, delta=0.15)
+
+    # Plunging just before the final ding counts
+    def test_off_the_line_before_final_ding(self):
+        self._qualify_off_the_line_skill_shot()
+        self.advance_time_and_run(0.2)
+        self.assertEventNotCalled("green_flag_dropped")
+        score = self.machine.game.player.score
+        self.hit_and_release_switch("s_shooter_lane")
+        self.assertEqual(1, self.machine.shots["off_the_line"].state)
+        self.assertEqual(score + 5000, self.machine.game.player.score)
+
+    # Plunging in time isn't late
+    def test_off_the_line_skill_shot_not_late(self):
+        self._qualify_off_the_line_skill_shot()
+        self.hit_and_release_switch("s_shooter_lane")
+        self.advance_time_and_run(1)
+        self.assertEventNotCalled("off_the_line_late")
+
+    # Plunging before the window opens neither scores
+    # nor is late
+    def test_off_the_line_skill_shot_early(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self.mock_event("off_the_line_late")
+        self.mock_event("off_the_line_hit")
+        self.mock_event("off_the_line_open")
+        self.hit_switch_and_run("s_trough1", 3)
+        self.assertModeRunning("green_flag")
+        self.assertEventNotCalled("off_the_line_open")
+        # plunged during the countdown
+        self.hit_and_release_switch("s_shooter_lane")
+        self.advance_time_and_run(5)
+        self.assertEventCalled("off_the_line_open")
+        self.assertEventNotCalled("off_the_line_hit")
+        self.assertEventNotCalled("off_the_line_late")
 
     def test_off_the_line_skill_shot_plunge(self):
         self._qualify_off_the_line_skill_shot()
         score = self.machine.game.player.score
+        # (late in the window still counts)
+        self.advance_time_and_run(0.6)
 
         # player successfully gets the ball out of the
         # shooter lane during the brief window
         self.hit_and_release_switch("s_shooter_lane")
-        # print("*******************************")
-        # print(self.machine.shots["off_the_line"].state)
-        # print("*******************************")
         # skill shot succeeded
         self.assertEqual(1,
             self.machine.shots["off_the_line"].state)
         self.assertEqual(score + 5000,
             self.machine.game.player.score)
 
+    # Starts ball 2 under green and runs until the Off the
+    # Line window opens (0.4s before the final ding)
     def _qualify_off_the_line_skill_shot(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()
+        for event in ["off_the_line_late", "off_the_line_open",
+                "green_flag_dropped"]:
+            self.mock_event(event)
 
         # ball drains and ball 2 begins
         self.hit_switch_and_run("s_trough1", 3)
@@ -80,8 +146,11 @@ class TestSkillShots(DeathSaveGameTesting):
         self.assertModeRunning("green_flag")
         self.assertEqual(2, self.machine.game.player.ball)
 
-        # "under green" show runs... ding, ding, ding... dong!
-        self.advance_time_and_run(2.5)
+        # "under green" show runs... ding, ding, ding...
+        for i in range(200):  # (up to 10s)
+            if self._events["off_the_line_open"]:
+                break
+            self.advance_time_and_run(0.05)
 
         # off the line timer should be running now
         self.assertEqual(True,

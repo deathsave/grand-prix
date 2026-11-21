@@ -23,10 +23,10 @@ timers:
     - event: start_backfire_qualification{game.balls_in_play > 0}
       action: start
 
-  # Hurry up timer for the "backfire pops"
+  # Pure Evil lasts at most 40 seconds
   pure_evil:
     end_value: 0
-    start_value: 30
+    start_value: 40
     direction: down
     control_events:
     - event: pure_evil_enters{machine.is_pure_evil_available}
@@ -36,13 +36,16 @@ timers:
 
   # timer for skillful plunge when starting a new
   # ball while green flag is active
+  # the window to plunge in, centered on the green flag
+  # dropping (the final ding): opens 0.4s before it
+  # (shows/under_green.yaml) and runs 8 ticks of 0.1s = 0.8s
   off_the_line:
-    start_value: 5
+    start_value: 8
     end_value: 0
     direction: down
     tick_interval: "0.1s"
     control_events:
-    - event: green_flag_dropped
+    - event: off_the_line_open
       action: start
 
   # Hurry up timer for the multiplier period
