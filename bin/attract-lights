@@ -1,0 +1,477 @@
+#!/usr/bin/env python3
+"""Generate the attract mode light show (shows/attract.yaml).
+
+The show is computed frame by frame (FPS a second) from effects that use
+each light's position in the MPF monitor (monitor/monitor.yaml, see
+misc/light-layout.yaml), so sweeps, rings and waves move across the
+playfield (and up into the backbox). Only the
+RGB LEDs (config/common/rgb_leds.yaml) are multicolor; every other light
+is plain on/off, on when an effect lights it past half brightness. Only changes are written, and identical
+frames are merged, to keep the show small. No coils or sounds.
+
+The acts (about a minute, then it loops):
+
+  1. start lights  the signals count down in red, then a green GO burst
+  2. the race      comets lap the loop, faster and faster, the chains
+                   chase and the backbox "Rev Match" bar revs like a tach
+  3. sweeps        a scanner bar bottom to top, top to bottom, left to
+                   right and right to left, a new color each pass
+  4. shockwaves    rings of color expanding from the center
+  5. checkered     a flipping checkered flag, then it waves
+  6. plasma        flowing color across the RGB inserts, the lamps sparkle
+  7. pit stop      left and right halves strobe faster and faster, the
+                   pit lights in their fuel, lube and tire colors
+  8. finale        a spinning beacon, everything on, strobe, fade out
+
+Edit an act below (or the layout) and re-run:
+
+  bin/attract-lights
+
+Needs ruamel.yaml (which comes with MPF).
+"""
+
+import math
+import os
+import random
+import re
+
+from ruamel.yaml import YAML
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LAYOUT = os.path.join(ROOT, "misc", "light-layout.yaml")
+MONITOR = os.path.join(ROOT, "monitor", "monitor.yaml")
+LIGHTS = os.path.join(ROOT, "config", "common", "lights.yaml")
+RGB_LEDS = os.path.join(ROOT, "config", "common", "rgb_leds.yaml")
+SHOW = os.path.join(ROOT, "shows", "attract.yaml")
+
+FPS = 20
+# RGB color steps (coarser makes fewer changes and a smaller show)
+COLOR_STEP = 8
+# Synthwave colors for the RGB LEDs (pink, cyan and orange are the game's
+# own, config/common/named_colors.yaml)
+PALETTE = {
+    "hot_pink": (0xFF, 0x1F, 0x8E), "pink": (0xDF, 0x02, 0xE3),
+    "purple": (0x8A, 0x2B, 0xE2), "violet": (0x4B, 0x0F, 0xA8),
+    "blue": (0x2D, 0x5B, 0xFF), "cyan": (0x00, 0xE9, 0xFF),
+    "orange": (0xFF, 0x7F, 0x35), "sun": (0xFF, 0xD3, 0x19),
+}
+PALETTE = {k: tuple(c / 255 for c in v) for k, v in PALETTE.items()}
+# the neon run (cycles back round to pink) and a sunset
+NEON = ["hot_pink", "pink", "purple", "violet", "blue", "cyan"]
+SUNSET = ["sun", "orange", "hot_pink", "pink", "purple"]
+# the player up LEDs (the drivers in the backbox) only ever show these
+PLAYER_UP = [(1.0, 1.0, 1.0), PALETTE["cyan"], PALETTE["blue"]]
+# on/off lamps only care if a color is past half brightness
+ON = (1.0, 1.0, 1.0)
+BLACK = (0.0, 0.0, 0.0)
+
+
+class Light:
+    def __init__(self, name, x, y, rgb, backbox):
+        self.name, self.x, self.y = name, x, y
+        self.rgb, self.backbox = rgb, backbox
+        # "l_loop_07" -> ("loop", 7), "l_signal3" -> ("signal", 3)
+        match = re.fullmatch(r"(.*?)_?(\d+)", name[2:])
+        if match:
+            self.group, self.index = match.group(1), int(match.group(2))
+        else:
+            self.group, self.index = name[2:], 0
+
+
+def load_lights():
+    """Every light, positioned from the monitor (in pixels of its image)
+    plus the layout's overrides: the playfield 0-1 across and from the
+    flippers (0) to the back (1), the backbox above it (y 1.05 to 1.6)."""
+    yaml = YAML(typ="safe")
+    layout = yaml.load(open(LAYOUT))
+    width, height = layout["image"]
+    pixels = {name: (spot["x"] * width, spot["y"] * height)
+        for name, spot in yaml.load(open(MONITOR))["light"].items()}
+    pixels.update({name: tuple(xy)
+        for name, xy in (layout.get("overrides") or {}).items()})
+    rgb = set(yaml.load(open(RGB_LEDS))["lights"])
+    names = set(yaml.load(open(LIGHTS))["lights"]) | rgb
+
+    def inside(region, px, py):
+        left, top, right, bottom = layout["regions"][region]
+        return left <= px <= right and top <= py <= bottom
+
+    lights = []
+    for name in sorted(names):
+        if name not in pixels:
+            raise SystemExit(f"{name} isn't in the monitor, add it to "
+                f"{os.path.relpath(LAYOUT, ROOT)} overrides")
+        px, py = pixels[name]
+        if inside("backbox", px, py):
+            left, top, right, bottom = layout["regions"]["backbox"]
+            x = (px - left) / (right - left)
+            y = 1.05 + (bottom - py) / (bottom - top) * 0.55
+            lights.append(Light(name, x, y, name in rgb, True))
+        elif inside("playfield", px, py):
+            left, top, right, bottom = layout["regions"]["playfield"]
+            x = (px - left) / (right - left)
+            y = (bottom - py) / (bottom - top)
+            lights.append(Light(name, x, y, name in rgb, False))
+        else:
+            raise SystemExit(f"{name} at {px:.0f}, {py:.0f} isn't in the "
+                "playfield or backbox (see the layout's regions)")
+    return lights
+
+
+# ---------------------------------------------------------------- helpers
+
+def scale(color, amount):
+    amount = max(0.0, min(1.0, amount))
+    return tuple(c * amount for c in color)
+
+
+def add(a, b):
+    return tuple(min(1.0, x + y) for x, y in zip(a, b))
+
+
+def mix(a, b, t):
+    return tuple(x + (y - x) * t for x, y in zip(a, b))
+
+
+def neon(t):
+    """Around the neon colors, t from 0 to 1 (wraps)."""
+    return gradient(NEON, t)
+
+
+def gradient(names, t):
+    """Smoothly through the named palette colors, t from 0 to 1 (wraps)."""
+    colors = [PALETTE[n] for n in names]
+    t = (t % 1.0) * len(colors)
+    i = int(t)
+    return mix(colors[i], colors[(i + 1) % len(colors)], t - i)
+
+
+def comet(position, length, index, count):
+    """Brightness of light `index` (of `count` around a ring) for a comet
+    whose head is at `position` (in lights) with a fading tail."""
+    behind = (position - index) % count
+    return max(0.0, 1.0 - behind / length) if behind < length else 0.0
+
+
+def band(value, center, width):
+    """1 at the center of a band, falling to 0 at its edges."""
+    return max(0.0, 1.0 - abs(value - center) / width)
+
+
+def chain(lights, group):
+    return sorted((l for l in lights if l.group == group),
+        key=lambda l: l.index)
+
+
+# ---------------------------------------------------------------- the acts
+# Each act is (seconds, function(t, lights) -> {name: color}). Lights left
+# out are off.
+
+def start_lights(t, lights):
+    out = {}
+    count = int(t)  # one more signal each second, GO at 4s
+    for l in lights:
+        if l.group == "signal":
+            out[l.name] = ON if l.index <= min(count, 4) \
+                and t >= 0.5 else BLACK
+    if t < 4:
+        # sunset pulses on every RGB light with each count
+        pulse = math.exp(-(t % 1.0) * 5) if t >= 0.5 else 0
+        for l in lights:
+            if l.rgb:
+                out[l.name] = scale(gradient(SUNSET, count / 4), pulse)
+        return out
+    go = t - 4  # GO! a cyan burst everywhere, fading through blue
+    for l in lights:
+        if l.rgb:
+            out[l.name] = scale(mix(PALETTE["cyan"], PALETTE["blue"],
+                min(1, go)), math.exp(-go * 1.5))
+        elif l.group != "signal":
+            out[l.name] = ON if go < 0.6 or \
+                0.8 < go < 1.0 else BLACK
+    return out
+
+
+def race(t, lights):
+    out = {}
+    duration = 12
+    # comets speed up from 6 to 32 lights a second (this is how far
+    # they've gone: the speed 6 + 26 * (t / 12) ** 1.5, integrated)
+    travelled = 6 * t + 26 * duration / 2.5 * (t / duration) ** 2.5
+    loop = chain(lights, "loop")
+    for i, l in enumerate(loop):
+        color = BLACK
+        for k, name in enumerate(["cyan", "pink", "orange"]):
+            head = travelled + k * len(loop) / 3
+            color = add(color, scale(PALETTE[name],
+                comet(head, 5, i, len(loop))))
+        out[l.name] = color
+    # grooveline runs down its chain, bonus runs up
+    groove = chain(lights, "grooveline")
+    for i, l in enumerate(groove):
+        out[l.name] = scale(gradient(["purple", "pink", "cyan"], t / 3),
+            comet(travelled * 0.6, 3, i, len(groove) + 4))
+    bonus = chain(lights, "bonus")
+    for i, l in enumerate(bonus):
+        out[l.name] = ON if comet(
+            travelled * 0.6, 2, i, len(bonus) + 4) > 0.4 else BLACK
+    # the tach: rpm climbs through each gear and drops on the shift
+    gear_time = 2.0
+    rpm = ((t % gear_time) / gear_time) ** 0.7
+    # (left to right: 10 to 90, then 00 at the far right)
+    match = sorted(chain(lights, "backbox_match"), key=lambda l: l.x)
+    for i, l in enumerate(match):  # (00 is the redline before a shift)
+        out[l.name] = ON if (i + 0.5) / len(match) <= rpm \
+            else BLACK
+    out["l_tach"] = ON if rpm > 0.85 else BLACK
+    # GRAND and PRIX fill up (from the bottom) like bar graphs with the rpm
+    for group in ("grand", "prix"):
+        lamps = sorted(chain(lights, group), key=lambda l: l.y)
+        for i, l in enumerate(lamps):
+            out[l.name] = ON if (i + 1) / len(lamps) <= rpm \
+                else BLACK
+    # the swerves and backfire flick back and forth
+    flick = int(t * 8) % 2
+    out["l_swerve1"] = ON if flick else BLACK
+    out["l_swerve2"] = BLACK if flick else ON
+    out["l_backfire"] = scale(PALETTE["orange"], 0.5 + 0.5 * flick)
+    # outlanes and multiplier chase upward
+    step = int(t * 6)
+    for l in lights:
+        if l.group in ("bottom_outlane", "top_outlane"):
+            row = 0 if l.group == "bottom_outlane" else 1
+            out[l.name] = ON if step % 2 == row else BLACK
+        elif l.group == "multiplier":
+            out[l.name] = ON if step % 3 == l.index - 1 \
+                else BLACK
+        elif l.name in ("l_pit_fuel", "l_pit_lube", "l_pit_tires"):
+            color = {"l_pit_fuel": "cyan", "l_pit_lube": "purple",
+                "l_pit_tires": "hot_pink"}[l.name]
+            out[l.name] = scale(PALETTE[color],
+                0.4 + 0.6 * (0.5 + 0.5 * math.sin(t * 6 + l.x * 10)))
+        elif l.group == "backbox_player_up":
+            out[l.name] = neon(t * 0.5 + l.index / 4) \
+                if step % 4 == l.index - 1 else BLACK
+        elif l.group == "backbox_players_in" or l.group.startswith(
+                "backbox_ball"):
+            out[l.name] = ON if (step + int(l.x * 20)) % 4 \
+                == 0 else BLACK
+    return out
+
+
+def sweeps(t, lights):
+    out = {}
+    passes = [  # (axis, start, end, color)
+        ("y", -0.1, 1.6, "cyan"), ("y", 1.6, -0.1, "hot_pink"),
+        ("x", -0.1, 1.1, "orange"), ("x", 1.1, -0.1, "purple")]
+    length = 3.0
+    axis, start, end, color = passes[min(int(t / length), 3)]
+    progress = (t % length) / length
+    progress = 0.5 - 0.5 * math.cos(progress * math.pi)  # ease in/out
+    center = start + (end - start) * progress
+    for l in lights:
+        value = l.x if axis == "x" else l.y
+        lit = band(value, center, 0.12)
+        glow = band(value, center, 0.35) * 0.35  # a wider dim glow
+        if l.rgb:
+            out[l.name] = add(scale(PALETTE[color], lit),
+                scale(PALETTE["violet"], glow))
+        else:
+            out[l.name] = ON if lit > 0.5 else BLACK
+    return out
+
+
+def shockwaves(t, lights):
+    out = {}
+    period = 1.0
+    colors = ["cyan", "hot_pink", "sun", "purple", "blue"]
+    for l in lights:
+        if l.backbox:
+            distance = 0.85 + (l.y - 1.0) * 0.6  # the backbox rings last
+        else:
+            distance = math.hypot(l.x - 0.5, (l.y - 0.45) * 1.4)
+        color = BLACK
+        on = False
+        for wave in range(3):  # up to 3 rings out at once
+            start = (t // period - wave) * period
+            if start < 0:
+                continue
+            age = t - start
+            radius = age * 0.7
+            lit = band(distance, radius, 0.16)
+            ring = colors[int(start / period) % len(colors)]
+            color = add(color, scale(PALETTE[ring], lit))
+            on = on or lit > 0.5
+        out[l.name] = color if l.rgb else (ON if on else BLACK)
+    return out
+
+
+def checkered(t, lights):
+    out = {}
+    for l in lights:
+        cell_x = math.floor(l.x * 5)
+        if t < 4:  # flips every quarter second
+            cell_y = math.floor(l.y * 8)
+            flip = int(t * 4)
+        else:  # waves
+            wave = math.sin((l.x * 1.5 - (t - 4) * 1.2) * 2 * math.pi)
+            cell_y = math.floor(l.y * 8 + wave * 1.2)
+            flip = 0
+        on = (cell_x + cell_y + flip) % 2 == 0
+        if l.rgb:  # a hot pink and cyan flag
+            out[l.name] = PALETTE["hot_pink" if on else "cyan"]
+        else:
+            out[l.name] = ON if on else BLACK
+    return out
+
+
+def plasma(t, lights, seed=86):
+    out = {}
+    rng = random.Random(seed + int(t * FPS))
+    for l in lights:
+        if l.rgb:
+            v = (math.sin(l.x * 6 + t * 1.3) + math.sin(l.y * 5 - t * 0.9)
+                + math.sin((l.x + l.y) * 4 + t)) / 3
+            out[l.name] = gradient(NEON + ["orange", "sun"],
+                (v + 1) / 2 + t * 0.05)
+        else:
+            # sparkle, with the signals stepping through slowly
+            if l.group == "signal":
+                out[l.name] = ON if int(t * 2) % 4 + 1 \
+                    == l.index else BLACK
+            else:
+                out[l.name] = ON if rng.random() < 0.12 \
+                    else BLACK
+    return out
+
+
+def pit_stop(t, lights):
+    out = {}
+    duration = 6
+    # strobe period from 0.5s down to 0.08s
+    period = 0.5 - 0.42 * (t / duration)
+    phase = int(t / period) % 2
+    pit = {"l_pit_fuel": "cyan", "l_pit_lube": "purple",
+        "l_pit_tires": "hot_pink", "l_shoot_fuel": "cyan",
+        "l_pit_arrow1": "sun", "l_pit_arrow2": "sun"}
+    for l in lights:
+        if l.name in pit:
+            out[l.name] = scale(PALETTE[pit[l.name]],
+                1 if int(t * 10) % 2 else 0.3)
+            continue
+        side = 0 if l.x < 0.5 else 1
+        on = side == phase
+        if l.rgb:
+            out[l.name] = PALETTE["hot_pink" if side == 0 else "cyan"] \
+                if on else BLACK
+        else:
+            out[l.name] = ON if on else BLACK
+    return out
+
+
+def finale(t, lights):
+    out = {}
+    for l in lights:
+        angle = math.atan2(l.y - 0.5, l.x - 0.5) / (2 * math.pi)
+        if t < 3:  # spinning beacon, the colors turning with it
+            beam = (angle - t * 0.7) % 1.0
+            lit = max(0.0, 1 - beam / 0.3) if beam < 0.3 else 0
+            if l.rgb:
+                out[l.name] = scale(neon(angle + t * 0.3), 0.35 + 0.65 * lit)
+            else:
+                out[l.name] = ON if lit > 0.5 else BLACK
+        elif t < 4:  # everything on, a sunset across the RGB LEDs
+            out[l.name] = gradient(SUNSET, l.x * 0.8) if l.rgb else ON
+        elif t < 5:  # strobe, the RGB LEDs flashing pink and cyan
+            on = int((t - 4) * 10) % 2 == 0
+            if l.rgb:
+                out[l.name] = PALETTE["hot_pink" if on else "cyan"]
+            else:
+                out[l.name] = ON if on else BLACK
+        elif t < 6:  # fade out (the lamps drop out first)
+            fade = 1 - (t - 5)
+            out[l.name] = scale(gradient(["pink", "purple", "violet"],
+                l.x), fade) \
+                if l.rgb else BLACK
+        else:
+            out[l.name] = BLACK
+    return out
+
+
+ACTS = [
+    (6, start_lights),
+    (12, race),
+    (12, sweeps),
+    (6, shockwaves),
+    (8, checkered),
+    (10, plasma),
+    (6, pit_stop),
+    (6.5, finale),
+]
+
+
+# ---------------------------------------------------------------- output
+
+def player_up_color(color):
+    """The nearest of white, cyan and blue, at the same brightness."""
+    brightness = max(color)
+    if brightness == 0:
+        return BLACK
+    shade = tuple(c / brightness for c in color)
+    nearest = min(PLAYER_UP,
+        key=lambda p: sum((a - b) ** 2 for a, b in zip(shade, p)))
+    return scale(nearest, brightness)
+
+
+def light_value(light, color):
+    if light.group == "backbox_player_up":
+        color = player_up_color(color)
+    if light.rgb:
+        # quantize a little so tiny changes don't each make a step
+        r, g, b = (round(c * 255 / COLOR_STEP) * COLOR_STEP for c in color)
+        r, g, b = (min(255, c) for c in (r, g, b))
+        # (quoted, or a color like 080800 is read as a number)
+        return f'"{r:02x}{g:02x}{b:02x}"' if (r, g, b) != (0, 0, 0) \
+            else "off"
+    return "on" if max(color) >= 0.5 else "off"
+
+
+def frames(lights):
+    for seconds, act in ACTS:
+        for f in range(int(round(seconds * FPS))):
+            values = act(f / FPS, lights)
+            yield {l.name: light_value(l, values.get(l.name, BLACK))
+                for l in lights}
+
+
+def main():
+    lights = load_lights()
+    steps = []  # [duration in frames, {name: value} changes]
+    previous = {}
+    for frame in frames(lights):
+        changes = {name: value for name, value in frame.items()
+            if previous.get(name) != value}
+        if changes or not steps:
+            steps.append([1, changes])
+        else:
+            steps[-1][0] += 1
+        previous = frame
+
+    total = sum(n for n, _ in steps) / FPS
+    lines = ["#show_version=6", "",
+        "# GENERATED by bin/attract-lights from misc/light-layout.yaml.",
+        "# Don't edit by hand: change the acts or the layout and re-run.",
+        f"# {total:g}s, {len(steps)} steps, looped by the attract mode.", ""]
+    for count, changes in steps:
+        lines.append(f"- duration: {count * 1000 // FPS}ms")
+        lines.append("  lights:")
+        for name in sorted(changes):
+            lines.append(f"    {name}: {changes[name]}")
+    with open(SHOW, "w") as f:
+        f.write("\n".join(lines) + "\n")
+    print(f"wrote {os.path.relpath(SHOW, ROOT)}: {total:g}s, "
+        f"{len(steps)} steps, {os.path.getsize(SHOW) // 1024}KB")
+
+
+if __name__ == "__main__":
+    main()

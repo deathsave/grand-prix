@@ -1,0 +1,24 @@
+# Where the lights are, for the generated attract light show
+# (bin/attract-lights).
+#
+# Positions come from the MPF monitor (monitor/monitor.yaml), so move a
+# light there and re-run bin/attract-lights. This file says where the
+# playfield and backbox are in the monitor's image (monitor/playfield.jpg,
+# in pixels), and places the lights the monitor doesn't (or only parks
+# in a corner). The show uses the playfield from the flippers (y 0) to
+# the back (y 1), with the backbox above it, so sweeps carry on up.
+
+image: [1200, 1126]  # width, height
+
+regions:  # [left, top, right, bottom]
+  playfield: [645, 0, 1200, 1126]
+  backbox: [30, 30, 630, 615]
+
+# [x, y] in image pixels
+overrides:
+  # the "tach or something" circle in the backbox (the monitor parks it
+  # in the playfield's corner)
+  l_tach: [297, 320]
+  # not in the monitor, so at their hole switches
+  l_grand_hole: [694, 532]
+  l_prix_hole: [1107, 530]
