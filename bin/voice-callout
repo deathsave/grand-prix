@@ -20,6 +20,15 @@ a map with its own settings:
   voice, rate:  instead of the file's voice and rate
   robot:        0-1, how much robot (a monotone buzz) to mix in
   robot_pitch:  the robot's pitch in Hz (default 120)
+  pitch:        semitones to shift the voice (-12 is an octave lower)
+  laugh:        said after the text (e.g. "Ha ha ha!"), with its own:
+  laugh_speed:  like speed, for just the laugh (default 1)
+  laugh_pitch:  like pitch, for just the laugh (default 0)
+  harmony:      semitones for a doubled copy of the voice mixed in
+                (e.g. -7, a fifth below, for a darker sound), with:
+  harmony_delay: ms the copy is behind (default 30)
+  harmony_mix:  its level against the voice, 0-1 (default 0.4, much
+                more muddies the words)
 
 Any call out missing from config/common/sounds.yaml is added to it. Edit the text (or the
 voice) in misc/voice-callouts.yaml and re-run to change them.
@@ -157,7 +166,9 @@ def equalizer(gains):
     return f"firequalizer=gain_entry='{entries}':gain='cubic_interpolate(f)'"
 
 
-SETTINGS = {"text", "speed", "voice", "rate", "robot", "robot_pitch"}
+SETTINGS = {"text", "speed", "voice", "rate", "robot", "robot_pitch",
+    "pitch", "laugh", "laugh_speed", "laugh_pitch", "harmony",
+    "harmony_delay", "harmony_mix"}
 
 
 def callout_settings(entry):
@@ -170,6 +181,12 @@ def callout_settings(entry):
     settings["speed"] = float(settings.get("speed", 1))
     settings["robot"] = float(settings.get("robot", 0))
     settings["robot_pitch"] = float(settings.get("robot_pitch", 120))
+    settings["pitch"] = float(settings.get("pitch", 0))
+    settings["laugh_speed"] = float(settings.get("laugh_speed", 1))
+    settings["laugh_pitch"] = float(settings.get("laugh_pitch", 0))
+    settings["harmony"] = float(settings.get("harmony", 0))
+    settings["harmony_delay"] = float(settings.get("harmony_delay", 30))
+    settings["harmony_mix"] = float(settings.get("harmony_mix", 0.4))
     return settings
 
 
@@ -179,9 +196,44 @@ def describe(entry):
     extras = [f"{k} {settings[k]}" for k in ["voice", "rate"] if k in settings]
     if settings["speed"] != 1:
         extras.append(f"speed {settings['speed']:g}")
+    if settings["pitch"]:
+        extras.append(f"pitch {settings['pitch']:+g}")
     if settings["robot"]:
         extras.append(f"robot {settings['robot']:g}")
-    return settings["text"] + (f" ({', '.join(extras)})" if extras else "")
+    if settings["harmony"]:
+        extras.append(f"harmony {settings['harmony']:+g} "
+            f"@{settings['harmony_delay']:g}ms")
+    text = settings["text"]
+    if "laugh" in settings:
+        text += f" + {settings['laugh']}"
+        if settings["laugh_speed"] != 1:
+            extras.append(f"laugh speed {settings['laugh_speed']:g}")
+        if settings["laugh_pitch"]:
+            extras.append(f"laugh pitch {settings['laugh_pitch']:+g}")
+    return text + (f" ({', '.join(extras)})" if extras else "")
+
+
+def retime(speed, semitones):
+    """Filters to change the speed and pitch independently: resample to
+    shift the pitch (which also changes the speed), then atempo to the
+    wanted speed."""
+    filters = []
+    ratio = 2 ** (semitones / 12)
+    if semitones:
+        filters += [f"asetrate={SAMPLE_RATE * ratio:.0f}",
+            f"aresample={SAMPLE_RATE}"]
+    if speed / ratio != 1:
+        filters += tempo(speed / ratio)
+    return filters
+
+
+def harmony(semitones, delay_ms, mix):
+    """Mix in a copy of the voice shifted `semitones` (same speed) and
+    `delay_ms` behind."""
+    shift = ",".join(retime(1, semitones))
+    return (f"asplit[main][copy];[copy]{shift},adelay={delay_ms:g}"
+        f"[double];[main][double]amix=inputs=2:weights='1 {mix}'"
+        ":duration=longest:normalize=1")
 
 
 def robot(amount, pitch):
@@ -214,22 +266,34 @@ def render(entry, voice, rate, dest, final_filter):
     voice = settings.get("voice", voice)
     rate = settings.get("rate", rate)
     with tempfile.TemporaryDirectory() as tmp:
-        spoken = os.path.join(tmp, "say.aiff")
         say_rate = ["-r", str(rate)] if rate else []
-        subprocess.run(["say", "-v", voice, *say_rate, settings["text"],
-            "-o", spoken], check=True)
 
-        # 1. (re-time, robotize,) compress and crush
+        # say the text (and the laugh), each re-timed to its speed
+        parts = [(settings["text"], settings["speed"], settings["pitch"])]
+        if "laugh" in settings:
+            parts.append((str(settings["laugh"]), settings["laugh_speed"],
+                settings["laugh_pitch"]))
+        inputs, graph = [], []
+        for i, (words, speed, semitones) in enumerate(parts):
+            said = os.path.join(tmp, f"say{i}.aiff")
+            subprocess.run(["say", "-v", voice, *say_rate, words,
+                "-o", said], check=True)
+            inputs += ["-i", said]
+            chain = [f"aresample={SAMPLE_RATE}",
+                "aformat=channel_layouts=mono"] + retime(speed, semitones)
+            graph.append(f"[{i}:a]{','.join(chain)}[p{i}]")
+        joined = "".join(f"[p{i}]" for i in range(len(parts)))
+        graph.append(f"{joined}concat=n={len(parts)}:v=0:a=1")
+        graph = ";".join(graph)
+
+        # 1. (robotize,) compress and crush
         crushed = os.path.join(tmp, "crushed.wav")
-        chain = [f"aresample={SAMPLE_RATE}",
-            "aformat=channel_layouts=mono"]
-        if settings["speed"] != 1:
-            chain += tempo(settings["speed"])
-        graph = ",".join(chain)
         if settings["robot"] > 0:
             graph += "," + robot(settings["robot"], settings["robot_pitch"])
-        ffmpeg("-i", spoken, "-filter_complex", graph + "," + KRUSH,
-            crushed)
+        if settings["harmony"]:
+            graph += "," + harmony(settings["harmony"],
+                settings["harmony_delay"], settings["harmony_mix"])
+        ffmpeg(*inputs, "-filter_complex", graph + "," + KRUSH, crushed)
 
         # 2. EQ to the target (a few passes to converge), then loudness
         gains = np.zeros(len(CENTERS))
