@@ -226,3 +226,24 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertFalse(
             self.machine.flippers["right_flipper"]._enabled
         )
+
+    # Bad luck lights every RGB insert solid red (like Pure Evil,
+    # without the flashing) until the ball drains
+    def test_bad_luck_lights(self):
+        from mpf.core.rgb_color import RGBColor
+        red = RGBColor("red").rgb
+        rgb = ["l_loop01", "l_grooveline05", "l_pit_fuel", "l_hole_grand"]
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self.machine.events.post("green_flag_bad_luck")
+        for i in range(5):  # steady, not flashing
+            self.advance_time_and_run(0.3)
+            for light in rgb:
+                self.assertEqual(red,
+                    self.machine.lights[light].get_color().rgb, light)
+        # the ball drains: back to normal for the next ball
+        self.hit_switch_and_run("s_trough1", 6)
+        self.assertEqual(2, self.machine.game.player.ball)
+        for light in rgb:
+            self.assertNotEqual(red,
+                self.machine.lights[light].get_color().rgb, light)

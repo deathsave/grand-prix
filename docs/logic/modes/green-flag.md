@@ -33,3 +33,17 @@ Shows
   together and pulse the shaker motor. This syncs with the current value of
   `spin_counter_count` (with the multiplier or swerve hits counting too, some
   chimes are skipped).
+
+Wear and Tear
+-------------
+
+Every 3rd lap, `./modes/green_flag/config/random_event_player.yaml` picks a
+random event (when the `WEAR_AND_TEAR` feature is available, the default):
+
+- 20% each lose a level of fuel, lube or tires, 14% all three
+- 20% `green_flag_smooth_sailing` and 5% `green_flag_under_red` (not done yet)
+- 1% **bad luck** (`green_flag_bad_luck`): green flag ends and the flippers
+  go dead, so the ball drains and ends. One of `bad_luck_blow_out`,
+  `bad_luck_seized_up` or `bad_luck_fuel_line` is picked, which plays its
+  callout pool, and every RGB insert goes solid red until the ball drains
+  (both in `./modes/pit/config`, as green flag has already stopped).

@@ -10,3 +10,5 @@ sound_player:
   mode_grooveline_will_stop:
     groove_thing:
       action: stop
+  grooveline_jackpot: jackpot
+  grooveline_super_jackpot: jackpot_double

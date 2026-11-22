@@ -3,6 +3,12 @@
 sound_player:
   # Skill shot callouts
   off_the_line_hit: good
+  # Bad luck (green_flag_bad_luck ends the ball): which bad luck it
+  # was (modes/green_flag/config/random_event_player.yaml). Here, as
+  # green flag has stopped by the time these are posted
+  bad_luck_blow_out: bad_luck_blow_out
+  bad_luck_seized_up: bad_luck_seized_up
+  bad_luck_fuel_line: bad_luck_fuel_line
   off_the_line_late: late
   skill_backfire_hit: skill_shot
   # initially, player needs to top up

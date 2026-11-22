@@ -15,9 +15,14 @@ Scoring (variable player)
 - Backfire Mode - current multiplier increases by 1 while active
 - Luxury Mode - random switch (with obvious lamp) awards cash bonus
 - Grand Prix Mode - every 3 laps awards a "leader bonus"
-- Gooveline Mode - ???TODO???
 - Activating any multiball mode first time increases the multiplier by 1
 - Ball ending always reduces multiplier by 1
+
+Wear and Tear
+-------------
+
+- Under Red handling (`green_flag_under_red`, 5% chance every 3rd lap) -
+  a multi-car wreck; the event is posted but nothing listens for it yet
 
 Sounds
 ------

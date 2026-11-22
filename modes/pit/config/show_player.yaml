@@ -63,3 +63,16 @@ show_player:
     swerve: play
   timer_skill_shot_complete:
     swerve: stop
+  # Bad luck (green_flag_bad_luck): every RGB insert solid red like
+  # Pure Evil's (but not flashing) until the ball drains
+  green_flag_bad_luck:
+    led_color:
+      key: bad_luck
+      priority: 10000
+      show_tokens:
+        led: tag_rgb
+        color: red
+  ball_will_end:
+    led_color:
+      key: bad_luck
+      action: stop

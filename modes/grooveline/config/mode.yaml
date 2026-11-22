@@ -7,3 +7,4 @@ mode:
   - multiball_grooveline_ended
   restart_on_next_ball: false
   priority: 3000
+  code: grooveline.Grooveline

@@ -25,6 +25,13 @@ Activation
 
 The multiplier will reset back to 1 after 30s per the `multiplier` timer in `./modes/pit/config/timers.yaml`.
 
+### Grooveline Super Jackpot
+
+Completing the Grooveline Multiball shots bumps the multiplier (1 to 2, or 2 to
+5) per `./modes/grooveline/code/grooveline.py`. It sets `is_grooveline_boosted`,
+which stops the 30s timer and keeps Green Flag stopping from resetting it, so
+it lasts until the Grooveline mode ends (back to 1).
+
 Application
 -----------
 

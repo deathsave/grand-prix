@@ -97,7 +97,14 @@ The fastest way around the track (the North-West chain of 10 purple inserts).
 ![Multiball Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/multiball.jpeg)
 - Activating the mode advances Red Line progress
 
-There are no scoring bonuses here, yet. Sorry bro.
+During the multiball, shoot the blinking shots on the left: the Grooveline
+lane, the multiball target, and the Grand Hole or the target below it.
+
+- Each hit lights the next Grooveline insert, from the bottom up
+- Each hit is a **Jackpot**, worth 10,000 more every time (50,000 up to
+  140,000)
+- The 10th hit lights them all for the **Super Jackpot** (500,000)! It also
+  bumps your multiplier (1X to 2X, or 2X to 5X) until the multiball ends
 
 #### Lap of Luxury Multiball 2/3
 

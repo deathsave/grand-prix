@@ -93,7 +93,8 @@ variable_player:
       int: 2
       action: set
 
-  mode_green_flag_stopped:
+  # (unless Grooveline's super jackpot is holding it)
+  mode_green_flag_stopped{not current_player.is_grooveline_boosted}:
     multiplier:
       action: set
       int: 1
