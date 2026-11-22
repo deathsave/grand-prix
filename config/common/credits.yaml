@@ -92,12 +92,18 @@ widgets:
       add_to_slide: pulsate_fast
   # on the attract splash (config/common/slides.yaml), bottom right
   credits_splash:
-  # (like the high scores, across from the Laps Champ)
+  # (like the high scores, on a dark oval: a color with alpha, 80%)
+  - type: ellipse
+    width: 270
+    height: 56
+    x: 66%
+    y: bottom+11%
+    color: 000000cc
+    z: 2
   - type: text
     text: (machine|credits_string)
-    anchor_x: right
-    x: 97%
-    y: bottom+6%
+    x: 66%
+    y: bottom+11%
     color: yellow
     style: medium
     font_size: 28
