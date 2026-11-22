@@ -3,6 +3,7 @@
 mode:
   start_events:
   - sw_tag_hole_active{current_player.is_grooveline_completed > 0 and current_player.is_grand_prix_completed > 0 and current_player.is_luxury_completed > 0}
+  - debug_red_line
   # TODO after logicblock_red_line_counter_complete
   stop_events:
   - multiball_red_line_ended

@@ -60,6 +60,6 @@ shot's hit). Then it posts `luxury_finished` 3.5s later
 The jackpots play the "Jackpot!" and "Super Jackpot!" callouts
 (`./modes/luxury/config/sound_player.yaml`), then "You have reached the lap
 of luxury" once the super jackpot's ends. When each callout plays, the
-display shows "Jackpot!" or "SUPER JACKPOT!" over the mode's slide on yellow
-(as in its tip title) at 60%, per `./modes/luxury/config/widget_player.yaml`
+display shows "Jackpot!" or "SUPER JACKPOT!" over the mode's slide on purple
+(its mode color) at 60%, per `./modes/luxury/config/widget_player.yaml`
 (see the Grooveline doc for how they follow the callouts).

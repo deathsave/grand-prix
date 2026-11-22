@@ -37,7 +37,7 @@ Plunge directly into the Backfire Hole on your first launch:
 **Off the Line** (Under a Green Flag)
 
 
-When a ball begins under a Green Flag, a chime countdown keeps you honest.  Launch the ball out of the shooter lane right on the final ding (you get a split second either side) to pocket an extra 5,000 points (and a Luxury insert) with a shit-eating grin. Still sitting in the shooter lane when the window closes? You'll hear about being late.
+When a ball begins under a Green Flag, a chime countdown keeps you honest (the display counts along: 3, 2, 1, Race!). Launch the ball out of the shooter lane right on the final ding (you get a split second either side) to pocket an extra 5,000 points (and a Luxury insert) with a shit-eating grin. Still sitting in the shooter lane when the window closes? You'll hear about being late.
 
 #### Green-flag (Main Mode)
 

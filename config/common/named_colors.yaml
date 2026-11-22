@@ -12,3 +12,4 @@ named_colors:
   yellow: FFE600 # tip title: luxury
   bright_red: FF0000 # tip title: red_line
   light_red: FF6B6B # tip title: pure_evil
+  gold: FFB000 # tip title: extra_ball

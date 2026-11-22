@@ -1,0 +1,27 @@
+#config_version=6
+
+widget_player:
+  # Off the Line countdown, posted by the chimes in
+  # shows/under_green.yaml (each replaces the one before)
+  off_the_line_countdown3:
+    countdown3:
+      widget_settings:
+        expire: 1s
+  off_the_line_countdown2:
+    countdown3:
+      action: remove
+    countdown2:
+      widget_settings:
+        expire: 1s
+  off_the_line_countdown1:
+    countdown2:
+      action: remove
+    countdown1:
+      widget_settings:
+        expire: 1s
+  green_flag_dropped:
+    countdown1:
+      action: remove
+    countdown_race:
+      widget_settings:
+        expire: 1.5s

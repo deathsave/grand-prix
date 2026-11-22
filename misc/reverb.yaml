@@ -1,0 +1,43 @@
+# Reverbed sounds, made by bin/reverb (re-run it after changing
+# anything here). Sources aren't changed, so they can still be used dry
+# elsewhere. Sources only used reverbed are kept in
+# misc/sound-originals (MPF loads everything under sounds/).
+#
+# Each entry is the file to write: settings, with:
+#   from:      the source, or a list of them joined into one (each
+#              matched to their average loudness, crossfaded together)
+#   loop:      true for a sound that loops (write it as .wav, vorbis
+#              smears the seam): the join from its end back
+#              to its start is crossfaded too, and the reverb tail wraps
+#              around onto its start, so it never tails off
+#   crossfade: seconds for each join (default 0)
+#   wet:       dB of reverb under the dry sound (default -9, moderate)
+#   decay:     seconds for the reverb to die away (default 2.5)
+
+reverb:
+  # Red Line: breathing with the crowd, both looped
+  sounds/preload/effects/red-line-breathing.wav:
+    from: misc/sound-originals/red-line-breathing.ogg
+    loop: true
+    # very heavy, for drama
+    wet: -2
+    decay: 4.5
+  # Green Flag's crowd pool (at_the_track) as one seamless loop
+  sounds/preload/ambience/red-line-at-the-track.wav:
+    from:
+    - sounds/preload/ambience/at-the-track-1.ogg
+    - sounds/preload/ambience/at-the-track-2.ogg
+    - sounds/preload/ambience/at-the-track-3.ogg
+    - sounds/preload/ambience/at-the-track-4.ogg
+    loop: true
+    crossfade: 2
+    # heavy
+    wet: -5
+    decay: 3.5
+  # made by bin/heartbeat
+  sounds/preload/effects/red-line-heartbeat.wav:
+    from: misc/sound-originals/red-line-heartbeat.ogg
+    loop: true
+    # a third less than heavy (-4 dB)
+    wet: -7.5
+    decay: 3.5

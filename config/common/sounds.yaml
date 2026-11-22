@@ -52,10 +52,6 @@ sounds:
     track: music
     loop_start_at: 6.7
     volume: 0.5
-  308in:
-    file: 308in.ogg
-    track: music
-    volume: 0.5
   blinding_lights:
     file: blinding-lights.ogg
     track: music
@@ -107,6 +103,12 @@ sounds:
     volume: 0.4
   at_the_track4:
     file: at-the-track-4.ogg
+    track: ambience
+    volume: 0.4
+  # Red Line's: the 4 above as one seamless loop, reverbed
+  # (by bin/reverb, see misc/reverb.yaml)
+  red_line_at_the_track:
+    file: red-line-at-the-track.wav
     track: ambience
     volume: 0.4
 
@@ -178,6 +180,14 @@ sounds:
     track: effects
   civil_siren:
     file: civil-siren.ogg
+    track: effects
+  # (reverbed by bin/reverb, see misc/reverb.yaml)
+  red_line_breathing:
+    file: red-line-breathing.wav
+    track: effects
+  # (made by bin/heartbeat)
+  red_line_heartbeat:
+    file: red-line-heartbeat.wav
     track: effects
   bell:
     file: bell.ogg

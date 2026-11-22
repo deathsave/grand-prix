@@ -1,0 +1,185 @@
+#!/usr/bin/env python3
+"""Make reverbed copies of sounds (MPF can't add reverb as they play).
+
+Every one is listed in misc/reverb.yaml (file to write: settings). Its
+source (or several, matched in loudness and crossfaded into one) is
+convolved with a synthetic room (decaying stereo noise, soft highs),
+mixed in under the dry sound (`wet` dB under it) at the dry sound's
+loudness, lightly limited and written. Sounds that loop crossfade their
+end back into their start and wrap the reverb tail around onto it, so
+the loop is seamless and never tails off; the others get the tail added
+on the end.
+
+Examples:
+
+  bin/reverb                  # make all of them
+  bin/reverb breathing        # only files matching
+  bin/reverb --play breathing # and hear them
+
+Needs ffmpeg (brew install ffmpeg) and numpy.
+"""
+
+import argparse
+import os
+import re
+import subprocess
+import sys
+
+import numpy as np
+from ruamel.yaml import YAML
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG = os.path.join(ROOT, "misc", "reverb.yaml")
+RATE = 44100
+WET = -9
+DECAY = 2.5
+CEILING = -1
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Make the reverbed sounds in misc/reverb.yaml.")
+    parser.add_argument("match", nargs="*",
+        help="only files whose path contains one of these")
+    parser.add_argument("--play", action="store_true",
+        help="play each one after making it (macOS afplay)")
+    return parser.parse_args()
+
+
+def load(path):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-ac", "2",
+        "-ar", str(RATE), "-f", "f32le", "-"],
+        capture_output=True, check=True).stdout
+    return np.frombuffer(raw, dtype=np.float32).reshape(-1, 2).astype(
+        np.float64)
+
+
+def loudness(path):
+    out = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path,
+        "-af", "ebur128", "-f", "null", "-"],
+        capture_output=True, text=True).stderr
+    return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", out)[-1])
+
+
+def lufs(samples, tmp):
+    write_wav(samples, tmp)
+    return loudness(tmp)
+
+
+def write_wav(samples, path):
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar",
+        str(RATE), "-ac", "2", "-i", "-", path],
+        input=samples.astype(np.float32).tobytes(), check=True)
+
+
+def room(decay):
+    """Impulse response: decaying stereo noise (-60 dB at `decay` s),
+    darker as it dies away."""
+    rng = np.random.default_rng(86)
+    n = int(decay * RATE)
+    t = np.arange(n) / RATE
+    envelope = 10 ** (-3 * t / decay) * np.minimum(1, t / 0.01)
+    ir = rng.standard_normal((n, 2)) * envelope[:, None]
+    # one pole lowpass that closes as the tail goes on
+    out = np.zeros_like(ir)
+    state = np.zeros(2)
+    for i, cutoff in enumerate(np.linspace(0.6, 0.15, n)):
+        state += cutoff * (ir[i] - state)
+        out[i] = state
+    return out / np.sqrt((out ** 2).sum(axis=0))
+
+
+def convolve(dry, ir):
+    size = 1 << int(np.ceil(np.log2(len(dry) + len(ir))))
+    wet = np.stack([np.fft.irfft(np.fft.rfft(dry[:, c], size)
+        * np.fft.rfft(ir[:, c], size), size)[:len(dry) + len(ir) - 1]
+        for c in range(2)], axis=1)
+    return wet
+
+
+def fades(n):
+    """Equal power fade in and out curves over n samples."""
+    t = np.linspace(0, np.pi / 2, n)[:, None]
+    return np.sin(t), np.cos(t)
+
+
+def join(parts, crossfade, loop):
+    """Crossfade the parts into one, and (to loop) its end into its
+    start, so playing it round and round has no seams."""
+    n = int(crossfade * RATE)
+    out = parts[0]
+    for part in parts[1:]:
+        if n:
+            fade_in, fade_out = fades(n)
+            overlap = out[-n:] * fade_out + part[:n] * fade_in
+            out = np.concatenate([out[:-n], overlap, part[n:]])
+        else:
+            out = np.concatenate([out, part])
+    if loop and n:
+        fade_in, fade_out = fades(n)
+        start = out[:n] * fade_in + out[-n:] * fade_out
+        out = np.concatenate([start, out[n:-n]])
+    return out
+
+
+def make(dest, settings, tmp):
+    sources = settings["from"]
+    if isinstance(sources, str):
+        sources = [sources]
+    parts = [ load(os.path.join(ROOT, s)) for s in sources ]
+    if len(parts) > 1:
+        # match them all to their average loudness
+        levels = [ lufs(p, tmp) for p in parts ]
+        target = np.mean(levels)
+        parts = [ p * 10 ** ((target - level) / 20)
+            for p, level in zip(parts, levels) ]
+    dry = join(parts, settings.get("crossfade", 0), settings.get("loop"))
+    ir = room(settings.get("decay", DECAY))
+    wet = convolve(dry, ir)
+    if settings.get("loop"):
+        # wrap the tail around onto the start
+        tail = wet[len(dry):]
+        wet = wet[:len(dry)].copy()
+        wet[:len(tail)] += tail[:len(dry)]
+    else:
+        dry = np.concatenate([dry, np.zeros((len(ir) - 1, 2))])
+    dry_lufs = lufs(dry, tmp)
+    wet *= 10 ** ((dry_lufs + settings.get("wet", WET)
+        - lufs(wet, tmp)) / 20)
+    mixed = dry + wet
+    mixed *= 10 ** ((dry_lufs - lufs(mixed, tmp)) / 20)
+    write_wav(mixed, tmp)
+    dest = os.path.join(ROOT, dest)
+    limit = 10 ** (CEILING / 20)
+    # (loops are written as .wav: ffmpeg's vorbis encoder smears
+    # the first and last few samples, which clicks at the seam)
+    codec = (["-c:a", "pcm_s16le"] if dest.endswith(".wav") else
+        ["-c:a", "vorbis", "-strict", "-2", "-q:a", "5"])
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-af",
+        f"alimiter=limit={limit:.3f}:attack=5:release=50:level=disabled"
+        ":latency=1", *codec, dest], check=True)
+    return dest
+
+
+def main():
+    args = parse_args()
+    with open(CONFIG) as f:
+        entries = (YAML(typ="safe").load(f) or {}).get("reverb") or {}
+    entries = { dest: s for dest, s in entries.items()
+        if not args.match or any(m in dest for m in args.match) }
+    if not entries:
+        sys.exit("nothing matching in misc/reverb.yaml")
+    tmp = os.path.join(ROOT, "misc", ".reverb.tmp.wav")
+    try:
+        for dest, settings in entries.items():
+            dest = make(dest, settings, tmp)
+            print(f"  {os.path.relpath(dest, ROOT)}")
+            if args.play:
+                subprocess.run(["afplay", dest])
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+
+
+if __name__ == "__main__":
+    main()

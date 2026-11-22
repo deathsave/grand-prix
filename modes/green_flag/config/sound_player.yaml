@@ -50,6 +50,12 @@ sound_player:
       delay: 7
       loops: -1
       priority: 5000
+  # (Red Line swaps it for its reverbed crowd)
+  mode_red_line_stopped:
+    at_the_track:
+      action: play
+      loops: -1
+      priority: 5000
   mode_green_flag_will_stop:
     blinding_lights:
       action: stop

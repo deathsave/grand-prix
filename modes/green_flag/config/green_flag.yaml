@@ -19,3 +19,4 @@ config:
 - sound_player.yaml
 - multiball_locks.yaml
 - timers.yaml
+- widget_player.yaml

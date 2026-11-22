@@ -3,6 +3,10 @@
 # Just flashing the lights for now to prove the OPP Incand
 # works across boards.
 #
+# Each chime posts the Off the Line countdown (3, 2, 1, then
+# "Race!" on green_flag_dropped) for the display (see the
+# green_flag mode's widget_player.yaml).
+#
 - time: 0
   lights:
     tag_lights_signal: off
@@ -11,14 +15,17 @@
     l_signal1: on
   # TODO: replace these with actual chime coil pulse
   coils: c_chime1
+  events: off_the_line_countdown3
 - time: "+1.0s"
   lights:
     l_signal2: on
   coils: c_chime1
+  events: off_the_line_countdown2
 - time: "+1.0s"
   lights:
     l_signal3: on
   coils: c_chime1
+  events: off_the_line_countdown1
 # the Off the Line window opens halfway (0.4s) before the
 # final ding and closes 0.4s after it (see pit timers)
 - time: "+0.6s"

@@ -1,0 +1,15 @@
+#config_version=6
+
+# No music: silence it and bring it back after (to its
+# config/common/sound_system.yaml volume)
+track_player:
+  mode_red_line_started:
+    music:
+      action: set_volume
+      volume: 0
+      fade: 500ms
+  mode_red_line_stopping:
+    music:
+      action: set_volume
+      volume: 0.3
+      fade: 1s

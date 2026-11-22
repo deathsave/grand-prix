@@ -1,6 +1,25 @@
 #config_version=6
 
+# Just the breathing, a heartbeat and the crowd, all with reverb (see
+# misc/reverb.yaml), no music (see track_player.yaml)
 sound_player:
   mode_red_line_started:
-    308in:
+    # Green Flag's dry crowd
+    at_the_track:
+      action: stop
+    red_line_breathing:
       action: play
+      loops: -1
+    red_line_heartbeat:
+      action: play
+      loops: -1
+    red_line_at_the_track:
+      action: play
+      loops: -1
+  mode_red_line_will_stop:
+    red_line_breathing:
+      action: stop
+    red_line_heartbeat:
+      action: stop
+    red_line_at_the_track:
+      action: stop

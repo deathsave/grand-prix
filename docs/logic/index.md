@@ -44,6 +44,28 @@ jumps out over the others) and lightly limit the peaks (a -1 dBFS ceiling,
 `--ceiling`; `bin/voice-callout` uses `bin/voice-crush`'s defaults, so change
 those to keep the two the same.
 
+Reverb
+------
+
+MPF can't add reverb as sounds play, so `bin/reverb` makes reverbed copies of
+the sounds listed in `./misc/reverb.yaml` (a synthetic room, each with how
+heavy it is). Several sources can be joined into one (matched in loudness and
+crossfaded). Looped sounds also crossfade their end into their start and wrap
+the reverb tail around onto it, so they're seamless and never tail off. Loops are
+written as `.wav`: ffmpeg's vorbis encoder smears the first and last few
+samples of a file, which clicks at the seam.
+Sources only used
+reverbed are kept in `./misc/sound-originals` (MPF loads everything under
+`sounds/`). Re-run `bin/reverb` after changing that file.
+
+Red Line uses them: its breathing (`red_line_breathing`, very heavy reverb), a
+heartbeat (`red_line_heartbeat`, synthesized by `bin/heartbeat`: slowed down, 42 bpm with tight lub-dub pairs, medium
+reverb)
+with the crowd (`red_line_at_the_track`: Green Flag's 4 `at_the_track` sounds
+as one 76s loop, heavy reverb), both looped, in place of Green Flag's dry crowd,
+and no music (`./modes/red_line/config/track_player.yaml` silences the music
+track and brings it back after).
+
 Attract Light Show
 ------------------
 

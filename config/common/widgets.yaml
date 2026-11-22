@@ -300,8 +300,75 @@ widgets:
     font_size: 52
     animations:
       add_to_slide: pulsate_fast
+  # Off the Line countdown, with the under_green chimes (see the
+  # green_flag mode's widget_player.yaml): 3, 2, 1, Race!
+  countdown3:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.5
+    z: 22
+  - type: text
+    text: "3"
+    z: 23
+    color: red
+    style: text_default
+    font_size: 300
+    animations:
+      add_to_slide: countdown_fade
+  countdown2:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.5
+    z: 22
+  - type: text
+    text: "2"
+    z: 23
+    color: orange
+    style: text_default
+    font_size: 300
+    animations:
+      add_to_slide: countdown_fade
+  countdown1:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.5
+    z: 22
+  - type: text
+    text: "1"
+    z: 23
+    color: yellow
+    style: text_default
+    font_size: 300
+    animations:
+      add_to_slide: countdown_fade
+  # (Race! is like the jackpots: the green flag image under
+  # its mode color, lime, at 60%)
+  countdown_race:
+  - type: image
+    image: green-flag-background
+    z: 22
+  - type: rectangle
+    width: 800
+    height: 480
+    color: lime
+    opacity: 0.6
+    z: 23
+  - type: text
+    text: "Race!"
+    z: 24
+    color: white
+    style: text_default
+    font_size: 200
+    animations:
+      add_to_slide: countdown_fade
   # Jackpot callouts, over the mode's slide: the mode's color
-  # (its tip title's) at 60% and the text, while the callout
+  # (see config/common/named_colors.yaml) at 60% and the text, while the callout
   # plays (see widget_player in those modes)
   jackpot_grooveline:
   - type: rectangle
@@ -367,7 +434,7 @@ widgets:
   - type: rectangle
     width: 800
     height: 480
-    color: yellow
+    color: purple
     opacity: 0.6
     z: 20
   - type: text
@@ -382,7 +449,7 @@ widgets:
   - type: rectangle
     width: 800
     height: 480
-    color: yellow
+    color: purple
     opacity: 0.6
     z: 20
   - type: text
@@ -506,7 +573,7 @@ widgets:
     x: 5%
     y: bottom+74%
     z: 2
-    color: purple
+    color: gold
     style: text_default
     font_size: 60
   tip_title_red_line:

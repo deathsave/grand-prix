@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+"""Synthesize a dry heartbeat loop (lub-dub thumps) to
+misc/sound-originals/red-line-heartbeat.ogg, a whole number of beats long
+so it loops seamlessly. bin/reverb then makes the game's reverbed copy
+(see misc/reverb.yaml).
+
+  bin/heartbeat              # 42 bpm, 6 beats, slowed down
+  bin/heartbeat --bpm 50     # less time between beats
+  bin/heartbeat --pair 0.3   # more time between the lub and the dub
+  bin/heartbeat --slow 1     # not slowed down (a normal heartbeat)
+  bin/heartbeat --play       # and hear it (macOS afplay)
+"""
+
+import argparse
+import os
+import subprocess
+
+import numpy as np
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DEST = os.path.join(ROOT, "misc", "sound-originals", "red-line-heartbeat.ogg")
+RATE = 44100
+
+
+# lowest the thumps go: cabinet speakers don't do much below this
+FLOOR_HZ = 60
+
+
+def lowpass(x, hz, poles=2):
+    a = np.exp(-2 * np.pi * hz / RATE)
+    for _ in range(poles):
+        y = np.empty_like(x)
+        state = 0.0
+        for i, v in enumerate(x):
+            state = (1 - a) * v + a * state
+            y[i] = state
+        x = y
+    return x
+
+
+def thump(length, start_hz, end_hz, decay, rng):
+    """A low sine that drops in pitch, with low-mid harmonics for
+    weight, a soft attack and a little muffled noise for the 'skin'."""
+    t = np.arange(int(length * RATE)) / RATE
+    start_hz, end_hz = max(start_hz, FLOOR_HZ * 1.5), max(end_hz, FLOOR_HZ)
+    hz = end_hz + (start_hz - end_hz) * np.exp(-t / 0.04)
+    phase = 2 * np.pi * np.cumsum(hz) / RATE
+    envelope = np.minimum(1, t / 0.008) * np.exp(-t / decay)
+    body = (np.sin(phase) + 0.6 * np.sin(2 * phase)
+        + 0.3 * np.sin(3 * phase))
+    noise = lowpass(rng.standard_normal(len(t)), 200, poles=1)
+    return (body + 0.4 * noise * np.exp(-t / 0.03)) * envelope
+
+
+def heartbeat(bpm, beats, slow, pair):
+    """`slow` stretches each beat like slowed down audio: lower,
+    longer thumps further apart."""
+    rng = np.random.default_rng(72)
+    period = int(RATE * 60 / bpm)
+    out = np.zeros(period * beats)
+    for beat in range(beats):
+        # (beats start 0.4 of the way in, so the loop's seam is in
+        # the quiet before a beat)
+        at = beat * period + int(0.4 * period)
+        lub = thump(0.35 * slow, 95 / slow, 48 / slow, 0.09 * slow, rng)
+        dub = 0.7 * thump(0.3 * slow, 110 / slow, 58 / slow, 0.07 * slow,
+            rng)
+        gap = int(pair * RATE)
+        # a touch of human variation, wrapped so it loops
+        jitter = int(rng.uniform(-0.004, 0.004) * RATE)
+        for sound, offset in [(lub, at + jitter), (dub, at + gap + jitter)]:
+            idx = (offset + np.arange(len(sound))) % len(out)
+            out[idx] += sound
+    # warm saturation, darkened (it's all low and low-mids), then
+    # leave headroom
+    # (filtered twice round, keeping the second, so the filter
+    # carries across the loop's seam)
+    out = np.tanh(1.5 * out)
+    out = lowpass(np.concatenate([out, out]), 1200)[len(out):]
+    out *= 0.7 / np.abs(out).max()
+    return np.stack([out, out], axis=1)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--bpm", type=float, default=42,
+        help="beats (lub-dub pairs) a minute (default 42)")
+    parser.add_argument("--pair", type=float, default=0.22,
+        help="seconds from the lub to the dub (default 0.22)")
+    parser.add_argument("--beats", type=int, default=6)
+    parser.add_argument("--slow", type=float, default=1.4,
+        help="how slowed down each beat sounds (1 is normal, "
+             "default 1.4)")
+    parser.add_argument("--play", action="store_true")
+    args = parser.parse_args()
+    samples = heartbeat(args.bpm, args.beats, args.slow, args.pair)
+    os.makedirs(os.path.dirname(DEST), exist_ok=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar",
+        str(RATE), "-ac", "2", "-i", "-", "-c:a", "vorbis", "-strict", "-2",
+        "-q:a", "5", DEST], input=samples.astype(np.float32).tobytes(),
+        check=True)
+    print(f"  {os.path.relpath(DEST, ROOT)} ({args.bpm:g} bpm, "
+        f"slowed {args.slow:g}x, "
+        f"{len(samples) / RATE:.2f}s)")
+    if args.play:
+        subprocess.run(["afplay", DEST])
+
+
+if __name__ == "__main__":
+    main()

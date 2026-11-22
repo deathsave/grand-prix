@@ -73,7 +73,7 @@ class TestJackpotDisplay(DeathSaveMcTesting):
         self.assertEqual("Jackpot!", self._overlay_text())
         self._assertModeColor("grand_prix", self._overlay())
 
-    def test_luxury_jackpot_is_yellow(self):
+    def test_luxury_jackpot_is_purple(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         self.post_event("luxury_qualifier_hit")
@@ -127,8 +127,14 @@ class TestJackpotDisplay(DeathSaveMcTesting):
         found = self._jackpot_widgets("Text")
         return found[0].text if found else None
 
-    # the same color as the mode's tip title
+    # the mode's color (config/common/named_colors.yaml)
+    MODE_COLORS = { "grooveline": "cyan", "grand_prix": "pink",
+        "luxury": "purple" }
+
     def _assertModeColor(self, mode, widget):
-        title = self.mc.widgets[f"tip_title_{mode}"][0]
-        for expected, actual in zip(title["color"], widget.color):
-            self.assertAlmostEqual(expected, actual, places=2)
+        from mpf.core.rgb_color import RGBColor
+        named = self.mc.machine_config["named_colors"][
+            self.MODE_COLORS[mode]]
+        expected = [ c / 255 for c in RGBColor(named).rgb ]
+        for e, actual in zip(expected, widget.color):
+            self.assertAlmostEqual(e, actual, places=2)

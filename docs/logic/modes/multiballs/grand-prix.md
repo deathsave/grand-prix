@@ -62,7 +62,7 @@ Scores are in `./modes/grand_prix/config/variable_player.yaml`.
 
 When the "Jackpot!" and "Super Jackpot!" callouts play, the display shows
 "Jackpot!" or "SUPER JACKPOT!" over the mode's slide on the mode's color
-(pink, as in its tip title) at 60% (`jackpot_grand_prix` and
+(pink, its mode color) at 60% (`jackpot_grand_prix` and
 `super_jackpot_grand_prix` in `./config/common/widgets.yaml`), for twice as long
 as the callout (1.75s and 2.3s). The callouts (`jackpot` and `jackpot_double`
 in `./config/common/sounds.yaml`) post `*_callout_played`, which

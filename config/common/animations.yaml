@@ -1,5 +1,10 @@
 #config_version=6
 animations:
+  # the Off the Line countdown: each number fades out
+  countdown_fade:
+    - property: opacity
+      value: 0.2
+      duration: 1s
   scroll_right:
     - property: x
       value: -1920

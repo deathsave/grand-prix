@@ -52,7 +52,7 @@ Grand Prix's.
 
 When the "Jackpot!" and "Super Jackpot!" callouts play, the display shows
 "Jackpot!" or "SUPER JACKPOT!" over the mode's slide on the mode's color
-(cyan, as in its tip title) at 60% (`jackpot_grooveline` and
+(cyan, its mode color) at 60% (`jackpot_grooveline` and
 `super_jackpot_grooveline` in `./config/common/widgets.yaml`), for twice as long
 as the callout (1.75s and 2.3s). The callouts (`jackpot` and `jackpot_double`
 in `./config/common/sounds.yaml`) post `*_callout_played`, which
