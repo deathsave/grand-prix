@@ -16,7 +16,10 @@ opp:
     1: /dev/ttyOPP1
 
 mypinballs:
-  debug: false
+  # (must stay true: MPF's mypinballs platform fails to start with it
+  # false, KeyError 'console_log'. It only logs a line per score
+  # change)
+  debug: true
   port: /dev/ttyMYPB
 
 window:
