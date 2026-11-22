@@ -67,10 +67,10 @@ sound_player:
   pit_required_tires:
     tires:
       action: play
-  # TODO: STEVE CALLOUT
-  # pit_required_lube:
-  #   pit:
-  #     action: play
+  # (synth for now, until there's a Steve call out)
+  pit_required_lube:
+    lube:
+      action: play
   green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_lube == 1 or current_player.level_fuel == 1}:
     pit:
       action: play

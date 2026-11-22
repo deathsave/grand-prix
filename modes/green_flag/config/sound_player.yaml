@@ -38,6 +38,8 @@ sound_player:
     swerve:
       block: true
   mode_pure_evil_started: pure_evil_enters
+  # Wear and Tear's nothing burger: things are going fine
+  green_flag_smooth_sailing: smooth_sailing
   mode_green_flag_started:
     pit_ambience:
       action: stop

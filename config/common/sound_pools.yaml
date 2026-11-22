@@ -243,6 +243,35 @@ sound_pools:
     - tires1
     - tires2
     - tires3
+  # (synth, until there's a Steve call out)
+  lube:
+    type: random
+    track: voice
+    sounds:
+    - lube1
+    - lube2
+  # Wear and Tear's nothing burger (synth for now)
+  smooth_sailing:
+    type: random
+    track: voice
+    sounds:
+    - smooth_sailing1
+    - smooth_sailing2
+    - smooth_sailing3
+  # Under Red (synth for now)
+  red_flag:
+    type: random
+    track: voice
+    sounds:
+    - red_flag1
+    - red_flag2
+  # Grand Prix's every lap (synth for now)
+  leader_bonus:
+    type: random
+    track: voice
+    sounds:
+    - leader_bonus1
+    - leader_bonus2
   fly_by:
     type: random
     track: effects

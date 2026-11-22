@@ -493,6 +493,37 @@ sounds:
   pure_evil_taunt6:
     file: pure-evil-taunt6.ogg
     track: voice
+  lube1:
+    file: lube1.ogg
+    track: voice
+  lube2:
+    file: lube2.ogg
+    track: voice
+  smooth_sailing1:
+    file: smooth-sailing1.ogg
+    track: voice
+  smooth_sailing2:
+    file: smooth-sailing2.ogg
+    track: voice
+  smooth_sailing3:
+    file: smooth-sailing3.ogg
+    track: voice
+  red_flag1:
+    file: red-flag1.ogg
+    track: voice
+  red_flag2:
+    file: red-flag2.ogg
+    track: voice
+  leader_bonus1:
+    file: leader-bonus1.ogg
+    track: voice
+    # (a lap's moment: dropped if the voice is busy for long)
+    max_queue_time: 1s
+  leader_bonus2:
+    file: leader-bonus2.ogg
+    track: voice
+    # (a lap's moment: dropped if the voice is busy for long)
+    max_queue_time: 1s
 
   ######## Steve #########
 

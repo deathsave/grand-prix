@@ -12,8 +12,8 @@ In order, each one tested before the next:
 2. ~~Scoring~~ (done: the rebalance, Backfire's multiplier step, super
    jackpots stepping the multiplier, Grand Prix's leader bonus; its
    callout is in step 3)
-3. Synth callouts: required lube, Smooth Sailing, "Red flag!", the
-   leader bonus
+3. ~~Synth callouts~~ (done: required lube, Smooth Sailing, "Red
+   flag!" (the `red_flag` pool, for step 4), the leader bonus)
 4. Under Red (red flag) mode
 5. End of ball bonus: the multiball entries, only lines that were
    touched, skipping with both flippers, the results board slides
@@ -84,15 +84,13 @@ Wear and Tear
   - Lights: the 5 pit inserts chase red from `l_pit_arrow2` north up
     to `l_pit_tires` (arrow2, arrow1, fuel, lube, tires), pointing at
     the Grand hole, and `l_grand1` / `l_grand2` alternate on and off
-  - Probably a wreck sound and a "Red flag!" callout (synth for now)
+  - A wreck sound and the "Red flag!" callout (the `red_flag` pool,
+    synth for now)
   - Watch out for the Grand hole lock: if Grand Prix's `grand_hole`
     lock is enabled, a Grand hole entry during Under Red would lock
     the ball as well
-- Smooth Sailing (`green_flag_smooth_sailing`, 20%) is meant to be a
-  nothing burger, but should get a callout or two: "Looking good",
-  "Things are going smooth out there", etc.
-  - Plan: 2-3 synth lines (bin/voice-callout) played at random, to be
-    replaced by Steve recordings later
+- Smooth Sailing's callouts (the `smooth_sailing` pool) are synth for
+  now; replace with Steve recordings
 
 Sounds
 ------
@@ -103,8 +101,9 @@ Sounds
   - coin sounds on the pops, and the pops pay more during Luxury to
     match: 500 x multiplier (under Backfire Pops' 1k-10k climb)
 - Under Red wreck sound (you provide)
-- Required lube callout (`pit_required_lube`) - generate a synth voice
-  for now, until there's a Steve callout
+- Steve recordings for the synth stand-ins: required lube (`lube`),
+  Smooth Sailing (`smooth_sailing`), Red flag (`red_flag`), Leader bonus
+  (`leader_bonus`)
 
 High Score
 ----------

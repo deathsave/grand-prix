@@ -119,3 +119,12 @@ callouts:
     robot: 0.5
     robot_pitch: 57
     harmony: -7
+  lube1: "Your lube is low. Get to the pit!"
+  lube2: "Running dry on oil. Pit for lube!"
+  smooth-sailing1: "Looking good, out there!" # (the comma is a beat after good)
+  smooth-sailing2: "Things are going smooth out there."
+  smooth-sailing3: "Smooth sailing, driver!"
+  red-flag1: "Red flag! Red flag!"
+  red-flag2: "Big wreck out there. Red flag!"
+  leader-bonus1: "Leader bonus!"
+  leader-bonus2: "You're out in front!"

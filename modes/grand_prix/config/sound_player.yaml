@@ -9,6 +9,8 @@ sound_player:
       loops: -1
       delay: 2
   grand_prix_jackpot: jackpot
+  # every lap (see code/grand_prix.py)
+  grand_prix_leader_bonus: leader_bonus
   grand_prix_super_jackpot: jackpot_double
   # the 30s hurry up ran out and a held ball was ejected
   grand_prix_hole_lost: grand_prix_position_lost

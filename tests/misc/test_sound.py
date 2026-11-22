@@ -120,3 +120,46 @@ class TestSound(DeathSaveMcTesting):
         self.assertEqual(1, len(picked))
         # the picked bad luck's pool (e.g. bad_luck_seized_up)
         self.assertIn(picked[0], requested)
+
+    def _requested(self, event, **params):
+        from unittest.mock import patch
+        from mpfmc.config_players.sound_player import McSoundPlayer
+        requested = []
+        play = McSoundPlayer.play
+
+        def spy(player, settings, *args, **kwargs):
+            requested.extend(settings)
+            return play(player, settings, *args, **kwargs)
+
+        with patch.object(McSoundPlayer, "play", spy):
+            self.machine.events.post(event, **params)
+            self.advance_time_and_run(1)
+        return requested
+
+    # Low on lube (synth for now)
+    def test_lube_callout(self):
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(7)
+        self.machine.game.player.level_lube = 1
+        self.assertIn("lube", self._requested("pit_required_lube"))
+
+    # Wear and Tear's nothing burger gets a callout
+    def test_smooth_sailing_callout(self):
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(7)
+        self.assertModeRunning("green_flag")
+        self.assertIn("smooth_sailing",
+            self._requested("green_flag_smooth_sailing"))
+
+    # Grand Prix's leader bonus, every lap
+    def test_leader_bonus_callout(self):
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(7)
+        self.machine.events.post("grand_prix_multiball_ready")
+        self.hit_switch_and_run("s_hole_backfire", 8)
+        self.assertModeRunning("grand_prix")
+        self.assertIn("leader_bonus",
+            self._requested("grand_prix_leader_bonus", laps=1, value=20000))
