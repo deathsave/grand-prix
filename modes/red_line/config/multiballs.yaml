@@ -2,7 +2,7 @@
 
 multiballs:
   red_line:
-    ball_count: 4
+    ball_count: 3
     ball_count_type: total
     shoot_again: 60s
     enable_events:

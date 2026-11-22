@@ -17,9 +17,77 @@ sound_player:
       action: play
       loops: -1
   mode_red_line_will_stop:
+    red_line_drums:
+      action: stop
     red_line_breathing:
       action: stop
     red_line_heartbeat:
       action: stop
     red_line_at_the_track:
       action: stop
+
+  # Every switch is a rev (red_line_rev, see code/red_line.py), or
+  # just the bell at the red line, so the other modes' switch
+  # sounds are silenced
+  s_outlane2_active:
+    nothing:
+      block: true
+  s_inlane2_active:
+    nothing:
+      block: true
+  sw_tag_bell:
+    nothing:
+      block: true
+  sw_tag_slings:
+    nothing:
+      block: true
+  sw_tag_pops:
+    nothing:
+      block: true
+  sw_tag_rev:
+    nothing:
+      block: true
+  sw_tag_swerve:
+    nothing:
+      block: true
+  logicblock_grand_counter_hit:
+    nothing:
+      block: true
+  logicblock_prix_counter_hit:
+    nothing:
+      block: true
+  logicblock_lap_counter_hit:
+    nothing:
+      block: true
+  logicblock_grand_counter_complete:
+    nothing:
+      block: true
+  logicblock_prix_counter_complete:
+    nothing:
+      block: true
+  s_pit_fuel_active:
+    nothing:
+      block: true
+  s_pit_lube_active:
+    nothing:
+      block: true
+  s_pit_tires_active:
+    nothing:
+      block: true
+  red_line_rev: rev
+  red_line_bell: bell
+  # tribal drums at the red line, until the shift (or the mode ends)
+  red_line_redline:
+    red_line_drums:
+      action: play
+      loops: -1
+  red_line_shift:
+    red_line_drums:
+      action: stop
+    max_rev_end:
+      action: play
+    backfire:
+      action: play
+    jackpot:
+      action: play
+  red_line_checkered_flag: jackpot_double

@@ -165,7 +165,12 @@ and Backfire):
 
 #### Red Line (Wizard Mode)
 
-Complete all three special modes — Grooveline, Lap of Luxury, and Grand Prix — to qualify Red Line. Enter any hole (Grand, Prix, or Backfire) to start the mode and find out how deep the rabbit hole goes, which right now is nowhere, but you can pat yourself on the back for having come this far!
+Complete all three special modes — Grooveline, Lap of Luxury, and Grand Prix — to qualify Red Line. Enter any hole (Grand, Prix, or Backfire) to start the wizard mode: a 3 ball multiball with a full minute of ball save.
+
+- **Rev it up:** every switch revs the engine, lighting the next Rev Match light in the backbox (the tach). It drains a light every 10 seconds
+- **At the red line** (all 10 lit) the engine bounces off the limiter and the tach stays full until you shift. Until then, everything but the Backfire Hole scores like the pit (10 points, just the bell)
+- **Shift** in the Backfire Hole, whenever you get there, for a backfire and a **Jackpot** (250,000 × your gear), then rev up again in the next gear (the signal lights show it)
+- **5th gear:** hit the Grooveline lane, Grand Hole and Prix Hole (blinking) for the **Checkered Flag** (2,000,000), then it's back to 1st gear for another race
 
 ### Pure Evil
 

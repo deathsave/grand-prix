@@ -47,6 +47,73 @@ class TestRedLineSound(DeathSaveMcTesting):
             self.mc.machine_config["sound_system"]["tracks"]["music"][
                 "volume"], music.volume, places=2)
 
+    # Revving, every switch is just a rev (the other switch sounds
+    # are silenced). At the red line, the drums loop and switches are
+    # just the bell, until the shift: the max rev, a backfire and the
+    # jackpot
+    def test_rev_bell_and_shift_sounds(self):
+        self._start_and_expire_ball_save()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(8)
+        player = self.machine.game.player
+        player.is_grooveline_completed = 1
+        player.is_luxury_completed = 1
+        player.is_grand_prix_completed = 1
+        self.hit_switch_and_run("s_hole_grand", 3)
+        self.assertModeRunning("red_line")
+
+        # what actually reaches the tracks (after any blocking)
+        played = []
+        system = self.mc.sound_system
+        interface = system.audio_interface
+        class Track:
+            def __init__(self, track):
+                self.track = track
+            def play_sound(self, sound, context, settings):
+                played.append(sound.name)
+                return self.track.play_sound(sound, context, settings)
+            def stop_sound(self, sound, *args):
+                played.append(sound.name)
+                return self.track.stop_sound(sound, *args)
+            def __getattr__(self, name):
+                return getattr(self.track, name)
+        class Interface:
+            def get_track_by_name(self, name):
+                track = interface.get_track_by_name(name)
+                return track and Track(track)
+            def __getattr__(self, name):
+                return getattr(interface, name)
+        def sounds():
+            names = list(played)
+            played.clear()
+            return names
+
+        with patch.object(system, "audio_interface", Interface()):
+            self.hit_and_release_switch("s_slingshot1")
+            self.advance_time_and_run(0.2)
+            heard = sounds()
+            self.assertIn("rev", heard)
+            self.assertNotIn("boing", heard)
+
+            for _ in range(9):
+                self.hit_and_release_switch("s_spinner")
+                self.advance_time_and_run(0.1)
+            self.assertIn("red_line_drums", sounds())
+
+            self.hit_and_release_switch("s_slingshot1")
+            self.advance_time_and_run(0.2)
+            heard = sounds()
+            self.assertIn("bell", heard)
+            self.assertNotIn("rev", heard)
+            self.assertNotIn("boing", heard)
+
+            self.hit_switch_and_run("s_hole_backfire", 1)
+            heard = sounds()
+            self.assertIn("backfire", heard)
+            self.assertIn("jackpot", heard)
+            self.assertIn("max_rev_end", heard)
+            self.assertIn("red_line_drums", heard)  # (stopped)
+
     # the last action asked of each sound
     def _actions(self, requested):
         actions = {}
@@ -59,5 +126,5 @@ class TestRedLineSound(DeathSaveMcTesting):
     # the reverbed sounds exist (made by bin/reverb)
     def test_reverbed_sounds_exist(self):
         for name in ["red_line_breathing", "red_line_heartbeat",
-                "red_line_at_the_track"]:
+                "red_line_at_the_track", "red_line_drums", "max_rev_end"]:
             self.assertIn(name, self.mc.sounds)

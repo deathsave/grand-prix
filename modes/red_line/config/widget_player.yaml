@@ -1,0 +1,23 @@
+#config_version=6
+
+widget_player:
+  # SHIFT! while at the red line
+  red_line_redline:
+    red_line_shift: {}
+  red_line_shift:
+    red_line_shift:
+      action: remove
+  # (like the other modes, see their widget_player.yaml)
+  jackpot_callout_played:
+    jackpot_red_line:
+      key: jackpot_red_line
+      widget_settings:
+        expire: 1.75s
+  super_jackpot_callout_played:
+    jackpot_red_line:
+      action: remove
+      key: jackpot_red_line
+    super_jackpot_red_line:
+      key: super_jackpot_red_line
+      widget_settings:
+        expire: 2.3s

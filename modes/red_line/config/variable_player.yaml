@@ -1,0 +1,50 @@
+#config_version=6
+
+variable_player:
+  mode_red_line_started:
+    mode_name:
+      action: set_machine
+      string: Red Line
+  # see code/red_line.py
+  red_line_shift:
+    score: value
+  red_line_checkered_flag:
+    score: 2000000
+
+  # At the red line, every switch but the Backfire hole (the shift)
+  # scores like the pit: 10 (Green Flag's scores nothing then, and
+  # the pit targets keep the Pit's scoring)
+  sw_tag_pops{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_grooveline_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_hole_prix_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_hole_grand_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_spinner_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_target_save_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_target_bonus_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_swerve1_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_swerve2_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_slingshot1_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_slingshot2_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_inlane1_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_inlane2_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_outlane1_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_outlane2_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_target_multiball_active{current_player.red_line_at_redline == 1}:
+    score: 10
+  s_disqualifier_active{current_player.red_line_at_redline == 1}:
+    score: 10

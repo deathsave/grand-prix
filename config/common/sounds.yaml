@@ -185,6 +185,18 @@ sounds:
   red_line_breathing:
     file: red-line-breathing.wav
     track: effects
+  # Red Line's red line, until the shift (made by bin/drums, a loop;
+  # the volume brings it to about the revs' level)
+  red_line_drums:
+    file: red-line-drums.wav
+    track: effects
+    volume: 0.5
+  # Red Line's shift: letting off the max rev (the volume brings
+  # it to about the revs' level)
+  max_rev_end:
+    file: max-rev-end.ogg
+    track: effects
+    volume: 0.6
   # (made by bin/heartbeat)
   red_line_heartbeat:
     file: red-line-heartbeat.wav

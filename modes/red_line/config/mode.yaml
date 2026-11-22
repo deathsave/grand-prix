@@ -9,3 +9,4 @@ mode:
   - multiball_red_line_ended
   restart_on_next_ball: false
   priority: 4000
+  code: red_line.RedLine

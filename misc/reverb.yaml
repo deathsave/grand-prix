@@ -41,3 +41,10 @@ reverb:
     # a third less than heavy (-4 dB)
     wet: -7.5
     decay: 3.5
+  # made by bin/drums, at the red line
+  sounds/preload/effects/red-line-drums.wav:
+    from: misc/sound-originals/red-line-drums.wav
+    loop: true
+    # heavy, a big hall
+    wet: -6
+    decay: 3

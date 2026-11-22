@@ -7,3 +7,5 @@ config:
 - sound_player.yaml
 - show_player.yaml
 - track_player.yaml
+- variable_player.yaml
+- widget_player.yaml

@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+"""Synthesize a dry tribal drum loop (taiko booms, low and mid toms and
+a wood clack) to misc/sound-originals/red-line-drums.wav, a whole number
+of bars long so it loops seamlessly. bin/reverb then makes the game's
+reverbed copy (see misc/reverb.yaml).
+
+  bin/drums                  # 96 bpm, 2 bars
+  bin/drums --bpm 110        # faster
+  bin/drums --play           # and hear it (macOS afplay, twice)
+"""
+
+import argparse
+import os
+import subprocess
+
+import numpy as np
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DEST = os.path.join(ROOT, "misc", "sound-originals", "red-line-drums.wav")
+RATE = 44100
+
+# 2 bars of 16ths: x hit, o softer
+PATTERN = {
+    "taiko": "x.....x.x.......x.....x.x...x.o.",
+    "low":   "..x.......x.o.....x.......x.o.o.",
+    "mid":   "....x..o......xx....x..o.....xxx",
+    "clack": "....x.......x.......x.......x...",
+}
+# (start Hz, end Hz, decay s, noise, level)
+DRUMS = {
+    "taiko": (110, 48, 0.55, 0.5, 1.0),
+    "low":   (150, 85, 0.30, 0.4, 0.7),
+    "mid":   (230, 140, 0.18, 0.35, 0.55),
+    "clack": (900, 700, 0.03, 1.0, 0.25),
+}
+
+
+def lowpass(x, hz):
+    a = np.exp(-2 * np.pi * hz / RATE)
+    y = np.empty_like(x)
+    state = 0.0
+    for i, v in enumerate(x):
+        state = (1 - a) * v + a * state
+        y[i] = state
+    return y
+
+
+def drum(start_hz, end_hz, decay, noise, rng):
+    t = np.arange(int(decay * 6 * RATE)) / RATE
+    hz = end_hz + (start_hz - end_hz) * np.exp(-t / 0.03)
+    phase = 2 * np.pi * np.cumsum(hz) / RATE
+    body = np.sin(phase) + 0.25 * np.sin(2 * phase)
+    skin = lowpass(rng.standard_normal(len(t)), 2500) \
+        * np.exp(-t / 0.015) * noise
+    return (body * np.exp(-t / decay) + skin) * np.minimum(1, t / 0.002)
+
+
+def loop(bpm):
+    rng = np.random.default_rng(96)
+    step = 60 / bpm / 4
+    steps = len(PATTERN["taiko"])
+    out = np.zeros(int(round(step * steps * RATE)))
+    for name, pattern in PATTERN.items():
+        start_hz, end_hz, decay, noise, level = DRUMS[name]
+        for i, hit in enumerate(pattern):
+            if hit == ".":
+                continue
+            velocity = level * (0.6 if hit == "o" else 1.0) \
+                * rng.uniform(0.9, 1.0)
+            # a slightly human feel
+            at = (i * step + rng.uniform(-0.006, 0.006)) * RATE
+            sound = drum(start_hz * rng.uniform(0.97, 1.03), end_hz,
+                decay, noise, rng) * velocity
+            idx = (int(at) + np.arange(len(sound))) % len(out)
+            out[idx] += sound
+    out = np.tanh(1.2 * out)
+    out *= 0.8 / np.abs(out).max()
+    return np.stack([out, out], axis=1)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--bpm", type=float, default=96)
+    parser.add_argument("--play", action="store_true")
+    args = parser.parse_args()
+    samples = loop(args.bpm)
+    os.makedirs(os.path.dirname(DEST), exist_ok=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar",
+        str(RATE), "-ac", "2", "-i", "-", "-c:a", "pcm_s16le", DEST],
+        input=samples.astype(np.float32).tobytes(), check=True)
+    print(f"  {os.path.relpath(DEST, ROOT)} ({args.bpm:g} bpm, "
+        f"{len(samples) / RATE:.2f}s)")
+    if args.play:
+        for _ in range(2):
+            subprocess.run(["afplay", DEST])
+
+
+if __name__ == "__main__":
+    main()

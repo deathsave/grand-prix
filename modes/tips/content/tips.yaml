@@ -59,9 +59,10 @@
 - title: Red Line
   mode: red_line
   lines:
-  - "Finish Grooveline, Lap of Luxury and"
-  - "Grand Prix multiballs, then enter any hole"
-  - "to start the Red Line wizard mode"
+  - "Finish all 3 multiballs, then enter any hole"
+  - "Every switch revs the tach. At the red line,"
+  - "shift in the Backfire Hole for a Jackpot!"
+  - "5th gear: Grooveline, Grand & Prix to win"
 
 - title: Pure Evil
   mode: pure_evil

@@ -460,6 +460,47 @@ widgets:
     font_size: 96
     animations:
       add_to_slide: pulsate_fast
+  jackpot_red_line:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: red
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "Jackpot!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 130
+    animations:
+      add_to_slide: pulsate_fast
+  super_jackpot_red_line:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: red
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "CHECKERED FLAG!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 84
+    animations:
+      add_to_slide: pulsate_fast
+  # at the red line, until the shift (see modes/red_line)
+  red_line_shift:
+  - type: text
+    text: "SHIFT!"
+    z: 15
+    y: 70%
+    color: red
+    style: text_default
+    font_size: 120
+    animations:
+      add_to_slide: pulsate_fast
   # Gameplay tips (see modes/tips). The text is "typed" by
   # the Tips mode updating these machine variables. Header and
   # title use the Grand Prix font; tip lines use pixelmix

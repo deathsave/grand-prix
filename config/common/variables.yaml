@@ -50,6 +50,10 @@ player_vars:
     initial_value: 0
   backfire_counter_count:
     initial_value: 0
+  # Red Line is at the red line, waiting for the shift
+  # (see modes/red_line/code/red_line.py)
+  red_line_at_redline:
+    initial_value: 0
 
   # to know if we can open the loop gate
   # when ball leaves the shooter lane
