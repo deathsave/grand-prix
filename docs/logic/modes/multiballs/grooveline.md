@@ -33,7 +33,7 @@ the top Grand insert (`l_grand1`).
 
 - `s_grooveline` (the Grooveline lane)
 - `s_target_multiball` (the hit that starts the mode doesn't count)
-- `s_hole_grand` or `s_target_save` (the Grand area)
+- `s_hole_grand` (the Pot Hole) or `s_target_save` (the Grand area)
 
 Every hit on any of them:
 

@@ -43,7 +43,7 @@ random event (when the `WEAR_AND_TEAR` feature is available, the default):
 - 20% each lose a level of fuel, lube or tires, 14% all three
 - 20% `green_flag_smooth_sailing`: nothing happens, but a callout says things
   are going well (the `smooth_sailing` pool)
-- 5% `green_flag_under_red` (not done yet)
+- 5% `green_flag_under_red`: a red flag (see `under-red.md`)
 - 1% **bad luck** (`green_flag_bad_luck`): green flag ends and the flippers
   go dead, so the ball drains and ends. One of `bad_luck_blow_out`,
   `bad_luck_seized_up` or `bad_luck_fuel_line` is picked, which plays its

@@ -258,6 +258,13 @@ sound_pools:
     - smooth_sailing1
     - smooth_sailing2
     - smooth_sailing3
+  # Under Red's wreck
+  crash:
+    type: random
+    track: effects
+    sounds:
+    - crash1
+    - crash2
   # Under Red (synth for now)
   red_flag:
     type: random

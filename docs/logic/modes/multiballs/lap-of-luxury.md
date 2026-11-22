@@ -42,10 +42,10 @@ Shots
 
 Once activated, six areas of the playfield will blink inserts at:
 
-- The bottom and top of the "P R I X" chain for `s_target_bonus` and `s_hole_prix`.
+- The bottom and top of the "P R I X" chain for `s_target_bonus` and `s_hole_prix` (the Oil Slick).
 - The bottom of the "Bonus" chain (10,000) for `s_spinner`.
 - The top of the "Grooveline" chain (top-left of playfield) for `s_grooveline`.
-- The bottom and top of the "G R A N D" chain for `s_target_save` and `s_hole_grand`.
+- The bottom and top of the "G R A N D" chain for `s_target_save` and `s_hole_grand` (the Pot Hole).
 
 Hitting any of the individual switches is a **Jackpot** (`luxury_jackpot`)
 awarding 75,000 points (× the multiplier) per `./modes/luxury/config/variable_player.yaml`.

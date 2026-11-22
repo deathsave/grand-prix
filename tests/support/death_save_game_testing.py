@@ -45,4 +45,4 @@ class DeathSaveGameTesting(MpfMachineTestCase):
         death_save._make_lap(self)
 
     def _is_unavailable(self, identifier):
-        death_save._is_unavailable(self, identifier)
+        return death_save._is_unavailable(self, identifier)

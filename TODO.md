@@ -14,27 +14,23 @@ In order, each one tested before the next:
    callout is in step 3)
 3. ~~Synth callouts~~ (done: required lube, Smooth Sailing, "Red
    flag!" (the `red_flag` pool, for step 4), the leader bonus)
-4. Under Red (red flag) mode
+4. ~~Under Red (red flag) mode~~ (done)
 5. End of ball bonus: the multiball entries, only lines that were
    touched, skipping with both flippers, the results board slides
 6. Chimes and shaker: super jackpot chime rolls (callout after),
    shaker pulses (multiball starts, Off the Line, Red Line heartbeat)
 7. Match animation on the segment displays
 8. High score: Red Line shifts category
-9. Sounds: Luxury cash and coins (with the pops paying more), then the
-   wreck once you've provided it (the engine start up and idle are
-   done)
+9. Sounds: Luxury cash and coins (with the pops paying more)
 10. Hardware (you): the tilt / coin door / service bank, the outlane
     switches, the loop gate servo, the tach experiment, then design
-    (plastics, backglass, apron card)
+    (plastics, backglass)
 
 Design
 ------
 
 - Plastics art / simple vinyl / checkered flags?
 - Backbox plexi backglass
-- Apron card - the rules have enough depth now that new players
-  need it
 
 Scoring (variable player)
 -------------------------
@@ -73,24 +69,14 @@ End of Ball Bonus
 Wear and Tear
 -------------
 
-- Under Red handling (`green_flag_under_red`, 5% chance every 3rd lap) -
-  a multi-car wreck; the event is posted but nothing listens for it yet
-  - Plan: a red flag, as its own mode. It stops Green Flag like a pit
-    stop, and the switches score like the pit, but getting the
-    resources doesn't get you out
-  - To get out, the driver has to get into the Grand hole (which
-    resumes Green Flag) or drain. It doesn't carry over to the next
-    ball; they're back in the pit then
-  - Lights: the 5 pit inserts chase red from `l_pit_arrow2` north up
-    to `l_pit_tires` (arrow2, arrow1, fuel, lube, tires), pointing at
-    the Grand hole, and `l_grand1` / `l_grand2` alternate on and off
-  - A wreck sound and the "Red flag!" callout (the `red_flag` pool,
-    synth for now)
-  - Watch out for the Grand hole lock: if Grand Prix's `grand_hole`
-    lock is enabled, a Grand hole entry during Under Red would lock
-    the ball as well
 - Smooth Sailing's callouts (the `smooth_sailing` pool) are synth for
   now; replace with Steve recordings
+
+Pit
+---
+
+- Tune Up: the left inlane (`s_inlane1`) auto fills a random low pit
+  resource, with a callout
 
 Sounds
 ------
@@ -100,7 +86,6 @@ Sounds
     the 6 shots
   - coin sounds on the pops, and the pops pay more during Luxury to
     match: 500 x multiplier (under Backfire Pops' 1k-10k climb)
-- Under Red wreck sound (you provide)
 - Steve recordings for the synth stand-ins: required lube (`lube`),
   Smooth Sailing (`smooth_sailing`), Red flag (`red_flag`), Leader bonus
   (`leader_bonus`)

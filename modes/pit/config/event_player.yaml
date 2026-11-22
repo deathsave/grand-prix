@@ -7,19 +7,20 @@ event_player:
   # Green Flag, which keeps the pit targets out of play.
   #
   # To activate "green_flag" mode, the user's vehicle
-  # must be ready to race:
+  # must be ready to race (not under a red flag, which only the
+  # Grand hole gets you out of, see modes/under_red):
   s_pit_fuel_active:
   - pit_fuel_filled{current_player.level_fuel < 2 and not mode.green_flag.active}
   - pit_resource_full{current_player.level_fuel == 2 or mode.green_flag.active}
-  - green_flag{current_player.level_lube == 2 and current_player.level_tires == 2}
+  - green_flag{current_player.level_lube == 2 and current_player.level_tires == 2 and not mode.under_red.active}
   s_pit_lube_active:
   - pit_lube_filled{current_player.level_lube < 2 and not mode.green_flag.active}
   - pit_resource_full{current_player.level_lube == 2 or mode.green_flag.active}
-  - green_flag{current_player.level_fuel == 2 and current_player.level_tires == 2}
+  - green_flag{current_player.level_fuel == 2 and current_player.level_tires == 2 and not mode.under_red.active}
   s_pit_tires_active:
   - pit_tires_filled{current_player.level_tires < 2 and not mode.green_flag.active}
   - pit_resource_full{current_player.level_tires == 2 or mode.green_flag.active}
-  - green_flag{current_player.level_fuel == 2 and current_player.level_lube == 2}
+  - green_flag{current_player.level_fuel == 2 and current_player.level_lube == 2 and not mode.under_red.active}
   # For Grand Prix, the multiball is NOT activated
   # with the general multiball switch.
   balldevice_bd_hole_prix_ball_entered{current_player.prix_counter_count >= 4 and current_player.grand_hole_locked_balls > 0 and not mode.grand_prix.active}:

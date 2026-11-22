@@ -205,6 +205,15 @@ sounds:
     file: bell.ogg
     volume: 0.2
     track: effects
+  # Under Red's wreck (the crash pool; your mixes, without their
+  # music). crash2 is about 4.5 dB louder, so it's turned down to match
+  crash1:
+    file: crash1.wav
+    track: effects
+  crash2:
+    file: crash2.wav
+    track: effects
+    volume: 0.6
   # starting up as the ball reaches the shooter lane, then idling
   # there (a loop, see misc/reverb.yaml) until the plunge
   # (see modes/pit/code/pit.py)
@@ -524,6 +533,9 @@ sounds:
     track: voice
     # (a lap's moment: dropped if the voice is busy for long)
     max_queue_time: 1s
+  red_flag_reminder:
+    file: red-flag-reminder.ogg
+    track: voice
 
   ######## Steve #########
 

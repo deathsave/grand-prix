@@ -163,3 +163,45 @@ class TestSound(DeathSaveMcTesting):
         self.assertModeRunning("grand_prix")
         self.assertIn("leader_bonus",
             self._requested("grand_prix_leader_bonus", laps=1, value=20000))
+
+    # Under Red: the wreck, then the red flag call out 3s into it
+    def test_under_red_crash_then_callout(self):
+        from unittest.mock import patch
+        from mpfmc.config_players.sound_player import McSoundPlayer
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(7)
+        played = []
+        play = McSoundPlayer.play
+
+        def spy(player, settings, *args, **kwargs):
+            for name, s in settings.items():
+                if not s.get("delay"):
+                    played.append((name, round(self.machine.clock.get_time()
+                        - start, 1)))
+            return play(player, settings, *args, **kwargs)
+
+        with patch.object(McSoundPlayer, "play", spy):
+            start = self.machine.clock.get_time()
+            self.machine.events.post("green_flag_under_red")
+            self.advance_time_and_run(5)
+        self.assertModeRunning("under_red")
+        names = [ name for name, _ in played ]
+        self.assertIn("crash", names)
+        self.assertIn("red_flag", names)
+        crash = dict(played)["crash"]
+        self.assertAlmostEqual(3, dict(played)["red_flag"] - crash, delta=0.2)
+
+    # No pit ambience under a red flag
+    def test_under_red_no_pit_ambience(self):
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(7)
+        self.machine.events.post("green_flag_under_red")
+        self.advance_time_and_run(3)
+        self.assertModeRunning("under_red")
+        track = self.mc.sound_system.audio_interface. \
+            get_track_by_name("music")
+        playing = [ sound["sound_id"] for sound in track.get_status()
+            if sound["status"] == "playing" ]
+        self.assertNotIn(self.mc.sounds["pit_ambience"].id, playing)

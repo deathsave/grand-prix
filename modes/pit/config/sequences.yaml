@@ -6,6 +6,8 @@ sequences:
     - timer_backfire_qualification_started
     disable_events:
     - timer_backfire_qualification_ended
+    # (no Backfire under a red flag)
+    - mode_under_red_started
     events:
     - s_spinner_active
     - s_hole_backfire_active

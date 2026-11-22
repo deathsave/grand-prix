@@ -20,8 +20,11 @@ timers:
     start_value: 15
     direction: down
     control_events:
-    - event: start_backfire_qualification{game.balls_in_play > 0}
+    - event: start_backfire_qualification{game.balls_in_play > 0 and not mode.under_red.active}
       action: start
+    # (no Backfire under a red flag)
+    - event: mode_under_red_started
+      action: stop
 
   # Pure Evil lasts at most 40 seconds
   pure_evil:

@@ -64,6 +64,10 @@ When returning to the pit, your engine may "backfire just right". After leaving 
 If you don't backfire, you'll need to ensure all three resources are filled
 before getting back under green.
 
+#### Red Flag
+
+A multi-car wreck now and then brings out the red flag (not during a multiball). The race stops: scoring drops to the pit's, and topping up the pit (or Backfire) won't get you going again. The pit lights chase toward the Pot Hole and GRAND flashes: get in there to restart the race, or it's over for that ball.
+
 #### End of Ball Bonus
 
 ![Bonus](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/bonus.jpeg)
@@ -105,7 +109,7 @@ The fastest way around the track (the North-West chain of 10 purple inserts).
 - Activating the mode advances Red Line progress
 
 During the multiball, shoot the blinking shots on the left: the Grooveline
-lane, the multiball target, and the Grand Hole or the target below it.
+lane, the multiball target, and the Pot Hole or the target below it.
 
 - Each hit lights the next Grooveline insert, from the bottom up
 - Each hit is a **Jackpot**, worth 5,000 more every time (30,000 up to
@@ -144,11 +148,11 @@ It's the name of the game!
 - Top-most 5 inserts in South-West chain spells out G-R-A-N-D
 - Top-most 4 inserts in South-East chain spells out P-R-I-X
 - Left standing target lights a GRAND insert (5 hits to complete)
-- After lighting all of GRAND, entering the Grand Hole:
+- After lighting all of GRAND, entering the Pot Hole:
   - Locks a ball
   - Enables PRIX
 - Right standing target lights a PRIX insert (4 hits to complete)
-- After lighting all 4 of PRIX, entering the Prix Hole:
+- After lighting all 4 of PRIX, entering the Oil Slick:
   - Locks a second ball
   - Lights the multiball
 - Enter the **Backfire Hole** to release both locks and start Grand Prix Multiball
@@ -156,11 +160,11 @@ It's the name of the game!
 - The mode can be qualified and played again after completion
 
 During the multiball, GRAND chases down and PRIX chases up while the swerve
-lights alternate. Get back into the 3 holes that started the race (Grand, Prix
-and Backfire):
+lights alternate. Get back into the 3 holes that started the race (the Pot Hole, the Oil
+Slick and the Backfire Hole):
 
-- Each hole holds the ball and its lights stay on (GRAND, PRIX or the swerve
-  lights for the Backfire Hole) for as long as it's there
+- Each hole holds the ball and its lights stay on (GRAND for the Pot Hole, PRIX
+  for the Oil Slick, the swerve lights for the Backfire Hole) for as long as it's there
 - Every hole entered restarts a single **30 second** timer. Get into another
   hole before it runs out or the last ball held is kicked back out (then the
   timer restarts for any still held)
@@ -173,14 +177,14 @@ and Backfire):
 
 #### Red Line (Wizard Mode)
 
-Complete all three special modes — Grooveline, Lap of Luxury, and Grand Prix — to qualify Red Line (the multiball lamp blinks). Enter any hole (Grand, Prix, or Backfire) to start the wizard mode: a 3 ball multiball with a full minute of ball save.
+Complete all three special modes — Grooveline, Lap of Luxury, and Grand Prix — to qualify Red Line (the multiball lamp blinks). Enter any hole (the Pot Hole, the Oil Slick, or the Backfire Hole) to start the wizard mode: a 3 ball multiball with a full minute of ball save.
 
 After Red Line, complete Grooveline and Grand Prix again to get back to it (Lap of Luxury stays done). Pure Evil can't show up during Red Line.
 
 - **Rev it up:** every switch revs the engine, lighting the next Rev Match light in the backbox (the tach). It drains a light every 10 seconds
 - **At the red line** (all 10 lit) the engine bounces off the limiter and the tach stays full until you shift. Until then, everything but the Backfire Hole scores like the pit (10 points, just the bell)
 - **Shift** in the Backfire Hole, whenever you get there, for a backfire and a **Jackpot** (250,000 × your gear, × your multiplier), then rev up again in the next gear (the signal lights show it)
-- **5th gear:** hit the Grooveline lane, Grand Hole and Prix Hole (blinking) for the **Checkered Flag** (2,000,000), then it's back to 1st gear for another race
+- **5th gear:** hit the Grooveline lane, the Pot Hole and the Oil Slick (blinking) for the **Checkered Flag** (2,000,000), then it's back to 1st gear for another race
 
 ### Pure Evil
 

@@ -6,6 +6,8 @@ mode:
   # shortcuts to resume/start green flag
   - logicblock_backfire_counter_complete
   - skill_backfire_hit
+  # out of Under Red (the Grand hole)
+  - under_red_cleared
   # immediately start green flag on ball 2 if player whiffed ball 1
   - ball_started{current_player.ball == 2 and current_player.is_green_flag_completed == 0}
   stop_events:
@@ -13,6 +15,8 @@ mode:
   - pit_required_fuel
   - pit_required_tires
   - green_flag_bad_luck
+  # a red flag, however it started (see modes/under_red)
+  - mode_under_red_started
   - green_flag_degrade_all{current_player.level_tires == 1 or current_player.level_lube == 1 or current_player.level_fuel == 1}
   events_when_stopped:
   - start_backfire_qualification

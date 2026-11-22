@@ -108,6 +108,10 @@ slides:
   - widget: ball_key
   - widget: ball_value
   - widget: driver_name
+  under_red_slide:
+  - widget: red_flag
+  - widget: overlay_right
+  - widget: mode_name
   green_flag_slide:
   - widget: green_flag_background
   - widget: green_flag_mirror

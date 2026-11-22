@@ -1,0 +1,33 @@
+#show_version=6
+
+# Under Red: the 5 pit inserts chase red north, from the bottom
+# arrow up to the tires, pointing the way to the Grand hole
+#
+- time: 0
+  lights:
+    l_pit_arrow2: red
+    l_pit_arrow1: off
+    l_pit_fuel: off
+    l_pit_lube: off
+    l_pit_tires: off
+- time: "+0.12s"
+  lights:
+    l_pit_arrow2: off
+    l_pit_arrow1: red
+- time: "+0.12s"
+  lights:
+    l_pit_arrow1: off
+    l_pit_fuel: red
+- time: "+0.12s"
+  lights:
+    l_pit_fuel: off
+    l_pit_lube: red
+- time: "+0.12s"
+  lights:
+    l_pit_lube: off
+    l_pit_tires: red
+- time: "+0.12s"
+  lights:
+    l_pit_tires: off
+# a beat dark before the next run
+- time: "+0.24s"

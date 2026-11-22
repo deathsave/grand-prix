@@ -143,6 +143,8 @@ keyboard:
     event: logicblock_seq_backfire_qualifier_complete
   shift+r:
     event: debug_red_line
+  shift+u:
+    event: debug_under_red
 
   # Disqualifier (stop pure evil)
   shift+d:

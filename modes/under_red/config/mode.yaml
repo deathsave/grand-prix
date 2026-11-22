@@ -1,0 +1,62 @@
+#config_version=6
+
+mode:
+  start_events:
+  # (Green Flag stops when this starts, see its mode.yaml)
+  - green_flag_under_red{not mode.grooveline.active and not mode.luxury.active and not mode.grand_prix.active and not mode.red_line.active}
+  - debug_under_red
+  stop_events:
+  - under_red_cleared
+  - ball_will_end
+  restart_on_next_ball: false
+  # (over the pit's lights)
+  priority: 2500
+
+event_player:
+  # back to racing (Green Flag starts on it)
+  s_hole_grand_active:
+  - under_red_cleared
+
+variable_player:
+  mode_under_red_started:
+    mode_name:
+      action: set_machine
+      string: Red Flag
+
+slide_player:
+  mode_under_red_started: under_red_slide
+
+show_player:
+  # the pit inserts chase red up to the Grand hole, which
+  # flashes GRAND 1 and 2 back and forth
+  mode_under_red_started:
+    under_red_chase:
+      speed: 1
+    under_red_grand:
+      speed: 1
+
+# a reminder of the way out, every 20s while it's on
+timers:
+  under_red_reminder:
+    start_value: 0
+    direction: up
+    tick_interval: 20s
+    start_running: true
+
+sound_player:
+  # no pit ambience under a red flag (the pit plays it when Green
+  # Flag stops): blocked, and stopped in case it got going first
+  mode_green_flag_stopped:
+    nothing:
+      block: true
+  # the wreck, then the red flag call out 3s into it
+  mode_under_red_started:
+    pit_ambience:
+      action: stop
+    crash:
+      action: play
+    red_flag:
+      action: play
+      delay: 3s
+  # (not the tick as it starts, with the red_flag call out)
+  timer_under_red_reminder_tick{ticks > 0}: red_flag_reminder

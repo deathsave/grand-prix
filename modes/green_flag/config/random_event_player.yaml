@@ -12,7 +12,7 @@ random_event_player:
       green_flag_degrade_lube: 20
       green_flag_degrade_tires: 20
       green_flag_degrade_all: 14
-      # 5% chance of a multi-car wreck (TODO: Under Red)
+      # 5% chance of a multi-car wreck (a red flag, modes/under_red)
       green_flag_under_red: 5
       # Tiny chance ball ends immediately
       green_flag_bad_luck: 1

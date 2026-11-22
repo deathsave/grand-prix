@@ -1,0 +1,14 @@
+#show_version=6
+
+# Under Red: GRAND 1 and 2 alternate, back and forth, to show
+# the way out (the Grand hole)
+#
+- time: 0
+  lights:
+    l_grand1: on
+    l_grand2: off
+- time: "+0.35s"
+  lights:
+    l_grand1: off
+    l_grand2: on
+- time: "+0.35s"

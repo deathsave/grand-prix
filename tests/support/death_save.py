@@ -153,4 +153,4 @@ def _make_lap(self):
     self.advance_time_and_run(1)
 
 def _is_unavailable(self, identifier):
-    self.machine.variables.get_machine_var(f"is_{identifier}_available") == 0
+    return self.machine.variables.get_machine_var(f"is_{identifier}_available") == 0

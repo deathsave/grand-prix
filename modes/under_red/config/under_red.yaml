@@ -1,0 +1,12 @@
+#config_version=6
+
+# UNDER RED
+#
+# A multi-car wreck (Wear and Tear's green_flag_under_red, 5%
+# every 3rd lap, not during a multiball): a red flag. Green Flag
+# stops like a pit stop and the switches score like the pit, but
+# topping up the resources doesn't get you out (nor does Backfire).
+# The Grand hole does (Green Flag starts again), or a drain. It
+# doesn't carry over to the next ball (back in the pit then).
+config:
+- mode.yaml

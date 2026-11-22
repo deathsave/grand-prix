@@ -6,7 +6,8 @@
 # to activeate the backfire hole in development
 mode:
   start_events:
-  - logicblock_seq_backfire_qualifier_complete
+  # (not under a red flag, see modes/under_red)
+  - logicblock_seq_backfire_qualifier_complete{not mode.under_red.active}
   stop_events:
   - timer_backfire_stopped
   - mode_green_flag_started

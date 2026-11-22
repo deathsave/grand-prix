@@ -54,6 +54,10 @@ widgets:
   red_line:
   - type: image
     image: red-line
+  # Under Red's
+  red_flag:
+  - type: image
+    image: red-flag
   pure_evil:
   - type: image
     image: pure-evil

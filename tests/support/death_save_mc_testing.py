@@ -38,7 +38,7 @@ class DeathSaveMcTesting(FullMachineTestCase):
         death_save._complete_lap(self)
 
     def _is_unavailable(self, identifier):
-        death_save._is_unavailable(self, identifier)
+        return death_save._is_unavailable(self, identifier)
 
     # Helper function to check for existence
     # of test on the display.

@@ -40,8 +40,9 @@ locks described above.
 Shots
 -----
 
-Get back into the 3 holes used to start the multiball: the `grand_hole`,
-`prix_hole` and `backfire_hole`. All 3 are held by the `grand_prix_holes`
+Get back into the 3 holes used to start the multiball: the Pot Hole
+(`grand_hole`), the Oil Slick (`prix_hole`) and the Backfire Hole
+(`backfire_hole`). All 3 are held by the `grand_prix_holes`
 ball hold (`./modes/grand_prix/config/ball_holds.yaml`) and run by
 `./modes/grand_prix/code/grand_prix.py`.
 

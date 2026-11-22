@@ -45,7 +45,8 @@ config plays sounds and scores from:
    (none in 1st, all 4 in 5th).
 1. **5th gear** (`red_line_final_run`): the tach is full and the top
    Grooveline, Grand and Prix inserts blink. Hitting all three of
-   `s_grooveline`, `s_hole_grand` and `s_hole_prix` is the super jackpot,
+   `s_grooveline`, `s_hole_grand` (the Pot Hole) and `s_hole_prix` (the Oil
+   Slick) is the super jackpot,
    the **Checkered Flag** (2,000,000, `red_line_checkered_flag`, "CHECKERED
    FLAG!" on the display), then it's back to 1st gear.
 
