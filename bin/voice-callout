@@ -9,8 +9,9 @@ speaking rate to use, and each call out's file name: text). This says each one w
      VST the original call outs were made with)
   2. EQ it to the original call outs' average spectrum (TARGET_EQ) and
      match their loudness
-  3. the same saturation, crush and de-esser bin/voice-crush gives all
-     the voice audio (using its default settings)
+  3. the same saturation, crush, de-esser, loudness normalization and
+     peak limiter bin/voice-crush gives all the voice audio (using its
+     default settings)
 
 and writes sounds/preload/voice/synth/<name>.ogg. A call out can also be
 a map with its own settings:
@@ -260,7 +261,7 @@ def tempo(speed):
     return filters
 
 
-def render(entry, voice, rate, dest, final_filter):
+def render(entry, voice, rate, dest, final_stage):
     """Say a call out and run it through the whole chain into `dest`."""
     settings = callout_settings(entry)
     voice = settings.get("voice", voice)
@@ -309,10 +310,10 @@ def render(entry, voice, rate, dest, final_filter):
             f"volume={TARGET_LUFS - loudness(matched):.2f}dB,"
             "alimiter=limit=0.89:level=disabled", leveled)
 
-        # 3. the voice-crush stage, encoded like the rest of the voice
-        ffmpeg("-i", leveled, "-af", final_filter,
-            "-ac", "2", "-c:a", "vorbis", "-strict", "-2", "-q:a", "5",
-            dest)
+        # 3. the voice-crush stage (normalized, limited and encoded
+        # like the rest of the voice)
+        crush, crush_args = final_stage
+        crush.crush(leveled, dest, crush_args)
 
 
 def add_callout(name, text):
@@ -375,21 +376,21 @@ def main():
                 + ", ".join(unknown))
 
     crush = voice_crush()
-    final_filter = crush.audio_filter(crush.build_parser().parse_args([]))
+    final_stage = (crush, crush.build_parser().parse_args([]))
 
     speed = f" at {rate} wpm" if rate else ""
     print(f"making {len(names)} call out(s) with {voice}{speed}...")
     failed = []
     with ThreadPoolExecutor() as pool:
         jobs = {name: pool.submit(render, callouts[name], voice, rate,
-            os.path.join(GAME_DIR, f"{name}.ogg"), final_filter)
+            os.path.join(GAME_DIR, f"{name}.ogg"), final_stage)
             for name in names}
         for name, job in jobs.items():
             try:
                 job.result()
                 print(f"  {name}: {describe(callouts[name])}")
             except (subprocess.CalledProcessError, ValueError,
-                    IndexError) as error:
+                    IndexError, RuntimeError) as error:
                 failed.append(name)
                 print(f"  {name}: FAILED ({error})", file=sys.stderr)
 

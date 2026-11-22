@@ -51,7 +51,7 @@ track_player:
   mode_pure_evil_stopping:
     music:
       action: set_volume
-      volume: 0.4
+      volume: 0.3
       fade: 1s
     ambience:
       action: set_volume

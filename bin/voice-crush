@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Slightly distort and bitcrush the voice call outs (then de-ess
-them so the crunch isn't harsh).
+them so the crunch isn't harsh), then normalize them all to the same
+loudness (--lufs) with a light peak limiter (--ceiling).
 
 Synth call outs listed in misc/voice-callouts.yaml are skipped: they
 are made from text (with this same crush) by bin/voice-callout.
@@ -16,6 +17,7 @@ Examples:
   bin/voice-crush --preview jackpot    # hear one (before, then after)
   bin/voice-crush --bits 6 --drive 9   # crunchier
   bin/voice-crush --deess 0.8          # tame more sibilance
+  bin/voice-crush --lufs -14           # all of them louder
   bin/voice-crush synth/extra-ball     # only matching files
   bin/voice-crush --restore            # put the originals back
 
@@ -24,6 +26,7 @@ Needs ffmpeg (brew install ffmpeg). --preview plays with afplay (macOS).
 
 import argparse
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -59,6 +62,11 @@ def build_parser():
     parser.add_argument("--deess", type=float, default=0.6,
         help="de-esser intensity to soften harsh highs and esses, "
              "0-1 (0 is off, default 0.6)")
+    parser.add_argument("--lufs", type=float, default=-15,
+        help="loudness to normalize every call out to, in LUFS "
+             "(default -15)")
+    parser.add_argument("--ceiling", type=float, default=-1,
+        help="peak limiter ceiling in dBFS (default -1)")
     parser.add_argument("--preview", action="store_true",
         help="play the first matching file before and after (no changes)")
     parser.add_argument("--dry-run", action="store_true",
@@ -119,26 +127,53 @@ def audio_filter(args):
     ]
     if args.deess > 0:
         filters.append(f"deesser=i={args.deess}:m=0.5:f=0.5")
-    # keep the peaks under 0 dBFS
-    filters.append("alimiter=limit=0.95:level=disabled")
     return ",".join(filters)
 
 
+def ffmpeg(*args):
+    result = subprocess.run(["ffmpeg", "-v", "error", "-y", *args],
+        capture_output=True, text=True)
+    if result.returncode != 0:
+        raise RuntimeError(result.stderr.strip())
+
+
+def loudness(path):
+    """Integrated loudness in LUFS (None if too short or quiet)."""
+    out = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path,
+        "-af", "ebur128", "-f", "null", "-"],
+        capture_output=True, text=True).stderr
+    found = re.findall(r"I:\s+(-?[\d.]+) LUFS", out)
+    if not found or float(found[-1]) < -60:
+        return None
+    return float(found[-1])
+
+
+def level_filter(gain, args):
+    """Normalize by `gain` dB, then lightly limit the peaks."""
+    ceiling = 10 ** (args.ceiling / 20)
+    return (f"volume={gain:.2f}dB,"
+        f"alimiter=limit={ceiling:.3f}:attack=5:release=50:level=disabled")
+
+
 def crush(source, dest, args):
+    """Crush `source`, normalize and limit it, and encode it to `dest`."""
     # write next to dest then swap in, so a failure never
     # leaves a half written file in the game
     tmp = dest + ".tmp.ogg"
-    result = subprocess.run([
-        "ffmpeg", "-v", "error", "-y", "-i", source,
-        "-af", audio_filter(args),
-        # match bin/mp3-to-ogg
-        "-ac", "2", "-c:a", "vorbis", "-strict", "-2", "-q:a", "5",
-        tmp,
-    ], capture_output=True, text=True)
-    if result.returncode != 0:
-        if os.path.exists(tmp):
-            os.remove(tmp)
-        raise RuntimeError(result.stderr.strip())
+    with tempfile.TemporaryDirectory() as work:
+        crushed = os.path.join(work, "crushed.wav")
+        try:
+            ffmpeg("-i", source, "-af", audio_filter(args), crushed)
+            measured = loudness(crushed)
+            gain = 0 if measured is None else args.lufs - measured
+            ffmpeg("-i", crushed, "-af", level_filter(gain, args),
+                # match bin/mp3-to-ogg
+                "-ac", "2", "-c:a", "vorbis", "-strict", "-2", "-q:a", "5",
+                tmp)
+        except RuntimeError:
+            if os.path.exists(tmp):
+                os.remove(tmp)
+            raise
     os.replace(tmp, dest)
 
 
@@ -186,7 +221,8 @@ def main():
 
     print(f"crushing {len(files)} files "
           f"(bits {args.bits}, mix {args.mix}, drive {args.drive}dB, "
-          f"downsample {args.downsample}, deess {args.deess})")
+          f"downsample {args.downsample}, deess {args.deess}, "
+          f"{args.lufs} LUFS, ceiling {args.ceiling}dB)")
     failed = []
     with ThreadPoolExecutor() as pool:
         futures = {pool.submit(run, rel): rel for rel in files}

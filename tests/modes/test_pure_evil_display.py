@@ -2,6 +2,11 @@ from tests.support.death_save_mc_testing import DeathSaveMcTesting
 
 class TestPureEvilDisplay(DeathSaveMcTesting):
 
+    # the track's volume in config/common/sound_system.yaml
+    def _volume(self, track):
+        return self.mc.machine_config["sound_system"]["tracks"][track][
+            "volume"]
+
     def _slide(self):
         return self.mc.targets["default"].current_slide
 
@@ -55,7 +60,7 @@ class TestPureEvilDisplay(DeathSaveMcTesting):
             get_track_by_name("music")
         ambience = self.mc.sound_system.audio_interface. \
             get_track_by_name("ambience")
-        self.assertAlmostEqual(0.4, music.volume, places=2)
+        self.assertAlmostEqual(self._volume("music"), music.volume, places=2)
         self.post_event("pure_evil_enters")
         self.advance_time_and_run(2)
         self.assertModeRunning("pure_evil")
@@ -66,5 +71,5 @@ class TestPureEvilDisplay(DeathSaveMcTesting):
         self.post_event("pure_evil_exits")
         self.advance_time_and_run(2)
         self.assertModeNotRunning("pure_evil")
-        self.assertAlmostEqual(0.4, music.volume, places=2)
-        self.assertAlmostEqual(0.2, ambience.volume, places=2)
+        self.assertAlmostEqual(self._volume("music"), music.volume, places=2)
+        self.assertAlmostEqual(self._volume("ambience"), ambience.volume, places=2)

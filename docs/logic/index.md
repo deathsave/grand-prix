@@ -20,7 +20,8 @@ is listed in `./misc/voice-callouts.yaml` (the voice to use, then each file
 name and what's said). It says each with macOS `say`, compresses and
 bit-crushes it (an approximation of the "Tritik Krush" VST the originals were
 made with), EQs and loudness matches it to the original call outs, then gives
-it the same saturation, crush and de-esser as the rest of the voice audio.
+it the same saturation, crush, de-esser, loudness normalization and limiter
+as the rest of the voice audio.
 
 - Rebuild all of them: `bin/voice-callout`
 - Rebuild some (and hear them): `bin/voice-callout jackpot tilt1 --play`
@@ -36,6 +37,12 @@ The rest of the voice audio (Steve, and the synth `bonus3` which has custom
 audio mixed in) is lightly distorted, bit-crushed and de-essed by
 `bin/voice-crush`, working from untouched copies in `./misc/voice-originals`
 so it can be re-run with new settings (`bin/voice-crush --help`).
+
+Both then normalize every call out to the same loudness (-15 LUFS, so none
+jumps out over the others) and lightly limit the peaks (a -1 dBFS ceiling,
+5ms attack, 50ms release). Change them with `bin/voice-crush --lufs` and
+`--ceiling`; `bin/voice-callout` uses `bin/voice-crush`'s defaults, so change
+those to keep the two the same.
 
 Attract Light Show
 ------------------

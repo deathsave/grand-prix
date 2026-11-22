@@ -20,11 +20,11 @@ sound_system:
     effects:
       type: standard
       simultaneous_sounds: 10
-      volume: 0.7
+      volume: 0.5
     music:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.4
+      volume: 0.3
     ambience:
       type: standard
       simultaneous_sounds: 3
