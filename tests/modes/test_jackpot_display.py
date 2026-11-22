@@ -73,6 +73,26 @@ class TestJackpotDisplay(DeathSaveMcTesting):
         self.assertEqual("Jackpot!", self._overlay_text())
         self._assertModeColor("grand_prix", self._overlay())
 
+    # Grand Prix's leader bonus (every lap) shows its value, on pink
+    def test_grand_prix_leader_bonus(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self.post_event("grand_prix_multiball_ready")
+        self.hit_switch_and_run("s_hole_backfire", 8)
+        self.assertModeRunning("grand_prix")
+        self.post_event_with_params("grand_prix_leader_bonus",
+            laps=2, value=40000)
+        self.advance_time_and_run(0.1)
+        widgets = [ w for w in self._widgets()
+            if "leader_bonus" in (getattr(w, "key", None) or "") ]
+        texts = [ w.text for w in widgets if type(w).__name__ == "Text" ]
+        self.assertEqual(["Leader Bonus!", "40,000"], texts)
+        rect = [ w for w in widgets if type(w).__name__ == "Rectangle" ]
+        self._assertModeColor("grand_prix", rect[0])
+        self.advance_time_and_run(2.5)
+        self.assertEqual([], [ w for w in self._widgets()
+            if "leader_bonus" in (getattr(w, "key", None) or "") ])
+
     def test_luxury_jackpot_is_purple(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()

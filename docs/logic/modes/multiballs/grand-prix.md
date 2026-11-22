@@ -50,13 +50,17 @@ ball hold (`./modes/grand_prix/config/ball_holds.yaml`) and run by
    "Lost position!" call out plays (`grand_prix_hole_lost` ->
    `grand_prix_position_lost`) and the hurry up restarts for any balls still
    held.
-1. A **Jackpot** (100,000) is awarded each time the number of held balls
+1. A **Jackpot** (100,000 × the multiplier) is awarded each time the number of held balls
    reaches a new high for the sequence, so up to 2 per sequence. Going from 2
    held to 1 and back to 2 does NOT pay the 2nd jackpot again.
 1. Holding all 3 awards only the **Super Jackpot** (500,000), ejects all 3 balls
    and restarts the sequence.
 1. A drain ejects every held ball (jackpots already awarded in the sequence
    stay awarded).
+1. Every lap (`logicblock_seq_lap_complete`) is a **Leader Bonus**
+   (`grand_prix_leader_bonus`): 20,000 more each lap of the multiball, up to
+   100,000, shown over pink (`leader_bonus_grand_prix`) for 2s.
+1. The super jackpot steps the multiplier up (see `../../multiplier.md`).
 
 Scores are in `./modes/grand_prix/config/variable_player.yaml`.
 

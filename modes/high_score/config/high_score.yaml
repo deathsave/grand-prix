@@ -20,10 +20,12 @@ high_score:
   # set the defaults
   defaults:
     score:
-      - DS: 10000
-      - GRA: 5000
-      - NDP: 1000
-      - RIX: 100
+      # (around a game with a multiball or two, so a single
+      # jackpot doesn't make Grand Champion)
+      - DS: 3000000
+      - GRA: 2000000
+      - NDP: 1000000
+      - RIX: 500000
     lap_count:
       - DS: 3
   # vars:

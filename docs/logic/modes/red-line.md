@@ -39,7 +39,7 @@ config plays sounds and scores from:
    `./modes/red_line/config/variable_player.yaml` scores 10 (the pit targets
    keep the Pit's scoring), with just the bell (`red_line_bell`).
 1. **Shift** (the Backfire hole at the red line, no time limit,
-   `red_line_shift`): the max rev (`max_rev_end`), a backfire, and a **Jackpot** of 250,000 × the gear
+   `red_line_shift`): the max rev (`max_rev_end`), a backfire, and a **Jackpot** of 250,000 × the gear (× the multiplier)
    (with the jackpot callout and widget, like the other modes). Then up a gear
    and the tach empties. The gear is shown on `l_signal1` ... `l_signal4`
    (none in 1st, all 4 in 5th).

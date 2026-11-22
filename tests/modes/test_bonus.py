@@ -37,10 +37,10 @@ class TestBonusMode(DeathSaveMcTesting):
         # Spinner hit 24 times (8 per step) to bump
         # the first three bonus inserts
         for i in range(24):
-            self._assertIncrement("score", "s_spinner", 10)
+            self._assertIncrement("score", "s_spinner", 50)
             self.advance_time_and_run(1)
         ball1_score = self.machine.game.player.score
-        self.assertEqual(100 + (24 * 10), ball1_score)
+        self.assertEqual(100 + (24 * 50), ball1_score)
         self.assertEqual(
             3, self.machine.game.player.luxury_counter_count)
 
@@ -126,9 +126,10 @@ class TestBonusMode(DeathSaveMcTesting):
         self.assertEqual(1, self.machine.game.player.multiplier)
 
         # - 100 for initial fuel to get into green flag
-        # - 500 for the 5 laps and
-        # - 10 for each spinner hit during those laps
-        self.assertEqual(650, self.machine.game.player.score)
+        # - 5 laps: 5,000 each, plus 500 for the Grooveline lane and
+        #   50 for the spinner
+        self.assertEqual(100 + 5 * (5000 + 500 + 50),
+            self.machine.game.player.score)
         # bonus mode is now running
         self.assertModeRunning("bonus")
 
@@ -139,5 +140,5 @@ class TestBonusMode(DeathSaveMcTesting):
 
         # bonus of 1000 per lap made, and each lap
         # also lit a luxury insert (10,000 each)
-        self.assertEqual(650 + 5000 + 50000,
+        self.assertEqual(100 + 5 * (5000 + 500 + 50) + 5000 + 50000,
             self.machine.game.player.score)

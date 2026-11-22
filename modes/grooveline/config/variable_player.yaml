@@ -5,8 +5,9 @@ variable_player:
     mode_name:
       action: set_machine
       string: Grooveline Multiball
-  # see code/grooveline.py, each one is worth 10,000 more
+  # see code/grooveline.py: 30k, each one worth 5k more (x the
+  # multiplier), and a 250k super jackpot
   grooveline_jackpot:
-    score: value
+    score: value * current_player.multiplier
   grooveline_super_jackpot:
-    score: 500000
+    score: 250000

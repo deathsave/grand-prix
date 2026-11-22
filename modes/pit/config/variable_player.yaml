@@ -58,7 +58,7 @@ variable_player:
       int: 2
       action: set
   off_the_line_hit:
-    score: 5000
+    score: 25000
   # luxury steps for green flag to award once it starts
   # (see event_player)
   logicblock_backfire_counter_complete:

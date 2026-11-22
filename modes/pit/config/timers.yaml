@@ -54,8 +54,9 @@ timers:
     start_value: 30
     direction: down
     control_events:
+    # (from the top on each step up)
     - event: player_multiplier{current_player.multiplier > 1 and not current_player.is_grooveline_boosted}
-      action: start
+      action: restart
     - event: player_multiplier{current_player.multiplier == 1}
       action: reset
     # Grooveline's super jackpot holds it until the mode ends

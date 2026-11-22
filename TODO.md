@@ -9,8 +9,9 @@ In order, each one tested before the next:
 1. ~~Bugs and quick fixes~~ (done: Red Line's reset and ready lamp,
    Pure Evil kept out of Red Line, Grooveline's 10s ball save, pit
    sounds only when low, flashing the low pit inserts, the cleanup)
-2. Scoring: the rebalance, Backfire's multiplier step, super jackpots
-   stepping the multiplier, Grand Prix's leader bonus
+2. ~~Scoring~~ (done: the rebalance, Backfire's multiplier step, super
+   jackpots stepping the multiplier, Grand Prix's leader bonus; its
+   callout is in step 3)
 3. Synth callouts: required lube, Smooth Sailing, "Red flag!", the
    leader bonus
 4. Under Red (red flag) mode
@@ -38,35 +39,7 @@ Design
 Scoring (variable player)
 -------------------------
 
-- Backfire Mode - completing Backfire Pops steps the multiplier up
-  (1x -> 2x -> 5x) and it carries into the resumed Green Flag on the
-  normal 30s multiplier timer
-- Grand Prix Mode - every lap during the multiball (the shot is hard)
-  pays a "leader bonus" that grows linearly: 20k, 40k, 60k...
-  capped at 100k from the 5th lap (with a callout and slide)
-- Any super jackpot steps the multiplier up on the normal 30s timer:
-  Grand Prix's super jackpot, Luxury's completion and Red Line's
-  checkered flag. (Grooveline's already does, but holds it until the
-  mode ends)
-- Dropped: the first-time multiball multiplier bump, and the ball end
-  decrement (the multiplier is always back to 1x by ball end)
-- Rebalance (the ladder: pit 10 a switch < Green Flag 50-2,500 + 5k
-  laps < skill shots 25k < jackpots 30k-100k < supers 250k-500k, each
-  4-5x its own jackpots < Red Line):
-  - Green Flag switches x5: pops / slings / spinner / targets /
-    swerves 50, inlanes 150, outlanes 250, Grooveline lane and the
-    Grand / Prix holes 500, Backfire hole 2,500 (still x multiplier)
-  - Laps in Green Flag pay 5k x multiplier
-  - Grooveline: jackpots 30k growing 5k a hit (30k-70k), super 250k
-    (full run 1.31M -> 700k; it's the easiest multiball)
-  - Luxury: jackpot 75k, super 300k (full run 375k -> 675k)
-  - Grand Prix: keep 100k / 500k (repeatable and hardest)
-  - Red Line: keep 250k x gear / 2M checkered flag
-  - Off the Line 5k -> 25k (same as the ball start skill shot)
-  - The multiplier applies to regular jackpots too (Grooveline,
-    Luxury, Grand Prix, Red Line shifts); supers stay flat
-  - High score defaults 10k / 5k / 1k / 100 -> 3M / 2M / 1M / 500k
-- Revisit this list after playtesting on the machine
+- Revisit the numbers after playtesting on the machine
 
 End of Ball Bonus
 -----------------

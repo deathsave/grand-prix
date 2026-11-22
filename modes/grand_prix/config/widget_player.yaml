@@ -3,6 +3,12 @@
 # Shown when the jackpot callouts play, for twice as long
 # as the callout (jackpot.ogg 0.87s, jackpot-double.ogg 1.14s)
 widget_player:
+  # every lap (see code/grand_prix.py)
+  grand_prix_leader_bonus:
+    leader_bonus_grand_prix:
+      key: leader_bonus_grand_prix
+      widget_settings:
+        expire: 2s
   jackpot_callout_played:
     jackpot_grand_prix:
       key: jackpot_grand_prix

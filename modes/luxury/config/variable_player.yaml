@@ -15,13 +15,13 @@ variable_player:
     score: 0|block
   s_target_save_active:
     score: 0|block
-  # Each of the first five shots is a 25k jackpot (see
-  # event_player), the 6th is only the super jackpot
+  # Each of the first five shots is a 75k jackpot (x the
+  # multiplier, see event_player), the 6th is only the super jackpot
   luxury_jackpot:
-    score: 25000|block
-  # 250k super jackpot
+    score: 75000 * current_player.multiplier|block
+  # 300k super jackpot
   luxury_complete:
-    score: 250000|block
+    score: 300000|block
   # score normally if already claimed
   # luxury_claimed_hit:
   mode_luxury_started:

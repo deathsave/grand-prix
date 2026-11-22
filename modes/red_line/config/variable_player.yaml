@@ -5,9 +5,9 @@ variable_player:
     mode_name:
       action: set_machine
       string: Red Line
-  # see code/red_line.py
+  # see code/red_line.py (x the multiplier)
   red_line_shift:
-    score: value
+    score: value * current_player.multiplier
   red_line_checkered_flag:
     score: 2000000
 

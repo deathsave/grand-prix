@@ -27,8 +27,8 @@ class Grooveline(Mode):
     BLINKING = [ "l_grooveline01", "l_multiball", "l_grand1" ]
     INSERTS = [ f"l_grooveline{i:02}" for i in range(1, 11) ]
     HITS = len(INSERTS)
-    JACKPOT = 50000
-    JACKPOT_GROWTH = 10000
+    JACKPOT = 30000
+    JACKPOT_GROWTH = 5000
     LIGHT_KEY = "grooveline_shots"
     MULTIPLIER_BUMPS = { 1: 2, 2: 5 }
 

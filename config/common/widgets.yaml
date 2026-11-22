@@ -416,6 +416,31 @@ widgets:
     font_size: 96
     animations:
       add_to_slide: pulsate_fast
+  # Grand Prix's leader bonus (every lap), like the jackpots
+  leader_bonus_grand_prix:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: pink
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "Leader Bonus!"
+    z: 21
+    y: middle+12%
+    color: white
+    style: text_default
+    font_size: 90
+    animations:
+      add_to_slide: pulsate_fast
+  - type: text
+    text: (value)
+    number_grouping: true
+    z: 21
+    y: middle-15%
+    color: white
+    style: text_default
+    font_size: 110
   jackpot_grand_prix:
   - type: rectangle
     width: 800

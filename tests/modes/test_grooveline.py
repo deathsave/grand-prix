@@ -120,11 +120,12 @@ class TestGroovelineMode(DeathSaveGameTesting):
             self.hit_and_release_switch(switches[hit % 3])
             self.advance_time_and_run(1)
             self.assertEqual(hit, self._count("grooveline_jackpot"))
-            self.assertEqual(40000 + 10000 * hit,
+            self.assertEqual(25000 + 5000 * hit,
                 self._jackpot_values[-1])
+            # (x the multiplier)
             self.assertGreaterEqual(
                 self.machine.game.player.score - score,
-                40000 + 10000 * hit)
+                (25000 + 5000 * hit) * self.machine.game.player.multiplier)
             self.assertEqual(list(range(11 - hit, 11)),
                 self._lit_inserts())
         self.assertTrue(self._blinking("l_grooveline01"))
@@ -136,7 +137,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertEqual(1, self._count("grooveline_super_jackpot"))
         self.assertEqual(9, self._count("grooveline_jackpot"))
         self.assertGreaterEqual(
-            self.machine.game.player.score - score, 500000)
+            self.machine.game.player.score - score, 250000)
         self.assertLess(
             self.machine.game.player.score - score, 540000)
         self.assertEqual(list(range(1, 11)), self._lit_inserts())

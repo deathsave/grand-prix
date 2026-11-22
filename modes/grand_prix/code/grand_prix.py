@@ -18,6 +18,8 @@ class GrandPrix(Mode):
     #   jackpots stay awarded).
     # - While a hole holds a ball, the lights for its area
     #   stay on (over the light shows) until it is ejected.
+    # - Every lap is a leader bonus, 20k more each time up to 100k
+    #   (the shot is hard).
     HOLD = "grand_prix_holes"
     HOLES = 3
     HURRY_UP_MS = 30000
@@ -28,9 +30,14 @@ class GrandPrix(Mode):
         "bd_hole_backfire": [ "l_swerve1", "l_swerve2" ],
     }
     LIGHT_KEY = "grand_prix_held"
+    LEADER_BONUS = 20000
+    LEADER_BONUS_MAX = 100000
 
     def mode_start(self, **kwargs):
         self.jackpots = 0
+        self.laps = 0
+        self.add_mode_event_handler("logicblock_seq_lap_complete",
+            self.lap)
         self.add_mode_event_handler(
             f"ball_hold_{self.HOLD}_held_ball", self.ball_held)
         self.add_mode_event_handler("ball_drain", self.ball_drained)
@@ -38,6 +45,12 @@ class GrandPrix(Mode):
     def mode_stop(self, **kwargs):
         self.delay.remove("hurry_up")
         self.release(all=True)
+
+    def lap(self, **kwargs):
+        self.laps += 1
+        self.machine.events.post("grand_prix_leader_bonus",
+            laps=self.laps, value=min(self.LEADER_BONUS * self.laps,
+                self.LEADER_BONUS_MAX))
 
     def hold(self):
         return self.machine.ball_holds[self.HOLD]

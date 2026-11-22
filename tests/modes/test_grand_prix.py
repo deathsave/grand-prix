@@ -364,6 +364,41 @@ class TestGrandPrixMode(DeathSaveGameTesting):
             counts.add(self._lit_prefix(grand[::-1]))
         self.assertEqual(set(range(6)), counts)
 
+    # Every lap during the multiball is a leader bonus, 20k more each
+    # time, up to 100k
+    def test_leader_bonus(self):
+        values = []
+        def bonus(value, **kwargs):
+            values.append(value)
+        self.machine.events.add_handler("grand_prix_leader_bonus", bonus)
+        self._start_multiball()
+        for lap in range(7):
+            score = self.machine.game.player.score
+            self._complete_lap()
+            self.assertGreaterEqual(self.machine.game.player.score - score,
+                values[-1])
+        self.assertEqual([20000, 40000, 60000, 80000, 100000, 100000,
+            100000], values)
+
+    # The jackpots are x the multiplier (the super jackpot isn't), and
+    # the super jackpot steps the multiplier up
+    def test_multiplier(self):
+        self._start_multiball()
+        player = self.machine.game.player
+        player.multiplier = 2
+        score = player.score
+        self._enter("s_hole_grand")
+        # (plus the hole's own score)
+        self.assertGreaterEqual(player.score - score, 200000)
+        self.assertLess(player.score - score, 210000)
+        self._enter("s_hole_prix")
+        score = player.score
+        self._enter("s_hole_backfire")
+        self.assertEqual(1, self._super_jackpots())
+        self.assertGreaterEqual(player.score - score, 500000)
+        self.assertLess(player.score - score, 520000)
+        self.assertEqual(5, player.multiplier)
+
     def _lit(self, light):
         return self.machine.lights[light].get_color().rgb != (0, 0, 0)
 

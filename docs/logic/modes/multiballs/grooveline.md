@@ -38,11 +38,11 @@ the top Grand insert (`l_grand1`).
 Every hit on any of them:
 
 - Lights the next Grooveline insert, from the bottom (`l_grooveline10`) up
-- Pays a **Jackpot** (`grooveline_jackpot`) that grows with each hit: 50,000,
-  60,000, ... up to 130,000 for the 9th
+- Pays a **Jackpot** (`grooveline_jackpot`, × the multiplier) that grows with
+  each hit: 30,000, 35,000, ... up to 70,000 for the 9th
 
 The 10th hit lights the top insert and pays only the **Super Jackpot**
-(500,000, `grooveline_super_jackpot`). That completes the shots, so the lamps
+(250,000, `grooveline_super_jackpot`). That completes the shots, so the lamps
 stop blinking and the inserts stay lit. It also bumps the multiplier (1X to
 2X, or 2X to 5X) for the rest of the multiball: the player's
 `is_grooveline_boosted` stops the 30s `multiplier` timer

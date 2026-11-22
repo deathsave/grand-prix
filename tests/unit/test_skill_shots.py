@@ -88,7 +88,7 @@ class TestSkillShots(DeathSaveGameTesting):
         score = self.machine.game.player.score
         self.hit_and_release_switch("s_shooter_lane")
         self.assertEqual(1, self.machine.shots["off_the_line"].state)
-        self.assertEqual(score + 5000, self.machine.game.player.score)
+        self.assertEqual(score + 25000, self.machine.game.player.score)
 
     # Plunging in time isn't late
     def test_off_the_line_skill_shot_not_late(self):
@@ -127,7 +127,7 @@ class TestSkillShots(DeathSaveGameTesting):
         # skill shot succeeded
         self.assertEqual(1,
             self.machine.shots["off_the_line"].state)
-        self.assertEqual(score + 5000,
+        self.assertEqual(score + 25000,
             self.machine.game.player.score)
 
     # Starts ball 2 under green and runs until the Off the

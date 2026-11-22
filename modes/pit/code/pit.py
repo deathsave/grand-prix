@@ -44,6 +44,8 @@ class Pit(Mode):
     # its last 0.75s, see the pit's sound_player)
     ENGINE_START_MS = 2500
 
+    MULTIPLIER_STEPS = { 1: 2, 2: 5 }
+
     index = 0
 
     def mode_start(self, **kwargs):
@@ -56,6 +58,8 @@ class Pit(Mode):
         self.add_mode_event_handler("s_shooter_lane_inactive",
             self.plunged)
         self.add_mode_event_handler("ball_will_end", self.ball_will_end)
+        self.add_mode_event_handler("multiplier_step",
+            self.step_multiplier)
         self.add_mode_event_handler("green_flag_dropped",
             self.race)
         self.add_mode_event_handler("mode_green_flag_stopped",
@@ -126,6 +130,14 @@ class Pit(Mode):
         self.ball_ending = True
         self.engine_off()
         self.pace_off()
+
+    # 1x -> 2x -> 5x (as the pit, for the 2x callout), on the
+    # multiplier timer (see timers.yaml)
+    def step_multiplier(self, **kwargs):
+        player = self.machine.game.player
+        stepped = self.MULTIPLIER_STEPS.get(player.multiplier)
+        if stepped:
+            player.set_with_kwargs("multiplier", stepped, source="pit")
 
     def clear_segments(self):
         self.machine.segment_displays["segment1"].add_text("")

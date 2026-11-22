@@ -26,9 +26,10 @@ class TestHighScore(DeathSaveGameTesting):
         self.assertEqual(2,
             self.machine.ball_devices["bd_trough"].balls)
 
-        # score a bunch of points
+        # score a bunch of points (past the lowest default, 500k)
         for i in range(30):
             self.hit_and_release_switch("s_pit_lube")
+        self.machine.game.player.score += 600000
         self._drain_one_ball()
 
         self.advance_time_and_run(1)

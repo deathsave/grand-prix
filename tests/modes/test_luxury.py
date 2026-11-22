@@ -92,33 +92,34 @@ class TestLuxuryMode(DeathSaveGameTesting):
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_target_bonus", 1)
         self.assertEqual(
-            score + 25000, self.machine.game.player.score)
+            score + 75000, self.machine.game.player.score)
 
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_hole_prix", 1)
         self.assertEqual(
-            score + 25000, self.machine.game.player.score)
+            score + 75000, self.machine.game.player.score)
 
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_spinner", 1)
         self.assertEqual(
-            score + 25000, self.machine.game.player.score)
+            score + 75000, self.machine.game.player.score)
 
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_grooveline", 1)
+        # (after the spinner, that's a lap too: 5k)
         self.assertEqual(
-            score + 25000, self.machine.game.player.score)
+            score + 75000 + 5000, self.machine.game.player.score)
 
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_hole_grand", 1)
         self.assertEqual(
-            score + 25000, self.machine.game.player.score)
+            score + 75000, self.machine.game.player.score)
 
         # Getting 6/6 shots is only the super jackpot
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_target_save", 1)
         self.assertEqual(
-            score + 250000, self.machine.game.player.score)
+            score + 300000, self.machine.game.player.score)
 
         # Completion also ends the mode, once the jackpot
         # callouts have had a few seconds

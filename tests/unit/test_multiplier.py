@@ -111,3 +111,38 @@ class TestMultiplier(DeathSaveGameTesting):
 
     #     self.hit_and_release_switch("s_target_bonus")
     #     self.assertEqual(2, self.machine.game.player.prix_counter_count)
+
+    # Completing Backfire Pops steps the multiplier up, and it carries
+    # into Green Flag on the normal 30s timer
+    def test_backfire_steps_up(self):
+        self._start()
+        self._start_backfire()
+        self.assertEqual(1, self.machine.game.player.multiplier)
+        for i in range(10):
+            self.hit_and_release_switch("s_pop1")
+        self.advance_time_and_run(1)
+        self.assertModeRunning("green_flag")
+        self.assertEqual(2, self.machine.game.player.multiplier)
+        self.advance_time_and_run(25)
+        self.assertEqual(2, self.machine.game.player.multiplier)
+        self.advance_time_and_run(6)
+        self.assertEqual(1, self.machine.game.player.multiplier)
+
+    # A super jackpot steps it up again (2x -> 5x), with the timer back
+    # at the top
+    def test_super_jackpot_steps_up(self):
+        self._start()
+        self._start_green_flag()
+        player = self.machine.game.player
+        self.machine.events.post("multiplier_step")
+        self.advance_time_and_run(20)
+        self.assertEqual(2, player.multiplier)
+        self.machine.events.post("red_line_checkered_flag")
+        self.advance_time_and_run(20)
+        self.assertEqual(5, player.multiplier)
+        # (and no higher)
+        self.machine.events.post("multiplier_step")
+        self.advance_time_and_run(1)
+        self.assertEqual(5, player.multiplier)
+        self.advance_time_and_run(15)
+        self.assertEqual(1, player.multiplier)

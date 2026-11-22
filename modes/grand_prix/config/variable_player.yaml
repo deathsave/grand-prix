@@ -5,7 +5,11 @@ variable_player:
     mode_name:
       action: set_machine
       string: Grand Prix Multiball
+  # (jackpots x the multiplier, the super jackpot flat)
   grand_prix_jackpot:
-    score: 100000
+    score: 100000 * current_player.multiplier
   grand_prix_super_jackpot:
     score: 500000
+  # every lap during the multiball (see code/grand_prix.py)
+  grand_prix_leader_bonus:
+    score: value

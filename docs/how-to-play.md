@@ -37,14 +37,15 @@ Plunge directly into the Backfire Hole on your first launch:
 **Off the Line** (Under a Green Flag)
 
 
-When a ball begins under a Green Flag, a chime countdown keeps you honest (the display counts along: 3, 2, 1, Race!). Launch the ball out of the shooter lane right on the final ding (you get a split second either side) to pocket an extra 5,000 points (and a Luxury insert) with a shit-eating grin. Still sitting in the shooter lane when the window closes? You'll hear about being late.
+When a ball begins under a Green Flag, a chime countdown keeps you honest (the display counts along: Get Ready, 3, 2, 1, Race!). Launch the ball out of the shooter lane right on the final ding (you get a split second either side) to pocket an extra 25,000 points (and a Luxury insert) with a shit-eating grin. Still sitting in the shooter lane when the window closes? You'll hear about being late.
 
 #### Green-flag (Main Mode)
 
 
 With a well-oiled vehicle, the race begins:
 
-- Counter-clockwise orbit (the Grooveline switch) awards a lap and 100 points
+- Counter-clockwise orbit (the Grooveline switch) awards a lap: 5,000 points (× your multiplier)
+- Every switch scores 5 times what it does in the pit (50 to 2,500 points, × your multiplier)
 - 10 pop bumper hits will also get you around the track
 - A successful lap advances your Grooveline insert progress
 
@@ -77,7 +78,13 @@ No bonus is awarded if nothing was earned that ball.
 
 #### Multiplier
 
-During any multiball, "Swerve" at apex of the loop to increment your multiplier.
+The multiplier (1X, 2X, 5X) multiplies the playfield switches, laps and the regular jackpots (not the super jackpots). It lasts 30 seconds:
+
+- Two quick laps (within 15 seconds) light 2X
+- During any multiball, "Swerve" at apex of the loop 5 times for 2X
+- Completing Backfire Pops steps it up (into Green Flag)
+- Every super jackpot (Grand Prix's, Lap of Luxury's, Red Line's Checkered Flag) steps it up (1X to 2X, 2X to 5X)
+- Grooveline's super jackpot steps it up until the multiball ends
 
 ### Special Modes
 
@@ -101,9 +108,9 @@ During the multiball, shoot the blinking shots on the left: the Grooveline
 lane, the multiball target, and the Grand Hole or the target below it.
 
 - Each hit lights the next Grooveline insert, from the bottom up
-- Each hit is a **Jackpot**, worth 10,000 more every time (50,000 up to
-  130,000)
-- The 10th hit lights them all for the **Super Jackpot** (500,000) instead! It also
+- Each hit is a **Jackpot**, worth 5,000 more every time (30,000 up to
+  70,000, × your multiplier)
+- The 10th hit lights them all for the **Super Jackpot** (250,000) instead! It also
   bumps your multiplier (1X to 2X, or 2X to 5X) until the multiball ends
 
 #### Lap of Luxury Multiball 2/3
@@ -124,8 +131,8 @@ Each Luxury step lights an insert (worth 10,000 in the end of ball bonus). Steps
 - North-East bonus inserts show your progress
 - Light all 10 Luxury inserts to qualify
 - Hit the multiball target to begin Luxury Multiball
-  - Each blinking insert collected is a **Jackpot** (25,000)
-  - Collecting the 6th is the **Super Jackpot** (250,000) instead
+  - Each blinking insert collected is a **Jackpot** (75,000, × your multiplier)
+  - Collecting the 6th is the **Super Jackpot** (300,000) instead
 - Completing the mode marks it done and advances Red Line progress
 
 #### Grand Prix Multiball 3/3
@@ -157,11 +164,12 @@ and Backfire):
 - Every hole entered restarts a single **30 second** timer. Get into another
   hole before it runs out or the last ball held is kicked back out (then the
   timer restarts for any still held)
-- Each new hole filled is a **Jackpot** (100,000), up to 2 per sequence. Losing
+- Each new hole filled is a **Jackpot** (100,000, × your multiplier), up to 2 per sequence. Losing
   a hole and refilling it doesn't pay that jackpot again
 - Fill all 3 for the **Super Jackpot** (500,000) instead! All 3 balls are released and
   the sequence starts over
 - Draining a ball empties all the holes
+- Every lap is a **Leader Bonus**: 20,000, then 40,000, 60,000... up to 100,000 a lap
 
 #### Red Line (Wizard Mode)
 
@@ -171,7 +179,7 @@ After Red Line, complete Grooveline and Grand Prix again to get back to it (Lap 
 
 - **Rev it up:** every switch revs the engine, lighting the next Rev Match light in the backbox (the tach). It drains a light every 10 seconds
 - **At the red line** (all 10 lit) the engine bounces off the limiter and the tach stays full until you shift. Until then, everything but the Backfire Hole scores like the pit (10 points, just the bell)
-- **Shift** in the Backfire Hole, whenever you get there, for a backfire and a **Jackpot** (250,000 × your gear), then rev up again in the next gear (the signal lights show it)
+- **Shift** in the Backfire Hole, whenever you get there, for a backfire and a **Jackpot** (250,000 × your gear, × your multiplier), then rev up again in the next gear (the signal lights show it)
 - **5th gear:** hit the Grooveline lane, Grand Hole and Prix Hole (blinking) for the **Checkered Flag** (2,000,000), then it's back to 1st gear for another race
 
 ### Pure Evil

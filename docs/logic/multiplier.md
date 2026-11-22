@@ -25,6 +25,17 @@ Activation
 
 The multiplier will reset back to 1 after 30s per the `multiplier` timer in `./modes/pit/config/timers.yaml`.
 
+### Stepping Up
+
+`multiplier_step` steps it up (1 to 2, 2 to 5, no higher) per
+`step_multiplier` in `./modes/pit/code/pit.py` (set as the pit, for the 2X
+callout). `./modes/pit/config/event_player.yaml` posts it for completing
+Backfire Pops (`logicblock_backfire_counter_complete`, carried into the Green
+Flag it resumes) and the super jackpots: `grand_prix_super_jackpot`,
+`luxury_complete` (only when its shots are `claimed`: the shot group also posts
+it as it starts) and `red_line_checkered_flag`. Each step restarts the 30s
+timer.
+
 ### Grooveline Super Jackpot
 
 Completing the Grooveline Multiball shots bumps the multiplier (1 to 2, or 2 to
@@ -36,6 +47,8 @@ Application
 -----------
 
 - Inserts are lit per `handle_multiplier` in `./modes/pit/code/pit.py`.
-- Most/all switch hit scoring is multiplied per `./modes/green_flag/config/variable_player.yaml`.
+- Most/all switch hit scoring and laps are multiplied per `./modes/green_flag/config/variable_player.yaml`.
+- The regular jackpots are multiplied (Grooveline, Lap of Luxury, Grand Prix and
+  Red Line's shifts, in their `variable_player.yaml`), the super jackpots aren't.
 - The `grooveline_counter` in `./modes/green_flag/config/counters.yaml/` is incremented once more per the `multiplier_lap` event.
 - The `lap_count` player variable is incremented once more per the `multiplier_lap` event in `./modes/green_flag/config/variable_player.yaml`.

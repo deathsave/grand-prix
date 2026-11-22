@@ -48,9 +48,9 @@ Once activated, six areas of the playfield will blink inserts at:
 - The bottom and top of the "G R A N D" chain for `s_target_save` and `s_hole_grand`.
 
 Hitting any of the individual switches is a **Jackpot** (`luxury_jackpot`)
-awarding 25,000 points per `./modes/luxury/config/variable_player.yaml`.
+awarding 75,000 points (× the multiplier) per `./modes/luxury/config/variable_player.yaml`.
 Activating the last of the switches is only the **Super Jackpot**
-(`luxury_complete`) awarding 250,000 points, and completes the mode
+(`luxury_complete`) awarding 300,000 points (and stepping the multiplier up), and completes the mode
 (`./modes/luxury/config/event_player.yaml` only posts `luxury_jackpot` while
 the shot group isn't complete; its `luxury_complete` comes before the last
 shot's hit). Then it posts `luxury_finished` 3.5s later

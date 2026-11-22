@@ -7,37 +7,37 @@ variable_player:
   # (nothing at Red Line's red line, which scores like the pit
   # instead, see modes/red_line/config/variable_player.yaml)
   sw_tag_pops:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_grooveline_active:
-    score: 100 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 500 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_hole_backfire_active{not device.timers.skill_shot.running}:
-    score: 500 * current_player.multiplier|block
+    score: 2500 * current_player.multiplier|block
   s_hole_prix_active:
-    score: 100 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 500 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_hole_grand_active:
-    score: 100 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 500 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_spinner_active:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_target_save_active:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_target_bonus_active:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_swerve1_active:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_swerve2_active:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_slingshot1_active:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_slingshot2_active:
-    score: 10 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_inlane1_active:
-    score: 30 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 150 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_inlane2_active:
-    score: 30 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 150 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_outlane1_active:
-    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 250 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_outlane2_active:
-    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: 250 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
 
   mode_green_flag_started:
     level_green_flag:
@@ -110,8 +110,11 @@ variable_player:
       action: set
       int: value
 
+  # a lap pays 5k (like the switches, nothing at Red Line's red
+  # line, which scores like the pit)
   logicblock_seq_lap_complete:
     lap_count: 1
+    score: 5000 * current_player.multiplier * (1 - current_player.red_line_at_redline)
   multiplier_lap:
     lap_count: 1
 

@@ -26,6 +26,20 @@ event_player:
   - grand_prix_multiball_ready
   balldevice_bd_hole_grand_ball_entered{current_player.grand_counter_count >= 5 and current_player.prix_hole_locked_balls > 0 and not mode.grand_prix.active}:
   - grand_prix_multiball_ready
+  # The multiplier steps up (1x -> 2x -> 5x, see code/pit.py) for
+  # completing Backfire Pops (carried into Green Flag) and the
+  # super jackpots (Grooveline's bumps it itself, held until the
+  # mode ends)
+  logicblock_backfire_counter_complete:
+  - multiplier_step
+  grand_prix_super_jackpot:
+  - multiplier_step
+  # (the shot group also posts it as it starts, with every shot
+  # "available")
+  luxury_complete{state == "claimed"}:
+  - multiplier_step
+  red_line_checkered_flag:
+  - multiplier_step
   # Multiball Started
   mode_grooveline_started:
   - multiball_started
