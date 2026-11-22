@@ -64,3 +64,72 @@ class TestPitMode(DeathSaveGameTesting):
             setattr(player, variable, 1)
             pit.update_progress()
             self.assertLightColor(light, "white")
+
+    def _count(self, *events):
+        counts = {event: 0 for event in events}
+        def counter(event):
+            def handler(**kwargs):
+                counts[event] += 1
+            return handler
+        for event in events:
+            self.machine.events.add_handler(event, counter(event))
+        return counts
+
+    # A pit target only "fills" (and plays its sound) when its
+    # resource is low, otherwise it's the bell
+    def test_fill_only_when_low(self):
+        counts = self._count("pit_fuel_filled", "pit_lube_filled",
+            "pit_resource_full")
+        self._start_and_expire_ball_save()
+        player = self.machine.game.player
+        self.assertEqual(1, player.level_fuel)
+        self.assertEqual(2, player.level_lube)
+
+        self.hit_and_release_switch("s_pit_lube")
+        self.advance_time_and_run(1)
+        self.assertEqual(0, counts["pit_lube_filled"])
+        self.assertEqual(1, counts["pit_resource_full"])
+
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(1)
+        self.assertEqual(1, counts["pit_fuel_filled"])
+        self.assertEqual(2, player.level_fuel)
+        # (and that was the last one, so it's racing)
+        self.assertModeRunning("green_flag")
+
+        # pit targets during Green Flag are just the bell
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(1)
+        self.assertEqual(1, counts["pit_fuel_filled"])
+        self.assertEqual(2, counts["pit_resource_full"])
+
+    def _flashing(self, light):
+        seen = set()
+        for i in range(10):
+            self.advance_time_and_run(0.05)
+            seen.add(self.machine.lights[light].get_color().rgb)
+        return len(seen) > 1
+
+    # A low resource flashes its pit insert until it's filled
+    # (and fuel its "shoot" insert too), at ball start and after
+    # leaving Green Flag
+    def test_low_resources_flash(self):
+        self._start_and_expire_ball_save()
+        self.advance_time_and_run(2)
+        self.assertTrue(self._flashing("l_pit_fuel"))
+        self.assertTrue(self._flashing("l_pit_shoot_fuel"))
+        self.assertFalse(self._flashing("l_pit_lube"))
+
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(8)
+        self.assertModeRunning("green_flag")
+        self.assertFalse(self._flashing("l_pit_fuel"))
+        self.assertFalse(self._flashing("l_pit_shoot_fuel"))
+
+        # the tires wear out, so it's back to the pit
+        self.machine.game.player.level_tires = 1
+        self.machine.events.post("pit_required_tires")
+        self.advance_time_and_run(2)
+        self.assertModeNotRunning("green_flag")
+        self.assertTrue(self._flashing("l_pit_tires"))
+        self.assertFalse(self._flashing("l_pit_fuel"))

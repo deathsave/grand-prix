@@ -2,7 +2,8 @@ from tests.support.death_save_mc_testing import DeathSaveMcTesting
 
 class TestCountdownDisplay(DeathSaveMcTesting):
 
-    # Getting under green counts down 3, 2, 1, Race! on the
+    # Getting under green says Get Ready (straight away, before the
+    # green flag slide can show alone), then counts down 3, 2, 1, Race! on the
     # display with the chimes (shows/under_green.yaml), the
     # last on the final ding (green_flag_dropped)
     def test_countdown_with_chimes(self):
@@ -22,11 +23,12 @@ class TestCountdownDisplay(DeathSaveMcTesting):
                 self.seen.append(("show", texts))
             self.advance_time_and_run(0.05)
         shown = [ texts for kind, texts in self.seen if kind == "show" ]
-        self.assertEqual([["3"], ["2"], ["1"], ["Race!"]], shown)
+        self.assertEqual([["Get Ready"], ["3"], ["2"], ["1"], ["Race!"]],
+            shown)
         # each one appears with its chime's event
         order = [ entry[1] if entry[0] == "event" else entry[1][0]
             for entry in self.seen ]
-        self.assertEqual(["off_the_line_countdown3", "3",
+        self.assertEqual(["Get Ready", "off_the_line_countdown3", "3",
             "off_the_line_countdown2", "2", "off_the_line_countdown1", "1",
             "green_flag_dropped", "Race!"], order)
         self.assertEqual([], self._texts())
@@ -50,6 +52,14 @@ class TestCountdownDisplay(DeathSaveMcTesting):
         lime = RGBColor(self.mc.machine_config["named_colors"]["lime"]).rgb
         for expected, actual in zip(lime, rect.color):
             self.assertAlmostEqual(expected / 255, actual, places=2)
+
+    # Get Ready is up straight away, so the green flag slide never
+    # shows on its own before the countdown
+    def test_get_ready_straight_away(self):
+        self._start_and_expire_ball_save()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(0.1)
+        self.assertEqual(["Get Ready"], self._texts())
 
     def _chimed(self, event_name, **kwargs):
         self.seen.append(("event", event_name))

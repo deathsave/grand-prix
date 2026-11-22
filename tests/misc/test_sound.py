@@ -5,6 +5,68 @@ class TestSound(DeathSaveMcTesting):
     def test_attract_sound(self):
         self._assertMusicIs("playing", "the_distance")
 
+    def _effects_playing(self):
+        track = self.mc.sound_system.audio_interface. \
+            get_track_by_name("effects")
+        ids = [ sound["sound_id"] for sound in track.get_status()
+            if sound["status"] == "playing" ]
+        return [ name for name in ["engine_start", "engine_idle",
+            "engine_pace"]
+            if self.mc.sounds[name].id in ids ]
+
+    # The engine starts up as the ball reaches the shooter lane, then
+    # idles there until the plunge
+    def test_engine_start_and_idle(self):
+        self.advance_time_and_run(10)
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        self.assertEqual(["engine_start"], self._effects_playing())
+        self.advance_time_and_run(3)
+        self.assertIn("engine_idle", self._effects_playing())
+        self.hit_and_release_switch("s_shooter_lane")
+        self.advance_time_and_run(1)
+        self.assertEqual(["engine_pace"], self._effects_playing())
+
+    # Plunging during the start up stops it, and it doesn't idle after
+    def test_plunge_during_engine_start(self):
+        self.advance_time_and_run(10)
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        self.hit_and_release_switch("s_shooter_lane")
+        self.advance_time_and_run(4)
+        self.assertEqual(["engine_pace"], self._effects_playing())
+
+    # At pace around the pit, until Green Flag (and back to pace for a
+    # pit stop), and it stops when the ball ends
+    def test_engine_pace(self):
+        self._start()
+        self.assertEqual(["engine_pace"], self._effects_playing())
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(2)
+        self.assertModeRunning("green_flag")
+        # through Off the Line's countdown, until the flag drops
+        self.assertEqual(["engine_pace"], self._effects_playing())
+        # (the countdown waits for its 2s sync, so it's 3.5-5.5s in)
+        self.advance_time_and_run(4)
+        self.assertEqual([], self._effects_playing())
+        self.machine.game.player.level_tires = 1
+        self.machine.events.post("pit_required_tires")
+        self.advance_time_and_run(2)
+        self.assertModeNotRunning("green_flag")
+        self.assertEqual(["engine_pace"], self._effects_playing())
+        # and through Backfire
+        self.hit_and_release_switch("s_spinner")
+        self.hit_switch_and_run("s_hole_backfire", 1)
+        self.assertModeRunning("backfire")
+        self.assertEqual(["engine_pace"], self._effects_playing())
+        self.advance_time_and_run(6)
+        self.assertModeRunning("backfire")
+        self.assertEqual(["engine_pace"], self._effects_playing())
+        self._expire_ball_save()
+        self._drain_one_ball()
+        self.advance_time_and_run(2)
+        self.assertNotIn("engine_pace", self._effects_playing())
+
     def test_pit_sound(self):
         self._start()
         # allow a bit more time for the "player up" sound

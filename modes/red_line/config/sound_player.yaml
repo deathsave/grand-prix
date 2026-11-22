@@ -65,13 +65,8 @@ sound_player:
   logicblock_prix_counter_complete:
     nothing:
       block: true
-  s_pit_fuel_active:
-    nothing:
-      block: true
-  s_pit_lube_active:
-    nothing:
-      block: true
-  s_pit_tires_active:
+  # (the pit targets' bell)
+  pit_resource_full:
     nothing:
       block: true
   red_line_rev: rev

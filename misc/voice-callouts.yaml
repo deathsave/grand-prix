@@ -81,60 +81,40 @@ callouts:
   you-matched: "You match-making motherfucker!" # check
 
   # Pure Evil taunts (the pure_evil_taunt pool, 5s in then every 10s in the
-  # mode): robotized, then a fast cackle (say's embedded [[rate]])
-  # slowed to half speed for dramatic effect. The voice (and the robot
-  # buzz) is 8 semitones lower, the laugh 9.5, doubled a fifth below
-  # and 30ms behind for a darker sound
+  # mode): robotized, 8 semitones lower (the robot buzz too), doubled
+  # a fifth below and 30ms behind for a darker sound
   pure-evil-taunt1:
     text: "Your points are mine now, driver!"
-    laugh: "[[rate 220]] Ha ha ha!"
-    laugh_speed: 0.5
-    laugh_pitch: -9.5
     pitch: -8
     robot: 0.5
     robot_pitch: 57
     harmony: -7
   pure-evil-taunt2:
     text: "Every second, I take more of your points!"
-    laugh: "[[rate 220]] Mwa ha ha!"
-    laugh_speed: 0.5
-    laugh_pitch: -9.5
     pitch: -8
     robot: 0.5
     robot_pitch: 57
     harmony: -7
   pure-evil-taunt3:
     text: "Tick tock, driver. Your score is draining away!"
-    laugh: "[[rate 220]] Ha ha ha!"
-    laugh_speed: 0.5
-    laugh_pitch: -9.5
     pitch: -8
     robot: 0.5
     robot_pitch: 57
     harmony: -7
   pure-evil-taunt4:
     text: "Hit the drop target? You'll never make it!"
-    laugh: "[[rate 220]] Ha ha ha!"
-    laugh_speed: 0.5
-    laugh_pitch: -9.5
     pitch: -8
     robot: 0.5
     robot_pitch: 57
     harmony: -7
   pure-evil-taunt5:
     text: "Thanks for the points, driver!"
-    laugh: "[[rate 220]] Heh heh heh!"
-    laugh_speed: 0.5
-    laugh_pitch: -9.5
     pitch: -8
     robot: 0.5
     robot_pitch: 57
     harmony: -7
   pure-evil-taunt6:
     text: "Can't stop me now! Your points keep falling!"
-    laugh: "[[rate 220]] Mwa ha ha!"
-    laugh_speed: 0.5
-    laugh_pitch: -9.5
     pitch: -8
     robot: 0.5
     robot_pitch: 57

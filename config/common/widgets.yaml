@@ -301,7 +301,23 @@ widgets:
     animations:
       add_to_slide: pulsate_fast
   # Off the Line countdown, with the under_green chimes (see the
-  # green_flag mode's widget_player.yaml): 3, 2, 1, Race!
+  # green_flag mode's widget_player.yaml): Get Ready (from the
+  # moment Green Flag starts, until the first chime), 3, 2, 1, Race!
+  countdown_ready:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.5
+    z: 22
+  - type: text
+    text: "Get Ready"
+    z: 23
+    color: white
+    style: text_default
+    font_size: 120
+    animations:
+      add_to_slide: pulsate_fast
   countdown3:
   - type: rectangle
     width: 800

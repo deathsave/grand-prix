@@ -1,12 +1,24 @@
 Red Line (Wizard) Mode
 ======================
 
-    Updated 11/21/26 by unrared.
+    Updated 11/22/26 by unrared.
 
 Red Line starts when any hole (`sw_tag_hole`) is entered with Grooveline, Lap
-of Luxury and Grand Prix all completed. It's a 3 ball multiball (all the
-balls) with 60s of ball save (`./modes/red_line/config/multiballs.yaml`) and
-ends with the multiball.
+of Luxury and Grand Prix all completed (and none of them running). While it's
+ready, the multiball lamp blinks in Green Flag (from
+`./modes/pit/code/pit.py`). It's a 3 ball multiball (all the balls) with 60s
+of ball save (`./modes/red_line/config/multiballs.yaml`) and ends with the
+multiball.
+
+Leaving it resets Grooveline and Grand Prix (`is_grooveline_completed` and
+`is_grand_prix_completed`, in `./modes/pit/config/variable_player.yaml`), so
+those two get the driver back for another go. Lap of Luxury stays completed:
+its chain is the end of ball bonus, which stays maxed once earned (and it's
+once per game, the `luxury_counter` never resets). The Red Line signal
+(`is_red_line_completed`) stays lit.
+
+Pure Evil stays out of Red Line (`./config/common/event_player.yaml`): it has
+its own mood, and Pure Evil ending would bring the music back.
 
 Shots
 -----

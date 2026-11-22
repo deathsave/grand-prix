@@ -82,6 +82,24 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self.advance_time_and_run(20)
         self.assertEqual(4, len(times))
 
+    # Pure Evil stays out of Red Line (it has its own mood, and Pure
+    # Evil ending would bring the music back)
+    def test_not_during_red_line(self):
+        if self.machine.variables. \
+            get_machine_var("is_pure_evil_available") == 0:
+            return
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        player = self.machine.game.player
+        player.is_grooveline_completed = 1
+        player.is_luxury_completed = 1
+        player.is_grand_prix_completed = 1
+        self.hit_switch_and_run("s_hole_grand", 3)
+        self.assertModeRunning("red_line")
+        player.lap_count = player.evil_number - 1
+        self._complete_lap()
+        self.assertModeNotRunning("pure_evil")
+
     def _activate_pure_evil(self):
         self.machine.coils["c_disqualifier_up"]. \
             pulse = MagicMock()

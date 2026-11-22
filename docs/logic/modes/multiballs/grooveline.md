@@ -4,7 +4,7 @@ Grooveline Multiball
     Updated 5/24/26 by unrared.
 
 Grooveline is a 2 ball multiball built up by making laps and hitting pop
-bumpers.
+bumpers. It has 10s of ball save (like Lap of Luxury).
 
 ![Grooveline Multiball](https://github.com/deathsave/grand-prix/raw/main/images/preload/grooveline.png)
 

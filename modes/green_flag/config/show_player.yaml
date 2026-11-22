@@ -1,11 +1,8 @@
 #config_version=6
 
 show_player:
-  # global multiball indicator
-  timer_eternal_tick{current_player.is_multiball_ready == 1 and current_player.is_grand_prix_multiball_ready != 1}:
-    lights_blink:
-      show_tokens:
-        lights: l_multiball
+  # (the multiball lamp blinks from modes/pit/code/pit.py when one
+  # is ready)
   sw_tag_rev:
     lights_blink:
       speed: 1.5
@@ -17,11 +14,6 @@ show_player:
       loops: 0
       show_tokens:
         color: lime
-  multiball_stopped:
-    lights_blink:
-      action: stop
-      show_tokens:
-        lights: l_multiball
   multiball_started:
     token_color_run:
       action: stop

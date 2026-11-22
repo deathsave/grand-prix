@@ -54,7 +54,9 @@ Off the Line Countdown
 Each time `green_flag` starts, `./shows/under_green.yaml` plays the chimes and
 signal lights. Its 3 chimes post `off_the_line_countdown3`, `2` and `1`, and
 the final ding posts `green_flag_dropped`. `./modes/green_flag/config/widget_player.yaml`
-shows a big "3" (red), "2" (orange) and "1" (yellow) over the slide (dimmed),
+shows a pulsing "Get Ready" from the moment `green_flag` starts (its event
+player posts `off_the_line_get_ready`, as the show waits for its sync first),
+then a big "3" (red), "2" (orange) and "1" (yellow) over the slide (dimmed),
 then "Race!" over the green flag image on lime at 60% (like the jackpots) (`countdown3` etc. in `./config/common/widgets.yaml`), each
 fading out and replaced by the next. The Off the Line window (Pit mode
 `off_the_line` timer) is centered on the final ding.

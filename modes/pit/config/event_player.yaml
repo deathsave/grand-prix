@@ -1,13 +1,24 @@
 #config_version=6
 
 event_player:
+  # A pit target tops up its resource if it's low (the level is
+  # filled on pit_*_filled, see variable_player, so the fill sound
+  # can tell it happened), otherwise it's just the bell. Not in
+  # Green Flag, which keeps the pit targets out of play.
+  #
   # To activate "green_flag" mode, the user's vehicle
   # must be ready to race:
   s_pit_fuel_active:
+  - pit_fuel_filled{current_player.level_fuel < 2 and not mode.green_flag.active}
+  - pit_resource_full{current_player.level_fuel == 2 or mode.green_flag.active}
   - green_flag{current_player.level_lube == 2 and current_player.level_tires == 2}
   s_pit_lube_active:
+  - pit_lube_filled{current_player.level_lube < 2 and not mode.green_flag.active}
+  - pit_resource_full{current_player.level_lube == 2 or mode.green_flag.active}
   - green_flag{current_player.level_fuel == 2 and current_player.level_tires == 2}
   s_pit_tires_active:
+  - pit_tires_filled{current_player.level_tires < 2 and not mode.green_flag.active}
+  - pit_resource_full{current_player.level_tires == 2 or mode.green_flag.active}
   - green_flag{current_player.level_fuel == 2 and current_player.level_lube == 2}
   # For Grand Prix, the multiball is NOT activated
   # with the general multiball switch.

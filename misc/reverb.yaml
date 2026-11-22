@@ -11,7 +11,9 @@
 #              to its start is crossfaded too, and the reverb tail wraps
 #              around onto its start, so it never tails off
 #   crossfade: seconds for each join (default 0)
-#   wet:       dB of reverb under the dry sound (default -9, moderate)
+#   wet:       dB of reverb under the dry sound (default -9, moderate),
+#              or false for none (only joined / looped)
+#   mono:      true to write it as one channel
 #   decay:     seconds for the reverb to die away (default 2.5)
 
 reverb:
@@ -48,3 +50,17 @@ reverb:
     # heavy, a big hall
     wet: -6
     decay: 3
+  # sitting in the shooter lane, until the plunge (a dry loop)
+  sounds/preload/effects/engine-idle.wav:
+    from: misc/sound-originals/engine-idle.ogg
+    loop: true
+    crossfade: 0.3
+    wet: false
+    mono: true
+  # driving around in the pit (a dry loop)
+  sounds/preload/effects/engine-pace.wav:
+    from: misc/sound-originals/engine-pace.ogg
+    loop: true
+    crossfade: 0.3
+    wet: false
+    mono: true

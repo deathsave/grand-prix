@@ -79,16 +79,20 @@ variable_player:
   #####################
   s_pit_fuel_active:
     score: 100
+  s_pit_lube_active:
+    score: 100
+  s_pit_tires_active:
+    score: 100
+  # (see event_player)
+  pit_fuel_filled:
     level_fuel:
       int: 2
       action: set
-  s_pit_lube_active:
-    score: 100
+  pit_lube_filled:
     level_lube:
       int: 2
       action: set
-  s_pit_tires_active:
-    score: 100
+  pit_tires_filled:
     level_tires:
       int: 2
       action: set
@@ -113,8 +117,6 @@ variable_player:
   grand_prix_multiball_ready:
     is_multiball_ready: 1
     is_grand_prix_multiball_ready: 1
-  logicblock_red_line_counter_complete:
-    is_multiball_ready: 1
   multiball_stopped:
     is_multiball_ready:
       action: set
@@ -146,8 +148,17 @@ variable_player:
     is_luxury_completed: 1
   multiball_grand_prix_ended:
     is_grand_prix_completed: 1
+  # Leaving Red Line sends the driver back for another go at
+  # Grooveline and Grand Prix. Luxury stays completed: its chain is
+  # the end of ball bonus, which stays maxed once earned
   multiball_red_line_ended:
     is_red_line_completed: 1
+    is_grooveline_completed:
+      action: set
+      int: 0
+    is_grand_prix_completed:
+      action: set
+      int: 0
 
   #####################
   ## Per-ball resets ##

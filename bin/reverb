@@ -134,6 +134,9 @@ def make(dest, settings, tmp):
         parts = [ p * 10 ** ((target - level) / 20)
             for p, level in zip(parts, levels) ]
     dry = join(parts, settings.get("crossfade", 0), settings.get("loop"))
+    if settings.get("wet", WET) is False:
+        # no reverb, only joined / looped and limited
+        return finish(dry, dest, tmp, settings.get("mono"))
     ir = room(settings.get("decay", DECAY))
     wet = convolve(dry, ir)
     if settings.get("loop"):
@@ -148,6 +151,11 @@ def make(dest, settings, tmp):
         - lufs(wet, tmp)) / 20)
     mixed = dry + wet
     mixed *= 10 ** ((dry_lufs - lufs(mixed, tmp)) / 20)
+    return finish(mixed, dest, tmp, settings.get("mono"))
+
+
+def finish(mixed, dest, tmp, mono=False):
+    """Lightly limit and write it (down to one channel if mono)."""
     write_wav(mixed, tmp)
     dest = os.path.join(ROOT, dest)
     limit = 10 ** (CEILING / 20)
@@ -157,7 +165,8 @@ def make(dest, settings, tmp):
         ["-c:a", "vorbis", "-strict", "-2", "-q:a", "5"])
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-af",
         f"alimiter=limit={limit:.3f}:attack=5:release=50:level=disabled"
-        ":latency=1", *codec, dest], check=True)
+        ":latency=1", *(["-ac", "1"] if mono else []), *codec, dest],
+        check=True)
     return dest
 
 

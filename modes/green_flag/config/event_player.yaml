@@ -1,6 +1,9 @@
 #config_version=6
 
 event_player:
+  # Off the Line's Get Ready (see widget_player)
+  mode_green_flag_started:
+  - off_the_line_get_ready
   green_flag_degrade_fuel{current_player.level_fuel == 1}:
   - pit_required_fuel
   green_flag_degrade_lube{current_player.level_lube == 1}:

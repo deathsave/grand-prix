@@ -2,8 +2,18 @@
 
 widget_player:
   # Off the Line countdown, posted by the chimes in
-  # shows/under_green.yaml (each replaces the one before)
+  # shows/under_green.yaml (each replaces the one before), after
+  # Get Ready from the moment Green Flag starts (the countdown waits
+  # for its show's sync, so it would show the green flag slide
+  # first). (Posted by the event_player: the display's side of the
+  # mode isn't running yet on mode_green_flag_started)
+  off_the_line_get_ready:
+    countdown_ready:
+      widget_settings:
+        expire: 5s
   off_the_line_countdown3:
+    countdown_ready:
+      action: remove
     countdown3:
       widget_settings:
         expire: 1s

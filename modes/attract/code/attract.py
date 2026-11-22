@@ -45,4 +45,3 @@ class GrandPrixAttract(Attract):
     def blank_lights(self):
         for light in self.machine.lights:
             light.clear_stack()
-        print("lights cleared")

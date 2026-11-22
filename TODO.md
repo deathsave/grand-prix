@@ -6,9 +6,9 @@ Gameplan
 
 In order, each one tested before the next:
 
-1. Bugs and quick fixes: Red Line's reset (and its ready lamp), Pure
-   Evil kept out of Red Line, Grooveline's 10s ball save, pit sounds
-   only when low, flashing the low pit inserts, the cleanup items
+1. ~~Bugs and quick fixes~~ (done: Red Line's reset and ready lamp,
+   Pure Evil kept out of Red Line, Grooveline's 10s ball save, pit
+   sounds only when low, flashing the low pit inserts, the cleanup)
 2. Scoring: the rebalance, Backfire's multiplier step, super jackpots
    stepping the multiplier, Grand Prix's leader bonus
 3. Synth callouts: required lube, Smooth Sailing, "Red flag!", the
@@ -21,7 +21,8 @@ In order, each one tested before the next:
 7. Match animation on the segment displays
 8. High score: Red Line shifts category
 9. Sounds: Luxury cash and coins (with the pops paying more), then the
-   engine start up, idle loop and wreck once you've provided them
+   wreck once you've provided it (the engine start up and idle are
+   done)
 10. Hardware (you): the tilt / coin door / service bank, the outlane
     switches, the loop gate servo, the tach experiment, then design
     (plastics, backglass, apron card)
@@ -33,35 +34,6 @@ Design
 - Backbox plexi backglass
 - Apron card - the rules have enough depth now that new players
   need it
-
-Red Line
---------
-
-- Leaving Red Line resets `is_grooveline_completed` and
-  `is_grand_prix_completed` (and their signal lights). Right now they
-  never reset, so once the wizard has been reached any hole entry
-  restarts it for the rest of the game
-  - Plan: set both to 0 on `mode_red_line_stopped`; `l_signal4`
-    (`is_red_line_completed`) stays lit; test that a hole after Red
-    Line doesn't restart it, and that Grooveline + Grand Prix get
-    back to it
-  - Luxury stays completed for the rest of the game: its chain is the
-    end of ball bonus, which stays maxed (100k every ball) once
-    earned. So the second run at Red Line is just the other 2
-    multiballs. (Luxury is once per game already, `luxury_counter`
-    never resets)
-  - `red_line_counter` (lights the multiball lamp when the wizard is
-    ready) counts to 3 and resets to 0 after Red Line, so with
-    Luxury not counting again it would stop at 2. Drop the counter
-    and light the lamp off the completed flags instead, same as the
-    start condition
-- Pure Evil can start during Red Line (it only checks the lap count),
-  and when it ends it brings the music back to 0.3, which Red Line
-  had silenced
-  - Plan: keep Pure Evil out of Red Line only (add
-    `not mode.red_line.active` to its start event). If the evil lap
-    lands during the wizard it's skipped for that ball. It can still
-    crash the other multiballs
 
 Scoring (variable player)
 -------------------------
@@ -95,13 +67,6 @@ Scoring (variable player)
     Luxury, Grand Prix, Red Line shifts); supers stay flat
   - High score defaults 10k / 5k / 1k / 100 -> 3M / 2M / 1M / 500k
 - Revisit this list after playtesting on the machine
-
-Multiballs
-----------
-
-- Grooveline has no ball save (`shoot_again: 0s`), while Luxury has
-  10s and Grand Prix 20s
-  - Plan: give it 10s, like Luxury
 
 End of Ball Bonus
 -----------------
@@ -159,9 +124,6 @@ Wear and Tear
 Sounds
 ------
 
-- Engine start up sound (you provide, I trim / level / wire up)
-- Idling engine loop -> sitting in shooter lane (you provide, I make
-  it loop seamlessly)
 - For Luxury Mode - cash and coin sounds (I synthesize)
   - a cash register "cha-ching" under the jackpot callout on each of
     the 6 shots
@@ -170,37 +132,11 @@ Sounds
 - Under Red wreck sound (you provide)
 - Required lube callout (`pit_required_lube`) - generate a synth voice
   for now, until there's a Steve callout
-- Pit resource sounds should only play when that resource is actually
-  low (`level_* < 2`), with the bell otherwise. They play on every
-  pit hit now. The conditional version in
-  `modes/pit/config/sound_player.yaml` never fires because the pit's
-  variable_player fills the level to 2 on the same switch event, and
-  MC checks the condition after that update arrives. Fix: post a
-  `pit_*_filled` event from MPF when the level is low, and have both
-  the fill and the sound hang off that
-  - Decided: only when low, the bell otherwise
-
-Pit
----
-
-- After Green Flag ends for a pit stop, the needed resource's pit
-  insert doesn't flash (it only does at ball start, see the TODO in
-  `modes/pit/config/show_player.yaml`)
-  - Plan: every resource below full flashes its pit insert until it's
-    filled, at ball start too (which today only does fuel)
 
 High Score
 ----------
 
 - A Red Line category to reward the wizard: the most shifts in a game
-
-Cleanup
--------
-
-- `print("lights cleared")` in `modes/attract/code/attract.py` floods
-  the test output
-- Stale TODO comments in `modes/green_flag/config/random_event_player.yaml`
-  (bad luck is done)
 
 Match
 -----

@@ -11,8 +11,9 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertModeNotRunning("red_line")
 
         # Grooveline -> 1/3 (2 ball multiball)
-        self._sim_grooveline() # no ball save here
+        self._sim_grooveline()
         self.assertModeRunning("grooveline")
+        self.advance_time_and_run(10) # expire mode ball save
         self._drain_one_ball()
         self.advance_time_and_run(1)
 
@@ -21,10 +22,6 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertModeNotRunning("grooveline")
         self.assertModeNotRunning("red_line")
         self.assertModeRunning("green_flag")
-        self.assertEqual(1, self.machine. \
-            counters["red_line_counter"].value)
-        self.assertEqual(False, self.machine. \
-            counters["red_line_counter"].check_complete())
 
         # Luxury -> 2/3 (2 ball multiball)
         self._start_luxury()
@@ -38,10 +35,6 @@ class TestRedLineMode(DeathSaveGameTesting):
             1, self.machine.game.player.is_luxury_completed)
         self.assertModeNotRunning("red_line")
         self.assertModeRunning("green_flag")
-        self.assertEqual(2, self.machine. \
-            counters["red_line_counter"].value)
-        self.assertEqual(False, self.machine. \
-            counters["red_line_counter"].check_complete())
 
         # Grand Prix -> 3/3 (3 ball multiball)
         self._sim_grand_prix()
@@ -55,10 +48,6 @@ class TestRedLineMode(DeathSaveGameTesting):
             1, self.machine.game.player.is_grand_prix_completed)
         self.assertModeNotRunning("red_line")
         self.assertModeRunning("green_flag")
-        self.assertEqual(3, self.machine. \
-            counters["red_line_counter"].value)
-        self.assertEqual(True, self.machine. \
-            counters["red_line_counter"].check_complete())
 
         # With all 3 qualifying modes completed,
         # the red line mode is started by entering
@@ -73,3 +62,58 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertModeRunning("red_line")
         self.assertEqual(True,
             self.machine.multiballs["red_line"].enabled)
+
+    def _red_line_ready(self):
+        player = self.machine.game.player
+        player.is_grooveline_completed = 1
+        player.is_luxury_completed = 1
+        player.is_grand_prix_completed = 1
+
+    # the lamp changes over a couple of seconds if it's blinking
+    def _lamp_blinks(self, light):
+        seen = set()
+        for i in range(20):
+            self.advance_time_and_run(0.1)
+            seen.add(self.machine.lights[light].get_color().rgb)
+        return len(seen) > 1
+
+    def test_ready_lamp(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self.advance_time_and_run(2)
+        self.assertFalse(self._lamp_blinks("l_multiball"))
+        self._red_line_ready()
+        self.advance_time_and_run(2)
+        self.assertTrue(self._lamp_blinks("l_multiball"))
+
+    # Leaving Red Line resets Grooveline and Grand Prix (for another
+    # go at the wizard), but Luxury stays completed (its chain is the
+    # end of ball bonus)
+    def test_leaving_resets_grooveline_and_grand_prix(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self._red_line_ready()
+        self.hit_switch_and_run("s_hole_grand", 3)
+        self.assertModeRunning("red_line")
+        self.advance_time_and_run(60) # expire mode ball save
+        for i in range(2):
+            self._drain_one_ball()
+            self.advance_time_and_run(1)
+        self.assertModeNotRunning("red_line")
+
+        player = self.machine.game.player
+        self.assertEqual(0, player.is_grooveline_completed)
+        self.assertEqual(0, player.is_grand_prix_completed)
+        self.assertEqual(1, player.is_luxury_completed)
+        self.assertEqual(1, player.is_red_line_completed)
+
+        # a hole doesn't restart it
+        self.hit_switch_and_run("s_hole_prix", 3)
+        self.assertModeNotRunning("red_line")
+
+        # Grooveline + Grand Prix get back to it
+        player.is_grooveline_completed = 1
+        player.is_grand_prix_completed = 1
+        self.hit_switch_and_run("s_hole_prix", 3)
+        self.assertModeRunning("red_line")
+
