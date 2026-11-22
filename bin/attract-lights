@@ -44,9 +44,11 @@ LIGHTS = os.path.join(ROOT, "config", "common", "lights.yaml")
 RGB_LEDS = os.path.join(ROOT, "config", "common", "rgb_leds.yaml")
 SHOW = os.path.join(ROOT, "shows", "attract.yaml")
 
-FPS = 20
+# (10 a second and coarse color steps keep the light updates, and the
+# CPU and serial traffic they cost, down)
+FPS = 10
 # RGB color steps (coarser makes fewer changes and a smaller show)
-COLOR_STEP = 8
+COLOR_STEP = 16
 # Synthwave colors for the RGB LEDs (pink, cyan and orange are the game's
 # own, config/common/named_colors.yaml)
 PALETTE = {

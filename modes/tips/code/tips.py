@@ -1,17 +1,20 @@
 import os
+import re
 from ruamel.yaml import YAML
 from mpf.core.mode import Mode
 
 class Tips(Mode):
     # The tip_slide text widgets display these machine vars,
-    # so "typing" is just growing each string a character
-    # at a time. See config/common/widgets.yaml (tip_*).
+    # so "typing" is just growing each string a word at a
+    # time (each display update costs a redraw, so words
+    # rather than characters). See config/common/widgets.yaml
+    # (tip_*).
     TITLE_VAR = "tip_title"
     LINE_VARS = [ "tip_line1", "tip_line2", "tip_line3", "tip_line4" ]
 
-    # fast enough to type the longest tip in ~7s of
+    # fast enough to type the longest tip in ~7.5s of
     # its 10s (see shows/attract_rotation.yaml)
-    CHAR_MS = 30        # delay between characters
+    WORD_MS = 150       # delay between words
     LINE_PAUSE_MS = 300 # pause after finishing a line
     CURSOR = "_"
 
@@ -78,8 +81,8 @@ class Tips(Mode):
         lines = (tip.get("lines") or [])[:len(self.LINE_VARS)]
         self.queue = [ (self.TITLE_VAR, tip["title"]) ] + \
             list(zip(self.LINE_VARS, lines))
-        self.chars = 0
-        self.delay.add(self.CHAR_MS, self.type_next_char, "typing")
+        self.words = 0
+        self.delay.add(self.WORD_MS, self.type_next_word, "typing")
 
     # Which tip the rotation show is on (the first
     # tip when posted without the show, e.g. in tests)
@@ -95,23 +98,25 @@ class Tips(Mode):
         mode = tip.get("mode")
         return f"tip_{mode}_slide" if mode else "tip_slide"
 
-    # Reveals one more character of the current line, then
-    # schedules itself until every line has been typed
-    def type_next_char(self):
+    # Reveals one more word of the current line (with any
+    # spaces before it, so indents stay), then schedules
+    # itself until every line has been typed
+    def type_next_word(self):
         var, text = self.queue[0]
-        self.chars += 1
-        line_done = self.chars >= len(text)
+        words = re.findall(r"\s*\S+", text)
+        self.words += 1
+        line_done = self.words >= len(words)
         cursor = "" if line_done else self.CURSOR
-        self.set_var(var, text[:self.chars] + cursor)
+        self.set_var(var, "".join(words[:self.words]) + cursor)
 
         if not line_done:
-            self.delay.add(self.CHAR_MS, self.type_next_char, "typing")
+            self.delay.add(self.WORD_MS, self.type_next_word, "typing")
             return
         self.queue.pop(0)
-        self.chars = 0
+        self.words = 0
         if self.queue:
             self.delay.add(self.LINE_PAUSE_MS,
-                self.type_next_char, "typing")
+                self.type_next_word, "typing")
 
     def clear(self, **kwargs):
         self.delay.remove("typing")

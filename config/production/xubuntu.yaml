@@ -6,14 +6,17 @@ hardware:
   segment_displays: mypinballs
 
 opp:
-  debug: true
+  # (true logs every serial message, ~25k lines a minute in attract,
+  # which costs a lot of CPU: turn it on to debug the boards, e.g.
+  # to read raw switch inputs)
+  debug: false
   ports: /dev/ttyOPP0, /dev/ttyOPP1
   chains:
     0: /dev/ttyOPP0
     1: /dev/ttyOPP1
 
 mypinballs:
-  debug: true
+  debug: false
   port: /dev/ttyMYPB
 
 window:

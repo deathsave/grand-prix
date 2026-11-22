@@ -15,16 +15,16 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertModeRunning("tips")
 
     # When the tip slide comes up, the tip is typed out one
-    # character at a time with a cursor on the current line
+    # word at a time with a cursor on the current line
     def test_types_tip(self):
         self.post_event("attract_tip")
         self.advance_time_and_run(0.2)
-        title = self._var("tip_title")
-        self.assertTrue(title.startswith("Ge"))
-        self.assertTrue(title.endswith("_"))
+        self.assertEqual("Get_", self._var("tip_title"))
         self.assertEqual("", self._var("tip_line1"))
+        self.advance_time_and_run(0.15)
+        self.assertEqual("Get Under_", self._var("tip_title"))
 
-        # typing takes under 7s (and the intro ending
+        # typing takes under 8s (and the intro ending
         # at 12s starts the splash, clearing it)
         self.advance_time_and_run(8)
         self.assertEqual("Get Under Green", self._var("tip_title"))
