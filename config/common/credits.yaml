@@ -1,0 +1,118 @@
+#config_version=6
+
+# Credits (MPF's built-in credits mode, in modes.yaml)
+#
+# The coin mech (s_credit) takes quarters: 50 cents a game, 3 for
+# a dollar. Free play is the default; start + the left flipper
+# (held 2s, see combo_switches.yaml) toggles between free play and
+# credit play, and MPF saves it (the free_play setting) so it
+# survives a restart. (Until there's a maintenance mode.)
+credits:
+  free_play: yes
+  max_credits: 30
+  switches:
+  - switch: s_credit
+    type: money
+    value: .25
+  pricing_tiers:
+  - price: .50
+    credits: 1
+  - price: 1
+    credits: 3
+  credits_string: CREDITS
+  free_play_string: FREE PLAY
+
+# What the display says (over whatever's showing)
+widget_player:
+  credits_added:
+    credits_message:
+      key: credits_message
+      widget_settings:
+        expire: 2s
+  not_enough_credits:
+    credits_insert_coins:
+      key: credits_message
+      widget_settings:
+        expire: 3s
+  enabling_free_play:
+    credits_free_play:
+      key: credits_message
+      widget_settings:
+        expire: 3s
+  enabling_credit_play:
+    credits_credit_play:
+      key: credits_message
+      widget_settings:
+        expire: 3s
+
+widgets:
+  credits_message:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.6
+    z: 30
+  - type: text
+    text: (machine|credits_string)
+    z: 31
+    color: white
+    style: text_default
+    font_size: 90
+  credits_insert_coins:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.6
+    z: 30
+  - type: text
+    text: INSERT COINS
+    z: 31
+    y: middle+10%
+    color: yellow
+    style: text_default
+    font_size: 100
+    animations:
+      add_to_slide: pulsate_fast
+  - type: text
+    text: 50c a game, 3 for $1
+    z: 31
+    y: middle-15%
+    color: white
+    style: text_default
+    font_size: 50
+  credits_free_play:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.6
+    z: 30
+  - type: text
+    text: FREE PLAY
+    z: 31
+    color: lime
+    style: text_default
+    font_size: 110
+  credits_credit_play:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: 000000
+    opacity: 0.6
+    z: 30
+  - type: text
+    text: CREDIT PLAY
+    z: 31
+    y: middle+10%
+    color: yellow
+    style: text_default
+    font_size: 100
+  - type: text
+    text: 50c a game, 3 for $1
+    z: 31
+    y: middle-15%
+    color: white
+    style: text_default
+    font_size: 50

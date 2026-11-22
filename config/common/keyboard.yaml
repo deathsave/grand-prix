@@ -67,6 +67,9 @@ keyboard:
   #############
   s:
     switch: s_start
+  # drop a quarter in the coin mech
+  c:
+    switch: s_credit
   l:
     switch: s_shooter_lane
 

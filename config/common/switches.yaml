@@ -168,16 +168,16 @@ switches:
     number: 1-0-24
     tags:
     - tilt_warning
-  s_coin_door:
+  s_credit:
     number: 1-0-25
-  s_service_forward:
-    number: 1-0-26
-  s_service_down:
-    number: 1-0-27
-  s_service_up:
-    number: 1-0-28
-  s_service_back:
-    number: 1-0-29
+  # s_service_forward:
+  #   number: 1-0-26
+  # s_service_down:
+  #   number: 1-0-27
+  # s_service_up:
+  #   number: 1-0-28
+  # s_service_back:
+  #   number: 1-0-29
   # unused:
   # 1-0-30,
   # 1-0-31

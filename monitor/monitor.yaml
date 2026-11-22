@@ -300,7 +300,7 @@ switch:
   s_target_bonus:
     x: 0.9180864741653257
     y: 0.5306122448979592
-  s_coin_door:
+  s_credit:
     x: 0.2852043780691101
     y: 0.7259475218658893
   s_disqualifier:

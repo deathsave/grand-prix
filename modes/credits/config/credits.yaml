@@ -1,0 +1,6 @@
+#config_version=6
+
+# MPF's credits mode, with the fix in code/credits.py (the
+# credits themselves are set up in config/common/credits.yaml)
+mode:
+  code: credits.GrandPrixCredits

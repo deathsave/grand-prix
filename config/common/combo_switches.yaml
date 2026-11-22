@@ -7,3 +7,10 @@ combo_switches:
     tag_2: start
     events_when_both: shutdown
     hold_time: 2s
+  # the left flipper + start, held 2s: free play <-> credit play
+  # (see credits.yaml)
+  free_play_toggle:
+    tag_1: left_flipper
+    tag_2: start
+    events_when_both: toggle_credit_play
+    hold_time: 2s
