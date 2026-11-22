@@ -13,7 +13,6 @@
 - time: "+0.5s"
   lights:
     l_signal1: on
-  # TODO: replace these with actual chime coil pulse
   coils: c_chime1
   events: off_the_line_countdown3
 - time: "+1.0s"
