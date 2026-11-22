@@ -11,8 +11,8 @@ class GrandPrix(Mode):
     #   still held.
     # - A jackpot is awarded each time the number of held
     #   balls reaches a new high for the sequence (so 2 -> 1
-    #   -> 2 does not pay the 2nd jackpot again).
-    # - All 3 held awards the super jackpot, ejects them all
+    #   -> 2 does not pay the 2nd jackpot again), up to 2.
+    # - All 3 held awards only the super jackpot, ejects them all
     #   and restarts the sequence.
     # - A drain ejects all held balls (the sequence's
     #   jackpots stay awarded).
@@ -44,7 +44,8 @@ class GrandPrix(Mode):
 
     def ball_held(self, total_balls_held, **kwargs):
         self.update_lights()
-        if total_balls_held > self.jackpots:
+        # (all 3 is only the super jackpot)
+        if self.jackpots < total_balls_held < self.HOLES:
             self.jackpots = total_balls_held
             self.machine.events.post("grand_prix_jackpot",
                 holes=total_balls_held)

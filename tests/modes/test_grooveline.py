@@ -130,12 +130,15 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self.assertTrue(self._blinking("l_grooveline01"))
         self.assertEqual(0, self._count("grooveline_super_jackpot"))
 
-        # the Grand hole counts too
+        # the Grand hole counts too: only the super jackpot
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_hole_grand", 3)
         self.assertEqual(1, self._count("grooveline_super_jackpot"))
+        self.assertEqual(9, self._count("grooveline_jackpot"))
         self.assertGreaterEqual(
-            self.machine.game.player.score - score, 640000)
+            self.machine.game.player.score - score, 500000)
+        self.assertLess(
+            self.machine.game.player.score - score, 540000)
         self.assertEqual(list(range(1, 11)), self._lit_inserts())
         for light in ["l_multiball", "l_grand1"]:
             self.assertFalse(self._blinking(light), light)
@@ -143,7 +146,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         # done for this multiball
         self.hit_and_release_switch("s_grooveline")
         self.advance_time_and_run(1)
-        self.assertEqual(10, self._count("grooveline_jackpot"))
+        self.assertEqual(9, self._count("grooveline_jackpot"))
 
     # Completing the shots bumps the multiplier until the mode ends
     def test_completing_shots_bumps_multiplier(self):

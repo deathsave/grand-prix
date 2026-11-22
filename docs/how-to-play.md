@@ -102,8 +102,8 @@ lane, the multiball target, and the Grand Hole or the target below it.
 
 - Each hit lights the next Grooveline insert, from the bottom up
 - Each hit is a **Jackpot**, worth 10,000 more every time (50,000 up to
-  140,000)
-- The 10th hit lights them all for the **Super Jackpot** (500,000)! It also
+  130,000)
+- The 10th hit lights them all for the **Super Jackpot** (500,000) instead! It also
   bumps your multiplier (1X to 2X, or 2X to 5X) until the multiball ends
 
 #### Lap of Luxury Multiball 2/3
@@ -124,8 +124,8 @@ Each Luxury step lights an insert (worth 10,000 in the end of ball bonus). Steps
 - North-East bonus inserts show your progress
 - Light all 10 Luxury inserts to qualify
 - Hit the multiball target to begin Luxury Multiball
-  - Collect the lit inserts to earn big points
-  - Collecting all inserts awards an even bigger reward
+  - Each blinking insert collected is a **Jackpot** (25,000)
+  - Collecting the 6th is the **Super Jackpot** (250,000) instead
 - Completing the mode marks it done and advances Red Line progress
 
 #### Grand Prix Multiball 3/3
@@ -157,9 +157,9 @@ and Backfire):
 - Every hole entered restarts a single **30 second** timer. Get into another
   hole before it runs out or the last ball held is kicked back out (then the
   timer restarts for any still held)
-- Each new hole filled is a **Jackpot** (100,000), up to 3 per sequence. Losing
+- Each new hole filled is a **Jackpot** (100,000), up to 2 per sequence. Losing
   a hole and refilling it doesn't pay that jackpot again
-- Fill all 3 for the **Super Jackpot** (500,000)! All 3 balls are released and
+- Fill all 3 for the **Super Jackpot** (500,000) instead! All 3 balls are released and
   the sequence starts over
 - Draining a ball empties all the holes
 

@@ -15,10 +15,11 @@ variable_player:
     score: 0|block
   s_target_save_active:
     score: 0|block
-  # Each of the six shots is awarded 25k
-  luxury_available_hit:
+  # Each of the first five shots is a 25k jackpot (see
+  # event_player), the 6th is only the super jackpot
+  luxury_jackpot:
     score: 25000|block
-  # Award big if all shots are completed
+  # 250k super jackpot
   luxury_complete:
     score: 250000|block
   # score normally if already claimed

@@ -12,7 +12,7 @@ class Grooveline(Mode):
     # Every hit on any of them pays a jackpot that grows with
     # each hit, and lights the next Grooveline insert from the
     # bottom (l_grooveline10) up. The 10th hit lights the top
-    # one and pays the super jackpot, which completes the shots
+    # one and pays only the super jackpot, which completes the shots
     # and bumps the multiplier (1X -> 2X -> 5X) for the rest of
     # the multiball: the 30s multiplier timer is stopped (see
     # is_grooveline_boosted in the Pit mode's timers.yaml and
@@ -54,12 +54,14 @@ class Grooveline(Mode):
         if self.hits >= self.HITS:
             return
         self.hits += 1
-        self.machine.events.post("grooveline_jackpot",
-            hits=self.hits,
-            value=self.JACKPOT + self.JACKPOT_GROWTH * (self.hits - 1))
+        # (the last hit is only the super jackpot)
         if self.hits == self.HITS:
             self.machine.events.post("grooveline_super_jackpot")
             self.bump_multiplier()
+        else:
+            self.machine.events.post("grooveline_jackpot",
+                hits=self.hits,
+                value=self.JACKPOT + self.JACKPOT_GROWTH * (self.hits - 1))
         self.update_lights()
 
     # The inserts lit so far (from the bottom), over the

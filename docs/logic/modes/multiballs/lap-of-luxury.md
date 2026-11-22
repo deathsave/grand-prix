@@ -47,5 +47,19 @@ Once activated, six areas of the playfield will blink inserts at:
 - The top of the "Grooveline" chain (top-left of playfield) for `s_grooveline`.
 - The bottom and top of the "G R A N D" chain for `s_target_save` and `s_hole_grand`.
 
-Hitting any of the individual switches awards 25,000 points per `./modes/luxury/config/variable_player.yaml`. Activating all the switches completes the mode
-**awarding 250,000 points** and gameplay returns to `green_flag`.
+Hitting any of the individual switches is a **Jackpot** (`luxury_jackpot`)
+awarding 25,000 points per `./modes/luxury/config/variable_player.yaml`.
+Activating the last of the switches is only the **Super Jackpot**
+(`luxury_complete`) awarding 250,000 points, and completes the mode
+(`./modes/luxury/config/event_player.yaml` only posts `luxury_jackpot` while
+the shot group isn't complete; its `luxury_complete` comes before the last
+shot's hit). Then it posts `luxury_finished` 3.5s later
+(so the callouts below can finish), which stops it and gameplay returns to
+`green_flag`.
+
+The jackpots play the "Jackpot!" and "Super Jackpot!" callouts
+(`./modes/luxury/config/sound_player.yaml`), then "You have reached the lap
+of luxury" once the super jackpot's ends. When each callout plays, the
+display shows "Jackpot!" or "SUPER JACKPOT!" over the mode's slide on yellow
+(as in its tip title) at 60%, per `./modes/luxury/config/widget_player.yaml`
+(see the Grooveline doc for how they follow the callouts).

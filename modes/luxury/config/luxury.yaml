@@ -9,3 +9,5 @@ config:
 - slide_player.yaml
 - sound_player.yaml
 - show_player.yaml
+- event_player.yaml
+- widget_player.yaml

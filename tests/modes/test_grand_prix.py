@@ -256,16 +256,18 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self.assertEqual(2, self._held())
         self.assertEqual(2, self._jackpots())
 
-    # All 3 held: super jackpot, all ejected, sequence restarts
+    # All 3 held: only the super jackpot, all ejected, sequence restarts
     def test_super_jackpot(self):
         self._start_multiball()
         score = self.machine.game.player.score
         self._enter("s_hole_grand")
         self._enter("s_hole_prix")
         self._enter("s_hole_backfire")
-        self.assertEqual(3, self._jackpots())
+        self.assertEqual(2, self._jackpots())
         self.assertEqual(1, self._super_jackpots())
         self.assertGreaterEqual(self.machine.game.player.score - score,
+            2 * 100000 + 500000)
+        self.assertLess(self.machine.game.player.score - score,
             3 * 100000 + 500000)
         self.advance_time_and_run(3)
         self.assertEqual(0, self._held())
@@ -274,7 +276,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
                 ball_devices[f"bd_hole_{hole}"].balls)
         # and the sequence pays jackpots again
         self._enter("s_hole_prix")
-        self.assertEqual(4, self._jackpots())
+        self.assertEqual(3, self._jackpots())
 
     # A drain empties every hole
     def test_drain_empties_holes(self):

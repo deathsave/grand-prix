@@ -1,0 +1,18 @@
+#config_version=6
+
+# Shown when the jackpot callouts play, for twice as long
+# as the callout (jackpot.ogg 0.87s, jackpot-double.ogg 1.14s)
+widget_player:
+  jackpot_callout_played:
+    jackpot_grand_prix:
+      key: jackpot_grand_prix
+      widget_settings:
+        expire: 1.75s
+  super_jackpot_callout_played:
+    jackpot_grand_prix:
+      action: remove
+      key: jackpot_grand_prix
+    super_jackpot_grand_prix:
+      key: super_jackpot_grand_prix
+      widget_settings:
+        expire: 2.3s

@@ -5,6 +5,8 @@ mode:
   - luxury_qualifier_hit
   stop_events:
   - multiball_luxury_ended
-  - luxury_complete
+  # (a few seconds after completing the shots, so the
+  # jackpot callouts and their widgets can finish)
+  - luxury_finished
   restart_on_next_ball: false
   priority: 3001

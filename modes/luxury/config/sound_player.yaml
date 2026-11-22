@@ -8,7 +8,8 @@ sound_player:
       action: play
       loops: -1
       delay: 1
-  luxury_claimed_complete:
-    luxury_completed:
-      action: play
-      delay: 0.5
+  luxury_jackpot: jackpot
+  luxury_complete: jackpot_double
+  # then the "lap of luxury" callout once the super jackpot's
+  # finishes (with both queued, one could get dropped)
+  super_jackpot_callout_stopped: luxury_completed

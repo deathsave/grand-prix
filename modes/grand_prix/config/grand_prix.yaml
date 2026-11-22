@@ -9,3 +9,4 @@ config:
 - show_player.yaml
 - sound_player.yaml
 - variable_player.yaml
+- widget_player.yaml

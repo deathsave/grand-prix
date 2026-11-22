@@ -39,9 +39,9 @@ Every hit on any of them:
 
 - Lights the next Grooveline insert, from the bottom (`l_grooveline10`) up
 - Pays a **Jackpot** (`grooveline_jackpot`) that grows with each hit: 50,000,
-  60,000, ... up to 140,000 for the 10th
+  60,000, ... up to 130,000 for the 9th
 
-The 10th hit lights the top insert and also pays the **Super Jackpot**
+The 10th hit lights the top insert and pays only the **Super Jackpot**
 (500,000, `grooveline_super_jackpot`). That completes the shots, so the lamps
 stop blinking and the inserts stay lit. It also bumps the multiplier (1X to
 2X, or 2X to 5X) for the rest of the multiball: the player's
@@ -49,3 +49,12 @@ stop blinking and the inserts stay lit. It also bumps the multiplier (1X to
 (`./modes/pit/config/timers.yaml`) and keeps a pit stop from resetting it, and
 it goes back to 1X when the mode ends. The jackpots aren't multiplied, like
 Grand Prix's.
+
+When the "Jackpot!" and "Super Jackpot!" callouts play, the display shows
+"Jackpot!" or "SUPER JACKPOT!" over the mode's slide on the mode's color
+(cyan, as in its tip title) at 60% (`jackpot_grooveline` and
+`super_jackpot_grooveline` in `./config/common/widgets.yaml`), for twice as long
+as the callout (1.75s and 2.3s). The callouts (`jackpot` and `jackpot_double`
+in `./config/common/sounds.yaml`) post `*_callout_played`, which
+`./modes/grooveline/config/widget_player.yaml` follows, so a super jackpot queued
+behind a jackpot callout shows (replacing it) when it plays.

@@ -282,12 +282,18 @@ sounds:
   you_matched:
     file: you-matched.ogg
     track: voice
+  # the jackpot widgets show while these play (see
+  # widget_player in the grooveline, grand_prix and luxury modes)
   jackpot:
     file: jackpot.ogg
     track: voice
+    events_when_played: jackpot_callout_played
+    events_when_stopped: jackpot_callout_stopped
   jackpot_double:
     file: jackpot-double.ogg
     track: voice
+    events_when_played: super_jackpot_callout_played
+    events_when_stopped: super_jackpot_callout_stopped
 
   tilt1:
     file: tilt1.ogg

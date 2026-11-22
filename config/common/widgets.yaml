@@ -300,6 +300,99 @@ widgets:
     font_size: 52
     animations:
       add_to_slide: pulsate_fast
+  # Jackpot callouts, over the mode's slide: the mode's color
+  # (its tip title's) at 60% and the text, while the callout
+  # plays (see widget_player in those modes)
+  jackpot_grooveline:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: cyan
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "Jackpot!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 130
+    animations:
+      add_to_slide: pulsate_fast
+  super_jackpot_grooveline:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: cyan
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "SUPER JACKPOT!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 96
+    animations:
+      add_to_slide: pulsate_fast
+  jackpot_grand_prix:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: pink
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "Jackpot!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 130
+    animations:
+      add_to_slide: pulsate_fast
+  super_jackpot_grand_prix:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: pink
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "SUPER JACKPOT!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 96
+    animations:
+      add_to_slide: pulsate_fast
+  jackpot_luxury:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: yellow
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "Jackpot!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 130
+    animations:
+      add_to_slide: pulsate_fast
+  super_jackpot_luxury:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: yellow
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: "SUPER JACKPOT!"
+    z: 21
+    color: white
+    style: text_default
+    font_size: 96
+    animations:
+      add_to_slide: pulsate_fast
   # Gameplay tips (see modes/tips). The text is "typed" by
   # the Tips mode updating these machine variables. Header and
   # title use the Grand Prix font; tip lines use pixelmix

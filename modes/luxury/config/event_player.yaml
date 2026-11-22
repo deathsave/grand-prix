@@ -1,0 +1,11 @@
+#config_version=6
+
+event_player:
+  # The first five shots are jackpots, the 6th is only the
+  # super jackpot (luxury_complete). The group's complete
+  # comes before the shot's hit, so the 6th sees it claimed.
+  luxury_available_hit{device.shot_groups.luxury.common_state != "claimed"}:
+  - luxury_jackpot
+  # see mode.yaml
+  luxury_complete:
+  - luxury_finished|3.5s

@@ -114,13 +114,16 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.assertEqual(
             score + 25000, self.machine.game.player.score)
 
-        # Getting 6/6 shots gives a 10x reward on top
+        # Getting 6/6 shots is only the super jackpot
         score = self.machine.game.player.score
         self.hit_switch_and_run("s_target_save", 1)
         self.assertEqual(
-            score + 25000 + 250000, self.machine.game.player.score)
+            score + 250000, self.machine.game.player.score)
 
-        # Completion also ends the mode
+        # Completion also ends the mode, once the jackpot
+        # callouts have had a few seconds
+        self.assertModeRunning("luxury")
+        self.advance_time_and_run(3)
         self.assertModeNotRunning("luxury")
 
     def _start_luxury_multiball(self):

@@ -51,14 +51,23 @@ ball hold (`./modes/grand_prix/config/ball_holds.yaml`) and run by
    `grand_prix_position_lost`) and the hurry up restarts for any balls still
    held.
 1. A **Jackpot** (100,000) is awarded each time the number of held balls
-   reaches a new high for the sequence, so up to 3 per sequence. Going from 2
+   reaches a new high for the sequence, so up to 2 per sequence. Going from 2
    held to 1 and back to 2 does NOT pay the 2nd jackpot again.
-1. Holding all 3 awards the **Super Jackpot** (500,000), ejects all 3 balls
+1. Holding all 3 awards only the **Super Jackpot** (500,000), ejects all 3 balls
    and restarts the sequence.
 1. A drain ejects every held ball (jackpots already awarded in the sequence
    stay awarded).
 
 Scores are in `./modes/grand_prix/config/variable_player.yaml`.
+
+When the "Jackpot!" and "Super Jackpot!" callouts play, the display shows
+"Jackpot!" or "SUPER JACKPOT!" over the mode's slide on the mode's color
+(pink, as in its tip title) at 60% (`jackpot_grand_prix` and
+`super_jackpot_grand_prix` in `./config/common/widgets.yaml`), for twice as long
+as the callout (1.75s and 2.3s). The callouts (`jackpot` and `jackpot_double`
+in `./config/common/sounds.yaml`) post `*_callout_played`, which
+`./modes/grand_prix/config/widget_player.yaml` follows, so a super jackpot queued
+behind a jackpot callout shows (replacing it) when it plays.
 
 The holes confirm an eject after 2s (`eject_timeouts` in
 `./config/common/ball_devices.yaml`). Before that, a ball getting back into
