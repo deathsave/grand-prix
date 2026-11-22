@@ -22,13 +22,15 @@ credits:
   credits_string: CREDITS
   free_play_string: FREE PLAY
 
+# A coin shows the credits slide, up until 5s after the last one
+slide_player:
+  credits_added:
+    credits_slide:
+      expire: 5s
+      priority: 1000000
+
 # What the display says (over whatever's showing)
 widget_player:
-  credits_added:
-    credits_message:
-      key: credits_message
-      widget_settings:
-        expire: 2s
   not_enough_credits:
     credits_insert_coins:
       key: credits_message
@@ -45,20 +47,61 @@ widget_player:
       widget_settings:
         expire: 3s
 
+slides:
+  credits_slide:
+  - widget: splash
+  - widget: credits_slide_content
+
 widgets:
-  credits_message:
+  credits_slide_content:
+  # (a color with alpha: opacity on a rectangle draws it solid)
   - type: rectangle
     width: 800
     height: 480
-    color: 000000
-    opacity: 0.6
-    z: 30
+    color: 000000bb
+    z: 1
+  - type: text
+    text: CREDITS
+    z: 2
+    y: middle+30%
+    color: cyan
+    style: text_default
+    font_size: 70
+  - type: text
+    text: (machine|credits_value)
+    z: 2
+    y: middle+2%
+    color: yellow
+    style: medium
+    font_size: 150
+  - type: text
+    text: 50c a game, 3 for $1
+    z: 2
+    y: middle-24%
+    color: white
+    style: medium
+    font_size: 32
+  - type: text
+    text: PRESS START
+    z: 2
+    y: middle-37%
+    color: pink
+    style: text_default
+    font_size: 44
+    animations:
+      add_to_slide: pulsate_fast
+  # on the attract splash (config/common/slides.yaml), bottom right
+  credits_splash:
+  # (like the high scores, across from the Laps Champ)
   - type: text
     text: (machine|credits_string)
-    z: 31
-    color: white
-    style: text_default
-    font_size: 90
+    anchor_x: right
+    x: 97%
+    y: bottom+6%
+    color: yellow
+    style: medium
+    font_size: 28
+    z: 3
   credits_insert_coins:
   - type: rectangle
     width: 800
@@ -80,8 +123,8 @@ widgets:
     z: 31
     y: middle-15%
     color: white
-    style: text_default
-    font_size: 50
+    style: medium
+    font_size: 36
   credits_free_play:
   - type: rectangle
     width: 800
@@ -114,5 +157,5 @@ widgets:
     z: 31
     y: middle-15%
     color: white
-    style: text_default
-    font_size: 50
+    style: medium
+    font_size: 36

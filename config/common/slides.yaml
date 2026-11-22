@@ -12,6 +12,8 @@ slides:
   - widget: third_place
   - widget: laps_champ_label
   - widget: laps_champ_value
+  # FREE PLAY or CREDITS n (see config/common/credits.yaml)
+  - widget: credits_splash
   # Gameplay tips (see modes/tips). A tip with a `mode`
   # uses tip_<mode>_slide (usually that mode's background
   # under an 80% black overlay). Tips without one use

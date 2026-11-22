@@ -13,8 +13,12 @@ MPF's built-in `credits` mode (in `./config/common/modes.yaml`), set up in
   (`free_play_toggle` in `./config/common/combo_switches.yaml`, which posts
   `toggle_credit_play`). MPF saves it (the `free_play` setting), so it survives
   a restart. (Start + the right flipper is still the shutdown combo.)
-- The display says CREDIT PLAY or FREE PLAY when it toggles, the credits when
-  coins go in, and INSERT COINS when start is pressed without enough.
+- The display says CREDIT PLAY or FREE PLAY when it toggles, and INSERT COINS
+  when start is pressed without enough.
+- A coin shows `credits_slide` (the credits over the dimmed splash, the
+  pricing and PRESS START) until 5s after the last one.
+- The attract splash shows FREE PLAY or CREDITS n, bottom right
+  (`credits_splash`).
 - `c` on the keyboard drops a quarter in (development).
 
 `./modes/credits/code/credits.py` fixes MPF's mode: it only worked out the
