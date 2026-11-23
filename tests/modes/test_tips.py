@@ -189,3 +189,33 @@ class TestTipsMode(DeathSaveGameTesting):
             self.assertLessEqual(len(tip["lines"]), 4)
             for line in tip["lines"]:
                 self.assertLessEqual(len(line), 48, line)
+
+    def _slide_events(self):
+        posted = []
+        slides = ["splash_slide", "tip_green_flag_slide",
+            "tip_backfire_slide"]
+        for slide in slides:
+            for side in ["left", "right"]:
+                event = f"{slide}_from_{side}"
+                self.machine.events.add_handler(event,
+                    lambda event=event, **kwargs: posted.append(event))
+        return posted
+
+    # Slides slide in from the right when the rotation moves on by
+    # itself, and from the side of the flipper button pressed (advancing
+    # is the physically left button)
+    def test_slides_slide_in_from_a_side(self):
+        posted = self._slide_events()
+        self.advance_time_and_run(13)
+        self.assertEqual(["splash_slide_from_right"], posted)
+        self.advance_time_and_run(15)
+        self.assertEqual("tip_green_flag_slide_from_right", posted[-1])
+        self.hit_and_release_switch("s_flipper2")  # right_flipper tag
+        self.advance_time_and_run(1)
+        self.assertEqual("tip_backfire_slide_from_left", posted[-1])
+        self.hit_and_release_switch("s_flipper1")  # left_flipper tag
+        self.advance_time_and_run(1)
+        self.assertEqual("tip_green_flag_slide_from_right", posted[-1])
+        # (and on by itself, from the right again)
+        self.advance_time_and_run(10)
+        self.assertEqual("tip_backfire_slide_from_right", posted[-1])

@@ -12,7 +12,7 @@ class TestAttractLights(DeathSaveGameTesting):
         rgb = ["l_loop01", "l_grooveline05", "l_pit_lube"]
         lamps = ["l_bonus05", "l_grand3", "l_signal2"]
         seen_rgb, seen_lamps = set(), set()
-        for i in range(140):  # just over a loop (66.5s)
+        for i in range(90):  # just over a loop (42.5s)
             self.advance_time_and_run(0.5)
             seen_rgb.add(self._states(rgb))
             seen_lamps.add(self._states(lamps))
@@ -30,3 +30,13 @@ class TestAttractLights(DeathSaveGameTesting):
         before = self._states(lights)
         self.advance_time_and_run(3)
         self.assertEqual(before, self._states(lights))
+
+    # Game over, tilt and shoot again aren't part of the show
+    def test_leaves_info_lights_alone(self):
+        steps = self.machine.shows["attract"].get_show_steps()
+        names = { getattr(light, "name", light) for step in steps
+            for light in step.get("lights", {}) }
+        self.assertIn("l_backbox_ball1", names)
+        for light in ["l_backbox_game_over", "l_backbox_tilt",
+                "l_backbox_shoot_again", "l_shoot_again"]:
+            self.assertNotIn(light, names)

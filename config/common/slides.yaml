@@ -31,7 +31,7 @@ slides:
   - widget: splash
   - widget: tip_dim
   - widget: tip_header
-  - widget: tip_title
+  - widget: tip_title_replay
   - widget: tip_line1
   - widget: tip_line2
   - widget: tip_line3

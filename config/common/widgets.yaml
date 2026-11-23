@@ -690,6 +690,16 @@ widgets:
     color: gold
     style: text_default
     font_size: 60
+  tip_title_replay:
+  - type: text
+    text: "(machine|tip_title)"
+    anchor_x: left
+    x: 5%
+    y: bottom+74%
+    z: 2
+    color: cyan
+    style: text_default
+    font_size: 60
   tip_title_red_line:
   - type: text
     text: "(machine|tip_title)"

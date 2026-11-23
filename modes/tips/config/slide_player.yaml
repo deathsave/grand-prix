@@ -1,15 +1,140 @@
 #config_version=6
 
-# The Tips mode code posts the slide's name as an
-# event when a tip comes up (see code/tips.py)
+# The Tips mode code posts the slide's name with the side it slides in
+# from, <slide>_from_right or <slide>_from_left (see code/tips.py):
+# the side of the flipper button pressed, or the right when the
+# rotation moves on by itself. (move_in's direction is the way it
+# moves: left comes in from the right)
 slide_player:
-  tip_slide: tip_slide
-  tip_green_flag_slide: tip_green_flag_slide
-  tip_backfire_slide: tip_backfire_slide
-  tip_grooveline_slide: tip_grooveline_slide
-  tip_luxury_slide: tip_luxury_slide
-  tip_grand_prix_slide: tip_grand_prix_slide
-  tip_extra_ball_slide: tip_extra_ball_slide
-  tip_red_line_slide: tip_red_line_slide
-  tip_pure_evil_slide: tip_pure_evil_slide
-  tip_replay_slide: tip_replay_slide
+  splash_slide_from_right:
+    splash_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  splash_slide_from_left:
+    splash_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_slide_from_right:
+    tip_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_slide_from_left:
+    tip_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_green_flag_slide_from_right:
+    tip_green_flag_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_green_flag_slide_from_left:
+    tip_green_flag_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_backfire_slide_from_right:
+    tip_backfire_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_backfire_slide_from_left:
+    tip_backfire_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_grooveline_slide_from_right:
+    tip_grooveline_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_grooveline_slide_from_left:
+    tip_grooveline_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_luxury_slide_from_right:
+    tip_luxury_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_luxury_slide_from_left:
+    tip_luxury_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_grand_prix_slide_from_right:
+    tip_grand_prix_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_grand_prix_slide_from_left:
+    tip_grand_prix_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_extra_ball_slide_from_right:
+    tip_extra_ball_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_extra_ball_slide_from_left:
+    tip_extra_ball_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_red_line_slide_from_right:
+    tip_red_line_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_red_line_slide_from_left:
+    tip_red_line_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_pure_evil_slide_from_right:
+    tip_pure_evil_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_pure_evil_slide_from_left:
+    tip_pure_evil_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s
+  tip_replay_slide_from_right:
+    tip_replay_slide:
+      transition:
+        type: move_in
+        direction: left
+        duration: 0.4s
+  tip_replay_slide_from_left:
+    tip_replay_slide:
+      transition:
+        type: move_in
+        direction: right
+        duration: 0.4s

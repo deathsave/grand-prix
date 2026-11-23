@@ -26,10 +26,22 @@ class Tips(Mode):
     def mode_init(self):
         self.tips = self.load_tips()
 
+    # The side each slide slides in from (see config/slide_player.yaml):
+    # the side of the flipper button pressed, or the right when the
+    # rotation moves on by itself. (The flipper tags are swapped
+    # relative to the buttons: right_flipper, which advances, is the
+    # physically left button)
+    AUTO_SIDE = "right"
+    ADVANCE_SIDE = "left"
+    REWIND_SIDE = "right"
+    SPLASH = "splash_slide"
+
     def mode_start(self, **kwargs):
         self.show = None
+        self.side = self.AUTO_SIDE
         self.clear()
         self.add_mode_event_handler("attract_tip", self.show_tip)
+        self.add_mode_event_handler("attract_splash", self.show_splash)
         self.add_mode_event_handler("attract_tip_clear", self.clear)
         self.add_mode_event_handler("attract_intro_done",
             self.start_rotation)
@@ -46,6 +58,7 @@ class Tips(Mode):
 
     # Right flipper: next step (from the intro: first tip)
     def advance(self, **kwargs):
+        self.side = self.ADVANCE_SIDE
         if self.show:
             self.show.advance()
         else:
@@ -53,6 +66,7 @@ class Tips(Mode):
 
     # Left flipper: previous step (from the intro: last tip)
     def rewind(self, **kwargs):
+        self.side = self.REWIND_SIDE
         if self.show:
             self.show.step_back()
         else:
@@ -77,7 +91,7 @@ class Tips(Mode):
         tip = self.tips[self.tip_number() % len(self.tips)]
 
         self.clear()
-        self.machine.events.post(self.slide_for(tip))
+        self.play_slide(self.slide_for(tip))
         lines = (tip.get("lines") or [])[:len(self.LINE_VARS)]
         values = self.values()
         self.queue = [ (var, text.format_map(values)) for var, text in
@@ -97,6 +111,15 @@ class Tips(Mode):
             "replay_award": "an extra ball" if free_play
                 else "a free game",
         }
+
+    def show_splash(self, **kwargs):
+        self.play_slide(self.SPLASH)
+
+    # Plays a slide, sliding in from the side for how we got here (then
+    # back to the automatic side)
+    def play_slide(self, slide):
+        self.machine.events.post(f"{slide}_from_{self.side}")
+        self.side = self.AUTO_SIDE
 
     # Which tip the rotation show is on (the first
     # tip when posted without the show, e.g. in tests)

@@ -9,7 +9,7 @@ RGB LEDs (config/common/rgb_leds.yaml) are multicolor; every other light
 is plain on/off, on when an effect lights it past half brightness. Only changes are written, and identical
 frames are merged, to keep the show small. No coils or sounds.
 
-The acts (about a minute, then it loops):
+The acts (about 40 seconds, then it loops):
 
   1. start lights  the signals count down in red, then a green GO burst
   2. the race      comets lap the loop, faster and faster, the chains
@@ -17,11 +17,10 @@ The acts (about a minute, then it loops):
   3. sweeps        a scanner bar bottom to top, top to bottom, left to
                    right and right to left, a new color each pass
   4. shockwaves    rings of color expanding from the center
-  5. checkered     a flipping checkered flag, then it waves
-  6. plasma        flowing color across the RGB inserts, the lamps sparkle
-  7. pit stop      left and right halves strobe faster and faster, the
-                   pit lights in their fuel, lube and tire colors
-  8. finale        a spinning beacon, everything on, strobe, fade out
+  5. finale        a spinning beacon, everything on, strobe, fade out
+
+(checkered, plasma and pit stop are still defined below, but not in
+ACTS. Game over, tilt and shoot again aren't in the show, see EXCLUDE.)
 
 Edit an act below (or the layout) and re-run:
 
@@ -80,6 +79,12 @@ class Light:
             self.group, self.index = name[2:], 0
 
 
+# Lights the show leaves alone: game over, tilt and shoot again keep
+# their own meaning (and state) in attract
+EXCLUDE = {"l_backbox_game_over", "l_backbox_tilt",
+    "l_backbox_shoot_again", "l_shoot_again"}
+
+
 def load_lights():
     """Every light, positioned from the monitor (in pixels of its image)
     plus the layout's overrides: the playfield 0-1 across and from the
@@ -92,7 +97,7 @@ def load_lights():
     pixels.update({name: tuple(xy)
         for name, xy in (layout.get("overrides") or {}).items()})
     rgb = set(yaml.load(open(RGB_LEDS))["lights"])
-    names = set(yaml.load(open(LIGHTS))["lights"]) | rgb
+    names = (set(yaml.load(open(LIGHTS))["lights"]) | rgb) - EXCLUDE
 
     def inside(region, px, py):
         left, top, right, bottom = layout["regions"][region]
@@ -400,14 +405,14 @@ def finale(t, lights):
     return out
 
 
+# (only the ones that move in sequence: chases, sweeps, rings. The
+# checkered flag, plasma's random sparkle and the pit stop strobe are
+# left out, as too all over the place)
 ACTS = [
     (6, start_lights),
     (12, race),
     (12, sweeps),
     (6, shockwaves),
-    (8, checkered),
-    (10, plasma),
-    (6, pit_stop),
     (6.5, finale),
 ]
 

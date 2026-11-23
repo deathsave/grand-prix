@@ -15,10 +15,8 @@
 # flipper advances a step and the left flipper steps back.
 
 - duration: 15s
-  slides:
-    splash_slide:
-      action: play
-  events: attract_tip_clear
+  # (the Tips mode plays the splash, sliding in, see modes/tips)
+  events: attract_tip_clear, attract_splash
   sounds: whoosh
 # The Tips mode plays each tip's slide (see modes/tips)
 - duration: 10s
