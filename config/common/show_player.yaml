@@ -38,14 +38,30 @@ show_player:
   grooveline_super_jackpot:
     shaker_rumble:
       loops: 0
+    # the chimes roll 3 times, then the call out (see
+    # shows/super_jackpot_chimes.yaml)
+    super_jackpot_chimes:
+      loops: 0
   grand_prix_super_jackpot:
     shaker_rumble:
+      loops: 0
+    # the chimes roll 3 times, then the call out (see
+    # shows/super_jackpot_chimes.yaml)
+    super_jackpot_chimes:
       loops: 0
   luxury_complete{state == "claimed"}:
     shaker_rumble:
       loops: 0
+    # the chimes roll 3 times, then the call out (see
+    # shows/super_jackpot_chimes.yaml)
+    super_jackpot_chimes:
+      loops: 0
   red_line_checkered_flag:
     shaker_rumble:
+      loops: 0
+    # the chimes roll 3 times, then the call out (see
+    # shows/super_jackpot_chimes.yaml)
+    super_jackpot_chimes:
       loops: 0
   mode_under_red_started:
     shaker_rumble:

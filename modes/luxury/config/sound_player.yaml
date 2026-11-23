@@ -9,7 +9,8 @@ sound_player:
       loops: -1
       delay: 1
   luxury_jackpot: jackpot
-  luxury_complete: jackpot_double
+  # (its callout comes after the chime rolls, see
+  # config/common/sound_player.yaml)
   # then the "lap of luxury" callout once the super jackpot's
   # finishes (with both queued, one could get dropped)
   super_jackpot_callout_stopped: luxury_completed

@@ -88,4 +88,5 @@ sound_player:
       action: play
     jackpot:
       action: play
-  red_line_checkered_flag: jackpot_double
+  # (its callout comes after the chime rolls, see
+  # config/common/sound_player.yaml)

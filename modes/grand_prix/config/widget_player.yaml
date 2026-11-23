@@ -14,11 +14,13 @@ widget_player:
       key: jackpot_grand_prix
       widget_settings:
         expire: 1.75s
-  super_jackpot_callout_played:
+  # the super jackpot, from when it hits, through the chime rolls
+  # (1.4s) and the callout (twice its 1.14s)
+  grand_prix_super_jackpot:
     jackpot_grand_prix:
       action: remove
       key: jackpot_grand_prix
     super_jackpot_grand_prix:
       key: super_jackpot_grand_prix
       widget_settings:
-        expire: 2.3s
+        expire: 3.7s

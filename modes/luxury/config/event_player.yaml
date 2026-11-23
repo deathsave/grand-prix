@@ -8,4 +8,4 @@ event_player:
   - luxury_jackpot
   # see mode.yaml
   luxury_complete:
-  - luxury_finished|3.5s
+  - luxury_finished|5s

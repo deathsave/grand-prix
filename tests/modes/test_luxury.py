@@ -121,10 +121,12 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.assertEqual(
             score + 300000, self.machine.game.player.score)
 
-        # Completion also ends the mode, once the jackpot
-        # callouts have had a few seconds
+        # Completion also ends the mode, once the super jackpot's
+        # chime rolls and callout have had a few seconds
         self.assertModeRunning("luxury")
         self.advance_time_and_run(3)
+        self.assertModeRunning("luxury")
+        self.advance_time_and_run(2)
         self.assertModeNotRunning("luxury")
 
     def _start_luxury_multiball(self):

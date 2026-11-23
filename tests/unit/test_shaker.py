@@ -55,3 +55,22 @@ class TestShaker(DeathSaveGameTesting):
         self.assertEqual(80, self.pulses[0])
         self.assertIn(160, self.pulses)
         self.assertEqual(255, self.pulses[-2])
+
+    # Red Line's heartbeat: a pulse on each lub and dub, in time with the
+    # heartbeat loop (6 beats in its 8.57s), for as long as Red Line runs
+    def test_red_line_heartbeat(self):
+        self._start_and_expire_ball_save()
+        self.machine.modes["red_line"].start()
+        self.advance_time_and_run(0.1)
+        self._watch()
+        for loop in range(2):
+            self.pulses.clear()
+            self.advance_time_and_run(8.5725)
+            # (less the multiball start's rumble, at the coil's default)
+            self.assertEqual([60, 35] * 6,
+                [p for p in self.pulses if p is not None])
+        self.machine.modes["red_line"].stop()
+        self.advance_time_and_run(1)
+        self.pulses.clear()
+        self.advance_time_and_run(9)
+        self.assertEqual([], [p for p in self.pulses if p is not None])

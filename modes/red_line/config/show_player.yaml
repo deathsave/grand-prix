@@ -7,3 +7,7 @@ show_player:
       show_tokens:
         led: tag_lights_mode
         color: red
+    # the heartbeat in the shaker, in time with the heartbeat loop (both
+    # start now; the show stops with the mode)
+    red_line_heartbeat_shaker:
+      loops: -1

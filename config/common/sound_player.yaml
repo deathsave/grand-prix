@@ -77,3 +77,5 @@ sound_player:
       action: play
       delay: 2s
   extra_ball_awarded: extra_ball
+  # "Double jackpot!" after a super jackpot's chime rolls
+  super_jackpot_chimes_done: jackpot_double

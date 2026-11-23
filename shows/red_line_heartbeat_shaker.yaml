@@ -1,0 +1,69 @@
+#show_version=6
+
+# Red Line's heartbeat in the shaker: a pulse on each lub and a lighter
+# one on each dub, in time with the heartbeat loop
+# (sounds/preload/effects/red-line-heartbeat.wav, made by bin/heartbeat:
+# 6 beats at 42 bpm, the first 0.4 of a beat in, the dub 0.22s after).
+# Played (looped) with it, see modes/red_line/config/show_player.yaml
+
+- duration: 0.5714s
+- duration: 0.2200s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 60
+- duration: 1.2086s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 35
+- duration: 0.2200s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 60
+- duration: 1.2086s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 35
+- duration: 0.2200s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 60
+- duration: 1.2086s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 35
+- duration: 0.2200s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 60
+- duration: 1.2086s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 35
+- duration: 0.2200s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 60
+- duration: 1.2086s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 35
+- duration: 0.2200s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 60
+- duration: 0.6382s
+  coils:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 35

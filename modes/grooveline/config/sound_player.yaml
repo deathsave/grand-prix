@@ -11,4 +11,5 @@ sound_player:
     groove_thing:
       action: stop
   grooveline_jackpot: jackpot
-  grooveline_super_jackpot: jackpot_double
+  # (its callout comes after the chime rolls, see
+  # config/common/sound_player.yaml)

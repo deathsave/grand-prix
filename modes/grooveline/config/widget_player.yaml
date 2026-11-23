@@ -8,11 +8,13 @@ widget_player:
       key: jackpot_grooveline
       widget_settings:
         expire: 1.75s
-  super_jackpot_callout_played:
+  # the super jackpot, from when it hits, through the chime rolls
+  # (1.4s) and the callout (twice its 1.14s)
+  grooveline_super_jackpot:
     jackpot_grooveline:
       action: remove
       key: jackpot_grooveline
     super_jackpot_grooveline:
       key: super_jackpot_grooveline
       widget_settings:
-        expire: 2.3s
+        expire: 3.7s

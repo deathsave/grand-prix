@@ -11,6 +11,7 @@ sound_player:
   grand_prix_jackpot: jackpot
   # every lap (see code/grand_prix.py)
   grand_prix_leader_bonus: leader_bonus
-  grand_prix_super_jackpot: jackpot_double
+  # (the super jackpot's callout comes after the chime rolls, see
+  # config/common/sound_player.yaml)
   # the 30s hurry up ran out and a held ball was ejected
   grand_prix_hole_lost: grand_prix_position_lost

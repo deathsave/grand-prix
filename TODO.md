@@ -17,8 +17,9 @@ In order, each one tested before the next:
 4. ~~Under Red (red flag) mode~~ (done)
 5. ~~End of ball bonus~~ (done: the multiball lines, only the lines
    that were touched, skipping with both flippers, the results board)
-6. Chimes and shaker: super jackpot chime rolls (callout after),
-   shaker pulses (multiball starts, Off the Line, Red Line heartbeat)
+6. ~~Chimes and shaker~~ (done: super jackpots roll the chimes 3 times
+   then the callout, with the overlay up throughout; the Red Line
+   heartbeat in the shaker)
 7. Match animation on the segment displays
 8. High score: Red Line shifts category
 9. Sounds: Luxury cash and coins (with the pops paying more)
@@ -81,14 +82,8 @@ Mechs
 
 - Tachometer / Voltage Meter experiment
 - Shaker Motor show(s) (the spinner, multiball starts, jackpots, super
-  jackpots, skill shots, replays, the Under Red crash and Backfire Pops
-  shake it now)
-  - Grooveline - pulse shaker to the music (shake your groove thing)
-  - Red Line - tiny pulses in time with the heartbeat loop
-- Chimebox show(s)
-  - Super jackpots roll the chimes 3 times, then the voice callout
-    plays after the rolls, and the super jackpot slide stays up for
-    all of it (rolls + callout)
+  jackpots, skill shots, replays, the Under Red crash, Backfire Pops and Red
+  Line's heartbeat shake it now)
 - Top-left loop gate / servo
 - Wire the service switches (the tilt and coin mech on that bank work
   now; `s_service_*` are commented out in `config/common/switches.yaml`)
@@ -116,3 +111,14 @@ Hardware
 - Segment display 4 needs solder work
 - The GRAND "A" lamp (`l_grand3`, 0-1-22) probably needs its connector
   checked
+- Possible bug, needs more confirmation: a player-up lamp stayed on the
+  previous player into the next player's ball (seen 2026-11-22: player
+  2's lamp still lit while player 3 was up, until partway through the
+  ball), so it looked like the wrong player was up. The game took the
+  turns in order, and the lamp is set on `ball_starting`, before the
+  ball's fed (`config/common/info_lights.yaml`; checked locally). Likely
+  an LED update to the second OPP board (the player-up lamps are on its
+  LED chain, 1-0-40 to 43) that was dropped or late. If it happens
+  again, note the time and player; to catch it, turn `opp: debug: true`
+  on for a session (`config/production/xubuntu.yaml`) to log every LED
+  update, then back off

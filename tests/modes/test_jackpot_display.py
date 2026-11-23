@@ -33,18 +33,19 @@ class TestJackpotDisplay(DeathSaveMcTesting):
         self.assertEqual("Jackpot!", self._overlay_text())
         self.assertEqual(1, len(self._jackpot_widgets("Text")))
 
-        # a super jackpot (queued behind a jackpot) replaces it
-        # when it plays, for twice its callout (1.14s)
-        self.post_event("super_jackpot_callout_played")
+        # a super jackpot replaces it when it hits, through the chime
+        # rolls (1.4s) and twice its callout (1.14s)
+        self.post_event("grooveline_super_jackpot")
         self.advance_time_and_run(0.1)
         self.assertEqual(["SUPER JACKPOT!"],
             [ w.text for w in self._jackpot_widgets("Text") ])
-        self.advance_time_and_run(2.1)
+        self.advance_time_and_run(3.5)
         self.assertEqual("SUPER JACKPOT!", self._overlay_text())
         self.advance_time_and_run(0.2)
         self.assertIsNone(self._overlay())
 
-    # the widgets last twice as long as the callouts
+    # the widgets last twice as long as the callouts (and a super
+    # jackpot's through its chime rolls, before the callout, too)
     def test_widgets_last_twice_the_callouts(self):
         import subprocess
         from mpf.core.utility_functions import Util
@@ -54,12 +55,16 @@ class TestJackpotDisplay(DeathSaveMcTesting):
             length = float(subprocess.check_output(["ffprobe", "-v",
                 "error", "-show_entries", "format=duration", "-of",
                 "csv=p=0", path]))
+            supers = {"grooveline": "grooveline_super_jackpot",
+                "grand_prix": "grand_prix_super_jackpot",
+                "luxury": 'luxury_complete{state == "claimed"}'}
             for mode in ["grooveline", "grand_prix", "luxury"]:
-                event = ("super_" if widget == "super_jackpot" else "") \
-                    + "jackpot_callout_played"
+                is_super = widget == "super_jackpot"
+                event = supers[mode] if is_super \
+                    else "jackpot_callout_played"
                 settings = self.mc.modes[mode].config["widget_player"][
                     event][f"{widget}_{mode}"]["widget_settings"]
-                self.assertAlmostEqual(2 * length,
+                self.assertAlmostEqual(2 * length + (1.4 if is_super else 0),
                     Util.string_to_secs(settings["expire"]), delta=0.05)
 
     def test_grand_prix_jackpot_is_pink(self):

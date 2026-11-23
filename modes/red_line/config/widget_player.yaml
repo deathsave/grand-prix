@@ -13,11 +13,13 @@ widget_player:
       key: jackpot_red_line
       widget_settings:
         expire: 1.75s
-  super_jackpot_callout_played:
+  # the super jackpot, from when it hits, through the chime rolls
+  # (1.4s) and the callout (twice its 1.14s)
+  red_line_checkered_flag:
     jackpot_red_line:
       action: remove
       key: jackpot_red_line
     super_jackpot_red_line:
       key: super_jackpot_red_line
       widget_settings:
-        expire: 2.3s
+        expire: 3.7s
