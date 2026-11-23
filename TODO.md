@@ -20,7 +20,7 @@ In order, each one tested before the next:
 6. ~~Chimes and shaker~~ (done: super jackpots roll the chimes 3 times
    then the callout, with the overlay up throughout; the Red Line
    heartbeat in the shaker)
-7. Match animation on the segment displays
+7. ~~Match animation on the segment displays~~ (done)
 8. High score: Red Line shifts category
 9. Sounds: Luxury cash and coins (with the pops paying more)
 10. Hardware (you): the tilt / coin door / service bank, the outlane
@@ -66,16 +66,6 @@ High Score
 ----------
 
 - A Red Line category to reward the wizard: the most shifts in a game
-
-Match
------
-
-- Animate the match on the segment displays: every digit of every
-  player's score shows the rev/match number, all moving together in
-  more or less the same animation (spin up and down a couple of times
-  with a rev sound, then settle on `winner_number`)
-- If there's a match, when the sequence finishes blink that player's
-  score segments and leave the other scores on steady
 
 Mechs
 -----

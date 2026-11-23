@@ -117,3 +117,80 @@ class TestMatch(DeathSaveGameTesting):
             winner = mode._get_winner_number([30, 50, 70], 0)
             self.assertNotIn(winner, [30, 50, 70])
             self.assertEqual(0, winner % 10)
+
+    # The segment displays spin with the match: two players, player 2
+    # matching (player 1's number is 10 higher), every digit the same
+    # number, settling on the match number, then the scores again with
+    # the winner's blinking
+    def _play_two_to_match(self, player2_matches):
+        from unittest.mock import patch
+        from modes.match.code.match import GrandPrixMatch
+        patcher = patch.object(GrandPrixMatch, "_get_winner_number",
+            lambda match, numbers, percentage:
+                numbers[1] if player2_matches else 90 if 90 not in numbers
+                else 80)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        self._start()
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        players = self.machine.game.player_list
+        players[0].score = 12340
+        players[1].score = 5670
+        for ball in range(6):
+            self.hit_and_release_switch("s_shooter_lane")
+            self._expire_ball_save()
+            # (keep the scores' last digits)
+            players[0].score, players[1].score = 12340, 5670
+            self.hit_switch_and_run("s_trough1", 0.05)
+            # (from the moment the match starts)
+            for i in range(60):
+                if self.machine.modes["match"].active:
+                    return
+                self.advance_time_and_run(0.05)
+            self.advance_time_and_run(20)
+        self.fail("no match")
+
+    def _text(self, number):
+        display = self.machine.segment_displays[f"segment{number}"]
+        return str(display.text).strip(), display.flashing
+
+    def test_displays_spin(self):
+        from mpf.platforms.interfaces.segment_display_platform_interface \
+            import FlashingType
+        self._play_two_to_match(True)
+        seen = set()
+        for i in range(28):
+            self.advance_time_and_run(0.1)
+            one, two = self._text(1)[0], self._text(2)[0]
+            # every digit the same, on both displays
+            self.assertEqual(1, len(set(one)), one)
+            self.assertEqual(one, two)
+            seen.add(one[0])
+        self.assertEqual(set("0123456789"), seen)
+        # it settles on the match number (70) by 5s
+        self.advance_time_and_run(2.2)
+        self.assertEqual(("7777777", FlashingType.NO_FLASH), self._text(1))
+        # the result at 6s: player 2's score blinks, player 1's doesn't
+        self.advance_time_and_run(1)
+        self.assertModeRunning("match")
+        self.assertEqual(("12340", FlashingType.NO_FLASH), self._text(1))
+        self.assertEqual(("5670", FlashingType.FLASH_ALL), self._text(2))
+        # for 2s, then the game's over
+        self.advance_time_and_run(2.5)
+        self.assertModeNotRunning("match")
+        self.assertIsNone(self.machine.game)
+
+    def test_no_match_shows_the_scores(self):
+        from mpf.platforms.interfaces.segment_display_platform_interface \
+            import FlashingType
+        self._play_two_to_match(False)
+        self.advance_time_and_run(5.5)
+        self.assertEqual("9999999", self._text(1)[0])
+        self.advance_time_and_run(1)
+        self.assertEqual(("12340", FlashingType.NO_FLASH), self._text(1))
+        self.assertEqual(("5670", FlashingType.NO_FLASH), self._text(2))
+        # for 1s, then the game's over
+        self.assertModeRunning("match")
+        self.advance_time_and_run(1)
+        self.assertModeNotRunning("match")

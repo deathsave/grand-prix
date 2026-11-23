@@ -1,6 +1,7 @@
 #config_version=6
 
-# MPF's match mode, with its match chance fixed (see code/match.py)
+# MPF's match mode, with its match chance fixed, and the segment
+# displays spinning with it (see code/match.py)
 mode:
   code: match.GrandPrixMatch
 
@@ -113,36 +114,3 @@ light_player:
   timer_eternal_tick{ticks % 3 == 0}:
     l_tach:
       color: black
-# slides:
-#   match_slide:
-#   - type: text
-#     text: MATCH
-#   - type: text
-#     text: "Player 1: (match_number0)"
-#   - type: text
-#     text: "Player 2: (match_number1)"
-#   - type: text
-#     text: "Player 3: (match_number2)"
-#   - type: text
-#     text: "Player 4: (match_number3)"
-#   - type: text
-#     text: "Match number: (winner_number)"
-#   no_match_slide:
-#   - type: text
-#     text: NO MATCH
-#     font_size: 12
-#     anchor_y: bottom
-#   - type: text
-#     text: "Player 1: (match_number0)"
-#   - type: text
-#     text: "Player 2: (match_number1)"
-#   - type: text
-#     text: "Player 3: (match_number2)"
-#   - type: text
-#     text: "Player 4: (match_number3)"
-#   - type: text
-#     text: "Match number: (winner_number)"
-# TODO: quickly animate match_none to match_00 and
-#       back down a couple times with a rev sound then
-#       then have it run again and stop on the step
-#       matching winner_number (match_{winner_number})

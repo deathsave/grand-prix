@@ -65,9 +65,10 @@ class TestSegmentDisplays(DeathSaveMcTesting):
             # drain (no bonus to wait out)
             self.hit_switch_and_run("s_trough1", 2)
 
-        # advance through the match mode
+        # advance through the match mode (the 6s spin, and the scores
+        # back for a second, or 2 if it matched)
         self.assertModeRunning("match")
-        self.advance_time_and_run(6)
+        self.advance_time_and_run(9)
 
         # back to Attract mode
         self.assertModeRunning("attract")
@@ -75,39 +76,25 @@ class TestSegmentDisplays(DeathSaveMcTesting):
         self._attract_show_plays()
         self.advance_time_and_run(5)
 
+    # waits (up to `within` seconds) for the display to show a number
+    def _assert_shows(self, number, display, within=3):
+        for i in range(int(within / 0.1)):
+            text = str(self.machine.segment_displays[display].text).strip()
+            if text == str(number):
+                return
+            self.advance_time_and_run(0.1)
+        self.fail(f"{display} never showed {number} (it shows {text!r})")
+
+    # the attract messages, in order, then the top 4 high scores
     def _attract_show_plays(self):
         self.assertModeRunning("attract")
-        self.advance_time_and_run(1)
-        self.assertEqual(1986,
-            int(self.machine.segment_displays['segment1'].text))
-
-        self.advance_time_and_run(2)
-        self.assertEqual(15,
-            int(self.machine.segment_displays['segment2'].text))
-
-        self.advance_time_and_run(4)
-        self.assertEqual(50,
-            int(self.machine.segment_displays['segment3'].text))
-
-        self.advance_time_and_run(2)
-        self.assertEqual(1337,
-            int(self.machine.segment_displays['segment4'].text))
-
-        # After the message sequence, the displays
-        # contain the top 4 High Scores
-        self.advance_time_and_run(2)
-        self.assertEqual(self.machine.variables. \
-            get_machine_var("score1_value"),
-            int(self.machine.segment_displays['segment1'].text))
-        self.assertEqual(self.machine.variables. \
-            get_machine_var("score2_value"),
-            int(self.machine.segment_displays['segment2'].text))
-        self.assertEqual(self.machine.variables. \
-            get_machine_var("score3_value"),
-            int(self.machine.segment_displays['segment3'].text))
-        self.assertEqual(self.machine.variables. \
-            get_machine_var("score4_value"),
-            int(self.machine.segment_displays['segment4'].text))
+        self._assert_shows(1986, "segment1")
+        self._assert_shows(15, "segment2")
+        self._assert_shows(50, "segment3")
+        self._assert_shows(1337, "segment4")
+        for n in range(1, 5):
+            self._assert_shows(self.machine.variables.get_machine_var(
+                f"score{n}_value"), f"segment{n}")
 
     def test_two_players(self):
         self._start()
