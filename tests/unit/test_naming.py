@@ -46,8 +46,10 @@ class TestNaming(unittest.TestCase):
             "modes/high_score/config/high_score.yaml")["slides"]
             ["high_score_enter_initials"] if w.get("type") ==
             "text_input"][0]
-        self.assertEqual("sw_left_flipper", entry["shift_left_event"])
-        self.assertEqual("sw_right_flipper", entry["shift_right_event"])
+        # (swapped: the flipper tags are swapped relative to the
+        # buttons, see modes/high_score/config/high_score.yaml)
+        self.assertEqual("sw_right_flipper", entry["shift_left_event"])
+        self.assertEqual("sw_left_flipper", entry["shift_right_event"])
 
     # Numbers never follow an underscore. Groups that reach 10 are
     # zero padded (l_bonus01..10), smaller ones aren't (l_grand1..5)
