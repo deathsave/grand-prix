@@ -67,3 +67,27 @@ class TestCredits(DeathSaveGameTesting):
         self.release_switch_and_run("s_flipper1", 1)
         self.assertTrue(
             self.machine.settings.get_setting_value("free_play"))
+
+    # A match is a free credit for each player who matched, in credit play
+    def test_match_awards_a_credit(self):
+        self._credit_play()
+        self._coin(2)
+        self.assertEqual(1, self._credits())
+        self.post_event_with_params("match_has_match", winners=1,
+            winner_number=30)
+        self.advance_time_and_run(1)
+        self.assertEqual(2, self._credits())
+        self.post_event_with_params("match_has_match", winners=2,
+            winner_number=30)
+        self.advance_time_and_run(1)
+        self.assertEqual(4, self._credits())
+
+    # but not in free play
+    def test_no_match_credit_in_free_play(self):
+        self.advance_time_and_run(10)
+        self.post_event_with_params("match_has_match", winners=1,
+            winner_number=30)
+        self.advance_time_and_run(1)
+        self.assertTrue(self.machine.settings.get_setting_value("free_play"))
+        self.assertEqual(0, self.machine.variables.get_machine_var(
+            "credit_units") or 0)

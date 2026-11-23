@@ -19,6 +19,9 @@ MPF's built-in `credits` mode (in `./config/common/modes.yaml`), set up in
   pricing and PRESS START) until 5s after the last one.
 - The attract splash shows FREE PLAY or CREDITS n, bottom right
   (`credits_splash`).
+- A match (`match_has_match`) is a free credit for each player who matched
+  (`events` in `./config/common/credits.yaml`). MPF only listens for credit
+  events in credit play, so there's nothing to award on free play.
 - `c` on the keyboard drops a quarter in (development).
 
 `./modes/credits/code/credits.py` fixes MPF's mode: it only worked out the

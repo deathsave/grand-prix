@@ -6,7 +6,8 @@
 # a dollar. Free play is the default; start + the left flipper
 # (held 2s, see combo_switches.yaml) toggles between free play and
 # credit play, and MPF saves it (the free_play setting) so it
-# survives a restart. (Until there's a maintenance mode.)
+# survives a restart. (Until there's a maintenance mode.) A match
+# awards a free credit in credit play.
 credits:
   free_play: yes
   max_credits: 30
@@ -14,6 +15,12 @@ credits:
   - switch: s_credit
     type: money
     value: .25
+  # a match is a free credit for each player who matched (only in
+  # credit play: MPF only listens for these then)
+  events:
+  - event: match_has_match
+    credits: winners
+    type: match
   pricing_tiers:
   - price: .50
     credits: 1

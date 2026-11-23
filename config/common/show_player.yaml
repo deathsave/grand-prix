@@ -12,3 +12,19 @@ show_player:
   player_will_add:
     chime_default:
       loops: 0
+  # A match chimes a pair of different chimes (1 then 3, like an EM
+  # knocking off a replay) for each player who matched. The match mode
+  # posts match_has_match as the spin ends, and stops straight after,
+  # so this is machine-wide (a mode's show stops with it).
+  match_has_match{winners == 1}:
+    match_chimes:
+      loops: 0
+  match_has_match{winners == 2}:
+    match_chimes:
+      loops: 1
+  match_has_match{winners == 3}:
+    match_chimes:
+      loops: 2
+  match_has_match{winners == 4}:
+    match_chimes:
+      loops: 3
