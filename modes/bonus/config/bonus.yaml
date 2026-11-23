@@ -99,7 +99,42 @@ show_player:
       loops: 0
       # start at 11 to compensate for 0 index
       start_step: (11 - current_player.luxury_counter_count)
-  bonus_total:
+  # (its 5s end show waits for the insert countdown, unless the
+  # bonus was skipped)
+  bonus_total{current_player.bonus_skipped == 0}:
     bonus_end:
       action: play
       loops: 0
+  # Both flippers (MPF's both_flippers combo posts flipper_cancel)
+  # hurry the bonus entries along (the bonus mode's hurry_up_event),
+  # and stop the insert countdown and its chimes
+  flipper_cancel:
+    bonus_main:
+      action: stop
+    bonus_end:
+      action: stop
+
+# Skipping ends the bonus 1s after its total (which is when the score
+# is added), or straight away if the total's already up
+variable_player:
+  mode_bonus_started:
+    bonus_skipped:
+      action: set
+      int: 0
+    bonus_totaled:
+      action: set
+      int: 0
+  flipper_cancel:
+    bonus_skipped:
+      action: set
+      int: 1
+  bonus_total:
+    bonus_totaled:
+      action: set
+      int: 1
+
+event_player:
+  bonus_total{current_player.bonus_skipped == 1}:
+  - bonus_show_ended|1s
+  flipper_cancel{current_player.bonus_totaled == 1}:
+  - bonus_show_ended

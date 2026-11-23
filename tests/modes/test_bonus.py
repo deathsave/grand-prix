@@ -142,3 +142,24 @@ class TestBonusMode(DeathSaveMcTesting):
         # also lit a luxury insert (10,000 each)
         self.assertEqual(100 + 5 * (5000 + 500 + 50) + 5000 + 50000,
             self.machine.game.player.score)
+
+    # Both flippers skip through the bonus (MPF's both_flippers combo
+    # posts flipper_cancel, the bonus mode's hurry up)
+    def test_both_flippers_skip(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        for i in range(3):
+            self.advance_time_and_run(17)
+            self._complete_lap()
+        self.mock_event("flipper_cancel")
+        self.hit_switch_and_run("s_trough1", 3)
+        self.assertModeRunning("bonus")
+        self.hit_switch_and_run("s_flipper1", 0.1)
+        self.hit_switch_and_run("s_flipper2", 0.1)
+        self.release_switch_and_run("s_flipper2", 0.1)
+        self.release_switch_and_run("s_flipper1", 0.1)
+        self.assertEventCalled("flipper_cancel")
+        # (it takes ~15s without skipping)
+        self.advance_time_and_run(4)
+        self.assertModeNotRunning("bonus")
+        self.assertEqual(2, self.machine.game.player.ball)

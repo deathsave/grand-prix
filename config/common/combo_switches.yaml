@@ -2,7 +2,9 @@
 
 combo_switches:
   # the right flipper + start, held 2s
-  both_flippers:
+  # (its own name: MPF's both_flippers combo, left + right flipper,
+  # posts flipper_cancel, which skips through the end of ball bonus)
+  shutdown_combo:
     tag_1: right_flipper
     tag_2: start
     events_when_both: shutdown
