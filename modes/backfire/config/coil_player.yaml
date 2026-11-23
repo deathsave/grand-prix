@@ -1,0 +1,17 @@
+#config_version=6
+
+# Every pop during Backfire kicks the shaker, harder as it climbs from
+# 1k to 10k a pop (see counters.yaml)
+coil_player:
+  sw_tag_pops{current_player.backfire_counter_count <= 3}:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 80
+  sw_tag_pops{current_player.backfire_counter_count >= 4 and current_player.backfire_counter_count <= 7}:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 160
+  sw_tag_pops{current_player.backfire_counter_count >= 8}:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 255

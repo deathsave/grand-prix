@@ -8,6 +8,7 @@
 
 config:
 - mode.yaml
+- coil_player.yaml
 - timers.yaml
 - sound_player.yaml
 - show_player.yaml

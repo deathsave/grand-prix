@@ -17,3 +17,38 @@ coil_player:
   coil_flipper2: c_flipper2
   coil_trough: c_trough
   coil_loop_gate: c_loop_gate
+  # The spinner rumbles the cabinet for as long as it spins: a short
+  # shake on each spin (in or out of Green Flag)
+  s_spinner_active:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 100
+  # A short kick for every jackpot, the skill shots and a replay
+  grooveline_jackpot:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 150
+  luxury_jackpot:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 150
+  grand_prix_jackpot:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 150
+  red_line_shift:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 150
+  off_the_line_hit:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 150
+  skill_backfire_hit:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 150
+  replay_awarded:
+    c_shaker_motor:
+      action: pulse
+      pulse_ms: 150

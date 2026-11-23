@@ -28,3 +28,25 @@ show_player:
   match_has_match{winners == 4}:
     match_chimes:
       loops: 3
+  # A long shaker rumble for the big moments: a multiball starting, the
+  # super jackpots (Luxury's only when its shots are all claimed: its
+  # shot group also posts luxury_complete as it starts), Red Line's
+  # checkered flag and the Under Red crash
+  multiball_started:
+    shaker_rumble:
+      loops: 0
+  grooveline_super_jackpot:
+    shaker_rumble:
+      loops: 0
+  grand_prix_super_jackpot:
+    shaker_rumble:
+      loops: 0
+  luxury_complete{state == "claimed"}:
+    shaker_rumble:
+      loops: 0
+  red_line_checkered_flag:
+    shaker_rumble:
+      loops: 0
+  mode_under_red_started:
+    shaker_rumble:
+      loops: 0

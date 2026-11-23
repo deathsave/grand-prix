@@ -255,3 +255,14 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         for light in rgb:
             self.assertNotEqual(red,
                 self.machine.lights[light].get_color().rgb, light)
+
+    # The spinner shakes the cabinet on every spin, in the pit too
+    def test_spinner_shakes(self):
+        from unittest.mock import MagicMock
+        self._start()
+        shaker = self.machine.coils["c_shaker_motor"]
+        shaker.pulse = MagicMock()
+        for i in range(3):
+            self.hit_and_release_switch("s_spinner")
+            self.advance_time_and_run(0.05)
+        self.assertEqual(3, shaker.pulse.call_count)

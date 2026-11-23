@@ -1,0 +1,18 @@
+#show_version=6
+
+# A long rumble for the big moments (see config/common/show_player.yaml):
+# the shaker's longest pulse (255ms, the OPP board's limit), three times
+# back to back
+- time: 0
+  coils:
+    c_shaker_motor:
+      action: pulse
+- time: "+0.25s"
+  coils:
+    c_shaker_motor:
+      action: pulse
+- time: "+0.25s"
+  coils:
+    c_shaker_motor:
+      action: pulse
+- time: "+0.3s"
