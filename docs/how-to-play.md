@@ -92,7 +92,7 @@ The multiplier (1X, 2X, 5X) multiplies the playfield switches, laps and the regu
 
 ### Replay
 
-Beat the replay score for a **free game** (or an **extra ball** on free play), once a game. The replay score goes up when players beat it and comes back down when they don't.
+Beat the replay score for a **free game** (or an **extra ball** on free play), once a game. Beat it and the next replay score is 1.5x your final score; 50 games without one and it's halved.
 
 ### Special Modes
 

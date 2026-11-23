@@ -53,8 +53,16 @@ class TestReplay(DeathSaveGameTesting):
         self.assertEqual(1, self._credits())
         self.assertEqual(0, player.extra_balls)
 
-    # Up 250k after a game with a replay
-    def test_goes_up_after_a_replay(self):
+    def _final_score(self):
+        final = []
+        def ending(**kwargs):
+            final.append(self.machine.game.player.score)
+        self.machine.events.add_handler("game_ending", ending, priority=100)
+        return final
+
+    # After a game with a replay, it's 1.5x their final score (to 10k)
+    def test_raised_to_one_and_a_half_times_their_score(self):
+        final = self._final_score()
         self._start()
         self.machine.game.player.score += 1600000
         self.advance_time_and_run(1)
@@ -62,16 +70,57 @@ class TestReplay(DeathSaveGameTesting):
         self._play_out()
         self._play_out()
         self.assertIsNone(self.machine.game)
-        self.assertEqual(1750000, self._replay_score())
+        self.assertEqual(round(final[0] * 1.5 / 10000) * 10000,
+            self._replay_score())
 
-    # Down 100k after 3 games in a row without one
-    def test_comes_down_after_three_games_without(self):
-        for game in range(3):
+    # The best of the players who got a replay
+    def test_best_of_the_replays(self):
+        final = []
+        def ending(**kwargs):
+            final.extend(p.score for p in self.machine.game.player_list)
+        self.machine.events.add_handler("game_ending", ending, priority=100)
+        self._start()
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        players = self.machine.game.player_list
+        self.assertEqual(2, len(players))
+        players[0].score += 2600000
+        self.advance_time_and_run(1)
+        # (6 balls, and player 1's extra ball)
+        for i in range(15):
+            self.hit_and_release_switch("s_shooter_lane")
+            self.hit_and_release_switch("s_swerve1")
+            self._expire_ball_save()
+            self.hit_switch_and_run("s_trough1", 2)
+            self.advance_time_and_run(20)
+            if not self.machine.game:
+                break
+        self.assertIsNone(self.machine.game)
+        # (player 2 never got one, so only player 1's counts)
+        self.assertEqual(round(final[0] * 1.5 / 10000) * 10000,
+            self._replay_score())
+
+    # Halved after 50 games in a row without one
+    def test_halved_after_fifty_games_without(self):
+        self.advance_time_and_run(1)
+        self.machine.variables.set_machine_var("replay_games_without", 48)
+        for game in range(2):
             self.assertEqual(1500000, self._replay_score())
             self._start()
             self._play_out()
             self.assertIsNone(self.machine.game)
-        self.assertEqual(1400000, self._replay_score())
+        self.assertEqual(750000, self._replay_score())
+        self.assertEqual(0, self.machine.variables.get_machine_var(
+            "replay_games_without"))
+
+    # but never below 500k
+    def test_never_below_half_a_million(self):
+        self.advance_time_and_run(1)
+        self.machine.variables.set_machine_var("replay_score", 600000)
+        self.machine.variables.set_machine_var("replay_games_without", 49)
+        self._start()
+        self._play_out()
+        self.assertEqual(500000, self._replay_score())
 
     # The chimes knock (rolling down twice)
     def test_chimes(self):

@@ -18,12 +18,13 @@ with a fanfare: the chimes knock (`./shows/replay_chimes.yaml`, rolling down
 twice), the "Replay!" call out (synth for now) and a gold REPLAY! overlay with
 FREE GAME or EXTRA BALL for 3s.
 
-The replay score adjusts itself, so replays stay within reach but earned. It
-starts at 1,500,000 and after each game (`game_ending`):
+The replay score adjusts itself. It starts at 1,500,000 and after each game
+(`game_ending`):
 
-- someone got a replay: up 250,000
-- 3 games in a row without one: down 100,000
-- always between 500,000 and 5,000,000
+- someone got a replay: it's 1.5x their final score (the best of them, if
+  more than one did)
+- 50 games in a row without one: it's halved
+- rounded to the nearest 10,000, and never below 500,000
 
 It's saved on the machine (the `replay_score` and `replay_games_without`
 machine vars, `./config/common/variables.yaml`).

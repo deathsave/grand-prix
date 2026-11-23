@@ -79,5 +79,5 @@
   lines:
   - "Beat {replay_score} for {replay_award}!"
   - "Once a game for every driver"
-  - "Beat it and it goes up for the next game,"
-  - "miss it a few games and it comes back down"
+  - "Beat it and the next is 1.5x your score"
+  - "50 games without one and it's halved"
