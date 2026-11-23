@@ -22,10 +22,10 @@ high_score:
     score:
       # (around a game with a multiball or two, so a single
       # jackpot doesn't make Grand Champion)
-      - DS: 3000000
-      - GRA: 2000000
-      - NDP: 1000000
-      - RIX: 500000
+      - DS: 1000000
+      - GRA: 650000
+      - NDP: 350000
+      - RIX: 150000
     lap_count:
       - DS: 3
   # vars:

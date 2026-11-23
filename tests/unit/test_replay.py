@@ -16,10 +16,10 @@ class TestReplay(DeathSaveGameTesting):
             self.hit_switch_and_run("s_trough1", 2)
             self.advance_time_and_run(20)
 
-    # Starts at 1.5M
-    def test_starts_at_one_and_a_half_million(self):
+    # Starts at 500k
+    def test_starts_at_half_a_million(self):
         self.advance_time_and_run(10)
-        self.assertEqual(1500000, self._replay_score())
+        self.assertEqual(500000, self._replay_score())
 
     # Free play: passing it is an extra ball (once a game)
     def test_free_play_extra_ball(self):
@@ -105,22 +105,22 @@ class TestReplay(DeathSaveGameTesting):
         self.advance_time_and_run(1)
         self.machine.variables.set_machine_var("replay_games_without", 48)
         for game in range(2):
-            self.assertEqual(1500000, self._replay_score())
+            self.assertEqual(500000, self._replay_score())
             self._start()
             self._play_out()
             self.assertIsNone(self.machine.game)
-        self.assertEqual(750000, self._replay_score())
+        self.assertEqual(250000, self._replay_score())
         self.assertEqual(0, self.machine.variables.get_machine_var(
             "replay_games_without"))
 
-    # but never below 500k
-    def test_never_below_half_a_million(self):
+    # but never below 150k
+    def test_never_below_the_floor(self):
         self.advance_time_and_run(1)
-        self.machine.variables.set_machine_var("replay_score", 600000)
+        self.machine.variables.set_machine_var("replay_score", 200000)
         self.machine.variables.set_machine_var("replay_games_without", 49)
         self._start()
         self._play_out()
-        self.assertEqual(500000, self._replay_score())
+        self.assertEqual(150000, self._replay_score())
 
     # The chimes knock (rolling down twice)
     def test_chimes(self):

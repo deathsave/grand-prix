@@ -28,7 +28,7 @@ machine_vars:
     persist: false
   # The replay score, adjusted after each game (see code/replay.py)
   replay_score:
-    initial_value: 1500000
+    initial_value: 500000
     value_type: int
     persist: true
   replay_games_without:

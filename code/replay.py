@@ -11,11 +11,11 @@ class Replay(CustomCode):
     # after 50 games in a row without one, it's halved. It's saved on
     # the machine (the replay_score machine var, see
     # config/common/variables.yaml).
-    START = 1500000
+    START = 500000
     RAISE = 1.5
     GAMES_BEFORE_HALVING = 50
     # (never below this, and rounded to the nearest 10k)
-    MIN = 500000
+    MIN = 150000
     ROUND_TO = 10000
 
     def on_load(self):

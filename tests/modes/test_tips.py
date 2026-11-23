@@ -98,7 +98,7 @@ class TestTipsMode(DeathSaveGameTesting):
         self.post_event("toggle_credit_play")
         self.advance_time_and_run(1)
         self._show_tip("Replay")
-        self.assertEqual("Beat 1,500,000 for a free game!",
+        self.assertEqual("Beat 500,000 for a free game!",
             self._var("tip_line1"))
 
     # Every slide change whooshes (timed or from a flipper)
