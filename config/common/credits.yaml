@@ -21,6 +21,10 @@ credits:
   - event: match_has_match
     credits: winners
     type: match
+  # a replay (see code/replay.py)
+  - event: replay_credit
+    credits: 1
+    type: replay
   pricing_tiers:
   - price: .50
     credits: 1

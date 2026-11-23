@@ -1,6 +1,10 @@
 #config_version=6
 
 extra_balls:
+  # a replay on free play (see code/replay.py)
+  replay:
+    award_events: replay_extra_ball
+    max_per_game: 1
   awareness:
     light_events:
     - logicblock_awareness_counter_complete

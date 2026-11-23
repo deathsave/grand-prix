@@ -26,8 +26,21 @@ machine_vars:
     initial_value: ""
     value_type: str
     persist: false
+  # The replay score, adjusted after each game (see code/replay.py)
+  replay_score:
+    initial_value: 1500000
+    value_type: int
+    persist: true
+  replay_games_without:
+    initial_value: 0
+    value_type: int
+    persist: true
 
 player_vars:
+  # got this game's replay (see code/replay.py)
+  replay_awarded:
+    initial_value: 0
+    value_type: int
   name:
     initial_value: ""
     value_type: str

@@ -90,6 +90,10 @@ The multiplier (1X, 2X, 5X) multiplies the playfield switches, laps and the regu
 - Every super jackpot (Grand Prix's, Lap of Luxury's, Red Line's Checkered Flag) steps it up (1X to 2X, 2X to 5X)
 - Grooveline's super jackpot steps it up until the multiball ends
 
+### Replay
+
+Beat the replay score for a **free game** (or an **extra ball** on free play), once a game. The replay score goes up when players beat it and comes back down when they don't.
+
 ### Special Modes
 
 Three special modes build up to the activation of a fourth, wizard mode.

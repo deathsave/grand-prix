@@ -1,0 +1,74 @@
+#config_version=6
+
+# Replays (see code/replay.py): passing the replay score is a free
+# credit in credit play (credits.yaml), or an extra ball on free play
+# (the pit's replay extra ball), with a fanfare: a chime knock, the
+# "Replay!" call out and a gold REPLAY! overlay.
+
+show_player:
+  replay_awarded:
+    replay_chimes:
+      loops: 0
+
+sound_player:
+  replay_awarded: replay
+
+widget_player:
+  replay_credit:
+    replay_free_game:
+      key: replay
+      widget_settings:
+        expire: 3s
+  replay_extra_ball:
+    replay_extra_ball:
+      key: replay
+      widget_settings:
+        expire: 3s
+
+widgets:
+  replay_free_game:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: gold
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: REPLAY!
+    z: 21
+    y: middle+10%
+    color: white
+    style: text_default
+    font_size: 130
+    animations:
+      add_to_slide: pulsate_fast
+  - type: text
+    text: FREE GAME
+    z: 21
+    y: middle-17%
+    color: white
+    style: medium
+    font_size: 40
+  replay_extra_ball:
+  - type: rectangle
+    width: 800
+    height: 480
+    color: gold
+    opacity: 0.6
+    z: 20
+  - type: text
+    text: REPLAY!
+    z: 21
+    y: middle+10%
+    color: white
+    style: text_default
+    font_size: 130
+    animations:
+      add_to_slide: pulsate_fast
+  - type: text
+    text: EXTRA BALL
+    z: 21
+    y: middle-17%
+    color: white
+    style: medium
+    font_size: 40

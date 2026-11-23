@@ -536,6 +536,9 @@ sounds:
   red_flag_reminder:
     file: red-flag-reminder.ogg
     track: voice
+  replay:
+    file: replay.ogg
+    track: voice
 
   ######## Steve #########
 

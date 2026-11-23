@@ -4,6 +4,7 @@ config:
 - common/animations.yaml
 - common/combo_switches.yaml
 - common/credits.yaml
+- common/replay.yaml
 - common/event_player.yaml
 - common/assets.yaml
 - common/autofire_coils.yaml
