@@ -30,8 +30,8 @@ class TestTipsDisplay(DeathSaveMcTesting):
         self.assertEqual("splash_slide", self._slide())
         self.hit_and_release_switch("s_flipper1")
         self.advance_time_and_run(1)
-        # (Replay, on the plain tip slide)
-        self.assertEqual("tip_slide", self._slide())
+        # (Replay, on the dimmed attract splash)
+        self.assertEqual("tip_replay_slide", self._slide())
 
     # The right flipper advances to the first tip slide
     def test_flipper_shows_tip_slide(self):

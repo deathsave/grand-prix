@@ -76,6 +76,7 @@
   - "Hit the drop target to stop the bleeding"
 
 - title: Replay
+  mode: replay
   lines:
   - "Beat {replay_score} for {replay_award}!"
   - "Once a game for every driver"

@@ -26,6 +26,16 @@ slides:
   - widget: tip_line2
   - widget: tip_line3
   - widget: tip_line4
+  # the Replay tip: the attract splash, dimmed
+  tip_replay_slide:
+  - widget: splash
+  - widget: tip_dim
+  - widget: tip_header
+  - widget: tip_title
+  - widget: tip_line1
+  - widget: tip_line2
+  - widget: tip_line3
+  - widget: tip_line4
   tip_green_flag_slide:
   - widget: green_flag_background
   - widget: tip_dim
