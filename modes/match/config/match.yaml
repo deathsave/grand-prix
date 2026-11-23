@@ -1,5 +1,9 @@
 #config_version=6
 
+# MPF's match mode, with its match chance fixed (see code/match.py)
+mode:
+  code: match.GrandPrixMatch
+
 timers:
   # A fallback for players to ensure state is refreshed
   match:

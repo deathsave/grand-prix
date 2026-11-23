@@ -21,9 +21,9 @@ class TestMatch(DeathSaveGameTesting):
     # In credit play, a match gives back a free credit
     def test_match_awards_a_credit(self):
         from unittest.mock import patch
-        from mpf.modes.match.code.match import Match
+        from modes.match.code.match import GrandPrixMatch
         # (the player's number always matches)
-        patcher = patch.object(Match, "_get_winner_number",
+        patcher = patch.object(GrandPrixMatch, "_get_winner_number",
             lambda match, numbers, percentage: numbers[0])
         patcher.start()
         self.addCleanup(patcher.stop)
@@ -54,8 +54,8 @@ class TestMatch(DeathSaveGameTesting):
 
     def _play_to_match(self, matched):
         from unittest.mock import patch, MagicMock
-        from mpf.modes.match.code.match import Match
-        patcher = patch.object(Match, "_get_winner_number",
+        from modes.match.code.match import GrandPrixMatch
+        patcher = patch.object(GrandPrixMatch, "_get_winner_number",
             lambda match, numbers, percentage:
                 numbers[0] if matched else (numbers[0] + 10) % 100)
         patcher.start()
@@ -95,3 +95,25 @@ class TestMatch(DeathSaveGameTesting):
         self.advance_time_and_run(3)
         self.assertEqual(["c_chime1", "c_chime3", "c_chime1", "c_chime3"],
             pulses)
+
+    # MPF's chance was match_percentage to the power of how many
+    # different numbers the players had (a 2 or 3 player game nearly
+    # always matched). Each different number gets its own 10% now
+    def test_match_odds(self):
+        import random
+        from modes.match.code.match import GrandPrixMatch
+        from modes.match.code.match import GrandPrixMatch
+        mode = self.machine.modes["match"]
+        self.assertIsInstance(mode, GrandPrixMatch)
+        random.seed(86)
+        for numbers, expected in [([30], 0.10), ([30, 50], 0.19),
+                ([30, 50, 70], 0.271)]:
+            wins = sum(mode._get_winner_number(numbers, 10) in numbers
+                for i in range(20000))
+            self.assertAlmostEqual(expected, wins / 20000, delta=0.01,
+                msg=numbers)
+        # and a miss is never anyone's number
+        for i in range(500):
+            winner = mode._get_winner_number([30, 50, 70], 0)
+            self.assertNotIn(winner, [30, 50, 70])
+            self.assertEqual(0, winner % 10)
