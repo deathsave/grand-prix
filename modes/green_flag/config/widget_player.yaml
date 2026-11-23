@@ -11,24 +11,27 @@ widget_player:
     countdown_ready:
       widget_settings:
         expire: 5s
+  # (each number stays up past its 1s, so the next one always takes
+  # over from it: with exactly 1s, one arriving a frame late let the
+  # green flag slide flash through)
   off_the_line_countdown3:
     countdown_ready:
       action: remove
     countdown3:
       widget_settings:
-        expire: 1s
+        expire: 1.5s
   off_the_line_countdown2:
     countdown3:
       action: remove
     countdown2:
       widget_settings:
-        expire: 1s
+        expire: 1.5s
   off_the_line_countdown1:
     countdown2:
       action: remove
     countdown1:
       widget_settings:
-        expire: 1s
+        expire: 1.5s
   green_flag_dropped:
     countdown1:
       action: remove

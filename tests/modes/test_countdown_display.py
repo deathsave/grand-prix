@@ -33,6 +33,20 @@ class TestCountdownDisplay(DeathSaveMcTesting):
             "green_flag_dropped", "Race!"], order)
         self.assertEqual([], self._texts())
 
+    # Something's always up from Get Ready to Race! (a gap flashed the
+    # green flag slide through)
+    def test_no_gaps(self):
+        self._start_and_expire_ball_save()
+        self.hit_and_release_switch("s_pit_fuel")
+        samples = []
+        for _ in range(400):  # 8s, every 20ms
+            self.advance_time_and_run(0.02)
+            samples.append(self._texts())
+        first = next(i for i, t in enumerate(samples) if t)
+        race = next(i for i, t in enumerate(samples) if t == ["Race!"])
+        self.assertEqual([], [ i for i in range(first, race)
+            if not samples[i] ])
+
     # Race! is over the green flag image, on lime at 60%
     def test_race_background(self):
         from mpf.core.rgb_color import RGBColor
