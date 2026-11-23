@@ -29,7 +29,8 @@ class TestMatch(DeathSaveGameTesting):
         self.addCleanup(patcher.stop)
         self.advance_time_and_run(10)
         self.post_event("toggle_credit_play")
-        self.advance_time_and_run(1)
+        # (start is blocked for 5s after a toggle)
+        self.advance_time_and_run(5.5)
         for i in range(2):
             self.hit_and_release_switch("s_credit")
             self.advance_time_and_run(0.2)

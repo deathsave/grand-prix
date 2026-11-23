@@ -26,7 +26,8 @@ class TestCreditsDisplay(DeathSaveMcTesting):
         self.post_event("toggle_credit_play")
         self.advance_time_and_run(0.5)
         self.assertIn("CREDIT PLAY", self._texts())
-        self.advance_time_and_run(4)
+        # (start is blocked for 5s after a toggle)
+        self.advance_time_and_run(5)
 
         self.hit_and_release_switch("s_start")
         self.advance_time_and_run(0.5)

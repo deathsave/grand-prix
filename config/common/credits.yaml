@@ -3,7 +3,7 @@
 # Credits (MPF's built-in credits mode, in modes.yaml)
 #
 # The coin mech (s_credit) takes quarters: 50 cents a game, 3 for
-# a dollar. Free play is the default; start + the left flipper
+# a dollar. Free play is the default; start + the physically right flipper
 # (held 2s, see combo_switches.yaml) toggles between free play and
 # credit play, and MPF saves it (the free_play setting) so it
 # survives a restart. (Until there's a maintenance mode.) A match

@@ -8,11 +8,16 @@ MPF's built-in `credits` mode (in `./config/common/modes.yaml`), set up in
 
 - The coin mech (`s_credit`) takes quarters: 50 cents a game, 3 for a dollar,
   up to 30 credits.
-- Free play is the default. Start + the left flipper (the switch tagged
-  `left_flipper`), held 2s, toggles between free play and credit play
+- Free play is the default. Start + the physically right flipper (the switch
+  tagged `left_flipper`, `s_flipper1`: the tags are swapped relative to the
+  buttons), held 2s, toggles between free play and credit play
   (`free_play_toggle` in `./config/common/combo_switches.yaml`, which posts
   `toggle_credit_play`). MPF saves it (the `free_play` setting), so it survives
-  a restart. (Start + the right flipper is still the shutdown combo.)
+  a restart. (Start + the physically left flipper, tagged `right_flipper`, is the shutdown
+  combo.) For 5s
+  after it toggles, start doesn't start a game or add a player, since attract
+  starts a game when start is let go
+  (`./modes/credits/code/credits.py`).
 - The display says CREDIT PLAY or FREE PLAY when it toggles, and INSERT COINS
   when start is pressed without enough.
 - A coin shows `credits_slide` (the credits over the dimmed splash, the

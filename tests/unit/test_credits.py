@@ -13,7 +13,8 @@ class TestCredits(DeathSaveGameTesting):
     def _credit_play(self):
         self.advance_time_and_run(10)
         self.post_event("toggle_credit_play")
-        self.advance_time_and_run(1)
+        # (start is blocked for 5s after a toggle)
+        self.advance_time_and_run(5.5)
         self.assertFalse(
             self.machine.settings.get_setting_value("free_play"))
 
@@ -91,3 +92,29 @@ class TestCredits(DeathSaveGameTesting):
         self.assertTrue(self.machine.settings.get_setting_value("free_play"))
         self.assertEqual(0, self.machine.variables.get_machine_var(
             "credit_units") or 0)
+
+    def _combo(self):
+        self.hit_switch_and_run("s_flipper1", 0.1)
+        self.hit_switch_and_run("s_start", 2.5)
+        self.release_switch_and_run("s_start", 0.1)
+        self.release_switch_and_run("s_flipper1", 0.5)
+
+    # Letting go of start after the combo doesn't start a game, nor does
+    # pressing it again within 5s; after that it does
+    def test_combo_doesnt_start_a_game(self):
+        self.advance_time_and_run(10)
+        self._combo()
+        self.assertFalse(
+            self.machine.settings.get_setting_value("free_play"))
+        self.assertIsNone(self.machine.game)
+        # back to free play, and start straight away
+        self._combo()
+        self.assertTrue(self.machine.settings.get_setting_value("free_play"))
+        self.assertIsNone(self.machine.game)
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        self.assertIsNone(self.machine.game)
+        self.advance_time_and_run(4)
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        self.assertIsNotNone(self.machine.game)

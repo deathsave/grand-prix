@@ -1,7 +1,9 @@
 #config_version=6
 
+# (the flipper tags are swapped relative to the buttons: the switch
+# tagged left_flipper, s_flipper1, is the physically right button)
 combo_switches:
-  # the right flipper + start, held 2s
+  # start + the right_flipper tag (the physically left button), held 2s
   # (its own name: MPF's both_flippers combo, left + right flipper,
   # posts flipper_cancel, which skips through the end of ball bonus)
   shutdown_combo:
@@ -9,7 +11,8 @@ combo_switches:
     tag_2: start
     events_when_both: shutdown
     hold_time: 2s
-  # the left flipper + start, held 2s: free play <-> credit play
+  # start + the left_flipper tag (the physically right button), held
+  # 2s: free play <-> credit play
   # (see credits.yaml)
   free_play_toggle:
     tag_1: left_flipper
