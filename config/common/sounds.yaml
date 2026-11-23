@@ -220,12 +220,12 @@ sounds:
   engine_start:
     file: engine-start.wav
     track: effects
-    volume: 0.3
+    volume: 0.15
     fade_out: 0.2s
   engine_idle:
     file: engine-idle.wav
     track: effects
-    volume: 0.2
+    volume: 0.1
     fade_in: 0.2s
     fade_out: 0.3s
   # driving around in the pit, from the plunge (or leaving Green
@@ -235,7 +235,7 @@ sounds:
   engine_pace:
     file: engine-pace.wav
     track: effects
-    volume: 0.1
+    volume: 0.05
     fade_out: 0.5s
   backfire_loop:
     file: backfire-loop.ogg
