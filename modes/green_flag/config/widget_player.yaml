@@ -38,3 +38,14 @@ widget_player:
     countdown_race:
       widget_settings:
         expire: 1.5s
+  # A successful Off the Line skill shot (plunged right on the final
+  # ding, within 0.4s either side), over (or instead of) Race!
+  off_the_line_hit:
+    countdown1:
+      action: remove
+    countdown_race:
+      action: remove
+    off_the_line_skill_shot:
+      key: off_the_line_skill_shot
+      widget_settings:
+        expire: 3s

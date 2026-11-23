@@ -47,6 +47,33 @@ class TestCountdownDisplay(DeathSaveMcTesting):
         self.assertEqual([], [ i for i in range(first, race)
             if not samples[i] ])
 
+    def _texts_with(self, key):
+        found = []
+        def walk(widget):
+            if type(widget).__name__ == "Text" and \
+                    key in (getattr(widget, "key", None) or ""):
+                found.append(widget.text)
+            for child in getattr(widget, "children", []):
+                walk(child)
+        walk(self.mc.targets["default"])
+        return found
+
+    # A successful Off the Line skill shot takes over from Race!
+    def test_off_the_line_slide(self):
+        self._start_and_expire_ball_save()
+        self.hit_and_release_switch("s_pit_fuel")
+        for _ in range(160):
+            self.advance_time_and_run(0.05)
+            if self._texts() == ["Race!"]:
+                break
+        self.post_event("off_the_line_hit")
+        self.advance_time_and_run(0.1)
+        self.assertEqual([], self._texts_with("countdown_race"))
+        self.assertEqual(["Off the line!", "SKILL SHOT  25,000"],
+            self._texts_with("off_the_line"))
+        self.advance_time_and_run(3.5)
+        self.assertEqual([], self._texts_with("off_the_line"))
+
     # Race! is over the green flag image, on lime at 60%
     def test_race_background(self):
         from mpf.core.rgb_color import RGBColor

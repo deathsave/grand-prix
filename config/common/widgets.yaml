@@ -387,6 +387,34 @@ widgets:
     font_size: 200
     animations:
       add_to_slide: countdown_fade
+  # A successful Off the Line skill shot (it takes over from Race!):
+  # the green flag image under gold, with what it's worth
+  off_the_line_skill_shot:
+  - type: image
+    image: green-flag-background
+    z: 22
+  - type: rectangle
+    width: 800
+    height: 480
+    color: gold
+    opacity: 0.6
+    z: 23
+  - type: text
+    text: "Off the line!"
+    z: 24
+    y: middle+10%
+    color: white
+    style: text_default
+    font_size: 120
+    animations:
+      add_to_slide: pulsate_fast
+  - type: text
+    text: SKILL SHOT  25,000
+    z: 24
+    y: middle-18%
+    color: white
+    style: medium
+    font_size: 40
   # Jackpot callouts, over the mode's slide: the mode's color
   # (see config/common/named_colors.yaml) at 60% and the text, while the callout
   # plays (see widget_player in those modes)
