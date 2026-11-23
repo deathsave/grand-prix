@@ -109,12 +109,9 @@ Mechs
 -----
 
 - Tachometer / Voltage Meter experiment
-- Shaker Motor show(s)
-  - Pulse when any multiball starts
-  - Pulse when a lap is made (already does, on `logicblock_seq_lap_complete`
-    in `modes/green_flag/config/coil_player.yaml`, along with revs and
-    swerves; maybe a longer pulse)
-  - Pulse on the last tick of Off the Line if the skill shot is made
+- Shaker Motor show(s) (the spinner, multiball starts, jackpots, super
+  jackpots, skill shots, replays, the Under Red crash and Backfire Pops
+  shake it now)
   - Grooveline - pulse shaker to the music (shake your groove thing)
   - Red Line - tiny pulses in time with the heartbeat loop
 - Chimebox show(s)
@@ -122,6 +119,29 @@ Mechs
     plays after the rolls, and the super jackpot slide stays up for
     all of it (rolls + callout)
 - Top-left loop gate / servo
-- Wire the tilt / coin door / service switch bank
-  (`config/common/switches.yaml`)
-- Outlane switches - left is dead, right is intermittent
+- Wire the service switches (the tilt and coin mech on that bank work
+  now; `s_service_*` are commented out in `config/common/switches.yaml`)
+
+Hardware
+--------
+
+- `s_trough1` (0-3-26, at the trough's eject end) never changes state:
+  0 changes in any session since Nov 20, still after the screw fix,
+  while `s_trough2` / `s_trough3` change dozens of times a session.
+  It's type NC, so an open circuit reads as "ball here" all the time.
+  That throws MPF's ball count off ("Received unexpected ball" in the
+  trough): an extra ball fed and auto launched, a ball ending early,
+  and a black screen for up to ~40s after a game while MPF searches
+  for a ball it thinks is missing. Check its wire, connector / crimp
+  and the switch (or opto). Test: lift the ball off that spot in
+  attract and watch the log for `s_trough1`
+- The left inlane / outlane (`s_inlane1` 0-2-26, `s_outlane1` 0-2-27)
+  fire together (774 times, vs 104 / 196 alone) and often with no ball,
+  right after a coil fires: bridged inputs or a shared common. Until
+  fixed they're not `playfield_active` (they faked launches and shut
+  the loop gate); add the tag back once they're fixed
+- The shooter lane switch is sensitive: it opens for 0.3-0.7s with the
+  ball still in the lane (the debounce covers short bounces only)
+- Segment display 4 needs solder work
+- The GRAND "A" lamp (`l_grand3`, 0-1-22) probably needs its connector
+  checked
