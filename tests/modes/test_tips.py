@@ -54,9 +54,11 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertEqual("Get Under Green", self._title())
         self.advance_time_and_run(10)
         self.assertEqual("Back... Fire", self._title()[:12])
-        # 6 more tips (8 total) puts us on the last one
+        # 6 more tips puts us on Pure Evil, then Replay (9 total)
         self.advance_time_and_run(60)
         self.assertEqual("Pure Evil", self._title())
+        self.advance_time_and_run(10)
+        self.assertEqual("Replay", self._title())
         # then the splash again
         self.advance_time_and_run(10)
         self.assertEqual("", self._var("tip_title"))
@@ -71,6 +73,33 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertEqual(15, steps[0]["duration"])
         for step in steps[1:]:
             self.assertEqual(10, step["duration"])
+
+    def _show_tip(self, title):
+        tips = self.machine.modes["tips"].tips
+        index = [ t["title"] for t in tips ].index(title)
+        tips_mode = self.machine.modes["tips"]
+        tips_mode.tip_number = lambda: index
+        self.post_event("attract_tip")
+        # (before the intro ends at 12s and the splash clears it)
+        self.advance_time_and_run(6)
+
+    # The replay tip shows the replay score and, on free play, the
+    # extra ball award
+    def test_replay_tip_free_play(self):
+        self.advance_time_and_run(1)
+        self.machine.variables.set_machine_var("replay_score", 1750000)
+        self._show_tip("Replay")
+        self.assertEqual("Beat 1,750,000 for an extra ball!",
+            self._var("tip_line1"))
+
+    # and in credit play, a free game
+    def test_replay_tip_credit_play(self):
+        self.advance_time_and_run(1)
+        self.post_event("toggle_credit_play")
+        self.advance_time_and_run(1)
+        self._show_tip("Replay")
+        self.assertEqual("Beat 1,500,000 for a free game!",
+            self._var("tip_line1"))
 
     # Every slide change whooshes (timed or from a flipper)
     def test_every_step_whooshes(self):
@@ -103,7 +132,7 @@ class TestTipsMode(DeathSaveGameTesting):
         self.advance_time_and_run(2)
         self.hit_and_release_switch("s_flipper1") # left
         self.advance_time_and_run(8)
-        self.assertEqual("Pure Evil", self._title())
+        self.assertEqual("Replay", self._title())
         # and the splash comes next
         self.advance_time_and_run(2.5)
         self.assertEqual("", self._var("tip_title"))
@@ -113,7 +142,7 @@ class TestTipsMode(DeathSaveGameTesting):
     def test_right_flipper_advances(self):
         self.advance_time_and_run(13)
         titles = []
-        for i in range(10):
+        for i in range(11):
             self.hit_and_release_switch("s_flipper2")
             self.advance_time_and_run(8)
             titles.append(self._title())
@@ -126,6 +155,7 @@ class TestTipsMode(DeathSaveGameTesting):
             "Extra Ball & 2X",
             "Red Line",
             "Pure Evil",
+            "Replay",
             "", # splash
             "Get Under Green",
         ], titles)
@@ -141,7 +171,7 @@ class TestTipsMode(DeathSaveGameTesting):
             self.advance_time_and_run(8)
             titles.append(self._title())
         self.assertEqual(
-            ["Get Under Green", "", "Pure Evil"], titles)
+            ["Get Under Green", "", "Replay"], titles)
 
     # A step's full time restarts after a flipper press
     def test_flipper_restarts_step_time(self):
@@ -153,7 +183,7 @@ class TestTipsMode(DeathSaveGameTesting):
     # Every tip line fits the 4 line slide
     def test_tips_fit_the_slide(self):
         tips = self.machine.modes["tips"].tips
-        self.assertEqual(8, len(tips))
+        self.assertEqual(9, len(tips))
         for tip in tips:
             self.assertTrue(tip["title"])
             self.assertLessEqual(len(tip["lines"]), 4)

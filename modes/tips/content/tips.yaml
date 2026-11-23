@@ -7,6 +7,11 @@
 # its background dimmed behind the text. It needs a matching
 # tip_<mode>_slide in config/common/slides.yaml and a line in
 # the Tips mode's config/slide_player.yaml.
+#
+# Text can show live values (see VALUES in code/tips.py):
+#   {replay_score}  the current replay score, e.g. 1,500,000
+#   {replay_award}  "a free game" (credit play) or "an extra ball"
+#                   (free play)
 
 - title: Get Under Green
   mode: green_flag
@@ -69,3 +74,10 @@
   lines:
   - "Every second costs you points"
   - "Hit the drop target to stop the bleeding"
+
+- title: Replay
+  lines:
+  - "Beat {replay_score} for {replay_award}!"
+  - "Once a game for every driver"
+  - "Beat it and it goes up for the next game,"
+  - "miss it a few games and it comes back down"

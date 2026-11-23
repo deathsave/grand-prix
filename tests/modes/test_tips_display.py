@@ -19,8 +19,8 @@ class TestTipsDisplay(DeathSaveMcTesting):
         self.advance_time_and_run(10)
         self.assertEqual("tip_backfire_slide", self._slide())
 
-        # through the other 6 tips and back to the splash
-        self.advance_time_and_run(70)
+        # through the other 7 tips (Replay last) and back to the splash
+        self.advance_time_and_run(80)
         self.assertEqual("splash_slide", self._slide())
 
     # The left flipper steps back from the splash
@@ -30,7 +30,8 @@ class TestTipsDisplay(DeathSaveMcTesting):
         self.assertEqual("splash_slide", self._slide())
         self.hit_and_release_switch("s_flipper1")
         self.advance_time_and_run(1)
-        self.assertEqual("tip_pure_evil_slide", self._slide())
+        # (Replay, on the plain tip slide)
+        self.assertEqual("tip_slide", self._slide())
 
     # The right flipper advances to the first tip slide
     def test_flipper_shows_tip_slide(self):

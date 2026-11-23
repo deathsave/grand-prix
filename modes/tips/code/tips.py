@@ -79,10 +79,24 @@ class Tips(Mode):
         self.clear()
         self.machine.events.post(self.slide_for(tip))
         lines = (tip.get("lines") or [])[:len(self.LINE_VARS)]
-        self.queue = [ (self.TITLE_VAR, tip["title"]) ] + \
-            list(zip(self.LINE_VARS, lines))
+        values = self.values()
+        self.queue = [ (var, text.format_map(values)) for var, text in
+            [ (self.TITLE_VAR, tip["title"]) ] +
+            list(zip(self.LINE_VARS, lines)) ]
         self.words = 0
         self.delay.add(self.WORD_MS, self.type_next_word, "typing")
+
+    # Live values a tip's text can show, as {name} (see
+    # content/tips.yaml), worked out when the tip comes up
+    def values(self):
+        replay_score = self.machine.variables.get_machine_var(
+            "replay_score") or 0
+        free_play = self.machine.settings.get_setting_value("free_play")
+        return {
+            "replay_score": f"{replay_score:,}",
+            "replay_award": "an extra ball" if free_play
+                else "a free game",
+        }
 
     # Which tip the rotation show is on (the first
     # tip when posted without the show, e.g. in tests)
