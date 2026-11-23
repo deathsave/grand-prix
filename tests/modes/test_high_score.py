@@ -36,3 +36,18 @@ class TestHighScore(DeathSaveGameTesting):
         self.advance_time_and_run(1)
 
         self.assertModeRunning("high_score")
+
+    # The initials move the way of the button pressed: the flipper tags
+    # are swapped relative to the buttons (left_flipper is the
+    # physically right one), so left is the right_flipper tag
+    def test_initials_follow_the_buttons(self):
+        from ruamel.yaml import YAML
+        config = YAML(typ="safe").load(
+            open("modes/high_score/config/high_score.yaml"))
+        entry = [ w for w in config["slides"]["high_score_enter_initials"]
+            if w.get("type") == "text_input" ][0]
+        self.assertEqual("sw_right_flipper", entry["shift_left_event"])
+        self.assertEqual("sw_left_flipper", entry["shift_right_event"])
+        switches = YAML(typ="safe").load(
+            open("config/common/switches.yaml"))["switches"]
+        self.assertIn("left_flipper", switches["s_flipper1"]["tags"])

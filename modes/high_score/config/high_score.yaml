@@ -57,8 +57,10 @@ slides:
       x: middle
       y: middle-15%
       select_event: sw_start
-      shift_left_event: sw_left_flipper
-      shift_right_event: sw_right_flipper
+      # (swapped: the flipper tags are swapped relative to the buttons,
+      # so left_flipper is the physically right button)
+      shift_left_event: sw_right_flipper
+      shift_right_event: sw_left_flipper
       color: cyan
       anchor_x: middle
       anchor_y: middle
