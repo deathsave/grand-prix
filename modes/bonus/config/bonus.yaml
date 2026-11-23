@@ -44,7 +44,8 @@ mode_settings:
 # up (see code/bonus.py), then the total
 slides:
   bonus_board:
-  - widget: splash
+  # (the green flag background: less busy than the splash)
+  - widget: green_flag_background
   - widget: tip_dim
   - type: text
     text: End of Ball Bonus
