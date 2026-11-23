@@ -1,0 +1,17 @@
+#show_version=6
+
+# A successful Off the Line skill shot: the chimes run up, twice
+# (see modes/pit/config/show_player.yaml)
+- time: 0
+  coils: c_chime1
+- time: "+0.1s"
+  coils: c_chime2
+- time: "+0.1s"
+  coils: c_chime3
+- time: "+0.25s"
+  coils: c_chime1
+- time: "+0.1s"
+  coils: c_chime2
+- time: "+0.1s"
+  coils: c_chime3
+- time: "+0.4s"

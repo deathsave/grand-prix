@@ -29,7 +29,10 @@ sound_player:
   # Every switch is a rev (red_line_rev, see code/red_line.py), or
   # just the bell at the red line, so the other modes' switch
   # sounds are silenced
-  s_outlane2_active:
+  outlane2_drain:
+    nothing:
+      block: true
+  outlane2_saved:
     nothing:
       block: true
   s_inlane2_active:

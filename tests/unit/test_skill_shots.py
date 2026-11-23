@@ -161,3 +161,19 @@ class TestSkillShots(DeathSaveGameTesting):
         # off the line timer should be running now
         self.assertEqual(True,
             self.machine.timers["off_the_line"].running)
+
+    # A successful Off the Line skill shot runs the chimes up, twice
+    def test_off_the_line_chimes(self):
+        from unittest.mock import MagicMock
+        self._qualify_off_the_line_skill_shot()
+        pulses = []
+        for coil in ["c_chime1", "c_chime2", "c_chime3"]:
+            self.machine.coils[coil].pulse = MagicMock(
+                side_effect=lambda *a, coil=coil, **k: pulses.append(coil))
+        self.hit_and_release_switch("s_shooter_lane")
+        self.advance_time_and_run(1.5)
+        self.assertEqual(1, self.machine.shots["off_the_line"].state)
+        # (the green flag's final ding, c_chime3, lands in there too)
+        self.assertEqual(2, pulses.count("c_chime1"))
+        self.assertEqual(2, pulses.count("c_chime2"))
+        self.assertIn(pulses.count("c_chime3"), [2, 3])

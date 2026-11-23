@@ -9,3 +9,21 @@ timers:
     # start when a lap is recorded
     - event: player_lap_count
       action: restart
+  # The music 6s after Green Flag starts or a multiball ends, and the
+  # crowd 7s after it starts (see sound_player.yaml)
+  green_flag_music:
+    start_value: 6
+    end_value: 0
+    direction: down
+    control_events:
+    - event: mode_green_flag_started
+      action: restart
+    - event: multiball_stopped
+      action: restart
+  green_flag_crowd:
+    start_value: 7
+    end_value: 0
+    direction: down
+    control_events:
+    - event: mode_green_flag_started
+      action: restart

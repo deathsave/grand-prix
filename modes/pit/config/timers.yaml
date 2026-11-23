@@ -13,6 +13,11 @@ timers:
     # activate on initial ball launch
     - event: shooter_lane_plunged{not mode.green_flag.active}
       action: start
+    # a soft plunge that rolled back gets the full time again
+    - event: shooter_lane_rolled_back
+      action: stop
+    - event: shooter_lane_rolled_back
+      action: reset
 
   # Hurry up timer for the "backfire pops"
   backfire_qualification:

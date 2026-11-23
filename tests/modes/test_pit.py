@@ -182,3 +182,33 @@ class TestPitMode(DeathSaveGameTesting):
         self.hit_switch_and_run("s_shooter_lane", 5)
         self.assertEqual(0, kicker.pulse.call_count)
         self.assertEqual(0, self.machine.game.player.is_playfield_active)
+
+    # A soft plunge holds the gate open 5s (it shut at 2s, so a slow
+    # ball dropped toward the Backfire Hole), and one that rolls back
+    # into the shooter lane within 3s gets the gate (and the skill shot
+    # timer) again on the next plunge
+    def test_soft_plunge_rolls_back(self):
+        # (ball 1, in the shooter lane)
+        self.advance_time_and_run(10)
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        self.assertEqual(1, self.machine.ball_devices["bd_shooter_lane"].balls)
+        self.mock_event("shooter_lane_rolled_back")
+        gate = self.machine.diverters["loop_gate"]
+        timer = self.machine.timers["skill_shot"]
+        # a soft plunge: open, and still open 2.5s later (it was 2s)
+        self.release_switch_and_run("s_shooter_lane", 2.5)
+        self.assertTrue(gate.active)
+        self.assertTrue(timer.running)
+        # it rolled back without reaching the playfield
+        self.hit_switch_and_run("s_shooter_lane", 0.5)
+        self.assertEventCalled("shooter_lane_rolled_back")
+        self.assertFalse(gate.active)
+        self.assertFalse(timer.running)
+        self.assertEqual(7, timer.ticks)
+        # and the next plunge opens it again (after the gate's 1s cool
+        # down, about how long a re-plunge takes anyway)
+        self.advance_time_and_run(1.5)
+        self.release_switch_and_run("s_shooter_lane", 0.5)
+        self.assertTrue(gate.active)
+        self.assertTrue(timer.running)

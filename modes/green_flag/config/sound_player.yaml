@@ -1,8 +1,12 @@
 #config_version=6
 
 sound_player:
-  s_outlane2_active:
+  # (see event_player: whoosh while a ball save's on)
+  outlane2_drain:
     welp:
+      block: true
+  outlane2_saved:
+    whoosh:
       block: true
   s_inlane2_active:
     swoop:
@@ -40,16 +44,21 @@ sound_player:
   mode_pure_evil_started: pure_evil_enters
   # Wear and Tear's nothing burger: things are going fine
   green_flag_smooth_sailing: smooth_sailing
+  # The music and crowd come in a few seconds after Green Flag starts
+  # (or the music after a multiball), from this mode's timers (see
+  # timers.yaml), which stop with it: a sound_player delay can't be
+  # cancelled, so Green Flag ending inside it (the ball ending just
+  # after it started) left the music playing into the next ball
   mode_green_flag_started:
     pit_ambience:
       action: stop
+  timer_green_flag_music_complete:
     blinding_lights:
       action: play
-      delay: 6
       loops: -1
+  timer_green_flag_crowd_complete:
     at_the_track:
       action: play
-      delay: 7
       loops: -1
       priority: 5000
   # (Red Line swaps it for its reverbed crowd)
@@ -63,11 +72,6 @@ sound_player:
       action: stop
     at_the_track:
       action: stop
-  multiball_stopped:
-    blinding_lights:
-      action: play
-      delay: 6
-      loops: -1
 
   ##########################
   ## Grooveline Multiball ##

@@ -4,9 +4,11 @@ diverters:
   loop_gate:
     activation_coil: c_loop_gate
     type: hold
-    activation_time: 2s
+    # (long enough for a soft plunge to get there)
+    activation_time: 5s
     activate_events:
-    - s_spinner_active
+    # (a lap, only under green)
+    - s_spinner_active{mode.green_flag.active}
     # activate on initial ball leaving the shooter lane
     # (shooter_lane_plunged, see timed_switches.yaml: the switch
     # bounces as a ball rolls in)
@@ -16,6 +18,9 @@ diverters:
     # hitting ANYTHING following initial ball
     # launch will deactivate (only open for plunge)
     - playfield_active{not mode.green_flag.active}
+    # a soft plunge that rolled back into the shooter lane (see
+    # modes/pit/code/pit.py): shut, to open again on the next plunge
+    - shooter_lane_rolled_back
     targets_when_active: playfield
     cool_down_time: 1s
     enable_events:
@@ -23,6 +28,7 @@ diverters:
     - mode_pit_starting
     disable_events:
     - mode_green_flag_stopped
-    # disables itself when it deactivates itself
-    # for initial plunge
-    - diverter_loop_gate_deactivating{not mode.green_flag.active}
+    # (it used to disable itself once it shut after the first plunge,
+    # so a soft plunge that rolled back never got it again: the first
+    # plunge only is shooter_lane_plunged's is_playfield_active
+    # condition, and the spinner's only under green)

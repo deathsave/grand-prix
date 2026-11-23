@@ -69,3 +69,8 @@ show_player:
     led_color:
       key: bad_luck
       action: stop
+  # A successful Off the Line skill shot runs the chimes up (with its
+  # slide, see modes/green_flag/config/widget_player.yaml)
+  off_the_line_hit:
+    off_the_line_chimes:
+      loops: 0

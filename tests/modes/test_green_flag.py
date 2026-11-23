@@ -100,8 +100,14 @@ class TestGreenFlagMode(DeathSaveGameTesting):
 
     def test_loop_gate(self):
         self._start()
+        # shut after the plunge, and the spinner doesn't open it in the
+        # pit (only under green)
+        self.advance_time_and_run(6)
         self.assertEqual(
-            False, self.machine.diverters["loop_gate"].enabled)
+            False, self.machine.diverters["loop_gate"].active)
+        self.hit_and_release_switch("s_spinner")
+        self.assertEqual(
+            False, self.machine.diverters["loop_gate"].active)
 
         self._start_green_flag()
         self.assertEqual(
@@ -113,12 +119,12 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.hit_and_release_switch("s_spinner")
         self.assertEqual(
             True, self.machine.diverters["loop_gate"].active)
-        self.advance_time_and_run(1)
-        # still active after 1 second
+        self.advance_time_and_run(4)
+        # still active after 4 seconds
         self.assertEqual(
             True, self.machine.diverters["loop_gate"].active)
         self.advance_time_and_run(2)
-        # no longer active after 2 more
+        # no longer active after 2 more (it holds 5s)
         self.assertEqual(
             False, self.machine.diverters["loop_gate"].active)
 

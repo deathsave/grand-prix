@@ -1,6 +1,13 @@
 #config_version=6
 
 event_player:
+  # The right outlane: the welp when the ball's lost, a whoosh while a
+  # ball save (or a multiball's shoot again) will put it back (see
+  # sound_player)
+  s_outlane2_active:
+  - outlane2_saved{device.ball_saves.ball_start.enabled or device.multiballs.grooveline.shoot_again or device.multiballs.luxury.shoot_again or device.multiballs.grand_prix.shoot_again or device.multiballs.red_line.shoot_again}
+  # (no parentheses: event_player reads them as placeholders)
+  - outlane2_drain{not device.ball_saves.ball_start.enabled and not device.multiballs.grooveline.shoot_again and not device.multiballs.luxury.shoot_again and not device.multiballs.grand_prix.shoot_again and not device.multiballs.red_line.shoot_again}
   # Off the Line's Get Ready (see widget_player)
   mode_green_flag_started:
   - off_the_line_get_ready

@@ -40,6 +40,10 @@ class Pit(Mode):
     LOW_FLASH_SPEED = 4
     SHOOT_LIGHTS = { "level_fuel": "l_pit_shoot_fuel" }
 
+    # a ball back in the shooter lane this soon after a plunge, without
+    # touching the playfield, is a soft plunge that rolled back
+    ROLLED_BACK_SECS = 3
+
     # when the engine start up (3.25s) crossfades into the idle (over
     # its last 0.75s, see the pit's sound_player)
     ENGINE_START_MS = 2500
@@ -52,6 +56,7 @@ class Pit(Mode):
         self.flashing = {}
         self.engine_started = False
         self.in_lane = False
+        self.plunged_at = None
         self.ball_ending = False
         self.racing = False
         self.add_mode_event_handler("s_shooter_lane_active",
@@ -93,6 +98,9 @@ class Pit(Mode):
         if self.in_lane:
             return
         self.in_lane = True
+        if self.rolled_back():
+            self.machine.events.post("shooter_lane_rolled_back")
+            self.pace_off()
         if self.engine_started:
             self.machine.events.post("engine_idle")
             return
@@ -113,8 +121,15 @@ class Pit(Mode):
     # Line's countdown until the green flag drops (Green Flag has its
     # own sounds from there), and back to pace when Green Flag ends
     # for a pit stop, until the ball ends
+    def rolled_back(self):
+        return self.plunged_at is not None and \
+            not self.machine.game.player.is_playfield_active and \
+            self.machine.clock.get_time() - self.plunged_at < \
+                self.ROLLED_BACK_SECS
+
     def plunged(self, **kwargs):
         self.in_lane = False
+        self.plunged_at = self.machine.clock.get_time()
         self.engine_off()
         self.pace_on()
 

@@ -205,3 +205,52 @@ class TestSound(DeathSaveMcTesting):
         playing = [ sound["sound_id"] for sound in track.get_status()
             if sound["status"] == "playing" ]
         self.assertNotIn(self.mc.sounds["pit_ambience"].id, playing)
+
+    def _music_playing(self, name):
+        track = self.mc.sound_system.audio_interface. \
+            get_track_by_name("music")
+        return self.mc.sounds[name].id in [ s["sound_id"]
+            for s in track.get_status() if s["status"] == "playing" ]
+
+    # Green Flag's music comes in 6s after it starts
+    def test_green_flag_music(self):
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(4)
+        self.assertFalse(self._music_playing("blinding_lights"))
+        self.advance_time_and_run(3)
+        self.assertTrue(self._music_playing("blinding_lights"))
+
+    # but not if the ball ends first: it carried on into the next
+    # player's ball (in the pit)
+    def test_green_flag_music_not_after_the_ball_ends(self):
+        self._start()
+        self.hit_and_release_switch("s_start")
+        self.advance_time_and_run(1)
+        self.assertEqual(2, len(self.machine.game.player_list))
+        self._expire_ball_save()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(1)
+        self.assertModeRunning("green_flag")
+        self.hit_switch_and_run("s_trough1", 1)
+        self.advance_time_and_run(15)
+        self.assertEqual(2, self.machine.game.player.number)
+        self.assertModeNotRunning("green_flag")
+        self.assertFalse(self._music_playing("blinding_lights"))
+
+    # The right outlane whooshes while the ball save's on, and welps
+    # once it's over
+    def test_right_outlane_during_ball_save(self):
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(1)
+        self.assertModeRunning("green_flag")
+        self.assertTrue(self.machine.ball_saves["ball_start"].enabled)
+        requested = self._requested("s_outlane2_active")
+        self.assertIn("whoosh", requested)
+        self.assertNotIn("welp", requested)
+        self._expire_ball_save()
+        self.assertFalse(self.machine.ball_saves["ball_start"].enabled)
+        requested = self._requested("s_outlane2_active")
+        self.assertIn("welp", requested)
+        self.assertNotIn("whoosh", requested)
