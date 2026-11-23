@@ -159,6 +159,34 @@ variable_player:
     is_grand_prix_completed:
       action: set
       int: 0
+    # (and they can be completed again for the bonus)
+    is_grooveline_super:
+      action: set
+      int: 0
+    is_grand_prix_super:
+      action: set
+      int: 0
+
+  ##############################
+  ## Completed, for the bonus ##
+  ##############################
+  grooveline_super_jackpot:
+    is_grooveline_super:
+      action: set
+      int: 1
+  # (the shot group also posts luxury_complete as it starts)
+  luxury_complete{state == "claimed"}:
+    is_luxury_super:
+      action: set
+      int: 1
+  grand_prix_super_jackpot:
+    is_grand_prix_super:
+      action: set
+      int: 1
+  red_line_checkered_flag:
+    is_red_line_super:
+      action: set
+      int: 1
 
   #####################
   ## Per-ball resets ##

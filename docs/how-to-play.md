@@ -72,11 +72,13 @@ A multi-car wreck now and then brings out the red flag (not during a multiball).
 
 ![Bonus](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/bonus.jpeg)
 
-At the end of each ball, bonus is tallied and added to your score:
+At the end of each ball, the bonus is tallied on a results board and added to your score. Only what you've earned is shown:
 
-- **Spinner Bonus**: 10,000 points per Luxury counter step accumulated (see Lap of Luxury below)
-- **Lap Bonus**: 1,000 points per lap completed during the ball
-- Both bonuses are multiplied by your current multiplier
+- **Luxury**: 10,000 points per Luxury insert lit (see Lap of Luxury below)
+- **Laps**: 1,000 points per lap
+- **Multiballs**: 10,000 points for each multiball you've played
+- **Super Jackpots**: 30,000 points for each multiball you've completed (its super jackpot, or Red Line's checkered flag)
+- Hold both flippers to skip through it
 
 No bonus is awarded if nothing was earned that ball.
 

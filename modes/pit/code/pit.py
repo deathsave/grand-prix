@@ -149,7 +149,19 @@ class Pit(Mode):
     def pace_off(self, **kwargs):
         self.machine.events.post("engine_pace_off")
 
+    MULTIBALLS = ["grooveline", "luxury", "grand_prix", "red_line"]
+
+    # The end of ball bonus counts each multiball played and completed
+    # (see modes/bonus): worked out as the ball ends, before the bonus
+    def count_bonus(self):
+        player = self.machine.game.player
+        player.bonus_multiballs = sum(
+            1 for name in self.MULTIBALLS if player[f"is_{name}_completed"])
+        player.bonus_supers = sum(
+            1 for name in self.MULTIBALLS if player[f"is_{name}_super"])
+
     def ball_will_end(self, **kwargs):
+        self.count_bonus()
         self.ball_ending = True
         self.engine_off()
         self.pace_off()

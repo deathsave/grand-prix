@@ -93,6 +93,9 @@ class TestRedLineMode(DeathSaveGameTesting):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         self._red_line_ready()
+        player = self.machine.game.player
+        player.is_grooveline_super = 1
+        player.is_grand_prix_super = 1
         self.hit_switch_and_run("s_hole_grand", 3)
         self.assertModeRunning("red_line")
         self.advance_time_and_run(60) # expire mode ball save
@@ -103,6 +106,9 @@ class TestRedLineMode(DeathSaveGameTesting):
 
         player = self.machine.game.player
         self.assertEqual(0, player.is_grooveline_completed)
+        # (their bonus completions too)
+        self.assertEqual(0, player.is_grooveline_super)
+        self.assertEqual(0, player.is_grand_prix_super)
         self.assertEqual(0, player.is_grand_prix_completed)
         self.assertEqual(1, player.is_luxury_completed)
         self.assertEqual(1, player.is_red_line_completed)

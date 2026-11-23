@@ -223,3 +223,14 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self.hit_and_release_switch("s_swerve1")
         self.advance_time_and_run(0.5)
         self.assertEqual(0, self.machine.game.player.spin_counter_count)
+
+    # Completing Luxury counts for the bonus, but not its shot group
+    # starting (which also posts luxury_complete)
+    def test_completion_for_the_bonus(self):
+        self._start_luxury_multiball()
+        player = self.machine.game.player
+        self.assertEqual(0, player.is_luxury_super)
+        for switch in ["s_target_bonus", "s_hole_prix", "s_spinner",
+                "s_grooveline", "s_hole_grand", "s_target_save"]:
+            self.hit_switch_and_run(switch, 1)
+        self.assertEqual(1, player.is_luxury_super)

@@ -2,85 +2,210 @@
 
 mode:
   priority: 10000
+  # (only if there's something to pay, see the entries)
   start_events:
-  - ball_ending{current_player.luxury_counter_count > 0 or current_player.lap_count > 0}
+  - ball_ending{current_player.luxury_counter_count > 0 or current_player.lap_count > 0 or current_player.bonus_multiballs > 0}
   stop_events:
   - ball_starting
+  # MPF's bonus mode, putting each line up on a results board (see
+  # code/bonus.py)
+  code: bonus.GrandPrixBonus
 
 mode_settings:
   display_delay_ms: 4000
   end_bonus_event: bonus_show_ended
+  # (display in the order here; only the lines the player earned
+  # anything for, skip_if_zero)
   bonus_entries:
-  # display in the order here
+  # the Luxury chain, 10k an insert (it never resets)
   - event: bonus_main
     score: 10000
     player_score_entry: luxury_counter_count
-    skip_if_zero: false
-  # the name of the event the bonus will post
+    skip_if_zero: true
+  # 1k a lap
   - event: bonus_lap
-    # the value to add to the score per counted event
     score: 1000
-    # what is multiplied by the score value
     player_score_entry: lap_count
-    skip_if_zero: false
+    skip_if_zero: true
+  # 10k for each multiball played (bonus_multiballs, counted as the
+  # ball ends in modes/pit/code/pit.py)
+  - event: bonus_multiballs
+    score: 10000
+    player_score_entry: bonus_multiballs
+    skip_if_zero: true
+  # 30k for each one completed (its super jackpot, or Red Line's
+  # checkered flag)
+  - event: bonus_supers
+    score: 30000
+    player_score_entry: bonus_supers
+    skip_if_zero: true
 
+# A race results board: each line slides in with its points counting
+# up (see code/bonus.py), then the total
 slides:
-  bonus_start_slide:
-    display_delay_ms: 1000
-    widgets:
-    - type: text
-      font_size: 120
-      x: middle
-      y: middle
-      text: "End of Ball Bonus"
-      color: cyan
-  bonus_main_slide:
-    display_delay_ms: 8000
-    widgets:
-    - type: text
-      font_size: 90
-      x: middle
-      y: middle + 10%
-      text: "Bonus"
-      color: pink
-    - type: text
-      font_size: 140
-      text: (score)
-      x: middle
-      y: middle - 10%
-  bonus_lap_slide:
-    widgets:
-    - type: text
-      font_size: 90
-      x: middle
-      y: middle + 10%
-      text: "Laps"
-      color: pink
-    - type: text
-      font_size: 110
-      text: (score)
-      x: middle
-      y: middle - 10%
-  bonus_total_slide:
-    widgets:
-    - type: text
-      font_size: 110
-      x: middle
-      y: middle + 10%
-      text: "Total Bonus"
-      color: cyan
-    - type: text
-      font_size: 140
-      text: (score)
-      x: middle
-      y: middle - 10%
-      color: pink
+  bonus_board:
+  - widget: splash
+  - widget: tip_dim
+  - type: text
+    text: End of Ball Bonus
+    x: middle
+    y: bottom+86%
+    z: 2
+    color: cyan
+    style: text_default
+    font_size: 70
+
+widgets:
+  bonus_row1:
+  - type: text
+    text: (machine|bonus_row1_label)
+    anchor_x: left
+    x: 6%
+    y: bottom+68%
+    z: 3
+    color: pink
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_label_in
+  - type: text
+    text: (machine|bonus_row1_value)
+    anchor_x: right
+    x: 94%
+    y: bottom+68%
+    z: 3
+    color: white
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_value_in
+  bonus_row2:
+  - type: text
+    text: (machine|bonus_row2_label)
+    anchor_x: left
+    x: 6%
+    y: bottom+55%
+    z: 3
+    color: pink
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_label_in
+  - type: text
+    text: (machine|bonus_row2_value)
+    anchor_x: right
+    x: 94%
+    y: bottom+55%
+    z: 3
+    color: white
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_value_in
+  bonus_row3:
+  - type: text
+    text: (machine|bonus_row3_label)
+    anchor_x: left
+    x: 6%
+    y: bottom+42%
+    z: 3
+    color: pink
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_label_in
+  - type: text
+    text: (machine|bonus_row3_value)
+    anchor_x: right
+    x: 94%
+    y: bottom+42%
+    z: 3
+    color: white
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_value_in
+  bonus_row4:
+  - type: text
+    text: (machine|bonus_row4_label)
+    anchor_x: left
+    x: 6%
+    y: bottom+29%
+    z: 3
+    color: pink
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_label_in
+  - type: text
+    text: (machine|bonus_row4_value)
+    anchor_x: right
+    x: 94%
+    y: bottom+29%
+    z: 3
+    color: white
+    style: medium
+    font_size: 34
+    animations:
+      add_to_slide: bonus_row_value_in
+  bonus_total_row:
+  - type: rectangle
+    width: 720
+    height: 3
+    x: middle
+    y: bottom+21%
+    z: 3
+    color: cyan
+  - type: text
+    text: Total
+    anchor_x: left
+    x: 6%
+    y: bottom+11%
+    z: 3
+    color: cyan
+    style: text_default
+    font_size: 56
+  - type: text
+    text: (machine|bonus_total_value)
+    anchor_x: right
+    x: 94%
+    y: bottom+11%
+    z: 3
+    color: gold
+    style: medium
+    font_size: 52
+    animations:
+      add_to_slide: pulsate_slow
+
+# lines slide in from the right
+animations:
+  bonus_row_label_in:
+  - property: x
+    value: 800
+    duration: 1ms
+  - property: x
+    value: 48
+    duration: 0.35s
+    easing: out_quad
+  bonus_row_value_in:
+  - property: x
+    value: 1500
+    duration: 1ms
+  - property: x
+    value: 752
+    duration: 0.35s
+    easing: out_quad
 
 slide_player:
-  mode_bonus_started: bonus_start_slide
-  bonus_lap: bonus_lap_slide
-  bonus_main: bonus_main_slide
-  bonus_total: bonus_total_slide
+  mode_bonus_started: bonus_board
+
+# each line (and the total) as code/bonus.py puts it up
+widget_player:
+  bonus_row_1_shown: bonus_row1
+  bonus_row_2_shown: bonus_row2
+  bonus_row_3_shown: bonus_row3
+  bonus_row_4_shown: bonus_row4
+  bonus_total_shown: bonus_total_row
 
 sound_player:
   mode_bonus_started:
@@ -93,7 +218,8 @@ sound_player:
   bonus_total: start # god speed (for now)
 
 show_player:
-  slide_bonus_main_slide_active:
+  # the Luxury inserts count down with the chime, from its line
+  bonus_main:
     bonus_main:
       action: play
       loops: 0

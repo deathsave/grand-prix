@@ -15,8 +15,8 @@ In order, each one tested before the next:
 3. ~~Synth callouts~~ (done: required lube, Smooth Sailing, "Red
    flag!" (the `red_flag` pool, for step 4), the leader bonus)
 4. ~~Under Red (red flag) mode~~ (done)
-5. End of ball bonus: the multiball entries, only lines that were
-   touched, skipping with both flippers, the results board slides
+5. ~~End of ball bonus~~ (done: the multiball lines, only the lines
+   that were touched, skipping with both flippers, the results board)
 6. Chimes and shaker: super jackpot chime rolls (callout after),
    shaker pulses (multiball starts, Off the Line, Red Line heartbeat)
 7. Match animation on the segment displays
@@ -36,35 +36,6 @@ Scoring (variable player)
 -------------------------
 
 - Revisit the numbers after playtesting on the machine
-
-End of Ball Bonus
------------------
-
-- Extend the bonus (it only counts Luxury progress and laps now):
-  - 10k for each multiball started (its completed flag)
-  - 30k for each multiball actually completed (its super jackpot);
-    needs new player vars, as nothing records a super jackpot yet
-  - paid every ball while the flags hold, so it builds up like the
-    Luxury chain (Red Line's reset clears Grooveline's and Grand
-    Prix's)
-  - see the commented-out `bonus_*` vars in
-    `config/common/variables.yaml`
-- Make the bonus slides more appealing (they're plain text on
-  black now): a race results board, each line sliding in with a
-  count-up of points and a big total at the end, over the jackpots'
-  pattern (mode color at 60% over a background image)
-  - keep the countdown of the (up to 10) lit bonus inserts with the
-    physical chime in sync with it
-- Skip the bonus by pressing both flippers. Right now it's just made
-  long enough for the insert countdown to finish. MPF's bonus mode
-  has `hurry_up_event` / `hurry_up_delay_ms` for this; it needs a
-  left + right flipper combo switch (the existing `both_flippers`
-  combo is actually right flipper + start, for shutdown), and the
-  insert countdown show has to jump to the end with it
-- Only show bonus lines for things the player actually touched: no
-  Luxury inserts lit means no main bonus line, never reaching Grand
-  Prix means no Grand Prix lines, etc. (`skip_if_zero` is off for the
-  current entries)
 
 Wear and Tear
 -------------

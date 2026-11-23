@@ -97,7 +97,10 @@ class TestBonusMode(DeathSaveMcTesting):
         self.assertEqual(self.machine.game.player.score,
             ball1_score + 30000)
 
-        # chime1 not fired again until after next ball begins
+        # chime1 not fired again by the bonus: only by ball 2's Off the
+        # Line countdown (Green Flag carries on into it), 3 dings. (The
+        # bonus is quicker now no laps line shows with no laps)
+        chime1_count += 3
         self.assertEqual(chime1_count,
             self.machine.coils["c_chime1"].pulse.call_count)
 
@@ -163,3 +166,61 @@ class TestBonusMode(DeathSaveMcTesting):
         self.advance_time_and_run(4)
         self.assertModeNotRunning("bonus")
         self.assertEqual(2, self.machine.game.player.ball)
+
+    def _var(self, name):
+        return self.machine.variables.get_machine_var(name)
+
+    def _board_texts(self):
+        found = []
+        def walk(widget):
+            if type(widget).__name__ == "Text":
+                found.append(widget.text)
+            for child in getattr(widget, "children", []):
+                walk(child)
+        walk(self.mc.targets["default"])
+        return found
+
+    # Multiballs played (10k each) and completed (30k each) are paid,
+    # and only the lines with something in them are shown, on the
+    # results board, with the total
+    def test_multiball_lines(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        player = self.machine.game.player
+        player.is_grooveline_completed = 1
+        player.is_luxury_completed = 1
+        player.is_grand_prix_completed = 1
+        self.post_event("grand_prix_super_jackpot")
+        self.advance_time_and_run(1)
+        self.assertEqual(1, player.is_grand_prix_super)
+        score = player.score
+        self.hit_switch_and_run("s_trough1", 3)
+        self.assertModeRunning("bonus")
+        self.assertEqual("bonus_board",
+            self.mc.targets["default"].current_slide.name)
+        self.advance_time_and_run(30)
+        self.assertEqual(2, self.machine.game.player.ball)
+        # (no Luxury inserts or laps: just the two multiball lines)
+        self.assertEqual("Multiballs  x3", self._var("bonus_row1_label"))
+        self.assertEqual("30,000", self._var("bonus_row1_value"))
+        self.assertEqual("Super Jackpots  x1", self._var("bonus_row2_label"))
+        self.assertEqual("30,000", self._var("bonus_row2_value"))
+        self.assertEqual("", self._var("bonus_row3_label"))
+        self.assertEqual("60,000", self._var("bonus_total_value"))
+        self.assertEqual(score + 60000, player.score)
+
+    # The board's lines slide in as the bonus pays them
+    def test_board(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        for i in range(8):
+            self.hit_and_release_switch("s_spinner")
+        self.advance_time_and_run(1)
+        self.hit_switch_and_run("s_trough1", 3)
+        self.advance_time_and_run(2)
+        texts = self._board_texts()
+        self.assertIn("End of Ball Bonus", texts)
+        self.assertIn("Luxury  x1", texts)
+        self.assertIn("10,000", texts)
+        self.advance_time_and_run(4)
+        self.assertIn("Total", self._board_texts())
