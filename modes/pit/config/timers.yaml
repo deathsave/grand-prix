@@ -11,7 +11,7 @@ timers:
     direction: down
     control_events:
     # activate on initial ball launch
-    - event: s_shooter_lane_inactive{not mode.green_flag.active}
+    - event: shooter_lane_plunged{not mode.green_flag.active}
       action: start
 
   # Hurry up timer for the "backfire pops"
@@ -41,9 +41,12 @@ timers:
   # ball while green flag is active
   # the window to plunge in, centered on the green flag
   # dropping (the final ding): opens 0.4s before it
-  # (shows/under_green.yaml) and runs 8 ticks of 0.1s = 0.8s
+  # (shows/under_green.yaml) and runs 9 ticks of 0.1s = 0.9s
+  # (9 ticks: a plunge registers 80ms after the switch opens, see
+  # config/common/timed_switches.yaml, so a tick longer keeps the
+  # real window at about 0.4s after the final ding)
   off_the_line:
-    start_value: 8
+    start_value: 9
     end_value: 0
     direction: down
     tick_interval: "0.1s"

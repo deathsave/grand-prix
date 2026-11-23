@@ -7,6 +7,8 @@ class TestSkillShots(DeathSaveGameTesting):
         self.hit_and_release_switch("s_start")
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_shooter_lane")
+        # (it's a plunge once the switch has stayed open 80ms)
+        self.advance_time_and_run(0.08)
 
         # skill shot timer should be running now
         self.assertEqual(True,
@@ -87,6 +89,8 @@ class TestSkillShots(DeathSaveGameTesting):
         self.assertEventNotCalled("green_flag_dropped")
         score = self.machine.game.player.score
         self.hit_and_release_switch("s_shooter_lane")
+        # (it's a plunge once the switch has stayed open 80ms)
+        self.advance_time_and_run(0.1)
         self.assertEqual(1, self.machine.shots["off_the_line"].state)
         self.assertEqual(score + 25000, self.machine.game.player.score)
 
@@ -124,6 +128,8 @@ class TestSkillShots(DeathSaveGameTesting):
         # player successfully gets the ball out of the
         # shooter lane during the brief window
         self.hit_and_release_switch("s_shooter_lane")
+        # (it's a plunge once the switch has stayed open 80ms)
+        self.advance_time_and_run(0.1)
         # skill shot succeeded
         self.assertEqual(1,
             self.machine.shots["off_the_line"].state)

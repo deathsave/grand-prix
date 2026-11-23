@@ -30,7 +30,8 @@ sound_player:
   player_multiplier{change==-1 and value==1 and source=="pit"}:
     multiplier_lost:
       action: play
-  s_shooter_lane_inactive{current_player.tilt_warnings < 2}:
+  # (see timed_switches.yaml)
+  shooter_lane_plunged{current_player.tilt_warnings < 2}:
     comm_noise_on:
       action: play
     comm_noise_loop:

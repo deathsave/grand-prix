@@ -9,6 +9,8 @@ class TestPitMode(DeathSaveGameTesting):
         self.assertEqual(
             True, self.machine.diverters["loop_gate"].enabled)
         self.hit_and_release_switch("s_shooter_lane")
+        # (it's a plunge once the switch has stayed open 80ms)
+        self.advance_time_and_run(0.1)
         self.assertEqual(
             True, self.machine.diverters["loop_gate"].active)
         self.hit_and_release_switch("s_grooveline")
@@ -133,3 +135,50 @@ class TestPitMode(DeathSaveGameTesting):
         self.assertModeNotRunning("green_flag")
         self.assertTrue(self._flashing("l_pit_tires"))
         self.assertFalse(self._flashing("l_pit_fuel"))
+
+    # The shooter lane switch bounces open as a ball rolls in and
+    # settles: that's not a plunge (the gate stays shut, the skill shot
+    # timer doesn't start), and the real plunge still opens the gate
+    def test_shooter_lane_bounce_isnt_a_plunge(self):
+        self.mock_event("shooter_lane_plunged")
+        self._start()
+        # (_start plunged ball 1; ball 2 for a fresh first plunge)
+        self._expire_ball_save()
+        self.hit_switch_and_run("s_trough1", 3)
+        self.advance_time_and_run(20)
+        self.assertEqual(2, self.machine.game.player.ball)
+        self.mock_event("shooter_lane_plunged")
+        gate = self.machine.diverters["loop_gate"]
+        self.release_switch_and_run("s_shooter_lane", 0.034)
+        self.hit_switch_and_run("s_shooter_lane", 1)
+        self.assertEventNotCalled("shooter_lane_plunged")
+        self.assertFalse(gate.active)
+        self.assertFalse(self.machine.timers["skill_shot"].running)
+        self.release_switch_and_run("s_shooter_lane", 0.1)
+        self.assertEventCalled("shooter_lane_plunged")
+        self.assertTrue(gate.active)
+
+    # The left inlane/outlane (which fire with no ball, after coils)
+    # don't count as the ball reaching the playfield: a ball that
+    # falls back into the shooter lane waits for a plunge, it isn't
+    # auto launched
+    def test_left_lanes_dont_confirm_a_launch(self):
+        from unittest.mock import MagicMock
+        self._start()
+        self._expire_ball_save()
+        self.hit_switch_and_run("s_trough1", 3)
+        self.advance_time_and_run(20)
+        self.assertEqual(2, self.machine.game.player.ball)
+        kicker = self.machine.coils["c_auto_kicker"]
+        kicker.pulse = MagicMock()
+        gate = self.machine.diverters["loop_gate"]
+        # the ball rolls off the switch, the phantom pair fires, and the
+        # ball rolls back
+        self.release_switch_and_run("s_shooter_lane", 0.25)
+        self.hit_and_release_switch("s_inlane1")
+        self.hit_and_release_switch("s_outlane1")
+        self.advance_time_and_run(0.3)
+        self.assertTrue(gate.active)
+        self.hit_switch_and_run("s_shooter_lane", 5)
+        self.assertEqual(0, kicker.pulse.call_count)
+        self.assertEqual(0, self.machine.game.player.is_playfield_active)

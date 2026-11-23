@@ -17,5 +17,6 @@ shots:
     disable_events:
     - timer_off_the_line_complete
     hit_events:
-    - s_shooter_lane_inactive
+    # (see config/common/timed_switches.yaml)
+    - shooter_lane_plunged
     switch: s_hole_backfire

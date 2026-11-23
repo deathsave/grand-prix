@@ -51,11 +51,14 @@ class Pit(Mode):
     def mode_start(self, **kwargs):
         self.flashing = {}
         self.engine_started = False
+        self.in_lane = False
         self.ball_ending = False
         self.racing = False
         self.add_mode_event_handler("s_shooter_lane_active",
             self.engine_on)
-        self.add_mode_event_handler("s_shooter_lane_inactive",
+        # (shooter_lane_plunged: the switch held open, as it bounces
+        # when a ball rolls in, see config/common/timed_switches.yaml)
+        self.add_mode_event_handler("shooter_lane_plunged",
             self.plunged)
         self.add_mode_event_handler("ball_will_end", self.ball_will_end)
         self.add_mode_event_handler("multiplier_step",
@@ -86,6 +89,10 @@ class Pit(Mode):
     # lane on a turn, then idles there (and goes straight to idling
     # if it's back there again, like after a ball save)
     def engine_on(self, **kwargs):
+        # (the switch bouncing as the ball settles isn't a new arrival)
+        if self.in_lane:
+            return
+        self.in_lane = True
         if self.engine_started:
             self.machine.events.post("engine_idle")
             return
@@ -107,6 +114,7 @@ class Pit(Mode):
     # own sounds from there), and back to pace when Green Flag ends
     # for a pit stop, until the ball ends
     def plunged(self, **kwargs):
+        self.in_lane = False
         self.engine_off()
         self.pace_on()
 

@@ -1,0 +1,14 @@
+#config_version=6
+
+timed_switches:
+  # The ball has left the shooter lane: its switch has stayed open for
+  # 80ms. The switch bounces open for a moment as a ball rolls in and
+  # settles (34ms seen), which the bare s_shooter_lane_inactive took
+  # for a plunge (opening the loop gate early, starting the skill shot
+  # timer, cutting the engine start up...). Use shooter_lane_plunged
+  # instead of s_shooter_lane_inactive.
+  shooter_lane_plunge:
+    switches: s_shooter_lane
+    state: inactive
+    time: 80ms
+    events_when_active: shooter_lane_plunged

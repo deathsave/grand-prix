@@ -32,7 +32,7 @@ sound_player:
   timer_eternal_tick{(ticks % 45 == 0) and current_player.score < 10 and current_player.tilt_warnings < 2}:
     fuel:
       action: play
-  s_shooter_lane_inactive{current_player.score > 0 and current_player.tilt_warnings < 2}:
+  shooter_lane_plunged{current_player.score > 0 and current_player.tilt_warnings < 2}:
     rev:
       action: play
   # The engine starts as the first ball of the turn reaches the

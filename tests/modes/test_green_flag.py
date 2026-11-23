@@ -89,6 +89,8 @@ class TestGreenFlagMode(DeathSaveGameTesting):
         self.assertEqual(
             True, self.machine.diverters["loop_gate"].enabled)
         self.hit_and_release_switch("s_shooter_lane")
+        # (it's a plunge once the switch has stayed open 80ms)
+        self.advance_time_and_run(0.1)
         self.assertEqual(
             True, self.machine.diverters["loop_gate"].active)
         self.hit_and_release_switch("s_grooveline")

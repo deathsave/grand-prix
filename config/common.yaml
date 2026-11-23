@@ -33,6 +33,7 @@ config:
 - common/sounds.yaml
 - common/spinners.yaml
 - common/switches.yaml
+- common/timed_switches.yaml
 - common/variables.yaml
 - common/widget_styles.yaml
 - common/widgets.yaml
