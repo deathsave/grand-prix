@@ -273,6 +273,26 @@ widgets:
     color: white
     style: medium
     font_size: 28
+  shift_champ_label:
+  - type: text
+    text: "Shift Champ"
+    anchor_x: left
+    z: 2
+    x: 3%
+    y: bottom+26%
+    color: pink
+    style: big
+    font_size: 20
+  shift_champ_value:
+  - type: text
+    text: "(machine|shift_count1_name): (machine|shift_count1_value) Shifts"
+    anchor_x: left
+    z: 2
+    x: 3%
+    y: bottom+20%
+    color: white
+    style: medium
+    font_size: 18
   laps_champ_label:
   - type: text
     text: "Laps Champ"

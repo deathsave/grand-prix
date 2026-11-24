@@ -8,6 +8,8 @@ variable_player:
   # see code/red_line.py (x the multiplier)
   red_line_shift:
     score: value * current_player.multiplier
+    # (for the Shift Champ high score)
+    shift_count: 1
   red_line_checkered_flag:
     score: 2000000
 

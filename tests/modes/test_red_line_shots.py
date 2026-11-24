@@ -126,3 +126,14 @@ class TestRedLineShots(DeathSaveGameTesting):
         # back to 1st
         self.assertEqual(0, self._tach_lit())
         self.assertFalse(self._lit("l_signal1"))
+
+    # Each shift counts toward the Shift Champ high score
+    def test_shifts_counted(self):
+        self._start_red_line()
+        self.assertEqual(0, self.machine.game.player.shift_count)
+        for gear in range(2):
+            self._rev_to_redline()
+            self._hit("s_hole_backfire")
+            self.advance_time_and_run(3)
+        self.assertEqual(2, self._n("red_line_shift"))
+        self.assertEqual(2, self.machine.game.player.shift_count)

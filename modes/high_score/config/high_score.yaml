@@ -1,6 +1,8 @@
 #config_version=6
 
 mode:
+  # (fills in a new category's defaults, see code/high_score.py)
+  code: high_score.GrandPrixHighScore
   priority: 20000
   start_events: game_ending, start_high_score
   use_wait_queue: true
@@ -17,6 +19,9 @@ high_score:
       - 3rd Place
     - lap_count:
       - LAPS CHAMP
+    # Red Line's shifts in a game, to reward the wizard
+    - shift_count:
+      - SHIFT CHAMP
   # set the defaults
   defaults:
     score:
@@ -28,6 +33,9 @@ high_score:
       - RIX: 150000
     lap_count:
       - DS: 3
+    # (3 shifts in a game takes it)
+    shift_count:
+      - DS: 2
   # vars:
   #   loops:
   #     - player: character

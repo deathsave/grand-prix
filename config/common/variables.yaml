@@ -55,6 +55,9 @@ player_vars:
     initial_value: 0
   lap_count:
     initial_value: 0
+  # Red Line's shifts this game (the Shift Champ high score)
+  shift_count:
+    initial_value: 0
   spin_counter_count:
     initial_value: 0
   # a luxury step earned before green flag

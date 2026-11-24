@@ -21,7 +21,7 @@ In order, each one tested before the next:
    then the callout, with the overlay up throughout; the Red Line
    heartbeat in the shaker)
 7. ~~Match animation on the segment displays~~ (done)
-8. High score: Red Line shifts category
+8. ~~High score: Red Line shifts category~~ (done: Shift Champ)
 9. Sounds: Luxury cash and coins (with the pops paying more)
 10. Hardware (you): the tilt / coin door / service bank, the outlane
     switches, the loop gate servo, the tach experiment, then design
@@ -61,11 +61,6 @@ Sounds
 - Steve recordings for the synth stand-ins: required lube (`lube`),
   Smooth Sailing (`smooth_sailing`), Red flag (`red_flag`), Leader bonus
   (`leader_bonus`)
-
-High Score
-----------
-
-- A Red Line category to reward the wizard: the most shifts in a game
 
 Segment Displays
 ----------------

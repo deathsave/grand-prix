@@ -191,6 +191,7 @@ After Red Line, complete Grooveline and Grand Prix again to get back to it (Lap 
 - **At the red line** (all 10 lit) the engine bounces off the limiter and the tach stays full until you shift. Until then, everything but the Backfire Hole scores like the pit (10 points, just the bell)
 - **Shift** in the Backfire Hole, whenever you get there, for a backfire and a **Jackpot** (250,000 × your gear, × your multiplier), then rev up again in the next gear (the signal lights show it)
 - **5th gear:** hit the Grooveline lane, the Pot Hole and the Oil Slick (blinking) for the **Checkered Flag** (2,000,000), then it's back to 1st gear for another race
+- **Shift Champ:** the most shifts in a game gets its own high score, shown with the Laps Champ in attract
 
 ### Pure Evil
 

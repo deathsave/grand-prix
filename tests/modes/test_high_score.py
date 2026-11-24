@@ -51,3 +51,29 @@ class TestHighScore(DeathSaveGameTesting):
         switches = YAML(typ="safe").load(
             open("config/common/switches.yaml"))["switches"]
         self.assertIn("left_flipper", switches["s_flipper1"]["tags"])
+
+    # Red Line's shifts are a category: Shift Champ (the default's 2,
+    # so 3 shifts takes it)
+    def test_shift_champ(self):
+        self.assertEqual("SHIFT CHAMP", self.machine.variables
+            .get_machine_var("shift_count1_label"))
+        self.assertEqual(2, self.machine.variables
+            .get_machine_var("shift_count1_value"))
+        self._start()
+        self.machine.game.player.shift_count = 3
+        for ball in range(3):
+            self.hit_and_release_switch("s_shooter_lane")
+            self._expire_ball_save()
+            self._drain_one_ball()
+            self.advance_time_and_run(18)
+        self.assertModeRunning("high_score")
+
+    # A category the saved scores don't have yet (saved before it was
+    # added) starts from its defaults
+    def test_new_category_gets_its_defaults(self):
+        mode = self.machine.modes["high_score"]
+        del mode.high_scores["shift_count"]
+        mode._create_machine_vars()
+        self.assertEqual([["DS", 2]], mode.high_scores["shift_count"])
+        self.assertEqual("DS", self.machine.variables
+            .get_machine_var("shift_count1_name"))

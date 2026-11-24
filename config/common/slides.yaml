@@ -10,6 +10,8 @@ slides:
   - widget: first_place
   - widget: second_place
   - widget: third_place
+  - widget: shift_champ_label
+  - widget: shift_champ_value
   - widget: laps_champ_label
   - widget: laps_champ_value
   # FREE PLAY or CREDITS n (see config/common/credits.yaml)
