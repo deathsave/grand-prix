@@ -30,15 +30,12 @@ In order, each one tested before the next:
 Integration Tests
 -----------------
 
-- A handful of full games played start to finish in different ways,
-  checking the game state stays sane at every step: e.g. finishing
-  every mode up to Red Line; qualifying modes and not starting them
-  (going back to the pit, losing the ball); losing multiballs early;
-  tilts; Pure Evil and the red flag; multiplayer games where the
-  players' progress mustn't leak between them. Checks: the ball count
-  (trough, playfield, locks), the modes running, the player vars
-  (counters, levels, completions), the lights, and that the game ends
-  cleanly into attract
+- More full games in `tests/integration/test_full_games.py` as the game
+  grows (it has: the whole race to Red Line, stacked multiballs after a
+  pit stop and a drain, two players, a tilt in a multiball, the Racing
+  Gods). Ideas: Pure Evil (with PURE_EVIL on), winning Grand Prix and
+  Red Line's checkered flag, the match and high score in a 4 player
+  game, credit play running out of credits
 
 Design
 ------
