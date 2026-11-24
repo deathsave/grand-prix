@@ -15,8 +15,9 @@ class SegmentDisplays(CustomCode):
     # - Award count-ups: a big award (20k or more: skill shots,
     #   jackpots, super jackpots, a big bonus) rolls the score up to its
     #   new total, like an EM's reels, instead of jumping
-    # - Pure Evil: every display but the current player's alternates
-    #   "    666", "666 666" and "666    " while it runs
+    # - Pure Evil: the other players' displays cycle "    666", "666 666"
+    #   and "666    " while it runs, out of step with each other: each
+    #   starts on a different one (two start on the first and the last)
     # - The winning score blinks as a multiplayer game ends (the match
     #   then blinks its winners, or the game's winner with no match)
     DISPLAYS = [f"segment{n}" for n in range(1, 5)]
@@ -120,16 +121,19 @@ class SegmentDisplays(CustomCode):
 
     def start_evil(self, **kwargs):
         game = self.machine.game
-        current = game.player.number if game and game.player else 0
-        self.evil_displays = [name for n, name in
-            enumerate(self.DISPLAYS, start=1) if n != current]
+        if not game or not game.player:
+            return
+        others = [f"segment{player.number}" for player in game.player_list
+            if player.number != game.player.number]
+        starts = [0, 2] if len(others) == 2 else range(len(others))
+        self.evil_displays = dict(zip(others, starts))
         self.evil_step = 0
         self._evil()
 
     def _evil(self):
-        text = self.EVIL[self.evil_step % len(self.EVIL)]
-        for name in self.evil_displays:
-            self._write(name, "pure_evil", text)
+        for name, start in self.evil_displays.items():
+            self._write(name, "pure_evil",
+                self.EVIL[(start + self.evil_step) % len(self.EVIL)])
         self.evil_step += 1
         self.delay.reset(self.EVIL_EVERY * 1000, self._evil, "pure_evil")
 
