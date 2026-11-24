@@ -5,6 +5,8 @@ from mpf.modes.match.code.match import Match
 from mpf.platforms.interfaces.segment_display_platform_interface import \
     FlashingType
 
+from code.segment_displays import SegmentDisplays
+
 
 class GrandPrixMatch(Match):
     # The segment displays spin with the match: every digit of every
@@ -21,8 +23,8 @@ class GrandPrixMatch(Match):
     SETTLE_AT = 3.0
     SETTLE_FOR = 2.0
     # how long a winner's score blinks, with the chimes and the callout
-    # (or, with no match, how long the scores are back before the game
-    # ends)
+    # (or the game's winner's, with no match), or how long the scores are
+    # back before the game ends (a 1 player game with no match)
     BLINK_FOR = 2.0
     SHOW_FOR = 1.0
     KEY = "match"
@@ -31,7 +33,7 @@ class GrandPrixMatch(Match):
     # (set up in _run: MPF starts it before mode_start, which can come
     # later, e.g. when high score entry holds the mode's start queue)
     def _start_spin(self):
-        self._matched = False
+        self._blinking = False
         self._displays = []
         if self.machine.game:
             for number in range(len(self.machine.game.player_list)):
@@ -70,22 +72,28 @@ class GrandPrixMatch(Match):
             self.delay.add(at * 1000, self._show_digit, digit=digit)
             at += self.SETTLE_FOR * weight / sum(weights)
 
-    # the scores again, a winner's blinking
+    # the scores again, a match winner's blinking (or with no match, the
+    # game's winner, in a multiplayer game)
     def _show_result(self, winner_number=None, **kwargs):
         self.delay.clear()
-        players = self.machine.game.player_list if self.machine.game else []
+        game = self.machine.game
+        players = game.player_list if game else []
+        matched = [number for number in range(len(players))
+            if kwargs.get(f"match_number{number}") == winner_number]
+        blinking = matched or [number - 1 for number in
+            SegmentDisplays.winners(game)]
+        self._blinking = bool(blinking)
         for number, display in enumerate(self._displays):
             if number >= len(players):
                 continue
-            won = kwargs.get(f"match_number{number}") == winner_number
-            self._matched = self._matched or won
             self._write(display, str(players[number].score),
-                FlashingType.FLASH_ALL if won else FlashingType.NO_FLASH)
+                FlashingType.FLASH_ALL if number in blinking
+                else FlashingType.NO_FLASH)
 
     async def _run(self) -> None:
         self._start_spin()
         await super()._run()
-        await asyncio.sleep(self.BLINK_FOR if self._matched
+        await asyncio.sleep(self.BLINK_FOR if self._blinking
             else self.SHOW_FOR)
 
     def mode_stop(self, **kwargs):

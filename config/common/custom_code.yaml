@@ -4,3 +4,4 @@ custom_code:
 - code.configure.Configure
 - code.flippers.Flippers
 - code.replay.Replay
+- code.segment_displays.SegmentDisplays

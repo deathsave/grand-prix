@@ -60,20 +60,10 @@ Sounds
 Segment Displays
 ----------------
 
-(They show 0-9, blank and blink. Every game's assumed to be 4 players,
-so every display is someone's score: these only take one over
-briefly)
-
-- Off the Line start tree: during "Get Ready", all four displays count
-  down together (`3333333`, `2222222`, `1111111`), then the scores come
-  back on green
-- Award count-ups: the big awards (jackpots, super jackpots, the end of
-  ball bonus) roll the score up to its new total over about half a
-  second, like an EM's reels, instead of jumping
-- Pure Evil: every display but the current player's alternates `    666`,
-  `666 666` and `666    ` while it runs (check on the machine that a
-  blank mid-text shows as a blank digit)
-- The winning score blinks at the end of a multiplayer game
+- Check on the machine (the start tree, count-ups, Pure Evil's 666s and
+  the winner's blink are in `code/segment_displays.py`): that a blank
+  mid-text (Pure Evil's `666 666`) shows as a blank digit, and that the
+  count-ups (about 13 updates a second for 0.6s) keep up
 
 Mechs
 -----

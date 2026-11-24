@@ -181,16 +181,17 @@ class TestMatch(DeathSaveGameTesting):
         self.assertModeNotRunning("match")
         self.assertIsNone(self.machine.game)
 
-    def test_no_match_shows_the_scores(self):
+    # With no match, the game's winner (player 1) blinks instead, for 2s
+    def test_no_match_blinks_the_winner(self):
         from mpf.platforms.interfaces.segment_display_platform_interface \
             import FlashingType
         self._play_two_to_match(False)
         self.advance_time_and_run(5.5)
         self.assertEqual("9999999", self._text(1)[0])
         self.advance_time_and_run(1)
-        self.assertEqual(("12340", FlashingType.NO_FLASH), self._text(1))
+        self.assertEqual(("12340", FlashingType.FLASH_ALL), self._text(1))
         self.assertEqual(("5670", FlashingType.NO_FLASH), self._text(2))
-        # for 1s, then the game's over
+        self.advance_time_and_run(1)
         self.assertModeRunning("match")
         self.advance_time_and_run(1)
         self.assertModeNotRunning("match")
