@@ -27,22 +27,6 @@ In order, each one tested before the next:
     switches, the loop gate servo, the tach experiment, then design
     (plastics, backglass)
 
-Bugs
-----
-
-- Grooveline and Luxury can get stuck un-startable: light all 10
-  inserts, then go back to the pit (or, for Grooveline, lose the ball)
-  before hitting the multiball target, and the target no longer starts
-  the multiball, though it still looks qualified. Their qualifiers are
-  sequence shots in Green Flag (`modes/green_flag/config/
-  sequence_shots.yaml`) waiting for the counter's complete event and
-  then the target: the sequence resets when Green Flag stops (and
-  Grooveline's cancels on `ball_ending`), and the counter (persisted,
-  not reset on complete) never completes again. Fix: start them from
-  the target when the counter's full (`s_target_multiball_active{
-  current_player.grooveline_counter_count >= 10 ...}`), and cover it
-  in a test
-
 Integration Tests
 -----------------
 

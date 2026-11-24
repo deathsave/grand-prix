@@ -10,7 +10,6 @@ config:
 - event_player.yaml
 - mode.yaml
 - random_event_player.yaml
-- sequence_shots.yaml
 - sequences.yaml
 - show_player.yaml
 - slide_player.yaml

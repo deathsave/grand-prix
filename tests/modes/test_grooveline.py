@@ -96,7 +96,8 @@ class TestGroovelineMode(DeathSaveGameTesting):
     def test_starting_hit_is_not_a_shot(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()
-        self.machine.events.post("logicblock_grooveline_counter_complete")
+        # (qualified: the chain's full)
+        self.machine.game.player.grooveline_counter_count = 10
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_target_multiball")
         self.advance_time_and_run(4)

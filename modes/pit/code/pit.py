@@ -323,9 +323,14 @@ class Pit(Mode):
         red_line_ready = player.is_grooveline_completed == 1 and \
             player.is_luxury_completed == 1 and \
             player.is_grand_prix_completed == 1
+        # (Grooveline or Luxury qualified, from their chains, see
+        # modes/green_flag/config/event_player.yaml)
+        qualified = player.grooveline_counter_count >= 10 or \
+            (player.luxury_counter_count >= 10 and
+                player.is_luxury_completed == 0)
         ready = modes["green_flag"].active and not multiball_active and \
             player.is_grand_prix_multiball_ready != 1 and \
-            (player.is_multiball_ready == 1 or red_line_ready)
+            (player.is_multiball_ready == 1 or qualified or red_line_ready)
         self.flash("l_multiball", ready, "lights_blink",
             { "lights": "l_multiball" }, modes["green_flag"].priority)
 
