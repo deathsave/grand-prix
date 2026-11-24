@@ -38,12 +38,6 @@ Scoring (variable player)
 
 - Revisit the numbers after playtesting on the machine
 
-Wear and Tear
--------------
-
-- Smooth Sailing's callouts (the `smooth_sailing` pool) are synth for
-  now; replace with Steve recordings
-
 Sounds
 ------
 
