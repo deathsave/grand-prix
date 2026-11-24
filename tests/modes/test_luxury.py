@@ -67,7 +67,7 @@ class TestLuxuryMode(DeathSaveGameTesting):
         self._start_luxury_multiball()
         # started, but not completed, yet
         self.assertEqual(
-            0, self.machine.game.player.is_luxury_completed)
+            0, self.machine.game.player.is_luxury_played)
 
         # A lot of time passes - should have
         # exceeded the shoot again period
@@ -84,7 +84,7 @@ class TestLuxuryMode(DeathSaveGameTesting):
 
         # And wizard progress is updated
         self.assertEqual(
-            1, self.machine.game.player.is_luxury_completed)
+            1, self.machine.game.player.is_luxury_played)
 
     def test_multiball_scoring(self):
         self._start_luxury_multiball()

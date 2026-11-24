@@ -122,7 +122,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
         self._start_multiball()
         # started, but not completed, yet
         self.assertEqual(
-            0, self.machine.game.player.is_grand_prix_completed)
+            0, self.machine.game.player.is_grand_prix_played)
 
         # Player launches the ball
         self.assertEqual(0,
@@ -171,7 +171,7 @@ class TestGrandPrixMode(DeathSaveGameTesting):
 
         # And wizard progress is updated
         self.assertEqual(
-            1, self.machine.game.player.is_grand_prix_completed)
+            1, self.machine.game.player.is_grand_prix_played)
 
         # getting back into the backfire hole
         # DOES NOT restart the mode

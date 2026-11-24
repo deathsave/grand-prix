@@ -102,14 +102,16 @@ player_vars:
   ##########################
   ## Wizard Mode Progress ##
   ##########################
-  is_luxury_completed:
+  # (played: the multiball ran and ended, won or not. Winning one is
+  # is_*_super, below)
+  is_luxury_played:
     initial_value: 0
-  is_grooveline_completed:
+  is_grooveline_played:
     initial_value: 0
-  is_grand_prix_completed:
+  is_grand_prix_played:
     initial_value: 0
   # ^ the above three enable red_line
-  is_red_line_completed:
+  is_red_line_played:
     initial_value: 0
   # Each multiball completed (its super jackpot, or Red Line's
   # checkered flag), for the end of ball bonus

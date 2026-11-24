@@ -18,7 +18,7 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.advance_time_and_run(1)
 
         self.assertEqual(
-            1, self.machine.game.player.is_grooveline_completed)
+            1, self.machine.game.player.is_grooveline_played)
         self.assertModeNotRunning("grooveline")
         self.assertModeNotRunning("red_line")
         self.assertModeRunning("green_flag")
@@ -32,7 +32,7 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertEqual(1, self.machine.playfield.balls)
         self.assertModeNotRunning("luxury")
         self.assertEqual(
-            1, self.machine.game.player.is_luxury_completed)
+            1, self.machine.game.player.is_luxury_played)
         self.assertModeNotRunning("red_line")
         self.assertModeRunning("green_flag")
 
@@ -45,7 +45,7 @@ class TestRedLineMode(DeathSaveGameTesting):
             self.advance_time_and_run(1)
         self.assertModeNotRunning("grand_prix")
         self.assertEqual(
-            1, self.machine.game.player.is_grand_prix_completed)
+            1, self.machine.game.player.is_grand_prix_played)
         self.assertModeNotRunning("red_line")
         self.assertModeRunning("green_flag")
 
@@ -65,9 +65,9 @@ class TestRedLineMode(DeathSaveGameTesting):
 
     def _red_line_ready(self):
         player = self.machine.game.player
-        player.is_grooveline_completed = 1
-        player.is_luxury_completed = 1
-        player.is_grand_prix_completed = 1
+        player.is_grooveline_played = 1
+        player.is_luxury_played = 1
+        player.is_grand_prix_played = 1
 
     # the lamp changes over a couple of seconds if it's blinking
     def _lamp_blinks(self, light):
@@ -105,21 +105,21 @@ class TestRedLineMode(DeathSaveGameTesting):
         self.assertModeNotRunning("red_line")
 
         player = self.machine.game.player
-        self.assertEqual(0, player.is_grooveline_completed)
+        self.assertEqual(0, player.is_grooveline_played)
         # (their bonus completions too)
         self.assertEqual(0, player.is_grooveline_super)
         self.assertEqual(0, player.is_grand_prix_super)
-        self.assertEqual(0, player.is_grand_prix_completed)
-        self.assertEqual(1, player.is_luxury_completed)
-        self.assertEqual(1, player.is_red_line_completed)
+        self.assertEqual(0, player.is_grand_prix_played)
+        self.assertEqual(1, player.is_luxury_played)
+        self.assertEqual(1, player.is_red_line_played)
 
         # a hole doesn't restart it
         self.hit_switch_and_run("s_hole_prix", 3)
         self.assertModeNotRunning("red_line")
 
         # Grooveline + Grand Prix get back to it
-        player.is_grooveline_completed = 1
-        player.is_grand_prix_completed = 1
+        player.is_grooveline_played = 1
+        player.is_grand_prix_played = 1
         self.hit_switch_and_run("s_hole_prix", 3)
         self.assertModeRunning("red_line")
 

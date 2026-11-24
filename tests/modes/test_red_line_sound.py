@@ -14,9 +14,9 @@ class TestRedLineSound(DeathSaveMcTesting):
         music = self.mc.sound_system.audio_interface. \
             get_track_by_name("music")
         player = self.machine.game.player
-        player.is_grooveline_completed = 1
-        player.is_luxury_completed = 1
-        player.is_grand_prix_completed = 1
+        player.is_grooveline_played = 1
+        player.is_luxury_played = 1
+        player.is_grand_prix_played = 1
 
         requested = []
         play = McSoundPlayer.play
@@ -56,9 +56,9 @@ class TestRedLineSound(DeathSaveMcTesting):
         self.hit_and_release_switch("s_pit_fuel")
         self.advance_time_and_run(8)
         player = self.machine.game.player
-        player.is_grooveline_completed = 1
-        player.is_luxury_completed = 1
-        player.is_grand_prix_completed = 1
+        player.is_grooveline_played = 1
+        player.is_luxury_played = 1
+        player.is_grand_prix_played = 1
         self.hit_switch_and_run("s_hole_grand", 3)
         self.assertModeRunning("red_line")
 

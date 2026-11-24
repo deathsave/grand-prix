@@ -142,21 +142,21 @@ variable_player:
   ## Wizard-mode Progress ##
   ##########################
   multiball_grooveline_ended:
-    is_grooveline_completed: 1
+    is_grooveline_played: 1
     game_progress: 1
   multiball_luxury_ended:
-    is_luxury_completed: 1
+    is_luxury_played: 1
   multiball_grand_prix_ended:
-    is_grand_prix_completed: 1
+    is_grand_prix_played: 1
   # Leaving Red Line sends the driver back for another go at
   # Grooveline and Grand Prix. Luxury stays completed: its chain is
   # the end of ball bonus, which stays maxed once earned
   multiball_red_line_ended:
-    is_red_line_completed: 1
-    is_grooveline_completed:
+    is_red_line_played: 1
+    is_grooveline_played:
       action: set
       int: 0
-    is_grand_prix_completed:
+    is_grand_prix_played:
       action: set
       int: 0
     # (and they can be completed again for the bonus)

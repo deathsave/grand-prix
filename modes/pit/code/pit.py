@@ -21,10 +21,10 @@ class Pit(Mode):
         "multiplier": "_",
         "awareness": "_",
         "multiball_ready": "_",
-        "is_grooveline_completed": "l_signal1",
-        "is_luxury_completed": "l_signal2",
-        "is_grand_prix_completed": "l_signal3",
-        "is_red_line_completed": "l_signal4",
+        "is_grooveline_played": "l_signal1",
+        "is_luxury_played": "l_signal2",
+        "is_grand_prix_played": "l_signal3",
+        "is_red_line_played": "l_signal4",
         # the outlane save (the heart on the driver's chest)
         "is_outlane_save_lit": "l_outlane_bottom1",
         "grooveline_counter_count": [ "l_grooveline", 10 ],
@@ -206,7 +206,7 @@ class Pit(Mode):
     def count_bonus(self):
         player = self.machine.game.player
         player.bonus_multiballs = sum(
-            1 for name in self.MULTIBALLS if player[f"is_{name}_completed"])
+            1 for name in self.MULTIBALLS if player[f"is_{name}_played"])
         player.bonus_supers = sum(
             1 for name in self.MULTIBALLS if player[f"is_{name}_super"])
 
@@ -276,7 +276,7 @@ class Pit(Mode):
     # the current :state (player variable) value.
     #
     #   Example:
-    #       handle_bool("is_grand_prix_completed", "l_signal3")
+    #       handle_bool("is_grand_prix_played", "l_signal3")
     #
     def handle_bool(self, state, light_name):
         player = self.machine.game.player
@@ -320,14 +320,14 @@ class Pit(Mode):
         modes = self.machine.modes
         multiball_active = any(modes[name].active for name in
             ["grooveline", "luxury", "grand_prix", "red_line"])
-        red_line_ready = player.is_grooveline_completed == 1 and \
-            player.is_luxury_completed == 1 and \
-            player.is_grand_prix_completed == 1
+        red_line_ready = player.is_grooveline_played == 1 and \
+            player.is_luxury_played == 1 and \
+            player.is_grand_prix_played == 1
         # (Grooveline or Luxury qualified, from their chains, see
         # modes/green_flag/config/event_player.yaml)
         qualified = player.grooveline_counter_count >= 10 or \
             (player.luxury_counter_count >= 10 and
-                player.is_luxury_completed == 0)
+                player.is_luxury_played == 0)
         ready = modes["green_flag"].active and not multiball_active and \
             player.is_grand_prix_multiball_ready != 1 and \
             (player.is_multiball_ready == 1 or qualified or red_line_ready)

@@ -91,9 +91,9 @@ class TestPureEvilMode(DeathSaveGameTesting):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         player = self.machine.game.player
-        player.is_grooveline_completed = 1
-        player.is_luxury_completed = 1
-        player.is_grand_prix_completed = 1
+        player.is_grooveline_played = 1
+        player.is_luxury_played = 1
+        player.is_grand_prix_played = 1
         self.hit_switch_and_run("s_hole_grand", 3)
         self.assertModeRunning("red_line")
         player.lap_count = player.evil_number - 1

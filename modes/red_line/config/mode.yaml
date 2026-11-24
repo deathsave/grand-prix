@@ -3,7 +3,7 @@
 mode:
   start_events:
   # (not while another multiball is running)
-  - sw_tag_hole_active{current_player.is_grooveline_completed > 0 and current_player.is_grand_prix_completed > 0 and current_player.is_luxury_completed > 0 and not mode.grooveline.active and not mode.luxury.active and not mode.grand_prix.active}
+  - sw_tag_hole_active{current_player.is_grooveline_played > 0 and current_player.is_grand_prix_played > 0 and current_player.is_luxury_played > 0 and not mode.grooveline.active and not mode.luxury.active and not mode.grand_prix.active}
   - debug_red_line
   stop_events:
   - multiball_red_line_ended

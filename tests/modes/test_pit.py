@@ -59,10 +59,10 @@ class TestPitMode(DeathSaveGameTesting):
         self._start()
         player = self.machine.game.player
         pit = self.machine.modes["pit"]
-        signals = {"is_grooveline_completed": "l_signal1",
-            "is_luxury_completed": "l_signal2",
-            "is_grand_prix_completed": "l_signal3",
-            "is_red_line_completed": "l_signal4"}
+        signals = {"is_grooveline_played": "l_signal1",
+            "is_luxury_played": "l_signal2",
+            "is_grand_prix_played": "l_signal3",
+            "is_red_line_played": "l_signal4"}
         for variable, light in signals.items():
             pit.update_progress()
             self.assertLightColor(light, "black")

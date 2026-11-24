@@ -98,7 +98,7 @@ class TestMultiballQualifying(DeathSaveGameTesting):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         self._qualify_luxury()
-        self.machine.game.player.is_luxury_completed = 1
+        self.machine.game.player.is_luxury_played = 1
         self.hit_and_release_switch("s_target_multiball")
         self.advance_time_and_run(1)
         self.assertModeNotRunning("luxury")

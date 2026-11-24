@@ -67,7 +67,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
         self._start_multiball()
         # started, but not completed, yet
         self.assertEqual(
-            0, self.machine.game.player.is_grooveline_completed)
+            0, self.machine.game.player.is_grooveline_played)
 
         # Second ball already in play
         self.assertEqual(2, self.machine.playfield.balls)
@@ -90,7 +90,7 @@ class TestGroovelineMode(DeathSaveGameTesting):
 
         # And wizard progress is updated
         self.assertEqual(
-            1, self.machine.game.player.is_grooveline_completed)
+            1, self.machine.game.player.is_grooveline_played)
 
     # The multiball target hit that starts the mode is not a shot
     def test_starting_hit_is_not_a_shot(self):

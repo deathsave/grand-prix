@@ -187,9 +187,9 @@ class TestBonusMode(DeathSaveMcTesting):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         player = self.machine.game.player
-        player.is_grooveline_completed = 1
-        player.is_luxury_completed = 1
-        player.is_grand_prix_completed = 1
+        player.is_grooveline_played = 1
+        player.is_luxury_played = 1
+        player.is_grand_prix_played = 1
         self.post_event("grand_prix_super_jackpot")
         self.advance_time_and_run(1)
         self.assertEqual(1, player.is_grand_prix_super)

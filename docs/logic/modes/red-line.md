@@ -10,12 +10,12 @@ ready, the multiball lamp blinks in Green Flag (from
 of ball save (`./modes/red_line/config/multiballs.yaml`) and ends with the
 multiball.
 
-Leaving it resets Grooveline and Grand Prix (`is_grooveline_completed` and
-`is_grand_prix_completed`, in `./modes/pit/config/variable_player.yaml`), so
+Leaving it resets Grooveline and Grand Prix (`is_grooveline_played` and
+`is_grand_prix_played`, in `./modes/pit/config/variable_player.yaml`), so
 those two get the driver back for another go. Lap of Luxury stays completed:
 its chain is the end of ball bonus, which stays maxed once earned (and it's
 once per game, the `luxury_counter` never resets). The Red Line signal
-(`is_red_line_completed`) stays lit.
+(`is_red_line_played`) stays lit.
 
 Pure Evil stays out of Red Line (`./config/common/event_player.yaml`): it has
 its own mood, and Pure Evil ending would bring the music back.
