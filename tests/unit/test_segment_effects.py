@@ -86,32 +86,42 @@ class TestSegmentEffects(DeathSaveGameTesting):
             self.advance_time_and_run(0.5)
         self.assertEqual(count, len(self.machine.game.player_list))
 
-    # Pure Evil: the other players' displays cycle the 666s, each
-    # starting on a different one, and the current player's keeps their
-    # score
+    # Pure Evil: the three displays other than the current player's
+    # cycle the 666s, each starting on a different one, at its own pace,
+    # and the current player's keeps their score
     def test_pure_evil(self):
-        self._start_players(4)
+        self._start_players(2)
         self.machine.game.player.score = 4560
         self.post_event("mode_pure_evil_started")
         self.advance_time_and_run(0.1)
         self.assertEqual(["    666", "666 666", "666    "],
             self._evil_texts([2, 3, 4]))
-        self.advance_time_and_run(0.4)
-        self.assertEqual(["666 666", "666    ", "    666"],
+        # (they step at 0.37s, 0.43s and 0.5s: at 0.4s only the first)
+        self.advance_time_and_run(0.3)
+        self.assertEqual(["666 666", "666 666", "666    "],
+            self._evil_texts([2, 3, 4]))
+        self.advance_time_and_run(0.35)
+        self.assertEqual(["666    ", "666    ", "    666"],
             self._evil_texts([2, 3, 4]))
         self.assertEqual("4560", self._text(1))
         self.post_event("mode_pure_evil_stopped")
         self.advance_time_and_run(0.5)
-        for n in [2, 3, 4]:
-            self.assertEqual("0", self._text(n))
+        self.assertEqual("0", self._text(2))
+        self.assertEqual("", self._text(3))
 
-    # with 3 players, the other two start on the first and the last
-    def test_pure_evil_three_players(self):
-        self._start_players(3)
+    # (it's whoever's up: player 2's display keeps their score)
+    def test_pure_evil_on_player_two(self):
+        self._start_players(2)
+        self._expire_ball_save()
+        self.hit_switch_and_run("s_trough1", 3)
+        self.advance_time_and_run(20)
+        self.assertEqual(2, self.machine.game.player.number)
+        self.machine.game.player.score = 7890
         self.post_event("mode_pure_evil_started")
         self.advance_time_and_run(0.1)
-        self.assertEqual(["    666", "666    "], self._evil_texts([2, 3]))
-        self.assertEqual("", self._text(4))
+        self.assertEqual("7890", self._text(2))
+        self.assertEqual(["    666", "666 666", "666    "],
+            self._evil_texts([1, 3, 4]))
 
     # The winning score blinks as a multiplayer game ends (ties both
     # blink), not in a 1 player game, and it's gone after the game

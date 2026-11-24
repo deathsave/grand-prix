@@ -15,9 +15,10 @@ class SegmentDisplays(CustomCode):
     # - Award count-ups: a big award (20k or more: skill shots,
     #   jackpots, super jackpots, a big bonus) rolls the score up to its
     #   new total, like an EM's reels, instead of jumping
-    # - Pure Evil: the other players' displays cycle "    666", "666 666"
-    #   and "666    " while it runs, out of step with each other: each
-    #   starts on a different one (two start on the first and the last)
+    # - Pure Evil: the three displays other than the current player's
+    #   cycle "    666", "666 666" and "666    " while it runs, out of
+    #   step: each starts on a different one, at a slightly different
+    #   rate
     # - The winning score blinks as a multiplayer game ends (the match
     #   then blinks its winners, or the game's winner with no match)
     DISPLAYS = [f"segment{n}" for n in range(1, 5)]
@@ -33,7 +34,8 @@ class SegmentDisplays(CustomCode):
     COUNT_UP_FOR = 0.6
 
     EVIL = ["    666", "666 666", "666    "]
-    EVIL_EVERY = 0.4
+    # (each display's own pace)
+    EVIL_EVERY = [0.37, 0.43, 0.5]
 
     def on_load(self):
         events = self.machine.events
@@ -121,24 +123,20 @@ class SegmentDisplays(CustomCode):
 
     def start_evil(self, **kwargs):
         game = self.machine.game
-        if not game or not game.player:
-            return
-        others = [f"segment{player.number}" for player in game.player_list
-            if player.number != game.player.number]
-        starts = [0, 2] if len(others) == 2 else range(len(others))
-        self.evil_displays = dict(zip(others, starts))
-        self.evil_step = 0
-        self._evil()
+        current = game.player.number if game and game.player else 0
+        others = [name for n, name in enumerate(self.DISPLAYS, start=1)
+            if n != current]
+        for i, name in enumerate(others):
+            self._evil(display=name, step=i, every=self.EVIL_EVERY[i])
 
-    def _evil(self):
-        for name, start in self.evil_displays.items():
-            self._write(name, "pure_evil",
-                self.EVIL[(start + self.evil_step) % len(self.EVIL)])
-        self.evil_step += 1
-        self.delay.reset(self.EVIL_EVERY * 1000, self._evil, "pure_evil")
+    def _evil(self, display, step, every):
+        self._write(display, "pure_evil", self.EVIL[step % len(self.EVIL)])
+        self.delay.reset(every * 1000, self._evil, f"pure_evil_{display}",
+            display=display, step=step + 1, every=every)
 
     def stop_evil(self, **kwargs):
-        self.delay.remove("pure_evil")
+        for name in self.DISPLAYS:
+            self.delay.remove(f"pure_evil_{name}")
         for name in self.DISPLAYS:
             self._remove(name, "pure_evil")
 
