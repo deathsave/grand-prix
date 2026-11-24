@@ -82,6 +82,10 @@ sound_player:
   # Every ball save gets a callout: the ball start's, the outlane save
   # (see modes/pit/code/pit.py) and the multiballs' shoot agains. (If
   # the voice is busy for more than a second, it's skipped)
+  ball_save_safety_car_saving_ball:
+    ball_saves:
+      action: play
+      max_queue_time: 1s
   ball_save_ball_start_saving_ball:
     ball_saves:
       action: play

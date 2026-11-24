@@ -134,3 +134,18 @@ variable_player:
     multiplier:
       action: set
       int: 2
+
+  # The Racing Gods' blessings (see random_event_player.yaml; the
+  # Safety Car is a ball save, modes/pit/config/ball_saves.yaml)
+  racing_gods_sponsor:
+    score: 25000
+  # (2X from 1X; already higher, its timer restarts, see
+  # modes/pit/config/timers.yaml)
+  racing_gods_slipstream{current_player.multiplier == 1}:
+    multiplier:
+      action: set
+      int: 2
+  racing_gods_lucky_charm:
+    is_outlane_save_lit:
+      action: set
+      int: 1

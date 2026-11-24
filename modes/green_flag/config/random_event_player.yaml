@@ -5,8 +5,13 @@ random_event_player:
   player_lap_counter_count{(current_player.lap_counter_count % 3 == 0) and (current_player.lap_counter_count > 0) and machine.is_wear_and_tear_available}:
     force_all: false
     events:
-      # 20% chance things are going smoothly
-      green_flag_smooth_sailing: 20
+      # 20% the Racing Gods are kind: 8% things are going smoothly,
+      # and 3% each for a blessing (see event_player.yaml)
+      green_flag_smooth_sailing: 8
+      racing_gods_safety_car: 3
+      racing_gods_sponsor: 3
+      racing_gods_slipstream: 3
+      racing_gods_lucky_charm: 3
       # 74% chance of normal wear and tear
       green_flag_degrade_fuel: 20
       green_flag_degrade_lube: 20

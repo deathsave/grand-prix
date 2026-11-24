@@ -54,10 +54,14 @@ With a well-oiled vehicle, the race begins:
 - A successful lap advances your Grooveline insert progress
 - The drop target costs you: hitting it wears out a random resource
 
-Your car needs three things to "go": **fuel**, **lube**, and **tires**. Wear and tear is expected: every 3 laps, the race takes its toll:
+Your car needs three things to "go": **fuel**, **lube**, and **tires**. Wear and tear is expected: every 3 laps, **the Racing Gods** decide your fate:
 
 - Usually one resource wears down, or sometimes all three
-- About 1 in 5 times it's smooth sailing, and nothing wears
+- About 1 in 5 times they're kind: smooth sailing (nothing wears), or a blessing:
+  - **Safety Car:** a 15 second ball save
+  - **Sponsor Money:** 25,000 points
+  - **Slipstream:** 2X (or another 30 seconds of a multiplier you've already got)
+  - **Lucky Charm:** lights the Outlane Save
 - Now and then, a multi-car wreck brings out the red flag (see Red Flag below)
 - And very rarely, plain bad luck (a blowout, a seized engine or a fuel line) kills your flippers for the rest of the ball
 

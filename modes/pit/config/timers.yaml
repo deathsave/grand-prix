@@ -70,6 +70,9 @@ timers:
       action: restart
     - event: player_multiplier{current_player.multiplier == 1}
       action: reset
+    # (the Racing Gods' Slipstream, already above 1X)
+    - event: racing_gods_slipstream{current_player.multiplier > 1 and not current_player.is_grooveline_boosted}
+      action: restart
     # Grooveline's super jackpot holds it until the mode ends
     - event: grooveline_multiplier_bumped
       action: stop

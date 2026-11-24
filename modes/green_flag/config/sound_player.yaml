@@ -46,6 +46,15 @@ sound_player:
   mode_pure_evil_started: pure_evil_enters
   # Wear and Tear's nothing burger: things are going fine
   green_flag_smooth_sailing: smooth_sailing
+  # the Racing Gods' blessings
+  racing_gods_safety_car: racing_gods_safety_car
+  racing_gods_sponsor:
+    racing_gods_sponsor:
+      action: play
+    cash_register:
+      action: play
+  racing_gods_slipstream: racing_gods_slipstream
+  racing_gods_lucky_charm: racing_gods_lucky_charm
   # The music and crowd come in a few seconds after Green Flag starts
   # (or the music after a multiball), from this mode's timers (see
   # timers.yaml), which stop with it: a sound_player delay can't be

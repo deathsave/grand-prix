@@ -29,6 +29,14 @@
   - "Pops score 1K, 2K, 3K... up to 10K"
   - "10 pops and you're back under green"
 
+- title: The Racing Gods
+  mode: green_flag
+  lines:
+  - "Every 3 laps, the Racing Gods decide your"
+  - "fate: wear & tear, a wreck, or a blessing"
+  - "(a safety car, sponsor money, a slipstream"
+  - "or a lucky charm)... or plain bad luck!"
+
 - title: Grooveline Multiball
   mode: grooveline
   lines:
@@ -64,7 +72,7 @@
 - title: Red Line
   mode: red_line
   lines:
-  - "Finish all 3 multiballs, then enter any hole"
+  - "Play all 3 multiballs, then enter any hole"
   - "Every switch revs the tach. At the red line,"
   - "shift in the Backfire Hole for a Jackpot!"
   - "5th gear: Grooveline, Grand & Prix to win"

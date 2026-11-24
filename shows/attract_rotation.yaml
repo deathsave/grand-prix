@@ -46,3 +46,6 @@
 - duration: 10s
   events: attract_tip
   sounds: whoosh
+- duration: 10s
+  events: attract_tip
+  sounds: whoosh

@@ -19,8 +19,8 @@ class TestTipsDisplay(DeathSaveMcTesting):
         self.advance_time_and_run(10)
         self.assertEqual("tip_backfire_slide", self._slide())
 
-        # through the other 7 tips (Replay last) and back to the splash
-        self.advance_time_and_run(80)
+        # through the other 8 tips (Replay last) and back to the splash
+        self.advance_time_and_run(90)
         self.assertEqual("splash_slide", self._slide())
 
     # The left flipper steps back from the splash
@@ -46,6 +46,8 @@ class TestTipsDisplay(DeathSaveMcTesting):
         expected = [
             "tip_green_flag_slide",
             "tip_backfire_slide",
+            # (the Racing Gods, under green)
+            "tip_green_flag_slide",
             "tip_grooveline_slide",
             "tip_luxury_slide",
             "tip_grand_prix_slide",

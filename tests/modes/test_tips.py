@@ -54,8 +54,8 @@ class TestTipsMode(DeathSaveGameTesting):
         self.assertEqual("Get Under Green", self._title())
         self.advance_time_and_run(10)
         self.assertEqual("Back... Fire", self._title()[:12])
-        # 6 more tips puts us on Pure Evil, then Replay (9 total)
-        self.advance_time_and_run(60)
+        # 7 more tips puts us on Pure Evil, then Replay (10 total)
+        self.advance_time_and_run(70)
         self.assertEqual("Pure Evil", self._title())
         self.advance_time_and_run(10)
         self.assertEqual("Replay", self._title())
@@ -142,13 +142,14 @@ class TestTipsMode(DeathSaveGameTesting):
     def test_right_flipper_advances(self):
         self.advance_time_and_run(13)
         titles = []
-        for i in range(11):
+        for i in range(12):
             self.hit_and_release_switch("s_flipper2")
             self.advance_time_and_run(8)
             titles.append(self._title())
         self.assertEqual([
             "Get Under Green",
             "Back... Fire... Pops! Alright?",
+            "The Racing Gods",
             "Grooveline Multiball",
             "Lap of Luxury",
             "Grand Prix Multiball",
@@ -183,7 +184,7 @@ class TestTipsMode(DeathSaveGameTesting):
     # Every tip line fits the 4 line slide
     def test_tips_fit_the_slide(self):
         tips = self.machine.modes["tips"].tips
-        self.assertEqual(9, len(tips))
+        self.assertEqual(10, len(tips))
         for tip in tips:
             self.assertTrue(tip["title"])
             self.assertLessEqual(len(tip["lines"]), 4)

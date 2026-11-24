@@ -56,7 +56,21 @@ Sounds
 
 - Steve recordings for the synth stand-ins: required lube (`lube`),
   Smooth Sailing (`smooth_sailing`), Red flag (`red_flag`), Leader bonus
-  (`leader_bonus`), Tune Up (`tune_up`), the ball saves (`ball_saves`)
+  (`leader_bonus`), Tune Up (`tune_up`), the ball saves (`ball_saves`),
+  the Racing Gods' blessings (`racing_gods_*`)
+
+- Voices for the Racing Gods: three gods deciding every random event
+  (every 3 laps, `modes/green_flag/config/random_event_player.yaml`),
+  each with their own distinct voice (e.g. via bin/voice-callout's
+  pitch / harmony / robot settings and bin/reverb) and maybe a
+  signature sound before they speak, so players learn who's deciding
+  their fate:
+  - The good god: Smooth Sailing (`smooth_sailing`) and the blessings
+    (`racing_gods_*`)
+  - The bad god: the wreck (`red_flag`) and bad luck (`bad_luck_*`)
+  - The neutral god: the wear and tear (the pit's required fuel / lube
+    / tires callouts), just the cost of racing
+  - (and a name for each)
 
 Segment Displays
 ----------------

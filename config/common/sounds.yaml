@@ -564,6 +564,18 @@ sounds:
   ball_saves3:
     file: ball-saves3.ogg
     track: voice
+  racing_gods_safety_car:
+    file: racing-gods-safety-car.ogg
+    track: voice
+  racing_gods_sponsor:
+    file: racing-gods-sponsor.ogg
+    track: voice
+  racing_gods_slipstream:
+    file: racing-gods-slipstream.ogg
+    track: voice
+  racing_gods_lucky_charm:
+    file: racing-gods-lucky-charm.ogg
+    track: voice
 
   ######## Steve #########
 

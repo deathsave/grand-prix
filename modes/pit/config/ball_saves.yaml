@@ -12,3 +12,12 @@ ball_saves:
     - mode_pit_started
     timer_start_events:
     - sw_playfield_active
+  # The Racing Gods' Safety Car: 15s of ball save, any time (see
+  # modes/green_flag/config/random_event_player.yaml)
+  safety_car:
+    active_time: 15s
+    hurry_up_time: 5s
+    auto_launch: true
+    grace_period: 2s
+    enable_events:
+    - racing_gods_safety_car
