@@ -79,6 +79,9 @@ sound_player:
   pit_fuel_filled: pit_fuel
   pit_lube_filled: pit_lube
   pit_tires_filled: pit_tires
+  # the left inlane's Tune Up (with its resource's fill sound, see
+  # code/pit.py)
+  tune_up: tune_up
   pit_resource_full: bell
   # fallback sound
   sw_tag_bell: bell

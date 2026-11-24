@@ -41,6 +41,9 @@ class TestPitMode(DeathSaveGameTesting):
         self._assertIncrement(score, "s_swerve2", 10)
         self._assertIncrement(score, "s_slingshot1", 10)
         self._assertIncrement(score, "s_slingshot2", 10)
+        # (low tires as well as fuel, so the left inlane's Tune Up only
+        # fills one of two and doesn't start Green Flag)
+        self.machine.game.player.level_tires = 1
         self._assertIncrement(score, "s_inlane1", 10)
         self._assertIncrement(score, "s_inlane2", 10)
         self._assertIncrement(score, "s_outlane1", 10)

@@ -121,6 +121,10 @@ player_vars:
     initial_value: 0
   is_red_line_super:
     initial_value: 0
+  # The outlane save: lit by completing the Grand counter, until an
+  # outlane uses it (see modes/pit/code/pit.py)
+  is_outlane_save_lit:
+    initial_value: 0
   # The end of ball bonus's counts (see modes/pit/code/pit.py)
   bonus_multiballs:
     initial_value: 0

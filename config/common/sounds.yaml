@@ -552,6 +552,18 @@ sounds:
   replay:
     file: replay.ogg
     track: voice
+  tune_up:
+    file: tune-up.ogg
+    track: voice
+  ball_saves1:
+    file: ball-saves1.ogg
+    track: voice
+  ball_saves2:
+    file: ball-saves2.ogg
+    track: voice
+  ball_saves3:
+    file: ball-saves3.ogg
+    track: voice
 
   ######## Steve #########
 

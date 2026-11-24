@@ -9,6 +9,14 @@ sound_pools:
     - gn
     - bb
     - cn
+  # Every ball save (see sound_player.yaml)
+  ball_saves:
+    type: random_force_all
+    track: voice
+    sounds:
+    - ball_saves1
+    - ball_saves2
+    - ball_saves3
   # Lap of Luxury's pops
   coins:
     type: random_force_all

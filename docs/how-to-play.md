@@ -24,6 +24,10 @@ Out of the gate, try to get into the Backfire Hole with a skillful plunge. This 
 
 ![Fuel Target](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/fuel.jpeg)
 
+**Tune Up:** roll through the left inlane while you're in the pit to top up a random low resource (fuel, lube or tires). If that was the last one, you're racing.
+
+**Outlane Save:** completing GRAND lights the heart on the driver's chest. While it's lit, the next ball down either outlane kicks out another ball, and you keep playing. It stays lit across balls until it's used, and completing GRAND again relights it.
+
 #### Skill Shots
 
 **Backfire Skill Shot** (Ball 1 launch)
@@ -154,7 +158,7 @@ It's the name of the game!
 
 - Top-most 5 inserts in South-West chain spells out G-R-A-N-D
 - Top-most 4 inserts in South-East chain spells out P-R-I-X
-- Left standing target lights a GRAND insert (5 hits to complete)
+- Left standing target lights a GRAND insert (5 hits to complete). Completing GRAND also lights the Outlane Save
 - After lighting all of GRAND, entering the Pot Hole:
   - Locks a ball
   - Enables PRIX

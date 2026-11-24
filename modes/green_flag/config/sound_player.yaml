@@ -2,10 +2,10 @@
 
 sound_player:
   # (see event_player: whoosh while a ball save's on)
-  outlane2_drain:
+  outlane_drain:
     welp:
       block: true
-  outlane2_saved:
+  outlane_saved:
     whoosh:
       block: true
   s_inlane2_active:

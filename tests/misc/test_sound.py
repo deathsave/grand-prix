@@ -136,6 +136,19 @@ class TestSound(DeathSaveMcTesting):
             self.advance_time_and_run(1)
         return requested
 
+    # Every ball save gets a "that was close" callout (a pool of 3)
+    def test_ball_save_callouts(self):
+        self._start()
+        for event in ["ball_save_ball_start_saving_ball",
+                "outlane_save_redeemed", "multiball_grooveline_shoot_again",
+                "multiball_luxury_shoot_again",
+                "multiball_grand_prix_shoot_again",
+                "multiball_red_line_shoot_again"]:
+            self.assertIn("ball_saves",
+                [str(sound) for sound in self._requested(event)], event)
+        for name in ["ball_saves1", "ball_saves2", "ball_saves3"]:
+            self.assertIn(name, self.mc.sounds)
+
     # Low on lube (synth for now)
     def test_lube_callout(self):
         self._start()
@@ -254,3 +267,19 @@ class TestSound(DeathSaveMcTesting):
         requested = self._requested("s_outlane2_active")
         self.assertIn("welp", requested)
         self.assertNotIn("whoosh", requested)
+
+    # The left outlane works the same, and both whoosh while the outlane
+    # save's lit
+    def test_left_outlane_and_the_outlane_save(self):
+        self._start()
+        self.hit_and_release_switch("s_pit_fuel")
+        self.advance_time_and_run(1)
+        requested = self._requested("s_outlane1_active")
+        self.assertIn("whoosh", requested)
+        self._expire_ball_save()
+        requested = self._requested("s_outlane1_active")
+        self.assertIn("welp", requested)
+        self.machine.game.player.is_outlane_save_lit = 1
+        requested = self._requested("s_outlane1_active")
+        self.assertIn("whoosh", requested)
+        self.assertNotIn("welp", requested)

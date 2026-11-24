@@ -79,3 +79,30 @@ sound_player:
   extra_ball_awarded: extra_ball
   # "Double jackpot!" after a super jackpot's chime rolls
   super_jackpot_chimes_done: jackpot_double
+  # Every ball save gets a callout: the ball start's, the outlane save
+  # (see modes/pit/code/pit.py) and the multiballs' shoot agains. (If
+  # the voice is busy for more than a second, it's skipped)
+  ball_save_ball_start_saving_ball:
+    ball_saves:
+      action: play
+      max_queue_time: 1s
+  outlane_save_redeemed:
+    ball_saves:
+      action: play
+      max_queue_time: 1s
+  multiball_grooveline_shoot_again:
+    ball_saves:
+      action: play
+      max_queue_time: 1s
+  multiball_luxury_shoot_again:
+    ball_saves:
+      action: play
+      max_queue_time: 1s
+  multiball_grand_prix_shoot_again:
+    ball_saves:
+      action: play
+      max_queue_time: 1s
+  multiball_red_line_shoot_again:
+    ball_saves:
+      action: play
+      max_queue_time: 1s

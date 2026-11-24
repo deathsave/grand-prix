@@ -44,18 +44,12 @@ Wear and Tear
 - Smooth Sailing's callouts (the `smooth_sailing` pool) are synth for
   now; replace with Steve recordings
 
-Pit
----
-
-- Tune Up: the left inlane (`s_inlane1`) auto fills a random low pit
-  resource, with a callout
-
 Sounds
 ------
 
 - Steve recordings for the synth stand-ins: required lube (`lube`),
   Smooth Sailing (`smooth_sailing`), Red flag (`red_flag`), Leader bonus
-  (`leader_bonus`)
+  (`leader_bonus`), Tune Up (`tune_up`), the ball saves (`ball_saves`)
 
 Segment Displays
 ----------------
@@ -93,7 +87,11 @@ Hardware
   fire together (774 times, vs 104 / 196 alone) and often with no ball,
   right after a coil fires: bridged inputs or a shared common. Until
   fixed they're not `playfield_active` (they faked launches and shut
-  the loop gate); add the tag back once they're fixed
+  the loop gate); add the tag back once they're fixed. They now also
+  matter for the game: the left outlane uses the outlane save (kicking
+  out another ball) and the left inlane is Tune Up, so a phantom hit
+  would trigger those too. (Right now neither switch registers at
+  all)
 - The shooter lane switch is sensitive: it opens for 0.3-0.7s with the
   ball still in the lane (the debounce covers short bounces only)
 - Segment display 4 needs solder work

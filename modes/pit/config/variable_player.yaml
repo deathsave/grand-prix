@@ -198,3 +198,9 @@ variable_player:
     is_playfield_active:
       int: 0
       action: set
+  # Completing the Grand counter lights the outlane save (it stays lit
+  # across balls until an outlane uses it, see code/pit.py)
+  logicblock_grand_counter_complete:
+    is_outlane_save_lit:
+      action: set
+      int: 1

@@ -25,6 +25,8 @@ class Pit(Mode):
         "is_luxury_completed": "l_signal2",
         "is_grand_prix_completed": "l_signal3",
         "is_red_line_completed": "l_signal4",
+        # the outlane save (the heart on the driver's chest)
+        "is_outlane_save_lit": "l_outlane_bottom1",
         "grooveline_counter_count": [ "l_grooveline", 10 ],
         "luxury_counter_count": [ "l_bonus", 10 ],
         "grand_counter_count": [ "l_grand", 5 ],
@@ -50,6 +52,8 @@ class Pit(Mode):
 
     MULTIPLIER_STEPS = { 1: 2, 2: 5 }
 
+    RESOURCES = ["fuel", "lube", "tires"]
+
     index = 0
 
     def mode_start(self, **kwargs):
@@ -72,6 +76,10 @@ class Pit(Mode):
             self.race)
         self.add_mode_event_handler("mode_green_flag_stopped",
             self.pit_stop)
+        self.saved_drain = False
+        self.add_mode_event_handler("outlane_save_redeem",
+            self.redeem_outlane_save)
+        self.add_mode_event_handler("s_inlane1_active", self.tune_up)
         self.clear_segments()
 
         self.update_progress()
@@ -85,6 +93,7 @@ class Pit(Mode):
             self.machine.game.player.ball * 10)
 
     def mode_stop(self, **kwargs):
+        self.machine.events.remove_handler(self.swallow_saved_drain)
         self.machine.events.post("engine_pace_off")
         for show, _ in self.flashing.values():
             show.stop()
@@ -153,6 +162,47 @@ class Pit(Mode):
 
     # The end of ball bonus counts each multiball played and completed
     # (see modes/bonus): worked out as the ball ends, before the bonus
+    # The outlane save (lit by completing the Grand counter, see
+    # config): an outlane (with no other save that'd return the ball,
+    # see event_player.yaml) uses it to kick out another ball right
+    # away, and the outlaned ball's drain doesn't count. Like MPF's
+    # early ball save, but a ball save would also save center drains
+    def redeem_outlane_save(self, **kwargs):
+        player = self.machine.game.player
+        if not player.is_outlane_save_lit or self.saved_drain:
+            return
+        player.is_outlane_save_lit = 0
+        self.update_progress()
+        self.saved_drain = True
+        self.machine.events.add_handler("ball_drain",
+            self.swallow_saved_drain, priority=1001)
+        self.machine.playfield.add_ball(balls=1, player_controlled=False)
+        self.machine.events.post("outlane_save_redeemed")
+
+    def swallow_saved_drain(self, balls, **kwargs):
+        if not self.saved_drain or balls <= 0:
+            return {}
+        self.saved_drain = False
+        self.machine.events.remove_handler(self.swallow_saved_drain)
+        return {"balls": balls - 1}
+
+    # Tune Up: the left inlane fills a random low pit resource (not in
+    # Green Flag, where they're all full), with a callout, and if that
+    # was the last one (and it isn't under a red flag), it's racing
+    def tune_up(self, **kwargs):
+        if self.machine.modes["green_flag"].active:
+            return
+        player = self.machine.game.player
+        low = [name for name in self.RESOURCES
+            if player[f"level_{name}"] < 2]
+        if not low:
+            return
+        resource = random.choice(low)
+        self.machine.events.post(f"pit_{resource}_filled")
+        self.machine.events.post("tune_up", resource=resource)
+        if len(low) == 1 and not self.machine.modes["under_red"].active:
+            self.machine.events.post("green_flag")
+
     def count_bonus(self):
         player = self.machine.game.player
         player.bonus_multiballs = sum(
