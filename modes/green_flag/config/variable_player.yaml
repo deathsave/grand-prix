@@ -6,8 +6,11 @@ variable_player:
   ##################
   # (nothing at Red Line's red line, which scores like the pit
   # instead, see modes/red_line/config/variable_player.yaml)
+  # (500 during Lap of Luxury, under Backfire Pops' 1k-10k climb, which
+  # blocks this when it's running. Here rather than in Luxury: a
+  # conditional entry there doesn't block this one)
   sw_tag_pops:
-    score: 50 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
+    score: (50 + 450 * mode.luxury.active) * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_grooveline_active:
     score: 500 * current_player.multiplier * (1 - current_player.red_line_at_redline)|block
   s_hole_backfire_active{not device.timers.skill_shot.running}:

@@ -338,6 +338,19 @@ sounds:
     track: voice
   # the jackpot widgets show while these play (see
   # widget_player in the grooveline, grand_prix and luxury modes)
+  # Lap of Luxury's money (synthesized by bin/cash)
+  cash_register:
+    file: cash-register.ogg
+    track: effects
+  coin1:
+    file: coin-1.ogg
+    track: effects
+  coin2:
+    file: coin-2.ogg
+    track: effects
+  coin3:
+    file: coin-3.ogg
+    track: effects
   jackpot:
     file: jackpot.ogg
     track: voice

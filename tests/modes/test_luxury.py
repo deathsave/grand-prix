@@ -236,3 +236,27 @@ class TestLuxuryMode(DeathSaveGameTesting):
                 "s_grooveline", "s_hole_grand", "s_target_save"]:
             self.hit_switch_and_run(switch, 1)
         self.assertEqual(1, player.is_luxury_super)
+
+    # The pops pay 500 (x the multiplier) during Luxury, but Backfire
+    # Pops keeps its 1k-10k climb when it's running
+    def test_pops_pay_more(self):
+        self._start_luxury_multiball()
+        player = self.machine.game.player
+        score = player.score
+        self.hit_and_release_switch("s_pop1")
+        self.advance_time_and_run(0.1)
+        self.assertEqual(score + 500 * player.multiplier, player.score)
+        player.multiplier = 2
+        score = player.score
+        self.hit_and_release_switch("s_pop2")
+        self.advance_time_and_run(0.1)
+        self.assertEqual(score + 1000, player.score)
+        # Backfire Pops (started underneath): its own climb
+        self.machine.modes["backfire"].start()
+        self.advance_time_and_run(0.1)
+        player.backfire_counter_count = 3
+        score = player.score
+        self.hit_and_release_switch("s_pop1")
+        self.advance_time_and_run(0.1)
+        self.assertNotEqual(score + 1000, player.score)
+        self.assertGreater(player.score, score)

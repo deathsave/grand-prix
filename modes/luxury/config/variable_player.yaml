@@ -19,6 +19,8 @@ variable_player:
   # multiplier, see event_player), the 6th is only the super jackpot
   luxury_jackpot:
     score: 75000 * current_player.multiplier|block
+  # (the pops pay 500 during Luxury, see
+  # modes/green_flag/config/variable_player.yaml)
   # 300k super jackpot
   luxury_complete:
     score: 300000|block

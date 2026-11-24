@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+"""Synthesize Lap of Luxury's money sounds into sounds/preload/effects/:
+a cash register "cha-ching" (cash-register.ogg, under each Luxury
+jackpot's callout) and three coins (coin-1.ogg .. coin-3.ogg, on the
+pops). Mono, like the engine sounds.
+
+  bin/cash           # make them
+  bin/cash --play    # and hear them (macOS afplay)
+"""
+
+import argparse
+import os
+import subprocess
+
+import numpy as np
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DEST = os.path.join(ROOT, "sounds", "preload", "effects")
+RATE = 44100
+
+
+def silence(seconds):
+    return np.zeros(int(seconds * RATE))
+
+
+def bell(seconds, partials, decay, rng, detune=0.002):
+    """Inharmonic metal: each (hz, level) partial rings and dies away,
+    the higher ones faster."""
+    t = np.arange(int(seconds * RATE)) / RATE
+    out = np.zeros_like(t)
+    for hz, level in partials:
+        hz *= 1 + rng.uniform(-detune, detune)
+        out += level * np.sin(2 * np.pi * hz * t + rng.uniform(0, 6.3)) \
+            * np.exp(-t / (decay * 2000 / hz))
+    # the strike
+    attack = np.minimum(1, t / 0.002)
+    return out * attack
+
+
+def click(seconds, hz, rng):
+    """A mechanical clack: a burst of filtered noise and a low knock."""
+    t = np.arange(int(seconds * RATE)) / RATE
+    noise = rng.normal(0, 1, len(t))
+    # (a rough band-pass: difference of two smoothings)
+    smooth = np.convolve(noise, np.ones(4) / 4, mode="same")
+    band = smooth - np.convolve(smooth, np.ones(40) / 40, mode="same")
+    knock = np.sin(2 * np.pi * hz * t) * np.exp(-t / 0.015)
+    return (0.8 * band * np.exp(-t / 0.008) + 0.6 * knock)
+
+
+def place(out, sound, at):
+    start = int(at * RATE)
+    end = min(len(out), start + len(sound))
+    out[start:end] += sound[:end - start]
+
+
+def cash_register(rng):
+    out = silence(1.3)
+    # "cha": the keys and the drawer's ratchet (a few quick clacks)
+    for i, at in enumerate([0.0, 0.035, 0.06, 0.08, 0.1]):
+        place(out, (1 - 0.12 * i) * click(0.06, 160 + 25 * i, rng), at)
+    # the drawer thumping open
+    place(out, 0.9 * click(0.12, 90, rng), 0.16)
+    # "ching": the bell
+    place(out, 0.9 * bell(1.1, [(2093, 1.0), (2794, 0.55), (4186, 0.35),
+        (5274, 0.25), (6645, 0.12)], 0.9, rng), 0.17)
+    return out
+
+
+def coin(rng, pitch):
+    """A coin dropping on a counter: a bright ping, then two smaller
+    bounces."""
+    # (none above 9kHz: ffmpeg's built-in vorbis encoder chokes on
+    # them, and the cabinet speakers don't do much up there anyway)
+    partials = [(hz * pitch, level) for hz, level in [(3100, 1.0),
+        (5400, 0.6), (7900, 0.35), (9800, 0.15)] if hz * pitch < 9000]
+    out = silence(0.7)
+    for at, level in [(0.0, 1.0), (0.09, 0.45), (0.15, 0.2)]:
+        place(out, level * bell(0.5, partials, 0.35, rng, detune=0.01), at)
+    return out
+
+
+def write(name, samples, play):
+    samples = samples / np.abs(samples).max() * 0.8
+    # (a soft fade so nothing clicks at the end)
+    fade = int(0.02 * RATE)
+    samples[-fade:] *= np.linspace(1, 0, fade)
+    path = os.path.join(DEST, name)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar",
+        str(RATE), "-ac", "1", "-i", "-", "-c:a", "vorbis", "-strict", "-2",
+        "-ac", "2", "-q:a", "5", path],
+        input=samples.astype(np.float32).tobytes(), check=True)
+    print(path)
+    if play:
+        subprocess.run(["afplay", path])
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--play", action="store_true")
+    args = parser.parse_args()
+    rng = np.random.default_rng(86)
+    write("cash-register.ogg", cash_register(rng), args.play)
+    for n, pitch in enumerate([1.0, 0.88, 1.12], start=1):
+        write(f"coin-{n}.ogg", coin(rng, pitch), args.play)
+
+
+if __name__ == "__main__":
+    main()

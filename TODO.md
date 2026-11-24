@@ -22,7 +22,7 @@ In order, each one tested before the next:
    heartbeat in the shaker)
 7. ~~Match animation on the segment displays~~ (done)
 8. ~~High score: Red Line shifts category~~ (done: Shift Champ)
-9. Sounds: Luxury cash and coins (with the pops paying more)
+9. ~~Sounds: Luxury cash and coins (with the pops paying more)~~ (done)
 10. Hardware (you): the tilt / coin door / service bank, the outlane
     switches, the loop gate servo, the tach experiment, then design
     (plastics, backglass)
@@ -53,11 +53,6 @@ Pit
 Sounds
 ------
 
-- For Luxury Mode - cash and coin sounds (I synthesize)
-  - a cash register "cha-ching" under the jackpot callout on each of
-    the 6 shots
-  - coin sounds on the pops, and the pops pay more during Luxury to
-    match: 500 x multiplier (under Backfire Pops' 1k-10k climb)
 - Steve recordings for the synth stand-ins: required lube (`lube`),
   Smooth Sailing (`smooth_sailing`), Red flag (`red_flag`), Leader bonus
   (`leader_bonus`)

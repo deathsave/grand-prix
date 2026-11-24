@@ -9,6 +9,14 @@ sound_pools:
     - gn
     - bb
     - cn
+  # Lap of Luxury's pops
+  coins:
+    type: random_force_all
+    track: effects
+    sounds:
+    - coin1
+    - coin2
+    - coin3
   boing:
     type: random_force_all
     track: effects

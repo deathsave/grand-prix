@@ -143,6 +143,7 @@ Each Luxury step lights an insert (worth 10,000 in the end of ball bonus). Steps
 - Hit the multiball target to begin Luxury Multiball
   - Each blinking insert collected is a **Jackpot** (75,000, × your multiplier)
   - Collecting the 6th is the **Super Jackpot** (300,000) instead
+  - The pop bumpers pay 500 (× your multiplier), unless Backfire Pops is running
 - Completing the mode marks it done and advances Red Line progress
 
 #### Grand Prix Multiball 3/3

@@ -17,7 +17,9 @@ sound_player:
   sw_tag_slings:
     boing:
       block: true
-  sw_tag_pops:
+  # (Lap of Luxury's coins instead, see modes/luxury/config/
+  # sound_player.yaml: a conditional entry there doesn't block this)
+  sw_tag_pops{not mode.luxury.active}:
     green_flag_notes:
       block: true
   sw_tag_rev:
