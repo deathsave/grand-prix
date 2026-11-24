@@ -24,11 +24,11 @@ event_player:
   - multiplier_lap
   # The multiball target starts Grooveline or Luxury whenever its chain
   # is full (Grooveline first if both are; Luxury only once a game, its
-  # chain stays maxed for the bonus), not while another multiball's
-  # running. (From the counts, not their complete events: those only
+  # chain stays maxed for the bonus), and they can stack. (From the
+  # counts, not their complete events: those only
   # fire once, so a qualified multiball used to be lost if the ball
   # went back to the pit, or drained, before the target)
-  s_target_multiball_active{current_player.grooveline_counter_count >= 10 and not mode.grooveline.active and not mode.luxury.active and not mode.grand_prix.active and not mode.red_line.active}:
+  s_target_multiball_active{current_player.grooveline_counter_count >= 10 and not mode.grooveline.active}:
   - grooveline_qualifier_hit
-  s_target_multiball_active{current_player.luxury_counter_count >= 10 and current_player.is_luxury_completed == 0 and current_player.grooveline_counter_count < 10 and not mode.grooveline.active and not mode.luxury.active and not mode.grand_prix.active and not mode.red_line.active}:
+  s_target_multiball_active{current_player.luxury_counter_count >= 10 and current_player.is_luxury_played == 0 and current_player.grooveline_counter_count < 10 and not mode.luxury.active}:
   - luxury_qualifier_hit
