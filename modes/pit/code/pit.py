@@ -88,9 +88,13 @@ class Pit(Mode):
 
         self.machine.game.player.name = self.driver_name()
 
-        self.machine.game.player.evil_number = random.randint( \
-            self.machine.game.player.lap_count or 1,
-            self.machine.game.player.ball * 10)
+        # Pure Evil's lap this ball: somewhere up to lap 10 x the ball
+        # (or, past that already, within the next 10 laps: randint
+        # raised on the empty range, crashing the pit mode)
+        player = self.machine.game.player
+        first = player.lap_count or 1
+        player.evil_number = random.randint(first,
+            max(first + 10, player.ball * 10))
 
     def mode_stop(self, **kwargs):
         self.machine.events.remove_handler(self.swallow_saved_drain)
