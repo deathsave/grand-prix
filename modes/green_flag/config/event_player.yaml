@@ -23,12 +23,20 @@ event_player:
   logicblock_seq_lap_complete{current_player.multiplier == 2}:
   - multiplier_lap
   # The multiball target starts Grooveline or Luxury whenever its chain
-  # is full (Grooveline first if both are; Luxury only once a game, its
-  # chain stays maxed for the bonus), and they can stack. (From the
-  # counts, not their complete events: those only
+  # is full (Luxury only once a game: its chain stays maxed for the
+  # bonus). With both qualified it's Luxury first, the smaller of the
+  # two (675k completed, to Grooveline's 700k and its multiplier bump),
+  # then Grooveline as soon as it ends (see
+  # modes/pit/config/event_player.yaml); one doesn't start during the
+  # other. (From the counts, not their complete events: those only
   # fire once, so a qualified multiball used to be lost if the ball
   # went back to the pit, or drained, before the target)
-  s_target_multiball_active{current_player.grooveline_counter_count >= 10 and not mode.grooveline.active}:
-  - grooveline_qualifier_hit
-  s_target_multiball_active{current_player.luxury_counter_count >= 10 and current_player.is_luxury_played == 0 and current_player.grooveline_counter_count < 10 and not mode.luxury.active}:
+  s_target_multiball_active{current_player.luxury_counter_count >= 10 and current_player.is_luxury_played == 0 and not mode.luxury.active and not mode.grooveline.active}:
   - luxury_qualifier_hit
+  # (Grooveline when Luxury isn't waiting: its chain isn't full, or
+  # it's been played. No parentheses: event_player reads them as
+  # placeholders)
+  s_target_multiball_active{current_player.grooveline_counter_count >= 10 and current_player.luxury_counter_count < 10 and not mode.grooveline.active and not mode.luxury.active}:
+  - grooveline_qualifier_hit
+  s_target_multiball_active{current_player.grooveline_counter_count >= 10 and current_player.is_luxury_played == 1 and not mode.grooveline.active and not mode.luxury.active}:
+  - grooveline_qualifier_hit

@@ -126,6 +126,8 @@ At the end of the game, the backbox lamps and the score displays spin for a matc
 
 Three special modes build up to the activation of a fourth, wizard mode.
 
+Laps light both Grooveline and Lap of Luxury, so they're often ready together. Then the multiball target starts Lap of Luxury first, and Grooveline starts the moment it's over (they don't run at the same time).
+
 #### Grooveline Multiball 1/3
 
 ![Grooveline B](https://github.com/deathsave/grand-prix/raw/main/misc/images/art/grooveline-b.jpeg)

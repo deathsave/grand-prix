@@ -80,3 +80,10 @@ event_player:
   - outlane_save_redeem
   s_outlane2_active{current_player.is_outlane_save_lit == 1 and not device.ball_saves.ball_start.enabled and not device.ball_saves.safety_car.enabled and not device.multiballs.grooveline.shoot_again and not device.multiballs.luxury.shoot_again and not device.multiballs.grand_prix.shoot_again and not device.multiballs.red_line.shoot_again}:
   - outlane_save_redeem
+  # The other one, qualified, starts as soon as one ends (while the
+  # ball's still in play: not at the end of a ball, or after a tilt). See
+  # modes/green_flag/config/event_player.yaml
+  mode_luxury_stopped{current_player.grooveline_counter_count >= 10 and game.balls_in_play > 0 and not game.tilted and not mode.grooveline.active}:
+  - grooveline_qualifier_hit
+  mode_grooveline_stopped{current_player.luxury_counter_count >= 10 and current_player.is_luxury_played == 0 and game.balls_in_play > 0 and not game.tilted and not mode.luxury.active}:
+  - luxury_qualifier_hit

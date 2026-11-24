@@ -171,51 +171,50 @@ class FullGameTesting(DeathSaveGameTesting):
 
 class TestFullGames(FullGameTesting):
 
-    # One driver, all the way: every multiball (winning Grooveline's
-    # and Luxury's, losing Grand Prix's), Red Line, then out of balls
-    # and back to attract
+    # One driver, all the way: every multiball (winning Luxury's, then
+    # Grooveline's straight after, losing Grand Prix's), Red Line, then
+    # out of balls and back to attract
     def test_the_whole_race(self):
         self._start_game()
         player = self.machine.game.player
         self._race()
         self._settle("racing")
 
-        # Grooveline: 10 laps (which also fill Luxury's chain), the
-        # target, 10 shots for the super. (Not the target again: with
-        # Luxury qualified, that'd stack it, see test_stacked)
+        # 10 laps fill both chains: the target starts Luxury first
         self._laps(10)
+        self.assertEqual(10, player.grooveline_counter_count)
         self.assertEqual(10, player.luxury_counter_count)
-        self._settle("grooveline qualified")
-        self._hit("s_target_multiball", secs=4)
-        self.assertModeRunning("grooveline")
-        self._settle("grooveline")
-        for switch in ["s_grooveline", "s_target_save"] * 5:
-            self._hit(switch, secs=1)
-        self.assertEqual(1, player.is_grooveline_super)
-        # (the Grand target 5 times: GRAND's lit, and the outlane save)
-        self.assertEqual(5, player.grand_counter_count)
-        self.assertEqual(1, player.is_outlane_save_lit)
-        self.assertModeNotRunning("luxury")
-        self._settle("grooveline won", 10)
-        self._drain("grooveline down to one")
-        self.assertModeNotRunning("grooveline")
-        self.assertEqual(1, player.is_grooveline_played)
-        self.assertEqual(1, player.multiplier)
-        self._settle("after grooveline")
-
-        # Luxury: its chain's already full, so the target, its 6 shots
+        self._settle("both qualified")
         self._hit("s_target_multiball", secs=4)
         self.assertModeRunning("luxury")
+        self.assertModeNotRunning("grooveline")
         self._settle("luxury")
+
+        # Luxury: its 6 shots for the super; it ends a few seconds later,
+        # and Grooveline starts straight away (with the same 2 balls)
         for switch in ["s_target_bonus", "s_hole_prix", "s_spinner",
                 "s_grooveline", "s_hole_grand", "s_target_save"]:
             self._hit(switch, secs=1)
         self.assertEqual(1, player.is_luxury_super)
         self._settle("luxury won", 6)
         self.assertModeNotRunning("luxury")
-        self._drain("luxury down to one")
-        self.assertEqual(1, player.is_luxury_played)
-        self._settle("after luxury")
+        self.assertModeRunning("grooveline")
+        self._settle("grooveline", 6)
+
+        # Grooveline: 10 shots for the super
+        for switch in ["s_grooveline", "s_target_save"] * 5:
+            self._hit(switch, secs=1)
+        self.assertEqual(1, player.is_grooveline_super)
+        # (the Grand target 6 times: GRAND's lit, and the outlane save)
+        self.assertEqual(5, player.grand_counter_count)
+        self.assertEqual(1, player.is_outlane_save_lit)
+        self._settle("grooveline won", 10)
+        self._drain("grooveline down to one")
+        self.assertModeNotRunning("grooveline")
+        for name in ["grooveline", "luxury"]:
+            self.assertEqual(1, player[f"is_{name}_played"])
+        self.assertEqual(1, player.multiplier)
+        self._settle("after both")
 
         # Grand Prix: (GRAND's lit) the Pot Hole lock, PRIX, the Oil
         # Slick lock, the Backfire Hole to start; then lose it
@@ -259,8 +258,8 @@ class TestFullGames(FullGameTesting):
 
     # Grooveline and Luxury qualified (10 laps fill both), then a pit
     # stop and a lost ball before the target: both still start on the
-    # next ball, stacked, and both are lost early
-    def test_stacked_after_a_pit_stop_and_a_drain(self):
+    # next ball, Luxury first, then Grooveline as soon as it's lost
+    def test_both_after_a_pit_stop_and_a_drain(self):
         self._start_game()
         player = self.machine.game.player
         self._race()
@@ -278,18 +277,19 @@ class TestFullGames(FullGameTesting):
         self.assertEqual(10, player.grooveline_counter_count)
         self.assertEqual(10, player.luxury_counter_count)
 
-        # the target: Grooveline, then (as a Grooveline shot) Luxury too
+        # the target: Luxury (and again, not Grooveline on top)
         self._hit("s_target_multiball", secs=4)
-        self.assertModeRunning("grooveline")
-        self.assertModeNotRunning("luxury")
-        self._hit("s_target_multiball", secs=4)
-        self.assertModeRunning("grooveline")
         self.assertModeRunning("luxury")
-        self._settle("stacked", 15)
+        self._hit("s_target_multiball", secs=4)
+        self.assertModeNotRunning("grooveline")
+        self._settle("luxury", 15)
 
-        # both lost early
-        while self.machine.game.balls_in_play > 1:
-            self._drain("losing them")
+        # Luxury lost: Grooveline, then that's lost too
+        self._drain("luxury lost")
+        self.assertModeNotRunning("luxury")
+        self.assertModeRunning("grooveline")
+        self._settle("grooveline", 15)
+        self._drain("grooveline lost")
         self._settle("both over", 8)
         for name in ["grooveline", "luxury"]:
             self.assertModeNotRunning(name)
@@ -333,9 +333,10 @@ class TestFullGames(FullGameTesting):
         self.assertEqual(1, one.is_outlane_save_lit)
         self.assertTrue(self._lit("l_outlane_bottom1"))
         self._race()
+        # (both chains full: Luxury first)
         self._hit("s_target_multiball", secs=4)
-        self.assertModeRunning("grooveline")
-        self._settle("player 1's grooveline", 15)
+        self.assertModeRunning("luxury")
+        self._settle("player 1's luxury", 15)
         while game.balls_in_play > 1:
             self._drain("losing it")
         self._play_out("playing out")
@@ -347,9 +348,10 @@ class TestFullGames(FullGameTesting):
         self._start_game()
         self._race()
         self._laps(10)
+        # (both chains full: Luxury first)
         self._hit("s_target_multiball", secs=6)
-        self.assertModeRunning("grooveline")
-        self._settle("grooveline", 12)
+        self.assertModeRunning("luxury")
+        self._settle("luxury", 12)
         for i in range(3):
             self._hit("s_tilt", secs=1)
         self.assertModeRunning("tilt")
@@ -365,6 +367,8 @@ class TestFullGames(FullGameTesting):
         self._settle("after the tilt", 3)
         self.assertEqual(2, self.machine.game.player.ball)
         self.assertFalse(self.machine.game.tilted)
+        # (Grooveline didn't start after the tilted Luxury)
+        self.assertModeNotRunning("luxury")
         self.assertModeNotRunning("grooveline")
         self._plunge()
         self.assertTrue(self.machine.flippers["left_flipper"]._enabled)

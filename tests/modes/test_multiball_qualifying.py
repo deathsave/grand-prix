@@ -52,14 +52,20 @@ class TestMultiballQualifying(DeathSaveGameTesting):
         back()
         self.assertTrue(self._multiball_lamp_blinks())
 
+    # (the laps fill Luxury's chain too: these have Luxury already
+    # played, so it's Grooveline alone)
+    def _grooveline_alone(self):
+        self._qualify_grooveline()
+        self.machine.game.player.is_luxury_played = 1
+
     def test_grooveline_after_the_pit(self):
-        self._qualify_and(self._qualify_grooveline, self._pit_and_back)
+        self._qualify_and(self._grooveline_alone, self._pit_and_back)
         self.hit_and_release_switch("s_target_multiball")
         self.advance_time_and_run(1)
         self.assertModeRunning("grooveline")
 
     def test_grooveline_after_a_drain(self):
-        self._qualify_and(self._qualify_grooveline, self._drain_and_back)
+        self._qualify_and(self._grooveline_alone, self._drain_and_back)
         self.hit_and_release_switch("s_target_multiball")
         self.advance_time_and_run(1)
         self.assertModeRunning("grooveline")
@@ -76,22 +82,69 @@ class TestMultiballQualifying(DeathSaveGameTesting):
         self.advance_time_and_run(1)
         self.assertModeRunning("luxury")
 
-    # Both qualified: Grooveline first, then Luxury after it
-    def test_grooveline_first(self):
+    # Both qualified: Luxury first (the smaller one), and Grooveline as
+    # soon as it ends, not stacked
+    def test_luxury_first_then_grooveline(self):
         self._start_and_expire_ball_save()
         self._start_green_flag()
         self._qualify_luxury()
         self._qualify_grooveline()
         self.hit_and_release_switch("s_target_multiball")
         self.advance_time_and_run(1)
-        self.assertModeRunning("grooveline")
-        self.assertModeNotRunning("luxury")
-        # (another hit during it isn't another multiball)
-        self.machine.modes["grooveline"].stop()
-        self.advance_time_and_run(1)
+        self.assertModeRunning("luxury")
+        self.assertModeNotRunning("grooveline")
+        # (another hit during it doesn't stack Grooveline)
+        self.advance_time_and_run(12)
         self.hit_and_release_switch("s_target_multiball")
         self.advance_time_and_run(1)
+        self.assertModeNotRunning("grooveline")
+        # Luxury's lost: Grooveline starts
+        self._drain_one_ball()
+        self.advance_time_and_run(2)
+        self.assertModeNotRunning("luxury")
+        self.assertModeRunning("grooveline")
+        self.advance_time_and_run(5)
+        self.assertEqual(2, self.machine.game.balls_in_play)
+
+    # (and the other way: Luxury fills during Grooveline, and starts when
+    # it ends)
+    def test_grooveline_then_luxury(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        # (qualified without laps, which would fill Luxury's chain too)
+        self.machine.game.player.grooveline_counter_count = 10
+        self.hit_and_release_switch("s_target_multiball")
+        self.advance_time_and_run(1)
+        self.assertModeRunning("grooveline")
+        self._qualify_luxury()
+        self.hit_and_release_switch("s_target_multiball")
+        self.advance_time_and_run(1)
+        self.assertModeNotRunning("luxury")
+        self.advance_time_and_run(12)
+        self._drain_one_ball()
+        self.advance_time_and_run(2)
+        self.assertModeNotRunning("grooveline")
         self.assertModeRunning("luxury")
+
+    # Not after a tilt: the balls draining doesn't start the other
+    def test_not_after_a_tilt(self):
+        self._start_and_expire_ball_save()
+        self._start_green_flag()
+        self._qualify_luxury()
+        self._qualify_grooveline()
+        self.hit_and_release_switch("s_target_multiball")
+        self.advance_time_and_run(12)
+        self.assertModeRunning("luxury")
+        for i in range(3):
+            self.hit_and_release_switch("s_tilt")
+            self.advance_time_and_run(1)
+        self.assertTrue(self.machine.game.tilted)
+        self._drain_one_ball()
+        self.advance_time_and_run(2)
+        self.assertModeNotRunning("grooveline")
+        self._drain_one_ball()
+        self.advance_time_and_run(2)
+        self.assertModeNotRunning("grooveline")
 
     # Luxury's played once a game (its chain stays maxed)
     def test_luxury_once(self):
