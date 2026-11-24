@@ -141,18 +141,28 @@ variable_player:
   ##########################
   ## Wizard-mode Progress ##
   ##########################
+  # (set, not added: MPF can post a multiball's ended again on a later
+  # drain, which made these 2 and dark the signal and Red Line's ready
+  # lamps)
   multiball_grooveline_ended:
-    is_grooveline_played: 1
-    game_progress: 1
+    is_grooveline_played:
+      action: set
+      int: 1
   multiball_luxury_ended:
-    is_luxury_played: 1
+    is_luxury_played:
+      action: set
+      int: 1
   multiball_grand_prix_ended:
-    is_grand_prix_played: 1
+    is_grand_prix_played:
+      action: set
+      int: 1
   # Leaving Red Line sends the driver back for another go at
   # Grooveline and Grand Prix. Luxury stays completed: its chain is
   # the end of ball bonus, which stays maxed once earned
   multiball_red_line_ended:
-    is_red_line_played: 1
+    is_red_line_played:
+      action: set
+      int: 1
     is_grooveline_played:
       action: set
       int: 0
