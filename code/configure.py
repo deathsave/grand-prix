@@ -6,6 +6,10 @@ class Configure(CustomCode):
     def on_load(self):
         self._handle_feature_availability("pure_evil")
         self._handle_feature_availability("wear_and_tear")
+        # (off on the machine until its left lane switches are fixed,
+        # see config/production/xubuntu.yaml)
+        self.info_log("Left lanes working: %s",
+            self.machine.variables.get_machine_var("is_left_lanes_working"))
 
     # For being able to test features in isolation and/or preventing
     # edge cases where feature logic might affect other tests

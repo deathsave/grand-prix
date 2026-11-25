@@ -1,6 +1,13 @@
 #config_version=6
 
 machine_vars:
+  # The left inlane / outlane switches work (on the machine they're
+  # bridged and fire with no ball after coils, so it's 0 there, see
+  # config/production/xubuntu.yaml): without them, the left outlane's
+  # sounds, its outlane save and the left inlane's Tune Up are off
+  is_left_lanes_working:
+    initial_value: 1
+    persist: false
   mode_name:
     initial_value: Pit
     value_type: str

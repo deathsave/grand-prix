@@ -89,3 +89,13 @@ logging:
     show_controller: none
     switch_controller: full
     timers: none
+
+# The left inlane / outlane (s_inlane1, s_outlane1) are bridged: they
+# fire together, with no ball, right after coils fire. Until they're
+# fixed, the features on them are off (the left outlane's sounds and
+# outlane save, the left inlane's Tune Up). Set to 1 once they work
+# (and tag them playfield_active again, see config/common/switches.yaml)
+machine_vars:
+  is_left_lanes_working:
+    initial_value: 0
+    persist: false

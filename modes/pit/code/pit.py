@@ -194,6 +194,11 @@ class Pit(Mode):
     # Green Flag, where they're all full), with a callout, and if that
     # was the last one (and it isn't under a red flag), it's racing
     def tune_up(self, **kwargs):
+        # (not while the left inlane's switch fires on its own, see
+        # config/common/variables.yaml)
+        if not self.machine.variables.get_machine_var(
+                "is_left_lanes_working"):
+            return
         if self.machine.modes["green_flag"].active:
             return
         player = self.machine.game.player

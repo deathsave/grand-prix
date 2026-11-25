@@ -4,7 +4,9 @@ event_player:
   # The outlanes: the welp when the ball's lost, a whoosh while a ball
   # save, a multiball's shoot again or the outlane save (see
   # modes/pit/code/pit.py) will put it back (see sound_player)
-  s_outlane1_active:
+  # (the left one only once its switch works, see
+  # config/common/variables.yaml)
+  s_outlane1_active{machine.is_left_lanes_working == 1}:
   - outlane_saved{current_player.is_outlane_save_lit == 1 or device.ball_saves.ball_start.enabled or device.ball_saves.safety_car.enabled or device.multiballs.grooveline.shoot_again or device.multiballs.luxury.shoot_again or device.multiballs.grand_prix.shoot_again or device.multiballs.red_line.shoot_again}
   # (no parentheses: event_player reads them as placeholders)
   - outlane_drain{current_player.is_outlane_save_lit == 0 and not device.ball_saves.ball_start.enabled and not device.ball_saves.safety_car.enabled and not device.multiballs.grooveline.shoot_again and not device.multiballs.luxury.shoot_again and not device.multiballs.grand_prix.shoot_again and not device.multiballs.red_line.shoot_again}

@@ -123,3 +123,30 @@ class TestOutlaneSave(DeathSaveGameTesting):
         self.advance_time_and_run(1)
         self.assertEqual(2, player.level_fuel)
         self.assertModeNotRunning("green_flag")
+
+    # While the left lanes' switches fire on their own (the machine sets
+    # is_left_lanes_working to 0), they do nothing: no outlane save from
+    # the left, no Tune Up. The right outlane still works
+    def test_left_lanes_not_working(self):
+        self._start_and_expire_ball_save()
+        self.machine.variables.set_machine_var("is_left_lanes_working", 0)
+        player = self.machine.game.player
+        player.level_fuel = 1
+        self.mock_event("tune_up")
+        self.hit_and_release_switch("s_inlane1")
+        self.advance_time_and_run(0.5)
+        self.assertEventNotCalled("tune_up")
+        self.assertEqual(1, player.level_fuel)
+        self._start_green_flag()
+        player.is_outlane_save_lit = 1
+        self.mock_event("outlane_save_redeemed")
+        self.mock_event("outlane_drain")
+        self.mock_event("outlane_saved")
+        self.hit_and_release_switch("s_outlane1")
+        self.advance_time_and_run(0.5)
+        self.assertEventNotCalled("outlane_save_redeemed")
+        self.assertEventNotCalled("outlane_drain")
+        self.assertEventNotCalled("outlane_saved")
+        self.hit_and_release_switch("s_outlane2")
+        self.advance_time_and_run(0.5)
+        self.assertEventCalled("outlane_save_redeemed")

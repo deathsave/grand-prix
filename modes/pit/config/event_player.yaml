@@ -76,7 +76,7 @@ event_player:
   - off_the_line_late
   # Either outlane uses the outlane save, if it's lit and nothing else
   # would return the ball (see code/pit.py)
-  s_outlane1_active{current_player.is_outlane_save_lit == 1 and not device.ball_saves.ball_start.enabled and not device.ball_saves.safety_car.enabled and not device.multiballs.grooveline.shoot_again and not device.multiballs.luxury.shoot_again and not device.multiballs.grand_prix.shoot_again and not device.multiballs.red_line.shoot_again}:
+  s_outlane1_active{machine.is_left_lanes_working == 1 and current_player.is_outlane_save_lit == 1 and not device.ball_saves.ball_start.enabled and not device.ball_saves.safety_car.enabled and not device.multiballs.grooveline.shoot_again and not device.multiballs.luxury.shoot_again and not device.multiballs.grand_prix.shoot_again and not device.multiballs.red_line.shoot_again}:
   - outlane_save_redeem
   s_outlane2_active{current_player.is_outlane_save_lit == 1 and not device.ball_saves.ball_start.enabled and not device.ball_saves.safety_car.enabled and not device.multiballs.grooveline.shoot_again and not device.multiballs.luxury.shoot_again and not device.multiballs.grand_prix.shoot_again and not device.multiballs.red_line.shoot_again}:
   - outlane_save_redeem
