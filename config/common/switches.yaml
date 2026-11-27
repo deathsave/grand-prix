@@ -64,12 +64,12 @@ switches:
     number: 0-2-28
   s_inlane1:
     # number: 0-2-26
-    number: 0-2-29
+    number: 0-2-22
     tags:
     - tag_bell
   s_outlane1:
     # number: 0-2-27
-    number: 0-2-30
+    number: 0-2-23
     tags:
     - tag_bell
 
