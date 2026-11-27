@@ -60,21 +60,18 @@ switches:
     number: 0-2-24
     tags:
     - left_flipper
-  # (not playfield_active, until their wiring's fixed: these two fire
-  # together, often with no ball, especially just after a coil fires.
-  # As playfield_active they confirmed launches that hadn't happened,
-  # so MPF auto-kicked the "new" ball in the shooter lane, and shut
-  # the loop gate as a ball went up the lane. They still score)
+  s_shooter_lane:
+    number: 0-2-28
   s_inlane1:
-    number: 0-2-26
+    # number: 0-2-26
+    number: 0-2-29
     tags:
     - tag_bell
   s_outlane1:
-    number: 0-2-27
+    # number: 0-2-27
+    number: 0-2-30
     tags:
     - tag_bell
-  s_shooter_lane:
-    number: 0-2-28
 
   # Board 3 (near grand hole)
 

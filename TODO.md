@@ -26,6 +26,12 @@ In order, each one tested before the next:
 10. Hardware (you): the tilt / coin door / service bank, the outlane
     switches, the loop gate servo, the tach experiment, then design
     (plastics, backglass)
+11. Bug: xubuntu booted to the lock screen. it seems to do this
+    every so often randomly.
+12. Multiplier needs a more in your face callout and/or paird with a slide
+    and/or a light show with those lamps.
+13. The delay of start working after switching credits to freeplay should be
+    shorter - 2s?
 
 Integration Tests
 -----------------
